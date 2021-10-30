@@ -8,11 +8,13 @@
 //
 // -----------------------------------------------------------------------------
 //
-// public abstract class CustomPopup extends inkAttachableController {
+// public abstract class CustomPopup extends inkCustomController {
 //   public func GetName() -> CName
 //   public func GetQueueName() -> CName
 //   public func IsBlocking() -> Bool
 //   public func UseCursor() -> Bool
+//   public func Open(requester: wref<inkGameController>) -> Void
+//   public func Close() -> Void
 //   public func Attach(rootWidget: ref<inkCanvas>, gameController: wref<inkGameController>, notificationData: ref<inkGameNotificationData>) -> Void
 //   public func Detach() -> Void
 // }
@@ -20,7 +22,7 @@
 
 module Codeware.UI
 
-public abstract class CustomPopup extends inkAttachableController {
+public abstract class CustomPopup extends inkCustomController {
 	protected let m_notificationData: ref<inkGameNotificationData>;
 
 	protected let m_notificationToken: ref<inkGameNotificationToken>;
@@ -38,17 +40,15 @@ public abstract class CustomPopup extends inkAttachableController {
 		this.m_notificationData = null;
 	}
 
-	protected cb func OnInitialize() -> Void {
-		super.OnInitialize();
-
+	protected cb func OnAttach() -> Void {
 		this.RegisterToGlobalInputCallback(n"OnPostOnRelease", this, n"OnGlobalReleaseInput");
 
 		this.CallCustomCallback(n"OnShow");
 		this.OnShow();
 	}
 
-	protected cb func OnUninitialize() -> Void {
-		super.OnUninitialize();
+	protected cb func OnDetach() -> Void {
+		this.GetGameController().RequestSetFocus(null);
 
 		this.UnregisterFromGlobalInputCallback(n"OnPostOnRelease", this, n"OnGlobalReleaseInput");
 
@@ -108,10 +108,17 @@ public abstract class CustomPopup extends inkAttachableController {
 		this.SetRootWidget(null);
 	}
 
-	protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Bool {
+	protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Void {
 		if evt.IsAction(n"cancel") {
       		this.Close();
 			evt.Handle();
+			return;
+    	}
+
+    	if this.UseCursor() && evt.IsAction(n"mouse_left") {
+    		if !IsDefined(evt.GetTarget()) || !evt.GetTarget().CanSupportFocus() {
+				this.GetGameController().RequestSetFocus(null);
+			}
     	}
 	}
 
@@ -131,19 +138,6 @@ public abstract class CustomPopup extends inkAttachableController {
 		return false;
 	}
 
-	public func Attach(rootWidget: ref<inkCanvas>, gameController: wref<inkGameController>, notificationData: ref<inkGameNotificationData>) -> Void {
-		if !this.IsInitialized() {
-			this.SetNotificationData(notificationData);
-			this.Attach(rootWidget, gameController);
-		}
-	}
-
-	public func Detach() -> Void {
-		if this.IsInitialized() {
-			this.UninitializeInstance();
-		}
-	}
-
 	public func Open(requester: wref<inkGameController>) -> Void {
 		let uiSystem: ref<UISystem> = GameInstance.GetUISystem(requester.GetPlayerControlledObject().GetGame());
 		let showEvent: ref<ShowCustomPopupEvent> = ShowCustomPopupEvent.Create(this);
@@ -156,5 +150,26 @@ public abstract class CustomPopup extends inkAttachableController {
 		let hideEvent: ref<HideCustomPopupEvent> = HideCustomPopupEvent.Create(this);
 
 		uiSystem.QueueEvent(hideEvent);
+	}
+
+	public func Attach(rootWidget: ref<inkCanvas>, gameController: wref<inkGameController>, notificationData: ref<inkGameNotificationData>) -> Void {
+		if !this.IsInitialized() {
+			this.SetRootWidget(rootWidget);
+			this.SetGameController(gameController);
+			this.SetNotificationData(notificationData);
+
+			this.CreateInstance();
+			this.InitializeInstance();
+
+			this.OnAttach();
+			this.CallCustomCallback(n"OnAttach");
+		}
+	}
+
+	public func Detach() -> Void {
+		if this.IsInitialized() {
+			this.OnDetach();
+			this.CallCustomCallback(n"OnDetach");
+		}
 	}
 }

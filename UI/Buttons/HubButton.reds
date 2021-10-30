@@ -268,9 +268,9 @@ public class HubButton extends CustomButton {
 //	}
 
 	public static func Create() -> ref<HubButton> {
-		let instance: ref<HubButton> = new HubButton();
-		instance.Build();
+		let self: ref<HubButton> = new HubButton();
+		self.CreateInstance();
 
-		return instance;
+		return self;
 	}
 }

@@ -10,7 +10,7 @@
 //
 // -----------------------------------------------------------------------------
 //
-// public abstract class CustomButton extends inkMountableController {
+// public abstract class CustomButton extends inkCustomController {
 //   public func GetName() -> CName
 //   public func GetState() -> inkEButtonState
 //   public func GetText() -> String
@@ -30,7 +30,7 @@
 
 module Codeware.UI
 
-public abstract class CustomButton extends inkMountableController {
+public abstract class CustomButton extends inkCustomController {
 	protected let m_root: ref<inkCompoundWidget>;
 
 	protected let m_label: wref<inkText>;

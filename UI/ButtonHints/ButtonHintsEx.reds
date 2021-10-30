@@ -137,9 +137,7 @@ public class ButtonHintsEx extends inkCustomController {
 
 		let self: ref<ButtonHintsEx> = new ButtonHintsEx();
 		self.m_buttonHints = buttonHints;
-		self.m_rootWidget = root;
-
-		root.AddSecondaryController(self);
+		self.Mount(root as inkCompoundWidget);
 
 		return self;
 	}

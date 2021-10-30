@@ -161,9 +161,9 @@ public class InGamePopupHeader extends inkCustomController {
 	}
 
 	public static func Create() -> ref<InGamePopupHeader> {
-		let instance: ref<InGamePopupHeader> = new InGamePopupHeader();
-		instance.Build();
+		let self: ref<InGamePopupHeader> = new InGamePopupHeader();
+		self.CreateInstance();
 
-		return instance;
+		return self;
 	}
 }

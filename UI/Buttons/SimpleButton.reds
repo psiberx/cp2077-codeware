@@ -1,10 +1,10 @@
 // -----------------------------------------------------------------------------
-// BaseButton
+// SimpleButton
 // -----------------------------------------------------------------------------
 
 module Codeware.UI
 
-public class BaseButton extends CustomButton {
+public class SimpleButton extends CustomButton {
 	protected let m_isFlipped: Bool;
 
 	protected let m_bg: wref<inkImage>;
@@ -172,10 +172,10 @@ public class BaseButton extends CustomButton {
 		this.ApplyFlippedState();
 	}
 
-	public static func Create() -> ref<BaseButton> {
-		let instance: ref<BaseButton> = new BaseButton();
-		instance.Build();
+	public static func Create() -> ref<SimpleButton> {
+		let self: ref<SimpleButton> = new SimpleButton();
+		self.CreateInstance();
 
-		return instance;
+		return self;
 	}
 }

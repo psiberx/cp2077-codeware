@@ -101,9 +101,9 @@ public class InGamePopupFooter extends inkCustomController {
 	}
 
 	public static func Create() -> ref<InGamePopupFooter> {
-		let instance: ref<InGamePopupFooter> = new InGamePopupFooter();
-		instance.Build();
+		let self: ref<InGamePopupFooter> = new InGamePopupFooter();
+		self.CreateInstance();
 
-		return instance;
+		return self;
 	}
 }

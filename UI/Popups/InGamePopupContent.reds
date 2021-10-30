@@ -33,9 +33,9 @@ public class InGamePopupContent extends inkCustomController {
 	}
 
 	public static func Create() -> ref<InGamePopupContent> {
-		let instance: ref<InGamePopupContent> = new InGamePopupContent();
-		instance.Build();
+		let self: ref<InGamePopupContent> = new InGamePopupContent();
+		self.CreateInstance();
 
-		return instance;
+		return self;
 	}
 }

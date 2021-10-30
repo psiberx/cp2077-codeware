@@ -9,22 +9,24 @@
 //   public func GetGameController() -> wref<inkGameController>
 //   public func GetPlayer() -> ref<PlayerPuppet>
 //   public func GetGame() -> GameInstance
-//   public func Reparent(newParent: wref<inkCompoundWidget>) -> Void
-//   public func Reparent(newParent: wref<inkCustomController>) -> Void
-//   public func Reparent(newParent: wref<inkLogicController>) -> Void
-//   public func Reparent(newParent: wref<inkGameController>) -> Void
 //   public func CallCustomCallback(eventName: CName) -> Void
 //   public func RegisterToCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) -> Void
 //   public func UnregisterFromCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) -> Void
 //   public func RegisterToGlobalInputCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) -> Void
 //   public func UnregisterFromGlobalInputCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) -> Void
 //   public func PlaySound(widgetName: CName, eventName: CName, opt actionKey: CName) -> Void
-//   public func Build() -> Void
+//   public func Reparent(newParent: wref<inkCompoundWidget>) -> Void
+//   public func Reparent(newParent: wref<inkCustomController>) -> Void
+//   public func Reparent(newParent: wref<inkCompoundWidget>, index: Int32) -> Void
+//   public func Reparent(newParent: wref<inkCustomController>, index: Int32) -> Void
+//   public func Mount(rootWidget: ref<inkCompoundWidget>, opt gameController: wref<inkGameController>) -> Void
+//   public func Mount(rootController: ref<inkLogicController>, opt gameController: ref<inkGameController>) -> Void
+//   public func Mount(rootController: ref<inkGameController>) -> Void
 //   protected cb func OnCreate() -> Void
 //   protected cb func OnInitialize() -> Void
 //   protected cb func OnUninitialize() ->  Void
 //   protected cb func OnReparent(parent: ref<inkCompoundWidget>) ->  Void
-//   protected func SetRootWidget(rootWidget: ref<inkCompoundWidget>) -> Void
+//   protected func SetRootWidget(rootWidget: ref<inkWidget>) -> Void
 //   protected func SetContainerWidget(containerWidget: ref<inkCompoundWidget>) -> Void
 //   protected func SetGameController(gameController: ref<inkGameController>) -> Void
 //   protected func SetGameController(parentController: ref<inkCustomController>) -> Void
@@ -38,9 +40,11 @@ public abstract class inkCustomController extends inkLogicController {
 
 	private let m_isInitialized: Bool;
 
+	private let m_detachedWidget: ref<inkWidget>;
+
 	private let m_gameController: wref<inkGameController>;
 
-	protected let m_rootWidget: ref<inkWidget>;
+	protected let m_rootWidget: wref<inkWidget>;
 
 	protected let m_containerWidget: wref<inkCompoundWidget>;
 
@@ -48,9 +52,22 @@ public abstract class inkCustomController extends inkLogicController {
 		return this.m_isInitialized;
 	}
 
-	protected func SetRootWidget(rootWidget: ref<inkCompoundWidget>) -> Void {
+	protected func SetRootWidget(rootWidget: ref<inkWidget>) -> Void {
 		this.m_rootWidget = rootWidget;
-		this.m_rootWidget.SetController(this);
+
+		if IsDefined(this.m_rootWidget) {
+			if !IsDefined(this.m_rootWidget.GetController()) {
+				this.m_rootWidget.SetController(this);
+			} else {
+				if NotEquals(this, this.m_rootWidget.GetControllerByType(this.GetClassName())) {
+					this.m_rootWidget.AddSecondaryController(this);
+				}
+			}
+		}
+
+		if !inkWidgetHelper.InWindowTree(this.m_rootWidget) {
+			this.m_detachedWidget = this.m_rootWidget;
+		}
 	}
 
 	protected func SetContainerWidget(containerWidget: ref<inkCompoundWidget>) -> Void {
@@ -71,21 +88,22 @@ public abstract class inkCustomController extends inkLogicController {
 			this.CallCustomCallback(n"OnCreate");
 
 			if IsDefined(this.m_rootWidget) {
-				this.m_rootWidget.SetController(this);
+				this.m_isCreated = true;
 			}
-
-			this.m_isCreated = true;
 		}
 	}
 
 	protected func InitializeInstance() -> Void {
 		if this.m_isCreated && !this.m_isInitialized {
-			this.InitializeChildren(this.GetRootCompoundWidget());
+			if inkWidgetHelper.InWindowTree(this.m_rootWidget) {
+				this.InitializeChildren(this.GetRootCompoundWidget());
 
-			this.OnInitialize();
-			this.CallCustomCallback(n"OnInitialize");
+				this.OnInitialize();
+				this.CallCustomCallback(n"OnInitialize");
 
-			this.m_isInitialized = true;
+				this.m_isInitialized = true;
+				this.m_detachedWidget = null;
+			}
 		}
 	}
 
@@ -94,56 +112,22 @@ public abstract class inkCustomController extends inkLogicController {
 			let index: Int32 = 0;
 			let numChildren: Int32 = rootWidget.GetNumChildren();
 			let childWidget: wref<inkWidget>;
-			let childController: wref<inkLogicController>;
+			let childControllers: array<wref<inkLogicController>>;
 			let customController: wref<inkCustomController>;
 
 			while index < numChildren {
 				childWidget = rootWidget.GetWidgetByIndex(index);
-				childController = childWidget.GetController();
-				customController = childController as inkCustomController;
+				childControllers = childWidget.GetControllers();
 
-				if IsDefined(customController) {
-					customController.InitializeInstance();
-				} else {
-					if childWidget.IsA(n"inkCompoundWidget") {
-						this.InitializeChildren(childWidget as inkCompoundWidget);
-					}
-				}
+				for childController in childControllers {
+					customController = childController as inkCustomController;
 
-				index += 1;
-			}
-		}
-	}
-
-	protected func UninitializeInstance() -> Void {
-		if this.m_isCreated && this.m_isInitialized {
-			this.OnUninitialize();
-			this.CallCustomCallback(n"OnUninitialize");
-
-			this.UninitializeChildren(this.GetRootCompoundWidget());
-
-			this.m_isInitialized = false;
-		}
-	}
-
-	protected func UninitializeChildren(rootWidget: wref<inkCompoundWidget>) -> Void {
-		if IsDefined(rootWidget) {
-			let index: Int32 = 0;
-			let numChildren: Int32 = rootWidget.GetNumChildren();
-			let childWidget: wref<inkWidget>;
-			let childController: wref<inkLogicController>;
-			let customController: wref<inkCustomController>;
-
-			while index < numChildren {
-				childWidget = rootWidget.GetWidgetByIndex(index);
-				childController = childWidget.GetController();
-				customController = childController as inkCustomController;
-
-				if IsDefined(customController) {
-					customController.UninitializeInstance();
-				} else {
-					if childWidget.IsA(n"inkCompoundWidget") {
-						this.UninitializeChildren(childWidget as inkCompoundWidget);
+					if IsDefined(customController) {
+						customController.InitializeInstance();
+					} else {
+						if childWidget.IsA(n"inkCompoundWidget") {
+							this.InitializeChildren(childWidget as inkCompoundWidget);
+						}
 					}
 				}
 
@@ -156,7 +140,11 @@ public abstract class inkCustomController extends inkLogicController {
 
 	protected cb func OnInitialize() -> Void
 
-	protected cb func OnUninitialize() ->  Void
+	protected cb func OnUninitialize() ->  Void {
+		//this.m_isCreated = false;
+		//this.m_isInitialized = false;
+		this.m_detachedWidget = null;
+	}
 
 	protected cb func OnReparent(parent: ref<inkCompoundWidget>) ->  Void
 
@@ -189,28 +177,32 @@ public abstract class inkCustomController extends inkLogicController {
 	}
 
 	public func Reparent(newParent: wref<inkCompoundWidget>) -> Void {
+		this.Reparent(newParent, -1);
+	}
+
+	public func Reparent(newParent: wref<inkCompoundWidget>, index: Int32) -> Void {
 		this.CreateInstance();
 
-		if IsDefined(this.m_rootWidget) {
-			this.m_rootWidget.Reparent(newParent);
+		if IsDefined(this.m_rootWidget) && IsDefined(newParent) {
+			this.m_rootWidget.Reparent(newParent, index);
+
 			this.OnReparent(newParent);
+			this.CallCustomCallback(n"OnReparent");
+
+			this.InitializeInstance();
 		}
 	}
 
 	public func Reparent(newParent: wref<inkCustomController>) -> Void {
+		this.Reparent(newParent, -1);
+	}
+
+	public func Reparent(newParent: wref<inkCustomController>, index: Int32) -> Void {
 		if IsDefined(newParent.GetGameController()) {
 			this.SetGameController(newParent.GetGameController());
 		}
 
-		this.Reparent(newParent.GetContainerWidget());
-	}
-
-	public func Reparent(newParent: wref<inkLogicController>) -> Void {
-		this.Reparent(newParent.GetRootCompoundWidget());
-	}
-
-	public func Reparent(newParent: wref<inkGameController>) -> Void {
-		this.Reparent(newParent.GetRootCompoundWidget());
+		this.Reparent(newParent.GetContainerWidget(), index);
 	}
 
 	public func CallCustomCallback(eventName: CName) -> Void {
@@ -243,7 +235,21 @@ public abstract class inkCustomController extends inkLogicController {
 		}
 	}
 
-	public func Build() -> Void {
-		this.CreateInstance();
+	public func Mount(rootWidget: ref<inkCompoundWidget>, opt gameController: wref<inkGameController>) -> Void {
+		if !this.m_isInitialized && IsDefined(rootWidget) {
+			this.SetRootWidget(rootWidget);
+			this.SetGameController(gameController);
+
+			this.CreateInstance();
+			this.InitializeInstance();
+		}
+	}
+
+	public func Mount(rootController: ref<inkLogicController>, opt gameController: ref<inkGameController>) -> Void {
+		this.Mount(rootController.GetRootCompoundWidget(), gameController);
+	}
+
+	public func Mount(rootController: ref<inkGameController>) -> Void {
+		this.Mount(rootController.GetRootCompoundWidget(), rootController);
 	}
 }
