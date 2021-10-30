@@ -5,7 +5,7 @@
 // - Parent widget
 // - Primary logic controller
 // - Secondary logic controllers
-// - Set custom user data
+// - Custom user data
 //
 // -----------------------------------------------------------------------------
 //
@@ -29,6 +29,9 @@ native let secondaryControllers: array<ref<inkLogicController>>;
 @addField(inkWidget)
 native let userData: array<ref<inkUserData>>;
 
+@addField(inkWidget)
+native let canSupportFocus: Bool;
+
 @addMethod(inkWidget)
 public func GetParentWidget() -> wref<inkWidget> {
 	return this.parentWidget;
@@ -47,4 +50,14 @@ public func AddSecondaryController(controller: ref<inkLogicController>) -> Void 
 @addMethod(inkWidget)
 public func SetUserData(userData: ref<inkUserData>) -> Void {
 	ArrayPush(this.userData, userData);
+}
+
+@addMethod(inkWidget)
+public func CanSupportFocus() -> Bool {
+	return this.canSupportFocus;
+}
+
+@addMethod(inkWidget)
+public func SetSupportFocus(enabled: Bool) -> Void {
+	this.canSupportFocus = enabled;
 }
