@@ -63,10 +63,12 @@ public abstract class inkCustomController extends inkLogicController {
 					this.m_rootWidget.AddSecondaryController(this);
 				}
 			}
-		}
 
-		if !inkWidgetHelper.InWindowTree(this.m_rootWidget) {
-			this.m_detachedWidget = this.m_rootWidget;
+			if !inkWidgetHelper.InWindowTree(this.m_rootWidget) {
+				this.m_detachedWidget = this.m_rootWidget;
+			}
+		} else {
+			this.m_detachedWidget = null;
 		}
 	}
 
@@ -124,11 +126,11 @@ public abstract class inkCustomController extends inkLogicController {
 
 					if IsDefined(customController) {
 						customController.InitializeInstance();
-					} else {
-						if childWidget.IsA(n"inkCompoundWidget") {
-							this.InitializeChildren(childWidget as inkCompoundWidget);
-						}
 					}
+				}
+
+				if childWidget.IsA(n"inkCompoundWidget") && !IsDefined(childWidget.GetController() as inkCustomController) {
+					this.InitializeChildren(childWidget as inkCompoundWidget);
 				}
 
 				index += 1;
@@ -176,35 +178,6 @@ public abstract class inkCustomController extends inkLogicController {
 		return this.m_gameController.GetPlayerControlledObject().GetGame();
 	}
 
-	public func Reparent(newParent: wref<inkCompoundWidget>) -> Void {
-		this.Reparent(newParent, -1);
-	}
-
-	public func Reparent(newParent: wref<inkCompoundWidget>, index: Int32) -> Void {
-		this.CreateInstance();
-
-		if IsDefined(this.m_rootWidget) && IsDefined(newParent) {
-			this.m_rootWidget.Reparent(newParent, index);
-
-			this.OnReparent(newParent);
-			this.CallCustomCallback(n"OnReparent");
-
-			this.InitializeInstance();
-		}
-	}
-
-	public func Reparent(newParent: wref<inkCustomController>) -> Void {
-		this.Reparent(newParent, -1);
-	}
-
-	public func Reparent(newParent: wref<inkCustomController>, index: Int32) -> Void {
-		if IsDefined(newParent.GetGameController()) {
-			this.SetGameController(newParent.GetGameController());
-		}
-
-		this.Reparent(newParent.GetContainerWidget(), index);
-	}
-
 	public func CallCustomCallback(eventName: CName) -> Void {
 		this.m_rootWidget.CallCustomCallback(eventName);
 	}
@@ -233,6 +206,35 @@ public abstract class inkCustomController extends inkLogicController {
 		if IsDefined(this.m_gameController) {
 			this.m_gameController.PlaySound(widgetName, eventName, actionKey);
 		}
+	}
+
+	public func Reparent(newParent: wref<inkCompoundWidget>) -> Void {
+		this.Reparent(newParent, -1);
+	}
+
+	public func Reparent(newParent: wref<inkCompoundWidget>, index: Int32) -> Void {
+		this.CreateInstance();
+
+		if IsDefined(this.m_rootWidget) && IsDefined(newParent) {
+			this.m_rootWidget.Reparent(newParent, index);
+
+			this.OnReparent(newParent);
+			this.CallCustomCallback(n"OnReparent");
+
+			this.InitializeInstance();
+		}
+	}
+
+	public func Reparent(newParent: wref<inkCustomController>) -> Void {
+		this.Reparent(newParent, -1);
+	}
+
+	public func Reparent(newParent: wref<inkCustomController>, index: Int32) -> Void {
+		if IsDefined(newParent.GetGameController()) {
+			this.SetGameController(newParent.GetGameController());
+		}
+
+		this.Reparent(newParent.GetContainerWidget(), index);
 	}
 
 	public func Mount(rootWidget: ref<inkCompoundWidget>, opt gameController: wref<inkGameController>) -> Void {

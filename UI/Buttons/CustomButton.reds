@@ -31,7 +31,7 @@
 module Codeware.UI
 
 public abstract class CustomButton extends inkCustomController {
-	protected let m_root: ref<inkCompoundWidget>;
+	protected let m_root: wref<inkCompoundWidget>;
 
 	protected let m_label: wref<inkText>;
 

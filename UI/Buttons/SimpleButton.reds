@@ -29,19 +29,12 @@ public class SimpleButton extends CustomButton {
 
 	protected let m_pressedFillAnimProxy: ref<inkAnimProxy>;
 
-	protected cb func OnCreate() -> Void {
-		super.OnCreate();
-
-		this.ApplyFlippedState();
-	}
-
 	protected func CreateWidgets() -> Void {
 		let root: ref<inkCanvas> = new inkCanvas();
 		root.SetName(n"button");
 		root.SetSize(400.0, 100.0);
 		root.SetAnchorPoint(new Vector2(0.5, 0.5));
 		root.SetInteractive(true);
-		root.SetController(this);
 
 		let bg: ref<inkImage> = new inkImage();
 		bg.SetName(n"bg");
@@ -91,6 +84,7 @@ public class SimpleButton extends CustomButton {
 		this.m_frame = frame;
 
 		this.SetRootWidget(root);
+		this.ApplyFlippedState();
 	}
 
 	protected func CreateAnimations() -> Void {

@@ -31,7 +31,6 @@ public class HubButton extends CustomButton {
 		root.SetSize(new Vector2(500.0, 100.0)); // Big Mode = 160.0
 		root.SetAnchorPoint(new Vector2(0.5, 0.5));
 		root.SetInteractive(true);
-		root.SetController(this);
 
 		let flexContainer: ref<inkFlex> = new inkFlex();
 		flexContainer.SetName(n"flexContainer");
