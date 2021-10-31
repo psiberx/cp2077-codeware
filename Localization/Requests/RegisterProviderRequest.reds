@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// RegisterProviderRequest
+// Codeware.Localization.RegisterProviderRequest
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

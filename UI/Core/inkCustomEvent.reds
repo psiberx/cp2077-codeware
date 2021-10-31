@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// inkCustomEvent
+// Codeware.UI.inkCustomEvent
 // -----------------------------------------------------------------------------
 //
 // public abstract class inkCustomEvent extends inkEvent {

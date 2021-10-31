@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// HubButton
+// Codeware.UI.HubButton
 // -----------------------------------------------------------------------------
 //
 // - [TODO] Refactor layout (original layout used by game is not flexible)

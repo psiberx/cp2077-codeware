@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// Registry System
+// Codeware.Registry.RegistrySystem
 // -----------------------------------------------------------------------------
 //
 // - Global object registry / singleton container

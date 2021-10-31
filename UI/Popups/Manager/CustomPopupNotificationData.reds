@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// CustomPopupNotificationData
+// Codeware.UI.CustomPopupNotificationData
 // -----------------------------------------------------------------------------
 
 module Codeware.UI

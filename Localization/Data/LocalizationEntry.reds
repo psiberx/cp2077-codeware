@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// LocalizationEntry
+// Codeware.Localization.LocalizationEntry
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

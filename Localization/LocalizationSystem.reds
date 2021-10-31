@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// LocalizationSystem
+// Codeware.Localization.LocalizationSystem
 // -----------------------------------------------------------------------------
 //
 // public class LocalizationSystem extends ScriptableSystem {

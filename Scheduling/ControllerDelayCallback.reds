@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// ControllerDelayCallback
+// Codeware.Scheduling.ControllerDelayCallback
 // -----------------------------------------------------------------------------
 
 module Codeware.Scheduling

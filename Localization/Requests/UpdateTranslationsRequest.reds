@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// UpdateTranslationsRequest
+// Codeware.Localization.UpdateTranslationsRequest
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

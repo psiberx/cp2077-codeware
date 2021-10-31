@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// PlayerGenderWatcher
+// Codeware.Localization.PlayerGenderWatcher
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

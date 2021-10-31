@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// VirtualResolutionChangeEvent
+// Codeware.UI.VirtualResolutionChangeEvent
 // -----------------------------------------------------------------------------
 
 module Codeware.UI

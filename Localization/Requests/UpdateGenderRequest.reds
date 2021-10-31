@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// UpdateGenderRequest
+// Codeware.Localization.UpdateGenderRequest
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

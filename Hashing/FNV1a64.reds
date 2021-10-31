@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// FNV1a64 Hasher
+// Codeware.Hashing.FNV1a64
 // -----------------------------------------------------------------------------
 //
 // This is a part of experimental code to understand what can be done in scripts.

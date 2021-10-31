@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// GenderNeutralEntry
+// Codeware.Localization.GenderNeutralEntry
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

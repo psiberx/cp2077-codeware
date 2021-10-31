@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// VirtualResolutionWatcher
+// Codeware.UI.VirtualResolutionWatcher
 // -----------------------------------------------------------------------------
 //
 // - Watch for screen resolution changes

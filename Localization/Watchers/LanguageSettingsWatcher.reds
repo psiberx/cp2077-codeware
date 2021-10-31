@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// LanguageSettingsWatcher
+// Codeware.Localization.LanguageSettingsWatcher
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

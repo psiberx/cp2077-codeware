@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// GenderSensitiveEntry
+// Codeware.Localization.GenderSensitiveEntry
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

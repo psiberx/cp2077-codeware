@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// VirtualResolutionResizeTarget
+// Codeware.UI.VirtualResolutionResizeTarget
 // -----------------------------------------------------------------------------
 
 module Codeware.UI

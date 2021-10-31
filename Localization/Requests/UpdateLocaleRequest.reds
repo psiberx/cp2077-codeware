@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// UpdateLocaleRequest
+// Codeware.Localization.UpdateLocaleRequest
 // -----------------------------------------------------------------------------
 
 module Codeware.Localization

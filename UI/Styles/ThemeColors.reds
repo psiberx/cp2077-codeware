@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// ThemeColors
+// Codeware.UI.ThemeColors
 // -----------------------------------------------------------------------------
 //
 // - Reference for base colors (should be replaced by ThemePicker)

@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// inkCustomController
+// Codeware.UI.inkCustomController
 // -----------------------------------------------------------------------------
 //
 // public abstract class inkCustomController extends inkLogicController {
