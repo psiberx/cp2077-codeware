@@ -16,8 +16,9 @@
 //   public func UnregisterFromGlobalInputCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) -> Void
 //   public func PlaySound(widgetName: CName, eventName: CName, opt actionKey: CName) -> Void
 //   public func Reparent(newParent: wref<inkCompoundWidget>) -> Void
-//   public func Reparent(newParent: wref<inkCustomController>) -> Void
 //   public func Reparent(newParent: wref<inkCompoundWidget>, index: Int32) -> Void
+//   public func Reparent(newParent: wref<inkCompoundWidget>, gameController: ref<inkGameController>) -> Void
+//   public func Reparent(newParent: wref<inkCustomController>) -> Void
 //   public func Reparent(newParent: wref<inkCustomController>, index: Int32) -> Void
 //   public func Mount(rootWidget: ref<inkCompoundWidget>, opt gameController: wref<inkGameController>) -> Void
 //   public func Mount(rootController: ref<inkLogicController>, opt gameController: ref<inkGameController>) -> Void
@@ -223,6 +224,14 @@ public abstract class inkCustomController extends inkLogicController {
 
 			this.InitializeInstance();
 		}
+	}
+
+	public func Reparent(newParent: wref<inkCompoundWidget>, gameController: ref<inkGameController>) -> Void {
+		if IsDefined(gameController) {
+			this.SetGameController(gameController);
+		}
+
+		this.Reparent(newParent, -1);
 	}
 
 	public func Reparent(newParent: wref<inkCustomController>) -> Void {
