@@ -126,6 +126,7 @@ public abstract class inkCustomController extends inkLogicController {
 					customController = childController as inkCustomController;
 
 					if IsDefined(customController) {
+						customController.SetGameController(this);
 						customController.InitializeInstance();
 					}
 				}
