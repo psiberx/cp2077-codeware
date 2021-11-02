@@ -17,7 +17,9 @@
   * Generic popup template
   * In-game style popup (like Radio, Call Vehicle, Messenger)
 - _UI: Button Hints_
-  * Spawn and manage input hints
+  * Show action hints in your widgets
+- _UI: Text Input_
+  * Prompt for user input
 - _UI: Resolution Watcher_
   * Apply scaling to widgets
   * Make adaptive layouts
@@ -31,9 +33,10 @@
 
 ## In Progress
 
-- _Text Input_ – For text search, custom notes, chatbots? :)
-- _Freeform Widgets_ – For drawing vector icons from scripts
-- _Scroll Pane / Scroll Bar_ – For large content and lists
+- _Text Input: Keyboard layouts_ – For typing in any language supported by the game
+- _Text Input: Multiline_ – Writing personal notes?
+- _Freeform Widgets_ – Drawing vector icons from scripts
+- _Scroll Pane / Scroll Bar_ – Large content and lists, virtual scrolling
 - _Menu Style Popup_ – Like in the Hub menu
 
 ## Usage
