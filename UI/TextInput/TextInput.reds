@@ -4,36 +4,35 @@
 //
 // Controls:
 // - Supports most of the standard controls for text inputs
-// - `Ctrl + Left` / `Ctrl + Right` to jump to the start and end
-// - `Caps Lock` is currently broken in the game engine
+// - `Alt + Left` / `Alt + Right` to jump to the start and end
+// - `Caps Lock` is currently not working as expected
 //
 // Events:
-// - OnInput: Fired after text change
+// - OnTextChanged
 //
-// In Progress:
-// - Text Selection (Shift + Arrows)
-// - Keyboard Layouts
-// - Multiline Text
+// TODO:
+// - Switch keyboard layouts
+// - Navigate with `Ctrl + Left` / `Ctrl + Right`
+// - Select text using mouse cursor
 //
 
 module Codeware.UI
+import Codeware.UI.TextInput.Parts.*
 
 public class TextInput extends inkCustomController {
-	protected let m_root: wref<inkCanvas>;
+	protected let m_root: wref<inkCompoundWidget>;
 
-	protected let m_viewport: wref<inkScrollArea>;
+	protected let m_wrapper: wref<inkWidget>;
 
-	protected let m_content: wref<inkCanvas>;
+	protected let m_measurer: ref<TextMeasurer>;
 
-	protected let m_text: wref<inkText>;
+	protected let m_viewport: ref<Viewport>;
 
-	protected let m_caret: wref<inkRectangle>;
+	protected let m_selection: ref<Selection>;
 
-	protected let m_useAnimations: Bool;
+	protected let m_text: ref<TextFlow>;
 
-	protected let m_caretBlinkAnimDef: ref<inkAnimDef>;
-
-	protected let m_caretBlinkAnimProxy: ref<inkAnimProxy>;
+	protected let m_caret: ref<Caret>;
 
 	protected let m_isDisabled: Bool;
 
@@ -41,35 +40,36 @@ public class TextInput extends inkCustomController {
 
 	protected let m_isFocused: Bool;
 
-	protected let m_value: String;
+	protected let m_inputEvents: ref<inkHashMap>;
 
-	protected let m_placeholder: String;
-
-	protected let m_maxLength: Int32;
-
-	protected let m_caretPosition: Int32;
-
-	protected let m_charOffsets: array<Float>;
-
-	protected let m_isKeyDown: Bool;
-
-	protected let m_isCharInput: Bool;
+	protected let m_lastInputEvent: ref<inkCharacterEvent>;
 
 	protected let m_isHoldComplete: Bool;
 
-	protected let m_holdFrameCount: Int32;
+	protected let m_holdTickCounter: Int32;
 
-	protected let m_lastInput: ref<inkCharacterEvent>;
-
-	protected let m_tickProxy: ref<inkAnimProxy>;
+	protected let m_holdTickProxy: ref<inkAnimProxy>;
 
 	protected cb func OnCreate() -> Void {
-		this.m_maxLength = 4096;
-
+		this.InitializeProps();
 		this.CreateWidgets();
 		this.CreateAnimations();
+	}
 
-		this.m_content.SetSize(this.m_caret.GetSize());
+	protected cb func OnInitialize() -> Void {
+		this.RegisterListeners();
+		this.RegisterHoldTick();
+
+		this.InitializeLayout();
+		this.UpdateLayout();
+
+		this.ApplyDisabledState();
+		this.ApplyHoveredState();
+		this.ApplyFocusedState();
+	}
+
+	protected func InitializeProps() -> Void {
+		this.m_inputEvents = new inkHashMap();
 	}
 
 	protected func CreateWidgets() -> Void {
@@ -80,102 +80,52 @@ public class TextInput extends inkCustomController {
 		root.SetInteractive(true);
 		root.SetSupportFocus(true);
 
-		let viewport: ref<inkScrollArea> = new inkScrollArea();
-		viewport.SetName(n"viewport");
-		viewport.SetAnchor(inkEAnchor.Fill);
-		viewport.SetMargin(new inkMargin(8.0, 4.0, 8.0, 4.0));
-		viewport.SetRenderTransformPivot(new Vector2(0.0, 0.0));
-		viewport.SetFitToContentDirection(inkFitToContentDirection.Vertical);
-		viewport.SetConstrainContentPosition(true);
-		viewport.SetUseInternalMask(true);
-		viewport.Reparent(root);
-
-		let content: ref<inkCanvas> = new inkCanvas();
-		content.SetName(n"content");
-		content.SetRenderTransformPivot(new Vector2(0.0, 0.0));
-		content.Reparent(viewport);
-
-		let text: ref<inkText> = new inkText();
-		text.SetName(n"text");
-		text.SetFontFamily("base\\gameplay\\gui\\fonts\\raj\\raj.inkfontfamily");
-		text.SetFontStyle(n"Regular");
-		text.SetFontSize(42);
-		text.SetTintColor(ThemeColors.Bittersweet());
-		text.SetHorizontalAlignment(textHorizontalAlignment.Left);
-		text.SetVerticalAlignment(textVerticalAlignment.Center);
-		text.SetRenderTransformPivot(new Vector2(0.0, 0.0));
-		text.Reparent(content);
-
-		let caret: ref<inkRectangle> = new inkRectangle();
-		caret.SetName(n"caret");
-		caret.SetSize(new Vector2(4.0, 50.0));
-		caret.SetRenderTransformPivot(new Vector2(0.0, 0.0));
-		caret.Reparent(content);
-
 		this.m_root = root;
-		this.m_viewport = viewport;
-		this.m_content = content;
-		this.m_text = text;
-		this.m_caret = caret;
 
-		this.SetRootWidget(root);
+		this.m_measurer = TextMeasurer.Create();
+		this.m_measurer.Reparent(this.m_root);
+
+		this.m_viewport = Viewport.Create();
+		this.m_viewport.Reparent(this.m_root);
+
+		this.m_selection = Selection.Create();
+		this.m_selection.Reparent(this.m_viewport);
+
+		this.m_text = TextFlow.Create();
+		this.m_text.Reparent(this.m_viewport);
+
+		this.m_caret = Caret.Create();
+		this.m_caret.Reparent(this.m_viewport);
+
+		this.m_wrapper = this.m_viewport.GetRootWidget();
+
+		this.SetRootWidget(this.m_root);
 	}
 
-	protected func CreateAnimations() -> Void {
-		let caretFadeInAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
-		caretFadeInAnim.SetStartTransparency(0.0);
-		caretFadeInAnim.SetEndTransparency(1.0);
-		caretFadeInAnim.SetStartDelay(0.9);
-		caretFadeInAnim.SetDuration(0.1);
+	protected func CreateAnimations() -> Void
 
-		let caretFadeOutAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
-		caretFadeOutAnim.SetStartTransparency(1.0);
-		caretFadeOutAnim.SetEndTransparency(0.0);
-		caretFadeOutAnim.SetStartDelay(0.4);
-		caretFadeOutAnim.SetDuration(0.1);
-
-		this.m_caretBlinkAnimDef = new inkAnimDef();
-		this.m_caretBlinkAnimDef.AddInterpolator(caretFadeInAnim);
-		this.m_caretBlinkAnimDef.AddInterpolator(caretFadeOutAnim);
+	protected func InitializeLayout() -> Void {
+		this.m_caret.SetFontSize(this.m_text.GetFontSize());
+		this.m_selection.SetFontSize(this.m_text.GetFontSize());
+		this.m_viewport.SetCaretSize(this.m_caret.GetSize());
+		this.m_measurer.CopyTextSettings(this.m_text);
 	}
 
-	protected cb func OnInitialize() -> Void {
-		this.StartTickHandler();
-		this.RegisterListeners();
-		this.ApplyDisabledState();
-		this.ApplyHoveredState();
-		this.ApplyFocusedState();
-		this.UpdateCaretState();
-		this.UpdateScrollState();
+	protected func UpdateLayout() -> Void {
+		let contentSize: Vector2 = this.m_text.GetDesiredSize();
+		let selectedBounds: RectF = this.m_text.GetCharRange(this.m_selection.GetRange());
+		let caretOffset: Float = this.m_text.GetCharOffset(this.m_caret.GetPosition());
 
-		ArrayPush(this.m_charOffsets, 0.0);
+		this.m_viewport.UpdateState(contentSize, caretOffset);
+		this.m_selection.UpdateState(this.m_isFocused, selectedBounds);
+		this.m_caret.UpdateState(this.m_isFocused, caretOffset);
 	}
 
-	protected func StartTickHandler() -> Void {
-		let tickAnim: ref<inkAnimTextValueProgress> = new inkAnimTextValueProgress();
-		tickAnim.SetStartProgress(0.0);
-		tickAnim.SetEndProgress(0.0);
-		tickAnim.SetDuration(1.0 / 60.0);
+	protected func ApplyDisabledState() -> Void
 
-		let tickAnimDef: ref<inkAnimDef> = new inkAnimDef();
-		tickAnimDef.AddInterpolator(tickAnim);
+	protected func ApplyHoveredState() -> Void
 
-		let tickAnimOpts: inkAnimOptions;
-		tickAnimOpts.loopInfinite = true;
-		tickAnimOpts.loopType = inkanimLoopType.Cycle;
-
-		this.m_tickProxy = this.m_root.PlayAnimationWithOptions(tickAnimDef, tickAnimOpts);
-		this.m_tickProxy.RegisterToCallback(inkanimEventType.OnStartLoop, this, n"OnTick");
-	}
-
-	protected func RegisterListeners() -> Void {
-		this.RegisterToCallback(n"OnEnter", this, n"OnHoverOver");
-		this.RegisterToCallback(n"OnLeave", this, n"OnHoverOut");
-		this.RegisterToCallback(n"OnFocusReceived", this, n"OnFocusReceived");
-		this.RegisterToCallback(n"OnFocusLost", this, n"OnFocusLost");
-		this.RegisterToCallback(n"OnRelease", this, n"OnRelease");
-		this.RegisterToCallback(n"OnCharacterKey", this, n"OnCharacterKey");
-	}
+	protected func ApplyFocusedState() -> Void
 
 	protected func SetDisabledState(isDisabled: Bool) -> Void {
 		if !Equals(this.m_isDisabled, isDisabled) {
@@ -189,7 +139,8 @@ public class TextInput extends inkCustomController {
 			this.ApplyDisabledState();
 			this.ApplyHoveredState();
 			this.ApplyFocusedState();
-			this.UpdateCaretState();
+
+			this.UpdateLayout();
 		}
 	}
 
@@ -209,288 +160,344 @@ public class TextInput extends inkCustomController {
 
 			if !this.m_isDisabled {
 				this.ApplyFocusedState();
-				this.UpdateCaretState();
+
+				this.UpdateLayout();
 			}
 		}
 	}
 
-	protected func ApplyDisabledState() -> Void
+	protected func RegisterListeners() -> Void {
+		this.RegisterToCallback(n"OnEnter", this, n"OnHoverOver");
+		this.RegisterToCallback(n"OnLeave", this, n"OnHoverOut");
+		this.RegisterToCallback(n"OnFocusReceived", this, n"OnFocusReceived");
+		this.RegisterToCallback(n"OnFocusLost", this, n"OnFocusLost");
 
-	protected func ApplyHoveredState() -> Void
+		//this.RegisterToCallback(n"OnPress", this, n"OnPressKey");
+		this.RegisterToCallback(n"OnRelease", this, n"OnReleaseKey");
+		this.RegisterToCallback(n"OnCharacterKey", this, n"OnCharacterKey");
 
-	protected func ApplyFocusedState() -> Void
-
-	protected func UpdateCaretState() -> Void {
-		this.m_caretBlinkAnimProxy.Stop();
-
-		if this.m_isFocused {
-			let caretAnimOpts: inkAnimOptions;
-			caretAnimOpts.loopInfinite = true;
-			caretAnimOpts.loopType = inkanimLoopType.Cycle;
-
-			this.m_caretBlinkAnimProxy = this.m_caret.PlayAnimationWithOptions(this.m_caretBlinkAnimDef, caretAnimOpts);
-			this.m_caret.SetVisible(true);
-
-			let fontSize: Float = Cast(this.m_text.GetFontSize());
-			let caretHeight: Float = this.m_caret.GetHeight();
-			let charOffset: Float = this.m_charOffsets[this.m_caretPosition];
-
-			let caretPos: Vector2 = new Vector2(
-				charOffset,
-				(fontSize - caretHeight) / 2.0
-			);
-
-			this.m_caret.SetTranslation(caretPos);
-		} else {
-			this.m_caret.SetVisible(false);
-		}
+		this.m_measurer.RegisterToCallback(n"OnTextMeasured", this, n"OnTextMeasured");
+		this.m_measurer.RegisterToCallback(n"OnCharMeasured", this, n"OnTextMeasured");
 	}
 
-	protected func UpdateScrollState() -> Void {
-		let viewportSize: Vector2 = this.m_viewport.GetViewportSize();
-		let contentSize: Vector2 = this.m_content.GetSize();
-		let charOffset: Float = this.m_charOffsets[this.m_caretPosition];
+	protected func RegisterHoldTick() -> Void {
+		let tickAnim: ref<inkAnimTextValueProgress> = new inkAnimTextValueProgress();
+		tickAnim.SetStartProgress(0.0);
+		tickAnim.SetEndProgress(0.0);
+		tickAnim.SetDuration(1.0 / 1000.0);
 
-		let scrollPos: Vector2 = this.m_content.GetTranslation();
+		let tickAnimDef: ref<inkAnimDef> = new inkAnimDef();
+		tickAnimDef.AddInterpolator(tickAnim);
 
-		if contentSize.X <= viewportSize.X {
-			scrollPos.X = 0.0;
-		} else {
-			let viewportBounds: inkMargin = new inkMargin(
-				-scrollPos.X,
-				0.0,
-				-scrollPos.X + viewportSize.X,
-				0.0
-			);
+		let tickAnimOpts: inkAnimOptions;
+		tickAnimOpts.loopInfinite = true;
+		tickAnimOpts.loopType = inkanimLoopType.Cycle;
 
-			if charOffset < viewportBounds.left {
-				scrollPos.X = -charOffset; // MinF(0.0
-			} else {
-				if charOffset > viewportBounds.right {
-					scrollPos.X = -(charOffset - viewportSize.X + this.m_caret.GetWidth());
-				} else {
-					scrollPos.X = MaxF(scrollPos.X, -(ArrayLast(this.m_charOffsets) - viewportSize.X + this.m_caret.GetWidth()));
+		this.m_holdTickProxy = this.m_root.PlayAnimationWithOptions(tickAnimDef, tickAnimOpts);
+		this.m_holdTickProxy.RegisterToCallback(inkanimEventType.OnStartLoop, this, n"OnHoldTick");
+	}
+
+	protected func TranslateChar(code: Int32, opt isCapsLocked: Bool) -> String {
+		let char: String = StrChar(code);
+
+		switch this.m_text.GetLetterCase() {
+			case textLetterCase.UpperCase:
+				char = StrUpper(char);
+				break;
+			case textLetterCase.LowerCase:
+				char = StrLower(char);
+				break;
+			default:
+				if isCapsLocked {
+					char = StrUpper(char);
 				}
-			}
 		}
 
-		this.m_content.SetTranslation(scrollPos);
+		return char;
 	}
 
-	protected func TriggerInputEvent() -> Void {
-		this.CallCustomCallback(n"OnInput");
-	}
-
-	protected func ProcessInputEvent(evt: ref<inkCharacterEvent>) -> Void {
-		switch evt.GetType() {
+	protected func ProcessInputEvent(event: ref<inkCharacterEvent>) -> Void {
+		switch event.GetType() {
 			case inkCharacterEventType.CharInput:
-				if !evt.IsAltDown() && !evt.IsControlDown() && !this.m_isCharInput && StrLen(this.m_value) < this.m_maxLength {
-					let code: Int32 = Cast(evt.GetCharacter());
-					let char: String = StrChar(code);
-
-					switch this.m_text.GetLetterCase() {
-						case textLetterCase.UpperCase:
-							char = StrUpper(char);
-							break;
-						case textLetterCase.LowerCase:
-							char = StrLower(char);
-							break;
-						default:
-							// Caps Lock modifier is broken
-							// It returns holding state, instead of locked on / off state
-							if evt.IsCapsLocked() {
-								char = StrUpper(char);
-							}
-					}
-
-					// TODO: Layout converter
-
-					if this.m_caretPosition == StrLen(this.m_value) {
-						this.m_value += char;
-					} else {
-						if this.m_caretPosition == 0 {
-							this.m_value = char + this.m_value;
-						} else {
-							this.m_value = StrLeft(this.m_value, this.m_caretPosition)
-								+ char + StrRight(this.m_value, StrLen(this.m_value) - this.m_caretPosition);
-						}
-					}
-
-					this.m_text.SetText(this.m_value);
-					this.m_caretPosition += 1;
-					this.m_isCharInput = true;
+				if this.m_text.IsFull() {
+					break;
 				}
+
+				if this.m_measurer.IsMeasuring() {
+					break;
+				}
+
+				if event.IsAltDown() {
+					// TODO: Alt + ... -- Switch layouts
+					break;
+				}
+
+				if event.IsControlDown() {
+					let code: Int32 = Cast(event.GetCharacter());
+
+					// Ctrl + A
+					if code == 64 || code == 97 {
+						this.m_selection.SelectAll();
+						this.m_caret.MoveToStart();
+						this.UpdateLayout();
+					}
+					break;
+				}
+
+				// NOTE: Caps Lock modifier returns holding state instead of the lock on / off state.
+
+				let code: Int32 = Cast(event.GetCharacter());
+				let char: String = this.TranslateChar(code, event.IsCapsLocked());
+
+				if !this.m_selection.IsEmpty() {
+					this.m_text.DeleteCharRange(
+						this.m_selection.GetLeftPosition(),
+						this.m_selection.GetRightPosition()
+					);
+				}
+
+				this.m_text.InsertCharAt(this.m_caret.GetPosition(), char);
+
+				this.m_caret.SetMaxPosition(this.m_text.GetLength());
+				this.m_caret.MoveToNextChar();
+
+				this.m_selection.SetMaxPosition(this.m_text.GetLength());
+				this.m_selection.Clear();
+
+				this.m_measurer.MeasureChar(char, this.m_caret.GetPosition());
+				//this.m_measurer.MeasureChunk(this.m_text.GetText(), this.m_caret.GetPosition());
 				break;
 
 			case inkCharacterEventType.Delete:
-				if !this.m_isCharInput && this.m_caretPosition < StrLen(this.m_value) {
-					if this.m_caretPosition == 0 {
-						this.m_value = StrRight(this.m_value, StrLen(this.m_value) - 1);
-					} else {
-						this.m_value = StrLeft(this.m_value, this.m_caretPosition)
-							+ StrRight(this.m_value, StrLen(this.m_value) - this.m_caretPosition - 1);
-					}
-
-					this.m_text.SetText(this.m_value);
-					this.ProcessInputChange();
+				if this.m_measurer.IsMeasuring() {
+					break;
 				}
+
+				if !this.m_selection.IsEmpty() {
+					this.m_caret.SetPosition(this.m_selection.GetLeftPosition());
+					this.m_text.DeleteCharRange(
+						this.m_selection.GetLeftPosition(),
+						this.m_selection.GetRightPosition()
+					);
+				} else {
+					if !this.m_caret.IsAtEnd() {
+						this.m_text.DeleteCharAt(this.m_caret.GetPosition());
+					} else {
+						return;
+					}
+				}
+
+				this.m_caret.SetMaxPosition(this.m_text.GetLength());
+
+				this.m_selection.SetMaxPosition(this.m_text.GetLength());
+				this.m_selection.Clear();
+
+				this.UpdateLayout();
+				this.TriggerChangeCallback();
 				break;
 
 			case inkCharacterEventType.Backspace:
-				if !this.m_isCharInput && this.m_caretPosition > 0 {
-					if this.m_caretPosition == StrLen(this.m_value) {
-						this.m_value = StrLeft(this.m_value, StrLen(this.m_value) - 1);
-					} else {
-						if this.m_caretPosition == 1 {
-							this.m_value = StrRight(this.m_value, StrLen(this.m_value) - 1);
-						} else {
-							this.m_value = StrLeft(this.m_value, this.m_caretPosition - 1)
-								+ StrRight(this.m_value, StrLen(this.m_value) - this.m_caretPosition);
-						}
-					}
-
-					this.m_text.SetText(this.m_value);
-					this.m_caretPosition -= 1;
-					this.ProcessInputChange();
+				if this.m_measurer.IsMeasuring() {
+					break;
 				}
+
+				if !this.m_selection.IsEmpty() {
+					this.m_caret.SetPosition(this.m_selection.GetLeftPosition());
+					this.m_text.DeleteCharRange(
+						this.m_selection.GetLeftPosition(),
+						this.m_selection.GetRightPosition()
+					);
+				} else {
+					if !this.m_caret.IsAtStart() {
+						this.m_caret.MoveToPrevChar();
+						this.m_text.DeleteCharAt(this.m_caret.GetPosition());
+					} else {
+						return;
+					}
+				}
+
+				this.m_caret.SetMaxPosition(this.m_text.GetLength());
+
+				this.m_selection.SetMaxPosition(this.m_text.GetLength());
+				this.m_selection.Clear();
+
+				this.UpdateLayout();
+				this.TriggerChangeCallback();
 				break;
 
 			case inkCharacterEventType.MoveCaretForward:
-				if this.m_caretPosition < StrLen(this.m_value) {
-					if evt.IsControlDown() {
-						this.m_caretPosition = StrLen(this.m_value);
-					} else {
-						this.m_caretPosition += 1;
-					}
-					this.UpdateCaretState();
-					this.UpdateScrollState();
+				if this.m_measurer.IsMeasuring() {
+					break;
 				}
+
+				if this.m_caret.IsAtEnd() {
+					break;
+				}
+
+				if event.IsShiftDown() && this.m_selection.IsEmpty() {
+					this.m_selection.SetStartPosition(
+						this.m_caret.GetPosition()
+					);
+				}
+
+				if event.IsAltDown() {
+					this.m_caret.MoveToEnd();
+				} else {
+					if event.IsControlDown() {
+						let stop: Int32 = this.m_text.GetNextStop(this.m_caret.GetPosition());
+						if stop >= 0 {
+							this.m_caret.SetPosition(stop);
+						} else {
+							this.m_caret.MoveToEnd();
+						}
+					} else {
+						this.m_caret.MoveToNextChar();
+					}
+				}
+
+				if event.IsShiftDown() {
+					this.m_selection.SetEndPosition(
+						this.m_caret.GetPosition()
+					);
+				} else {
+					this.m_selection.Clear();
+				}
+
+				this.UpdateLayout();
 				break;
 
 			case inkCharacterEventType.MoveCaretBackward:
-				if this.m_caretPosition > 0 {
-					if evt.IsControlDown() {
-						this.m_caretPosition = 0;
-					} else {
-						this.m_caretPosition -= 1;
-					}
-					this.UpdateCaretState();
-					this.UpdateScrollState();
+				if this.m_measurer.IsMeasuring() {
+					break;
 				}
+
+				if this.m_caret.IsAtStart() {
+					break;
+				}
+
+				if event.IsShiftDown() && this.m_selection.IsEmpty() {
+					this.m_selection.SetStartPosition(
+						this.m_caret.GetPosition()
+					);
+				}
+
+				if event.IsAltDown() {
+					this.m_caret.MoveToStart();
+				} else {
+					if event.IsControlDown() {
+						let stop: Int32 = this.m_text.GetPrevStop(this.m_caret.GetPosition());
+						if stop >= 0 {
+							this.m_caret.SetPosition(stop);
+						} else {
+							this.m_caret.MoveToStart();
+						}
+					} else {
+						this.m_caret.MoveToPrevChar();
+					}
+				}
+
+				if event.IsShiftDown() {
+					this.m_selection.SetEndPosition(
+						this.m_caret.GetPosition()
+					);
+				} else {
+					this.m_selection.Clear();
+				}
+
+				this.UpdateLayout();
 				break;
 		}
 	}
 
-	protected func ProcessInputChange(opt diffOffset: Float) -> Void {
-		if diffOffset > 0.01 {
-			ArrayInsert(this.m_charOffsets, this.m_caretPosition, this.m_charOffsets[this.m_caretPosition - 1] + diffOffset);
+	protected func TriggerChangeCallback() -> Void {
+		this.CallCustomCallback(n"OnTextChanged");
+	}
+
+	protected func GetEventHash(event: ref<inkCharacterEvent>) -> Uint64 {
+		return Cast(1000 * EnumInt(event.GetType()) + Cast(event.GetCharacter()));
+	}
+
+	protected cb func OnCharacterKey(event: ref<inkCharacterEvent>) -> Void {
+		// NOTE: inkCharacterEvent currently has no PRESS / RELEASE indication.
+		// We use a hash map to detect if the exact same event was sent before.
+		// If event is not in the map, then it's a PRESS, otherwise it's a RELEASE.
+
+		let eventHash: Uint64 = this.GetEventHash(event);
+
+		if !this.m_inputEvents.KeyExist(eventHash) {
+			this.ProcessInputEvent(event);
+
+			this.m_lastInputEvent = event;
+			this.m_inputEvents.Insert(eventHash, event);
 		} else {
-			diffOffset = this.m_charOffsets[this.m_caretPosition] - this.m_charOffsets[this.m_caretPosition + 1];
-			ArrayErase(this.m_charOffsets, this.m_caretPosition + 1);
-		}
+			this.m_inputEvents.Remove(eventHash);
 
-		let lastPosition: Int32 = ArraySize(this.m_charOffsets) - 1;
-
-		if this.m_caretPosition != lastPosition {
-			let charPosition: Int32 = this.m_caretPosition + 1;
-
-			while charPosition <= lastPosition {
-				this.m_charOffsets[charPosition] += diffOffset;
-				charPosition += 1;
+			if eventHash == this.GetEventHash(this.m_lastInputEvent) {
+				this.m_lastInputEvent = null;
 			}
-		}
-
-		if StrLen(this.m_value) > 0 {
-			this.m_content.SetWidth(this.m_content.GetWidth() + diffOffset);
-		} else {
-			this.m_content.SetSize(this.m_caret.GetSize());
-		}
-
-		this.UpdateCaretState();
-		this.UpdateScrollState();
-
-		this.TriggerInputEvent();
-	}
-
-	protected cb func OnHoverOver(evt: ref<inkPointerEvent>) -> Bool {
-		this.SetHoveredState(true);
-	}
-
-	protected cb func OnHoverOut(evt: ref<inkPointerEvent>) -> Bool {
-		this.SetHoveredState(false);
-	}
-
-	protected cb func OnFocusReceived(evt: ref<inkEvent>) -> Void {
-		this.SetFocusedState(true);
-	}
-
-	protected cb func OnFocusLost(evt: ref<inkEvent>) -> Void {
-		this.SetFocusedState(false);
-	}
-
-	protected cb func OnRelease(evt: ref<inkPointerEvent>) -> Bool {
-		Debug("OnRelease");
-		if evt.IsAction(n"mouse_left") && this.m_isFocused {
-			let clickPos: Vector2 = WidgetUtils.GlobalToLocal(this.m_text, evt.GetScreenSpacePosition());
-
-			if StrLen(this.m_value) > 0 {
-				let charPosition: Int32 = 0;
-				let lastPosition: Int32 = ArraySize(this.m_charOffsets) - 1;
-
-				while charPosition < lastPosition {
-					if this.m_charOffsets[charPosition] >= clickPos.X {
-						break;
-					}
-					charPosition += 1;
-				}
-
-				this.m_caretPosition = charPosition;
-
-				this.UpdateCaretState();
-				this.UpdateScrollState();
-			}
-		}
-	}
-
-	protected cb func OnCharacterKey(evt: ref<inkCharacterEvent>) -> Void {
-		this.m_isKeyDown = !this.m_isKeyDown;
-
-		if this.m_isKeyDown {
-			this.m_lastInput = evt;
-			this.ProcessInputEvent(evt);
-		} else {
-			this.m_lastInput = null;
 		}
 
 		this.m_isHoldComplete = false;
-		this.m_holdFrameCount = 0;
+		this.m_holdTickCounter = 0;
 	}
 
-	protected cb func OnTick(anim: ref<inkAnimProxy>) -> Void {
-		if this.m_isCharInput {
-			let lastOffset: Float = ArrayLast(this.m_charOffsets);
-			let textSize: Vector2 = this.m_text.GetDesiredSize();
-			let diffOffset: Float = textSize.X - lastOffset;
+	protected cb func OnHoldTick(anim: ref<inkAnimProxy>) -> Void {
+		if IsDefined(this.m_lastInputEvent) {
+			this.m_holdTickCounter += 1;
 
-			if AbsF(diffOffset) > 0.01 {
-				this.ProcessInputChange(diffOffset);
-
-				this.m_isCharInput = false;
-			}
-
-			return;
-		}
-
-		if this.m_isKeyDown {
-			this.m_holdFrameCount += 1;
-
-			if this.m_holdFrameCount == (this.m_isHoldComplete ? 2 : 30) {
-				this.ProcessInputEvent(this.m_lastInput);
+			if this.m_holdTickCounter == (this.m_isHoldComplete ? 2 : 30) {
+				this.ProcessInputEvent(this.m_lastInputEvent);
 
 				this.m_isHoldComplete = true;
-				this.m_holdFrameCount = 0;
+				this.m_holdTickCounter = 0;
 			}
 		}
+	}
+
+	protected cb func OnReleaseKey(event: ref<inkPointerEvent>) -> Void {
+		if this.m_isFocused && !this.m_measurer.IsMeasuring() {
+			if event.IsAction(n"mouse_left") {
+				let clickPoint: Vector2 = WidgetUtils.GlobalToLocal(this.m_text.GetRootWidget(), event.GetScreenSpacePosition());
+				let clickPosition: Int32 = this.m_text.GetCharPosition(clickPoint.X);
+
+				this.m_caret.SetPosition(clickPosition);
+
+				this.UpdateLayout();
+			}
+		}
+	}
+
+	protected cb func OnTextMeasured(widget: ref<inkWidget>) -> Void {
+		let measuredPosition: Int32 = this.m_measurer.GetTargetPosition();
+		let measuredSize: Vector2 = this.m_measurer.GetMeasuredSize();
+
+		if this.m_measurer.IsCharMode() {
+			this.m_text.SetCharWidth(measuredPosition, measuredSize.X);
+		} else {
+			this.m_text.SetCharOffset(measuredPosition, measuredSize.X);
+		}
+
+		// Character insertion
+		if this.m_caret.IsAt(measuredPosition) {
+			this.UpdateLayout();
+			this.TriggerChangeCallback();
+		}
+	}
+
+	protected cb func OnHoverOver(event: ref<inkPointerEvent>) -> Bool {
+		this.SetHoveredState(true);
+	}
+
+	protected cb func OnHoverOut(event: ref<inkPointerEvent>) -> Bool {
+		this.SetHoveredState(false);
+	}
+
+	protected cb func OnFocusReceived(event: ref<inkEvent>) -> Void {
+		this.SetFocusedState(true);
+	}
+
+	protected cb func OnFocusLost(event: ref<inkEvent>) -> Void {
+		this.SetFocusedState(false);
 	}
 
 	public func GetName() -> CName {
@@ -506,18 +513,26 @@ public class TextInput extends inkCustomController {
 	}
 
 	public func SetText(text: String) -> Void {
-		this.m_value = text;
-		this.m_text.SetText(this.m_value);
+		this.m_text.SetText(text);
 
-		// TODO: Calculate offsets
+		this.m_measurer.MeasureAllChars(text);
+		//this.m_measurer.MeasureChunk(text);
+
+		this.m_selection.SetMaxPosition(this.m_text.GetLength());
+		this.m_selection.Clear();
+
+		this.m_caret.SetMaxPosition(this.m_text.GetLength());
+		this.m_caret.MoveToStart();
+
+		this.UpdateLayout();
 	}
 
 	public func GetMaxLength() -> Int32 {
-		return this.m_maxLength;
+		return this.m_text.GetMaxLength();
 	}
 
 	public func SetMaxLength(max: Int32) -> Void {
-		this.m_maxLength = max;
+		this.m_text.SetMaxLength(max);
 	}
 
 	public func GetLetterCase() -> textLetterCase {
@@ -528,42 +543,24 @@ public class TextInput extends inkCustomController {
 		this.m_text.SetLetterCase(case);
 	}
 
-	public func GetCaretPosition() -> Int32 {
-		return this.m_caretPosition;
-	}
-
-	public func SetCaretPosition(position: Int32) -> Void {
-		position = Max(position, 0);
-		position = Min(position, StrLen(this.m_value));
-
-		if this.m_caretPosition != position {
-			this.m_caretPosition = position;
-
-			this.UpdateCaretState();
-			this.UpdateScrollState();
-		}
-	}
-
-	public func IsDisabled() -> Bool {
-		return this.m_isDisabled;
-	}
-
-	public func SetDisabled(isDisabled: Bool) -> Void {
-		this.SetDisabledState(isDisabled);
-	}
-
 	public func GetWidth() -> Float {
 		return this.m_root.GetWidth();
 	}
 
 	public func SetWidth(width: Float) -> Void {
 		this.m_root.SetWidth(width);
+
+		this.UpdateLayout();
 	}
 
-	// TODO: Positioning and transformations
+	public func GetCaretPosition() -> Int32 {
+		return this.m_caret.GetPosition();
+	}
 
-	public func IsEnabled() -> Bool {
-		return !this.m_isDisabled;
+	public func SetCaretPosition(position: Int32) -> Void {
+		this.m_caret.SetPosition(position);
+
+		this.UpdateLayout();
 	}
 
 	public func IsHovered() -> Bool {
@@ -574,10 +571,21 @@ public class TextInput extends inkCustomController {
 		return this.m_isFocused && !this.m_isDisabled;
 	}
 
-	public func ToggleAnimations(useAnimations: Bool) -> Void {
-		this.m_useAnimations = useAnimations;
-		this.CreateAnimations();
+	public func IsDisabled() -> Bool {
+		return this.m_isDisabled;
 	}
+
+	public func IsEnabled() -> Bool {
+		return !this.m_isDisabled;
+	}
+
+	public func SetDisabled(isDisabled: Bool) -> Void {
+		this.SetDisabledState(isDisabled);
+
+		this.UpdateLayout();
+	}
+
+	// TODO: General positioning and transformations
 
 	public static func Create() -> ref<TextInput> {
 		let self: ref<TextInput> = new TextInput();

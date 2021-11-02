@@ -1,13 +1,14 @@
 // -----------------------------------------------------------------------------
-// Codeware.UI.FilterTextInput [WIP]
+// Codeware.UI.HubTextInput [WIP]
 // -----------------------------------------------------------------------------
 //
 // Mimics the looks of the filters and sorting inputs in Hub menus.
 //
 
 module Codeware.UI
+import Codeware.UI.TextInput.Parts.*
 
-public class FilterTextInput extends TextInput {
+public class HubTextInput extends TextInput {
 
 	protected let m_bg: wref<inkImage>;
 
@@ -18,6 +19,8 @@ public class FilterTextInput extends TextInput {
 	protected let m_hover: wref<inkImage>;
 
 	protected let m_focus: wref<inkImage>;
+
+	protected let m_useAnimations: Bool;
 
 	protected let m_activeRootAnimDef: ref<inkAnimDef>;
 
@@ -43,10 +46,9 @@ public class FilterTextInput extends TextInput {
 		let caretHeight: Float = Cast(fontSize) + 8.0;
 		let textPadding: Vector2 = new Vector2(18.0, (inputHeight - Cast(fontSize)) / 2.0 - 2.0);
 
-		this.m_root.SetHeight(inputHeight);
-		this.m_viewport.SetMargin(new inkMargin(textPadding.X, textPadding.Y, textPadding.X, 0.0));
 		this.m_text.SetFontSize(fontSize);
-		this.m_caret.SetHeight(caretHeight);
+		this.m_root.SetHeight(inputHeight);
+		this.m_wrapper.SetMargin(new inkMargin(textPadding.X, textPadding.Y, textPadding.X, 0.0));
 
 		// filter3_bg / filter3_fg / 80
 		// sorting_bg / sorting_fg / 74
@@ -129,7 +131,7 @@ public class FilterTextInput extends TextInput {
 		let hoverFrameAlphaAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
 		hoverFrameAlphaAnim.SetStartTransparency(0.0);
 		hoverFrameAlphaAnim.SetEndTransparency(0.6);
-		hoverFrameAlphaAnim.SetDuration(this.m_useAnimations ? 0.2 : 0.0001);
+		hoverFrameAlphaAnim.SetDuration(this.m_useAnimations ? 0.15 : 0.0001);
 
 		this.m_hoverFrameAnimDef = new inkAnimDef();
 		this.m_hoverFrameAnimDef.AddInterpolator(hoverFrameAlphaAnim);
@@ -145,7 +147,7 @@ public class FilterTextInput extends TextInput {
 		let focusFrameAlphaAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
 		focusFrameAlphaAnim.SetStartTransparency(0.0);
 		focusFrameAlphaAnim.SetEndTransparency(1.0);
-		focusFrameAlphaAnim.SetDuration(this.m_useAnimations ? 0.2 : 0.0001);
+		focusFrameAlphaAnim.SetDuration(this.m_useAnimations ? 0.15 : 0.0001);
 
 		this.m_focusFrameAnimDef = new inkAnimDef();
 		this.m_focusFrameAnimDef.AddInterpolator(focusFrameAlphaAnim);
@@ -178,8 +180,14 @@ public class FilterTextInput extends TextInput {
 		this.m_focusFrameAnimProxy = this.m_focus.PlayAnimationWithOptions(this.m_focusFrameAnimDef, reverseAnimOpts);
 	}
 
-	public static func Create() -> ref<FilterTextInput> {
-		let self: ref<FilterTextInput> = new FilterTextInput();
+	public func ToggleAnimations(useAnimations: Bool) -> Void {
+		this.m_useAnimations = useAnimations;
+		this.CreateAnimations();
+	}
+
+	public static func Create() -> ref<HubTextInput> {
+		let self: ref<HubTextInput> = new HubTextInput();
+		self.m_useAnimations = true;
 		self.CreateInstance();
 
 		return self;
