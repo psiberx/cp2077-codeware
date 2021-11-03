@@ -71,7 +71,7 @@ public class TextMeasurer extends inkCustomController {
 		let tickAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
 		tickAnim.SetStartTransparency(1.0);
 		tickAnim.SetEndTransparency(1.0);
-		tickAnim.SetDuration(1.0 / 1000.0);
+		tickAnim.SetDuration(1.0 / 60.0);
 
 		let tickAnimDef: ref<inkAnimDef> = new inkAnimDef();
 		tickAnimDef.AddInterpolator(tickAnim);

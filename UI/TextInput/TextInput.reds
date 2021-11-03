@@ -184,7 +184,7 @@ public class TextInput extends inkCustomController {
 		let tickAnim: ref<inkAnimTextValueProgress> = new inkAnimTextValueProgress();
 		tickAnim.SetStartProgress(0.0);
 		tickAnim.SetEndProgress(0.0);
-		tickAnim.SetDuration(1.0 / 1000.0);
+		tickAnim.SetDuration(1.0 / 60.0);
 
 		let tickAnimDef: ref<inkAnimDef> = new inkAnimDef();
 		tickAnimDef.AddInterpolator(tickAnim);
