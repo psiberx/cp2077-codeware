@@ -31,7 +31,7 @@ public class Selection extends inkCustomController {
 	protected func InitializeProps() -> Void {
 		this.m_startPosition = -1;
 		this.m_endPosition = -1;
-		this.m_padSize = 4.0;
+		this.m_padSize = 6.0;
 	}
 
 	protected func CreateWidgets() -> Void {

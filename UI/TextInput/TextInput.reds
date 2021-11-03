@@ -8,7 +8,7 @@
 // - `Caps Lock` is currently not working as expected
 //
 // Events:
-// - OnTextChanged
+// - OnInput
 //
 // TODO:
 // - Switch keyboard layouts
@@ -410,7 +410,7 @@ public class TextInput extends inkCustomController {
 	}
 
 	protected func TriggerChangeCallback() -> Void {
-		this.CallCustomCallback(n"OnTextChanged");
+		this.CallCustomCallback(n"OnInput");
 	}
 
 	protected func GetEventHash(event: ref<inkCharacterEvent>) -> Uint64 {
@@ -461,6 +461,7 @@ public class TextInput extends inkCustomController {
 				let clickPosition: Int32 = this.m_text.GetCharPosition(clickPoint.X);
 
 				this.m_caret.SetPosition(clickPosition);
+				this.m_selection.Clear();
 
 				this.UpdateLayout();
 			}

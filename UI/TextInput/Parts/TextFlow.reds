@@ -40,7 +40,7 @@ public class TextFlow extends inkCustomController {
 		text.SetFontSize(42);
 		text.SetTintColor(ThemeColors.Bittersweet());
 		text.SetHorizontalAlignment(textHorizontalAlignment.Left);
-		text.SetVerticalAlignment(textVerticalAlignment.Center);
+		text.SetVerticalAlignment(textVerticalAlignment.Top);
 		text.SetRenderTransformPivot(new Vector2(0.0, 0.0));
 
 		this.m_text = text;

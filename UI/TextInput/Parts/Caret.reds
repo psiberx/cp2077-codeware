@@ -35,7 +35,7 @@ public class Caret extends inkCustomController {
 
 	protected func InitializeProps() -> Void {
 		this.m_opacity = 0.9;
-		this.m_padSize = 4.0;
+		this.m_padSize = 6.0;
 	}
 
 	protected func CreateWidgets() -> Void {

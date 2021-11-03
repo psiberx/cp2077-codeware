@@ -41,10 +41,9 @@ public class HubTextInput extends TextInput {
 	protected func CreateWidgets() -> Void {
 		super.CreateWidgets();
 
-		let fontSize: Int32 = 30;
+		let fontSize: Int32 = 36;
 		let inputHeight: Float = 74.0;
-		let caretHeight: Float = Cast(fontSize) + 8.0;
-		let textPadding: Vector2 = new Vector2(18.0, (inputHeight - Cast(fontSize)) / 2.0 - 2.0);
+		let textPadding: Vector2 = new Vector2(18.0, (inputHeight - Cast(fontSize)) / 2.0 - 1.0);
 
 		this.m_text.SetFontSize(fontSize);
 		this.m_root.SetHeight(inputHeight);
