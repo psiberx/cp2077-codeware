@@ -102,7 +102,9 @@ public class TextInput extends inkCustomController {
 		this.SetRootWidget(this.m_root);
 	}
 
-	protected func CreateAnimations() -> Void
+	protected func CreateAnimations() -> Void {
+
+	}
 
 	protected func InitializeLayout() -> Void {
 		this.m_caret.SetFontSize(this.m_text.GetFontSize());
@@ -121,11 +123,17 @@ public class TextInput extends inkCustomController {
 		this.m_caret.UpdateState(this.m_isFocused, caretOffset);
 	}
 
-	protected func ApplyDisabledState() -> Void
+	protected func ApplyDisabledState() -> Void {
 
-	protected func ApplyHoveredState() -> Void
+	}
 
-	protected func ApplyFocusedState() -> Void
+	protected func ApplyHoveredState() -> Void {
+
+	}
+
+	protected func ApplyFocusedState() -> Void {
+		
+	}
 
 	protected func SetDisabledState(isDisabled: Bool) -> Void {
 		if !Equals(this.m_isDisabled, isDisabled) {
