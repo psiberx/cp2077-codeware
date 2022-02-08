@@ -422,7 +422,8 @@ public class TextInput extends inkCustomController {
 	}
 
 	protected func GetEventHash(event: ref<inkCharacterEvent>) -> Uint64 {
-		return Cast(1000 * EnumInt(event.GetType()) + Cast(event.GetCharacter()));
+		let character: Int32 = Cast(event.GetCharacter());
+		return Cast(1000 * EnumInt(event.GetType()) + character);
 	}
 
 	protected cb func OnCharacterKey(event: ref<inkCharacterEvent>) -> Void {
