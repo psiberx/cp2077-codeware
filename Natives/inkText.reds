@@ -22,6 +22,7 @@
 //   public func SetLineHeight(lineHeight: Float) -> Void
 // }
 //
+import Codeware.StringUtils.*
 
 @addField(inkText)
 native let contentHAlign: inkEHorizontalAlign;
@@ -37,6 +38,9 @@ native let textOverflowPolicy: textOverflowPolicy;
 
 @addField(inkText)
 native let lineHeightPercentage: Float;
+
+@addField(inkText)
+private let simpleWrapPosition: Float;
 
 @addMethod(inkText)
 public func GetContentHAlign() -> inkEHorizontalAlign {
@@ -86,6 +90,60 @@ public func GetLineHeight() -> Float {
 @addMethod(inkText)
 public func SetLineHeight(lineHeight: Float) -> Void {
 	this.lineHeightPercentage = lineHeight;
+}
+
+@addMethod(inkText)
+public func SetSimpleWrapPosition(wrapPosition: Float) -> Void {
+	this.simpleWrapPosition = wrapPosition;
+}
+
+@addMethod(inkText)
+public func GetSimpleWrapPosition() -> Float {
+	return this.simpleWrapPosition;
+}
+
+@addMethod(inkText)
+public func SetTextAndWrap(text: String) -> String {
+	let SPLIT_CHARS = [" ", "-", "\t"];
+
+	// Very rough calculation of the letter width (not actual pixel length, but generally close enough)
+	let letterHeight = Cast<Float>(this.GetFontSize());
+	let letterWidth = Cast<Float>(this.GetFontSize()) / 2.0;
+
+	// Use the set width if no wrap position is specified
+	let wrapPosition = (this.GetSimpleWrapPosition() > 0.0) ? this.GetSimpleWrapPosition() : this.GetWidth();
+
+	let words: array<String> = SplitWords(text, SPLIT_CHARS);
+	let wrappedString: String = "";
+
+	let currentLineLength = 0.0;
+	let i = 0;
+	while (i < ArraySize(words)) {
+		let word = words[i];
+		let wordWidth = Cast<Float>(StrLen(word)) * letterWidth;
+
+		if ((currentLineLength + wordWidth) > wrapPosition) {
+			if (currentLineLength > 0.0) {
+				wrappedString += "\n";
+				currentLineLength = 0.0;
+			}
+
+			while(wordWidth > wrapPosition) {
+				let splitIndex: Int32 = Cast<Int32>(wrapPosition / letterWidth) - 1;
+				wrappedString += StrMid(word, 0, splitIndex) + "-";
+
+				word = StrMid(word, splitIndex);
+				wordWidth = Cast<Float>(StrLen(word)) * letterWidth;
+				wrappedString += "\n";
+			}
+			word = StrTrimStart(word);
+		}
+
+		wrappedString += word;
+		currentLineLength += wordWidth;
+		i += 1;
+	}
+	this.SetText(wrappedString);
 }
 
 //var lockFontInGame : Bool; // 0x2bc
