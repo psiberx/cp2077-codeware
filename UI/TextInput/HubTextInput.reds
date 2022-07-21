@@ -41,11 +41,11 @@ public class HubTextInput extends TextInput {
 	protected func CreateWidgets() -> Void {
 		super.CreateWidgets();
 
-		let fontSize: Int32 = 36;
+		let fontSize: Float = 36.0;
 		let inputHeight: Float = 74.0;
-		let textPadding: Vector2 = new Vector2(18.0, (inputHeight - Cast(fontSize)) / 2.0 - 1.0);
+		let textPadding: Vector2 = new Vector2(18.0, (inputHeight - fontSize) / 2.0 - 1.0);
 
-		this.m_text.SetFontSize(fontSize);
+		this.m_text.SetFontSize(Cast(fontSize));
 		this.m_root.SetHeight(inputHeight);
 		this.m_wrapper.SetMargin(new inkMargin(textPadding.X, textPadding.Y, textPadding.X, 0.0));
 

@@ -102,7 +102,9 @@ public class TextInput extends inkCustomController {
 		this.SetRootWidget(this.m_root);
 	}
 
-	protected func CreateAnimations() -> Void
+	protected func CreateAnimations() -> Void {
+
+	}
 
 	protected func InitializeLayout() -> Void {
 		this.m_caret.SetFontSize(this.m_text.GetFontSize());
@@ -121,11 +123,17 @@ public class TextInput extends inkCustomController {
 		this.m_caret.UpdateState(this.m_isFocused, caretOffset);
 	}
 
-	protected func ApplyDisabledState() -> Void
+	protected func ApplyDisabledState() -> Void {
 
-	protected func ApplyHoveredState() -> Void
+	}
 
-	protected func ApplyFocusedState() -> Void
+	protected func ApplyHoveredState() -> Void {
+
+	}
+
+	protected func ApplyFocusedState() -> Void {
+		
+	}
 
 	protected func SetDisabledState(isDisabled: Bool) -> Void {
 		if !Equals(this.m_isDisabled, isDisabled) {
@@ -414,7 +422,8 @@ public class TextInput extends inkCustomController {
 	}
 
 	protected func GetEventHash(event: ref<inkCharacterEvent>) -> Uint64 {
-		return Cast(1000 * EnumInt(event.GetType()) + Cast(event.GetCharacter()));
+		let character: Int32 = Cast(event.GetCharacter());
+		return Cast(1000 * EnumInt(event.GetType()) + character);
 	}
 
 	protected cb func OnCharacterKey(event: ref<inkCharacterEvent>) -> Void {
