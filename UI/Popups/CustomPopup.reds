@@ -110,16 +110,16 @@ public abstract class CustomPopup extends inkCustomController {
 
 	protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Void {
 		if evt.IsAction(n"cancel") {
-      		this.Close();
+			this.Close();
 			evt.Handle();
 			return;
-    	}
+		}
 
-    	if this.UseCursor() && evt.IsAction(n"mouse_left") {
-    		if !IsDefined(evt.GetTarget()) || !evt.GetTarget().CanSupportFocus() {
+		if this.UseCursor() && evt.IsAction(n"mouse_left") {
+			if !IsDefined(evt.GetTarget()) || !evt.GetTarget().CanSupportFocus() {
 				this.GetGameController().RequestSetFocus(null);
 			}
-    	}
+		}
 	}
 
 	public func GetName() -> CName {

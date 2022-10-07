@@ -181,15 +181,21 @@ public abstract class inkCustomController extends inkLogicController {
 	}
 
 	public func CallCustomCallback(eventName: CName) -> Void {
-		this.m_rootWidget.CallCustomCallback(eventName);
+		if IsDefined(this.m_rootWidget) {
+			this.m_rootWidget.CallCustomCallback(eventName);
+		}
 	}
 
 	public func RegisterToCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) -> Void {
-		this.m_rootWidget.RegisterToCallback(eventName, object, functionName);
+		if IsDefined(this.m_rootWidget) {
+			this.m_rootWidget.RegisterToCallback(eventName, object, functionName);
+		}
 	}
 
 	public func UnregisterFromCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) -> Void {
-		this.m_rootWidget.UnregisterFromCallback(eventName, object, functionName);
+		if IsDefined(this.m_rootWidget) {
+			this.m_rootWidget.UnregisterFromCallback(eventName, object, functionName);
+		}
 	}
 
 	public func RegisterToGlobalInputCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) -> Void {

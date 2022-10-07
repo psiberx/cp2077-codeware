@@ -134,7 +134,7 @@ public abstract class CustomButton extends inkCustomController {
 						this.PlaySound(n"Button", n"OnPress");
 					}
 
-					this.CallCustomCallback(n"OnClick");
+					this.CallCustomCallback(n"OnBtnClick");
 				}
 
 				this.SetPressedState(false);
