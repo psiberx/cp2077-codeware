@@ -18,13 +18,13 @@
 //   public func IsDisabled() -> Bool
 //   public func IsHovered() -> Bool
 //   public func IsPressed() -> Bool
-//   public func SetName(name: CName) -> Void
-//   public func SetText(text: String) -> Void
-//   public func SetPosition(x: Float, y: Float) -> Void
-//   public func SetWidth(width: Float) -> Void
-//   public func SetDisabled(isDisabled: Bool) -> Void
-//   public func ToggleAnimations(useAnimations: Bool) -> Void
-//   public func ToggleSounds(useSounds: Bool) -> Void
+//   public func SetName(name: CName)
+//   public func SetText(text: String)
+//   public func SetPosition(x: Float, y: Float)
+//   public func SetWidth(width: Float)
+//   public func SetDisabled(isDisabled: Bool)
+//   public func ToggleAnimations(useAnimations: Bool)
+//   public func ToggleSounds(useSounds: Bool)
 // }
 //
 
@@ -45,35 +45,35 @@ public abstract class CustomButton extends inkCustomController {
 
     protected let m_isPressed: Bool;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         this.CreateWidgets();
         this.CreateAnimations();
     }
 
-    protected cb func OnInitialize() -> Void {
+    protected cb func OnInitialize() {
         this.RegisterListeners();
         this.ApplyDisabledState();
         this.ApplyHoveredState();
     }
 
-    protected func CreateWidgets() -> Void
+    protected func CreateWidgets()
 
-    protected func CreateAnimations() -> Void
+    protected func CreateAnimations()
 
-    protected func RegisterListeners() -> Void {
+    protected func RegisterListeners() {
         this.RegisterToCallback(n"OnHoverOver", this, n"OnHoverOver");
         this.RegisterToCallback(n"OnHoverOut", this, n"OnHoverOut");
         this.RegisterToCallback(n"OnPress", this, n"OnPress");
         this.RegisterToCallback(n"OnRelease", this, n"OnRelease");
     }
 
-    protected func ApplyDisabledState() -> Void
+    protected func ApplyDisabledState()
 
-    protected func ApplyHoveredState() -> Void
+    protected func ApplyHoveredState()
 
-    protected func ApplyPressedState() -> Void
+    protected func ApplyPressedState()
 
-    protected func SetDisabledState(isDisabled: Bool) -> Void {
+    protected func SetDisabledState(isDisabled: Bool) {
         if !Equals(this.m_isDisabled, isDisabled) {
             this.m_isDisabled = isDisabled;
 
@@ -87,7 +87,7 @@ public abstract class CustomButton extends inkCustomController {
         }
     }
 
-    protected func SetHoveredState(isHovered: Bool) -> Void {
+    protected func SetHoveredState(isHovered: Bool) {
         if !Equals(this.m_isHovered, isHovered) {
             this.m_isHovered = isHovered;
 
@@ -102,7 +102,7 @@ public abstract class CustomButton extends inkCustomController {
         }
     }
 
-    protected func SetPressedState(isPressed: Bool) -> Void {
+    protected func SetPressedState(isPressed: Bool) {
         if !Equals(this.m_isPressed, isPressed) {
             this.m_isPressed = isPressed;
 
@@ -182,32 +182,32 @@ public abstract class CustomButton extends inkCustomController {
         return this.m_isPressed && !this.m_isDisabled;
     }
 
-    public func SetName(name: CName) -> Void {
+    public func SetName(name: CName) {
         this.m_root.SetName(name);
     }
 
-    public func SetText(text: String) -> Void {
+    public func SetText(text: String) {
         this.m_label.SetText(text);
     }
 
-    public func SetPosition(x: Float, y: Float) -> Void {
+    public func SetPosition(x: Float, y: Float) {
         this.m_root.SetMargin(x, y, 0, 0);
     }
 
-    public func SetWidth(width: Float) -> Void {
+    public func SetWidth(width: Float) {
         this.m_root.SetWidth(width);
     }
 
-    public func SetDisabled(isDisabled: Bool) -> Void {
+    public func SetDisabled(isDisabled: Bool) {
         this.SetDisabledState(isDisabled);
     }
 
-    public func ToggleAnimations(useAnimations: Bool) -> Void {
+    public func ToggleAnimations(useAnimations: Bool) {
         this.m_useAnimations = useAnimations;
         this.CreateAnimations();
     }
 
-    public func ToggleSounds(useSounds: Bool) -> Void {
+    public func ToggleSounds(useSounds: Bool) {
         this.m_useSounds = useSounds;
     }
 }

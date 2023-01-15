@@ -22,7 +22,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
 
     protected let m_logicControllers: array<wref<inkLogicController>>;
 
-    public func Initialize(game: GameInstance) -> Void {
+    public func Initialize(game: GameInstance) {
         if !this.m_initialized {
             this.m_game = game;
 
@@ -39,7 +39,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         }
     }
 
-    public func SetWindowSize(size: Vector2) -> Void {
+    public func SetWindowSize(size: Vector2) {
         this.m_window = size;
 
         if this.m_initialized {
@@ -48,11 +48,11 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         }
     }
 
-    public func SetWindowSize(width: Float, height: Float) -> Void {
+    public func SetWindowSize(width: Float, height: Float) {
         this.SetWindowSize(new Vector2(width, height));
     }
 
-    public func ScaleWidget(widget: ref<inkWidget>) -> Void {
+    public func ScaleWidget(widget: ref<inkWidget>) {
         let target = VirtualResolutionScaleTarget.Create(widget);
 
         ArrayPush(this.m_targets, target);
@@ -62,7 +62,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         }
     }
 
-    public func ResizeWidget(widget: ref<inkWidget>) -> Void {
+    public func ResizeWidget(widget: ref<inkWidget>) {
         let target = VirtualResolutionResizeTarget.Create(widget);
 
         ArrayPush(this.m_targets, target);
@@ -72,7 +72,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         }
     }
 
-    public func NotifyController(target: ref<inkGameController>) -> Void {
+    public func NotifyController(target: ref<inkGameController>) {
         ArrayPush(this.m_gameControllers, target);
 
         if this.m_initialized {
@@ -80,7 +80,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         }
     }
 
-    public func NotifyController(target: ref<inkLogicController>) -> Void {
+    public func NotifyController(target: ref<inkLogicController>) {
         ArrayPush(this.m_logicControllers, target);
 
         if this.m_initialized {
@@ -99,14 +99,14 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         return VirtualResolutionData.Create(resolution, size, scale);
     }
 
-    protected cb func OnVarModified(groupPath: CName, varName: CName, varType: ConfigVarType, reason: ConfigChangeReason) -> Void {
+    protected cb func OnVarModified(groupPath: CName, varName: CName, varType: ConfigVarType, reason: ConfigChangeReason) {
         if Equals(groupPath, n"/video/display") && Equals(varName, n"Resolution") && Equals(reason, ConfigChangeReason.Accepted) {
             this.ApplyScalingToAllTargets();
             this.SendEventToAllControllers();
         }
     }
 
-    protected func ApplyScalingToAllTargets() -> Void {
+    protected func ApplyScalingToAllTargets() {
         let state: ref<VirtualResolutionData> = this.GetCurrentState();
 
         for target in this.m_targets {
@@ -114,11 +114,11 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         }
     }
 
-    protected func ApplyScalingToTarget(target: ref<VirtualResolutionTarget>) -> Void {
+    protected func ApplyScalingToTarget(target: ref<VirtualResolutionTarget>) {
         target.ApplyState(this.GetCurrentState());
     }
 
-    protected func SendEventToAllControllers() -> Void {
+    protected func SendEventToAllControllers() {
         let state: ref<VirtualResolutionData> = this.GetCurrentState();
         let event: ref<VirtualResolutionChangeEvent> = VirtualResolutionChangeEvent.Create(state);
 
@@ -131,11 +131,11 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         }
     }
 
-    protected func SendEventToController(target: wref<inkGameController>) -> Void {
+    protected func SendEventToController(target: wref<inkGameController>) {
         target.QueueEvent(VirtualResolutionChangeEvent.Create(this.GetCurrentState()));
     }
 
-    protected func SendEventToController(target: wref<inkLogicController>) -> Void {
+    protected func SendEventToController(target: wref<inkLogicController>) {
         target.QueueEvent(VirtualResolutionChangeEvent.Create(this.GetCurrentState()));
     }
 }

@@ -18,14 +18,14 @@ public abstract class InGamePopup extends CustomPopup {
 
     protected let m_container: wref<inkCompoundWidget>;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         super.OnCreate();
 
         this.CreateVignette();
         this.CreateContainer();
     }
 
-    protected func CreateVignette() -> Void {
+    protected func CreateVignette() {
         let vignette: ref<inkImage> = new inkImage();
         vignette.SetName(n"vignette");
         vignette.SetAtlasResource(r"base\\gameplay\\gui\\widgets\\notifications\\vignette.inkatlas");
@@ -43,7 +43,7 @@ public abstract class InGamePopup extends CustomPopup {
         this.m_vignette = vignette;
     }
 
-    protected func CreateContainer() -> Void {
+    protected func CreateContainer() {
         let container: ref<inkCanvas> = new inkCanvas();
         container.SetName(n"container");
         container.SetMargin(new inkMargin(0.0, 0.0, 0.0, 200.0));
@@ -57,7 +57,7 @@ public abstract class InGamePopup extends CustomPopup {
         this.SetContainerWidget(container);
     }
 
-    protected cb func OnShow() -> Void {
+    protected cb func OnShow() {
         super.OnShow();
 
         this.SetUIContext();
@@ -66,7 +66,7 @@ public abstract class InGamePopup extends CustomPopup {
         this.PlayShowSound();
     }
 
-    protected cb func OnHide() -> Void {
+    protected cb func OnHide() {
         super.OnHide();
 
         this.ResetUIContext();
@@ -75,39 +75,39 @@ public abstract class InGamePopup extends CustomPopup {
         this.PlayHideSound();
     }
 
-    protected func SetTimeDilation() -> Void {
+    protected func SetTimeDilation() {
         TimeDilationHelper.SetTimeDilationWithProfile(this.GetPlayer(), "radialMenu", true);
     }
 
-    protected func ResetTimeDilation() -> Void {
+    protected func ResetTimeDilation() {
         TimeDilationHelper.SetTimeDilationWithProfile(this.GetPlayer(), "radialMenu", false);
     }
 
-    protected func SetBackgroundBlur() -> Void {
+    protected func SetBackgroundBlur() {
         PopupStateUtils.SetBackgroundBlur(this.m_gameController, true);
     }
 
-    protected func ResetBackgroundBlur() -> Void {
+    protected func ResetBackgroundBlur() {
         PopupStateUtils.SetBackgroundBlur(this.m_gameController, false);
     }
 
-    protected func SetUIContext() -> Void {
+    protected func SetUIContext() {
         let uiSystem: ref<UISystem> = GameInstance.GetUISystem(this.GetGame());
         uiSystem.PushGameContext(UIGameContext.ModalPopup);
         uiSystem.RequestNewVisualState(n"inkModalPopupState");
     }
 
-    protected func ResetUIContext() -> Void {
+    protected func ResetUIContext() {
         let uiSystem: ref<UISystem> = GameInstance.GetUISystem(this.GetGame());
         uiSystem.PopGameContext(UIGameContext.ModalPopup);
         uiSystem.RestorePreviousVisualState(n"inkModalPopupState");
     }
 
-    protected func PlayShowSound() -> Void {
+    protected func PlayShowSound() {
         //this.PlaySound(n"RadialMenu", n"OnOpen");
     }
 
-    protected func PlayHideSound() -> Void {
+    protected func PlayHideSound() {
         //this.PlaySound(n"RadialMenu", n"OnClose");
     }
 }

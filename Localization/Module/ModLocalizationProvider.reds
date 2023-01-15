@@ -31,15 +31,15 @@
 // public abstract class ModLocalizationProvider extends ScriptableSystem {
 //   public func GetPackage(language: CName) -> ref<ModLocalizationPackage>
 //   public func GetFallback() -> CName
-//   public func OnLocaleChange() -> Void
-//   public func OnGenderChange() -> Void
+//   public func OnLocaleChange()
+//   public func OnGenderChange()
 // }
 //
 
 module Codeware.Localization
 
 public abstract class ModLocalizationProvider extends ScriptableSystem {
-    protected func OnAttach() -> Void {
+    protected func OnAttach() {
         GameInstance.GetScriptableSystemsContainer(this.GetGameInstance())
             .QueueRequest(RegisterProviderRequest.Create(this));
     }
@@ -48,7 +48,7 @@ public abstract class ModLocalizationProvider extends ScriptableSystem {
 
     public func GetFallback() -> CName
 
-    public func OnLocaleChange() -> Void
+    public func OnLocaleChange()
 
-    public func OnGenderChange() -> Void
+    public func OnGenderChange()
 }

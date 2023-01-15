@@ -29,7 +29,7 @@ public class SimpleButton extends CustomButton {
 
     protected let m_pressedFillAnimProxy: ref<inkAnimProxy>;
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         let root: ref<inkCanvas> = new inkCanvas();
         root.SetName(n"button");
         root.SetSize(400.0, 100.0);
@@ -89,7 +89,7 @@ public class SimpleButton extends CustomButton {
         this.ApplyFlippedState();
     }
 
-    protected func CreateAnimations() -> Void {
+    protected func CreateAnimations() {
         let disabledRootAlphaAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
         disabledRootAlphaAnim.SetStartTransparency(1.0);
         disabledRootAlphaAnim.SetEndTransparency(0.3);
@@ -129,13 +129,13 @@ public class SimpleButton extends CustomButton {
         this.m_pressedFillAnimDef.AddInterpolator(pressedFillAlphaAnim);
     }
 
-    protected func ApplyFlippedState() -> Void {
+    protected func ApplyFlippedState() {
         this.m_bg.SetTexturePart(this.m_isFlipped ? n"cell_flip_bg" : n"cell_bg");
         this.m_fill.SetTexturePart(this.m_isFlipped ? n"cell_flip_bg" : n"cell_bg");
         this.m_frame.SetTexturePart(this.m_isFlipped ? n"cell_flip_fg" : n"cell_fg");
     }
 
-    protected func ApplyDisabledState() -> Void {
+    protected func ApplyDisabledState() {
         let reverseAnimOpts: inkAnimOptions;
         reverseAnimOpts.playReversed = !this.m_isDisabled;
 
@@ -143,7 +143,7 @@ public class SimpleButton extends CustomButton {
         this.m_disabledRootAnimProxy = this.m_root.PlayAnimationWithOptions(this.m_disabledRootAnimDef, reverseAnimOpts);
     }
 
-    protected func ApplyHoveredState() -> Void {
+    protected func ApplyHoveredState() {
         let reverseAnimOpts: inkAnimOptions;
         reverseAnimOpts.playReversed = !this.m_isHovered || this.m_isDisabled;
 
@@ -154,7 +154,7 @@ public class SimpleButton extends CustomButton {
         this.m_hoverFrameAnimProxy = this.m_frame.PlayAnimationWithOptions(this.m_hoverFrameAnimDef, reverseAnimOpts);
     }
 
-    protected func ApplyPressedState() -> Void {
+    protected func ApplyPressedState() {
         let reverseAnimOpts: inkAnimOptions;
         reverseAnimOpts.playReversed = !this.m_isPressed || this.m_isDisabled;
 
@@ -162,7 +162,7 @@ public class SimpleButton extends CustomButton {
         this.m_pressedFillAnimProxy = this.m_fill.PlayAnimationWithOptions(this.m_pressedFillAnimDef, reverseAnimOpts);
     }
 
-    public func SetFlipped(isFlipped: Bool) -> Void {
+    public func SetFlipped(isFlipped: Bool) {
         this.m_isFlipped = isFlipped;
 
         this.ApplyFlippedState();

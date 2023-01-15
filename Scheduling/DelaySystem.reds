@@ -9,8 +9,8 @@
 // class DelaySystem extends IDelaySystem {
 //   public func DelayEvent(controller: wref<inkGameController>, eventToDelay: ref<Event>, timeToDelay: Float, opt isAffectedByTimeDilation: Bool) -> DelayID
 //   public func DelayEvent(controller: wref<inkLogicController>, eventToDelay: ref<Event>, timeToDelay: Float, opt isAffectedByTimeDilation: Bool) -> DelayID
-//   public func DelayEventNextFrame(controller: wref<inkGameController>, eventToDelay: ref<Event>) -> Void
-//   public func DelayEventNextFrame(controller: wref<inkLogicController>, eventToDelay: ref<Event>) -> Void
+//   public func DelayEventNextFrame(controller: wref<inkGameController>, eventToDelay: ref<Event>)
+//   public func DelayEventNextFrame(controller: wref<inkLogicController>, eventToDelay: ref<Event>)
 // }
 //
 
@@ -26,7 +26,7 @@ public func DelayEvent(controller: wref<inkGameController>, eventToDelay: ref<Ev
 }
 
 @addMethod(DelaySystem)
-public func DelayEventNextFrame(controller: wref<inkGameController>, eventToDelay: ref<Event>) -> Void {
+public func DelayEventNextFrame(controller: wref<inkGameController>, eventToDelay: ref<Event>) {
     let callback = new ControllerDelayCallback();
     callback.controller = controller;
     callback.event = eventToDelay;
@@ -44,7 +44,7 @@ public func DelayEvent(controller: wref<inkLogicController>, eventToDelay: ref<E
 }
 
 @addMethod(DelaySystem)
-public func DelayEventNextFrame(controller: wref<inkLogicController>, eventToDelay: ref<Event>) -> Void {
+public func DelayEventNextFrame(controller: wref<inkLogicController>, eventToDelay: ref<Event>) {
     let callback = new ControllerDelayCallback();
     callback.controller = controller;
     callback.event = eventToDelay;

@@ -8,7 +8,7 @@
 // -----------------------------------------------------------------------------
 //
 // class inkShape extends inkBaseShapeWidget {
-//   public final native func ChangeShape(shapeName: CName) -> Void;
+//   public final native func ChangeShape(shapeName: CName);
 // }
 //
 

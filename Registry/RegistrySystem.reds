@@ -8,10 +8,10 @@
 //
 // public class RegistrySystem extends ScriptableSystem {
 //   public func Get(name: CName) -> ref<IScriptable>
-//   public func Put(name: CName, instance: ref<IScriptable>) -> Void
-//   public func Put(instance: ref<IScriptable>) -> Void
-//   public func Remove(name: CName) -> Void
-//   public func Remove(instance: ref<IScriptable>) -> Void
+//   public func Put(name: CName, instance: ref<IScriptable>)
+//   public func Put(instance: ref<IScriptable>)
+//   public func Remove(name: CName)
+//   public func Remove(instance: ref<IScriptable>)
 //   public static func GetInstance(game: GameInstance) -> ref<RegistrySystem>
 // }
 //
@@ -21,7 +21,7 @@ module Codeware.Registry
 public class RegistrySystem extends ScriptableSystem {
     private let m_container: ref<inkHashMap>;
 
-    private func OnAttach() -> Void {
+    private func OnAttach() {
         this.m_container = new inkHashMap();
     }
 
@@ -35,7 +35,7 @@ public class RegistrySystem extends ScriptableSystem {
         return this.m_container.Get(key);
     }
 
-    public func Put(name: CName, instance: ref<IScriptable>) -> Void {
+    public func Put(name: CName, instance: ref<IScriptable>) {
         let key: Uint64 = this.Key(name);
 
         if this.m_container.KeyExist(key) {
@@ -45,11 +45,11 @@ public class RegistrySystem extends ScriptableSystem {
         }
     }
 
-    public func Put(instance: ref<IScriptable>) -> Void {
+    public func Put(instance: ref<IScriptable>) {
         this.Put(instance.GetClassName(), instance);
     }
 
-    public func Remove(name: CName) -> Void {
+    public func Remove(name: CName) {
         let key: Uint64 = this.Key(name);
 
         if this.m_container.KeyExist(key) {
@@ -57,7 +57,7 @@ public class RegistrySystem extends ScriptableSystem {
         }
     }
 
-    public func Remove(instance: ref<IScriptable>) -> Void {
+    public func Remove(instance: ref<IScriptable>) {
         this.Remove(instance.GetClassName());
     }
 

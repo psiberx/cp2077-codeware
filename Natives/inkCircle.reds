@@ -8,7 +8,7 @@
 //
 // class inkCircle extends inkLeafWidget {
 //   public func GetSegmentsNumber() -> Uint32
-//   public func SetSegmentsNumber(segmentsNumber: Uint32) -> Void
+//   public func SetSegmentsNumber(segmentsNumber: Uint32)
 // }
 //
 
@@ -21,6 +21,6 @@ public func GetSegmentsNumber() -> Uint32 {
 }
 
 @addMethod(inkCircle)
-public func SetSegmentsNumber(segmentsNumber: Uint32) -> Void {
+public func SetSegmentsNumber(segmentsNumber: Uint32) {
     this.segmentsNumber = segmentsNumber;
 }

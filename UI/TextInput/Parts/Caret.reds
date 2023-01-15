@@ -22,22 +22,22 @@ public class Caret extends inkCustomController {
 
     protected let m_blinkAnimProxy: ref<inkAnimProxy>;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         this.InitializeProps();
         this.CreateWidgets();
         this.CreateAnimations();
     }
 
-    protected cb func OnInitialize() -> Void {
+    protected cb func OnInitialize() {
         this.InitializeLayout();
     }
 
-    protected func InitializeProps() -> Void {
+    protected func InitializeProps() {
         this.m_opacity = 0.9;
         this.m_padSize = 6.0;
     }
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         let caret: ref<inkRectangle> = new inkRectangle();
         caret.SetName(n"caret");
         caret.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
@@ -49,7 +49,7 @@ public class Caret extends inkCustomController {
         this.SetRootWidget(this.m_caret);
     }
 
-    protected func CreateAnimations() -> Void {
+    protected func CreateAnimations() {
         let fadeInAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
         fadeInAnim.SetStartTransparency(0.0);
         fadeInAnim.SetEndTransparency(this.m_opacity);
@@ -67,7 +67,7 @@ public class Caret extends inkCustomController {
         this.m_blinkAnimDef.AddInterpolator(fadeOutAnim);
     }
 
-    protected func InitializeLayout() -> Void {
+    protected func InitializeLayout() {
         this.m_caret.SetSize(new Vector2(4.0, this.m_fontSize + this.m_padSize * 2.0));
     }
 
@@ -75,7 +75,7 @@ public class Caret extends inkCustomController {
         return Cast(this.m_fontSize);
     }
 
-    public func SetFontSize(fontSize: Int32) -> Void {
+    public func SetFontSize(fontSize: Int32) {
         this.m_fontSize = Cast(fontSize);
 
         this.InitializeLayout();
@@ -85,7 +85,7 @@ public class Caret extends inkCustomController {
         return this.m_caret.GetTintColor();
     }
 
-    public func SetTintColor(color: HDRColor) -> Void {
+    public func SetTintColor(color: HDRColor) {
         this.m_caret.SetTintColor(color);
     }
 
@@ -93,7 +93,7 @@ public class Caret extends inkCustomController {
         return this.m_opacity;
     }
 
-    public func SetOpacity(opacity: Float) -> Void {
+    public func SetOpacity(opacity: Float) {
         this.m_opacity = opacity;
     }
 
@@ -101,7 +101,7 @@ public class Caret extends inkCustomController {
         return this.m_maxPosition;
     }
 
-    public func SetMaxPosition(max: Int32) -> Void {
+    public func SetMaxPosition(max: Int32) {
         this.m_maxPosition = max;
     }
 
@@ -109,30 +109,30 @@ public class Caret extends inkCustomController {
         return this.m_position;
     }
 
-    public func SetPosition(position: Int32) -> Void {
+    public func SetPosition(position: Int32) {
         position = Max(position, 0);
         position = Min(position, this.m_maxPosition);
 
         this.m_position = position;
     }
 
-    public func AdjustPosition(diff: Int32) -> Void {
+    public func AdjustPosition(diff: Int32) {
         this.SetPosition(this.m_position + diff);
     }
 
-    public func MoveToNextChar() -> Void {
+    public func MoveToNextChar() {
         this.SetPosition(this.m_position + 1);
     }
 
-    public func MoveToPrevChar() -> Void {
+    public func MoveToPrevChar() {
         this.SetPosition(this.m_position - 1);
     }
 
-    public func MoveToEnd() -> Void {
+    public func MoveToEnd() {
         this.SetPosition(this.m_maxPosition);
     }
 
-    public func MoveToStart() -> Void {
+    public func MoveToStart() {
         this.SetPosition(0);
     }
 
@@ -148,7 +148,7 @@ public class Caret extends inkCustomController {
         return this.m_position == this.m_maxPosition;
     }
 
-    public func UpdateState(isFocused: Bool, caretOffset: Float) -> Void {
+    public func UpdateState(isFocused: Bool, caretOffset: Float) {
         this.m_blinkAnimProxy.Stop();
 
         if isFocused {

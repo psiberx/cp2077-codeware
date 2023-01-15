@@ -16,7 +16,7 @@ public class ButtonHintsEx extends inkCustomController {
 
     private let m_style: CName;
 
-    public func AddButtonHint(action: CName, label: CName, holdInteraction: Bool) -> Void {
+    public func AddButtonHint(action: CName, label: CName, holdInteraction: Bool) {
         if !this.m_isLocked {
             this.m_buttonHints.AddButtonHint(action, label, holdInteraction);
 
@@ -26,7 +26,7 @@ public class ButtonHintsEx extends inkCustomController {
         }
     }
 
-    public func AddButtonHint(action: CName, label: CName) -> Void {
+    public func AddButtonHint(action: CName, label: CName) {
         if !this.m_isLocked {
             this.m_buttonHints.AddButtonHint(action, label);
 
@@ -36,7 +36,7 @@ public class ButtonHintsEx extends inkCustomController {
         }
     }
 
-    public func AddButtonHint(action: CName, label: String) -> Void {
+    public func AddButtonHint(action: CName, label: String) {
         if !this.m_isLocked {
             this.m_buttonHints.AddButtonHint(action, label);
 
@@ -46,7 +46,7 @@ public class ButtonHintsEx extends inkCustomController {
         }
     }
 
-    public func AddCharacterRoatateButtonHint() -> Void {
+    public func AddCharacterRoatateButtonHint() {
         if !this.m_isLocked {
             this.m_buttonHints.AddCharacterRoatateButtonHint();
 
@@ -56,23 +56,23 @@ public class ButtonHintsEx extends inkCustomController {
         }
     }
 
-    public func RemoveButtonHint(action: CName) -> Void {
+    public func RemoveButtonHint(action: CName) {
         if !this.m_isLocked {
             this.m_buttonHints.RemoveButtonHint(action);
         }
     }
 
-    public func ClearButtonHints() -> Void {
+    public func ClearButtonHints() {
         if !this.m_isLocked {
             this.m_buttonHints.ClearButtonHints();
         }
     }
 
-    public func Show() -> Void {
+    public func Show() {
         this.m_buttonHints.Show();
     }
 
-    public func Hide() -> Void {
+    public func Hide() {
         this.m_buttonHints.Hide();
     }
 
@@ -80,11 +80,11 @@ public class ButtonHintsEx extends inkCustomController {
         return this.m_buttonHints.IsVisible();
     }
 
-    public func Lock() -> Void {
+    public func Lock() {
         this.m_isLocked = true;
     }
 
-    public func Unlock() -> Void {
+    public func Unlock() {
         this.m_isLocked = false;
     }
 
@@ -92,13 +92,13 @@ public class ButtonHintsEx extends inkCustomController {
         return this.m_isLocked;
     }
 
-    public func SetStyle(styleName: CName) -> Void {
+    public func SetStyle(styleName: CName) {
         this.m_style = styleName;
 
         this.ApplyListStyle();
     }
 
-    private func ApplyListStyle() -> Void {
+    private func ApplyListStyle() {
         let holder: ref<inkCompoundWidget> = inkCompoundRef.Get(this.m_buttonHints.m_horizontalHolder) as inkCompoundWidget;
 
         if Equals(this.m_style, n"popup") {
@@ -108,7 +108,7 @@ public class ButtonHintsEx extends inkCustomController {
         }
     }
 
-    private func ApplyItemStyle(item: ref<ButtonHintListItem>) -> Void {
+    private func ApplyItemStyle(item: ref<ButtonHintListItem>) {
         if Equals(this.m_style, n"popup") {
             let label: wref<inkText> = item.GetWidget(n"holder/label") as inkText;
 
@@ -122,7 +122,7 @@ public class ButtonHintsEx extends inkCustomController {
         }
     }
 
-    private func ApplyLastItemStyle() -> Void {
+    private func ApplyLastItemStyle() {
         let holder: ref<inkCompoundWidget> = inkCompoundRef.Get(this.m_buttonHints.m_horizontalHolder) as inkCompoundWidget;
 
         this.ApplyItemStyle(holder.GetWidgetByIndex(holder.GetNumChildren() - 1).GetController() as ButtonHintListItem);

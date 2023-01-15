@@ -4,7 +4,7 @@
 //
 // public class ButtonHintsManager {
 //   public func IsInitialized() -> Bool
-//   public func Initialize(buttonHints: ref<inkWidget>) -> Void
+//   public func Initialize(buttonHints: ref<inkWidget>)
 //   public func SpawnButtonHints(parentWidget: wref<inkWidget>) -> ref<ButtonHintsEx>
 //   public static func GetInstance(game: GameInstance) -> ref<ButtonHintsManager>
 // }
@@ -22,15 +22,15 @@ public class ButtonHintsManager extends IButtonHintsManager {
         return IsDefined(this.m_buttonHints);
     }
 
-    public func Initialize(buttonHints: ref<inkWidget>) -> Void {
+    public func Initialize(buttonHints: ref<inkWidget>) {
         this.m_buttonHints = buttonHints;
     }
 
-    public func Initialize(buttonHints: ref<ButtonHints>) -> Void {
+    public func Initialize(buttonHints: ref<ButtonHints>) {
         this.m_buttonHints = buttonHints.GetRootWidget();
     }
 
-    public func Initialize(parent: ref<inkGameController>) -> Void {
+    public func Initialize(parent: ref<inkGameController>) {
         let rootWidget: ref<inkCompoundWidget> = parent.GetRootCompoundWidget();
         let buttonHints: ref<inkWidget> = parent.SpawnFromExternal(rootWidget, r"base\\gameplay\\gui\\common\\buttonhints.inkwidget", n"Root");
 
@@ -75,7 +75,7 @@ public class ButtonHintsManager extends IButtonHintsManager {
         return instance;
     }
 
-    public static func InitializeFromController(controller: ref<inkGameController>) -> Void {
+    public static func InitializeFromController(controller: ref<inkGameController>) {
         let game: GameInstance = controller.GetPlayerControlledObject().GetGame();
         let instance: ref<ButtonHintsManager> = ButtonHintsManager.GetInstance(game);
 

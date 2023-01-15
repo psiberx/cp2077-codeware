@@ -9,7 +9,7 @@ public class ControllerDelayCallback extends DelayCallback {
 
     public let event: ref<Event>;
 
-    public func Call() -> Void {
+    public func Call() {
         if IsDefined(this.controller) {
             // inkGameController
             if this.controller.IsA(n"gameuiWidgetGameController") {

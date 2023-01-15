@@ -5,7 +5,7 @@
 module Codeware.UI
 
 public class VirtualResolutionScaleTarget extends VirtualResolutionTarget {
-    public func ApplyState(state: ref<VirtualResolutionData>) -> Void
+    public func ApplyState(state: ref<VirtualResolutionData>)
     {
         this.m_widget.SetScale(state.GetSmartScale());
     }

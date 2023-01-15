@@ -9,7 +9,7 @@
 //
 // class inkScrollArea extends inkLeafWidget {
 //   public func GetFitToContentDirection() -> inkFitToContentDirection
-//   public func SetFitToContentDirection(value: inkFitToContentDirection) -> Void
+//   public func SetFitToContentDirection(value: inkFitToContentDirection)
 // }
 //
 
@@ -25,7 +25,7 @@ public func GetConstrainContentPosition() -> Bool {
 }
 
 @addMethod(inkScrollArea)
-public func SetConstrainContentPosition(enabled: Bool) -> Void {
+public func SetConstrainContentPosition(enabled: Bool) {
     this.constrainContentPosition = enabled;
 }
 
@@ -35,6 +35,6 @@ public func GetFitToContentDirection() -> inkFitToContentDirection {
 }
 
 @addMethod(inkScrollArea)
-public func SetFitToContentDirection(value: inkFitToContentDirection) -> Void {
+public func SetFitToContentDirection(value: inkFitToContentDirection) {
     this.fitToContentDirection = value;
 }

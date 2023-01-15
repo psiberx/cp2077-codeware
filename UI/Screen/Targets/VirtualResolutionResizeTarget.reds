@@ -7,7 +7,7 @@ module Codeware.UI
 public class VirtualResolutionResizeTarget extends VirtualResolutionTarget {
     protected let m_size: Vector2;
 
-    public func ApplyState(state: ref<VirtualResolutionData>) -> Void
+    public func ApplyState(state: ref<VirtualResolutionData>)
     {
         let scale: Vector2 = state.GetSmartScale();
 

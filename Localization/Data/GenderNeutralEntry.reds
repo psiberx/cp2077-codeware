@@ -11,7 +11,7 @@ public class GenderNeutralEntry extends LocalizationEntry {
         return this.m_value;
     }
 
-    public func SetVariant(gender: PlayerGender, value: String) -> Void {
+    public func SetVariant(gender: PlayerGender, value: String) {
         this.m_value = value;
     }
 

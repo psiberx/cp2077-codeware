@@ -4,10 +4,10 @@
 //
 // public class CustomPopupManager {
 //   public func IsInitialized() -> Bool
-//   public func Initialize(controller: ref<inkGameController>) -> Void
-//   public func ShowPopup(popupController: ref<CustomPopup>) -> Void
-//   public func HidePopup(popupController: ref<CustomPopup>) -> Void
-//   public func AttachPopup(request: ref<CustomPopupAttachRequest>) -> Void
+//   public func Initialize(controller: ref<inkGameController>)
+//   public func ShowPopup(popupController: ref<CustomPopup>)
+//   public func HidePopup(popupController: ref<CustomPopup>)
+//   public func AttachPopup(request: ref<CustomPopupAttachRequest>)
 //   public static func GetInstance(game: GameInstance) -> ref<CustomPopupManager>
 // }
 //
@@ -26,13 +26,13 @@ public class CustomPopupManager extends ICustomPopupManager {
         return IsDefined(this.m_gameController);
     }
 
-    public func Initialize(controller: ref<inkGameController>) -> Void {
+    public func Initialize(controller: ref<inkGameController>) {
         this.m_gameController = controller;
         this.m_notificationsContainer = this.m_gameController.GetChildWidgetByPath(n"NotificationsContainer") as inkCompoundWidget;
         this.m_bracketsContainer = this.m_gameController.GetChildWidgetByPath(n"BracketsContainer") as inkCompoundWidget;
     }
 
-    public func ShowPopup(popupController: ref<CustomPopup>) -> Void {
+    public func ShowPopup(popupController: ref<CustomPopup>) {
         if !this.IsInitialized() || !IsDefined(popupController) {
             return;
         }
@@ -56,7 +56,7 @@ public class CustomPopupManager extends ICustomPopupManager {
         );
     }
 
-    public func AttachPopup(request: ref<CustomPopupAttachRequest>) -> Void {
+    public func AttachPopup(request: ref<CustomPopupAttachRequest>) {
         let initialCount: Int32 = request.GetInitialCount();
         let currentCount: Int32 = this.m_notificationsContainer.GetNumChildren();
 
@@ -89,13 +89,13 @@ public class CustomPopupManager extends ICustomPopupManager {
         notificationToken.RegisterListener(this, n"OnNotificationClosed");
     }
 
-    public func HidePopup(popupController: ref<CustomPopup>) -> Void {
+    public func HidePopup(popupController: ref<CustomPopup>) {
         if IsDefined(popupController) {
             popupController.Detach();
         }
     }
 
-    protected func QueueAttachRequest(request: ref<CustomPopupAttachRequest>) -> Void {
+    protected func QueueAttachRequest(request: ref<CustomPopupAttachRequest>) {
         let game: GameInstance = this.m_gameController.GetPlayerControlledObject().GetGame();
 
         GameInstance.GetDelaySystem(game).DelayCallback(CustomPopupAttachCallback.Create(this, request), 0);

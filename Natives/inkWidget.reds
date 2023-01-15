@@ -11,9 +11,9 @@
 //
 // class inkWidget {
 //   public func GetParentWidget() -> wref<inkWidget>
-//   public func SetController(controller: ref<inkLogicController>) -> Void
-//   public func AddSecondaryController(controller: ref<inkLogicController>) -> Void
-//   public func SetUserData(userData: ref<inkUserData>) -> Void
+//   public func SetController(controller: ref<inkLogicController>)
+//   public func AddSecondaryController(controller: ref<inkLogicController>)
+//   public func SetUserData(userData: ref<inkUserData>)
 // }
 //
 
@@ -38,17 +38,17 @@ public func GetParentWidget() -> wref<inkWidget> {
 }
 
 @addMethod(inkWidget)
-public func SetController(controller: ref<inkLogicController>) -> Void {
+public func SetController(controller: ref<inkLogicController>) {
     this.logicController = controller;
 }
 
 @addMethod(inkWidget)
-public func AddSecondaryController(controller: ref<inkLogicController>) -> Void {
+public func AddSecondaryController(controller: ref<inkLogicController>) {
     ArrayPush(this.secondaryControllers, controller);
 }
 
 @addMethod(inkWidget)
-public func SetUserData(userData: ref<inkUserData>) -> Void {
+public func SetUserData(userData: ref<inkUserData>) {
     ArrayPush(this.userData, userData);
 }
 
@@ -58,6 +58,6 @@ public func CanSupportFocus() -> Bool {
 }
 
 @addMethod(inkWidget)
-public func SetSupportFocus(enabled: Bool) -> Void {
+public func SetSupportFocus(enabled: Bool) {
     this.canSupportFocus = enabled;
 }

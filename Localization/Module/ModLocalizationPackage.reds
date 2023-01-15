@@ -8,16 +8,16 @@
 // -----------------------------------------------------------------------------
 //
 // public abstract class ModLocalizationPackage {
-//   protected func DefineTexts() -> Void
-//   protected func DefineSubtitles() -> Void
-//   protected func Text(key: String, value: String) -> Void
-//   protected func Text(key: String, valueF: String, valueM: String) -> Void
-//   protected func TextF(key: String, value: String) -> Void
-//   protected func TextM(key: String, value: String) -> Void
-//   protected func Subtitle(key: String, value: String) -> Void
-//   protected func Subtitle(key: String, valueF: String, valueM: String) -> Void
-//   protected func SubtitleF(key: String, value: String) -> Void
-//   protected func SubtitleM(key: String, value: String) -> Void
+//   protected func DefineTexts()
+//   protected func DefineSubtitles()
+//   protected func Text(key: String, value: String)
+//   protected func Text(key: String, valueF: String, valueM: String)
+//   protected func TextF(key: String, value: String)
+//   protected func TextM(key: String, value: String)
+//   protected func Subtitle(key: String, value: String)
+//   protected func Subtitle(key: String, valueF: String, valueM: String)
+//   protected func SubtitleF(key: String, value: String)
+//   protected func SubtitleM(key: String, value: String)
 // }
 //
 
@@ -56,11 +56,11 @@ public abstract class ModLocalizationPackage {
         return values;
     }
 
-    protected func DefineTexts() -> Void
+    protected func DefineTexts()
 
-    protected func DefineSubtitles() -> Void
+    protected func DefineSubtitles()
 
-    protected func Text(key: String, value: String) -> Void {
+    protected func Text(key: String, value: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderNeutralEntry> = this.m_interfaceEntries.Get(hash) as GenderNeutralEntry;
 
@@ -73,7 +73,7 @@ public abstract class ModLocalizationPackage {
         entry.SetVariant(PlayerGender.Default, value);
     }
 
-    protected func Text(key: String, valueF: String, valueM: String) -> Void {
+    protected func Text(key: String, valueF: String, valueM: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderSensitiveEntry> = this.m_interfaceEntries.Get(hash) as GenderSensitiveEntry;
 
@@ -87,7 +87,7 @@ public abstract class ModLocalizationPackage {
         entry.SetVariant(PlayerGender.Male, valueM);
     }
 
-    protected func TextF(key: String, value: String) -> Void {
+    protected func TextF(key: String, value: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderSensitiveEntry> = this.m_interfaceEntries.Get(hash) as GenderSensitiveEntry;
 
@@ -100,7 +100,7 @@ public abstract class ModLocalizationPackage {
         entry.SetVariant(PlayerGender.Female, value);
     }
 
-    protected func TextM(key: String, value: String) -> Void {
+    protected func TextM(key: String, value: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderSensitiveEntry> = this.m_interfaceEntries.Get(hash) as GenderSensitiveEntry;
 
@@ -113,7 +113,7 @@ public abstract class ModLocalizationPackage {
         entry.SetVariant(PlayerGender.Male, value);
     }
 
-    protected func Subtitle(key: String, value: String) -> Void {
+    protected func Subtitle(key: String, value: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderNeutralEntry> = this.m_subtitleEntries.Get(hash) as GenderNeutralEntry;
 
@@ -126,7 +126,7 @@ public abstract class ModLocalizationPackage {
         entry.SetVariant(PlayerGender.Default, value);
     }
 
-    protected func Subtitle(key: String, valueF: String, valueM: String) -> Void {
+    protected func Subtitle(key: String, valueF: String, valueM: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderSensitiveEntry> = this.m_subtitleEntries.Get(hash) as GenderSensitiveEntry;
 
@@ -140,7 +140,7 @@ public abstract class ModLocalizationPackage {
         entry.SetVariant(PlayerGender.Male, valueM);
     }
 
-    protected func Subtitle(key: String, value: String) -> Void {
+    protected func Subtitle(key: String, value: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderSensitiveEntry> = this.m_subtitleEntries.Get(hash) as GenderSensitiveEntry;
 
@@ -153,7 +153,7 @@ public abstract class ModLocalizationPackage {
         entry.SetVariant(PlayerGender.Female, value);
     }
 
-    protected func SubtitleM(key: String, value: String) -> Void {
+    protected func SubtitleM(key: String, value: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderSensitiveEntry> = this.m_subtitleEntries.Get(hash) as GenderSensitiveEntry;
 

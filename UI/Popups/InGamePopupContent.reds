@@ -7,7 +7,7 @@ module Codeware.UI
 public class InGamePopupContent extends inkCustomController {
     protected let m_content: wref<inkFlex>;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         let content: ref<inkFlex> = new inkFlex();
         content.SetName(n"content");
         content.SetMargin(new inkMargin(76.0, 135.0, 0.0, 118.0));

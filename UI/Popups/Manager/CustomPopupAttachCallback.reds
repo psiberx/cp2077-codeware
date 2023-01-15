@@ -9,7 +9,7 @@ public class CustomPopupAttachCallback extends DelayCallback {
 
     protected let m_request: ref<CustomPopupAttachRequest>;
 
-    public func Call() -> Void {
+    public func Call() {
         this.m_manager.AttachPopup(this.m_request);
     }
 

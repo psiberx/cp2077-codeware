@@ -4,6 +4,7 @@
 //
 // - Content alignment options
 // - Justification options
+// - Text wrapping options
 // - Overflow policy
 // - Line height
 //
@@ -11,15 +12,18 @@
 //
 // class inkText extends inkLeafWidget {
 //   public func GetContentHAlign() -> inkEHorizontalAlign
-//   public func SetContentHAlign(contentHAlign: inkEHorizontalAlign) -> Void
+//   public func SetContentHAlign(contentHAlign: inkEHorizontalAlign)
 //   public func GetContentVAlign() -> inkEVerticalAlign
-//   public func SetContentVAlign(contentVAlign: inkEVerticalAlign) -> Void
+//   public func SetContentVAlign(contentVAlign: inkEVerticalAlign)
 //   public func GetJustificationType() -> textJustificationType
-//   public func SetJustificationType(justificationType: textJustificationType) -> Void
+//   public func SetJustificationType(justificationType: textJustificationType)
 //   public func GetOverflowPolicy() -> textOverflowPolicy
-//   public func SetOverflowPolicy(overflowPolicy: textOverflowPolicy) -> Void
+//   public func SetOverflowPolicy(overflowPolicy: textOverflowPolicy)
+//   public func SetWrapping(enabled: Bool, opt width: Float, opt policy: textWrappingPolicy)
 //   public func GetLineHeight() -> Float
-//   public func SetLineHeight(lineHeight: Float) -> Void
+//   public func SetLineHeight(lineHeight: Float)
+//   public func GetLockFontInGame() -> Bool
+//   public func SetLockFontInGame(lockFont: Bool)
 // }
 //
 
@@ -35,11 +39,14 @@ native let justification: textJustificationType;
 @addField(inkText)
 native let textOverflowPolicy: textOverflowPolicy;
 
-//@addField(inkText)
-//native let wrappingInfo: textWrappingInfo;
+@addField(inkText)
+native let wrappingInfo: textWrappingInfo;
 
 @addField(inkText)
 native let lineHeightPercentage: Float;
+
+@addField(inkText)
+native let lockFontInGame: Bool;
 
 @addMethod(inkText)
 public func GetContentHAlign() -> inkEHorizontalAlign {
@@ -47,7 +54,7 @@ public func GetContentHAlign() -> inkEHorizontalAlign {
 }
 
 @addMethod(inkText)
-public func SetContentHAlign(contentHAlign: inkEHorizontalAlign) -> Void {
+public func SetContentHAlign(contentHAlign: inkEHorizontalAlign) {
     this.contentHAlign = contentHAlign;
 }
 
@@ -57,7 +64,7 @@ public func GetContentVAlign() -> inkEVerticalAlign {
 }
 
 @addMethod(inkText)
-public func SetContentVAlign(contentVAlign: inkEVerticalAlign) -> Void {
+public func SetContentVAlign(contentVAlign: inkEVerticalAlign) {
     this.contentVAlign = contentVAlign;
 }
 
@@ -67,7 +74,7 @@ public func GetJustificationType() -> textJustificationType {
 }
 
 @addMethod(inkText)
-public func SetJustificationType(justificationType: textJustificationType) -> Void {
+public func SetJustificationType(justificationType: textJustificationType) {
     this.justification = justificationType;
 }
 
@@ -77,16 +84,16 @@ public func GetOverflowPolicy() -> textOverflowPolicy {
 }
 
 @addMethod(inkText)
-public func SetOverflowPolicy(overflowPolicy: textOverflowPolicy) -> Void {
+public func SetOverflowPolicy(overflowPolicy: textOverflowPolicy) {
     this.textOverflowPolicy = overflowPolicy;
 }
 
-//@addMethod(inkText)
-//public func SetWrapping(enabled: Bool, opt width: Float, opt policy: textWrappingPolicy) -> Void {
-//    this.wrappingInfo.autoWrappingEnabled = enabled;
-//    this.wrappingInfo.wrappingAtPosition = width;
-//    this.wrappingInfo.wrappingPolicy = policy;
-//}
+@addMethod(inkText)
+public func SetWrapping(enabled: Bool, opt width: Float, opt policy: textWrappingPolicy) {
+    this.wrappingInfo.autoWrappingEnabled = enabled;
+    this.wrappingInfo.wrappingAtPosition = width;
+    this.wrappingInfo.wrappingPolicy = policy;
+}
 
 @addMethod(inkText)
 public func GetLineHeight() -> Float {
@@ -94,6 +101,16 @@ public func GetLineHeight() -> Float {
 }
 
 @addMethod(inkText)
-public func SetLineHeight(lineHeight: Float) -> Void {
+public func SetLineHeight(lineHeight: Float) {
     this.lineHeightPercentage = lineHeight;
+}
+
+@addMethod(inkText)
+public func GetLockFontInGame() -> Bool {
+    return this.lockFontInGame;
+}
+
+@addMethod(inkText)
+public func SetLockFontInGame(lockFont: Bool) {
+    this.lockFontInGame = lockFont;
 }

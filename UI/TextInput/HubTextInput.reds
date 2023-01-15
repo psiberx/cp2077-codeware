@@ -38,7 +38,7 @@ public class HubTextInput extends TextInput {
 
     protected let m_focusFrameAnimProxy: ref<inkAnimProxy>;
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         super.CreateWidgets();
 
         let fontSize: Int32 = 38;
@@ -121,7 +121,7 @@ public class HubTextInput extends TextInput {
         this.m_focus = focus;
     }
 
-    protected func CreateAnimations() -> Void {
+    protected func CreateAnimations() {
         super.CreateAnimations();
 
         let activeRootAlphaAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
@@ -157,7 +157,7 @@ public class HubTextInput extends TextInput {
         this.m_focusFrameAnimDef.AddInterpolator(focusFrameAlphaAnim);
     }
 
-    protected func ApplyDisabledState() -> Void {
+    protected func ApplyDisabledState() {
         let reverseAnimOpts: inkAnimOptions;
         reverseAnimOpts.playReversed = !this.m_isDisabled;
 
@@ -165,7 +165,7 @@ public class HubTextInput extends TextInput {
         this.m_activeRootAnimProxy = this.m_root.PlayAnimationWithOptions(this.m_activeRootAnimDef, reverseAnimOpts);
     }
 
-    protected func ApplyHoveredState() -> Void {
+    protected func ApplyHoveredState() {
         let reverseAnimOpts: inkAnimOptions;
         reverseAnimOpts.playReversed = !this.m_isHovered || this.m_isDisabled;
 
@@ -173,7 +173,7 @@ public class HubTextInput extends TextInput {
         this.m_hoverFrameAnimProxy = this.m_hover.PlayAnimationWithOptions(this.m_hoverFrameAnimDef, reverseAnimOpts);
     }
 
-    protected func ApplyFocusedState() -> Void {
+    protected func ApplyFocusedState() {
         let reverseAnimOpts: inkAnimOptions;
         reverseAnimOpts.playReversed = !this.m_isFocused || this.m_isDisabled;
 
@@ -184,7 +184,7 @@ public class HubTextInput extends TextInput {
         this.m_focusFrameAnimProxy = this.m_focus.PlayAnimationWithOptions(this.m_focusFrameAnimDef, reverseAnimOpts);
     }
 
-    public func ToggleAnimations(useAnimations: Bool) -> Void {
+    public func ToggleAnimations(useAnimations: Bool) {
         this.m_useAnimations = useAnimations;
         this.CreateAnimations();
     }

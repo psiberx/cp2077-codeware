@@ -20,21 +20,21 @@ public class TextFlow extends inkCustomController {
 
     protected let m_tickProxy: ref<inkAnimProxy>;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         this.InitializeProps();
         this.CreateWidgets();
     }
 
-    protected cb func OnInitialize() -> Void {
+    protected cb func OnInitialize() {
         this.InitializeOffsets();
         this.UpdatePlaceholder();
     }
 
-    protected func InitializeProps() -> Void {
+    protected func InitializeProps() {
         this.m_maxLength = 4096;
     }
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         let text: ref<inkText> = new inkText();
         text.SetName(n"text");
         text.SetFontFamily("base\\gameplay\\gui\\fonts\\raj\\raj.inkfontfamily");
@@ -51,7 +51,7 @@ public class TextFlow extends inkCustomController {
         this.SetRootWidget(text);
     }
 
-    protected func InitializeOffsets() -> Void {
+    protected func InitializeOffsets() {
         ArrayResize(this.m_charOffsets, this.m_length + 1);
 
         this.m_charOffsets[0] = 0;
@@ -67,7 +67,7 @@ public class TextFlow extends inkCustomController {
         }
     }
 
-    protected func ProcessInsertion(position: Int32, offset: Float) -> Void {
+    protected func ProcessInsertion(position: Int32, offset: Float) {
         ArrayInsert(this.m_charOffsets, position + 1, offset);
 
         if offset > 0.0 {
@@ -77,7 +77,7 @@ public class TextFlow extends inkCustomController {
         }
     }
 
-    protected func ProcessDeletion(position: Int32) -> Void {
+    protected func ProcessDeletion(position: Int32) {
         let diff: Float = this.m_charOffsets[position] - this.m_charOffsets[position + 1];
 
         ArrayErase(this.m_charOffsets, position + 1);
@@ -85,7 +85,7 @@ public class TextFlow extends inkCustomController {
         this.UpdateFollowers(position, diff);
     }
 
-    protected func ProcessDeletion(start: Int32, end: Int32) -> Void {
+    protected func ProcessDeletion(start: Int32, end: Int32) {
         let diff: Float = this.m_charOffsets[start] - this.m_charOffsets[end];
 
         let position: Int32 = start + 1;
@@ -97,7 +97,7 @@ public class TextFlow extends inkCustomController {
         this.UpdateFollowers(start, diff);
     }
 
-    protected func UpdateFollowers(position: Int32, diff: Float) -> Void {
+    protected func UpdateFollowers(position: Int32, diff: Float) {
         if position != this.m_length {
             position += 1;
 
@@ -111,7 +111,7 @@ public class TextFlow extends inkCustomController {
         }
     }
 
-    protected func UpdatePlaceholder() -> Void {
+    protected func UpdatePlaceholder() {
         if this.IsEmpty() {
             this.m_text.SetText(this.m_placeholder);
             this.m_text.SetOpacity(0.15);
@@ -124,7 +124,7 @@ public class TextFlow extends inkCustomController {
         return this.m_value;
     }
 
-    public func SetText(text: String) -> Void {
+    public func SetText(text: String) {
         this.m_value = text;
         this.m_length = StrLen(text);
 
@@ -138,7 +138,7 @@ public class TextFlow extends inkCustomController {
         return this.m_placeholder;
     }
 
-    public func SetDefaultText(text: String) -> Void {
+    public func SetDefaultText(text: String) {
         this.m_placeholder = text;
 
         this.UpdatePlaceholder();
@@ -152,7 +152,7 @@ public class TextFlow extends inkCustomController {
         return this.m_maxLength;
     }
 
-    public func SetMaxLength(max: Int32) -> Void {
+    public func SetMaxLength(max: Int32) {
         this.m_maxLength = max;
     }
 
@@ -168,7 +168,7 @@ public class TextFlow extends inkCustomController {
         return this.m_text.GetLetterCase();
     }
 
-    public func SetLetterCase(case: textLetterCase) -> Void {
+    public func SetLetterCase(case: textLetterCase) {
         this.m_text.SetLetterCase(case);
     }
 
@@ -176,7 +176,7 @@ public class TextFlow extends inkCustomController {
         return this.m_text.GetFontSize();
     }
 
-    public func SetFontSize(fontSize: Int32) -> Void {
+    public func SetFontSize(fontSize: Int32) {
         this.m_text.SetFontSize(fontSize);
     }
 
@@ -188,7 +188,7 @@ public class TextFlow extends inkCustomController {
         return this.m_charOffsets[position];
     }
 
-    public func SetCharOffset(position: Int32, offset: Float) -> Void {
+    public func SetCharOffset(position: Int32, offset: Float) {
         if this.m_charOffsets[position] < 0.0 && offset > 0.0 {
             this.m_charOffsets[position] = offset;
 
@@ -204,7 +204,7 @@ public class TextFlow extends inkCustomController {
         return this.m_charOffsets[position] - this.m_charOffsets[position - 1];
     }
 
-    public func SetCharWidth(position: Int32, width: Float) -> Void {
+    public func SetCharWidth(position: Int32, width: Float) {
         if this.m_charOffsets[position] < 0.0 && width > 0.0 {
             this.m_charOffsets[position] = this.m_charOffsets[position - 1] + width;
 
@@ -247,7 +247,7 @@ public class TextFlow extends inkCustomController {
         return 0; // FIXME
     }
 
-    public func InsertCharAt(position: Int32, char: String) -> Void {
+    public func InsertCharAt(position: Int32, char: String) {
         if this.m_length == this.m_maxLength {
             return;
         }
@@ -274,7 +274,7 @@ public class TextFlow extends inkCustomController {
         this.UpdatePlaceholder();
     }
 
-    public func DeleteCharAt(position: Int32) -> Void {
+    public func DeleteCharAt(position: Int32) {
         position = Max(position, 0);
         position = Min(position, this.m_length - 1);
 
@@ -297,7 +297,7 @@ public class TextFlow extends inkCustomController {
         this.UpdatePlaceholder();
     }
 
-    public func DeleteCharRange(start: Int32, end: Int32) -> Void {
+    public func DeleteCharRange(start: Int32, end: Int32) {
         start = Max(start, 0);
         start = Min(start, this.m_length - 1);
 

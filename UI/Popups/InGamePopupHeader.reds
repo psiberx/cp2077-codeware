@@ -11,7 +11,7 @@ public class InGamePopupHeader extends inkCustomController {
 
     protected let m_fluffRight: wref<inkText>;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         let header: ref<inkFlex> = new inkFlex();
         header.SetName(n"header");
         header.SetMargin(new inkMargin(76.0, 32.0, 76.0, 0.0));
@@ -148,15 +148,15 @@ public class InGamePopupHeader extends inkCustomController {
         this.SetRootWidget(header);
     }
 
-    public func SetTitle(text: String) -> Void {
+    public func SetTitle(text: String) {
         this.m_title.SetText(text);
     }
 
-    public func SetFluffLeft(text: String) -> Void {
+    public func SetFluffLeft(text: String) {
         this.m_fluffLeft.SetText(text);
     }
 
-    public func SetFluffRight(text: String) -> Void {
+    public func SetFluffRight(text: String) {
         this.m_fluffRight.SetText(text);
     }
 

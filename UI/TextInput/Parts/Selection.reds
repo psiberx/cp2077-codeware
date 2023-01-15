@@ -18,22 +18,22 @@ public class Selection extends inkCustomController {
 
     protected let m_padSize: Float;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         this.InitializeProps();
         this.CreateWidgets();
     }
 
-    protected cb func OnInitialize() -> Void {
+    protected cb func OnInitialize() {
         this.InitializeLayout();
     }
 
-    protected func InitializeProps() -> Void {
+    protected func InitializeProps() {
         this.m_startPosition = -1;
         this.m_endPosition = -1;
         this.m_padSize = 6.0;
     }
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         let selection: ref<inkRectangle> = new inkRectangle();
         selection.SetName(n"selection");
         selection.SetVisible(false);
@@ -47,7 +47,7 @@ public class Selection extends inkCustomController {
         this.SetRootWidget(this.m_selection);
     }
 
-    protected func InitializeLayout() -> Void {
+    protected func InitializeLayout() {
         this.m_selection.SetHeight(this.m_fontSize + this.m_padSize * 2.0);
     }
 
@@ -55,7 +55,7 @@ public class Selection extends inkCustomController {
         return Cast(this.m_fontSize);
     }
 
-    public func SetFontSize(fontSize: Int32) -> Void {
+    public func SetFontSize(fontSize: Int32) {
         this.m_fontSize = Cast(fontSize);
 
         this.InitializeLayout();
@@ -65,7 +65,7 @@ public class Selection extends inkCustomController {
         return this.m_selection.GetTintColor();
     }
 
-    public func SetTintColor(color: HDRColor) -> Void {
+    public func SetTintColor(color: HDRColor) {
         this.m_selection.SetTintColor(color);
     }
 
@@ -73,7 +73,7 @@ public class Selection extends inkCustomController {
         return this.m_selection.GetOpacity();
     }
 
-    public func SetOpacity(opacity: Float) -> Void {
+    public func SetOpacity(opacity: Float) {
         this.m_selection.SetOpacity(opacity);
     }
 
@@ -81,7 +81,7 @@ public class Selection extends inkCustomController {
         return this.m_maxPosition;
     }
 
-    public func SetMaxPosition(max: Int32) -> Void {
+    public func SetMaxPosition(max: Int32) {
         this.m_maxPosition = max;
     }
 
@@ -89,7 +89,7 @@ public class Selection extends inkCustomController {
         return this.m_startPosition;
     }
 
-    public func SetStartPosition(value: Int32) -> Void {
+    public func SetStartPosition(value: Int32) {
         this.m_startPosition = value;
     }
 
@@ -97,16 +97,16 @@ public class Selection extends inkCustomController {
         return this.m_endPosition;
     }
 
-    public func SetEndPosition(value: Int32) -> Void {
+    public func SetEndPosition(value: Int32) {
         this.m_endPosition = value;
     }
 
-    public func SelectAll() -> Void {
+    public func SelectAll() {
         this.m_startPosition = 0;
         this.m_endPosition = this.m_maxPosition;
     }
 
-    public func Clear() -> Void {
+    public func Clear() {
         this.m_startPosition = -1;
         this.m_endPosition = -1;
     }
@@ -132,7 +132,7 @@ public class Selection extends inkCustomController {
         return this.m_startPosition == this.m_endPosition;
     }
 
-    public func UpdateState(isFocused: Bool, selectedBounds: RectF) -> Void {
+    public func UpdateState(isFocused: Bool, selectedBounds: RectF) {
         if isFocused && !this.IsEmpty() {
             this.m_selection.SetVisible(true);
 

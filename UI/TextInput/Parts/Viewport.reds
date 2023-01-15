@@ -12,11 +12,11 @@ public class Viewport extends inkCustomController {
 
     protected let m_caretSize: Vector2;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         this.CreateWidgets();
     }
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         let viewport: ref<inkScrollArea> = new inkScrollArea();
         viewport.SetName(n"viewport");
         viewport.SetAnchor(inkEAnchor.Fill);
@@ -42,11 +42,11 @@ public class Viewport extends inkCustomController {
         return this.m_caretSize;
     }
 
-    public func SetCaretSize(caretSize: Vector2) -> Void {
+    public func SetCaretSize(caretSize: Vector2) {
         this.m_caretSize = caretSize;
     }
 
-    public func UpdateState(contentSize: Vector2, caretOffset: Float) -> Void {
+    public func UpdateState(contentSize: Vector2, caretOffset: Float) {
         if contentSize.X <= 0.01 {
             contentSize = this.m_caretSize;
         }

@@ -13,7 +13,7 @@ public abstract class LocalizationEntry {
 
     public func GetVariant(gender: PlayerGender) -> String
 
-    public func SetVariant(gender: PlayerGender, value: String) -> Void
+    public func SetVariant(gender: PlayerGender, value: String)
 
     public static func Hash(str: String) -> Uint64 {
         return TDBID.ToNumber(TDBID.Create(str));

@@ -13,7 +13,7 @@ public class InGamePopupFooter extends inkCustomController {
 
     protected let m_buttonHints: wref<ButtonHintsEx>;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         let footer: ref<inkCanvas> = new inkCanvas();
         footer.SetName(n"footer");
         footer.SetAnchor(inkEAnchor.BottomFillHorizontaly);
@@ -74,7 +74,7 @@ public class InGamePopupFooter extends inkCustomController {
         this.SetRootWidget(footer);
     }
 
-    protected cb func OnInitialize() -> Void {
+    protected cb func OnInitialize() {
         this.m_buttonHints = ButtonHintsManager.GetInstance(this.GetGame()).SpawnButtonHints(this.m_inputHolder);
         this.m_buttonHints.SetStyle(n"popup");
         this.m_buttonHints.AddButtonHint(n"cancel", "UI-UserActions-Close");
@@ -84,18 +84,18 @@ public class InGamePopupFooter extends inkCustomController {
         return this.m_buttonHints;
     }
 
-    public func SetFluffIcon(icon: CName) -> Void {
+    public func SetFluffIcon(icon: CName) {
         this.m_fluffIcon.SetTexturePart(icon);
         this.m_fluffIcon.SetVisible(true);
     }
 
-    public func SetFluffIcon(icon: CName, atlas: ResRef) -> Void {
+    public func SetFluffIcon(icon: CName, atlas: ResRef) {
         this.m_fluffIcon.SetAtlasResource(atlas);
         this.m_fluffIcon.SetTexturePart(icon);
         this.m_fluffIcon.SetVisible(true);
     }
 
-    public func SetFluffText(text: String) -> Void {
+    public func SetFluffText(text: String) {
         this.m_fluffText.SetText(text);
         this.m_fluffText.SetVisible(true);
     }

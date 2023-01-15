@@ -38,21 +38,21 @@ public class TextMeasurer extends inkCustomController {
 
     protected let m_charCache: ref<inkStringMap>;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         this.InitializeProps();
         this.CreateWidgets();
     }
 
-    protected cb func OnInitialize() -> Void {
+    protected cb func OnInitialize() {
         this.RegisterTick();
     }
 
-    protected func InitializeProps() -> Void {
+    protected func InitializeProps() {
         this.m_useCharCache = true;
         this.m_charCache = new inkStringMap();
     }
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         let shadow: ref<inkText> = new inkText();
         shadow.SetName(n"shadow");
         shadow.SetVisible(false);
@@ -67,7 +67,7 @@ public class TextMeasurer extends inkCustomController {
         this.SetRootWidget(shadow);
     }
 
-    protected func RegisterTick() -> Void {
+    protected func RegisterTick() {
         let tickAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
         tickAnim.SetStartTransparency(1.0);
         tickAnim.SetEndTransparency(1.0);
@@ -144,13 +144,13 @@ public class TextMeasurer extends inkCustomController {
         return true;
     }
 
-    protected func AddResultToCache() -> Void {
+    protected func AddResultToCache() {
         if this.m_useCharCache {
             this.m_charCache.Insert(this.m_shadow.GetText(), Cast(this.m_resultSize.X));
         }
     }
 
-    protected cb func OnTick(anim: ref<inkAnimProxy>) -> Void {
+    protected cb func OnTick(anim: ref<inkAnimProxy>) {
         if !this.m_isMeasuring {
             this.m_tickProxy.Pause();
             return;
@@ -217,14 +217,14 @@ public class TextMeasurer extends inkCustomController {
         return this.m_resultSize;
     }
 
-    public func CopyTextSettings(source: ref<inkText>) -> Void {
+    public func CopyTextSettings(source: ref<inkText>) {
         if IsDefined(source) {
             this.m_shadow.SetFontStyle(source.GetFontStyle());
             this.m_shadow.SetFontSize(source.GetFontSize());
         }
     }
 
-    public func CopyTextSettings(source: ref<inkCustomController>) -> Void {
+    public func CopyTextSettings(source: ref<inkCustomController>) {
         this.CopyTextSettings(source.GetRootWidget() as inkText);
     }
 

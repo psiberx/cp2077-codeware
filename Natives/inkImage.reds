@@ -9,13 +9,13 @@
 //
 // class inkImage extends inkLeafWidget {
 //   public func UsesNineSliceScale() -> Bool
-//   public func SetNineSliceScale(enable: Bool) -> Void
+//   public func SetNineSliceScale(enable: Bool)
 //   public func GetNineSliceGrid() -> inkMargin
-//   public func SetNineSliceGrid(grid: inkMargin) -> Void
+//   public func SetNineSliceGrid(grid: inkMargin)
 //   public func GetTileHAlign() -> inkEHorizontalAlign
-//   public func SetTileHAlign(tileHAlign: inkEHorizontalAlign) -> Void
+//   public func SetTileHAlign(tileHAlign: inkEHorizontalAlign)
 //   public func GetTileVAlign() -> inkEVerticalAlign
-//   public func SetTileVAlign(tileVAlign: inkEVerticalAlign) -> Void
+//   public func SetTileVAlign(tileVAlign: inkEVerticalAlign)
 // }
 //
 
@@ -37,7 +37,7 @@ public func UsesNineSliceScale() -> Bool {
 }
 
 @addMethod(inkImage)
-public func SetNineSliceScale(enable: Bool) -> Void {
+public func SetNineSliceScale(enable: Bool) {
     this.useNineSliceScale = enable;
 }
 
@@ -47,7 +47,7 @@ public func GetNineSliceGrid() -> inkMargin {
 }
 
 @addMethod(inkImage)
-public func SetNineSliceGrid(grid: inkMargin) -> Void {
+public func SetNineSliceGrid(grid: inkMargin) {
     this.nineSliceScale = grid;
 }
 
@@ -57,7 +57,7 @@ public func GetTileHAlign() -> inkEHorizontalAlign {
 }
 
 @addMethod(inkImage)
-public func SetTileHAlign(tileHAlign: inkEHorizontalAlign) -> Void {
+public func SetTileHAlign(tileHAlign: inkEHorizontalAlign) {
     this.tileHAlign = tileHAlign;
 }
 
@@ -67,6 +67,6 @@ public func GetTileVAlign() -> inkEVerticalAlign {
 }
 
 @addMethod(inkImage)
-public func SetTileVAlign(tileVAlign: inkEVerticalAlign) -> Void {
+public func SetTileVAlign(tileVAlign: inkEVerticalAlign) {
     this.tileVAlign = tileVAlign;
 }

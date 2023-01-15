@@ -11,7 +11,7 @@ public class GenderSensitiveEntry extends LocalizationEntry {
         return this.m_variants[EnumInt(gender)];
     }
 
-    public func SetVariant(gender: PlayerGender, value: String) -> Void {
+    public func SetVariant(gender: PlayerGender, value: String) {
         this.m_variants[EnumInt(gender)] = value;
     }
 

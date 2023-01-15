@@ -25,7 +25,7 @@ public class HubButton extends CustomButton {
 
     protected let m_hoverFillAnimProxy: ref<inkAnimProxy>;
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         let root: ref<inkCanvas> = new inkCanvas();
         root.SetName(n"button");
         root.SetSize(new Vector2(500.0, 100.0)); // Big Mode = 160.0
@@ -210,7 +210,7 @@ public class HubButton extends CustomButton {
         this.SetRootWidget(root);
     }
 
-    protected func CreateAnimations() -> Void {
+    protected func CreateAnimations() {
         let disabledRootAlphaAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
         disabledRootAlphaAnim.SetStartTransparency(1.0);
         disabledRootAlphaAnim.SetEndTransparency(0.3);
@@ -228,7 +228,7 @@ public class HubButton extends CustomButton {
         this.m_hoverFillAnimDef.AddInterpolator(hoverFillAlphaAnim);
     }
 
-    protected func ApplyDisabledState() -> Void {
+    protected func ApplyDisabledState() {
         let reverseAnimOpts: inkAnimOptions;
         reverseAnimOpts.playReversed = !this.m_isDisabled;
 
@@ -236,7 +236,7 @@ public class HubButton extends CustomButton {
         this.m_disabledRootAnimProxy = this.m_root.PlayAnimationWithOptions(this.m_disabledRootAnimDef, reverseAnimOpts);
     }
 
-    protected func ApplyHoveredState() -> Void {
+    protected func ApplyHoveredState() {
         let reverseAnimOpts: inkAnimOptions;
         reverseAnimOpts.playReversed = !this.m_isHovered || this.m_isDisabled;
 
@@ -244,9 +244,9 @@ public class HubButton extends CustomButton {
         this.m_hoverFillAnimProxy = this.m_hover.PlayAnimationWithOptions(this.m_hoverFillAnimDef, reverseAnimOpts);
     }
 
-    protected func ApplyPressedState() -> Void {}
+    protected func ApplyPressedState() {}
 
-    public func SetIcon(icon: CName) -> Void {
+    public func SetIcon(icon: CName) {
         this.m_icon.SetTexturePart(icon);
 
         if NotEquals(icon, n"") {
@@ -257,12 +257,12 @@ public class HubButton extends CustomButton {
         }
     }
 
-    public func SetIcon(icon: CName, atlas: ResRef) -> Void {
+    public func SetIcon(icon: CName, atlas: ResRef) {
         this.m_icon.SetAtlasResource(atlas);
         this.SetIcon(icon);
     }
 
-//    public func SetFluff(showFluff: Bool) -> Void {
+//    public func SetFluff(showFluff: Bool) {
 //        this.m_fluff.SetVisible(showFluff);
 //    }
 

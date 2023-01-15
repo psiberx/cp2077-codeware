@@ -9,7 +9,7 @@
 //   public func GetPlayerGender() -> PlayerGender
 //   public func GetText(key: String) -> String
 //   public func GetSubtitle(key: String) -> String
-//   public func RegisterProvider(provider: ref<ModLocalizationProvider>) -> Void
+//   public func RegisterProvider(provider: ref<ModLocalizationProvider>)
 //   public static func GetInstance(game: GameInstance) -> ref<LocalizationSystem>
 // }
 //
@@ -43,7 +43,7 @@ public class LocalizationSystem extends ScriptableSystem {
 
     private let m_genderChanged: Bool;
 
-    private func OnAttach() -> Void {
+    private func OnAttach() {
         this.m_interfaceTranslationData = new inkHashMap();
         this.m_subtitleTranslationData = new inkHashMap();
 
@@ -61,24 +61,24 @@ public class LocalizationSystem extends ScriptableSystem {
         this.QueueRequest(UpdateGenderRequest.Create());
     }
 
-    private func OnDetach() -> Void {
+    private func OnDetach() {
         this.m_genderWatcher.Stop();
     }
 
-    private func OnRegisterProviderRequest(request: ref<RegisterProviderRequest>) -> Void {
+    private func OnRegisterProviderRequest(request: ref<RegisterProviderRequest>) {
         this.RegisterProvider(request.GetProvider());
     }
 
-    private func OnUpdateLocaleRequest(request: ref<UpdateLocaleRequest>) -> Void {
+    private func OnUpdateLocaleRequest(request: ref<UpdateLocaleRequest>) {
         this.UpdateLocale();
         this.UpdateTranslations();
     }
 
-    private func OnUpdateGenderRequest(request: ref<UpdateGenderRequest>) -> Void {
+    private func OnUpdateGenderRequest(request: ref<UpdateGenderRequest>) {
         this.UpdateGender();
     }
 
-    private func OnUpdateTranslationsRequest(request: ref<UpdateTranslationsRequest>) -> Void {
+    private func OnUpdateTranslationsRequest(request: ref<UpdateTranslationsRequest>) {
         if request.IsForced() {
             this.InvalidateTranslations();
         }
@@ -86,7 +86,7 @@ public class LocalizationSystem extends ScriptableSystem {
         this.UpdateTranslations();
     }
 
-    private func NotifyProviders() -> Void {
+    private func NotifyProviders() {
         if this.m_localeChanged {
             for provider in this.m_providers {
                 provider.OnLocaleChange();
@@ -102,7 +102,7 @@ public class LocalizationSystem extends ScriptableSystem {
         }
     }
 
-    private func UpdateLocale() -> Void {
+    private func UpdateLocale() {
         let settings: ref<UserSettings> = GameInstance.GetSettingsSystem(this.GetGameInstance());
 
         let interfaceLanguage: CName = (settings.GetVar(n"/language", n"OnScreen") as ConfigVarListName).GetValue();
@@ -127,7 +127,7 @@ public class LocalizationSystem extends ScriptableSystem {
         this.NotifyProviders();
     }
 
-    private func UpdateGender() -> Void {
+    private func UpdateGender() {
         let playerGenderName: CName = GetPlayer(this.GetGameInstance()).GetResolvedGenderName();
         let playerGender: PlayerGender = Equals(playerGenderName, n"Male") ? PlayerGender.Male : PlayerGender.Female;
 
@@ -139,7 +139,7 @@ public class LocalizationSystem extends ScriptableSystem {
         this.NotifyProviders();
     }
 
-    private func UpdateTranslations() -> Void {
+    private func UpdateTranslations() {
         if NotEquals(this.m_interfaceTranslationLanguage, this.m_interfaceLanguage) {
             this.CollectTranslationData(this.m_interfaceTranslationData, EntryType.Interface, this.m_interfaceLanguage);
             this.m_interfaceTranslationLanguage = this.m_interfaceLanguage;
@@ -151,7 +151,7 @@ public class LocalizationSystem extends ScriptableSystem {
         }
     }
 
-    private func MergeTranslations(provider: ref<ModLocalizationProvider>) -> Void {
+    private func MergeTranslations(provider: ref<ModLocalizationProvider>) {
         if NotEquals(this.m_interfaceTranslationLanguage, n"") {
             this.FillTranslationData(this.m_interfaceTranslationData, provider, EntryType.Interface, this.m_interfaceTranslationLanguage);
         }
@@ -161,12 +161,12 @@ public class LocalizationSystem extends ScriptableSystem {
         }
     }
 
-    private func InvalidateTranslations() -> Void {
+    private func InvalidateTranslations() {
         this.m_interfaceTranslationLanguage = n"";
         this.m_subtitleTranslationLanguage = n"";
     }
 
-    private func CollectTranslationData(translations: ref<inkHashMap>, type: EntryType, language: CName) -> Void {
+    private func CollectTranslationData(translations: ref<inkHashMap>, type: EntryType, language: CName) {
         translations.Clear();
 
         for provider in this.m_providers {
@@ -174,7 +174,7 @@ public class LocalizationSystem extends ScriptableSystem {
         }
     }
 
-    private func FillTranslationData(translations: ref<inkHashMap>, provider: ref<ModLocalizationProvider>, type: EntryType, language: CName) -> Void {
+    private func FillTranslationData(translations: ref<inkHashMap>, provider: ref<ModLocalizationProvider>, type: EntryType, language: CName) {
         let package: ref<ModLocalizationPackage> = provider.GetPackage(language);
 
         if !IsDefined(package) {
@@ -247,7 +247,7 @@ public class LocalizationSystem extends ScriptableSystem {
         return this.m_playerGender;
     }
 
-    public func RegisterProvider(provider: ref<ModLocalizationProvider>) -> Void {
+    public func RegisterProvider(provider: ref<ModLocalizationProvider>) {
         ArrayPush(this.m_providers, provider);
 
         this.MergeTranslations(provider);

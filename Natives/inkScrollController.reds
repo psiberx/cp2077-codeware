@@ -8,7 +8,7 @@
 //
 // class inkScrollController extends inkLeafWidget {
 //   public func GetFitToContentDirection() -> inkFitToContentDirection
-//   public func SetFitToContentDirection(value: inkFitToContentDirection) -> Void
+//   public func SetFitToContentDirection(value: inkFitToContentDirection)
 // }
 //
 
@@ -27,17 +27,17 @@ public func GetViewportSize() -> Vector2 {
 }
 
 @addMethod(inkScrollController)
-public func SetViewportSize(size: Vector2) -> Void {
+public func SetViewportSize(size: Vector2) {
     this.viewportSize = size;
 }
 
 @addMethod(inkScrollController)
-public func SetViewportWidth(width: Float) -> Void {
+public func SetViewportWidth(width: Float) {
     this.viewportSize = new Vector2(width, this.viewportSize.Y);
 }
 
 @addMethod(inkScrollController)
-public func SetViewportHeight(height: Float) -> Void {
+public func SetViewportHeight(height: Float) {
     this.viewportSize = new Vector2(this.viewportSize.X, height);
 }
 
@@ -47,7 +47,7 @@ public func IsEnabled() -> Bool {
 }
 
 @addMethod(inkScrollController)
-public func SetEnabled(enabled: Bool) -> Void {
+public func SetEnabled(enabled: Bool) {
     if enabled {
         if this.lastScrollDelta > 0.0 {
             this.scrollDelta = this.lastScrollDelta;

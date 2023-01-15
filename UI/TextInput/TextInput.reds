@@ -50,13 +50,13 @@ public class TextInput extends inkCustomController {
 
     protected let m_holdTickProxy: ref<inkAnimProxy>;
 
-    protected cb func OnCreate() -> Void {
+    protected cb func OnCreate() {
         this.InitializeProps();
         this.CreateWidgets();
         this.CreateAnimations();
     }
 
-    protected cb func OnInitialize() -> Void {
+    protected cb func OnInitialize() {
         this.RegisterListeners();
         this.RegisterHoldTick();
 
@@ -68,11 +68,11 @@ public class TextInput extends inkCustomController {
         this.ApplyFocusedState();
     }
 
-    protected func InitializeProps() -> Void {
+    protected func InitializeProps() {
         this.m_inputEvents = new inkHashMap();
     }
 
-    protected func CreateWidgets() -> Void {
+    protected func CreateWidgets() {
         let root = new inkCanvas();
         root.SetName(n"input");
         root.SetSize(600.0, 64.0);
@@ -102,16 +102,16 @@ public class TextInput extends inkCustomController {
         this.SetRootWidget(this.m_root);
     }
 
-    protected func CreateAnimations() -> Void {}
+    protected func CreateAnimations() {}
 
-    protected func InitializeLayout() -> Void {
+    protected func InitializeLayout() {
         this.m_caret.SetFontSize(this.m_text.GetFontSize());
         this.m_selection.SetFontSize(this.m_text.GetFontSize());
         this.m_viewport.SetCaretSize(this.m_caret.GetSize());
         this.m_measurer.CopyTextSettings(this.m_text);
     }
 
-    protected func UpdateLayout() -> Void {
+    protected func UpdateLayout() {
         let contentSize: Vector2 = this.m_text.GetDesiredSize();
         let selectedBounds: RectF = this.m_text.GetCharRange(this.m_selection.GetRange());
         let caretOffset: Float = this.m_text.GetCharOffset(this.m_caret.GetPosition());
@@ -121,13 +121,13 @@ public class TextInput extends inkCustomController {
         this.m_caret.UpdateState(this.m_isFocused, caretOffset);
     }
 
-    protected func ApplyDisabledState() -> Void {}
+    protected func ApplyDisabledState() {}
 
-    protected func ApplyHoveredState() -> Void {}
+    protected func ApplyHoveredState() {}
 
-    protected func ApplyFocusedState() -> Void {}
+    protected func ApplyFocusedState() {}
 
-    protected func SetDisabledState(isDisabled: Bool) -> Void {
+    protected func SetDisabledState(isDisabled: Bool) {
         if !Equals(this.m_isDisabled, isDisabled) {
             this.m_isDisabled = isDisabled;
 
@@ -144,7 +144,7 @@ public class TextInput extends inkCustomController {
         }
     }
 
-    protected func SetHoveredState(isHovered: Bool) -> Void {
+    protected func SetHoveredState(isHovered: Bool) {
         if !Equals(this.m_isHovered, isHovered) {
             this.m_isHovered = isHovered;
 
@@ -154,7 +154,7 @@ public class TextInput extends inkCustomController {
         }
     }
 
-    protected func SetFocusedState(isFocused: Bool) -> Void {
+    protected func SetFocusedState(isFocused: Bool) {
         if !Equals(this.m_isFocused, isFocused) {
             this.m_isFocused = isFocused;
 
@@ -166,7 +166,7 @@ public class TextInput extends inkCustomController {
         }
     }
 
-    protected func RegisterListeners() -> Void {
+    protected func RegisterListeners() {
         this.RegisterToCallback(n"OnEnter", this, n"OnHoverOver");
         this.RegisterToCallback(n"OnLeave", this, n"OnHoverOut");
         this.RegisterToCallback(n"OnFocusReceived", this, n"OnFocusReceived");
@@ -180,7 +180,7 @@ public class TextInput extends inkCustomController {
         this.m_measurer.RegisterToCallback(n"OnCharMeasured", this, n"OnTextMeasured");
     }
 
-    protected func RegisterHoldTick() -> Void {
+    protected func RegisterHoldTick() {
         let tickAnim: ref<inkAnimTextValueProgress> = new inkAnimTextValueProgress();
         tickAnim.SetStartProgress(0.0);
         tickAnim.SetEndProgress(0.0);
@@ -216,7 +216,7 @@ public class TextInput extends inkCustomController {
         return char;
     }
 
-    protected func ProcessInputEvent(event: ref<inkCharacterEvent>) -> Void {
+    protected func ProcessInputEvent(event: ref<inkCharacterEvent>) {
         switch event.GetType() {
             case inkCharacterEventType.CharInput:
                 if this.m_text.IsFull() {
@@ -409,7 +409,7 @@ public class TextInput extends inkCustomController {
         }
     }
 
-    protected func TriggerChangeCallback() -> Void {
+    protected func TriggerChangeCallback() {
         this.CallCustomCallback(n"OnInput");
     }
 
@@ -417,7 +417,7 @@ public class TextInput extends inkCustomController {
         return Cast<Uint64>(1000 * EnumInt(event.GetType())) + Cast<Uint64>(event.GetCharacter());
     }
 
-    protected cb func OnCharacterKey(event: ref<inkCharacterEvent>) -> Void {
+    protected cb func OnCharacterKey(event: ref<inkCharacterEvent>) {
         // NOTE: inkCharacterEvent currently has no PRESS / RELEASE indication.
         // We use a hash map to detect if the exact same event was sent before.
         // If event is not in the map, then it's a PRESS, otherwise it's a RELEASE.
@@ -441,7 +441,7 @@ public class TextInput extends inkCustomController {
         this.m_holdTickCounter = 0;
     }
 
-    protected cb func OnHoldTick(anim: ref<inkAnimProxy>) -> Void {
+    protected cb func OnHoldTick(anim: ref<inkAnimProxy>) {
         if IsDefined(this.m_lastInputEvent) {
             this.m_holdTickCounter += 1;
 
@@ -454,7 +454,7 @@ public class TextInput extends inkCustomController {
         }
     }
 
-    protected cb func OnReleaseKey(event: ref<inkPointerEvent>) -> Void {
+    protected cb func OnReleaseKey(event: ref<inkPointerEvent>) {
         if this.m_isFocused && !this.m_measurer.IsMeasuring() {
             if event.IsAction(n"mouse_left") {
                 let clickPoint: Vector2 = WidgetUtils.GlobalToLocal(this.m_text.GetRootWidget(), event.GetScreenSpacePosition());
@@ -468,7 +468,7 @@ public class TextInput extends inkCustomController {
         }
     }
 
-    protected cb func OnTextMeasured(widget: ref<inkWidget>) -> Void {
+    protected cb func OnTextMeasured(widget: ref<inkWidget>) {
         let measuredPosition: Int32 = this.m_measurer.GetTargetPosition();
         let measuredSize: Vector2 = this.m_measurer.GetMeasuredSize();
 
@@ -493,11 +493,11 @@ public class TextInput extends inkCustomController {
         this.SetHoveredState(false);
     }
 
-    protected cb func OnFocusReceived(event: ref<inkEvent>) -> Void {
+    protected cb func OnFocusReceived(event: ref<inkEvent>) {
         this.SetFocusedState(true);
     }
 
-    protected cb func OnFocusLost(event: ref<inkEvent>) -> Void {
+    protected cb func OnFocusLost(event: ref<inkEvent>) {
         this.SetFocusedState(false);
     }
 
@@ -505,7 +505,7 @@ public class TextInput extends inkCustomController {
         return this.m_root.GetName();
     }
 
-    public func SetName(name: CName) -> Void {
+    public func SetName(name: CName) {
         this.m_root.SetName(name);
     }
 
@@ -513,7 +513,7 @@ public class TextInput extends inkCustomController {
         return this.m_text.GetText();
     }
 
-    public func SetText(text: String) -> Void {
+    public func SetText(text: String) {
         this.m_text.SetText(text);
 
         this.m_measurer.MeasureAllChars(text);
@@ -532,7 +532,7 @@ public class TextInput extends inkCustomController {
         return this.m_text.GetDefaultText();
     }
 
-    public func SetDefaultText(text: String) -> Void {
+    public func SetDefaultText(text: String) {
         this.m_text.SetDefaultText(text);
     }
 
@@ -540,7 +540,7 @@ public class TextInput extends inkCustomController {
         return this.m_text.GetMaxLength();
     }
 
-    public func SetMaxLength(max: Int32) -> Void {
+    public func SetMaxLength(max: Int32) {
         this.m_text.SetMaxLength(max);
     }
 
@@ -548,7 +548,7 @@ public class TextInput extends inkCustomController {
         return this.m_text.GetLetterCase();
     }
 
-    public func SetLetterCase(case: textLetterCase) -> Void {
+    public func SetLetterCase(case: textLetterCase) {
         this.m_text.SetLetterCase(case);
     }
 
@@ -556,7 +556,7 @@ public class TextInput extends inkCustomController {
         return this.m_root.GetWidth();
     }
 
-    public func SetWidth(width: Float) -> Void {
+    public func SetWidth(width: Float) {
         this.m_root.SetWidth(width);
 
         this.UpdateLayout();
@@ -566,7 +566,7 @@ public class TextInput extends inkCustomController {
         return this.m_caret.GetPosition();
     }
 
-    public func SetCaretPosition(position: Int32) -> Void {
+    public func SetCaretPosition(position: Int32) {
         this.m_caret.SetPosition(position);
 
         this.UpdateLayout();
@@ -588,7 +588,7 @@ public class TextInput extends inkCustomController {
         return !this.m_isDisabled;
     }
 
-    public func SetDisabled(isDisabled: Bool) -> Void {
+    public func SetDisabled(isDisabled: Bool) {
         this.SetDisabledState(isDisabled);
 
         this.UpdateLayout();

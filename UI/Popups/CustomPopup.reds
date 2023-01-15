@@ -13,10 +13,10 @@
 //   public func GetQueueName() -> CName
 //   public func IsBlocking() -> Bool
 //   public func UseCursor() -> Bool
-//   public func Open(requester: wref<inkGameController>) -> Void
-//   public func Close() -> Void
-//   public func Attach(rootWidget: ref<inkCanvas>, gameController: wref<inkGameController>, notificationData: ref<inkGameNotificationData>) -> Void
-//   public func Detach() -> Void
+//   public func Open(requester: wref<inkGameController>)
+//   public func Close()
+//   public func Attach(rootWidget: ref<inkCanvas>, gameController: wref<inkGameController>, notificationData: ref<inkGameNotificationData>)
+//   public func Detach()
 // }
 //
 
@@ -29,25 +29,25 @@ public abstract class CustomPopup extends inkCustomController {
 
     protected let m_transitionAnimProxy: ref<inkAnimProxy>;
 
-    protected func SetNotificationData(notificationData: ref<inkGameNotificationData>) -> Void {
+    protected func SetNotificationData(notificationData: ref<inkGameNotificationData>) {
         this.m_notificationData = notificationData;
         this.m_notificationToken = notificationData.token;
     }
 
-    protected func ResetNotificationData() -> Void {
+    protected func ResetNotificationData() {
         this.m_notificationToken.TriggerCallback(this.m_notificationData);
         this.m_notificationToken = null;
         this.m_notificationData = null;
     }
 
-    protected cb func OnAttach() -> Void {
+    protected cb func OnAttach() {
         this.RegisterToGlobalInputCallback(n"OnPostOnRelease", this, n"OnGlobalReleaseInput");
 
         this.CallCustomCallback(n"OnShow");
         this.OnShow();
     }
 
-    protected cb func OnDetach() -> Void {
+    protected cb func OnDetach() {
         this.GetGameController().RequestSetFocus(null);
 
         this.UnregisterFromGlobalInputCallback(n"OnPostOnRelease", this, n"OnGlobalReleaseInput");
@@ -56,7 +56,7 @@ public abstract class CustomPopup extends inkCustomController {
         this.OnHide();
     }
 
-    protected cb func OnShow() -> Void {
+    protected cb func OnShow() {
         let alphaAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
         alphaAnim.SetStartTransparency(0.0);
         alphaAnim.SetEndTransparency(1.0);
@@ -78,9 +78,9 @@ public abstract class CustomPopup extends inkCustomController {
         this.CallCustomCallback(n"OnShown");
     }
 
-    protected cb func OnShown() -> Void
+    protected cb func OnShown()
 
-    protected cb func OnHide() -> Void {
+    protected cb func OnHide() {
         let alphaAnim: ref<inkAnimTransparency> = new inkAnimTransparency();
         alphaAnim.SetStartTransparency(1.0);
         alphaAnim.SetEndTransparency(0.0);
@@ -102,13 +102,13 @@ public abstract class CustomPopup extends inkCustomController {
         this.OnHidden();
     }
 
-    protected cb func OnHidden() -> Void {
+    protected cb func OnHidden() {
         this.ResetNotificationData();
         this.SetGameController(null);
         this.SetRootWidget(null);
     }
 
-    protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Void {
+    protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) {
         if evt.IsAction(n"cancel") {
             this.Close();
             evt.Handle();
@@ -138,21 +138,21 @@ public abstract class CustomPopup extends inkCustomController {
         return false;
     }
 
-    public func Open(requester: wref<inkGameController>) -> Void {
+    public func Open(requester: wref<inkGameController>) {
         let uiSystem: ref<UISystem> = GameInstance.GetUISystem(requester.GetPlayerControlledObject().GetGame());
         let showEvent: ref<ShowCustomPopupEvent> = ShowCustomPopupEvent.Create(this);
 
         uiSystem.QueueEvent(showEvent);
     }
 
-    public func Close() -> Void {
+    public func Close() {
         let uiSystem: ref<UISystem> = GameInstance.GetUISystem(this.GetGame());
         let hideEvent: ref<HideCustomPopupEvent> = HideCustomPopupEvent.Create(this);
 
         uiSystem.QueueEvent(hideEvent);
     }
 
-    public func Attach(rootWidget: ref<inkCanvas>, gameController: wref<inkGameController>, notificationData: ref<inkGameNotificationData>) -> Void {
+    public func Attach(rootWidget: ref<inkCanvas>, gameController: wref<inkGameController>, notificationData: ref<inkGameNotificationData>) {
         if !this.IsInitialized() {
             this.SetRootWidget(rootWidget);
             this.SetGameController(gameController);
@@ -166,7 +166,7 @@ public abstract class CustomPopup extends inkCustomController {
         }
     }
 
-    public func Detach() -> Void {
+    public func Detach() {
         if this.IsInitialized() {
             this.OnDetach();
             this.CallCustomCallback(n"OnDetach");
