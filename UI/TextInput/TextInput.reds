@@ -73,7 +73,7 @@ public class TextInput extends inkCustomController {
 	}
 
 	protected func CreateWidgets() -> Void {
-		let root: ref<inkCanvas> = new inkCanvas();
+		let root = new inkCanvas();
 		root.SetName(n"input");
 		root.SetSize(600.0, 64.0);
 		root.SetAnchor(inkEAnchor.TopLeft);
@@ -102,9 +102,7 @@ public class TextInput extends inkCustomController {
 		this.SetRootWidget(this.m_root);
 	}
 
-	protected func CreateAnimations() -> Void {
-
-	}
+	protected func CreateAnimations() -> Void {}
 
 	protected func InitializeLayout() -> Void {
 		this.m_caret.SetFontSize(this.m_text.GetFontSize());
@@ -123,17 +121,11 @@ public class TextInput extends inkCustomController {
 		this.m_caret.UpdateState(this.m_isFocused, caretOffset);
 	}
 
-	protected func ApplyDisabledState() -> Void {
+	protected func ApplyDisabledState() -> Void {}
 
-	}
+	protected func ApplyHoveredState() -> Void {}
 
-	protected func ApplyHoveredState() -> Void {
-
-	}
-
-	protected func ApplyFocusedState() -> Void {
-		
-	}
+	protected func ApplyFocusedState() -> Void {}
 
 	protected func SetDisabledState(isDisabled: Bool) -> Void {
 		if !Equals(this.m_isDisabled, isDisabled) {
@@ -534,6 +526,14 @@ public class TextInput extends inkCustomController {
 		this.m_caret.MoveToStart();
 
 		this.UpdateLayout();
+	}
+
+	public func GetDefaultText() -> String {
+		return this.m_text.GetDefaultText();
+	}
+
+	public func SetDefaultText(text: String) -> Void {
+		this.m_text.SetDefaultText(text);
 	}
 
 	public func GetMaxLength() -> Int32 {
