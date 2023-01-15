@@ -5,6 +5,6 @@
 module Codeware.Localization
 
 enum EntryType {
-	Interface = 0,
-	Subtitle = 1,
+    Interface = 0,
+    Subtitle = 1,
 }

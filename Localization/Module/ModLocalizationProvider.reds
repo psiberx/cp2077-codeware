@@ -39,16 +39,16 @@
 module Codeware.Localization
 
 public abstract class ModLocalizationProvider extends ScriptableSystem {
-	protected func OnAttach() -> Void {
-		GameInstance.GetScriptableSystemsContainer(this.GetGameInstance())
-			.QueueRequest(RegisterProviderRequest.Create(this));
-	}
+    protected func OnAttach() -> Void {
+        GameInstance.GetScriptableSystemsContainer(this.GetGameInstance())
+            .QueueRequest(RegisterProviderRequest.Create(this));
+    }
 
-	public func GetPackage(language: CName) -> ref<ModLocalizationPackage>
+    public func GetPackage(language: CName) -> ref<ModLocalizationPackage>
 
-	public func GetFallback() -> CName
+    public func GetFallback() -> CName
 
-	public func OnLocaleChange() -> Void
+    public func OnLocaleChange() -> Void
 
-	public func OnGenderChange() -> Void
+    public func OnGenderChange() -> Void
 }

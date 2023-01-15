@@ -17,10 +17,10 @@ native let segmentsNumber: Uint32;
 
 @addMethod(inkCircle)
 public func GetSegmentsNumber() -> Uint32 {
-	return this.segmentsNumber;
+    return this.segmentsNumber;
 }
 
 @addMethod(inkCircle)
 public func SetSegmentsNumber(segmentsNumber: Uint32) -> Void {
-	this.segmentsNumber = segmentsNumber;
+    this.segmentsNumber = segmentsNumber;
 }

@@ -34,30 +34,30 @@ native let canSupportFocus: Bool;
 
 @addMethod(inkWidget)
 public func GetParentWidget() -> wref<inkWidget> {
-	return this.parentWidget;
+    return this.parentWidget;
 }
 
 @addMethod(inkWidget)
 public func SetController(controller: ref<inkLogicController>) -> Void {
-	this.logicController = controller;
+    this.logicController = controller;
 }
 
 @addMethod(inkWidget)
 public func AddSecondaryController(controller: ref<inkLogicController>) -> Void {
-	ArrayPush(this.secondaryControllers, controller);
+    ArrayPush(this.secondaryControllers, controller);
 }
 
 @addMethod(inkWidget)
 public func SetUserData(userData: ref<inkUserData>) -> Void {
-	ArrayPush(this.userData, userData);
+    ArrayPush(this.userData, userData);
 }
 
 @addMethod(inkWidget)
 public func CanSupportFocus() -> Bool {
-	return this.canSupportFocus;
+    return this.canSupportFocus;
 }
 
 @addMethod(inkWidget)
 public func SetSupportFocus(enabled: Bool) -> Void {
-	this.canSupportFocus = enabled;
+    this.canSupportFocus = enabled;
 }

@@ -33,40 +33,40 @@ native let tileVAlign: inkEVerticalAlign;
 
 @addMethod(inkImage)
 public func UsesNineSliceScale() -> Bool {
-	return this.useNineSliceScale;
+    return this.useNineSliceScale;
 }
 
 @addMethod(inkImage)
 public func SetNineSliceScale(enable: Bool) -> Void {
-	this.useNineSliceScale = enable;
+    this.useNineSliceScale = enable;
 }
 
 @addMethod(inkImage)
 public func GetNineSliceGrid() -> inkMargin {
-	return this.nineSliceScale;
+    return this.nineSliceScale;
 }
 
 @addMethod(inkImage)
 public func SetNineSliceGrid(grid: inkMargin) -> Void {
-	this.nineSliceScale = grid;
+    this.nineSliceScale = grid;
 }
 
 @addMethod(inkImage)
 public func GetTileHAlign() -> inkEHorizontalAlign {
-	return this.tileHAlign;
+    return this.tileHAlign;
 }
 
 @addMethod(inkImage)
 public func SetTileHAlign(tileHAlign: inkEHorizontalAlign) -> Void {
-	this.tileHAlign = tileHAlign;
+    this.tileHAlign = tileHAlign;
 }
 
 @addMethod(inkImage)
 public func GetTileVAlign() -> inkEVerticalAlign {
-	return this.tileVAlign;
+    return this.tileVAlign;
 }
 
 @addMethod(inkImage)
 public func SetTileVAlign(tileVAlign: inkEVerticalAlign) -> Void {
-	this.tileVAlign = tileVAlign;
+    this.tileVAlign = tileVAlign;
 }

@@ -10,9 +10,9 @@
 module Codeware.UI
 
 public abstract class inkCustomEvent extends inkEvent {
-	protected let controller: ref<inkCustomController>;
+    protected let controller: ref<inkCustomController>;
 
-	public func GetController() -> wref<inkCustomController> {
-		return this.controller;
-	}
+    public func GetController() -> wref<inkCustomController> {
+        return this.controller;
+    }
 }
