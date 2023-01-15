@@ -96,6 +96,11 @@ public func SetWrapping(enabled: Bool, opt width: Float, opt policy: textWrappin
 }
 
 @addMethod(inkText)
+public func GetWrapping() -> textWrappingInfo {
+    return this.wrappingInfo;
+}
+
+@addMethod(inkText)
 public func GetLineHeight() -> Float {
     return this.lineHeightPercentage;
 }
