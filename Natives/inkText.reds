@@ -36,6 +36,9 @@ native let justification: textJustificationType;
 native let textOverflowPolicy: textOverflowPolicy;
 
 @addField(inkText)
+native let wrappingInfo: textWrappingInfo;
+
+@addField(inkText)
 native let lineHeightPercentage: Float;
 
 @addMethod(inkText)
@@ -79,6 +82,13 @@ public func SetOverflowPolicy(overflowPolicy: textOverflowPolicy) -> Void {
 }
 
 @addMethod(inkText)
+public func SetWrapping(enabled: Bool, opt width: Float, opt policy: textWrappingPolicy) -> Void {
+	this.wrappingInfo.autoWrappingEnabled = enabled;
+	this.wrappingInfo.wrappingAtPosition = width;
+	this.wrappingInfo.wrappingPolicy = policy;
+}
+
+@addMethod(inkText)
 public func GetLineHeight() -> Float {
 	return this.lineHeightPercentage;
 }
@@ -87,17 +97,3 @@ public func GetLineHeight() -> Float {
 public func SetLineHeight(lineHeight: Float) -> Void {
 	this.lineHeightPercentage = lineHeight;
 }
-
-//var lockFontInGame : Bool; // 0x2bc
-//var wrappingInfo : textWrappingInfo; // 0x328
-//struct textWrappingInfo
-//{
-//	var autoWrappingEnabled : Bool; // 0
-//	var wrappingAtPosition : Float; // 0x4
-//	var wrappingPolicy : textWrappingPolicy; // 0x8
-//}
-//enum textWrappingPolicy
-//{
-//	Default = 0,
-//	PerCharacter = 1
-//}
