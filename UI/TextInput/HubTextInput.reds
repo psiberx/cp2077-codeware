@@ -63,7 +63,8 @@ public class HubTextInput extends TextInput {
 		bg.SetName(n"bg");
 		bg.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
 		bg.SetTexturePart(fillPart);
-		bg.SetTintColor(ThemeColors.BlackPearl());
+		bg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		bg.BindProperty(n"tintColor", n"MainColors.Fullscreen_PrimaryBackgroundDarkest");
 		bg.SetOpacity(0.61);
 		bg.SetAnchor(inkEAnchor.Fill);
 		bg.SetNineSliceScale(true);
@@ -74,7 +75,8 @@ public class HubTextInput extends TextInput {
 		fill.SetName(n"fill");
 		fill.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
 		fill.SetTexturePart(fillPart);
-		fill.SetTintColor(ThemeColors.ElectricBlue());
+		fill.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		fill.BindProperty(n"tintColor", n"MainColors.Blue");
 		fill.SetAnchor(inkEAnchor.Fill);
 		fill.SetNineSliceScale(true);
 		fill.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));
@@ -84,7 +86,8 @@ public class HubTextInput extends TextInput {
 		frame.SetName(n"frame");
 		frame.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
 		frame.SetTexturePart(framePart);
-		frame.SetTintColor(ThemeColors.RedOxide());
+		frame.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		frame.BindProperty(n"tintColor", n"MainColors.Fullscreen_SecondaryBackground4");
 		frame.SetAnchor(inkEAnchor.Fill);
 		frame.SetNineSliceScale(true);
 		frame.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));
@@ -94,7 +97,8 @@ public class HubTextInput extends TextInput {
 		hover.SetName(n"hover");
 		hover.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
 		hover.SetTexturePart(framePart);
-		hover.SetTintColor(ThemeColors.Bittersweet());
+		hover.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		hover.BindProperty(n"tintColor", n"MainColors.Red");
 		hover.SetAnchor(inkEAnchor.Fill);
 		hover.SetNineSliceScale(true);
 		hover.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));
@@ -104,7 +108,8 @@ public class HubTextInput extends TextInput {
 		focus.SetName(n"focus");
 		focus.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
 		focus.SetTexturePart(framePart);
-		focus.SetTintColor(ThemeColors.ElectricBlue());
+		focus.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		focus.BindProperty(n"tintColor", n"MainColors.Blue");
 		focus.SetAnchor(inkEAnchor.Fill);
 		focus.SetNineSliceScale(true);
 		focus.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));

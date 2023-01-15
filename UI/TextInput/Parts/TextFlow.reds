@@ -10,6 +10,8 @@ public class TextFlow extends inkCustomController {
 
 	protected let m_value: String;
 
+	protected let m_placeholder: String;
+
 	protected let m_length: Int32;
 
 	protected let m_maxLength: Int32;
@@ -25,6 +27,7 @@ public class TextFlow extends inkCustomController {
 
 	protected cb func OnInitialize() -> Void {
 		this.InitializeOffsets();
+		this.UpdatePlaceholder();
 	}
 
 	protected func InitializeProps() -> Void {
@@ -108,6 +111,15 @@ public class TextFlow extends inkCustomController {
 		}
 	}
 
+	protected func UpdatePlaceholder() -> Void {
+		if this.IsEmpty() {
+			this.m_text.SetText(this.m_placeholder);
+			this.m_text.SetOpacity(0.15);
+		} else {
+			this.m_text.SetOpacity(1.0);
+		}
+	}
+
 	public func GetText() -> String {
 		return this.m_value;
 	}
@@ -119,6 +131,17 @@ public class TextFlow extends inkCustomController {
 		this.m_text.SetText(this.m_value);
 
 		this.InitializeOffsets();
+		this.UpdatePlaceholder();
+	}
+
+	public func GetDefaultText() -> String {
+		return this.m_placeholder;
+	}
+
+	public func SetDefaultText(text: String) -> Void {
+		this.m_placeholder = text;
+
+		this.UpdatePlaceholder();
 	}
 
 	public func GetLength() -> Int32 {
@@ -248,6 +271,7 @@ public class TextFlow extends inkCustomController {
 		this.m_text.SetText(this.m_value);
 
 		this.ProcessInsertion(position, -1.0);
+		this.UpdatePlaceholder();
 	}
 
 	public func DeleteCharAt(position: Int32) -> Void {
@@ -270,6 +294,7 @@ public class TextFlow extends inkCustomController {
 		this.m_text.SetText(this.m_value);
 
 		this.ProcessDeletion(position);
+		this.UpdatePlaceholder();
 	}
 
 	public func DeleteCharRange(start: Int32, end: Int32) -> Void {
@@ -289,6 +314,7 @@ public class TextFlow extends inkCustomController {
 		this.m_text.SetText(this.m_value);
 
 		this.ProcessDeletion(start, end);
+		this.UpdatePlaceholder();
 	}
 
 	public func GetDesiredSize() -> Vector2 {
