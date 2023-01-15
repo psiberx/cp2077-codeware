@@ -4,7 +4,6 @@
 
 module Codeware.UI.TextInput.Parts
 import Codeware.UI.inkCustomController
-import Codeware.UI.ThemeColors
 
 public class TextFlow extends inkCustomController {
 	protected let m_text: wref<inkText>;
@@ -38,7 +37,8 @@ public class TextFlow extends inkCustomController {
 		text.SetFontFamily("base\\gameplay\\gui\\fonts\\raj\\raj.inkfontfamily");
 		text.SetFontStyle(n"Regular");
 		text.SetFontSize(42);
-		text.SetTintColor(ThemeColors.Bittersweet());
+		text.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		text.BindProperty(n"tintColor", n"MainColors.Red");
 		text.SetHorizontalAlignment(textHorizontalAlignment.Left);
 		text.SetVerticalAlignment(textVerticalAlignment.Top);
 		text.SetRenderTransformPivot(new Vector2(0.0, 0.0));

@@ -4,7 +4,6 @@
 
 module Codeware.UI.TextInput.Parts
 import Codeware.UI.inkCustomController
-import Codeware.UI.ThemeColors
 
 public class Selection extends inkCustomController {
 	protected let m_selection: wref<inkRectangle>;
@@ -39,7 +38,8 @@ public class Selection extends inkCustomController {
 		selection.SetName(n"selection");
 		selection.SetVisible(false);
 		selection.SetOpacity(0.2);
-		selection.SetTintColor(ThemeColors.ElectricBlue());
+		selection.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		selection.BindProperty(n"tintColor", n"MainColors.Blue");
 		selection.SetRenderTransformPivot(new Vector2(0.0, 0.0));
 
 		this.m_selection = selection;

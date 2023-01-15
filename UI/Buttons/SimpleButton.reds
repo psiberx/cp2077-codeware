@@ -39,7 +39,8 @@ public class SimpleButton extends CustomButton {
 		let bg: ref<inkImage> = new inkImage();
 		bg.SetName(n"bg");
 		bg.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
-		bg.SetTintColor(ThemeColors.BlackPearl());
+		bg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		bg.BindProperty(n"tintColor", n"MainColors.Fullscreen_PrimaryBackgroundDarkest");
 		bg.SetOpacity(0.8);
 		bg.SetAnchor(inkEAnchor.Fill);
 		bg.SetNineSliceScale(true);
@@ -70,7 +71,8 @@ public class SimpleButton extends CustomButton {
 		label.SetFontStyle(n"Medium");
 		label.SetFontSize(50);
 		label.SetLetterCase(textLetterCase.UpperCase);
-		label.SetTintColor(ThemeColors.ElectricBlue());
+		label.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		label.BindProperty(n"tintColor", n"MainColors.Blue");
 		label.SetAnchor(inkEAnchor.Fill);
 		label.SetHorizontalAlignment(textHorizontalAlignment.Center);
 		label.SetVerticalAlignment(textVerticalAlignment.Center);

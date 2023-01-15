@@ -4,7 +4,6 @@
 
 module Codeware.UI.TextInput.Parts
 import Codeware.UI.inkCustomController
-import Codeware.UI.ThemeColors
 
 public class Caret extends inkCustomController {
 	protected let m_caret: wref<inkRectangle>;
@@ -41,7 +40,8 @@ public class Caret extends inkCustomController {
 	protected func CreateWidgets() -> Void {
 		let caret: ref<inkRectangle> = new inkRectangle();
 		caret.SetName(n"caret");
-		caret.SetTintColor(ThemeColors.PureWhite());
+		caret.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+		caret.BindProperty(n"tintColor", n"MainColors.White");
 		caret.SetRenderTransformPivot(new Vector2(0.0, 0.0));
 
 		this.m_caret = caret;
