@@ -57,10 +57,12 @@ public abstract class inkCustomController extends inkLogicController {
 		this.m_rootWidget = rootWidget;
 
 		if IsDefined(this.m_rootWidget) {
-			if !IsDefined(this.m_rootWidget.GetController()) {
+			let controller = this.m_rootWidget.GetController();
+			if !IsDefined(controller) {
 				this.m_rootWidget.SetController(this);
 			} else {
-				if NotEquals(this, this.m_rootWidget.GetControllerByType(this.GetClassName())) {
+				controller = this.m_rootWidget.GetControllerByType(this.GetClassName());
+				if !IsDefined(controller) {
 					this.m_rootWidget.AddSecondaryController(this);
 				}
 			}
