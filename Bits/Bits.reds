@@ -8,40 +8,36 @@
 module Codeware
 
 public class Bits {
-  public static func ShiftRight(num: Int32, n: Int32) -> Int32 {
-    return num / Bits.PowI(2, n);
+  public static func ShiftRight(num: Uint32, n: Uint32) -> Uint32 {
+    return num / Cast<Uint32>(RoundMath(PowF(2., Cast<Float>(n))));
   }
 
-  public static func ShiftLeft(num: Int32, n: Int32) -> Int32 {
-    return num * Bits.PowI(2, n);
+  public static func ShiftLeft(num: Uint32, n: Uint32) -> Uint32 {
+    return num * Cast<Uint32>(RoundMath(PowF(2., Cast<Float>(n))));
   }
 
-  public static func PowI(num: Int32, times: Int32) -> Int32 {
-    return RoundMath(PowF(Cast<Float>(num), Cast<Float>(times)));
-  }
-
-  public static func Invert(num: Int32) -> Int32 {
+  public static func Invert(num: Uint32) -> Uint32 {
     let after = num;
-    let i: Int32 = 0;
-    while i < 32 {
-      after = after ^ Bits.ShiftLeft(1, i);
-      i += 1;
+    let i = 0u;
+    while i < 32u {
+      after = after ^ Bits.ShiftLeft(1u, i);
+      i += 1u;
     }
     return after;
   }
 
-  public static func Has(num: Int32, n: Int32) -> Bool {
-    return Cast<Bool>(Bits.ShiftRight(num, n) & 1);
+  public static func Has(num: Uint32, n: Uint32) -> Bool {
+    return Cast<Bool>(Bits.ShiftRight(num, n) & 1u);
   }
   
-  public static func Set(num: Int32, n: Int32, value: Bool) -> Int32 {
+  public static func Set(num: Uint32, n: Uint32, value: Bool) -> Uint32 {
     let after = num;
     if value {
       // set bit to 1
-      after |= Bits.ShiftLeft(1, n);
+      after |= Bits.ShiftLeft(1u, n);
     } else {
       // set bit to 0
-      let shifted = Bits.ShiftLeft(1, n);
+      let shifted = Bits.ShiftLeft(1u, n);
       let inversed = Bits.Invert(shifted);
       after &= inversed;
     }
