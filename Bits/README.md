@@ -22,7 +22,7 @@ enum State {
 
 // create a new blackboard value on player
 @addField(PlayerStateMachineDef)
-public let MyState: BlackboardID_Int;
+public let MyState: BlackboardID_Uint;
 
 // in your custom system
 public class MySystem extends ScriptableSystem {
@@ -31,23 +31,22 @@ public class MySystem extends ScriptableSystem {
 
  // update any of your flags, e.g. State.Consuming
  public func UpdateConsuming(value: Bool) -> Void {
-   let blackboard: ref<IBlackboard> = this.player.GetPlayerStateMachineBlackboard();
-   let current = blackboard.GetInt(GetAllBlackboardDefs().PlayerStateMachine.MyState);
-   let updated: Uint32 = Bits.Set(current, Cast<Uint32>(EnumInt(State.Consuming)), value);
-   // notify blackboard listeners
-   blackboard.SetInt(GetAllBlackboardDefs().PlayerStateMachine.MyState, updated);
-  }
+  let blackboard: ref<IBlackboard> = this.player.GetPlayerStateMachineBlackboard();
+  let current = blackboard.GetUint(GetAllBlackboardDefs().PlayerStateMachine.MyState);
+  let updated: Uint32 = Bits.Set(current, Cast<Uint32>(EnumInt(State.Consuming)), value);
+  // notify blackboard listeners
+  blackboard.SetUint(GetAllBlackboardDefs().PlayerStateMachine.MyState, updated);
  }
-
- // retrieve any of your flags, e.g. State.Consuming
- @addMethod(PlayerPuppet)
- public func IsConsuming() -> Bool {
-   let blackboard: ref<IBlackboard> = this.player.GetPlayerStateMachineBlackboard();
-   let myState: Uint32 = blackboard.GetInt(GetAllBlackboardDefs().PlayerStateMachine.MyState);
-   return Bits.Has(myState, Cast<Uint32>(EnumInt(State.Consuming)));
- }
-
- // you can also retrieve and/or update multiple flags at once
- // for better performances!
 }
+
+// retrieve any of your flags, e.g. State.Consuming
+@addMethod(PlayerPuppet)
+public func IsConsuming() -> Bool {
+  let blackboard: ref<IBlackboard> = this.GetPlayerStateMachineBlackboard();
+  let myState: Uint32 = blackboard.GetUint(GetAllBlackboardDefs().PlayerStateMachine.MyState);
+  return Bits.Has(myState, Cast<Uint32>(EnumInt(State.Consuming)));
+}
+
+// you can also retrieve and/or update multiple flags at once
+// for better performances!
 ```
