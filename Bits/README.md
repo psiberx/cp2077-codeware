@@ -13,11 +13,11 @@ enum State {
  // it's perfectly fine to reserve other variants index(es) for different purposes
  // but you CANNOT store them as flags with Bits (out-of-range)
  Invalid = -1,
- // define flags to store with Bits starting from index 1
- Consuming = 1,
- Rested = 2,
- Energized = 3,
- // ... up to 32
+ // define flags to store with Bits starting from index 0
+ Consuming = 0,
+ Rested = 1,
+ Energized = 2,
+ // ... up to 31
 }
 
 // create a new blackboard value on player
@@ -33,7 +33,7 @@ public class MySystem extends ScriptableSystem {
  public func UpdateConsuming(value: Bool) -> Void {
    let blackboard: ref<IBlackboard> = this.player.GetPlayerStateMachineBlackboard();
    let current = blackboard.GetInt(GetAllBlackboardDefs().PlayerStateMachine.MyState);
-   let updated: Int32 = Bits.Set(current, EnumInt(State.Consuming), value);
+   let updated: Uint32 = Bits.Set(current, Cast<Uint32>(EnumInt(State.Consuming)), value);
    // notify blackboard listeners
    blackboard.SetInt(GetAllBlackboardDefs().PlayerStateMachine.MyState, updated);
   }
@@ -43,8 +43,8 @@ public class MySystem extends ScriptableSystem {
  @addMethod(PlayerPuppet)
  public func IsConsuming() -> Bool {
    let blackboard: ref<IBlackboard> = this.player.GetPlayerStateMachineBlackboard();
-   let myState: Int32 = blackboard.GetInt(GetAllBlackboardDefs().PlayerStateMachine.MyState);
-   return Bits.Has(myState, EnumInt(State.Consuming));
+   let myState: Uint32 = blackboard.GetInt(GetAllBlackboardDefs().PlayerStateMachine.MyState);
+   return Bits.Has(myState, Cast<Uint32>(EnumInt(State.Consuming)));
  }
 
  // you can also retrieve and/or update multiple flags at once
