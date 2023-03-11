@@ -90,6 +90,9 @@ struct FunctionPtr<R (C::*)(Args...)> : FunctionPtr<R (*)(Args...)>
     using extended_arguments_type = std::tuple<C*, std::remove_const_t<std::remove_reference_t<Args>>...>;
 };
 
+template<typename R, typename... Args>
+struct FunctionPtr<R (Args...)> : FunctionPtr<R (*)(Args...)> {};
+
 template<typename T>
 concept IsFunctionPtr = FunctionPtr<T>::value;
 
