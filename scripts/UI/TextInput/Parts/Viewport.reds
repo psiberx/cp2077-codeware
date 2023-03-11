@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
-// Codeware.UI.TextInput.Parts.Viewport [WIP]
+// Codeware.UI.TextInput.Viewport [WIP]
 // -----------------------------------------------------------------------------
 
-module Codeware.UI.TextInput.Parts
+module Codeware.UI.TextInput
 import Codeware.UI.inkCustomController
 
 public class Viewport extends inkCustomController {

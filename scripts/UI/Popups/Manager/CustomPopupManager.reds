@@ -13,7 +13,7 @@
 //
 
 module Codeware.UI
-import Codeware.Registry.*
+import Codeware.*
 
 public class CustomPopupManager extends ICustomPopupManager {
     private let m_gameController: wref<inkGameController>;

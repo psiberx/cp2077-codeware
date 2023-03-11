@@ -6,7 +6,7 @@
 //
 
 module Codeware.UI
-import Codeware.UI.TextInput.Parts.*
+import Codeware.UI.TextInput.*
 
 public class HubTextInput extends TextInput {
 

@@ -1,5 +1,5 @@
 // -----------------------------------------------------------------------------
-// Codeware.Registry.RegistrySystem
+// Codeware.RegistrySystem
 // -----------------------------------------------------------------------------
 //
 // - Global object registry / singleton container
@@ -16,7 +16,7 @@
 // }
 //
 
-module Codeware.Registry
+module Codeware
 
 public class RegistrySystem extends ScriptableSystem {
     private let m_container: ref<inkHashMap>;
@@ -61,7 +61,11 @@ public class RegistrySystem extends ScriptableSystem {
         this.Remove(instance.GetClassName());
     }
 
+    public static func GetInstance() -> ref<RegistrySystem> {
+        return RegistrySystem.GetInstance(GetGameInstance());
+    }
+
     public static func GetInstance(game: GameInstance) -> ref<RegistrySystem> {
-        return GameInstance.GetScriptableSystemsContainer(game).Get(n"Codeware.Registry.RegistrySystem") as RegistrySystem;
+        return GameInstance.GetScriptableSystemsContainer(game).Get(n"Codeware.RegistrySystem") as RegistrySystem;
     }
 }

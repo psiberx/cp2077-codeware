@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
-// Codeware.UI.TextInput.Parts.TextFlow [WIP]
+// Codeware.UI.TextInput.TextFlow [WIP]
 // -----------------------------------------------------------------------------
 
-module Codeware.UI.TextInput.Parts
+module Codeware.UI.TextInput
 import Codeware.UI.inkCustomController
 
 public class TextFlow extends inkCustomController {

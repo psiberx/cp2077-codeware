@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
-// Codeware.UI.TextInput.Parts.Caret [WIP]
+// Codeware.UI.TextInput.Caret [WIP]
 // -----------------------------------------------------------------------------
 
-module Codeware.UI.TextInput.Parts
+module Codeware.UI.TextInput
 import Codeware.UI.inkCustomController
 
 public class Caret extends inkCustomController {

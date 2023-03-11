@@ -17,7 +17,7 @@
 //
 
 module Codeware.UI
-import Codeware.UI.TextInput.Parts.*
+import Codeware.UI.TextInput.*
 
 public class TextInput extends inkCustomController {
     protected let m_root: wref<inkCompoundWidget>;

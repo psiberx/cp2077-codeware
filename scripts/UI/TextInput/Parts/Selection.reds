@@ -1,8 +1,8 @@
 // -----------------------------------------------------------------------------
-// Codeware.UI.TextInput.Parts.Selection [WIP]
+// Codeware.UI.TextInput.Selection [WIP]
 // -----------------------------------------------------------------------------
 
-module Codeware.UI.TextInput.Parts
+module Codeware.UI.TextInput
 import Codeware.UI.inkCustomController
 
 public class Selection extends inkCustomController {

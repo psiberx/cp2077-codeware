@@ -14,7 +14,7 @@
 //   Fast enough for measuting inititial text but ignores kerning.
 //
 
-module Codeware.UI.TextInput.Parts
+module Codeware.UI.TextInput
 import Codeware.UI.inkCustomController
 
 public class TextMeasurer extends inkCustomController {
