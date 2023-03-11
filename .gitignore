@@ -1,7 +1,11 @@
-/.dev
 /.idea
+/.vs
 /.vscode
-/.wiki
-/dist
-/*.log
+/.xmake
+/build
+/dev
+/src/App/Tests
+/wiki
 ~$*
+*.log
+CMakeLists.txt

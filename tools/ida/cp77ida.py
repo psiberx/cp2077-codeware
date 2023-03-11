@@ -1,0 +1,1 @@
+../../../../../Libs/CoreLib/Project/tools/ida/cp77ida.py
