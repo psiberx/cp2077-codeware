@@ -13,6 +13,12 @@
 //
 
 @addField(inkScrollController)
+native let position: Float;
+
+@addField(inkScrollController)
+native let contentSize: Vector2;
+
+@addField(inkScrollController)
 native let viewportSize: Vector2;
 
 @addField(inkScrollController)
@@ -20,6 +26,16 @@ native let scrollDelta: Float;
 
 @addField(inkScrollController)
 private let lastScrollDelta: Float;
+
+@addMethod(inkScrollController)
+public func GetScrollPosition() -> Float {
+    return this.position;
+}
+
+@addMethod(inkScrollController)
+public func GetContentSize() -> Vector2 {
+    return this.contentSize;
+}
 
 @addMethod(inkScrollController)
 public func GetViewportSize() -> Vector2 {

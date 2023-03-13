@@ -191,7 +191,7 @@ public class HubTextInput extends TextInput {
 
     public static func Create() -> ref<HubTextInput> {
         let self: ref<HubTextInput> = new HubTextInput();
-        self.m_useAnimations = true;
+        //self.m_useAnimations = true;
         self.CreateInstance();
 
         return self;

@@ -89,12 +89,9 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
     }
 
     protected func GetCurrentState() -> ref<VirtualResolutionData> {
-        let settings: ref<UserSettings> = GameInstance.GetSettingsSystem(this.m_game);
-        let configVar: ref<ConfigVarListString> = settings.GetVar(n"/video/display", n"Resolution") as ConfigVarListString;
-        let resolution: String = configVar.GetValue();
-        let dimensions: array<String> = StrSplit(resolution, "x");
-        let size: Vector2 = new Vector2(StringToFloat(dimensions[0]), StringToFloat(dimensions[1]));
-        let scale: Vector2 = new Vector2(size.X / this.m_window.X, size.Y / this.m_window.Y);
+        let resolution = ScreenHelper.GetResolution(this.m_game);
+        let size = ScreenHelper.GetScreenSize(this.m_game);
+        let scale = new Vector2(size.X / this.m_window.X, size.Y / this.m_window.Y);
 
         return VirtualResolutionData.Create(resolution, size, scale);
     }
