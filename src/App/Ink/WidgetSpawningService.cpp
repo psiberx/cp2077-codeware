@@ -1,4 +1,4 @@
-#include "InkSpawner.hpp"
+#include "WidgetSpawningService.hpp"
 
 namespace
 {
@@ -8,7 +8,7 @@ constexpr auto WaitTimeout = std::chrono::milliseconds(200);
 constexpr auto WaitTick = std::chrono::milliseconds(2);
 }
 
-void App::InkSpawner::OnBootstrap()
+void App::WidgetSpawningService::OnBootstrap()
 {
     HookOnceAfter<Raw::CBaseEngine::InitEngine>(+[]() {
         if (Red::GetType<"ArchiveXL">())
@@ -31,7 +31,7 @@ void App::InkSpawner::OnBootstrap()
     });
 }
 
-void App::InkSpawner::OnShutdown()
+void App::WidgetSpawningService::OnShutdown()
 {
     Unhook<Raw::InkWidgetLibrary::SpawnFromLocal>();
     Unhook<Raw::InkWidgetLibrary::SpawnFromExternal>();
@@ -40,9 +40,9 @@ void App::InkSpawner::OnShutdown()
     Unhook<Raw::InkSpawner::FinishAsyncSpawn>();
 }
 
-uintptr_t App::InkSpawner::OnSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                        Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                        Red::CName aItemName)
+uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
+                                                Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+                                                Red::CName aItemName)
 {
     auto result = Raw::InkWidgetLibrary::SpawnFromLocal(aLibrary, aInstance, aItemName);
 
@@ -66,10 +66,10 @@ uintptr_t App::InkSpawner::OnSpawnLocal(Red::ink::WidgetLibraryResource& aLibrar
     return result;
 }
 
-uintptr_t App::InkSpawner::OnSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
-                                           Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                           Red::ResourcePath aExternalPath,
-                                           Red::CName aItemName)
+uintptr_t App::WidgetSpawningService::OnSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
+                                                   Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+                                                   Red::ResourcePath aExternalPath,
+                                                   Red::CName aItemName)
 {
     InjectDependency(aLibrary, aExternalPath);
 
@@ -95,10 +95,10 @@ uintptr_t App::InkSpawner::OnSpawnExternal(Red::ink::WidgetLibraryResource& aLib
     return result;
 }
 
-bool App::InkSpawner::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                        Red::InkSpawningInfo& aSpawningInfo,
-                                        Red::CName aItemName,
-                                        uint8_t aParam)
+bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
+                                                Red::InkSpawningInfo& aSpawningInfo,
+                                                Red::CName aItemName,
+                                                uint8_t aParam)
 {
     auto* itemNameStr = aItemName.ToString();
     auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -111,11 +111,11 @@ bool App::InkSpawner::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrar
     return Raw::InkWidgetLibrary::AsyncSpawnFromLocal(aLibrary, aSpawningInfo, aItemName, aParam);
 }
 
-bool App::InkSpawner::OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
-                                           Red::InkSpawningInfo& aSpawningInfo,
-                                           Red::ResourcePath aExternalPath,
-                                           Red::CName aItemName,
-                                           uint8_t aParam)
+bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
+                                                   Red::InkSpawningInfo& aSpawningInfo,
+                                                   Red::ResourcePath aExternalPath,
+                                                   Red::CName aItemName,
+                                                   uint8_t aParam)
 {
     InjectDependency(aLibrary, aExternalPath);
 
@@ -130,7 +130,7 @@ bool App::InkSpawner::OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLib
     return Raw::InkWidgetLibrary::AsyncSpawnFromExternal(aLibrary, aSpawningInfo, aExternalPath, aItemName, aParam);
 }
 
-void App::InkSpawner::OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,
+void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,
                                          Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)
 {
     auto* itemNameStr = aContext.request->itemName.ToString();
@@ -142,7 +142,7 @@ void App::InkSpawner::OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,
     }
 }
 
-void App::InkSpawner::InjectDependency(Red::ink::WidgetLibraryResource& aLibrary, Red::ResourcePath aExternalPath)
+void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResource& aLibrary, Red::ResourcePath aExternalPath)
 {
     bool libraryExists = false;
 
@@ -180,8 +180,8 @@ void App::InkSpawner::InjectDependency(Red::ink::WidgetLibraryResource& aLibrary
     }
 }
 
-void App::InkSpawner::InjectController(Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                       Red::CName aControllerName)
+void App::WidgetSpawningService::InjectController(Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+                                               Red::CName aControllerName)
 {
     static const Red::ClassLocator<Red::ink::IWidgetController> s_gameControllerType;
     static const Red::ClassLocator<Red::ink::WidgetLogicController> s_logicControllerType;
@@ -217,7 +217,7 @@ void App::InkSpawner::InjectController(Red::Handle<Red::ink::WidgetLibraryItemIn
     }
 }
 
-void App::InkSpawner::InheritProperties(Red::IScriptable* aTarget, Red::IScriptable* aSource)
+void App::WidgetSpawningService::InheritProperties(Red::IScriptable* aTarget, Red::IScriptable* aSource)
 {
     auto* sourceType = aSource->GetType();
     auto* targetType = aTarget->GetType();

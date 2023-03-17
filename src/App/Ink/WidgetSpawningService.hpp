@@ -4,18 +4,19 @@
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Core/Logging/LoggingAgent.hpp"
 #include "Red/GameEngine.hpp"
+#include "Red/InkLibrary.hpp"
 #include "Red/InkSpawner.hpp"
 
 namespace App
 {
-class InkSpawner
+class WidgetSpawningService
     : public Core::Feature
     , public Core::HookingAgent
     , public Core::LoggingAgent
 {
 protected:
-    void OnShutdown() override;
     void OnBootstrap() override;
+    void OnShutdown() override;
 
     static uintptr_t OnSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
                                   Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,

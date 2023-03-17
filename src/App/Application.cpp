@@ -1,7 +1,7 @@
 #include "Application.hpp"
 #include "App/Facade.hpp"
-#include "App/Engine/GameService.hpp"
-#include "App/Ink/InkSpawner.hpp"
+#include "App/Engine/GameSessionService.hpp"
+#include "App/Ink/WidgetSpawningService.hpp"
 #include "Core/Foundation/RuntimeProvider.hpp"
 #include "Red/Foundation/TypeInfoProvider.hpp"
 #include "Vendor/MinHook/MinHookProvider.hpp"
@@ -14,6 +14,6 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
     Register<Vendor::MinHookProvider>();
     Register<Vendor::SpdlogProvider>();
     Register<Red::TypeInfoProvider>();
-    Register<App::GameService>();
-    Register<App::InkSpawner>();
+    Register<App::GameSessionService>();
+    Register<App::WidgetSpawningService>();
 }

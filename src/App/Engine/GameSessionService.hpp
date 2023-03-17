@@ -6,7 +6,7 @@
 
 namespace App
 {
-class GameService
+class GameSessionService
     : public Core::Feature
     , public Core::HookingAgent
 {

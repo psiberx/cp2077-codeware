@@ -29,7 +29,7 @@ struct InkSpawningContext
     virtual void sub_20() = 0;
     virtual void sub_28() = 0;
 
-    SharedPtr<void>               unk08;   // 08
+    SharedPtr<void> unk08;                 // 08
     SharedPtr<InkSpawningRequest> request; // 18
 };
 RED4EXT_ASSERT_SIZE(InkSpawningContext, 0x28);
@@ -42,41 +42,6 @@ struct InkSpawningInfo
 };
 RED4EXT_ASSERT_SIZE(InkSpawningInfo, 0x40);
 RED4EXT_ASSERT_OFFSET(InkSpawningInfo, context, 0x38);
-}
-
-namespace Raw::InkWidgetLibrary
-{
-constexpr auto AsyncSpawnFromExternal = Core::RawFunc<
-    /* addr = */ Red::Addresses::InkWidgetLibrary_AsyncSpawnFromExternal,
-    /* type = */ bool (*)(
-        Red::ink::WidgetLibraryResource& aLibrary,
-        Red::InkSpawningInfo& aSpawningInfo,
-        Red::ResourcePath aExternalPath,
-        Red::CName aItemName,
-        uint8_t aParam)>();
-
-constexpr auto AsyncSpawnFromLocal = Core::RawFunc<
-    /* addr = */ Red::Addresses::InkWidgetLibrary_AsyncSpawnFromLocal,
-    /* type = */ bool (*)(
-        Red::ink::WidgetLibraryResource& aLibrary,
-        Red::InkSpawningInfo& aSpawningInfo,
-        Red::CName aItemName,
-        uint8_t aParam)>();
-
-constexpr auto SpawnFromExternal = Core::RawFunc<
-    /* addr = */ Red::Addresses::InkWidgetLibrary_SpawnFromExternal,
-    /* type = */ uintptr_t (*)(
-        Red::ink::WidgetLibraryResource& aLibrary,
-        Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-        Red::ResourcePath aExternalPath,
-        Red::CName aItemName)>();
-
-constexpr auto SpawnFromLocal = Core::RawFunc<
-    /* addr = */ Red::Addresses::InkWidgetLibrary_SpawnFromLocal,
-    /* type = */ uintptr_t (*)(
-        Red::ink::WidgetLibraryResource& aLibrary,
-        Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-        Red::CName aItemName)>();
 }
 
 namespace Raw::InkSpawner
