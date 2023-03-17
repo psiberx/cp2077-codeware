@@ -12,25 +12,6 @@
 // }
 //
 
-enum inkEShapeVariant {
-    Fill = 0,
-    Border = 1,
-    FillAndBorder = 2,
-}
-
-enum inkEEndCapStyle {
-    BUTT = 0, 
-    SQUARE = 1, 
-    ROUND = 2,
-    JOINED = 3,
-}
-
-enum inkEJointStyle {
-    MITER = 0,
-    BEVEL = 1,
-    ROUND = 2,
-}
-
 // @addField(inkShape)
 // native let shapeResource: ResRef; ?? idk
 
