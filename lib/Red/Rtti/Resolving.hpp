@@ -299,12 +299,6 @@ CBaseRTTIType* GetType()
     return TypeLocator<AType>::Get();
 }
 
-template<CName AType>
-CClass* GetClass()
-{
-    return TypeLocator<AType>::GetClass();
-}
-
 template<typename TType>
 CBaseRTTIType* GetType()
 {
@@ -313,12 +307,35 @@ CBaseRTTIType* GetType()
     return TypeLocator<name>::Get();
 }
 
+CBaseRTTIType* GetType(CName aTypeName)
+{
+    return CRTTISystem::Get()->GetType(aTypeName);
+}
+
+template<CName AType>
+CClass* GetClass()
+{
+    return TypeLocator<AType>::GetClass();
+}
+
 template<typename TType>
 CClass* GetClass()
 {
     constexpr auto name = GetTypeName<TType>();
 
     return TypeLocator<name>::GetClass();
+}
+
+CClass* GetClass(CName aTypeName)
+{
+    auto type = CRTTISystem::Get()->GetType(aTypeName);
+
+    if (!type || type->GetType() != ERTTIType::Class)
+    {
+        return nullptr;
+    }
+
+    return reinterpret_cast<CClass*>(type);
 }
 
 template<typename T>

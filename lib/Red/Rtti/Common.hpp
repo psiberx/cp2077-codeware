@@ -32,9 +32,8 @@ struct Optional
 
     T value{ADefault};
 };
-}
 
-namespace Red::Detail
+namespace Detail
 {
 template<typename T>
 concept IsScripable = std::is_base_of_v<IScriptable, T>;
@@ -133,4 +132,5 @@ concept IsSpecialization = Specialization<T>::value;
 template<typename T>
 concept IsOptional = Specialization<T>::value
     && std::is_same_v<T, Red::Optional<typename Specialization<T>::argument_type, Specialization<T>::argument_value>>;
+}
 }
