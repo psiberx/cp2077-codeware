@@ -9,7 +9,7 @@ constexpr auto RegisterListener = Core::RawFunc<
     /* type = */ void (*)(Red::inkLayer* aLayer, const Red::Handle<Red::IScriptable>& aListener)>();
 
 constexpr auto AttachWidgetTree = Core::RawFunc<
-    /* addr = */ Red::Addresses::InkLayer_InitializeWidgetTree,
+    /* addr = */ Red::Addresses::InkLayer_AttachWidgetTree,
     /* type = */ void (*)(Red::inkLayer* aLayer, const Red::Handle<Red::inkWidget>& aWidget,
                           const Red::Handle<Red::inkLayerProxy>& aProxy)>();
 }
