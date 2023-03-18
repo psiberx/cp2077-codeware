@@ -10,14 +10,14 @@ struct inkWidgetEx : Red::inkWidget
     {
         logicController = aController;
 
-        WidgetBuildingService::InitializeController(*this, aController);
+        WidgetBuildingService::AttachController(*this, aController);
     }
 
     void AddSecondaryController(const Red::Handle<Red::inkLogicController>& aController)
     {
         secondaryControllers.PushBack(aController);
 
-        WidgetBuildingService::InitializeController(*this, aController);
+        WidgetBuildingService::AttachController(*this, aController);
     }
 };
 }

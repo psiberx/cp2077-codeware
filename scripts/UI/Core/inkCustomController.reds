@@ -103,7 +103,7 @@ public abstract class inkCustomController extends inkLogicController {
             if inkWidgetHelper.InWindowTree(this.m_rootWidget) {
                 this.InitializeChildren(this.GetRootCompoundWidget());
 
-                //this.OnInitialize();
+                this.OnInitialize();
                 this.CallCustomCallback(n"OnInitialize");
 
                 this.m_isInitialized = true;
@@ -200,7 +200,6 @@ public abstract class inkCustomController extends inkLogicController {
         }
     }
 
-/*
     public func RegisterToGlobalInputCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) {
         if IsDefined(this.m_gameController) {
             this.m_gameController.RegisterToGlobalInputCallback(eventName, object, functionName);
@@ -218,7 +217,6 @@ public abstract class inkCustomController extends inkLogicController {
             this.m_gameController.PlaySound(widgetName, eventName, actionKey);
         }
     }
-*/
 
     public func Reparent(newParent: wref<inkCompoundWidget>) {
         this.Reparent(newParent, -1);

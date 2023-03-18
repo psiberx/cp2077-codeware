@@ -17,7 +17,9 @@ constexpr uintptr_t CBaseEngine_InitEngine = 0x140A7A190 - ImageBase; // 48 89 5
 constexpr uintptr_t Entity_GetComponents = 0x14104B5B0 - ImageBase; // 48 83 C1 70 E9, expected: 7, index: 1
 
 constexpr uintptr_t InkLayer_RegisterListener = 0x14085C2D0 - ImageBase; // 48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 40 48 8B F1 48 8B FA 48 81 C1 30 01 00 00 E8, expected: 2, index: 0
-constexpr uintptr_t InkLayer_InitializeWidgetTree = 0x14085CCF0 - ImageBase; // 48 89 5C 24 10 48 89 74 24 20 55 57 41 56 48 8B EC 48 83 EC 70 4C 8B F1 49 8B D8 48 8D 4D 30, expected: 2, index: 1
+constexpr uintptr_t InkLayer_AttachWidgetTree = 0x14085CCF0 - ImageBase; // 48 89 5C 24 10 48 89 74 24 20 55 57 41 56 48 8B EC 48 83 EC 70 4C 8B F1 49 8B D8 48 8D 4D 30, expected: 2, index: 1
+
+constexpr uintptr_t InkLogicController_OnInitialize = 0x140979900 - ImageBase; // 48 89 5C 24 10 57 48 83 EC 40 48 83 79 70 00 48 8B D9 0F 84 ? ? ? ? 48 8B 41 48 0F 57 C0, expected: 1, index: 0
 
 constexpr uintptr_t InkSpawner_FinishAsyncSpawn = 0x1408D3450 - ImageBase; // 48 89 5C 24 10 57 48 83 EC 30 48 8B 42 08 48 8B DA 4C 8B 0A 48 8B F9 4C 8B 41 18 4C 89 4C 24 20, expected: 1, index: 0
 

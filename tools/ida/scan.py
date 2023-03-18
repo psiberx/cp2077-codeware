@@ -26,7 +26,7 @@ def patterns():
                 Item(name="RegisterListener",
                      pattern="48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 40 48 8B F1 48 8B FA 48 81 C1 30 01 00 00 E8",
                      expected=2),
-                Item(name="InitializeWidgetTree",
+                Item(name="AttachWidgetTree",
                      pattern="48 89 5C 24 10 48 89 74 24 20 55 57 41 56 48 8B EC 48 83 EC 70 4C 8B F1 49 8B D8 48 8D 4D 30",
                      expected=2,
                      index=1),
@@ -34,6 +34,10 @@ def patterns():
             Group(name="InkSpawner", functions=[
                 Item(name="FinishAsyncSpawn",
                      pattern="48 89 5C 24 10 57 48 83 EC 30 48 8B 42 08 48 8B DA 4C 8B 0A 48 8B F9 4C 8B 41 18 4C 89 4C 24 20"),
+            ]),
+            Group(name="InkLogicController", functions=[
+                Item(name="OnInitialize",
+                     pattern="48 89 5C 24 10 57 48 83 EC 40 48 83 79 70 00 48 8B D9 0F 84 ? ? ? ? 48 8B 41 48 0F 57 C0"),
             ]),
             Group(name="InkWidget", functions=[
                 Item(name="GetLayer",

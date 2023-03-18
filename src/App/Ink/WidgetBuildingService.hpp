@@ -13,9 +13,9 @@ class WidgetBuildingService
     , public Core::LoggingAgent
 {
 public:
-    static bool InitializeWidgetTree(const Red::Handle<Red::inkWidget>& aWidget);
-    static bool InitializeController(const Red::Handle<Red::inkWidget>& aWidget,
-                                     const Red::Handle<Red::inkLogicController>& aController);
+    static bool AttachWidgetTree(const Red::Handle<Red::inkWidget>& aWidget);
+    static bool AttachController(const Red::Handle<Red::inkWidget>& aWidget,
+                                 const Red::Handle<Red::inkLogicController>& aController);
 
 protected:
     void OnBootstrap() override;
@@ -23,5 +23,8 @@ protected:
 
     static void AfterReparentFromScript(Red::inkWidget* aWidget, Red::CStackFrame*, void*, void*);
     static void AfterAddChildFromScript(Red::inkCompoundWidget* aParent, Red::CStackFrame*, void*, void*);
+    static void OnInitializeController(Red::inkLogicController* aController);
+
+    inline static bool IsLegacyController(Red::inkLogicController* aController);
 };
 }

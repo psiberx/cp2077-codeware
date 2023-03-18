@@ -7,6 +7,9 @@ void App::WidgetBuildingService::OnBootstrap()
 
     if (!HookAfter<Raw::inkCompoundWidget::ScriptAddChild>(&AfterAddChildFromScript))
         throw std::runtime_error("Failed to hook inkCompoundWidget::AddChild.");
+
+    if (!Hook<Raw::inkLogicController::OnInitialize>(&OnInitializeController))
+        throw std::runtime_error("Failed to hook inkLogicController::OnInitialize.");
 }
 
 void App::WidgetBuildingService::OnShutdown()
@@ -18,7 +21,7 @@ void App::WidgetBuildingService::AfterReparentFromScript(Red::inkWidget* aWidget
 {
     if (!aWidget->layerProxy)
     {
-        InitializeWidgetTree(*aWidget);
+        AttachWidgetTree(*aWidget);
     }
 }
 
@@ -32,11 +35,19 @@ void App::WidgetBuildingService::AfterAddChildFromScript(Red::inkCompoundWidget*
             widget = *(aParent->children->children.End() - 1);
         }
 
-        InitializeWidgetTree(widget);
+        AttachWidgetTree(widget);
     }
 }
 
-bool App::WidgetBuildingService::InitializeWidgetTree(const Red::Handle<Red::inkWidget>& aWidget)
+void App::WidgetBuildingService::OnInitializeController(Red::inkLogicController* aController)
+{
+    if (!IsLegacyController(aController))
+    {
+        Raw::inkLogicController::OnInitialize(aController);
+    }
+}
+
+bool App::WidgetBuildingService::AttachWidgetTree(const Red::Handle<Red::inkWidget>& aWidget)
 {
     auto& layerProxy = aWidget->layerProxy;
 
@@ -54,12 +65,12 @@ bool App::WidgetBuildingService::InitializeWidgetTree(const Red::Handle<Red::ink
         return false;
 
     Raw::inkWidget::SetLayer(aWidget, layerProxy);
-    Raw::inkLayer::InitializeWidgetTree(layer, aWidget, layerProxy);
+    Raw::inkLayer::AttachWidgetTree(layer, aWidget, layerProxy);
 
     return true;
 }
 
-bool App::WidgetBuildingService::InitializeController(const Red::Handle<Red::inkWidget>& aWidget,
+bool App::WidgetBuildingService::AttachController(const Red::Handle<Red::inkWidget>& aWidget,
                                                       const Red::Handle<Red::inkLogicController>& aController)
 {
     if (aController->layerProxy.instance)
@@ -83,4 +94,11 @@ bool App::WidgetBuildingService::InitializeController(const Red::Handle<Red::ink
 	aController->OnInitialize();
 
     return true;
+}
+
+bool App::WidgetBuildingService::IsLegacyController(Red::inkLogicController* aController)
+{
+    return aController->unk30
+           && aController->unk30->propsByName.Get("detachedWidget")
+           && aController->unk30->propsByName.Get("gameController");
 }
