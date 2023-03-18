@@ -50,10 +50,19 @@
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/Entity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/IComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/IEffect.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/Layer.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/LayerProxy.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/MultiChildren.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/PropertyManager.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/StyleResourceWrapper.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/UserData.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/Widget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLibraryItemInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLibraryResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLogicController.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/WidgetReference.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IWidgetController.hpp>
 
 #include <nameof.hpp>
@@ -64,6 +73,7 @@
 
 #include "Red/Alias.hpp"
 #include "Red/Stl.hpp"
+#include "Red/Rtti/Construction.hpp"
 #include "Red/Rtti/Definition.hpp"
 #include "Red/Rtti/Resolving.hpp"
 

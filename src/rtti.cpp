@@ -1,4 +1,6 @@
-#include "App/Entity/Entity.hpp"
+#include "App/Entity/EntityEx.hpp"
+#include "App/Ink/inkWidgetEx.hpp"
+#include "App/Ink/inkWidgetReferenceEx.hpp"
 #include "App/Utils/Bits.hpp"
 #include "App/Utils/CName.hpp"
 #include "App/Utils/Hashing.hpp"

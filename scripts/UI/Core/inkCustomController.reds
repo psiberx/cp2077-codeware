@@ -25,8 +25,8 @@
 //   public func Mount(rootController: ref<inkGameController>)
 //   protected cb func OnCreate()
 //   protected cb func OnInitialize()
-//   protected cb func OnUninitialize() ->  Void
-//   protected cb func OnReparent(parent: ref<inkCompoundWidget>) ->  Void
+//   protected cb func OnUninitialize()
+//   protected cb func OnReparent(parent: ref<inkCompoundWidget>)
 //   protected func SetRootWidget(rootWidget: ref<inkWidget>)
 //   protected func SetContainerWidget(containerWidget: ref<inkCompoundWidget>)
 //   protected func SetGameController(gameController: ref<inkGameController>)
@@ -103,7 +103,7 @@ public abstract class inkCustomController extends inkLogicController {
             if inkWidgetHelper.InWindowTree(this.m_rootWidget) {
                 this.InitializeChildren(this.GetRootCompoundWidget());
 
-                this.OnInitialize();
+                //this.OnInitialize();
                 this.CallCustomCallback(n"OnInitialize");
 
                 this.m_isInitialized = true;
@@ -200,6 +200,7 @@ public abstract class inkCustomController extends inkLogicController {
         }
     }
 
+/*
     public func RegisterToGlobalInputCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) {
         if IsDefined(this.m_gameController) {
             this.m_gameController.RegisterToGlobalInputCallback(eventName, object, functionName);
@@ -217,6 +218,7 @@ public abstract class inkCustomController extends inkLogicController {
             this.m_gameController.PlaySound(widgetName, eventName, actionKey);
         }
     }
+*/
 
     public func Reparent(newParent: wref<inkCompoundWidget>) {
         this.Reparent(newParent, -1);

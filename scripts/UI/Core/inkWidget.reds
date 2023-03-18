@@ -38,14 +38,10 @@ public func GetParentWidget() -> wref<inkWidget> {
 }
 
 @addMethod(inkWidget)
-public func SetController(controller: ref<inkLogicController>) {
-    this.logicController = controller;
-}
+public native func SetController(controller: ref<inkLogicController>);
 
 @addMethod(inkWidget)
-public func AddSecondaryController(controller: ref<inkLogicController>) {
-    ArrayPush(this.secondaryControllers, controller);
-}
+public native func AddSecondaryController(controller: ref<inkLogicController>);
 
 @addMethod(inkWidget)
 public func SetUserData(userData: ref<inkUserData>) {
