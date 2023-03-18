@@ -96,14 +96,7 @@ consteval auto GetTypeNameStr()
 {
     using U = std::remove_cvref_t<T>;
 
-    if constexpr (Detail::HasGeneratedTypeName<U>)
-    {
-        constexpr auto name = U::NAME;
-        constexpr auto length = std::char_traits<char>::length(name);
-
-        return Detail::MakeConstTypeName<length>(name);
-    }
-    else if constexpr (Detail::HasTypeNameBuilder<U>)
+    if constexpr (Detail::HasTypeNameBuilder<U>)
     {
         constexpr auto name = RTTITypeBuilder<U>::Name();
 
@@ -121,6 +114,13 @@ consteval auto GetTypeNameStr()
     else if constexpr (Detail::HasTypeNameMapping<U>)
     {
         constexpr auto name = TypeNameMapping<U>::name;
+        constexpr auto length = std::char_traits<char>::length(name);
+
+        return Detail::MakeConstTypeName<length>(name);
+    }
+    else if constexpr (Detail::HasGeneratedTypeName<U>)
+    {
+        constexpr auto name = U::NAME;
         constexpr auto length = std::char_traits<char>::length(name);
 
         return Detail::MakeConstTypeName<length>(name);

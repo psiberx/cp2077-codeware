@@ -230,7 +230,7 @@ public:
     CClassFunction* AddFunction(NativeFunctionPtr<TContext, TRet, TRetType> aFunc, const char* aName,
                                 CBaseFunction::Flags aFlags = {})
     {
-        const auto* ptr = reinterpret_cast<ScriptingFunction_t<TRet*>>(aFunc);
+        auto* ptr = reinterpret_cast<ScriptingFunction_t<TRet*>>(aFunc);
 
         CClassFunction* func;
         if constexpr (std::is_same_v<TContext, IScriptable>)
@@ -291,7 +291,7 @@ public:
 
         static_assert(std::is_base_of_v<Context, TClass>);
 
-        const auto offset = reinterpret_cast<size_t>(&(reinterpret_cast<Context const volatile*>(nullptr)->*AProperty));
+        const auto offset = reinterpret_cast<size_t>(&(reinterpret_cast<Context const volatile*>(0)->*AProperty));
 
         auto* type = ResolveType<Value>();
         auto* prop = CProperty::Create(type, aName, nullptr, static_cast<uint32_t>(offset), nullptr, aFlags);
@@ -582,7 +582,7 @@ public:
     CGlobalFunction* AddFunction(NativeFunctionPtr<TContext, TRet, TRetType> aFunc, const char* aName,
                                  CBaseFunction::Flags aFlags = {})
     {
-        const auto* ptr = reinterpret_cast<ScriptingFunction_t<TRet*>>(aFunc);
+        auto* ptr = reinterpret_cast<ScriptingFunction_t<TRet*>>(aFunc);
         auto* func = CGlobalFunction::Create(aName, aName, ptr);
 
         func->flags = aFlags;
@@ -606,7 +606,7 @@ public:
         }
         else
         {
-            const auto* ptr = Detail::MakeNativeFunction<AFunction>();
+            auto* ptr = Detail::MakeNativeFunction<AFunction>();
             auto* func = CGlobalFunction::Create(aName, aName, ptr);
 
             func->flags = aFlags;

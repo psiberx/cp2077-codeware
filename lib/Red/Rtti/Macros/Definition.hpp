@@ -32,7 +32,7 @@
         using Descriptor = Red::ClassDescriptor<_class>; \
         static constexpr auto Name() \
         { \
-            return nameof::nameof_short_type<Type>; \
+            return nameof::nameof_short_type<Type>(); \
         } \
     };
 
@@ -44,7 +44,7 @@
         using Descriptor = Red::ClassDescriptor<_class>; \
         static constexpr auto Name() \
         { \
-            return nameof::nameof_short_type<Type>; \
+            return nameof::nameof_short_type<Type>(); \
         } \
         static void Describe(Descriptor* type) \
         { \
@@ -142,7 +142,7 @@
         using Descriptor = Red::EnumDescriptor<_enum>; \
         static constexpr auto Name() \
         { \
-            return nameof::nameof_short_type<Type>; \
+            return nameof::nameof_short_type<Type>(); \
         } \
     };
 
@@ -169,7 +169,7 @@
         using Descriptor = Red::EnumDescriptor<_enum>; \
         static constexpr auto Name() \
         { \
-            return nameof::nameof_short_type<Type>; \
+            return nameof::nameof_short_type<Type>(); \
         } \
     };
 
