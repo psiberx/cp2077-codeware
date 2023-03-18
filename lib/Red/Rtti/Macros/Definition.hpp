@@ -102,7 +102,7 @@
     type->SetParent<_parent>()
 
 #define RTTI_ALIAS(_alias) \
-    static_assert(false, "Not Implemented")
+    type->SetAlias(_alias)
 
 #define RTTI_METHOD(...) \
     X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_METHOD_3, X_RTTI_METHOD_2, X_RTTI_METHOD_1)(__VA_ARGS__))

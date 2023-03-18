@@ -208,6 +208,24 @@ public:
         parent = GetClass<AParent>();
     }
 
+    void SetAlias(const char* aAlias)
+    {
+        SetAlias(CNamePool::Add(aAlias));
+    }
+
+    void SetAlias(CName aAlias)
+    {
+        if (name != aAlias)
+        {
+            auto rtti = CRTTISystem::Get();
+            if (rtti->scriptToNative.Get(aAlias) == nullptr)
+            {
+                rtti->scriptToNative.Insert(aAlias, name);
+                rtti->nativeToScript.Insert(name, aAlias);
+            }
+        }
+    }
+
     template<class TContext, typename TRet, typename TRetType>
     CClassFunction* AddFunction(NativeFunctionPtr<TContext, TRet, TRetType> aFunc, const char* aName,
                                 CBaseFunction::Flags aFlags = {})
@@ -242,7 +260,7 @@ public:
         }
         else
         {
-            const auto* ptr = Detail::MakeNativeFunction<AFunction>();
+            auto* ptr = Detail::MakeNativeFunction<AFunction>();
 
             CClassFunction* func;
             if constexpr (Detail::IsScripable<Context>)
@@ -316,7 +334,6 @@ class ClassDescriptorImpl : public ClassDescriptor<TClass>
 
     void ConstructCls(ScriptInstance aMemory) const final // D8
     {
-
         new (aMemory) TClass();
     }
 
