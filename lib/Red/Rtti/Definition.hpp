@@ -106,7 +106,7 @@ inline ScriptingFunction_t<void*> MakeNativeFunction()
         typename FunctionPtr<F>::extended_arguments_type>;
 
     static const auto s_func = AFunction;
-    static const auto s_retType = !std::is_void_v<R> ? GetType<R>() : nullptr;
+    static const auto s_retType = !std::is_void_v<R> ? ResolveType<R>() : nullptr;
 
     auto f = [](IScriptable* aContext, CStackFrame* aFrame, R* aRet, CBaseRTTIType* aRetType) -> void
     {
