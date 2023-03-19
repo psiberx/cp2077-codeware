@@ -87,6 +87,10 @@ def patterns():
                 Item(name="CompareTypeName",
                      pattern="48 89 5C 24 10 57 48 83 EC 20 48 8B DA 48 8B F9 48 3B CA 74 ? E8 ? ? ? ? 4C 8B C7"),
             ]),
+            Group(name="VehicleSystem", functions=[
+                Item(name="ToggleGarageVehicle",
+                     pattern="48 89 5C 24 08 48 89 6C 24 10 48 89 74 24 18 57 48 83 EC 20 48 8B F9 41 0F B6 F0 48 81 C1 ? ? ? ? 48 8B EA E8"),
+            ]),
         ]),
     ]
 

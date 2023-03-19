@@ -50,6 +50,7 @@
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/Entity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/IComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
@@ -70,6 +71,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetReference.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IWidgetController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
+#include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
 
 #include <nameof.hpp>
 #include <semver.hpp>

@@ -9,3 +9,4 @@
 #include "App/Utils/CName.hpp"
 #include "App/Utils/Hashing.hpp"
 #include "App/Utils/NodeRef.hpp"
+#include "App/World/VehicleSystemEx.hpp"
