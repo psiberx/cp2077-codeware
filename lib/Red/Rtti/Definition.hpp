@@ -163,6 +163,12 @@ void DescribeNativeFunction(CBaseFunction* aFunc, R (C::*)(Args...))
         aFunc->SetReturnType(ResolveTypeName<R>());
 }
 
+template<typename C, typename R, typename... Args>
+void DescribeNativeFunction(CBaseFunction* aFunc, R (C::*aHandler)(Args...) const)
+{
+    DescribeNativeFunction(aFunc, reinterpret_cast<R (C::*)(Args...)>(aHandler));
+}
+
 template<typename F>
 concept IsNativeFunctionPtr = Detail::IsFunctionPtr<F>
     && Detail::FunctionPtr<F>::arity == 4

@@ -92,6 +92,17 @@ consteval auto ExtractScopedEnumName(const char* aName)
 }
 
 template<typename T>
+consteval auto GetTypeNamePrefix()
+{
+    using U = std::remove_cvref_t<T>;
+
+    constexpr auto prefix = TypePrefixMapping<U>::prefix;
+    constexpr auto length = std::char_traits<char>::length(prefix);
+
+    return Detail::MakeConstTypeName<length>(prefix);
+}
+
+template<typename T>
 consteval auto GetTypeNameStr()
 {
     using U = std::remove_cvref_t<T>;
