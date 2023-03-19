@@ -6,16 +6,16 @@ namespace App
 {
 struct inkWidgetEx : Red::inkWidget
 {
-    void SetController(const Red::Handle<Red::inkLogicController>& aController)
+    void AttachController(const Red::Handle<Red::inkLogicController>& aController, Red::Optional<bool> aSecondary)
     {
-        logicController = aController;
-
-        WidgetBuildingService::AttachController(*this, aController);
-    }
-
-    void AddSecondaryController(const Red::Handle<Red::inkLogicController>& aController)
-    {
-        secondaryControllers.PushBack(aController);
+        if (aSecondary)
+        {
+            secondaryControllers.PushBack(aController);
+        }
+        else
+        {
+            logicController = aController;
+        }
 
         WidgetBuildingService::AttachController(*this, aController);
     }
@@ -23,6 +23,5 @@ struct inkWidgetEx : Red::inkWidget
 }
 
 RTTI_EXPAND_CLASS(App::inkWidgetEx, Red::inkWidget, {
-    RTTI_METHOD(SetController);
-    RTTI_METHOD(AddSecondaryController);
+    RTTI_METHOD(AttachController);
 });

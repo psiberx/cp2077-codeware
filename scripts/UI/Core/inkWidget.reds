@@ -11,8 +11,7 @@
 //
 // class inkWidget {
 //   public func GetParentWidget() -> wref<inkWidget>
-//   public func SetController(controller: ref<inkLogicController>)
-//   public func AddSecondaryController(controller: ref<inkLogicController>)
+//   public func AttachController(controller: ref<inkLogicController>, opt secondary: Bool)
 //   public func SetUserData(userData: ref<inkUserData>)
 // }
 //
@@ -38,12 +37,6 @@ public func GetParentWidget() -> wref<inkWidget> {
 }
 
 @addMethod(inkWidget)
-public native func SetController(controller: ref<inkLogicController>);
-
-@addMethod(inkWidget)
-public native func AddSecondaryController(controller: ref<inkLogicController>);
-
-@addMethod(inkWidget)
 public func SetUserData(userData: ref<inkUserData>) {
     ArrayPush(this.userData, userData);
 }
@@ -57,3 +50,6 @@ public func CanSupportFocus() -> Bool {
 public func SetSupportFocus(enabled: Bool) {
     this.canSupportFocus = enabled;
 }
+
+@addMethod(inkWidget)
+public native func AttachController(controller: ref<inkLogicController>, opt secondary: Bool);
