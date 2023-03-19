@@ -50,6 +50,7 @@
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/Entity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/IComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/IGameSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
@@ -81,6 +82,7 @@
 
 #include "Red/Alias.hpp"
 #include "Red/Stl.hpp"
+#include "Red/Framework.hpp"
 #include "Red/Rtti/Construction.hpp"
 #include "Red/Rtti/Calling.hpp"
 #include "Red/Rtti/Definition.hpp"
