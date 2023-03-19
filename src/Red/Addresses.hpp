@@ -20,6 +20,8 @@ constexpr uintptr_t InkLayer_RegisterListener = 0x14085C2D0 - ImageBase; // 48 8
 constexpr uintptr_t InkLayer_AttachWidgetTree = 0x14085CCF0 - ImageBase; // 48 89 5C 24 10 48 89 74 24 20 55 57 41 56 48 8B EC 48 83 EC 70 4C 8B F1 49 8B D8 48 8D 4D 30, expected: 2, index: 1
 
 constexpr uintptr_t InkLogicController_OnInitialize = 0x140979900 - ImageBase; // 48 89 5C 24 10 57 48 83 EC 40 48 83 79 70 00 48 8B D9 0F 84 ? ? ? ? 48 8B 41 48 0F 57 C0, expected: 1, index: 0
+constexpr uintptr_t InkLogicController_OnUninitialize = 0x140979A00 - ImageBase; // 48 89 5C 24 08 57 48 83 EC 30 80 3D ? ? ? ? ? 48 8B D9 48 BF A9 69 90 5E 8F CE E7 D3 75, expected: 1, index: 0
+constexpr uintptr_t InkLogicController_OnArrangeChildrenComplete = 0x140979A70 - ImageBase; // 40 53 48 83 EC 30 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 84 C0 75 ? 38 ? ? ? ? ? 48 89 7C 24 40 48 BF 34 F1 16 6B BE 7B 6A 4B, expected: 1, index: 0
 
 constexpr uintptr_t InkSpawner_FinishAsyncSpawn = 0x1408D3450 - ImageBase; // 48 89 5C 24 10 57 48 83 EC 30 48 8B 42 08 48 8B DA 4C 8B 0A 48 8B F9 4C 8B 41 18 4C 89 4C 24 20, expected: 1, index: 0
 

@@ -41,4 +41,12 @@ namespace Raw::inkLogicController
 constexpr auto OnInitialize = Core::RawFunc<
     /* addr = */ Red::Addresses::InkLogicController_OnInitialize,
     /* type = */ void (*)(Red::inkLogicController* aController)>();
+
+constexpr auto OnUninitialize = Core::RawFunc<
+    /* addr = */ Red::Addresses::InkLogicController_OnUninitialize,
+    /* type = */ void (*)(Red::inkLogicController* aController)>();
+
+constexpr auto OnArrangeChildrenComplete = Core::RawFunc<
+    /* addr = */ Red::Addresses::InkLogicController_OnArrangeChildrenComplete,
+    /* type = */ void (*)(Red::inkLogicController* aController)>();
 }

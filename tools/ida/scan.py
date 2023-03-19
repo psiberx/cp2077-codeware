@@ -38,6 +38,10 @@ def patterns():
             Group(name="InkLogicController", functions=[
                 Item(name="OnInitialize",
                      pattern="48 89 5C 24 10 57 48 83 EC 40 48 83 79 70 00 48 8B D9 0F 84 ? ? ? ? 48 8B 41 48 0F 57 C0"),
+                Item(name="OnUninitialize",
+                     pattern="48 89 5C 24 08 57 48 83 EC 30 80 3D ? ? ? ? ? 48 8B D9 48 BF A9 69 90 5E 8F CE E7 D3 75"),
+                Item(name="OnArrangeChildrenComplete",
+                     pattern="40 53 48 83 EC 30 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 84 C0 75 ? 38 ? ? ? ? ? 48 89 7C 24 40 48 BF 34 F1 16 6B BE 7B 6A 4B"),
             ]),
             Group(name="InkWidget", functions=[
                 Item(name="GetLayer",
