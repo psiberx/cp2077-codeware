@@ -1,37 +1,28 @@
 #pragma once
 
+#include "App/Ink/inkLayerWrapper.hpp"
 #include "Red/InkSystem.hpp"
 
 namespace App
 {
 struct UISystemEx : Red::UISystem
 {
-    Red::DynArray<Red::Handle<Red::inkLayer>> GetLayers()
+    Red::DynArray<Red::Handle<App::inkLayerWrapper>> GetLayers()
     {
-        if (auto system = Red::InkSystem::Get())
-        {
-            return system->GetLayers();
-        }
-
-        return {};
-    }
-
-    Red::DynArray<Red::Handle<Red::inkVirtualWindow>> GetVirtualWindows()
-    {
-        Red::DynArray<Red::Handle<Red::inkVirtualWindow>> windows;
+        Red::DynArray<Red::Handle<App::inkLayerWrapper>> layers;
 
         if (auto system = Red::InkSystem::Get())
         {
             for (const auto& layer : system->GetLayers())
             {
-                windows.PushBack(layer->window);
+                layers.PushBack(Red::MakeHandle<inkLayerWrapper>(layer));
             }
         }
 
-        return windows;
+        return layers;
     }
 
-    Red::Handle<Red::inkVirtualWindow> GetVirtualWindow(Red::CName aLayerName)
+    Red::Handle<App::inkLayerWrapper> GetLayer(Red::CName aLayerName)
     {
         if (auto system = Red::InkSystem::Get())
         {
@@ -39,7 +30,7 @@ struct UISystemEx : Red::UISystem
             {
                 if (layer->GetNativeType()->name == aLayerName)
                 {
-                    return layer->window;
+                    return Red::MakeHandle<inkLayerWrapper>(layer);
                 }
             }
         }
@@ -51,6 +42,5 @@ struct UISystemEx : Red::UISystem
 
 RTTI_EXPAND_CLASS(App::UISystemEx, Red::UISystem, {
     RTTI_METHOD(GetLayers);
-    RTTI_METHOD(GetVirtualWindows);
-    RTTI_METHOD(GetVirtualWindow);
+    RTTI_METHOD(GetLayer);
 });
