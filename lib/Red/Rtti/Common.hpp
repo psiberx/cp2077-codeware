@@ -22,7 +22,7 @@ consteval auto AutoScope(const std::source_location& aLocation = std::source_loc
     return FNV1a64v(aLocation.line(), FNV1a64(aLocation.file_name()));
 }
 
-template<typename T, auto ADefault>
+template<typename T, auto ADefault = T()>
 struct Optional
 {
     inline operator T&()
