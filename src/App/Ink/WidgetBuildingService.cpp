@@ -71,7 +71,7 @@ bool App::WidgetBuildingService::AttachWidgetTree(const Red::Handle<Red::inkWidg
 }
 
 bool App::WidgetBuildingService::AttachController(const Red::Handle<Red::inkWidget>& aWidget,
-                                                      const Red::Handle<Red::inkLogicController>& aController)
+                                                  const Red::Handle<Red::inkLogicController>& aController)
 {
     if (aController->layerProxy.instance)
         return true;

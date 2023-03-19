@@ -2,7 +2,8 @@
 
 void App::GameSessionService::OnBootstrap()
 {
-    Hook<Raw::GetScriptGameInstance>(&GetScriptGameInstance);
+    if (!Hook<Raw::GetScriptGameInstance>(&GetScriptGameInstance))
+        throw std::runtime_error("Failed to hook ScriptGameInstance.");
 }
 
 void App::GameSessionService::GetScriptGameInstance(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
