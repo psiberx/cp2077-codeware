@@ -12,8 +12,8 @@
 // }
 //
 
-// @addField(inkShape)
-// native let shapeResource: ResRef; ?? idk
+@addField(inkShape)
+native let shapeResource: ResourceRef;
 
 @addField(inkShape)
 native let shapeName:  CName;
@@ -57,31 +57,60 @@ native let jointStyle: inkEJointStyle;
 @addField(inkShape)
 native let vertexList: array<Vector2>;
 
-// Gets
+@addMethod(inkShape)
+public func GetResource() -> ResRef {
+    return ResourceRef.GetPath(this.shapeResource);
+}
 
 @addMethod(inkShape)
-public func GetShapeName() -> CName {
+public func SetResource(path: ResRef) {
+    ResourceRef.LoadPath(this.shapeResource, path);
+}
+
+@addMethod(inkShape)
+public func GetShape() -> CName {
     return this.shapeName;
 }
 
 @addMethod(inkShape)
-public func GetShapeVariant() -> inkEShapeVariant {
+public func SetShape(shape: CName) {
+    this.ChangeShape(shape);
+}
+
+@addMethod(inkShape)
+public func GetVariant() -> inkEShapeVariant {
     return this.shapeVariant;
 }
 
 @addMethod(inkShape)
-public func GetKeepInBounds() -> Bool {
-    return this.keepInBounds;
+public func SetVariant(variant: inkEShapeVariant) {
+    this.shapeVariant = variant;
 }
 
 @addMethod(inkShape)
-public func GetNineSliceScale() -> inkMargin {
+public func UsesNineSliceScale() -> Bool {
+    return this.useNineSlice;
+}
+
+@addMethod(inkShape)
+public func SetNineSliceScale(enable: Bool) {
+    this.useNineSlice = enable;
+}
+
+@addMethod(inkShape)
+public func GetNineSliceGrid() -> inkMargin {
     return this.nineSliceScale;
 }
 
 @addMethod(inkShape)
-public func GetUseNineSlice() -> Bool {
-    return this.useNineSlice;
+public func SetNineSliceGrid(grid: inkMargin) {
+    this.nineSliceScale = grid;
+}
+
+
+@addMethod(inkShape)
+public func GetKeepInBounds() -> Bool {
+    return this.keepInBounds;
 }
 
 @addMethod(inkShape)
@@ -129,35 +158,9 @@ public func GetVertexList() -> array<Vector2> {
     return this.vertexList;
 }
 
-// Sets
-
-// could be implemented natively
-// @addMethod(inkShape)
-// public native func SetShapeResource(shapeResource: ResRef);
-
-@addMethod(inkShape)
-public func SetShapeName(shapeName: CName) {
-    this.shapeName = shapeName;
-}
-
-@addMethod(inkShape)
-public func SetShapeVariant(shapeVariant: inkEShapeVariant) {
-    this.shapeVariant = shapeVariant;
-}
-
 @addMethod(inkShape)
 public func SetKeepInBounds(keepInBounds: Bool) {
     this.keepInBounds = keepInBounds;
-}
-
-@addMethod(inkShape)
-public func SetNineSliceScale(nineSliceScale: inkMargin) {
-    this.nineSliceScale = nineSliceScale;
-}
-
-@addMethod(inkShape)
-public func SetUseNineSlice(useNineSlice: Bool) {
-    this.useNineSlice = useNineSlice;
 }
 
 @addMethod(inkShape)
