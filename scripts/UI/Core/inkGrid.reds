@@ -1,6 +1,5 @@
 
-public native class inkGrid extends inkCompoundWidget
-{
+public native class inkGrid extends inkCompoundWidget {
     public native let orientation: inkEOrientation;
     public native let childPadding: inkMargin;
     public native let childSizeStep: Vector2;
