@@ -74,6 +74,7 @@
 #include "Red/Alias.hpp"
 #include "Red/Stl.hpp"
 #include "Red/Rtti/Construction.hpp"
+#include "Red/Rtti/Calling.hpp"
 #include "Red/Rtti/Definition.hpp"
 #include "Red/Rtti/Resolving.hpp"
 
