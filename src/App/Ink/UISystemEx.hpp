@@ -30,10 +30,27 @@ struct UISystemEx : Red::UISystem
 
         return windows;
     }
+
+    Red::Handle<Red::inkVirtualWindow> GetVirtualWindow(Red::CName aLayerName)
+    {
+        if (auto system = Red::InkSystem::Get())
+        {
+            for (const auto& layer : system->GetLayers())
+            {
+                if (layer->GetNativeType()->name == aLayerName)
+                {
+                    return layer->window;
+                }
+            }
+        }
+
+        return {};
+    }
 };
 }
 
 RTTI_EXPAND_CLASS(App::UISystemEx, Red::UISystem, {
     RTTI_METHOD(GetLayers);
     RTTI_METHOD(GetVirtualWindows);
+    RTTI_METHOD(GetVirtualWindow);
 });
