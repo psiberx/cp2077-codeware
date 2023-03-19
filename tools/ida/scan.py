@@ -31,10 +31,6 @@ def patterns():
                      expected=2,
                      index=1),
             ]),
-            Group(name="InkSpawner", functions=[
-                Item(name="FinishAsyncSpawn",
-                     pattern="48 89 5C 24 10 57 48 83 EC 30 48 8B 42 08 48 8B DA 4C 8B 0A 48 8B F9 4C 8B 41 18 4C 89 4C 24 20"),
-            ]),
             Group(name="InkLogicController", functions=[
                 Item(name="OnInitialize",
                      pattern="48 89 5C 24 10 57 48 83 EC 40 48 83 79 70 00 48 8B D9 0F 84 ? ? ? ? 48 8B 41 48 0F 57 C0"),
@@ -42,6 +38,15 @@ def patterns():
                      pattern="48 89 5C 24 08 57 48 83 EC 30 80 3D ? ? ? ? ? 48 8B D9 48 BF A9 69 90 5E 8F CE E7 D3 75"),
                 Item(name="OnArrangeChildrenComplete",
                      pattern="40 53 48 83 EC 30 48 8B D9 E8 ? ? ? ? 48 8B C8 E8 ? ? ? ? 84 C0 75 ? 38 ? ? ? ? ? 48 89 7C 24 40 48 BF 34 F1 16 6B BE 7B 6A 4B"),
+            ]),
+            Group(name="InkSpawner", functions=[
+                Item(name="FinishAsyncSpawn",
+                     pattern="48 89 5C 24 10 57 48 83 EC 30 48 8B 42 08 48 8B DA 4C 8B 0A 48 8B F9 4C 8B 41 18 4C 89 4C 24 20"),
+            ]),
+            Group(name="InkSystem", pointers=[
+                Item(name="Instance",
+                     pattern="BA ? ? 00 00 41 87 87 ? ? 00 00 4C 89 ? ? ? ? ? E8",
+                     offset=15),
             ]),
             Group(name="InkWidget", functions=[
                 Item(name="GetLayer",
