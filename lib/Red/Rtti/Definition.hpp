@@ -93,6 +93,23 @@ inline void ExtractArgs(CStackFrame* aFrame, std::tuple<Args...>& aArgs)
     aFrame->code++;
 }
 
+template<typename R>
+inline void AssignReturnValue(R* aRetValue, CBaseRTTIType* aRetValueType,
+                              R* aRetBuffer, CBaseRTTIType* aRetBufferType)
+{
+    if (aRetBuffer)
+    {
+        if (aRetBufferType)
+        {
+            aRetBufferType->Assign(aRetBuffer, aRetValue);
+        }
+        else
+        {
+            aRetValueType->Assign(aRetBuffer, aRetValue);
+        }
+    }
+}
+
 template<auto AFunction>
 requires IsFunctionPtr<decltype(AFunction)>
 inline ScriptingFunction_t<void*> MakeNativeFunction()
@@ -105,7 +122,6 @@ inline ScriptingFunction_t<void*> MakeNativeFunction()
         typename FunctionPtr<F>::arguments_type,
         typename FunctionPtr<F>::extended_arguments_type>;
 
-    static const auto s_func = AFunction;
     static const auto s_retType = !std::is_void_v<R> ? ResolveType<R>() : nullptr;
 
     auto f = [](IScriptable* aContext, CStackFrame* aFrame, R* aRet, CBaseRTTIType* aRetType) -> void
@@ -116,25 +132,25 @@ inline ScriptingFunction_t<void*> MakeNativeFunction()
         if constexpr (std::is_void_v<R>)
         {
             if constexpr (std::is_void_v<C> || !std::is_base_of_v<IScriptable, C>)
-                std::apply(s_func, args);
+            {
+                std::apply(AFunction, args);
+            }
             else
-                std::apply(s_func, std::tuple_cat(std::make_tuple(reinterpret_cast<C*>(aContext)), args));
+            {
+                std::apply(AFunction, std::tuple_cat(std::make_tuple(reinterpret_cast<C*>(aContext)), args));
+            }
         }
         else
         {
-            R ret{};
-
             if constexpr (std::is_void_v<C> || !std::is_base_of_v<IScriptable, C>)
-                ret = std::apply(s_func, args);
-            else
-                ret = std::apply(s_func, std::tuple_cat(std::make_tuple(reinterpret_cast<C*>(aContext)), args));
-
-            if (aRet)
             {
-                if (aRetType)
-                    aRetType->Assign(aRet, &ret);
-                else
-                    s_retType->Assign(aRet, &ret);
+                R ret = std::apply(AFunction, args);
+                AssignReturnValue(&ret, s_retType, aRet, aRetType);
+            }
+            else
+            {
+                R ret = std::apply(AFunction, std::tuple_cat(std::make_tuple(reinterpret_cast<C*>(aContext)), args));
+                AssignReturnValue(&ret, s_retType, aRet, aRetType);
             }
         }
     };
