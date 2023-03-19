@@ -40,4 +40,6 @@ constexpr uintptr_t InkWidgetLibrary_SpawnFromLocal = 0x14098E520 - ImageBase; /
 constexpr uintptr_t IScriptable_InitializeScriptData = 0x1401E4680 - ImageBase; // 48 89 51 30 4C 89 41 38 C3, expected: 1, index: 0
 
 constexpr uintptr_t NodeRef_Create = 0x140B58520 - ImageBase; // 48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 4C 89 64 24 20 55 41 56 41 57 48 8B EC 48 83 EC 70 8B 7A 08 33 DB 45 0F B6 E0 4C 8B F1 85 FF, expected: 1, index: 0
+
+constexpr uintptr_t ScriptValidator_CompareTypeName = 0x140277510 - ImageBase; // 48 89 5C 24 10 57 48 83 EC 20 48 8B DA 48 8B F9 48 3B CA 74 ? E8 ? ? ? ? 4C 8B C7, expected: 1, index: 0
 }

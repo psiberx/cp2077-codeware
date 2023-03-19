@@ -14,5 +14,6 @@ protected:
     void OnBootstrap() override;
 
     static void OnInitializeScriptable(Red::IScriptable* aInstance, Red::CClass* aClass, void* aValueHolder);
+    static void OnValidateTypeName(bool& aValid, Red::CName aScriptTypeName, Red::CName aNativeTypeName);
 };
 }
