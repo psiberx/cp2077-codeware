@@ -43,6 +43,7 @@
 #include <RED4ext/SortedArray.hpp>
 #include <RED4ext/TweakDB.hpp>
 #include <RED4ext/Hashing/FNV1a.hpp>
+#include <RED4ext/Hashing/Murmur3.hpp>
 #include <RED4ext/Memory/Allocators.hpp>
 #include <RED4ext/Memory/SharedPtr.hpp>
 #include <RED4ext/Scripting/CProperty.hpp>
