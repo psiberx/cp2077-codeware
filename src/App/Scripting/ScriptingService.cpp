@@ -5,11 +5,10 @@ namespace
 {
 constexpr auto ResourceWrapperName = Red::GetTypeName<App::ResourceWrapper>();
 constexpr auto ResourceAsyncWrapperName = Red::GetTypeName<App::ResourceAsyncWrapper>();
+constexpr auto ScriptResourceReferenceAlias = Red::CName(Red::redResourceReferenceScriptToken::ALIAS);
 
-constexpr auto ResourceReferencePrefix = Red::GetTypeNamePrefix<Red::ResourceReference<>>();
-constexpr auto ResourceAsyncReferencePrefix = Red::GetTypeNamePrefix<Red::ResourceAsyncReference<>>();
-
-constexpr auto ScriptResourceReferenceName = Red::CName(Red::ResRef::ALIAS);
+constexpr auto ResourceReferencePrefix = Red::GetTypePrefixStr<Red::ResourceReference<>>();
+constexpr auto ResourceAsyncReferencePrefix = Red::GetTypePrefixStr<Red::ResourceAsyncReference<>>();
 }
 
 void App::ScriptingService::OnBootstrap()
@@ -38,7 +37,7 @@ void App::ScriptingService::OnValidateTypeName(bool& aValid, Red::CName aScriptT
             aValid = strncmp(ResourceReferencePrefix.data(), aNativeTypeName.ToString(),
                              ResourceReferencePrefix.size() - 1) == 0;
         }
-        else if (aScriptTypeName == ResourceAsyncWrapperName || aScriptTypeName == ScriptResourceReferenceName)
+        else if (aScriptTypeName == ResourceAsyncWrapperName || aScriptTypeName == ScriptResourceReferenceAlias)
         {
             aValid = strncmp(ResourceAsyncReferencePrefix.data(), aNativeTypeName.ToString(),
                              ResourceAsyncReferencePrefix.size() - 1) == 0;

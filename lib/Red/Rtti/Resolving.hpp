@@ -92,7 +92,7 @@ consteval auto ExtractScopedEnumName(const char* aName)
 }
 
 template<typename T>
-consteval auto GetTypeNamePrefix()
+consteval auto GetTypePrefixStr()
 {
     using U = std::remove_cvref_t<T>;
 
@@ -281,6 +281,11 @@ public:
     operator CRTTIArrayType*() const
     {
         return GetArray();
+    }
+
+    [[nodiscard]] inline CBaseRTTIType* operator->() const
+    {
+        return Get();
     }
 
     operator bool()
