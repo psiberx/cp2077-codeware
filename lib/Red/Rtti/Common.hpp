@@ -25,9 +25,19 @@ consteval auto AutoScope(const std::source_location& aLocation = std::source_loc
 template<typename T, auto ADefault = T()>
 struct Optional
 {
-    inline operator T&()
+    inline operator const T&() const
     {
         return value;
+    }
+
+    bool IsEmpty() const
+    {
+        return !value;
+    }
+
+    bool IsDefault() const
+    {
+        return value == ADefault;
     }
 
     T value{ADefault};
@@ -36,7 +46,7 @@ struct Optional
 namespace Detail
 {
 template<typename T>
-concept IsScripable = std::is_base_of_v<IScriptable, T>;
+concept IsScriptable = std::is_base_of_v<IScriptable, T>;
 
 template<typename T>
 concept IsType = std::is_base_of_v<CBaseRTTIType, T>;

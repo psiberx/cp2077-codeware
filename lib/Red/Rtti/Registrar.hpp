@@ -8,45 +8,81 @@ public:
     using Callback = void(*)();
 
     RTTIRegistrar(Callback aRegister, Callback aDescribe)
-        : m_registered(false)
-        , m_register(aRegister)
-        , m_describe(aDescribe)
     {
-        s_pending.push_back(this);
-    }
-
-    void Register()
-    {
-        if (!m_registered)
-        {
-            auto* rtti = CRTTISystem::Get();
-
-            if (m_register)
-                rtti->AddRegisterCallback(m_register);
-
-            if (m_describe)
-                rtti->AddPostRegisterCallback(m_describe);
-
-            m_registered = true;
-        }
+        AddRegisterCallback(aRegister);
+        AddDescribeCallback(aDescribe);
     }
 
     static inline void RegisterPending()
     {
-        for (const auto& pending : s_pending)
-        {
-            pending->Register();
-        }
-
-        s_pending.clear();
+        QueuePendingRegisterCallbacks();
+        QueuePendingDescribeCallbacks();
     }
 
+    static inline void AddRegisterCallback(Callback aRegister)
+    {
+        if (aRegister)
+        {
+            s_registerCallbacks.push_back(aRegister);
+        }
+    }
+
+    static inline void AddDescribeCallback(Callback aDescribe)
+    {
+        if (aDescribe)
+        {
+            s_describeCallbacks.push_back(aDescribe);
+        }
+    }
 
 private:
-    bool m_registered;
-    Callback m_register;
-    Callback m_describe;
+    static inline void QueuePendingRegisterCallbacks()
+    {
+        if (!s_registerCallbacks.empty())
+        {
+            CRTTISystem::Get()->AddRegisterCallback(&OnRegister);
+        }
+    }
 
-    static inline std::vector<RTTIRegistrar*> s_pending;
+    static inline void QueuePendingDescribeCallbacks()
+    {
+        if (!s_describeCallbacks.empty())
+        {
+            CRTTISystem::Get()->AddPostRegisterCallback(&OnDescribe);
+        }
+    }
+
+    static inline void ProcessPendingRegisterCallbacks()
+    {
+        auto callbacks = std::move(s_registerCallbacks);
+        for (const auto& callback :callbacks)
+        {
+            callback();
+        }
+    }
+
+    static inline void ProcessPendingDescriberCallbacks()
+    {
+        auto callbacks = std::move(s_describeCallbacks);
+        for (const auto& callback :callbacks)
+        {
+            callback();
+        }
+    }
+
+    static inline void OnRegister()
+    {
+        ProcessPendingRegisterCallbacks();
+        QueuePendingRegisterCallbacks();
+    }
+
+    static inline void OnDescribe()
+    {
+        ProcessPendingDescriberCallbacks();
+        QueuePendingDescribeCallbacks();
+    }
+
+    static inline std::vector<Callback> s_registerCallbacks;
+    static inline std::vector<Callback> s_describeCallbacks;
 };
 }

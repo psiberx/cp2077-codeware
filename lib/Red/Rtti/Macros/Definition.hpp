@@ -131,6 +131,15 @@
 #define X_RTTI_PROPERTY_2(_property, _name) \
     type->AddProperty<&Type::_property>(_name)
 
+#define RTTI_PERSISTENT(...) \
+    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PERSISTENT_3, X_RTTI_PERSISTENT_2, X_RTTI_PERSISTENT_1)(__VA_ARGS__))
+
+#define X_RTTI_PERSISTENT_1(_property) \
+    type->AddProperty<&Type::_property>(#_property, {.isPersistent = true})
+
+#define X_RTTI_PERSISTENT_2(_property, _name) \
+    type->AddProperty<&Type::_property>(_name, {.isPersistent = true})
+
 #define RTTI_DEFINE_ENUM(...) \
     X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_DEF_ENUM_3, X_RTTI_DEF_ENUM_2, X_RTTI_DEF_ENUM_1)(__VA_ARGS__))
 

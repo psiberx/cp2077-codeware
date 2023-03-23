@@ -170,7 +170,7 @@ void DescribeNativeFunction(CBaseFunction* aFunc, R(*)(Args...))
 template<typename C, typename R, typename... Args>
 void DescribeNativeFunction(CBaseFunction* aFunc, R (C::*)(Args...))
 {
-    if constexpr (!IsScripable<C>)
+    if constexpr (!IsScriptable<C>)
         aFunc->AddParam(ResolveTypeName<ScriptRef<C>>(), "self");
 
     (aFunc->AddParam(ResolveTypeName<Args>(), "arg", false, Detail::IsOptional<Args>), ...);
@@ -191,7 +191,7 @@ concept IsNativeFunctionPtr = Detail::IsFunctionPtr<F>
     && std::is_void_v<typename Detail::FunctionPtr<F>::return_type>
     && std::is_void_v<typename Detail::FunctionPtr<F>::context_type>
     && std::is_pointer_v<typename Detail::FunctionPtr<F>::template argument_type<0>>
-    && Detail::IsScripable<std::remove_pointer_t<typename Detail::FunctionPtr<F>::template argument_type<0>>>
+    && Detail::IsScriptable<std::remove_pointer_t<typename Detail::FunctionPtr<F>::template argument_type<0>>>
     && std::is_same_v<typename Detail::FunctionPtr<F>::template argument_type<1>, CStackFrame*>
     && std::is_pointer_v<typename Detail::FunctionPtr<F>::template argument_type<2>>
     && std::is_pointer_v<typename Detail::FunctionPtr<F>::template argument_type<3>>
@@ -199,7 +199,7 @@ concept IsNativeFunctionPtr = Detail::IsFunctionPtr<F>
 }
 
 template<typename C, typename R, typename RT>
-requires Detail::IsScripable<C> && Detail::IsTypeOrVoid<RT>
+requires Detail::IsScriptable<C> && Detail::IsTypeOrVoid<RT>
 using NativeFunctionPtr = void (*)(C*, CStackFrame*, R*, RT*);
 
 template<typename TClass>
@@ -285,7 +285,7 @@ public:
             auto* ptr = Detail::MakeNativeFunction<AFunction>();
 
             CClassFunction* func;
-            if constexpr (Detail::IsScripable<Context>)
+            if constexpr (Detail::IsScriptable<Context>)
             {
                 static_assert(std::is_base_of_v<Context, TClass> || std::is_base_of_v<TClass, Context>);
 
@@ -385,7 +385,7 @@ public:
     using Specialization = RTTITypeBuilder<TClass>;
 
 protected:
-    static void OnRegister()
+    static inline void RegisterType()
     {
         constexpr auto name = GetTypeNameStr<TClass>();
 
@@ -401,7 +401,7 @@ protected:
         rtti->RegisterType(type);
     }
 
-    static void OnDescribe()
+    static inline void DescribeType()
     {
         constexpr auto name = GetTypeName<TClass>();
 
@@ -411,7 +411,7 @@ protected:
         if (!type)
             return;
 
-        if constexpr (Detail::IsScripable<TClass>)
+        if constexpr (Detail::IsScriptable<TClass>)
         {
             if (!type->parent)
             {
@@ -425,9 +425,36 @@ protected:
         }
 
         type->flags.isNative = true;
+
+        if constexpr (std::is_base_of_v<IGameSystem, TClass>)
+        {
+            RegisterSystem();
+        }
     }
 
-    inline static RTTIRegistrar s_registrar{&OnRegister, &OnDescribe}; // NOLINT(cert-err58-cpp)
+    static inline void RegisterSystem()
+    {
+        auto engine = CGameEngine::Get();
+
+        if (!engine || !engine->framework)
+        {
+            RTTIRegistrar::AddDescribeCallback(&RegisterSystem);
+            return;
+        }
+
+        auto game = engine->framework->gameInstance;
+        auto system = MakeHandle<TClass>();
+        auto type = GetClass<TClass>();
+
+        JobHandle job{};
+        system->gameInstance = game;
+        system->OnInitialize(job);
+
+        game->unk38.PushBack(system);
+        game->unk08.Insert(type, system);
+    }
+
+    inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
 };
 
 template<typename TExpansion, typename TClass>
@@ -441,7 +468,7 @@ protected:
     static_assert(std::is_base_of_v<TClass, TExpansion>, "TExpansion must inherit TClass");
     static_assert(sizeof(TClass) == sizeof(TExpansion), "TExpansion must not add new members");
 
-    static void OnDescribe()
+    static inline void DescribeType()
     {
         constexpr auto name = GetTypeName<TClass>();
 
@@ -457,7 +484,7 @@ protected:
         }
     }
 
-    inline static RTTIRegistrar s_registrar{nullptr, &OnDescribe}; // NOLINT(cert-err58-cpp)
+    inline static RTTIRegistrar s_registrar{nullptr, &DescribeType}; // NOLINT(cert-err58-cpp)
 };
 
 template<typename TEnum>
@@ -528,7 +555,7 @@ public:
     using Specialization = RTTITypeBuilder<TEnum>;
 
 protected:
-    static void OnRegister()
+    static inline void RegisterType()
     {
         constexpr auto name = GetTypeNameStr<TEnum>();
 
@@ -544,7 +571,7 @@ protected:
         rtti->RegisterType(type);
     }
 
-    static void OnDescribe()
+    static inline void DescribeType()
     {
         constexpr auto name = GetTypeName<TEnum>();
 
@@ -562,7 +589,7 @@ protected:
         }
     }
 
-    inline static RTTIRegistrar s_registrar{&OnRegister, &OnDescribe}; // NOLINT(cert-err58-cpp)
+    inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
 };
 
 template<typename TExpansion, typename TEnum, bool AFlags = false>
@@ -573,7 +600,7 @@ public:
     using Specialization = RTTITypeBuilder<TExpansion>;
 
 protected:
-    static void OnDescribe()
+    static inline void DescribeType()
     {
         constexpr auto name = GetTypeName<TEnum>();
 
@@ -594,7 +621,7 @@ protected:
         }
     }
 
-    inline static RTTIRegistrar s_registrar{nullptr, &OnDescribe}; // NOLINT(cert-err58-cpp)
+    inline static RTTIRegistrar s_registrar{nullptr, &DescribeType}; // NOLINT(cert-err58-cpp)
 };
 
 class GlobalDescriptor : public CRTTISystem
@@ -651,7 +678,7 @@ public:
     using Specialization = RTTIScopeBuilder<AScope>;
 
 protected:
-    static void OnRegister()
+    static inline void RegisterType()
     {
         if constexpr (Detail::HasRegisterHandler<Specialization, Descriptor>)
         {
@@ -660,7 +687,7 @@ protected:
         }
     }
 
-    static void OnDescribe()
+    static inline void DescribeType()
     {
         if constexpr (Detail::HasDescribeHandler<Specialization, Descriptor>)
         {
@@ -669,6 +696,6 @@ protected:
         }
     }
 
-    inline static RTTIRegistrar s_registrar{&OnRegister, &OnDescribe}; // NOLINT(cert-err58-cpp)
+    inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
 };
 }

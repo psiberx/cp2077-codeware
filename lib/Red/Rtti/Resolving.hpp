@@ -102,6 +102,12 @@ consteval auto GetTypePrefixStr()
     return Detail::MakeConstTypeName<length>(prefix);
 }
 
+template<template<typename> class T>
+consteval auto GetTypePrefixStr()
+{
+    return GetTypePrefixStr<T<ISerializable>>();
+}
+
 template<typename T>
 consteval auto GetTypeNameStr()
 {
