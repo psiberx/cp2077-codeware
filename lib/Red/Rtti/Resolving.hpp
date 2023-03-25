@@ -316,39 +316,39 @@ class ClassLocator : public TypeLocator<GetTypeName<T>()>
 };
 
 template<CName AType>
-CBaseRTTIType* GetType()
+inline CBaseRTTIType* GetType()
 {
     return TypeLocator<AType>::Get();
 }
 
 template<typename TType>
-CBaseRTTIType* GetType()
+inline CBaseRTTIType* GetType()
 {
     constexpr auto name = GetTypeName<TType>();
 
     return TypeLocator<name>::Get();
 }
 
-CBaseRTTIType* GetType(CName aTypeName)
+inline CBaseRTTIType* GetType(CName aTypeName)
 {
     return CRTTISystem::Get()->GetType(aTypeName);
 }
 
 template<CName AType>
-CClass* GetClass()
+inline CClass* GetClass()
 {
     return TypeLocator<AType>::GetClass();
 }
 
 template<typename TType>
-CClass* GetClass()
+inline CClass* GetClass()
 {
     constexpr auto name = GetTypeName<TType>();
 
     return TypeLocator<name>::GetClass();
 }
 
-CClass* GetClass(CName aTypeName)
+inline CClass* GetClass(CName aTypeName)
 {
     auto type = CRTTISystem::Get()->GetType(aTypeName);
 
@@ -361,21 +361,21 @@ CClass* GetClass(CName aTypeName)
 }
 
 template<typename T>
-CName ResolveTypeName()
+inline CName ResolveTypeName()
 {
     constexpr auto name = GetTypeNameStr<T>();
     return CNamePool::Add(name.data());
 }
 
 template<typename T>
-CBaseRTTIType* ResolveType()
+inline CBaseRTTIType* ResolveType()
 {
     static const auto s_name = ResolveTypeName<T>();
     return CRTTISystem::Get()->GetType(s_name);
 }
 
 template<typename T>
-CClass* ResolveClass()
+inline CClass* ResolveClass()
 {
     static const auto s_name = ResolveTypeName<T>();
     return CRTTISystem::Get()->GetClass(s_name);

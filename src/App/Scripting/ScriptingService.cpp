@@ -7,8 +7,8 @@ constexpr auto ResourceWrapperName = Red::GetTypeName<App::ResourceWrapper>();
 constexpr auto ResourceAsyncWrapperName = Red::GetTypeName<App::ResourceAsyncWrapper>();
 constexpr auto ScriptResourceReferenceAlias = Red::CName(Red::redResourceReferenceScriptToken::ALIAS);
 
-constexpr auto ResourceReferencePrefix = Red::GetTypePrefixStr<Red::ResourceReference<>>();
-constexpr auto ResourceAsyncReferencePrefix = Red::GetTypePrefixStr<Red::ResourceAsyncReference<>>();
+constexpr auto ResourceReferencePrefix = Red::GetTypePrefixStr<Red::ResourceReference>();
+constexpr auto ResourceAsyncReferencePrefix = Red::GetTypePrefixStr<Red::ResourceAsyncReference>();
 }
 
 void App::ScriptingService::OnBootstrap()
