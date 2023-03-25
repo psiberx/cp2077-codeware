@@ -18,6 +18,9 @@ void App::ScriptingService::OnBootstrap()
 
     if (!HookAfter<Raw::ScriptValidator::CompareTypeName>(&OnValidateTypeName))
         throw std::runtime_error("Failed to hook ScriptValidator::CompareTypeName.");
+
+    if (!Hook<Raw::GetScriptGameInstance>(&GetScriptGameInstance))
+        throw std::runtime_error("Failed to hook ScriptGameInstance.");
 }
 
 void App::ScriptingService::OnInitializeScriptable(Red::IScriptable* aInstance, Red::CClass* aClass, void*)
@@ -42,5 +45,18 @@ void App::ScriptingService::OnValidateTypeName(bool& aValid, Red::CName aScriptT
             aValid = strncmp(ResourceAsyncReferencePrefix.data(), aNativeTypeName.ToString(),
                              ResourceAsyncReferencePrefix.size() - 1) == 0;
         }
+    }
+}
+
+void App::ScriptingService::GetScriptGameInstance(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
+                                                  Red::ScriptGameInstance* aRet, Red::CBaseRTTIType* aType)
+{
+    static const Red::ScriptGameInstance game{};
+
+    aFrame->code++;
+
+    if (aRet)
+    {
+        *aRet = game;
     }
 }

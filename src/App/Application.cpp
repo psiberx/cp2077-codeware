@@ -1,6 +1,5 @@
 #include "Application.hpp"
 #include "App/Facade.hpp"
-#include "App/Engine/GameSessionService.hpp"
 #include "App/Ink/WidgetBuildingService.hpp"
 #include "App/Ink/WidgetSpawningService.hpp"
 #include "App/Scripting/ScriptingService.hpp"
@@ -17,7 +16,6 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
     Register<Vendor::SpdlogProvider>();
     Register<Red::TypeInfoProvider>();
     Register<App::ScriptingService>();
-    Register<App::GameSessionService>();
     Register<App::WidgetBuildingService>();
     Register<App::WidgetSpawningService>();
 }
