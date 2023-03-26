@@ -39,16 +39,20 @@ concept HasMaxValueGetter = requires
     { TSpec::Max() };
 };
 
-template<typename TSpec>
+template<typename TSpec, typename TEnum>
 consteval auto GetMinValue()
 {
     if constexpr (HasMinValueGetter<TSpec>)
     {
         return TSpec::Min();
     }
-    else
+    else if constexpr (std::is_signed_v<std::underlying_type_t<TEnum>>)
     {
         return -1;
+    }
+    else
+    {
+        return 0;
     }
 }
 
@@ -574,11 +578,11 @@ public:
         AddOption(static_cast<int64_t>(aValue), aName);
     }
 
-    template<typename E = TEnum, bool AFlags = false, Value AMin = -1, Value AMax = 128>
+    template<typename E = TEnum, bool AFlags = false, Value AMin, Value AMax>
     void AddOptions()
     {
-        constexpr auto min = std::max(AMin, AFlags ? 0 : Limits::min());
-        constexpr auto max = std::min(AMax, AFlags ? Limits::digits - 1 : Limits::max());
+        constexpr auto min = std::max(AMin, AFlags ? static_cast<Value>(0) : Limits::min());
+        constexpr auto max = std::min(AMax, AFlags ? static_cast<Value>(Limits::digits - 1) : Limits::max());
         constexpr auto range = max - min + 1;
 
         static_assert(range > 0, "Invalid range");
@@ -628,7 +632,7 @@ protected:
         auto* rtti = CRTTISystem::Get();
         auto* type = reinterpret_cast<Descriptor*>(rtti->GetEnum(name));
 
-        constexpr auto min = Detail::GetMinValue<Specialization>();
+        constexpr auto min = Detail::GetMinValue<Specialization, TEnum>();
         constexpr auto max = Detail::GetMaxValue<Specialization>();
 
         type->template AddOptions<TEnum, AFlags, min, max>();
