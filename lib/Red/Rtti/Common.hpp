@@ -22,26 +22,8 @@ consteval auto AutoScope(const std::source_location& aLocation = std::source_loc
     return FNV1a64v(aLocation.line(), FNV1a64(aLocation.file_name()));
 }
 
-template<typename T, auto ADefault = T()>
-struct Optional
-{
-    inline operator const T&() const
-    {
-        return value;
-    }
-
-    [[nodiscard]] bool IsEmpty() const
-    {
-        return !value;
-    }
-
-    [[nodiscard]] bool IsDefault() const
-    {
-        return value == ADefault;
-    }
-
-    T value{ADefault};
-};
+template<typename T, auto V = 0>
+struct Optional;
 
 namespace Detail
 {
@@ -139,11 +121,69 @@ struct Specialization<G<A, V>> : public std::true_type
 template<typename T>
 concept IsSpecialization = Specialization<T>::value;
 
-// template<typename T, template<typename> class G>
-// concept IsSameSpecialization = (IsSpecialization<T> && std::is_same_v<T, G<typename Specialization<T>::argument_type>>);
+template<typename T, typename U = std::remove_cvref_t<T>>
+concept IsOptional = Specialization<U>::value
+    && std::is_same_v<U, Red::Optional<typename Specialization<U>::argument_type, Specialization<U>::argument_value>>;
+
+
+template<typename T, int = (T{}, 0)>
+struct ConstexprDefault
+{
+    static constexpr auto value = T();
+};
 
 template<typename T>
-concept IsOptional = Specialization<T>::value
-    && std::is_same_v<T, Red::Optional<typename Specialization<T>::argument_type, Specialization<T>::argument_value>>;
+concept HasConstexprDefault = requires
+{
+    typename ConstexprDefault<T>;
+};
 }
+
+template<typename T, auto ADefault>
+requires Detail::HasConstexprDefault<T>
+struct Optional<T, ADefault>
+{
+    inline operator const T&() const
+    {
+        return value;
+    }
+
+    [[nodiscard]] bool IsEmpty() const
+    {
+        return !value;
+    }
+
+    [[nodiscard]] bool IsDefault() const
+    {
+        return value == ADefault;
+    }
+
+    T value{ADefault};
+};
+
+template<typename T>
+requires Detail::HasConstexprDefault<T>
+struct Optional<T, 1> : Optional<T, Detail::ConstexprDefault<T>::value> {};
+
+template<typename T>
+requires (!Detail::HasConstexprDefault<T>)
+struct Optional<T, 0>
+{
+    inline operator const T&() const
+    {
+        return value;
+    }
+
+    [[nodiscard]] bool IsEmpty() const
+    {
+        return !value;
+    }
+
+    [[nodiscard]] bool IsDefault() const
+    {
+        return IsEmpty();
+    }
+
+    T value{};
+};
 }
