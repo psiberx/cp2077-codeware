@@ -87,11 +87,11 @@ public native class ReflectionFunc {
 }
 
 public native class ReflectionMemberFunc extends ReflectionFunc {
-    // public native func Call(target: ref<IScriptable>, args: array<Variant>, out ret: Variant) -> Bool
+    public native func Call(self: ref<IScriptable>, opt args: array<Variant>, opt status: script_ref<Bool>) -> Variant
 }
 
 public native class ReflectionStaticFunc extends ReflectionFunc {
-    // public native func Call(args: array<Variant>, out ret: Variant) -> Bool
+    public native func Call(opt args: array<Variant>, opt status: script_ref<Bool>) -> Variant
 }
 
 public native class ReflectionConst {
