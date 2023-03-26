@@ -53,7 +53,7 @@ void App::ScriptingService::GetScriptGameInstance(Red::IScriptable* aContext, Re
 {
     static const Red::ScriptGameInstance game{};
 
-    aFrame->code++;
+    ++aFrame->code;
 
     if (aRet)
     {

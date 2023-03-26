@@ -4,7 +4,7 @@
 /.xmake
 /build
 /dev
-/src/App/Tests
+/src/App/Staging
 /wiki
 ~$*
 *.log

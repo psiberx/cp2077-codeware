@@ -16,7 +16,7 @@ Red::NodeRef CreateNodeRef(Red::ScriptRef<Red::CString>& aReference)
 
 uint64_t NodeRefToHash(Red::NodeRef aRef)
 {
-    return aRef.unk00;
+    return aRef.hash;
 }
 }
 

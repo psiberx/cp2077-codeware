@@ -163,7 +163,7 @@ void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResourc
     if (!libraryExists)
     {
         std::unique_lock _(s_mutex);
-        aLibrary.externalLibraries.EmplaceBack(aExternalPath);
+        aLibrary.externalLibraries.PushBack(aExternalPath);
 
         // Load requested library for the spawner
         auto* externalLibrary = aLibrary.externalLibraries.End() - 1;
