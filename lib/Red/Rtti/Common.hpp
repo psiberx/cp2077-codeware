@@ -179,7 +179,7 @@ struct Optional<T, 0>
         return value;
     }
 
-    [[nodiscard]] inline T* operator->() const
+    [[nodiscard]] inline const T* operator->() const
     {
         return &value;
     }
