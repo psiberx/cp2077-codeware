@@ -9,4 +9,8 @@
 #include "App/Utils/CName.hpp"
 #include "App/Utils/Hashing.hpp"
 #include "App/Utils/NodeRef.hpp"
+#include "App/World/DynamicEntitySpec.hpp"
+#include "App/World/DynamicEntityState.hpp"
+#include "App/World/DynamicEntitySystem.hpp"
+#include "App/World/DynamicEntitySystemPS.hpp"
 #include "App/World/VehicleSystemEx.hpp"

@@ -41,6 +41,7 @@
 #include <RED4ext/RTTISystem.hpp>
 #include <RED4ext/RTTITypes.hpp>
 #include <RED4ext/SortedArray.hpp>
+#include <RED4ext/SystemUpdate.hpp>
 #include <RED4ext/TweakDB.hpp>
 #include <RED4ext/Hashing/FNV1a.hpp>
 #include <RED4ext/Hashing/Murmur3.hpp>
@@ -49,15 +50,26 @@
 #include <RED4ext/Scripting/CProperty.hpp>
 #include <RED4ext/Scripting/IScriptable.hpp>
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
+#include <RED4ext/Scripting/Natives/Generated/Quaternion.hpp>
+#include <RED4ext/Scripting/Natives/Generated/Vector4.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/Entity.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/EntityID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/IComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/ComponentPS.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/EntityStubComponentPS.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/IDynamicEntityIDSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/IEntityStubSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IGameSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/IPersistencySystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/IPopulationSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/PersistentID.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/PersistentState.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>
-#include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ControllerProcessor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IEffect.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/IWidgetController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/Layer.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/LayerProxy.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/MultiChildren.hpp>
@@ -71,7 +83,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLibraryResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLogicController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetReference.hpp>
-#include <RED4ext/Scripting/Natives/Generated/ink/IWidgetController.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
 

@@ -83,6 +83,10 @@ def patterns():
                 Item(name="Create",
                      pattern="48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 4C 89 64 24 20 55 41 56 41 57 48 8B EC 48 83 EC 70 8B 7A 08 33 DB 45 0F B6 E0 4C 8B F1 85 FF"),
             ]),
+            Group(name="PersistentObject", functions=[
+                Item(name="InitializeState",
+                     pattern="40 55 53 56 41 56 41 57 48 8D 6C 24 C9 48 81 EC ? ? ? ? 4C 8B F2 33 DB 48 8B 52 10 48 8B F1"),
+            ]),
             Group(name="ScriptValidator", functions=[
                 Item(name="CompareTypeName",
                      pattern="48 89 5C 24 10 57 48 83 EC 20 48 8B DA 48 8B F9 48 3B CA 74 ? E8 ? ? ? ? 4C 8B C7"),
