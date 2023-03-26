@@ -10,6 +10,7 @@ void App::DynamicEntitySystem::OnWorldAttached(Red::world::RuntimeScene* aScene)
     m_entityStates.clear();
     m_entityStateByID.clear();
     m_entityStatesByTag.clear();
+    m_listenersByTag.clear();
 
     m_persistentStateType = Red::GetClass<DynamicEntitySystemPS>();
     m_persistentState.Reset();
@@ -19,21 +20,29 @@ void App::DynamicEntitySystem::OnWorldAttached(Red::world::RuntimeScene* aScene)
     m_entityIDSystem = Red::GetGameSystem<Red::IDynamicEntityIDSystem>();
     m_entityStubSystem = Red::GetGameSystem<Red::IEntityStubSystem>();
     m_populationSystem = Red::GetGameSystem<Red::IPopulationSystem>();
+    m_spawnEventBroadcaster = Red::GetGameSystem<Red::IEntitySpawnerEventsBroadcaster>();
 }
 
 bool App::DynamicEntitySystem::OnGameRestored()
 {
+    m_spawnEventListenerID = m_spawnEventBroadcaster->RegisterListener(
+        [this](Red::game::EntitySpawnerEventType aEvent, Red::EntityID aEntityID, Red::EntityID, Red::EntityStub*) {
+            ProcessListeners(aEntityID, aEvent);
+        }, "");
+
     m_persistencySystem->GetPersistentState(m_persistentState, SystemPersistentID, m_persistentStateType, true);
 
     for (const auto& entityState : m_persistentState->m_entityStates)
     {
         entityState->entitySpec->PrepareForRestoring();
-        RestoreEntityState(entityState);
 
         if (!entityState->entitySpec->persistState)
         {
             RemovePersistentState(entityState);
+            UpdateTransientID(entityState);
         }
+
+        RestoreEntityState(entityState);
 
         if (entityState->entitySpec->persistSpawn && entityState->entitySpec->active)
         {
@@ -67,6 +76,11 @@ void App::DynamicEntitySystem::OnAfterGameSave()
 
 void App::DynamicEntitySystem::OnBeforeWorldDetach(Red::world::RuntimeScene* aScene)
 {
+    if (m_spawnEventListenerID)
+    {
+        m_spawnEventBroadcaster->UnregisterListener(m_spawnEventListenerID);
+        m_spawnEventListenerID = {};
+    }
 }
 
 void App::DynamicEntitySystem::OnRegisterUpdates(Red::UpdateRegistrar* aRegistrar)
@@ -110,23 +124,26 @@ Red::EntityID App::DynamicEntitySystem::CreateEntity(const DynamicEntitySpecPtr&
 
 bool App::DynamicEntitySystem::DeleteEntity(Red::EntityID aEntityID)
 {
-    auto entityStateIt = m_entityStateByID.find(aEntityID);
+    auto entityState = RemoveEntityState(aEntityID);
 
-    if (entityStateIt == m_entityStateByID.end())
+    if (!entityState)
         return false;
 
-    auto& entityState = entityStateIt.value();
+    if (IsSpawned(aEntityID))
+    {
+        ProcessListeners(aEntityID, DynamicEntityEvent::Despawned, entityState->entitySpec->tags);
+    }
 
     DespawnFromEntityState(entityState);
     RemovePersistentState(entityState);
     RemoveEntityStub(entityState);
-    RemoveEntityState(entityState);
 
     return true;
 }
 
 bool App::DynamicEntitySystem::EnableEntity(Red::EntityID aEntityID)
 {
+    std::shared_lock _(m_entityStateLock);
     auto entityStateIt = m_entityStateByID.find(aEntityID);
 
     if (entityStateIt == m_entityStateByID.end())
@@ -144,6 +161,7 @@ bool App::DynamicEntitySystem::EnableEntity(Red::EntityID aEntityID)
 
 bool App::DynamicEntitySystem::DisableEntity(Red::EntityID aEntityID)
 {
+    std::shared_lock _(m_entityStateLock);
     auto entityStateIt = m_entityStateByID.find(aEntityID);
 
     if (entityStateIt == m_entityStateByID.end())
@@ -170,7 +188,7 @@ bool App::DynamicEntitySystem::SpawnFromEntityState(const App::DynamicEntityStat
     m_entityStubSystem->CreateStub(token, request, [this, aEntityState](Red::EntityStubTokenPtr& aToken) {
         if (aToken->status != Red::EntityStubStatus::Created)
         {
-            RemoveEntityState(aEntityState);
+            DeleteEntity(aEntityState->entityID);
             return;
         }
 
@@ -191,8 +209,6 @@ bool App::DynamicEntitySystem::RespawnFromEntityState(const App::DynamicEntitySt
 
     if (!aEntityState->entitySpec->persistState)
     {
-        m_entityIDSystem->GetNextTransientID(aEntityState->entityID);
-
         return SpawnFromEntityState(aEntityState);
     }
 
@@ -207,7 +223,7 @@ bool App::DynamicEntitySystem::RespawnFromEntityState(const App::DynamicEntitySt
     m_entityStubSystem->RestoreStub(token, request, [this, aEntityState](Red::EntityStubTokenPtr& aToken) {
         if (aToken->status != Red::EntityStubStatus::Created)
         {
-            RemoveEntityState(aEntityState);
+            DeleteEntity(aEntityState->entityID);
             return;
         }
 
@@ -288,6 +304,8 @@ void App::DynamicEntitySystem::RestoreEntityState(const App::DynamicEntityStateP
 
 void App::DynamicEntitySystem::AddEntityState(const App::DynamicEntityStatePtr& aEntityState)
 {
+    std::unique_lock _(m_entityStateLock);
+
     m_entityStates.emplace_back(aEntityState);
     m_entityStateByID.insert({aEntityState->entityID, aEntityState});
 
@@ -297,19 +315,54 @@ void App::DynamicEntitySystem::AddEntityState(const App::DynamicEntityStatePtr& 
     }
 }
 
-void App::DynamicEntitySystem::RemoveEntityState(const App::DynamicEntityStatePtr& aEntityState)
+void App::DynamicEntitySystem::UpdateTransientID(const App::DynamicEntityStatePtr& aEntityState)
 {
-    for (const auto& tag : aEntityState->entitySpec->tags)
+    m_entityIDSystem->GetNextTransientID(aEntityState->entityID);
+}
+
+App::DynamicEntityStatePtr App::DynamicEntitySystem::RemoveEntityState(Red::EntityID aEntityID)
+{
+    std::unique_lock _(m_entityStateLock);
+    auto entityStateIt = m_entityStateByID.find(aEntityID);
+
+    if (entityStateIt == m_entityStateByID.end())
+        return {};
+
+    auto entityState = entityStateIt.value();
+
+    for (const auto& tag : entityState->entitySpec->tags)
     {
-        m_entityStatesByTag[tag].erase(aEntityState->entityID);
+        m_entityStatesByTag[tag].erase(entityState->entityID);
     }
 
-    m_entityStateByID.erase(aEntityState->entityID);
-    std::erase(m_entityStates, aEntityState);
+    m_entityStateByID.erase(entityState->entityID);
+    std::erase(m_entityStates, entityState);
+
+    return entityState;
+}
+
+bool App::DynamicEntitySystem::IsSpawned(Red::EntityID aEntityID)
+{
+    return GetEntity(aEntityID);
+}
+
+bool App::DynamicEntitySystem::IsSpawning(Red::EntityID aEntityID)
+{
+    return m_populationSystem->IsSpawning(aEntityID);
+}
+
+Red::Handle<Red::Entity> App::DynamicEntitySystem::GetEntity(Red::EntityID aEntityID)
+{
+    Red::Handle<Red::Entity> entity;
+    m_populationSystem->FindEntity(entity, aEntityID);
+
+    return entity;
 }
 
 Red::DynArray<Red::CName> App::DynamicEntitySystem::GetTags(Red::EntityID aEntityID)
 {
+    std::shared_lock _(m_entityStateLock);
+
     auto entityStateIt = m_entityStateByID.find(aEntityID);
 
     if (entityStateIt == m_entityStateByID.end())
@@ -321,21 +374,50 @@ Red::DynArray<Red::CName> App::DynamicEntitySystem::GetTags(Red::EntityID aEntit
 
 void App::DynamicEntitySystem::AssignTag(Red::EntityID aEntityID, Red::CName aTag)
 {
-    m_entityStatesByTag[aTag].insert(aEntityID);
+    std::shared_lock _(m_entityStateLock);
+
+    auto entityStateIt = m_entityStateByID.find(aEntityID);
+
+    if (entityStateIt == m_entityStateByID.end())
+        return;
+
+    auto& entityState = entityStateIt.value();
+
+    if (!m_entityStatesByTag[aTag].contains(aEntityID))
+    {
+        m_entityStatesByTag[aTag].insert(aEntityID);
+        entityState->entitySpec->tags.PushBack(aTag);
+    }
 }
 
 void App::DynamicEntitySystem::UnassignTag(Red::EntityID aEntityID, Red::CName aTag)
 {
-    m_entityStatesByTag[aTag].erase(aEntityID);
+    std::shared_lock _(m_entityStateLock);
+
+    auto entityStateIt = m_entityStateByID.find(aEntityID);
+
+    if (entityStateIt == m_entityStateByID.end())
+        return;
+
+    auto& entityState = entityStateIt.value();
+
+    if (m_entityStatesByTag[aTag].contains(aEntityID))
+    {
+        m_entityStatesByTag[aTag].erase(aEntityID);
+        entityState->entitySpec->tags.Remove(aTag);
+    }
 }
 
 bool App::DynamicEntitySystem::IsPopulated(Red::CName aTag)
 {
+    std::shared_lock _(m_entityStateLock);
+
     return !m_entityStatesByTag[aTag].empty();
 }
 
 Red::EntityID App::DynamicEntitySystem::GetEntityID(Red::CName aTag)
 {
+    std::shared_lock _(m_entityStateLock);
     auto& tagged = m_entityStatesByTag[aTag];
 
     if (tagged.empty())
@@ -346,6 +428,7 @@ Red::EntityID App::DynamicEntitySystem::GetEntityID(Red::CName aTag)
 
 Red::DynArray<Red::EntityID> App::DynamicEntitySystem::GetEntityIDs(Red::CName aTag)
 {
+    std::shared_lock _(m_entityStateLock);
     Red::DynArray<Red::EntityID> out;
 
     for (const auto& entityID : m_entityStatesByTag[aTag])
@@ -358,7 +441,12 @@ Red::DynArray<Red::EntityID> App::DynamicEntitySystem::GetEntityIDs(Red::CName a
 
 void App::DynamicEntitySystem::DeleteTagged(Red::CName aTag)
 {
-    auto tagged = std::move(m_entityStatesByTag[aTag]);
+    Core::Set<Red::EntityID> tagged;
+
+    {
+        std::unique_lock _(m_entityStateLock);
+        tagged = std::move(m_entityStatesByTag[aTag]);
+    }
 
     for (const auto& entityID : tagged)
     {
@@ -368,6 +456,7 @@ void App::DynamicEntitySystem::DeleteTagged(Red::CName aTag)
 
 void App::DynamicEntitySystem::EnableTagged(Red::CName aTag)
 {
+    std::shared_lock _(m_entityStateLock);
     auto& tagged = m_entityStatesByTag[aTag];
 
     for (const auto& entityID : tagged)
@@ -378,12 +467,80 @@ void App::DynamicEntitySystem::EnableTagged(Red::CName aTag)
 
 void App::DynamicEntitySystem::DisableTagged(Red::CName aTag)
 {
+    std::shared_lock _(m_entityStateLock);
     auto& tagged = m_entityStatesByTag[aTag];
 
     for (const auto& entityID : tagged)
     {
         DisableEntity(entityID);
     }
+}
+
+void App::DynamicEntitySystem::RegisterListener(Red::CName aTag, const Red::Handle<Red::IScriptable>& aTarget,
+                                                Red::CName aFunction)
+{
+    std::unique_lock _(m_listenerLock);
+
+    m_listenersByTag[aTag].push_back({aTarget, aFunction});
+}
+
+void App::DynamicEntitySystem::UnregisterListener(Red::CName aTag, const Red::Handle<Red::IScriptable>& aTarget,
+                                                  Red::CName aFunction)
+{
+    std::unique_lock _(m_listenerLock);
+
+    auto listenersIt = m_listenersByTag.find(aTag);
+    if (listenersIt != m_listenersByTag.end())
+    {
+        std::erase_if(listenersIt.value(), [&](EventListener& aListener) {
+            return aListener.target.instance == aTarget.instance && aListener.function == aFunction;
+        });
+    }
+}
+
+void App::DynamicEntitySystem::UnregisterListeners(Red::CName aTag)
+{
+    std::unique_lock _(m_listenerLock);
+
+    m_listenersByTag.erase(aTag);
+}
+
+void App::DynamicEntitySystem::ProcessListeners(Red::EntityID aEntityID, App::DynamicEntityEvent aEvent,
+                                                Red::DynArray<Red::CName>& aTags)
+{
+    std::shared_lock _(m_listenerLock);
+
+    for (auto& tag : aTags)
+    {
+        auto listenersIt = m_listenersByTag.find(tag);
+        if (listenersIt != m_listenersByTag.end())
+        {
+            for (const auto& listener : listenersIt.value())
+            {
+                if (!listener.target.Expired())
+                {
+                    Red::CallVirtual(listener.target.Lock(), listener.function, aEvent, aEntityID, tag);
+                }
+            }
+
+            // TODO: Auto remove expired listeners
+        }
+    }
+}
+
+void App::DynamicEntitySystem::ProcessListeners(Red::EntityID aEntityID, App::DynamicEntityEvent aEvent)
+{
+    auto tags = GetTags(aEntityID);
+
+    if (tags.size)
+    {
+        ProcessListeners(aEntityID, aEvent, tags);
+    }
+}
+
+void App::DynamicEntitySystem::ProcessListeners(Red::EntityID aEntityID, Red::game::EntitySpawnerEventType aEvent)
+{
+    ProcessListeners(aEntityID, static_cast<DynamicEntityEvent>(static_cast<uint32_t>(aEvent)));
 }
 
 Red::TweakDBID App::DynamicEntitySystem::ConvertTemplateToRecord(Red::RaRef<> aTemplate)

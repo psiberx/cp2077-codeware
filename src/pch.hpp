@@ -59,6 +59,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/EntityStubComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IDynamicEntityIDSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IEntityStubSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/IEntitySpawnerEventsBroadcaster.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IGameSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IPersistencySystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IPopulationSystem.hpp>
