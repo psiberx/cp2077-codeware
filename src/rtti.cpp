@@ -4,6 +4,7 @@
 #include "App/Ink/inkWidgetEx.hpp"
 #include "App/Ink/inkWidgetReferenceEx.hpp"
 #include "App/Ink/UISystemEx.hpp"
+#include "App/Reflection/Reflection.hpp"
 #include "App/Scripting/ResourceWrapper.hpp"
 #include "App/Utils/Bits.hpp"
 #include "App/Utils/CName.hpp"
