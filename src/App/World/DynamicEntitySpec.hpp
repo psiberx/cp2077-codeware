@@ -20,6 +20,24 @@ struct DynamicEntitySpec : Red::IScriptable
     {
     }
 
+    DynamicEntitySpec(const DynamicEntitySpec& aOther) noexcept
+        : recordID(aOther.recordID)
+        , templatePath(aOther.templatePath)
+        , templateHash(aOther.templateHash)
+        , appearanceName(aOther.appearanceName)
+        , position(aOther.position)
+        , orientation{aOther.orientation}
+        , persistState(aOther.persistState)
+        , persistSpawn(aOther.persistSpawn)
+        , alwaysSpawned(aOther.alwaysSpawned)
+        , spawnInView(aOther.spawnInView)
+        , tags(aOther.tags)
+        , active(aOther.active)
+    {
+    }
+
+    DynamicEntitySpec(DynamicEntitySpec&&) = default;
+
     [[nodiscard]] inline bool IsValid() const
     {
         return IsRecord() || IsTemplate();

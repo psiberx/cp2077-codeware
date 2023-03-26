@@ -262,11 +262,12 @@ void App::DynamicEntitySystem::RemoveEntityStub(const App::DynamicEntityStatePtr
 App::DynamicEntityStatePtr App::DynamicEntitySystem::CreateEntityState(Red::EntityID aEntityID,
                                                                        const App::DynamicEntitySpecPtr& aEntitySpec)
 {
-    auto entityState = Red::MakeHandle<DynamicEntityState>(aEntityID, aEntitySpec);
+    auto entityState = Red::MakeHandle<DynamicEntityState>(aEntityID, *aEntitySpec);
+    auto& entitySpec = entityState->entitySpec;
 
-    if (aEntitySpec->IsTemplate())
+    if (entitySpec->IsTemplate())
     {
-        aEntitySpec->recordID = ConvertTemplateToRecord(aEntitySpec->templatePath);
+        entitySpec->recordID = ConvertTemplateToRecord(entitySpec->templatePath);
     }
 
     AddEntityState(entityState);

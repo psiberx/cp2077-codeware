@@ -8,9 +8,9 @@ struct DynamicEntityState : Red::IScriptable
 {
     DynamicEntityState() = default;
 
-    DynamicEntityState(Red::EntityID aEntityId, Red::Handle<DynamicEntitySpec> entitySpec)
+    DynamicEntityState(Red::EntityID aEntityId, const DynamicEntitySpec& aEntitySpec)
         : entityID(aEntityId)
-        , entitySpec(std::move(entitySpec))
+        , entitySpec(Red::MakeHandle<DynamicEntitySpec>(aEntitySpec))
         , entityStub(nullptr)
     {
     }
