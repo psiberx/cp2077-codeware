@@ -398,7 +398,6 @@ RTTI_TYPE_NAME(TweakDBID, "TweakDBID");
 RTTI_TYPE_NAME(ItemID, "gameItemID");
 RTTI_TYPE_NAME(NodeRef, "NodeRef");
 RTTI_TYPE_NAME(Variant, "Variant");
-RTTI_TYPE_NAME(ResourcePath, "redResourceReferenceScriptToken");
 
 RTTI_TYPE_PREFIX(DynArray, "array:");
 RTTI_TYPE_PREFIX(Handle, "handle:");

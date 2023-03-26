@@ -27,6 +27,15 @@ struct std::hash<RED4ext::ResourcePath>
     }
 };
 
+template<>
+struct std::hash<RED4ext::EntityID>
+{
+    std::size_t operator()(RED4ext::EntityID aKey) const
+    {
+        return static_cast<size_t>(aKey.hash);
+    }
+};
+
 template<typename T>
 struct RED4ext::HashMapHash<T, std::enable_if_t<std::is_same_v<T, uint64_t>>>
 {

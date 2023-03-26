@@ -30,12 +30,12 @@ struct Optional
         return value;
     }
 
-    bool IsEmpty() const
+    [[nodiscard]] bool IsEmpty() const
     {
         return !value;
     }
 
-    bool IsDefault() const
+    [[nodiscard]] bool IsDefault() const
     {
         return value == ADefault;
     }

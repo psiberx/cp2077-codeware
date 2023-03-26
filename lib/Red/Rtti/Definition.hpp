@@ -90,7 +90,7 @@ template<typename C, typename... Args>
 inline void ExtractArgs(CStackFrame* aFrame, std::tuple<Args...>& aArgs)
 {
     ExtractArgs<C>(aFrame, aArgs, std::make_index_sequence<sizeof...(Args)>());
-    aFrame->code++;
+    ++aFrame->code;
 }
 
 template<typename R>
@@ -428,8 +428,53 @@ protected:
 
         if constexpr (std::is_base_of_v<IGameSystem, TClass>)
         {
-            RegisterSystem();
+            SystemBuilder<TClass>::BuildSystem();
         }
+    }
+
+    inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
+};
+
+template<typename TSystem>
+class SystemBuilder
+{
+public:
+    static inline void BuildSystem()
+    {
+        RegisterGetter();
+        RegisterSystem();
+    }
+
+protected:
+    static inline void ScriptGetter(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
+                                    Red::Handle<Red::IScriptable>* aRet, int64_t)
+    {
+        ++aFrame->code;
+
+        if (aRet)
+        {
+            static const auto& gameInstance = CGameEngine::Get()->framework->gameInstance;
+            static const auto systemType = GetType<TSystem>();
+
+            const auto systemInstance = gameInstance->systemMap.Get(systemType);
+            if (systemInstance)
+            {
+                *aRet = *systemInstance;
+            }
+        }
+    }
+
+    static inline void RegisterGetter()
+    {
+        constexpr auto systemRefStr = GetTypeNameStr<Handle<TSystem>>();
+        constexpr auto systemNameStr = GetTypeNameStr<TSystem>();
+        constexpr auto getterNameStr = Detail::ConcatConstTypeName<3, systemNameStr.size() - 1>("Get", systemNameStr.data());
+
+        auto gameType = GetClass<ScriptGameInstance>();
+        auto getterFunc = CClassStaticFunction::Create(gameType, getterNameStr.data(), getterNameStr.data(), &ScriptGetter);
+        getterFunc->SetReturnType(CNamePool::Add(systemRefStr.data()));
+
+        gameType->staticFuncs.PushBack(getterFunc);
     }
 
     static inline void RegisterSystem()
@@ -442,19 +487,24 @@ protected:
             return;
         }
 
-        auto game = engine->framework->gameInstance;
-        auto system = MakeHandle<TClass>();
-        auto type = GetClass<TClass>();
+        auto gameInstance = engine->framework->gameInstance;
+        auto systemType = GetClass<TSystem>();
+
+        if (gameInstance->systemMap.Get(systemType))
+            return;
+
+        auto systemInstance = MakeHandle<TSystem>();
+
+        if (!systemInstance)
+            return;
 
         JobHandle job{};
-        system->gameInstance = game;
-        system->OnInitialize(job);
+        systemInstance->gameInstance = gameInstance;
+        systemInstance->OnInitialize(job);
 
-        game->unk38.PushBack(system);
-        game->unk08.Insert(type, system);
+        gameInstance->systemInstances.PushBack(systemInstance);
+        gameInstance->systemMap.Insert(systemType, systemInstance);
     }
-
-    inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
 };
 
 template<typename TExpansion, typename TClass>

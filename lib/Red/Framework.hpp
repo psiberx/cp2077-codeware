@@ -10,6 +10,6 @@ U* GetGameSystem()
 {
     static const auto s_type = GetType<T>();
     auto& gameInstance = CGameEngine::Get()->framework->gameInstance;
-    return reinterpret_cast<U*>(gameInstance->GetInstance(s_type));
+    return reinterpret_cast<U*>(gameInstance->GetSystem(s_type));
 }
 }
