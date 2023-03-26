@@ -148,6 +148,11 @@ struct Optional<T, ADefault>
         return value;
     }
 
+    [[nodiscard]] inline const T* operator->() const
+    {
+        return &value;
+    }
+
     [[nodiscard]] bool IsEmpty() const
     {
         return !value;
@@ -172,6 +177,11 @@ struct Optional<T, 0>
     inline operator const T&() const
     {
         return value;
+    }
+
+    [[nodiscard]] inline T* operator->() const
+    {
+        return &value;
     }
 
     [[nodiscard]] bool IsEmpty() const
