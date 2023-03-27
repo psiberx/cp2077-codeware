@@ -175,20 +175,18 @@ public class LocalizationSystem extends ScriptableSystem {
     }
 
     private func FillTranslationData(translations: ref<inkHashMap>, provider: ref<ModLocalizationProvider>, type: EntryType, language: CName) {
-        let package: ref<ModLocalizationPackage> = provider.GetPackage(language);
+        let fallback: CName = provider.GetFallback();
 
+        if NotEquals(fallback, n"") && NotEquals(fallback, language) {
+            this.FillTranslationsFromPackage(translations, provider.GetPackage(fallback), type);
+        }
+
+        this.FillTranslationsFromPackage(translations, provider.GetPackage(language), type);
+    }
+
+    private func FillTranslationsFromPackage(translations: ref<inkHashMap>, package: ref<ModLocalizationPackage>, type: EntryType) {
         if !IsDefined(package) {
-            let fallback: CName = provider.GetFallback();
-
-            if Equals(fallback, n"") {
-                return;
-            }
-
-            package = provider.GetPackage(fallback);
-
-            if !IsDefined(package) {
-                return;
-            }
+            return;
         }
 
         let values: array<wref<IScriptable>>;
