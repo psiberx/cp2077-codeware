@@ -70,14 +70,19 @@ struct ReflectionFunc : Red::IScriptable
             return ret;
         }
 
-        if (!m_func->flags.isStatic && !aContext)
+        if (!m_func->flags.isStatic)
         {
-            if (aStatus->ref)
-            {
-                *aStatus->ref = false;
-            }
+            const auto& func = reinterpret_cast<Red::CClassFunction*>(m_func);
 
-            return ret;
+            if (!aContext || !aContext->GetType()->IsA(func->parent))
+            {
+                if (aStatus->ref)
+                {
+                    *aStatus->ref = false;
+                }
+
+                return ret;
+            }
         }
 
         Red::StackArgs_t args(m_func->params.size);
