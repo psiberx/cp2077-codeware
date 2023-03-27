@@ -53,6 +53,7 @@ protected:
     uint32_t OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2) override;
     void OnAfterGameSave() override;
     void OnBeforeWorldDetach(Red::world::RuntimeScene* aScene) override;
+    void OnAfterWorldDetach() override;
     void OnRegisterUpdates(Red::UpdateRegistrar* aRegistrar) override;
     void OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue& aJobQueue);
 
@@ -62,6 +63,7 @@ protected:
     void RegisterPopulation(const App::DynamicEntityStatePtr& aEntityState, bool aRespawn = false);
     void RemovePopulation(const App::DynamicEntityStatePtr& aEntityState);
     void RemovePersistentState(const DynamicEntityStatePtr& aEntityState);
+    void AcquireEntityStub(const App::DynamicEntityStatePtr& aEntityState, Red::EntityStubTokenPtr& aToken);
     void RemoveEntityStub(const DynamicEntityStatePtr& aEntityState);
 
     DynamicEntityStatePtr CreateEntityState(Red::EntityID aEntityID, const DynamicEntitySpecPtr& aEntitySpec);
@@ -80,7 +82,7 @@ protected:
     Core::Map<Red::EntityID, DynamicEntityStatePtr> m_entityStateByID;
     Core::Map<Red::CName, Core::Set<Red::EntityID>> m_entityStatesByTag;
 
-    std::shared_mutex m_listenerLock;
+    std::shared_mutex m_listenersLock;
     Core::Map<Red::CName, Core::Vector<EventListener>> m_listenersByTag;
 
     Red::CClass* m_persistentStateType;

@@ -15,7 +15,7 @@ struct DynamicEntityState : Red::IScriptable
     {
     }
 
-    void TakeoveStub(Red::EntityStubToken& aToken)
+    void AcquireStub(Red::EntityStubToken& aToken)
     {
         entityStub = aToken.ExtractStub();
     }
