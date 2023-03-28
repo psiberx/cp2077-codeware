@@ -18,6 +18,10 @@ enum class DynamicEntityEvent : uint32_t
 class DynamicEntitySystem : public Red::IGameSystem
 {
 public:
+    DynamicEntitySystem() = default;
+
+    bool IsAttached() const;
+
     Red::EntityID CreateEntity(const DynamicEntitySpecPtr& aEntitySpec);
     bool DeleteEntity(Red::EntityID aEntityID);
     bool EnableEntity(Red::EntityID aEntityID);
@@ -27,8 +31,8 @@ public:
     bool IsSpawning(Red::EntityID aEntityID);
     Red::Handle<Red::Entity> GetEntity(Red::EntityID aEntityID);
     Red::DynArray<Red::CName> GetTags(Red::EntityID aEntityID);
-    void AssignTag(Red::EntityID aEntityID, Red::CName aTag);
-    void UnassignTag(Red::EntityID aEntityID, Red::CName aTag);
+    bool AssignTag(Red::EntityID aEntityID, Red::CName aTag);
+    bool UnassignTag(Red::EntityID aEntityID, Red::CName aTag);
 
     bool IsPopulated(Red::CName aTag);
     Red::EntityID GetEntityID(Red::CName aTag);
@@ -77,6 +81,8 @@ protected:
     void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEvent aEvent);
     void ProcessListeners(Red::EntityID aEntityID, Red::game::EntitySpawnerEventType aEvent);
 
+    bool m_attached;
+
     std::shared_mutex m_entityStateLock;
     Core::Vector<DynamicEntityStatePtr> m_entityStates;
     Core::Map<Red::EntityID, DynamicEntityStatePtr> m_entityStateByID;
@@ -105,6 +111,7 @@ RTTI_DEFINE_ENUM(App::DynamicEntityEvent);
 
 RTTI_DEFINE_CLASS(App::DynamicEntitySystem, {
     RTTI_PARENT(Red::IGameSystem);
+    RTTI_METHOD(IsAttached);
 
     RTTI_METHOD(CreateEntity);
     RTTI_METHOD(DeleteEntity);

@@ -1,5 +1,7 @@
 
 public native class DynamicEntitySystem extends IGameSystem {
+    public native func IsAttached() -> Bool
+
     public native func CreateEntity(spec: ref<DynamicEntitySpec>) -> EntityID
     public native func DeleteEntity(id: EntityID) -> Bool
     public native func EnableEntity(id: EntityID) -> Bool
