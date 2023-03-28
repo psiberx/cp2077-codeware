@@ -1,5 +1,5 @@
 #include "ScriptingService.hpp"
-#include "ResourceWrapper.hpp"
+#include "App/Depot/ResourceWrapper.hpp"
 
 namespace
 {

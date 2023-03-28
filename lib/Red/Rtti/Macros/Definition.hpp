@@ -23,7 +23,7 @@ public: \
     static_assert(Red::Detail::IsAllocator<_allocator>, #_allocator " is not a valid allocator type"); \
     Red::Memory::IAllocator* GetAllocator() \
     { \
-        return _allocator::Get(); \
+        return AllocatorType::Get(); \
     }
 
 #define RTTI_DECLARE_FRIENDS(_class) \

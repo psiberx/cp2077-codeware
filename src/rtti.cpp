@@ -1,3 +1,5 @@
+#include "App/Depot/ResourceDepot.hpp"
+#include "App/Depot/ResourceWrapper.hpp"
 #include "App/Entity/EntityEx.hpp"
 #include "App/Ink/inkComponent.hpp"
 #include "App/Ink/inkLayerWrapper.hpp"
@@ -5,7 +7,6 @@
 #include "App/Ink/inkWidgetReferenceEx.hpp"
 #include "App/Ink/UISystemEx.hpp"
 #include "App/Reflection/Reflection.hpp"
-#include "App/Scripting/ResourceWrapper.hpp"
 #include "App/Utils/Bits.hpp"
 #include "App/Utils/CName.hpp"
 #include "App/Utils/Hashing.hpp"
