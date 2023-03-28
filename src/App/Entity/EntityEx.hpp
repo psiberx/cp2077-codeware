@@ -13,6 +13,6 @@ struct EntityEx : Red::ent::Entity
 };
 }
 
-RTTI_EXPAND_CLASS(App::EntityEx, Red::ent::Entity, {
+RTTI_EXPAND_CLASS(Red::ent::Entity, App::EntityEx, {
     RTTI_METHOD(GetComponents);
 });

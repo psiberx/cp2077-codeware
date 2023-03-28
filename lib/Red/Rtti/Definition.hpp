@@ -7,11 +7,8 @@
 
 namespace Red
 {
-template<typename>
-struct RTTITypeBuilder;
-
-template<auto>
-struct RTTIScopeBuilder;
+template<Scope>
+struct RTTIBuilder;
 
 namespace Detail
 {
@@ -39,14 +36,10 @@ concept HasMaxValueGetter = requires
     { TSpec::Max() };
 };
 
-template<typename TSpec, typename TEnum>
-consteval auto GetMinValue()
+template<typename TEnum>
+consteval auto GetDefaultMinValue()
 {
-    if constexpr (HasMinValueGetter<TSpec>)
-    {
-        return TSpec::Min();
-    }
-    else if constexpr (std::is_signed_v<std::underlying_type_t<TEnum>>)
+    if constexpr (std::is_signed_v<std::underlying_type_t<TEnum>>)
     {
         return -1;
     }
@@ -56,7 +49,26 @@ consteval auto GetMinValue()
     }
 }
 
-template<typename TSpec>
+template<typename TEnum>
+consteval auto GetDefaultMaxValue()
+{
+    return 128;
+}
+
+template<typename TSpec, typename TEnum>
+consteval auto GetMinValue()
+{
+    if constexpr (HasMinValueGetter<TSpec>)
+    {
+        return TSpec::Min();
+    }
+    else
+    {
+        return GetDefaultMinValue<TEnum>();
+    }
+}
+
+template<typename TSpec, typename TEnum>
 consteval auto GetMaxValue()
 {
     if constexpr (HasMinValueGetter<TSpec>)
@@ -65,7 +77,7 @@ consteval auto GetMaxValue()
     }
     else
     {
-        return 128;
+        return GetDefaultMaxValue<TEnum>();
     }
 }
 
@@ -291,7 +303,17 @@ public:
             CClassFunction* func;
             if constexpr (Detail::IsScriptable<Context>)
             {
-                static_assert(std::is_base_of_v<Context, TClass> || std::is_base_of_v<TClass, Context>);
+                if constexpr (!std::is_same_v<TClass, Context>)
+                {
+                    if (std::is_base_of_v<TClass, Context>)
+                    {
+                        static_assert(sizeof(TClass) == sizeof(Context), "Expansion must not add new members");
+                    }
+                    else
+                    {
+                        static_assert(std::is_base_of_v<TClass, Context>, "Cannot add function from unrelated class");
+                    }
+                }
 
                 func = CClassFunction::Create(this, aName, aName, ptr, aFlags);
             }
@@ -381,14 +403,130 @@ class ClassDescriptorImpl : public ClassDescriptor<TClass>
     }
 };
 
-template<typename TClass>
-class ClassBuilder
+template<typename TEnum>
+class EnumDescriptor : public CEnum
 {
 public:
-    using Descriptor = ClassDescriptorImpl<TClass>;
-    using Specialization = RTTITypeBuilder<TClass>;
+    using Value = std::underlying_type_t<TEnum>;
+    using Limits = std::numeric_limits<Value>;
+
+    static_assert(std::is_enum_v<TEnum>, "TEnum must be enum");
+
+    EnumDescriptor() : CEnum({}, sizeof(TEnum), {})
+    {
+    }
+
+    void AddOption(int64_t aValue, const char* aName)
+    {
+        if (aValue < Limits::min())
+            return;
+
+        if (aValue > Limits::max())
+            return;
+
+        for (uint32_t i = 0; i != valueList.size; ++i)
+        {
+            if (aValue == valueList.entries[i])
+                return;
+        }
+
+        valueList.PushBack(aValue);
+        hashList.PushBack(CNamePool::Add(aName));
+    }
+
+    template<typename E>
+    void AddOption(const E aValue, const char* aName)
+    {
+        AddOption(static_cast<int64_t>(aValue), aName);
+    }
+
+    template<typename E = TEnum,
+             Value AMin = Detail::GetDefaultMinValue<E>(),
+             Value AMax = Detail::GetDefaultMaxValue<E>(),
+             bool AFlags = false>
+    void AddOptions()
+    {
+        constexpr auto min = std::max(AMin, AFlags ? static_cast<Value>(0) : Limits::min());
+        constexpr auto max = std::min(AMax, AFlags ? static_cast<Value>(Limits::digits - 1) : Limits::max());
+        constexpr auto range = max - min + 1;
+
+        static_assert(range > 0, "Invalid range");
+        static_assert(range < std::numeric_limits<std::uint16_t>::max(), "Invalid range");
+
+        constexpr auto values = nameof::detail::values<E, AFlags, min>(std::make_index_sequence<range>{});
+
+        AddOptions(this, values, std::make_index_sequence<values.size()>{});
+    }
+
+    template<typename E = TEnum,
+             Value AMin = Detail::GetDefaultMinValue<E>(),
+             Value AMax = Detail::GetDefaultMaxValue<E>()>
+    void AddFlags()
+    {
+        AddOptions<E, AMin, AMax, true>();
+    }
 
 protected:
+    template<typename E, std::size_t N, std::size_t... I>
+    inline static void AddOptions(EnumDescriptor* aEnum, const std::array<E, N>& aValues, std::index_sequence<I...>)
+    {
+        (aEnum->AddOption(aValues[I], nameof::nameof_enum(aValues[I]).data()), ...);
+    }
+};
+
+class GlobalDescriptor : public CRTTISystem
+{
+public:
+    template<class TContext, typename TRet, typename TRetType>
+    CGlobalFunction* AddFunction(NativeFunctionPtr<TContext, TRet, TRetType> aFunc, const char* aName,
+                                 CBaseFunction::Flags aFlags = {})
+    {
+        auto* ptr = reinterpret_cast<ScriptingFunction_t<TRet*>>(aFunc);
+        auto* func = CGlobalFunction::Create(aName, aName, ptr);
+
+        func->flags = aFlags;
+        func->flags.isNative = true;
+        func->flags.isStatic = true;
+
+        RegisterFunction(func);
+
+        return func;
+    }
+
+    template<auto AFunction>
+    requires Detail::IsFunctionPtr<decltype(AFunction)>
+    CGlobalFunction* AddFunction(const char* aName, CBaseFunction::Flags aFlags = {})
+    {
+        using Function = decltype(AFunction);
+
+        if constexpr (Detail::IsNativeFunctionPtr<Function>)
+        {
+            return AddFunction(AFunction, aName, aFlags);
+        }
+        else
+        {
+            auto* ptr = Detail::MakeNativeFunction<AFunction>();
+            auto* func = CGlobalFunction::Create(aName, aName, ptr);
+
+            func->flags = aFlags;
+            func->flags.isNative = true;
+            func->flags.isStatic = true;
+
+            Detail::DescribeNativeFunction(func, AFunction);
+            RegisterFunction(func);
+
+            return func;
+        }
+    }
+};
+
+template<typename TClass>
+requires std::is_class_v<TClass>
+struct ClassBuilder
+{
+    using Descriptor = ClassDescriptorImpl<TClass>;
+    using Specialization = RTTIBuilder<Scope::From<TClass>()>;
+
     static inline void RegisterType()
     {
         constexpr auto name = GetTypeNameStr<TClass>();
@@ -432,24 +570,22 @@ protected:
 
         if constexpr (std::is_base_of_v<IGameSystem, TClass>)
         {
-            SystemBuilder<TClass>::BuildSystem();
+            SystemBuilder<TClass>::RegisterGetter();
+            SystemBuilder<TClass>::RegisterSystem();
         }
     }
 
     inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
+
+    constexpr operator Scope() const noexcept
+    {
+        return Scope::From<TClass>();
+    }
 };
 
 template<typename TSystem>
-class SystemBuilder
+struct SystemBuilder
 {
-public:
-    static inline void BuildSystem()
-    {
-        RegisterGetter();
-        RegisterSystem();
-    }
-
-protected:
     static inline void ScriptGetter(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
                                     Red::Handle<Red::IScriptable>* aRet, int64_t)
     {
@@ -511,104 +647,42 @@ protected:
     }
 };
 
-template<typename TExpansion, typename TClass>
-class ClassExpansion
+template<typename TClass, Scope AScope>
+struct ClassExpansion
 {
-public:
     using Descriptor = ClassDescriptor<TClass>;
-    using Specialization = RTTITypeBuilder<TExpansion>;
-
-protected:
-    static_assert(std::is_base_of_v<TClass, TExpansion>, "TExpansion must inherit TClass");
-    static_assert(sizeof(TClass) == sizeof(TExpansion), "TExpansion must not add new members");
+    using Specialization = RTTIBuilder<AScope>;
 
     static inline void DescribeType()
     {
-        constexpr auto name = GetTypeName<TClass>();
-
-        auto* rtti = CRTTISystem::Get();
-        auto* type = reinterpret_cast<Descriptor*>(rtti->GetClass(name));
-
-        if (!type)
-            return;
-
         if constexpr (Detail::HasDescribeHandler<Specialization, Descriptor>)
         {
+            constexpr auto name = GetTypeName<TClass>();
+
+            auto* rtti = CRTTISystem::Get();
+            auto* type = reinterpret_cast<Descriptor*>(rtti->GetClass(name));
+
+            if (!type)
+                return;
+
             Specialization::Describe(type);
         }
     }
 
     inline static RTTIRegistrar s_registrar{nullptr, &DescribeType}; // NOLINT(cert-err58-cpp)
-};
 
-template<typename TEnum>
-class EnumDescriptor : public CEnum
-{
-public:
-    using Value = std::underlying_type_t<TEnum>;
-    using Limits = std::numeric_limits<Value>;
-
-    static_assert(std::is_enum_v<TEnum>, "TEnum must be enum");
-
-    EnumDescriptor() : CEnum({}, sizeof(TEnum), {})
+    constexpr operator Scope() const noexcept
     {
-    }
-
-    void AddOption(int64_t aValue, const char* aName)
-    {
-        if (aValue < Limits::min())
-            return;
-
-        if (aValue > Limits::max())
-            return;
-
-        for (uint32_t i = 0; i != valueList.size; ++i)
-        {
-            if (aValue == valueList.entries[i])
-                return;
-        }
-
-        valueList.PushBack(aValue);
-        hashList.PushBack(CNamePool::Add(aName));
-    }
-
-    template<typename E>
-    void AddOption(const E aValue, const char* aName)
-    {
-        AddOption(static_cast<int64_t>(aValue), aName);
-    }
-
-    template<typename E = TEnum, bool AFlags = false, Value AMin, Value AMax>
-    void AddOptions()
-    {
-        constexpr auto min = std::max(AMin, AFlags ? static_cast<Value>(0) : Limits::min());
-        constexpr auto max = std::min(AMax, AFlags ? static_cast<Value>(Limits::digits - 1) : Limits::max());
-        constexpr auto range = max - min + 1;
-
-        static_assert(range > 0, "Invalid range");
-        static_assert(range < std::numeric_limits<std::uint16_t>::max(), "Invalid range");
-
-        constexpr auto values = nameof::detail::values<E, AFlags, min>(std::make_index_sequence<range>{});
-
-        AddOptions(this, values, std::make_index_sequence<values.size()>{});
-    }
-
-protected:
-    template<typename E, std::size_t N, std::size_t... I>
-    inline static void AddOptions(EnumDescriptor* aEnum, const std::array<E, N>& aValues, std::index_sequence<I...>)
-    {
-        (aEnum->AddOption(aValues[I], nameof::nameof_enum(aValues[I]).data()), ...);
+        return AScope;
     }
 };
 
 template<typename TEnum, bool AFlags = false>
-class EnumBuilder
+struct EnumBuilder
 {
-public:
     using Descriptor = EnumDescriptor<TEnum>;
-    using Specialization = RTTITypeBuilder<TEnum>;
+    using Specialization = RTTIBuilder<Scope::From<TEnum>()>;
 
-protected:
     static inline void RegisterType()
     {
         constexpr auto name = GetTypeNameStr<TEnum>();
@@ -633,9 +707,9 @@ protected:
         auto* type = reinterpret_cast<Descriptor*>(rtti->GetEnum(name));
 
         constexpr auto min = Detail::GetMinValue<Specialization, TEnum>();
-        constexpr auto max = Detail::GetMaxValue<Specialization>();
+        constexpr auto max = Detail::GetMaxValue<Specialization, TEnum>();
 
-        type->template AddOptions<TEnum, AFlags, min, max>();
+        type->template AddOptions<TEnum, min, max, AFlags>();
 
         if constexpr (Detail::HasDescribeHandler<Specialization, Descriptor>)
         {
@@ -644,95 +718,53 @@ protected:
     }
 
     inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
+
+    constexpr operator Scope() const noexcept
+    {
+        return Scope::From<TEnum>();
+    }
 };
 
-template<typename TExpansion, typename TEnum, bool AFlags = false>
-class EnumExpansion
-{
-public:
-    using Descriptor = EnumDescriptor<TEnum>;
-    using Specialization = RTTITypeBuilder<TExpansion>;
+template<typename TEnum>
+struct FlagsBuilder : EnumBuilder<TEnum, true> {};
 
-protected:
+template<typename TEnum, Scope AScope>
+struct EnumExpansion
+{
+    using Descriptor = EnumDescriptor<TEnum>;
+    using Specialization = RTTIBuilder<AScope>;
+
     static inline void DescribeType()
     {
-        constexpr auto name = GetTypeName<TEnum>();
-
-        auto* rtti = CRTTISystem::Get();
-        auto* type = reinterpret_cast<Descriptor*>(rtti->GetEnum(name));
-
-        if (!type)
-            return;
-
-        constexpr auto min = Detail::GetMinValue<Specialization>();
-        constexpr auto max = Detail::GetMaxValue<Specialization>();
-
-        type->template AddOptions<TExpansion, AFlags, min, max>();
-
         if constexpr (Detail::HasDescribeHandler<Specialization, Descriptor>)
         {
+            constexpr auto name = GetTypeName<TEnum>();
+
+            auto* rtti = CRTTISystem::Get();
+            auto* type = reinterpret_cast<Descriptor*>(rtti->GetEnum(name));
+
+            if (!type)
+                return;
+
             Specialization::Describe(type);
         }
     }
 
     inline static RTTIRegistrar s_registrar{nullptr, &DescribeType}; // NOLINT(cert-err58-cpp)
-};
 
-class GlobalDescriptor : public CRTTISystem
-{
-public:
-    template<class TContext, typename TRet, typename TRetType>
-    CGlobalFunction* AddFunction(NativeFunctionPtr<TContext, TRet, TRetType> aFunc, const char* aName,
-                                 CBaseFunction::Flags aFlags = {})
+    constexpr operator Scope() const noexcept
     {
-        auto* ptr = reinterpret_cast<ScriptingFunction_t<TRet*>>(aFunc);
-        auto* func = CGlobalFunction::Create(aName, aName, ptr);
-
-        func->flags = aFlags;
-        func->flags.isNative = true;
-        func->flags.isStatic = true;
-
-        RegisterFunction(func);
-
-        return func;
-    }
-
-    template<auto AFunction>
-    requires Detail::IsFunctionPtr<decltype(AFunction)>
-    CGlobalFunction* AddFunction(const char* aName, CBaseFunction::Flags aFlags = {})
-    {
-        using Function = decltype(AFunction);
-
-        if constexpr (Detail::IsNativeFunctionPtr<Function>)
-        {
-            return AddFunction(AFunction, aName, aFlags);
-        }
-        else
-        {
-            auto* ptr = Detail::MakeNativeFunction<AFunction>();
-            auto* func = CGlobalFunction::Create(aName, aName, ptr);
-
-            func->flags = aFlags;
-            func->flags.isNative = true;
-            func->flags.isStatic = true;
-
-            Detail::DescribeNativeFunction(func, AFunction);
-            RegisterFunction(func);
-
-            return func;
-        }
+        return AScope;
     }
 };
 
-template<auto AScope>
-class GlobalBuilder
+template<Scope AScope>
+struct GlobalBuilder
 {
-public:
     using Descriptor = GlobalDescriptor;
-    using Specialization = RTTIScopeBuilder<AScope>;
+    using Specialization = RTTIBuilder<AScope>;
 
-protected:
-    static inline void RegisterType()
+    static inline void Register()
     {
         if constexpr (Detail::HasRegisterHandler<Specialization, Descriptor>)
         {
@@ -741,7 +773,7 @@ protected:
         }
     }
 
-    static inline void DescribeType()
+    static inline void Describe()
     {
         if constexpr (Detail::HasDescribeHandler<Specialization, Descriptor>)
         {
@@ -750,6 +782,11 @@ protected:
         }
     }
 
-    inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
+    inline static RTTIRegistrar s_registrar{&Register, &Describe}; // NOLINT(cert-err58-cpp)
+
+    constexpr operator Scope() const noexcept
+    {
+        return AScope;
+    }
 };
 }

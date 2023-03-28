@@ -13,6 +13,6 @@ struct VehicleSystemEx : Red::VehicleSystem
 };
 }
 
-RTTI_EXPAND_CLASS(App::VehicleSystemEx, Red::VehicleSystem, {
+RTTI_EXPAND_CLASS(Red::VehicleSystem, App::VehicleSystemEx, {
     RTTI_METHOD(ToggleGarageVehicle);
 });

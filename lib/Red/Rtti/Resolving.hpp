@@ -5,14 +5,14 @@
 
 namespace Red
 {
+template<Scope>
+struct RTTIBuilder;
+
 template<typename T>
 struct TypeNameMapping : public std::false_type {};
 
 template<typename G>
 struct TypePrefixMapping : public std::false_type {};
-
-template<typename T>
-struct RTTITypeBuilder;
 
 namespace Detail
 {
@@ -27,16 +27,22 @@ concept HasGeneratedTypeName = requires(T*)
 };
 
 template<typename T>
+concept HasTypeNameMapping = TypeNameMapping<T>::value;
+
+template<typename G>
+concept HasTypePrefixMapping = TypePrefixMapping<G>::value;
+
+template<typename T>
 concept HasTypeNameBuilder = requires(T*)
 {
-    { Red::RTTITypeBuilder<T>::Name() } -> IsTypeNameConst;
+    { RTTIBuilder<Scope::From<T>()>::Name() } -> IsTypeNameConst;
 };
 
 template<typename T>
-concept HasTypeNameMapping = TypeNameMapping<T>::value;
-
-template<typename T>
-concept HasTypePrefixMapping = TypePrefixMapping<T>::value;
+consteval auto ResolveTypeNameBuilder()
+{
+    return RTTIBuilder<Scope::From<T>()>::Name();
+}
 
 template<size_t N, size_t M>
 consteval auto ConcatConstTypeName(const char* aPrefix, const char* aName)
@@ -115,7 +121,7 @@ consteval auto GetTypeNameStr()
 
     if constexpr (Detail::HasTypeNameBuilder<U>)
     {
-        constexpr auto name = RTTITypeBuilder<U>::Name();
+        constexpr auto name = Detail::ResolveTypeNameBuilder<U>();
 
         if constexpr (std::is_same_v<std::remove_cvref_t<decltype(name)>, std::string_view>)
         {

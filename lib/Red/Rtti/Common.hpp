@@ -2,25 +2,65 @@
 
 namespace Red
 {
-template<typename T>
-constexpr uint64_t FNV1a64v(T aValue, uint64_t aSeed = 0xCBF29CE484222325)
+struct Scope
 {
-    constexpr uint64_t prime = 0x100000001b3;
-
-    uint64_t hash = aSeed;
-    for (size_t i = 0; i != sizeof(T); ++i)
+    constexpr Scope(const std::source_location& aLocation = std::source_location::current()) noexcept
+        : hash(FNV1a64(aLocation.file_name(), aLocation.line()))
     {
-        hash ^= aValue % 0xFF;
-        hash *= prime;
-        aValue /= 0xFF;
     }
 
-    return hash;
-}
+    constexpr Scope(const char* aName) noexcept
+        : hash(FNV1a64(aName))
+    {
+    }
 
-consteval auto AutoScope(const std::source_location& aLocation = std::source_location::current()) {
-    return FNV1a64v(aLocation.line(), FNV1a64(aLocation.file_name()));
-}
+    constexpr Scope(uint64_t aHash) noexcept
+        : hash(aHash)
+    {
+    }
+
+    // template<template<typename> class B, typename T>
+    // constexpr Scope(const B<T>&) noexcept
+    //     : hash(FNV1a64(nameof::nameof_type<T>().data()))
+    // {
+    // }
+    //
+    // template<template<typename, auto> class E, typename T, auto S>
+    // constexpr Scope(const E<T, S>&) noexcept
+    //     : hash(S)
+    // {
+    // }
+    //
+    // template<template<auto, typename...> class E, auto S, typename... P>
+    // constexpr Scope(const E<S, P...>&) noexcept
+    //     : hash(S)
+    // {
+    // }
+
+    constexpr operator uint64_t() const noexcept
+    {
+        return hash;
+    }
+
+    constexpr static Scope Unique(const std::source_location& aLocation = std::source_location::current()) noexcept
+    {
+        return {aLocation};
+    }
+
+    template<typename T>
+    constexpr static Scope From()
+    {
+        return FNV1a64(nameof::nameof_type<T>().data());
+    }
+
+    template<typename T, auto S>
+    constexpr static Scope From()
+    {
+        return S;
+    }
+
+    uint64_t hash;
+};
 
 template<typename T, auto V = 0>
 struct Optional;
@@ -124,23 +164,10 @@ concept IsSpecialization = Specialization<T>::value;
 template<typename T, typename U = std::remove_cvref_t<T>>
 concept IsOptional = Specialization<U>::value
     && std::is_same_v<U, Red::Optional<typename Specialization<U>::argument_type, Specialization<U>::argument_value>>;
-
-
-template<typename T, int = (T{}, 0)>
-struct ConstexprDefault
-{
-    static constexpr auto value = T();
-};
-
-template<typename T>
-concept HasConstexprDefault = requires
-{
-    typename ConstexprDefault<T>;
-};
 }
 
 template<typename T, auto ADefault>
-requires Detail::HasConstexprDefault<T>
+requires (!std::is_void_v<T>)
 struct Optional<T, ADefault>
 {
     inline operator const T&() const
@@ -167,11 +194,6 @@ struct Optional<T, ADefault>
 };
 
 template<typename T>
-requires Detail::HasConstexprDefault<T>
-struct Optional<T, 1> : Optional<T, Detail::ConstexprDefault<T>::value> {};
-
-template<typename T>
-requires (!Detail::HasConstexprDefault<T>)
 struct Optional<T, 0>
 {
     inline operator const T&() const
@@ -187,11 +209,6 @@ struct Optional<T, 0>
     [[nodiscard]] bool IsEmpty() const
     {
         return !value;
-    }
-
-    [[nodiscard]] bool IsDefault() const
-    {
-        return IsEmpty();
     }
 
     T value{};

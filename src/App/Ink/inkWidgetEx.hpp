@@ -22,6 +22,6 @@ struct inkWidgetEx : Red::inkWidget
 };
 }
 
-RTTI_EXPAND_CLASS(App::inkWidgetEx, Red::inkWidget, {
+RTTI_EXPAND_CLASS(Red::inkWidget, App::inkWidgetEx, {
     RTTI_METHOD(AttachController);
 });

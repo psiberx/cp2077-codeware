@@ -40,7 +40,7 @@ struct UISystemEx : Red::UISystem
 };
 }
 
-RTTI_EXPAND_CLASS(App::UISystemEx, Red::UISystem, {
+RTTI_EXPAND_CLASS(Red::UISystem, App::UISystemEx, {
     RTTI_METHOD(GetLayers);
     RTTI_METHOD(GetLayer);
 });

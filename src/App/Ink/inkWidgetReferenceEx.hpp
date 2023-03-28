@@ -11,6 +11,6 @@ struct inkWidgetReferenceEx : Red::inkWidgetReference
 };
 }
 
-RTTI_EXPAND_CLASS(App::inkWidgetReferenceEx, Red::inkWidgetReference, {
+RTTI_EXPAND_CLASS(Red::inkWidgetReference, App::inkWidgetReferenceEx, {
     RTTI_METHOD(Set);
 });

@@ -1,5 +1,9 @@
 #pragma once
 
+#define X_RTTI_STR1(x) #x
+#define X_RTTI_STR2(x) X_RTTI_STR1(x)
+#define X_RTTI_LOCATION __FILE__ " : " X_RTTI_STR2(__LINE__)
+
 #define X_RTTI_EXPAND(X) X
 #define X_RTTI_OVERLOAD(_1, _2, _3, N, ...) N
 
@@ -19,7 +23,7 @@ public: \
     }
 
 #define RTTI_DECLARE_FRIENDS(_class) \
-    friend class Red::RTTITypeBuilder<_class>; \
+    friend class Red::RTTIBuilder<Red::Scope::From<_class>()>; \
     friend class Red::ClassDescriptor<_class>;
 
 #define RTTI_DEFINE_CLASS(...) \
@@ -27,7 +31,7 @@ public: \
 
 #define X_RTTI_DEF_CLASS_1(_class) \
     template<> \
-    struct Red::RTTITypeBuilder<_class> : Red::ClassBuilder<_class> \
+    struct Red::RTTIBuilder<Red::ClassBuilder<_class>{}> \
     { \
         using Type = _class; \
         using Descriptor = Red::ClassDescriptor<_class>; \
@@ -39,7 +43,7 @@ public: \
 
 #define X_RTTI_DEF_CLASS_2(_class, _desc) \
     template<> \
-    struct Red::RTTITypeBuilder<_class> : Red::ClassBuilder<_class> \
+    struct Red::RTTIBuilder<Red::ClassBuilder<_class>{}> \
     { \
         using Type = _class; \
         using Descriptor = Red::ClassDescriptor<_class>; \
@@ -55,7 +59,7 @@ public: \
 
 #define X_RTTI_DEF_CLASS_3(_class, _name, _desc) \
     template<> \
-    struct Red::RTTITypeBuilder<_class> : Red::ClassBuilder<_class> \
+    struct Red::RTTIBuilder<Red::ClassBuilder<_class>{}> \
     { \
         using Type = _class; \
         using Descriptor = Red::ClassDescriptor<_class>; \
@@ -69,12 +73,24 @@ public: \
         } \
     };
 
+// #define RTTI_EXPAND_CLASS(_class, _desc) \
+//     template<> \
+//     struct Red::RTTIBuilder<Red::ClassExpansion<_class, X_RTTI_LOCATION>{}> \
+//     { \
+//         using Type = _class; \
+//         using Descriptor = Red::ClassDescriptor<_class>; \
+//         static void Describe(Descriptor* type) \
+//         { \
+//             _desc; \
+//         } \
+//     };
+
 #define RTTI_EXPAND_CLASS(...) \
     X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_EXT_CLASS_3, X_RTTI_EXT_CLASS_2, X_RTTI_EXT_CLASS_1)(__VA_ARGS__))
 
 #define X_RTTI_EXT_CLASS_2(_class, _desc) \
     template<> \
-    struct Red::RTTITypeBuilder<_class> : Red::ClassExpansion<_class, _class> \
+    struct Red::RTTIBuilder<Red::ClassExpansion<_class, X_RTTI_LOCATION>{}> \
     { \
         using Type = _class; \
         using Descriptor = Red::ClassDescriptor<_class>; \
@@ -84,9 +100,9 @@ public: \
         } \
     };
 
-#define X_RTTI_EXT_CLASS_3(_expansion, _class, _desc) \
+#define X_RTTI_EXT_CLASS_3(_class, _expansion, _desc) \
     template<> \
-    struct Red::RTTITypeBuilder<_expansion> : Red::ClassExpansion<_expansion, _class> \
+    struct Red::RTTIBuilder<Red::ClassExpansion<_class, X_RTTI_LOCATION>{}> \
     { \
         using Type = _expansion; \
         using Descriptor = Red::ClassDescriptor<_class>; \
@@ -146,7 +162,7 @@ public: \
 
 #define X_RTTI_DEF_ENUM_1(_enum) \
     template<> \
-    struct Red::RTTITypeBuilder<_enum> : Red::EnumBuilder<_enum, false> \
+    struct Red::RTTIBuilder<Red::EnumBuilder<_enum>{}> \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
@@ -158,7 +174,7 @@ public: \
 
 #define X_RTTI_DEF_ENUM_2(_enum, _name) \
     template<> \
-    struct Red::RTTITypeBuilder<_enum> : Red::EnumBuilder<_enum, false> \
+    struct Red::RTTIBuilder<Red::EnumBuilder<_enum>{}> \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
@@ -173,7 +189,7 @@ public: \
 
 #define X_RTTI_DEF_FLAGS_1(_enum) \
     template<> \
-    struct Red::RTTITypeBuilder<_enum> : Red::EnumBuilder<_enum, true> \
+    struct Red::RTTIBuilder<Red::FlagsBuilder<_enum>{}>  \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
@@ -185,7 +201,7 @@ public: \
 
 #define X_RTTI_DEF_FLAGS_2(_enum, _name) \
     template<> \
-    struct Red::RTTITypeBuilder<_enum> : Red::EnumBuilder<_enum, true> \
+    struct Red::RTTIBuilder<Red::FlagsBuilder<_enum>{}>  \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
@@ -200,18 +216,26 @@ public: \
 
 #define X_RTTI_EXP_ENUM_1(_enum) \
     template<> \
-    struct Red::RTTITypeBuilder<_enum> : Red::EnumExpansion<_enum, _enum, false> \
+    struct Red::RTTIBuilder<Red::EnumExpansion<_enum, X_RTTI_LOCATION>{}> \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
+        static void Describe(Descriptor* type) \
+        { \
+            type->template AddOptions<_enum>(); \
+        } \
     };
 
-#define X_RTTI_EXP_ENUM_2(_expansion, _enum) \
+#define X_RTTI_EXP_ENUM_2(_enum, _expansion) \
     template<> \
-    struct Red::RTTITypeBuilder<_expansion> : Red::EnumExpansion<_expansion, _enum, false> \
+    struct Red::RTTIBuilder<Red::EnumExpansion<_enum, X_RTTI_LOCATION>{}> \
     { \
-        using Type = _expansion; \
+        using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
+        static void Describe(Descriptor* type) \
+        { \
+            type->template AddOptions<_expansion>(); \
+        } \
     };
 
 #define RTTI_EXPAND_FLAGS(...) \
@@ -219,18 +243,26 @@ public: \
 
 #define X_RTTI_EXP_FLAGS_1(_enum) \
     template<> \
-    struct Red::RTTITypeBuilder<_enum> : Red::EnumExpansion<_enum, _enum, true> \
+    struct Red::RTTIBuilder<Red::EnumExpansion<_enum, X_RTTI_LOCATION>{}> \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
+        static void Describe(Descriptor* type) \
+        { \
+            type->template AddFlags<_enum>(); \
+        } \
     };
 
-#define X_RTTI_EXP_FLAGS_2(_expansion, _enum) \
+#define X_RTTI_EXP_FLAGS_2(_enum, _expansion) \
     template<> \
-    struct Red::RTTITypeBuilder<_expansion> : Red::EnumExpansion<_expansion, _enum, true> \
+    struct Red::RTTIBuilder<Red::EnumExpansion<_enum, X_RTTI_LOCATION>{}> \
     { \
-        using Type = _expansion; \
+        using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
+        static void Describe(Descriptor* type) \
+        { \
+            type->template AddFlags<_expansion>(); \
+        } \
     };
 
 #define RTTI_OPTION() \
@@ -241,7 +273,7 @@ public: \
 
 #define X_RTTI_DEF_GLOB_1(_desc) \
     template<> \
-    struct Red::RTTIScopeBuilder<Red::AutoScope()> : Red::GlobalBuilder<Red::AutoScope()> \
+    struct Red::RTTIBuilder<Red::GlobalBuilder<X_RTTI_LOCATION>{}> \
     { \
         using Descriptor = Red::GlobalDescriptor; \
         static void Describe(Descriptor* rtti) \
@@ -252,7 +284,7 @@ public: \
 
 #define X_RTTI_DEF_GLOB_2(_namespace, _desc) \
     template<> \
-    struct Red::RTTIScopeBuilder<Red::AutoScope()> : Red::GlobalBuilder<Red::AutoScope()> \
+    struct Red::RTTIBuilder<<Red::GlobalBuilder<X_RTTI_LOCATION>{}> \
     { \
         using Descriptor = Red::GlobalDescriptor; \
         static void Describe(Descriptor* rtti) \
@@ -279,7 +311,7 @@ public: \
 
 #define RTTI_REGISTER(_handler) \
     template<> \
-    struct Red::RTTIScopeBuilder<Red::AutoScope()> : Red::GlobalBuilder<Red::AutoScope()> \
+    struct Red::RTTIBuilder<<Red::GlobalBuilder<X_RTTI_LOCATION>{}> \
     { \
         using Descriptor = Red::GlobalDescriptor; \
         static void Register(Descriptor* rtti) \
@@ -290,7 +322,7 @@ public: \
 
 #define RTTI_DESCRIBE(_handler) \
     template<> \
-    struct Red::RTTIScopeBuilder<Red::AutoScope()> : Red::GlobalBuilder<Red::AutoScope()> \
+    struct Red::RTTIBuilder<<Red::GlobalBuilder<X_RTTI_LOCATION>{}> \
     { \
         using Descriptor = Red::GlobalDescriptor; \
         static void Describe(Descriptor* rtti) \
