@@ -4,7 +4,7 @@
 
 namespace App
 {
-struct EntityEx : Red::ent::Entity
+struct EntityEx : Red::Entity
 {
     Red::DynArray<Red::Handle<Red::ent::IComponent>> GetComponents()
     {
@@ -13,6 +13,6 @@ struct EntityEx : Red::ent::Entity
 };
 }
 
-RTTI_EXPAND_CLASS(Red::ent::Entity, App::EntityEx, {
-    RTTI_METHOD(GetComponents);
+RTTI_EXPAND_CLASS(Red::Entity, {
+    RTTI_METHOD_FQN(App::EntityEx::GetComponents);
 });

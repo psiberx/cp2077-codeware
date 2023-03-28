@@ -4,6 +4,10 @@
 #define X_RTTI_STR2(x) X_RTTI_STR1(x)
 #define X_RTTI_LOCATION __FILE__ " : " X_RTTI_STR2(__LINE__)
 
+#define X_RTTI_NAMEOF(...) []() constexpr noexcept { \
+  constexpr auto _name = ::nameof::detail::pretty_name(#__VA_ARGS__); \
+  return ::nameof::cstring<_name.size()>{_name}; }()
+
 #define X_RTTI_EXPAND(X) X
 #define X_RTTI_OVERLOAD(_1, _2, _3, N, ...) N
 
@@ -130,6 +134,15 @@ public: \
 #define X_RTTI_METHOD_2(_method, _name) \
     type->AddFunction<&Type::_method>(_name)
 
+#define RTTI_METHOD_FQN(...) \
+    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_METHOD_FQN_3, X_RTTI_METHOD_FQN_2, X_RTTI_METHOD_FQN_1)(__VA_ARGS__))
+
+#define X_RTTI_METHOD_FQN_1(_method) \
+    type->AddFunction<&_method>(X_RTTI_NAMEOF(_method).data())
+
+#define X_RTTI_METHOD_FQN_2(_method, _name) \
+    type->AddFunction<&_method>(_name)
+
 #define RTTI_CALLBACK(...) \
     X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_CALLBACK_3, X_RTTI_CALLBACK_2, X_RTTI_CALLBACK_1)(__VA_ARGS__))
 
@@ -138,6 +151,15 @@ public: \
 
 #define X_RTTI_CALLBACK_2(_method, _name) \
     type->AddFunction<&Type::_method>(_name, {.isEvent = true})
+
+#define RTTI_CALLBACK_FQN(...) \
+    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_CALLBACK_FQN_3, X_RTTI_CALLBACK_FQN_2, X_RTTI_CALLBACK_FQN_1)(__VA_ARGS__))
+
+#define X_RTTI_CALLBACK_FQN_1(_method) \
+    type->AddFunction<&_method>(X_RTTI_NAMEOF(_method), {.isEvent = true})
+
+#define X_RTTI_CALLBACK_FQN_2(_method, _name) \
+    type->AddFunction<&_method>(_name, {.isEvent = true})
 
 #define RTTI_PROPERTY(...) \
     X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PROPERTY_3, X_RTTI_PROPERTY_2, X_RTTI_PROPERTY_1)(__VA_ARGS__))
@@ -148,6 +170,15 @@ public: \
 #define X_RTTI_PROPERTY_2(_property, _name) \
     type->AddProperty<&Type::_property>(_name)
 
+#define RTTI_PROPERTY_FQN(...) \
+    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PROPERTY_FQN_3, X_RTTI_PROPERTY_FQN_2, X_RTTI_PROPERTY_FQN_1)(__VA_ARGS__))
+
+#define X_RTTI_PROPERTY_FQN_1(_property) \
+    type->AddProperty<&_property>(X_RTTI_NAMEOF(_property))
+
+#define X_RTTI_PROPERTY_FQN_2(_property, _name) \
+    type->AddProperty<&_property>(_name)
+
 #define RTTI_PERSISTENT(...) \
     X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PERSISTENT_3, X_RTTI_PERSISTENT_2, X_RTTI_PERSISTENT_1)(__VA_ARGS__))
 
@@ -156,6 +187,15 @@ public: \
 
 #define X_RTTI_PERSISTENT_2(_property, _name) \
     type->AddProperty<&Type::_property>(_name, {.isPersistent = true})
+
+#define RTTI_PERSISTENT_FQN(...) \
+    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PERSISTENT_FQN_3, X_RTTI_PERSISTENT_FQN_2, X_RTTI_PERSISTENT_FQN_1)(__VA_ARGS__))
+
+#define X_RTTI_PERSISTENT_FQN_1(_property) \
+    type->AddProperty<&_property>(X_RTTI_NAMEOF(_property), {.isPersistent = true})
+
+#define X_RTTI_PERSISTENT_FQN_2(_property, _name) \
+    type->AddProperty<&_property>(_name, {.isPersistent = true})
 
 #define RTTI_DEFINE_ENUM(...) \
     X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_DEF_ENUM_3, X_RTTI_DEF_ENUM_2, X_RTTI_DEF_ENUM_1)(__VA_ARGS__))
@@ -298,7 +338,7 @@ public: \
     X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_FUNCTION_3, X_RTTI_FUNCTION_2, X_RTTI_FUNCTION_1)(__VA_ARGS__))
 
 #define X_RTTI_FUNCTION_1(_func) \
-    rtti->AddFunction<&_func>(NAMEOF(_func).data())
+    rtti->AddFunction<&_func>(X_RTTI_NAMEOF(_func).data())
 
 #define X_RTTI_FUNCTION_2(_func, _name) \
     rtti->AddFunction<&_func>(_name)
