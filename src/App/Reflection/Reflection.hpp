@@ -8,7 +8,7 @@ namespace App
 {
 struct Reflection
 {
-    static Red::Handle<ReflectionType> ResolveType(Red::Variant& aVariant)
+    static Red::Handle<ReflectionType> GetTypeOf(Red::Variant& aVariant)
     {
         if (aVariant.IsEmpty())
             return {};
@@ -117,7 +117,7 @@ struct Reflection
 }
 
 RTTI_DEFINE_CLASS(App::Reflection, {
-    RTTI_METHOD(ResolveType);
+    RTTI_METHOD(GetTypeOf);
     RTTI_METHOD(GetType);
     RTTI_METHOD(GetClass);
     RTTI_METHOD(GetEnum);
