@@ -48,13 +48,13 @@ struct Scope
     }
 
     template<typename T>
-    constexpr static Scope From()
+    constexpr static Scope For()
     {
         return FNV1a64(nameof::nameof_type<T>().data());
     }
 
     template<typename T, auto S>
-    constexpr static Scope From()
+    constexpr static Scope For()
     {
         return S;
     }

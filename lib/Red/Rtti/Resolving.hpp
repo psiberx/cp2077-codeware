@@ -35,13 +35,13 @@ concept HasTypePrefixMapping = TypePrefixMapping<G>::value;
 template<typename T>
 concept HasTypeNameBuilder = requires(T*)
 {
-    { RTTIBuilder<Scope::From<T>()>::Name() } -> IsTypeNameConst;
+    { RTTIBuilder<Scope::For<T>()>::Name() } -> IsTypeNameConst;
 };
 
 template<typename T>
 consteval auto ResolveTypeNameBuilder()
 {
-    return RTTIBuilder<Scope::From<T>()>::Name();
+    return RTTIBuilder<Scope::For<T>()>::Name();
 }
 
 template<size_t N, size_t M>

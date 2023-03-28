@@ -522,10 +522,10 @@ public:
 
 template<typename TClass>
 requires std::is_class_v<TClass>
-struct ClassBuilder
+struct ClassDefinition
 {
     using Descriptor = ClassDescriptorImpl<TClass>;
-    using Specialization = RTTIBuilder<Scope::From<TClass>()>;
+    using Specialization = RTTIBuilder<Scope::For<TClass>()>;
 
     static inline void RegisterType()
     {
@@ -579,7 +579,7 @@ struct ClassBuilder
 
     constexpr operator Scope() const noexcept
     {
-        return Scope::From<TClass>();
+        return Scope::For<TClass>();
     }
 };
 
@@ -678,10 +678,10 @@ struct ClassExpansion
 };
 
 template<typename TEnum, bool AFlags = false>
-struct EnumBuilder
+struct EnumDefinition
 {
     using Descriptor = EnumDescriptor<TEnum>;
-    using Specialization = RTTIBuilder<Scope::From<TEnum>()>;
+    using Specialization = RTTIBuilder<Scope::For<TEnum>()>;
 
     static inline void RegisterType()
     {
@@ -721,12 +721,12 @@ struct EnumBuilder
 
     constexpr operator Scope() const noexcept
     {
-        return Scope::From<TEnum>();
+        return Scope::For<TEnum>();
     }
 };
 
 template<typename TEnum>
-struct FlagsBuilder : EnumBuilder<TEnum, true> {};
+struct FlagsDefinition : EnumDefinition<TEnum, true> {};
 
 template<typename TEnum, Scope AScope>
 struct EnumExpansion
@@ -759,7 +759,7 @@ struct EnumExpansion
 };
 
 template<Scope AScope>
-struct GlobalBuilder
+struct GlobalDefinition
 {
     using Descriptor = GlobalDescriptor;
     using Specialization = RTTIBuilder<AScope>;
