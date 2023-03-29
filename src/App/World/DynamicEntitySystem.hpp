@@ -20,7 +20,8 @@ class DynamicEntitySystem : public Red::IGameSystem
 public:
     DynamicEntitySystem() = default;
 
-    bool IsAttached() const;
+    [[nodiscard]] bool IsReady() const;
+    [[nodiscard]] bool IsRestored() const;
 
     Red::EntityID CreateEntity(const DynamicEntitySpecPtr& aEntitySpec);
     bool DeleteEntity(Red::EntityID aEntityID);
@@ -52,11 +53,11 @@ protected:
         Red::CName function;
     };
 
-    void OnWorldAttached(Red::world::RuntimeScene* aScene) override;
-    bool OnGameRestored() override;
-    uint32_t OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2) override;
+    void OnWorldAttached(Red::world::RuntimeScene*) override;
+    void OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup&) override;
+    uint32_t OnBeforeGameSave(const Red::JobGroup&, void*) override;
     void OnAfterGameSave() override;
-    void OnBeforeWorldDetach(Red::world::RuntimeScene* aScene) override;
+    void OnBeforeWorldDetach(Red::world::RuntimeScene*) override;
     void OnAfterWorldDetach() override;
     void OnRegisterUpdates(Red::UpdateRegistrar* aRegistrar) override;
     void OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue& aJobQueue);
@@ -82,6 +83,7 @@ protected:
     void ProcessListeners(Red::EntityID aEntityID, Red::game::EntitySpawnerEventType aEvent);
 
     bool m_attached;
+    bool m_restored;
 
     std::shared_mutex m_entityStateLock;
     Core::Vector<DynamicEntityStatePtr> m_entityStates;
@@ -111,7 +113,8 @@ RTTI_DEFINE_ENUM(App::DynamicEntityEvent);
 
 RTTI_DEFINE_CLASS(App::DynamicEntitySystem, {
     RTTI_PARENT(Red::IGameSystem);
-    RTTI_METHOD(IsAttached);
+    RTTI_METHOD(IsReady);
+    RTTI_METHOD(IsRestored);
 
     RTTI_METHOD(CreateEntity);
     RTTI_METHOD(DeleteEntity);

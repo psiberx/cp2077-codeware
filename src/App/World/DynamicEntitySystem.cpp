@@ -5,24 +5,23 @@ namespace
 constexpr auto SystemPersistentID = Red::PersistentID(Red::GetTypeName<App::DynamicEntitySystem>());
 }
 
-void App::DynamicEntitySystem::OnWorldAttached(Red::world::RuntimeScene* aScene)
+void App::DynamicEntitySystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
     m_tweakDB = Red::TweakDB::Get();
-
     m_persistencySystem = Red::GetGameSystem<Red::IPersistencySystem>();
     m_entityIDSystem = Red::GetGameSystem<Red::IDynamicEntityIDSystem>();
     m_entityStubSystem = Red::GetGameSystem<Red::IEntityStubSystem>();
     m_populationSystem = Red::GetGameSystem<Red::IPopulationSystem>();
     m_spawnEventBroadcaster = Red::GetGameSystem<Red::IEntitySpawnerEventsBroadcaster>();
-
     m_persistentStateType = Red::GetClass<DynamicEntitySystemPS>();
-    m_persistentState.Reset();
-
     m_attached = true;
 }
 
-bool App::DynamicEntitySystem::OnGameRestored()
+void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored,
+                                                      const Red::JobGroup&)
 {
+    m_restored = aRestored;
+
     m_spawnEventListenerID = m_spawnEventBroadcaster->RegisterListener(
         [this](Red::game::EntitySpawnerEventType aEvent, Red::EntityID aEntityID, Red::EntityID, Red::EntityStub*) {
             ProcessListeners(aEntityID, aEvent);
@@ -41,16 +40,20 @@ bool App::DynamicEntitySystem::OnGameRestored()
         }
 
         RestoreEntityState(entityState);
+    }
 
-        if (entityState->entitySpec->persistSpawn && entityState->entitySpec->active)
+    {
+        std::shared_lock _(m_entityStateLock);
+        for (const auto& entityState : m_entityStates)
         {
-            RespawnFromEntityState(entityState);
+            if (entityState->entitySpec->persistSpawn && entityState->entitySpec->active)
+            {
+                RespawnFromEntityState(entityState);
+            }
         }
     }
 
     m_persistentState->m_entityStates.Clear();
-
-    return true;
 }
 
 uint32_t App::DynamicEntitySystem::OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2)
@@ -86,6 +89,8 @@ void App::DynamicEntitySystem::OnBeforeWorldDetach(Red::world::RuntimeScene* aSc
 void App::DynamicEntitySystem::OnAfterWorldDetach()
 {
     m_attached = false;
+    m_restored = false;
+    m_persistentState.Reset();
 
     {
         std::unique_lock _(m_entityStateLock);
@@ -109,9 +114,15 @@ void App::DynamicEntitySystem::OnRegisterUpdates(Red::UpdateRegistrar* aRegistra
 void App::DynamicEntitySystem::OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue& aJobQueue)
 {
 }
-bool App::DynamicEntitySystem::IsAttached() const
+
+bool App::DynamicEntitySystem::IsReady() const
 {
     return m_attached;
+}
+
+bool App::DynamicEntitySystem::IsRestored() const
+{
+    return m_restored;
 }
 
 Red::EntityID App::DynamicEntitySystem::CreateEntity(const DynamicEntitySpecPtr& aEntitySpec)
