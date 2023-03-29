@@ -91,6 +91,16 @@ struct ReflectionFunc : Red::IScriptable
 
         for (uint32_t i = 0; i < m_func->params.size; ++i)
         {
+            if (m_func->params[i]->type != aArgs->entries[i].GetType())
+            {
+                if (aStatus->ref)
+                {
+                    *aStatus->ref = false;
+                }
+
+                return ret;
+            }
+
             stack.args[i].type = aArgs->entries[i].GetType();
             stack.args[i].value = aArgs->entries[i].GetDataPtr();
         }

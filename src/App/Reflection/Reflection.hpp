@@ -4,16 +4,61 @@
 #include "ReflectionEnum.hpp"
 #include "ReflectionType.hpp"
 
+namespace
+{
+Red::ClassLocator<Red::ISerializable> s_serializableType;
+Red::ClassLocator<Red::IScriptable> s_scriptableType;
+}
+
 namespace App
 {
 struct Reflection
 {
-    static Red::Handle<ReflectionType> GetTypeOf(Red::Variant& aVariant)
+    static Red::Handle<ReflectionType> GetTypeOf(const Red::Variant& aVariant)
     {
         if (aVariant.IsEmpty())
             return {};
 
         return Red::MakeHandle<ReflectionType>(aVariant.GetType());
+    }
+
+     static Red::Handle<ReflectionClass> GetClassOf(const Red::Variant& aVariant, Red::Optional<bool, true> aActualType)
+    {
+        if (aVariant.IsEmpty())
+            return {};
+
+        Red::CClass* resolvedClass{};
+        Red::ScriptInstance resolvedInstance{};
+        Red::CBaseRTTIType* declaredType = aVariant.GetType();
+
+        switch (declaredType->GetType())
+        {
+        case Red::ERTTIType::Class:
+        {
+            resolvedClass = reinterpret_cast<Red::CClass*>(declaredType);
+            resolvedInstance = aVariant.GetDataPtr();
+            break;
+        }
+        case Red::ERTTIType::Handle:
+        case Red::ERTTIType::WeakHandle:
+        {
+            auto handleType = reinterpret_cast<Red::CRTTIHandleType*>(declaredType);
+            resolvedClass = reinterpret_cast<Red::CClass*>(handleType->innerType);
+            resolvedInstance = reinterpret_cast<Red::Handle<Red::IScriptable>*>(aVariant.GetDataPtr())->instance;
+            break;
+        }
+        default: break;
+        }
+
+        if (!resolvedClass)
+            return {};
+
+        if (aActualType && resolvedClass->IsA(s_scriptableType))
+        {
+            resolvedClass = reinterpret_cast<Red::IScriptable*>(resolvedInstance)->GetType();
+        }
+
+        return Red::MakeHandle<ReflectionClass>(resolvedClass);
     }
 
     static Red::Handle<ReflectionType> GetType(Red::CName aName)
@@ -118,6 +163,7 @@ struct Reflection
 
 RTTI_DEFINE_CLASS(App::Reflection, {
     RTTI_METHOD(GetTypeOf);
+    RTTI_METHOD(GetClassOf);
     RTTI_METHOD(GetType);
     RTTI_METHOD(GetClass);
     RTTI_METHOD(GetEnum);

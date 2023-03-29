@@ -16,6 +16,12 @@ struct ReflectionClass : ReflectionType
     {
     }
 
+    [[nodiscard]] Red::CName GetAlias() const
+    {
+        auto rtti = Red::CRTTISystem::Get();
+        return rtti->ConvertNativeToScriptName(m_class->name);
+    }
+
     [[nodiscard]] Red::Handle<ReflectionClass> GetParent() const
     {
         if (!m_class->parent)
@@ -114,6 +120,7 @@ struct ReflectionClass : ReflectionType
 
 RTTI_DEFINE_CLASS(App::ReflectionClass, {
     RTTI_PARENT(App::ReflectionType);
+    RTTI_METHOD(GetAlias);
     RTTI_METHOD(GetParent);
     RTTI_METHOD(GetProperty);
     RTTI_METHOD(GetFunction);

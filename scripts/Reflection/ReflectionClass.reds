@@ -1,5 +1,6 @@
 
 public native class ReflectionClass extends ReflectionType {
+    public native func GetAlias() -> CName
     public native func GetParent() -> ref<ReflectionClass>
     public native func GetProperty(name: CName) -> ref<ReflectionProp>
     public native func GetFunction(name: CName) -> ref<ReflectionMemberFunc>

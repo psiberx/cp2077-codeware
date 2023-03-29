@@ -1,6 +1,7 @@
 
 public native struct Reflection {
     public static native func GetTypeOf(value: Variant) -> ref<ReflectionType>
+    public static native func GetClassOf(object: Variant, opt actual: Bool) -> ref<ReflectionClass>
     public static native func GetType(name: CName) -> ref<ReflectionType>
     public static native func GetClass(name: CName) -> ref<ReflectionClass>
     public static native func GetEnum(name: CName) -> ref<ReflectionEnum>
