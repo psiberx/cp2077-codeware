@@ -196,6 +196,11 @@ struct Optional<T, ADefault>
 template<typename T>
 struct Optional<T, 0>
 {
+    inline operator T&()
+    {
+        return value;
+    }
+
     inline operator const T&() const
     {
         return value;

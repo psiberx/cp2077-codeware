@@ -4,18 +4,26 @@
 
 namespace Red
 {
-template<typename... Args>
-inline bool CallVirtual(IScriptable* aContext, CClass* aType, CName aFunc, Args&&... aArgs)
+namespace Detail
 {
-    const auto func = aType->GetFunction(aFunc);
-
-    if (!func)
+template<typename... Args>
+inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... aArgs)
+{
+    if (!aFunc)
         return false;
 
-    const auto combinedArgCount = func->params.size + (func->returnType ? 1 : 0);
+    const auto combinedArgCount = aFunc->params.size + (aFunc->returnType ? 1 : 0);
 
     if (combinedArgCount != sizeof...(Args))
         return false;
+
+    if (!aFunc->flags.isStatic)
+    {
+        const auto& func = reinterpret_cast<Red::CClassFunction*>(aFunc);
+
+        if (!aContext || !aContext->GetType()->IsA(func->parent))
+            return false;
+    }
 
     CStack stack(aContext);
     StackArgs_t args;
@@ -24,12 +32,12 @@ inline bool CallVirtual(IScriptable* aContext, CClass* aType, CName aFunc, Args&
     {
         ((args.emplace_back(nullptr, &aArgs)), ...);
 
-        if (func->returnType)
+        if (aFunc->returnType)
         {
             stack.result = args.data();
-            stack.result->type = func->returnType->type;
+            stack.result->type = aFunc->returnType->type;
 
-            if (func->params.size)
+            if (aFunc->params.size)
             {
                 stack.args = args.data() + 1;
             }
@@ -39,23 +47,42 @@ inline bool CallVirtual(IScriptable* aContext, CClass* aType, CName aFunc, Args&
             stack.args = args.data();
         }
 
-        if (func->params.size)
+        if (aFunc->params.size)
         {
-            stack.argsCount = func->params.size;
+            stack.argsCount = aFunc->params.size;
 
-            for (uint32_t i = 0; i < func->params.size; ++i)
+            for (uint32_t i = 0; i < aFunc->params.size; ++i)
             {
-                stack.args[i].type = func->params[i]->type;
+                stack.args[i].type = aFunc->params[i]->type;
             }
         }
     }
 
-    return func->Execute(&stack);
+    return aFunc->Execute(&stack);
+}
+}
+
+template<typename... Args>
+inline bool CallVirtual(IScriptable* aContext, CClass* aType, CName aFunc, Args&&... aArgs)
+{
+    return Detail::CallFunction(aType->GetFunction(aFunc), aContext, std::forward<Args>(aArgs)...);
 }
 
 template<typename... Args>
 inline bool CallVirtual(IScriptable* aContext, CName aFunc, Args&&... aArgs)
 {
     return CallVirtual(aContext, aContext->GetType(), aFunc, std::forward<Args>(aArgs)...);
+}
+
+template<typename... Args>
+inline bool CallStatic(CClass* aType, CName aFunc, Args&&... aArgs)
+{
+    return Detail::CallFunction(aType->GetFunction(aFunc), nullptr, std::forward<Args>(aArgs)...);
+}
+
+template<typename... Args>
+inline bool CallGlobal(CName aFunc, Args&&... aArgs)
+{
+    return Detail::CallFunction(Red::CRTTISystem::Get()->GetFunction(aFunc), nullptr, std::forward<Args>(aArgs)...);
 }
 }
