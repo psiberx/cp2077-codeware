@@ -1,20 +1,12 @@
 #pragma once
 
+#include "DynamicEntityEvent.hpp"
 #include "DynamicEntitySpec.hpp"
 #include "DynamicEntityState.hpp"
 #include "DynamicEntitySystemPS.hpp"
 
 namespace App
 {
-enum class DynamicEntityEvent : uint32_t
-{
-    Created,
-    Deleted,
-    Spawned,
-    Despawned,
-    Dead,
-};
-
 class DynamicEntitySystem : public Red::IGameSystem
 {
 public:
@@ -36,8 +28,9 @@ public:
     bool UnassignTag(Red::EntityID aEntityID, Red::CName aTag);
 
     bool IsPopulated(Red::CName aTag);
-    Red::EntityID GetEntityID(Red::CName aTag);
-    Red::DynArray<Red::EntityID> GetEntityIDs(Red::CName aTag);
+    Red::EntityID GetTaggedID(Red::CName aTag);
+    Red::DynArray<Red::EntityID> GetTaggedIDs(Red::CName aTag);
+    Red::DynArray<Red::Handle<Red::Entity>> GetTagged(Red::CName aTag);
     void DeleteTagged(Red::CName aTag);
     void EnableTagged(Red::CName aTag);
     void DisableTagged(Red::CName aTag);
@@ -78,9 +71,9 @@ protected:
     DynamicEntityStatePtr RemoveEntityState(Red::EntityID aEntityID);
     Red::TweakDBID ConvertTemplateToRecord(Red::RaRef<> aTemplate);
 
-    void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEvent aEvent, Red::DynArray<Red::CName>& aTags);
-    void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEvent aEvent);
-    void ProcessListeners(Red::EntityID aEntityID, Red::game::EntitySpawnerEventType aEvent);
+    void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEventType aType, Red::DynArray<Red::CName>& aTags);
+    void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEventType aType);
+    void ProcessListeners(Red::EntityID aEntityID, Red::game::EntitySpawnerEventType aType);
 
     bool m_attached;
     bool m_restored;
@@ -109,8 +102,6 @@ protected:
 };
 }
 
-RTTI_DEFINE_ENUM(App::DynamicEntityEvent);
-
 RTTI_DEFINE_CLASS(App::DynamicEntitySystem, {
     RTTI_PARENT(Red::IGameSystem);
     RTTI_METHOD(IsReady);
@@ -129,8 +120,9 @@ RTTI_DEFINE_CLASS(App::DynamicEntitySystem, {
     RTTI_METHOD(UnassignTag);
 
     RTTI_METHOD(IsPopulated);
-    RTTI_METHOD(GetEntityID);
-    RTTI_METHOD(GetEntityIDs);
+    RTTI_METHOD(GetTagged);
+    RTTI_METHOD(GetTaggedID);
+    RTTI_METHOD(GetTaggedIDs);
     RTTI_METHOD(DeleteTagged);
     RTTI_METHOD(EnableTagged);
     RTTI_METHOD(DisableTagged);

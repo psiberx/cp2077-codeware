@@ -16,8 +16,9 @@ public native class DynamicEntitySystem extends IGameSystem {
     public native func UnassignTag(id: EntityID, tag: CName)
 
     public native func IsPopulated(tag: CName) -> Bool
-    public native func GetEntityID(tag: CName) -> EntityID
-    public native func GetEntityIDs(tag: CName) -> array<EntityID>
+    public native func GetTagged(tag: CName) -> array<ref<Entity>>
+    public native func GetTaggedID(tag: CName) -> EntityID
+    public native func GetTaggedIDs(tag: CName) -> array<EntityID>
     public native func DeleteTagged(tag: CName)
     public native func EnableTagged(tag: CName)
     public native func DisableTagged(tag: CName)
