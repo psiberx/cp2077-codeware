@@ -6,6 +6,42 @@ namespace Red
 {
 namespace Detail
 {
+inline CBaseFunction* GetFunction(CClass* aType, CName aName)
+{
+    for (auto func : aType->funcs)
+    {
+        if (func->shortName == aName || func->fullName == aName)
+        {
+            return func;
+        }
+    }
+
+    if (aType->parent)
+    {
+        return GetFunction(aType->parent, aName);
+    }
+
+    return nullptr;
+}
+
+inline CBaseFunction* GetStaticFunction(CClass* aType, CName aName)
+{
+    for (auto func : aType->staticFuncs)
+    {
+        if (func->shortName == aName || func->fullName == aName)
+        {
+            return func;
+        }
+    }
+
+    if (aType->parent)
+    {
+        return GetStaticFunction(aType->parent, aName);
+    }
+
+    return nullptr;
+}
+
 template<typename... Args>
 inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... aArgs)
 {
@@ -68,7 +104,7 @@ inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... 
 template<typename... Args>
 inline bool CallVirtual(IScriptable* aContext, CClass* aType, CName aFunc, Args&&... aArgs)
 {
-    return Detail::CallFunction(aType->GetFunction(aFunc), aContext, std::forward<Args>(aArgs)...);
+    return Detail::CallFunction(Detail::GetFunction(aType, aFunc), aContext, std::forward<Args>(aArgs)...);
 }
 
 template<typename... Args>
@@ -80,7 +116,7 @@ inline bool CallVirtual(IScriptable* aContext, CName aFunc, Args&&... aArgs)
 template<typename... Args>
 inline bool CallStatic(CClass* aType, CName aFunc, Args&&... aArgs)
 {
-    return Detail::CallFunction(aType->GetFunction(aFunc), nullptr, std::forward<Args>(aArgs)...);
+    return Detail::CallFunction(Detail::GetStaticFunction(aType, aFunc), nullptr, std::forward<Args>(aArgs)...);
 }
 
 template<typename... Args>
