@@ -126,7 +126,7 @@ struct ReflectionFunc : Red::IScriptable
     Red::CBaseFunction* m_func;
 
     RTTI_IMPL_TYPEINFO(App::ReflectionFunc);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 
 struct ReflectionMemberFunc : ReflectionFunc
@@ -141,7 +141,7 @@ struct ReflectionMemberFunc : ReflectionFunc
     }
 
     RTTI_IMPL_TYPEINFO(App::ReflectionMemberFunc);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 
 struct ReflectionStaticFunc : ReflectionFunc
@@ -155,7 +155,7 @@ struct ReflectionStaticFunc : ReflectionFunc
     }
 
     RTTI_IMPL_TYPEINFO(App::ReflectionStaticFunc);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 

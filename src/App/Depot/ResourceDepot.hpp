@@ -40,7 +40,7 @@ struct ResourceDepot : Red::IScriptable
     }
 
     RTTI_IMPL_TYPEINFO(App::ResourceDepot);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 

@@ -98,7 +98,7 @@ protected:
     Red::IEntitySpawnerEventsBroadcaster* m_spawnEventBroadcaster;
 
     RTTI_IMPL_TYPEINFO(App::DynamicEntitySystem);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 

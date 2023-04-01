@@ -25,7 +25,7 @@ struct DynamicEntityState : Red::IScriptable
     Red::EntityStub* entityStub;
 
     RTTI_IMPL_TYPEINFO(App::DynamicEntityState);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 
 using DynamicEntityStatePtr = Red::Handle<DynamicEntityState>;

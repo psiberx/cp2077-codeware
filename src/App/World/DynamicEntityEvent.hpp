@@ -42,7 +42,7 @@ struct DynamicEntityEvent : Red::IScriptable
     Red::CName tag;
 
     RTTI_IMPL_TYPEINFO(App::DynamicEntityEvent);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 

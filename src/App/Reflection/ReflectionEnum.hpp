@@ -28,7 +28,7 @@ struct ReflectionConst : Red::IScriptable
     int64_t m_value;
 
     RTTI_IMPL_TYPEINFO(App::ReflectionConst);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 
 struct ReflectionEnum : ReflectionType
@@ -64,7 +64,7 @@ struct ReflectionEnum : ReflectionType
     Red::CEnum* m_enum;
 
     RTTI_IMPL_TYPEINFO(App::ReflectionEnum);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 

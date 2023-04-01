@@ -2,14 +2,18 @@
 
 #define X_RTTI_STR1(x) #x
 #define X_RTTI_STR2(x) X_RTTI_STR1(x)
-#define X_RTTI_LOCATION __FILE__ " : " X_RTTI_STR2(__LINE__)
+#define X_RTTI_LOCATION __FILE__ ":" X_RTTI_STR2(__LINE__)
 
 #define X_RTTI_NAMEOF(...) []() constexpr noexcept { \
   constexpr auto _name = ::nameof::detail::pretty_name(#__VA_ARGS__); \
   return ::nameof::cstring<_name.size()>{_name}; }()
 
-#define X_RTTI_EXPAND(X) X
-#define X_RTTI_OVERLOAD(_1, _2, _3, N, ...) N
+#define X_RTTI_SELECT(_0, _1, _2, _3, ...) _3
+#define X_RTTI_RECOMPOSE(_) X_RTTI_SELECT _
+#define X_RTTI_EXPAND_NOARG(F) ,,,F ## _0
+#define X_RTTI_SELECT_BY_NARG(F, ...) X_RTTI_RECOMPOSE((__VA_ARGS__, F##_3, F##_2, F##_1,))
+#define X_RTTI_SELECT_MACRO(F, ...) X_RTTI_SELECT_BY_NARG(F, X_RTTI_EXPAND_NOARG __VA_ARGS__ (F))
+#define X_RTTI_OVERLOAD(F, ...) X_RTTI_SELECT_MACRO(F, __VA_ARGS__)(__VA_ARGS__)
 
 #define RTTI_IMPL_TYPEINFO(_class) \
     Red::CClass* GetNativeType() \
@@ -17,7 +21,12 @@
         return Red::GetClass<_class>(); \
     }
 
-#define RTTI_IMPL_ALLOCATOR(_allocator) \
+#define RTTI_IMPL_ALLOCATOR(...) X_RTTI_OVERLOAD(X_IMPL_ALLOCATOR, __VA_ARGS__)
+
+#define X_IMPL_ALLOCATOR_0() \
+    X_IMPL_ALLOCATOR_1(Red::Memory::RTTIAllocator)
+
+#define X_IMPL_ALLOCATOR_1(_allocator) \
 public: \
     using AllocatorType = _allocator; \
     static_assert(Red::Detail::IsAllocator<_allocator>, #_allocator " is not a valid allocator type"); \
@@ -30,8 +39,7 @@ public: \
     friend class Red::RTTIBuilder<Red::Scope::For<_class>()>; \
     friend class Red::ClassDescriptor<_class>;
 
-#define RTTI_DEFINE_CLASS(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_DEF_CLASS_3, X_RTTI_DEF_CLASS_2, X_RTTI_DEF_CLASS_1)(__VA_ARGS__))
+#define RTTI_DEFINE_CLASS(...) X_RTTI_OVERLOAD(X_RTTI_DEF_CLASS, __VA_ARGS__)
 
 #define X_RTTI_DEF_CLASS_1(_class) \
     template<> \
@@ -77,8 +85,7 @@ public: \
         } \
     };
 
-#define RTTI_EXPAND_CLASS(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_EXT_CLASS_3, X_RTTI_EXT_CLASS_2, X_RTTI_EXT_CLASS_1)(__VA_ARGS__))
+#define RTTI_EXPAND_CLASS(...) X_RTTI_OVERLOAD(X_RTTI_EXT_CLASS, __VA_ARGS__)
 
 #define X_RTTI_EXT_CLASS_2(_class, _desc) \
     template<> \
@@ -113,8 +120,7 @@ public: \
 #define RTTI_ALIAS(_alias) \
     type->SetAlias(_alias)
 
-#define RTTI_METHOD(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_METHOD_3, X_RTTI_METHOD_2, X_RTTI_METHOD_1)(__VA_ARGS__))
+#define RTTI_METHOD(...) X_RTTI_OVERLOAD(X_RTTI_METHOD, __VA_ARGS__)
 
 #define X_RTTI_METHOD_1(_method) \
     type->AddFunction<&Type::_method>(#_method)
@@ -122,8 +128,7 @@ public: \
 #define X_RTTI_METHOD_2(_method, _name) \
     type->AddFunction<&Type::_method>(_name)
 
-#define RTTI_METHOD_FQN(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_METHOD_FQN_3, X_RTTI_METHOD_FQN_2, X_RTTI_METHOD_FQN_1)(__VA_ARGS__))
+#define RTTI_METHOD_FQN(...) X_RTTI_OVERLOAD(X_RTTI_METHOD_FQN, __VA_ARGS__)
 
 #define X_RTTI_METHOD_FQN_1(_method) \
     type->AddFunction<&_method>(X_RTTI_NAMEOF(_method).data())
@@ -131,8 +136,7 @@ public: \
 #define X_RTTI_METHOD_FQN_2(_method, _name) \
     type->AddFunction<&_method>(_name)
 
-#define RTTI_CALLBACK(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_CALLBACK_3, X_RTTI_CALLBACK_2, X_RTTI_CALLBACK_1)(__VA_ARGS__))
+#define RTTI_CALLBACK(...) X_RTTI_OVERLOAD(X_RTTI_CALLBACK, __VA_ARGS__)
 
 #define X_RTTI_CALLBACK_1(_method) \
     type->AddFunction<&Type::_method>(#_method, {.isEvent = true})
@@ -140,8 +144,7 @@ public: \
 #define X_RTTI_CALLBACK_2(_method, _name) \
     type->AddFunction<&Type::_method>(_name, {.isEvent = true})
 
-#define RTTI_CALLBACK_FQN(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_CALLBACK_FQN_3, X_RTTI_CALLBACK_FQN_2, X_RTTI_CALLBACK_FQN_1)(__VA_ARGS__))
+#define RTTI_CALLBACK_FQN(...) X_RTTI_OVERLOAD(X_RTTI_CALLBACK_FQN, __VA_ARGS__)
 
 #define X_RTTI_CALLBACK_FQN_1(_method) \
     type->AddFunction<&_method>(X_RTTI_NAMEOF(_method), {.isEvent = true})
@@ -149,8 +152,7 @@ public: \
 #define X_RTTI_CALLBACK_FQN_2(_method, _name) \
     type->AddFunction<&_method>(_name, {.isEvent = true})
 
-#define RTTI_PROPERTY(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PROPERTY_3, X_RTTI_PROPERTY_2, X_RTTI_PROPERTY_1)(__VA_ARGS__))
+#define RTTI_PROPERTY(...) X_RTTI_OVERLOAD(X_RTTI_PROPERTY, __VA_ARGS__)
 
 #define X_RTTI_PROPERTY_1(_property) \
     type->AddProperty<&Type::_property>(#_property)
@@ -158,8 +160,7 @@ public: \
 #define X_RTTI_PROPERTY_2(_property, _name) \
     type->AddProperty<&Type::_property>(_name)
 
-#define RTTI_PROPERTY_FQN(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PROPERTY_FQN_3, X_RTTI_PROPERTY_FQN_2, X_RTTI_PROPERTY_FQN_1)(__VA_ARGS__))
+#define RTTI_PROPERTY_FQN(...) X_RTTI_OVERLOAD(X_RTTI_PROPERTY_FQN, __VA_ARGS__)
 
 #define X_RTTI_PROPERTY_FQN_1(_property) \
     type->AddProperty<&_property>(X_RTTI_NAMEOF(_property))
@@ -167,8 +168,7 @@ public: \
 #define X_RTTI_PROPERTY_FQN_2(_property, _name) \
     type->AddProperty<&_property>(_name)
 
-#define RTTI_PERSISTENT(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PERSISTENT_3, X_RTTI_PERSISTENT_2, X_RTTI_PERSISTENT_1)(__VA_ARGS__))
+#define RTTI_PERSISTENT(...) X_RTTI_OVERLOAD(X_RTTI_PERSISTENT, __VA_ARGS__)
 
 #define X_RTTI_PERSISTENT_1(_property) \
     type->AddProperty<&Type::_property>(#_property, {.isPersistent = true})
@@ -176,8 +176,7 @@ public: \
 #define X_RTTI_PERSISTENT_2(_property, _name) \
     type->AddProperty<&Type::_property>(_name, {.isPersistent = true})
 
-#define RTTI_PERSISTENT_FQN(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_PERSISTENT_FQN_3, X_RTTI_PERSISTENT_FQN_2, X_RTTI_PERSISTENT_FQN_1)(__VA_ARGS__))
+#define RTTI_PERSISTENT_FQN(...) X_RTTI_OVERLOAD(X_RTTI_PERSISTENT_FQN, __VA_ARGS__)
 
 #define X_RTTI_PERSISTENT_FQN_1(_property) \
     type->AddProperty<&_property>(X_RTTI_NAMEOF(_property), {.isPersistent = true})
@@ -185,8 +184,7 @@ public: \
 #define X_RTTI_PERSISTENT_FQN_2(_property, _name) \
     type->AddProperty<&_property>(_name, {.isPersistent = true})
 
-#define RTTI_DEFINE_ENUM(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_DEF_ENUM_3, X_RTTI_DEF_ENUM_2, X_RTTI_DEF_ENUM_1)(__VA_ARGS__))
+#define RTTI_DEFINE_ENUM(...) X_RTTI_OVERLOAD(X_RTTI_DEF_ENUM, __VA_ARGS__)
 
 #define X_RTTI_DEF_ENUM_1(_enum) \
     template<> \
@@ -212,8 +210,7 @@ public: \
         } \
     };
 
-#define RTTI_DEFINE_FLAGS(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_DEF_FLAGS_3, X_RTTI_DEF_FLAGS_2, X_RTTI_DEF_FLAGS_1)(__VA_ARGS__))
+#define RTTI_DEFINE_FLAGS(...) X_RTTI_OVERLOAD(X_RTTI_DEF_FLAGS, __VA_ARGS__)
 
 #define X_RTTI_DEF_FLAGS_1(_enum) \
     template<> \
@@ -239,8 +236,7 @@ public: \
         } \
     };
 
-#define RTTI_EXPAND_ENUM(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_EXP_ENUM_3, X_RTTI_EXP_ENUM_2, X_RTTI_EXP_ENUM_1)(__VA_ARGS__))
+#define RTTI_EXPAND_ENUM(...) X_RTTI_OVERLOAD(X_RTTI_EXP_ENUM, __VA_ARGS__)
 
 #define X_RTTI_EXP_ENUM_1(_enum) \
     template<> \
@@ -266,8 +262,7 @@ public: \
         } \
     };
 
-#define RTTI_EXPAND_FLAGS(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_EXP_FLAGS_3, X_RTTI_EXP_FLAGS_2, X_RTTI_EXP_FLAGS_1)(__VA_ARGS__))
+#define RTTI_EXPAND_FLAGS(...) X_RTTI_OVERLOAD(X_RTTI_EXP_FLAGS, __VA_ARGS__)
 
 #define X_RTTI_EXP_FLAGS_1(_enum) \
     template<> \
@@ -296,8 +291,7 @@ public: \
 #define RTTI_OPTION() \
     static_assert(false, "Not Implemented")
 
-#define RTTI_DEFINE_GLOBALS(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_DEF_GLOB_3, X_RTTI_DEF_GLOB_2, X_RTTI_DEF_GLOB_1)(__VA_ARGS__))
+#define RTTI_DEFINE_GLOBALS(...) X_RTTI_OVERLOAD(X_RTTI_DEF_GLOB, __VA_ARGS__)
 
 #define X_RTTI_DEF_GLOB_1(_desc) \
     template<> \
@@ -322,8 +316,7 @@ public: \
         } \
     };
 
-#define RTTI_FUNCTION(...) \
-    X_RTTI_EXPAND(X_RTTI_OVERLOAD(__VA_ARGS__, X_RTTI_FUNCTION_3, X_RTTI_FUNCTION_2, X_RTTI_FUNCTION_1)(__VA_ARGS__))
+#define RTTI_FUNCTION(...) X_RTTI_OVERLOAD(X_RTTI_FUNCTION, __VA_ARGS__)
 
 #define X_RTTI_FUNCTION_1(_func) \
     rtti->AddFunction<&_func>(X_RTTI_NAMEOF(_func).data())

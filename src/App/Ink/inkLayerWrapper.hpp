@@ -67,7 +67,7 @@ struct inkLayerWrapper
     Red::Handle<Red::inkLayer> layer;
 
     RTTI_IMPL_TYPEINFO(App::inkLayerWrapper);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 

@@ -77,7 +77,7 @@ struct DynamicEntitySpec : Red::IScriptable
     bool active;
 
     RTTI_IMPL_TYPEINFO(App::DynamicEntitySpec);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 
 using DynamicEntitySpecPtr = Red::Handle<DynamicEntitySpec>;

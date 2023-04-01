@@ -66,7 +66,7 @@ struct ReflectionType : Red::IScriptable
     Red::CBaseRTTIType* m_type;
 
     RTTI_IMPL_TYPEINFO(App::ReflectionType);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 

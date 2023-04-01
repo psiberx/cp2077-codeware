@@ -64,7 +64,7 @@ struct ReflectionProp : Red::IScriptable
     Red::CProperty* m_prop;
 
     RTTI_IMPL_TYPEINFO(App::ReflectionProp);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 

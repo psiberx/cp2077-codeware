@@ -114,7 +114,7 @@ struct ReflectionClass : ReflectionType
     Red::CClass* m_class;
 
     RTTI_IMPL_TYPEINFO(App::ReflectionClass);
-    RTTI_IMPL_ALLOCATOR(Red::Memory::RTTIAllocator);
+    RTTI_IMPL_ALLOCATOR();
 };
 }
 
