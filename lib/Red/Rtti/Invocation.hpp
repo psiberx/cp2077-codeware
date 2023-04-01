@@ -30,12 +30,14 @@ inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... 
 
     if (combinedArgCount > 0)
     {
-        ((args.emplace_back(nullptr, &aArgs)), ...);
+        ((args.emplace_back(Red::ResolveType<Args>(), &aArgs)), ...);
 
         if (aFunc->returnType)
         {
             stack.result = args.data();
-            stack.result->type = aFunc->returnType->type;
+
+            if (stack.result->type != aFunc->returnType->type)
+                return false;
 
             if (aFunc->params.size)
             {
@@ -53,7 +55,8 @@ inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... 
 
             for (uint32_t i = 0; i < aFunc->params.size; ++i)
             {
-                stack.args[i].type = aFunc->params[i]->type;
+                if (stack.args[i].type != aFunc->params[i]->type)
+                    return false;
             }
         }
     }
