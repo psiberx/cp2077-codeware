@@ -13,7 +13,7 @@
 
 #define X_RTTI_GETTER_NAME_SV(...) []() constexpr noexcept { \
   constexpr auto n1 = Red::Detail::RemoveMemberPrefix(#__VA_ARGS__); \
-  constexpr auto n2 = Red::Detail::UpcaseConstStr<n1.size()>(n1.data()); \
+  constexpr auto n2 = Red::Detail::UpFirstConstStr<n1.size()>(n1.data()); \
   return Red::Detail::ConcatConstStr<3, n2.size() - 1>("Get", n2.data()); }()
 #define X_RTTI_GETTER_NAME(...) X_RTTI_GETTER_NAME_SV(__VA_ARGS__).data()
 

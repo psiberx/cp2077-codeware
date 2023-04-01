@@ -72,7 +72,7 @@ consteval auto ConcatConstStr(const char* aPrefix, const char* aName)
 }
 
 template<size_t N>
-consteval auto UpcaseConstStr(const char* aName)
+consteval auto UpFirstConstStr(const char* aName)
 {
     constexpr auto len = N + 1;
     std::array<char, len> result{};
