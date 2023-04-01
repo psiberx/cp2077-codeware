@@ -44,8 +44,20 @@ consteval auto ResolveTypeNameBuilder()
     return RTTIBuilder<Scope::For<T>()>::Name();
 }
 
+template<size_t N>
+consteval auto MakeConstStr(const char* aName)
+{
+    constexpr auto len = N + 1;
+    std::array<char, len> result{};
+
+    for (auto i = 0; i < N; ++i)
+        result[i] = aName[i];
+
+    return result;
+}
+
 template<size_t N, size_t M>
-consteval auto ConcatConstTypeName(const char* aPrefix, const char* aName)
+consteval auto ConcatConstStr(const char* aPrefix, const char* aName)
 {
     constexpr auto len = N + M + 1;
     std::array<char, len> result{};
@@ -60,7 +72,7 @@ consteval auto ConcatConstTypeName(const char* aPrefix, const char* aName)
 }
 
 template<size_t N>
-consteval auto MakeConstTypeName(const char* aName)
+consteval auto UpcaseConstStr(const char* aName)
 {
     constexpr auto len = N + 1;
     std::array<char, len> result{};
@@ -68,7 +80,22 @@ consteval auto MakeConstTypeName(const char* aName)
     for (auto i = 0; i < N; ++i)
         result[i] = aName[i];
 
+    if (result[0] >= 'a' && result[0] <= 'z')
+    {
+        result[0] -= ('a' - 'A');
+    }
+
     return result;
+}
+
+consteval auto RemoveMemberPrefix(std::string_view aName)
+{
+    if (aName.starts_with("m_"))
+    {
+        aName.remove_prefix(2);
+    }
+
+    return aName;
 }
 
 constexpr auto ScopedEnumPrefix = "enum RED4ext::";
@@ -105,7 +132,7 @@ consteval auto GetTypePrefixStr()
     constexpr auto prefix = TypePrefixMapping<U>::prefix;
     constexpr auto length = std::char_traits<char>::length(prefix);
 
-    return Detail::MakeConstTypeName<length>(prefix);
+    return Detail::MakeConstStr<length>(prefix);
 }
 
 template<template<typename> class T>
@@ -125,13 +152,13 @@ consteval auto GetTypeNameStr()
 
         if constexpr (std::is_same_v<std::remove_cvref_t<decltype(name)>, std::string_view>)
         {
-            return Detail::MakeConstTypeName<name.size()>(name.data());
+            return Detail::MakeConstStr<name.size()>(name.data());
         }
         else
         {
             constexpr auto length = std::char_traits<char>::length(name);
 
-            return Detail::MakeConstTypeName<length>(name);
+            return Detail::MakeConstStr<length>(name);
         }
     }
     else if constexpr (Detail::HasTypeNameMapping<U>)
@@ -139,14 +166,14 @@ consteval auto GetTypeNameStr()
         constexpr auto name = TypeNameMapping<U>::name;
         constexpr auto length = std::char_traits<char>::length(name);
 
-        return Detail::MakeConstTypeName<length>(name);
+        return Detail::MakeConstStr<length>(name);
     }
     else if constexpr (Detail::HasGeneratedTypeName<U>)
     {
         constexpr auto name = U::NAME;
         constexpr auto length = std::char_traits<char>::length(name);
 
-        return Detail::MakeConstTypeName<length>(name);
+        return Detail::MakeConstStr<length>(name);
     }
     else if constexpr (Detail::IsSpecialization<U> && Detail::HasTypePrefixMapping<U>)
     {
@@ -154,13 +181,13 @@ consteval auto GetTypeNameStr()
         constexpr auto length = std::char_traits<char>::length(prefix);
         constexpr auto inner = GetTypeNameStr<typename Detail::Specialization<U>::argument_type>();
 
-        return Detail::ConcatConstTypeName<length, inner.size() - 1>(prefix, inner.data());
+        return Detail::ConcatConstStr<length, inner.size() - 1>(prefix, inner.data());
     }
     else if constexpr (Detail::IsOptional<U>)
     {
         constexpr auto inner = GetTypeNameStr<typename Detail::Specialization<U>::argument_type>();
 
-        return Detail::MakeConstTypeName<inner.size() - 1>(inner.data());
+        return Detail::MakeConstStr<inner.size() - 1>(inner.data());
     }
     else
     {
@@ -175,7 +202,7 @@ consteval auto GetTypeNameStr()
         {
             constexpr auto name = nameof::detail::pretty_name(fullName);
 
-            return Detail::MakeConstTypeName<name.size()>(name.data());
+            return Detail::MakeConstStr<name.size()>(name.data());
         }
     }
 }
@@ -369,8 +396,9 @@ inline CClass* GetClass(CName aTypeName)
 template<typename T>
 inline CName ResolveTypeName()
 {
-    constexpr auto name = GetTypeNameStr<T>();
-    return CNamePool::Add(name.data());
+    constexpr auto str = GetTypeNameStr<T>();
+    static const auto name = CNamePool::Add(str.data());
+    return name;
 }
 
 template<typename T>

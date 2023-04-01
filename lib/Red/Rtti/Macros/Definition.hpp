@@ -5,10 +5,17 @@
 #define X_RTTI_LOCATION __FILE__ ":" X_RTTI_STR2(__LINE__)
 
 #define X_RTTI_TYPENAME(...) ::nameof::nameof_short_type<__VA_ARGS__>()
+
 #define X_RTTI_NAME_SV(...) []() constexpr noexcept { \
   constexpr auto _name = ::nameof::detail::pretty_name(#__VA_ARGS__); \
   return ::nameof::cstring<_name.size()>{_name}; }()
 #define X_RTTI_NAME(...) X_RTTI_NAME_SV(__VA_ARGS__).data()
+
+#define X_RTTI_GETTER_NAME_SV(...) []() constexpr noexcept { \
+  constexpr auto n1 = Red::Detail::RemoveMemberPrefix(#__VA_ARGS__); \
+  constexpr auto n2 = Red::Detail::UpcaseConstStr<n1.size()>(n1.data()); \
+  return Red::Detail::ConcatConstStr<3, n2.size() - 1>("Get", n2.data()); }()
+#define X_RTTI_GETTER_NAME(...) X_RTTI_GETTER_NAME_SV(__VA_ARGS__).data()
 
 #define X_RTTI_SELECT(_0, _1, _2, _3, ...) _3
 #define X_RTTI_RECOMPOSE(_) X_RTTI_SELECT _
@@ -108,10 +115,8 @@ public: \
 #define X_RTTI_PERSISTENT_FQN_2(_property, _name) type->AddProperty<&_property>(_name, {.isPersistent = true})
 
 #define RTTI_GETTER(...) X_RTTI_OVERLOAD(X_RTTI_GETTER, __VA_ARGS__)
-#define X_RTTI_GETTER_1(_property) \
-    type->AddGetter<&Type::_property>(#_property)
-#define X_RTTI_GETTER_2(_property, _name) \
-    type->AddGetter<&Type::_property>(_name)
+#define X_RTTI_GETTER_1(_property) X_RTTI_GETTER_2(_property, X_RTTI_GETTER_NAME(_property))
+#define X_RTTI_GETTER_2(_property, _name) type->AddGetter<&Type::_property>(_name)
 
 #define RTTI_DEFINE_ENUM(...) X_RTTI_OVERLOAD(X_RTTI_DEF_ENUM, __VA_ARGS__)
 #define X_RTTI_DEF_ENUM_1(_enum) X_RTTI_DEF_ENUM_2(_enum, X_RTTI_TYPENAME(_enum))

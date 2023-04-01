@@ -174,6 +174,25 @@ inline ScriptingFunction_t<void*> MakeNativeFunction()
     return reinterpret_cast<ScriptingFunction_t<void*>>(+f);
 }
 
+template<auto AProperty>
+requires IsPropertyPtr<decltype(AProperty)>
+inline ScriptingFunction_t<void*> MakeNativeGetter()
+{
+    using Property = decltype(AProperty);
+    using Context = typename Detail::PropertyPtr<Property>::context_type;
+    using Value = typename Detail::PropertyPtr<Property>::value_type;
+
+    static const auto s_retType = ResolveType<Value>();
+
+    auto f = [](Context* aContext, CStackFrame* aFrame, Value* aRet, CBaseRTTIType* aRetType) -> void
+    {
+        ++aFrame->code;
+        AssignReturnValue(&(aContext->*AProperty), s_retType, aRet, aRetType);
+    };
+
+    return reinterpret_cast<ScriptingFunction_t<void*>>(+f);
+}
+
 template<typename R, typename... Args>
 void DescribeNativeFunction(CBaseFunction* aFunc, R(*)(Args...))
 {
@@ -347,6 +366,22 @@ public:
         props.PushBack(prop);
 
         return prop;
+    }
+
+    template<auto AProperty>
+    requires Detail::IsPropertyPtr<decltype(AProperty)>
+    CClassFunction* AddGetter(const char* aName)
+    {
+        using Property = decltype(AProperty);
+        using Value = typename Detail::PropertyPtr<Property>::value_type;
+
+        auto* ptr = Detail::MakeNativeGetter<AProperty>();
+        auto* func = CClassFunction::Create(this, aName, aName, ptr);
+        func->SetReturnType(ResolveTypeName<Value>());
+
+        RegisterFunction(func);
+
+        return func;
     }
 };
 
@@ -608,7 +643,7 @@ struct SystemBuilder
     {
         constexpr auto systemRefStr = GetTypeNameStr<Handle<TSystem>>();
         constexpr auto systemNameStr = GetTypeNameStr<TSystem>();
-        constexpr auto getterNameStr = Detail::ConcatConstTypeName<3, systemNameStr.size() - 1>("Get", systemNameStr.data());
+        constexpr auto getterNameStr = Detail::ConcatConstStr<3, systemNameStr.size() - 1>("Get", systemNameStr.data());
 
         auto gameType = GetClass<ScriptGameInstance>();
         auto getterFunc = CClassStaticFunction::Create(gameType, getterNameStr.data(), getterNameStr.data(), &ScriptGetter);
