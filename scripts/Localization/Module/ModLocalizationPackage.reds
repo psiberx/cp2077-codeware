@@ -140,7 +140,7 @@ public abstract class ModLocalizationPackage {
         entry.SetVariant(PlayerGender.Male, valueM);
     }
 
-    protected func Subtitle(key: String, value: String) {
+    protected func SubtitleF(key: String, value: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
         let entry: ref<GenderSensitiveEntry> = this.m_subtitleEntries.Get(hash) as GenderSensitiveEntry;
 
