@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Red/Rtti/Resolving.hpp"
+#include "Rtti/Resolving.hpp"
 
 namespace Red
 {

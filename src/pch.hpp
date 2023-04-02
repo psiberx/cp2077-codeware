@@ -5,6 +5,7 @@
 #include <cstddef>
 #include <cstdint>
 #include <filesystem>
+#include <format>
 #include <future>
 #include <map>
 #include <memory>
@@ -94,13 +95,7 @@
 #include "Core/Raw.hpp"
 #include "Core/Stl.hpp"
 
-#include "Red/Alias.hpp"
-#include "Red/Framework.hpp"
-#include "Red/Rtti/Construction.hpp"
-#include "Red/Rtti/Definition.hpp"
-#include "Red/Rtti/Invocation.hpp"
-#include "Red/Rtti/Resolving.hpp"
-#include "Red/Stl.hpp"
+#include "Red/Lib.hpp"
 
 #ifdef VERBOSE
 #include "Red/Log.hpp"

@@ -65,10 +65,20 @@ public: \
     };
 
 #define RTTI_EXPAND_CLASS(...) X_RTTI_OVERLOAD(X_RTTI_EXT_CLASS, __VA_ARGS__)
-#define X_RTTI_EXT_CLASS_2(_class, _desc) X_RTTI_EXT_CLASS_3(_class, _class, _desc)
-#define X_RTTI_EXT_CLASS_3(_class, _expansion, _desc) \
+#define X_RTTI_EXT_CLASS_2(_class, _desc) \
     template<> \
     struct Red::RTTIBuilder<Red::ClassExpansion<_class, X_RTTI_LOCATION>{}> \
+    { \
+        using Type = _class; \
+        using Descriptor = Red::ClassDescriptor<_class>; \
+        static void Describe(Descriptor* type) \
+        { \
+            _desc; \
+        } \
+    };
+#define X_RTTI_EXT_CLASS_3(_class, _expansion, _desc) \
+    template<> \
+    struct Red::RTTIBuilder<Red::ClassExpansion<_class, Red::Scope::For<_expansion>()>{}> \
     { \
         using Type = _expansion; \
         using Descriptor = Red::ClassDescriptor<_class>; \
