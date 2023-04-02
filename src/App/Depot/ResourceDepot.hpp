@@ -31,7 +31,7 @@ struct ResourceDepot : Red::IScriptable
     {
         const auto depot = Red::ResourceDepot::Get();
 
-        return depot && depot->IsResourceExists(aRef.path);
+        return depot && depot->ResourceExists(aRef.path);
     }
 
     static Red::Handle<ResourceDepot> Get()
