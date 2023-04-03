@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Rtti/Resolving.hpp"
+#include "TypeInfo/Resolving.hpp"
 
 template<>
 struct std::hash<RED4ext::CName>

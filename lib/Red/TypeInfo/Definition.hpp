@@ -8,7 +8,7 @@
 namespace Red
 {
 template<Scope>
-struct RTTIBuilder;
+struct TypeInfoBuilder;
 
 namespace Detail
 {
@@ -81,18 +81,57 @@ consteval auto GetMaxValue()
     }
 }
 
+template<typename T = void>
+inline void ExtractArg(CStackFrame* aFrame, T* aInstance = nullptr)
+{
+    if constexpr (std::is_pointer_v<T>)
+    {
+        aFrame->useDirectData = true;
+    }
+
+    aFrame->data = nullptr;
+    aFrame->dataType = nullptr;
+    aFrame->currentParam++;
+
+    const auto opcode = *(aFrame->code++);
+    OpcodeHandlers::Run(opcode, aFrame->context, aFrame, aInstance, nullptr);
+
+    if constexpr (std::is_pointer_v<T>)
+    {
+        aFrame->useDirectData = false;
+
+        if constexpr (!std::is_void_v<T>)
+        {
+            if (aFrame->data && aInstance)
+            {
+                *aInstance = reinterpret_cast<T>(aFrame->data);
+            }
+        }
+    }
+}
+
 template<typename C, typename T, std::size_t I>
 inline void ExtractArg(CStackFrame* aFrame, T* aArg)
 {
     if constexpr (I == 0 && !std::is_void_v<C> && !std::is_base_of_v<IScriptable, C> && std::is_same_v<T, C*>)
     {
         ScriptRef<C> context{};
-        GetParameter(aFrame, &context);
+        ExtractArg(aFrame, &context);
         *aArg = context.ref;
+    }
+    else if constexpr (std::is_same_v<T, std::string> || std::is_same_v<T, std::string_view>)
+    {
+        CString* str{};
+        ExtractArg(aFrame, &str);
+        *aArg = {str->c_str(), str->Length()};
+    }
+    else if constexpr (std::is_same_v<T, CStackFrame*>)
+    {
+        *aArg = aFrame;
     }
     else
     {
-        GetParameter(aFrame, aArg);
+        ExtractArg(aFrame, aArg);
     }
 }
 
@@ -117,7 +156,13 @@ inline void AssignReturnValue(R* aRetValue, CBaseRTTIType* aRetValueType,
     {
         if (aRetBufferType)
         {
-            aRetBufferType->Assign(aRetBuffer, aRetValue);
+            aRetValueType = aRetBufferType;
+        }
+
+        if constexpr (std::is_same_v<R, std::string> || std::is_same_v<R, std::string_view>)
+        {
+            CString str(aRetValue->data());
+            aRetValueType->Assign(aRetBuffer, &str);
         }
         else
         {
@@ -193,25 +238,64 @@ inline ScriptingFunction_t<void*> MakeNativeGetter()
     return reinterpret_cast<ScriptingFunction_t<void*>>(+f);
 }
 
+template<typename T>
+void DescribeParameter(CBaseFunction* aFunc)
+{
+    using U = std::remove_cvref_t<T>;
+
+    if constexpr (std::is_same_v<U, std::string> || std::is_same_v<U, std::string_view>)
+    {
+        aFunc->AddParam(GetTypeName<CString>(), "arg");
+    }
+    else if constexpr (!std::is_same_v<U, CStackFrame*>)
+    {
+        aFunc->AddParam(ResolveTypeName<T>(), "arg", false, Detail::IsOptional<T>);
+    }
+}
+
+template<typename T>
+void DescribeReturnValue(CBaseFunction* aFunc)
+{
+    using U = std::remove_cvref_t<T>;
+
+    if constexpr (!std::is_void_v<U>)
+    {
+        if constexpr (std::is_same_v<U, std::string> || std::is_same_v<U, std::string_view>)
+        {
+            aFunc->SetReturnType(GetTypeName<CString>());
+        }
+        else
+        {
+            aFunc->SetReturnType(ResolveTypeName<U>());
+        }
+    }
+}
+
 template<typename R, typename... Args>
 void DescribeNativeFunction(CBaseFunction* aFunc, R(*)(Args...))
 {
-    (aFunc->AddParam(ResolveTypeName<Args>(), "arg", false, Detail::IsOptional<Args>), ...);
+    (DescribeParameter<Args>(aFunc), ...);
 
     if constexpr (!std::is_void_v<R>)
+    {
         aFunc->SetReturnType(ResolveTypeName<R>());
+    }
 }
 
 template<typename C, typename R, typename... Args>
 void DescribeNativeFunction(CBaseFunction* aFunc, R (C::*)(Args...))
 {
     if constexpr (!IsScriptable<C>)
+    {
         aFunc->AddParam(ResolveTypeName<ScriptRef<C>>(), "self");
+    }
 
-    (aFunc->AddParam(ResolveTypeName<Args>(), "arg", false, Detail::IsOptional<Args>), ...);
+    (DescribeParameter<Args>(aFunc), ...);
 
     if constexpr (!std::is_void_v<R>)
+    {
         aFunc->SetReturnType(ResolveTypeName<R>());
+    }
 }
 
 template<typename C, typename R, typename... Args>
@@ -560,7 +644,7 @@ requires std::is_class_v<TClass>
 struct ClassDefinition
 {
     using Descriptor = ClassDescriptorImpl<TClass>;
-    using Specialization = RTTIBuilder<Scope::For<TClass>()>;
+    using Specialization = TypeInfoBuilder<Scope::For<TClass>()>;
 
     static inline void RegisterType()
     {
@@ -592,7 +676,14 @@ struct ClassDefinition
         {
             if (!type->parent)
             {
-                type->parent = GetClass<IScriptable>();
+                if constexpr (Detail::IsGameSystem<TClass>)
+                {
+                    type->parent = GetClass<IGameSystem>();
+                }
+                else
+                {
+                    type->parent = GetClass<IScriptable>();
+                }
             }
         }
 
@@ -603,14 +694,14 @@ struct ClassDefinition
 
         type->flags.isNative = true;
 
-        if constexpr (std::is_base_of_v<IGameSystem, TClass>)
+        if constexpr (Detail::IsGameSystem<TClass>)
         {
             SystemBuilder<TClass>::RegisterGetter();
             SystemBuilder<TClass>::RegisterSystem();
         }
     }
 
-    inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
+    inline static TypeInfoRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
 
     constexpr operator Scope() const noexcept
     {
@@ -658,7 +749,7 @@ struct SystemBuilder
 
         if (!engine || !engine->framework)
         {
-            RTTIRegistrar::AddDescribeCallback(&RegisterSystem);
+            TypeInfoRegistrar::AddDescribeCallback(&RegisterSystem);
             return;
         }
 
@@ -686,7 +777,7 @@ template<typename TClass, Scope AScope>
 struct ClassExpansion
 {
     using Descriptor = ClassDescriptor<TClass>;
-    using Specialization = RTTIBuilder<AScope>;
+    using Specialization = TypeInfoBuilder<AScope>;
 
     static inline void DescribeType()
     {
@@ -704,7 +795,7 @@ struct ClassExpansion
         }
     }
 
-    inline static RTTIRegistrar s_registrar{nullptr, &DescribeType}; // NOLINT(cert-err58-cpp)
+    inline static TypeInfoRegistrar s_registrar{nullptr, &DescribeType}; // NOLINT(cert-err58-cpp)
 
     constexpr operator Scope() const noexcept
     {
@@ -716,7 +807,7 @@ template<typename TEnum, bool AFlags = false>
 struct EnumDefinition
 {
     using Descriptor = EnumDescriptor<TEnum>;
-    using Specialization = RTTIBuilder<Scope::For<TEnum>()>;
+    using Specialization = TypeInfoBuilder<Scope::For<TEnum>()>;
 
     static inline void RegisterType()
     {
@@ -752,7 +843,7 @@ struct EnumDefinition
         }
     }
 
-    inline static RTTIRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
+    inline static TypeInfoRegistrar s_registrar{&RegisterType, &DescribeType}; // NOLINT(cert-err58-cpp)
 
     constexpr operator Scope() const noexcept
     {
@@ -767,7 +858,7 @@ template<typename TEnum, Scope AScope>
 struct EnumExpansion
 {
     using Descriptor = EnumDescriptor<TEnum>;
-    using Specialization = RTTIBuilder<AScope>;
+    using Specialization = TypeInfoBuilder<AScope>;
 
     static inline void DescribeType()
     {
@@ -785,7 +876,7 @@ struct EnumExpansion
         }
     }
 
-    inline static RTTIRegistrar s_registrar{nullptr, &DescribeType}; // NOLINT(cert-err58-cpp)
+    inline static TypeInfoRegistrar s_registrar{nullptr, &DescribeType}; // NOLINT(cert-err58-cpp)
 
     constexpr operator Scope() const noexcept
     {
@@ -797,7 +888,7 @@ template<Scope AScope>
 struct GlobalDefinition
 {
     using Descriptor = GlobalDescriptor;
-    using Specialization = RTTIBuilder<AScope>;
+    using Specialization = TypeInfoBuilder<AScope>;
 
     static inline void Register()
     {
@@ -817,7 +908,7 @@ struct GlobalDefinition
         }
     }
 
-    inline static RTTIRegistrar s_registrar{&Register, &Describe}; // NOLINT(cert-err58-cpp)
+    inline static TypeInfoRegistrar s_registrar{&Register, &Describe}; // NOLINT(cert-err58-cpp)
 
     constexpr operator Scope() const noexcept
     {

@@ -8,17 +8,20 @@ namespace Detail
 {
 inline CBaseFunction* GetFunction(CClass* aType, CName aName)
 {
-    for (auto func : aType->funcs)
+    if (aType)
     {
-        if (func->shortName == aName || func->fullName == aName)
+        for (auto func : aType->funcs)
         {
-            return func;
+            if (func->shortName == aName || func->fullName == aName)
+            {
+                return func;
+            }
         }
-    }
 
-    if (aType->parent)
-    {
-        return GetFunction(aType->parent, aName);
+        if (aType->parent)
+        {
+            return GetFunction(aType->parent, aName);
+        }
     }
 
     return nullptr;
@@ -26,20 +29,33 @@ inline CBaseFunction* GetFunction(CClass* aType, CName aName)
 
 inline CBaseFunction* GetStaticFunction(CClass* aType, CName aName)
 {
-    for (auto func : aType->staticFuncs)
+    if (aType)
     {
-        if (func->shortName == aName || func->fullName == aName)
+        for (auto func : aType->staticFuncs)
         {
-            return func;
+            if (func->shortName == aName || func->fullName == aName)
+            {
+                return func;
+            }
+        }
+
+        if (aType->parent)
+        {
+            return GetStaticFunction(aType->parent, aName);
         }
     }
 
-    if (aType->parent)
-    {
-        return GetStaticFunction(aType->parent, aName);
-    }
-
     return nullptr;
+}
+
+inline CBaseFunction* GetStaticFunction(CName aType, CName aName)
+{
+    return GetStaticFunction(GetClass(aType), aName);
+}
+
+inline CBaseFunction* GetGlobalFunction(CName aName)
+{
+    return CRTTISystem::Get()->GetFunction(aName);
 }
 
 template<typename... Args>
@@ -73,7 +89,10 @@ inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... 
             stack.result = args.data();
 
             if (stack.result->type != aFunc->returnType->type)
+            {
+                // TODO: Compatible handles
                 return false;
+            }
 
             if (aFunc->params.size)
             {
@@ -92,7 +111,10 @@ inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... 
             for (uint32_t i = 0; i < aFunc->params.size; ++i)
             {
                 if (stack.args[i].type != aFunc->params[i]->type)
+                {
+                    // TODO: Compatible handles
                     return false;
+                }
             }
         }
     }
@@ -120,8 +142,14 @@ inline bool CallStatic(CClass* aType, CName aFunc, Args&&... aArgs)
 }
 
 template<typename... Args>
+inline bool CallStatic(CName aType, CName aFunc, Args&&... aArgs)
+{
+    return Detail::CallFunction(Detail::GetStaticFunction(aType, aFunc), nullptr, std::forward<Args>(aArgs)...);
+}
+
+template<typename... Args>
 inline bool CallGlobal(CName aFunc, Args&&... aArgs)
 {
-    return Detail::CallFunction(Red::CRTTISystem::Get()->GetFunction(aFunc), nullptr, std::forward<Args>(aArgs)...);
+    return Detail::CallFunction(Detail::GetGlobalFunction(aFunc), nullptr, std::forward<Args>(aArgs)...);
 }
 }

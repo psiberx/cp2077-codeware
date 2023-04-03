@@ -95,7 +95,11 @@
 #include "Core/Raw.hpp"
 #include "Core/Stl.hpp"
 
-#include "Red/Lib.hpp"
+#include "Red/Alias.hpp"
+#include "Red/Framework.hpp"
+#include "Red/LogChannel.hpp"
+#include "Red/TypeInfo.hpp"
+#include "Red/Specializations.hpp"
 
 #ifdef VERBOSE
 #include "Red/Log.hpp"

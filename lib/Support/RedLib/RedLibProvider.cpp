@@ -1,7 +1,7 @@
 #include "RedLibProvider.hpp"
-#include "Red/Rtti/Registrar.hpp"
+#include "Red/TypeInfo/Registrar.hpp"
 
 void Support::RedLibProvider::OnBootstrap()
 {
-    Red::RTTIRegistrar::RegisterPending();
+    Red::TypeInfoRegistrar::RegisterDiscovered();
 }

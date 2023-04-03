@@ -71,6 +71,9 @@ template<typename T>
 concept IsScriptable = std::is_base_of_v<IScriptable, T>;
 
 template<typename T>
+concept IsGameSystem = std::is_base_of_v<IGameSystem, T>;
+
+template<typename T>
 concept IsType = std::is_base_of_v<CBaseRTTIType, T>;
 
 template<typename T>

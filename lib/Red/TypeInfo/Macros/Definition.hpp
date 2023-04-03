@@ -42,7 +42,7 @@ public: \
     }
 
 #define RTTI_DECLARE_FRIENDS(_class) \
-    friend class Red::RTTIBuilder<Red::Scope::For<_class>()>; \
+    friend class Red::TypeInfoBuilder<Red::Scope::For<_class>()>; \
     friend class Red::ClassDescriptor<_class>;
 
 #define RTTI_DEFINE_CLASS(...) X_RTTI_OVERLOAD(X_RTTI_DEF_CLASS, __VA_ARGS__)
@@ -50,7 +50,7 @@ public: \
 #define X_RTTI_DEF_CLASS_2(_class, _desc) X_RTTI_DEF_CLASS_3(_class, X_RTTI_TYPENAME(_class), _desc)
 #define X_RTTI_DEF_CLASS_3(_class, _name, _desc) \
     template<> \
-    struct Red::RTTIBuilder<Red::ClassDefinition<_class>{}> \
+    struct Red::TypeInfoBuilder<Red::ClassDefinition<_class>{}> \
     { \
         using Type = _class; \
         using Descriptor = Red::ClassDescriptor<_class>; \
@@ -67,7 +67,7 @@ public: \
 #define RTTI_EXPAND_CLASS(...) X_RTTI_OVERLOAD(X_RTTI_EXT_CLASS, __VA_ARGS__)
 #define X_RTTI_EXT_CLASS_2(_class, _desc) \
     template<> \
-    struct Red::RTTIBuilder<Red::ClassExpansion<_class, X_RTTI_LOCATION>{}> \
+    struct Red::TypeInfoBuilder<Red::ClassExpansion<_class, X_RTTI_LOCATION>{}> \
     { \
         using Type = _class; \
         using Descriptor = Red::ClassDescriptor<_class>; \
@@ -78,7 +78,7 @@ public: \
     };
 #define X_RTTI_EXT_CLASS_3(_class, _expansion, _desc) \
     template<> \
-    struct Red::RTTIBuilder<Red::ClassExpansion<_class, Red::Scope::For<_expansion>()>{}> \
+    struct Red::TypeInfoBuilder<Red::ClassExpansion<_class, Red::Scope::For<_expansion>()>{}> \
     { \
         using Type = _expansion; \
         using Descriptor = Red::ClassDescriptor<_class>; \
@@ -132,7 +132,7 @@ public: \
 #define X_RTTI_DEF_ENUM_1(_enum) X_RTTI_DEF_ENUM_2(_enum, X_RTTI_TYPENAME(_enum))
 #define X_RTTI_DEF_ENUM_2(_enum, _name) \
     template<> \
-    struct Red::RTTIBuilder<Red::EnumDefinition<_enum>{}> \
+    struct Red::TypeInfoBuilder<Red::EnumDefinition<_enum>{}> \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
@@ -146,7 +146,7 @@ public: \
 #define X_RTTI_DEF_FLAGS_1(_enum) X_RTTI_DEF_FLAGS_2(_enum, X_RTTI_TYPENAME(_enum))
 #define X_RTTI_DEF_FLAGS_2(_enum, _name) \
     template<> \
-    struct Red::RTTIBuilder<Red::FlagsDefinition<_enum>{}>  \
+    struct Red::TypeInfoBuilder<Red::FlagsDefinition<_enum>{}>  \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
@@ -160,7 +160,7 @@ public: \
 #define X_RTTI_EXP_ENUM_1(_enum) X_RTTI_EXP_ENUM_2(_enum, _enum)
 #define X_RTTI_EXP_ENUM_2(_enum, _expansion) \
     template<> \
-    struct Red::RTTIBuilder<Red::EnumExpansion<_enum, X_RTTI_LOCATION>{}> \
+    struct Red::TypeInfoBuilder<Red::EnumExpansion<_enum, X_RTTI_LOCATION>{}> \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
@@ -174,7 +174,7 @@ public: \
 #define X_RTTI_EXP_FLAGS_1(_enum) X_RTTI_EXP_FLAGS_2(_enum, _enum)
 #define X_RTTI_EXP_FLAGS_2(_enum, _expansion) \
     template<> \
-    struct Red::RTTIBuilder<Red::EnumExpansion<_enum, X_RTTI_LOCATION>{}> \
+    struct Red::TypeInfoBuilder<Red::EnumExpansion<_enum, X_RTTI_LOCATION>{}> \
     { \
         using Type = _enum; \
         using Descriptor = Red::EnumDescriptor<_enum>; \
@@ -189,7 +189,7 @@ public: \
 #define RTTI_DEFINE_GLOBALS(...) X_RTTI_OVERLOAD(X_RTTI_DEF_GLOB, __VA_ARGS__)
 #define X_RTTI_DEF_GLOB_1(_desc) \
     template<> \
-    struct Red::RTTIBuilder<Red::GlobalDefinition<X_RTTI_LOCATION>{}> \
+    struct Red::TypeInfoBuilder<Red::GlobalDefinition<X_RTTI_LOCATION>{}> \
     { \
         using Descriptor = Red::GlobalDescriptor; \
         static void Describe(Descriptor* rtti) \
@@ -199,7 +199,7 @@ public: \
     };
 #define X_RTTI_DEF_GLOB_2(_namespace, _desc) \
     template<> \
-    struct Red::RTTIBuilder<<Red::GlobalDefinition<X_RTTI_LOCATION>{}> \
+    struct Red::TypeInfoBuilder<<Red::GlobalDefinition<X_RTTI_LOCATION>{}> \
     { \
         using Descriptor = Red::GlobalDescriptor; \
         static void Describe(Descriptor* rtti) \
@@ -213,12 +213,14 @@ public: \
 #define X_RTTI_FUNCTION_1(_func) X_RTTI_FUNCTION_2(_func, X_RTTI_NAME(_func))
 #define X_RTTI_FUNCTION_2(_func, _name) rtti->AddFunction<&_func>(_name)
 
+#define RTTI_FUNCTION_FQN RTTI_FUNCTION
+
 #define RTTI_OP() static_assert(false, "Not Implemented")
 #define RTTI_CAST() static_assert(false, "Not Implemented")
 
 #define RTTI_REGISTER(_handler) \
     template<> \
-    struct Red::RTTIBuilder<<Red::GlobalDefinition<X_RTTI_LOCATION>{}> \
+    struct Red::TypeInfoBuilder<<Red::GlobalDefinition<X_RTTI_LOCATION>{}> \
     { \
         using Descriptor = Red::GlobalDescriptor; \
         static void Register(Descriptor* rtti) \
@@ -229,7 +231,7 @@ public: \
 
 #define RTTI_DESCRIBE(_handler) \
     template<> \
-    struct Red::RTTIBuilder<<Red::GlobalDefinition<X_RTTI_LOCATION>{}> \
+    struct Red::TypeInfoBuilder<<Red::GlobalDefinition<X_RTTI_LOCATION>{}> \
     { \
         using Descriptor = Red::GlobalDescriptor; \
         static void Describe(Descriptor* rtti) \

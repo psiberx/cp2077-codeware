@@ -2,18 +2,18 @@
 
 namespace Red
 {
-class RTTIRegistrar
+class TypeInfoRegistrar
 {
 public:
     using Callback = void(*)();
 
-    RTTIRegistrar(Callback aRegister, Callback aDescribe)
+    TypeInfoRegistrar(Callback aRegister, Callback aDescribe)
     {
         AddRegisterCallback(aRegister);
         AddDescribeCallback(aDescribe);
     }
 
-    static inline void RegisterPending()
+    static inline void RegisterDiscovered()
     {
         QueuePendingRegisterCallbacks();
         QueuePendingDescribeCallbacks();

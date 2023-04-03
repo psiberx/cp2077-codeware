@@ -6,7 +6,7 @@ namespace App
 {
 struct EntityEx : Red::Entity
 {
-    Red::DynArray<Red::Handle<Red::ent::IComponent>> GetComponents()
+    Red::DynArray<Red::Handle<Red::IComponent>> GetComponents()
     {
         return Raw::Entity::GetComponents(this);
     }

@@ -6,7 +6,7 @@
 namespace Red
 {
 template<Scope>
-struct RTTIBuilder;
+struct TypeInfoBuilder;
 
 template<typename T>
 struct TypeNameMapping : public std::false_type {};
@@ -35,13 +35,13 @@ concept HasTypePrefixMapping = TypePrefixMapping<G>::value;
 template<typename T>
 concept HasTypeNameBuilder = requires(T*)
 {
-    { RTTIBuilder<Scope::For<T>()>::Name() } -> IsTypeNameConst;
+    { TypeInfoBuilder<Scope::For<T>()>::Name() } -> IsTypeNameConst;
 };
 
 template<typename T>
 consteval auto ResolveTypeNameBuilder()
 {
-    return RTTIBuilder<Scope::For<T>()>::Name();
+    return TypeInfoBuilder<Scope::For<T>()>::Name();
 }
 
 template<size_t N>
