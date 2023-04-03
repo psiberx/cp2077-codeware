@@ -75,7 +75,7 @@ protected:
     void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEventType aType);
     void ProcessListeners(Red::EntityID aEntityID, Red::game::EntitySpawnerEventType aType);
 
-    bool m_attached;
+    bool m_ready;
     bool m_restored;
 
     std::shared_mutex m_entityStateLock;
@@ -103,9 +103,8 @@ protected:
 }
 
 RTTI_DEFINE_CLASS(App::DynamicEntitySystem, {
-    RTTI_PARENT(Red::IGameSystem);
-    RTTI_METHOD(IsReady);
-    RTTI_METHOD(IsRestored);
+    RTTI_GETTER(m_ready);
+    RTTI_GETTER(m_restored);
 
     RTTI_METHOD(CreateEntity);
     RTTI_METHOD(DeleteEntity);

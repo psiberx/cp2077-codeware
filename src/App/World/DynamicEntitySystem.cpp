@@ -14,7 +14,7 @@ void App::DynamicEntitySystem::OnWorldAttached(Red::world::RuntimeScene*)
     m_populationSystem = Red::GetGameSystem<Red::IPopulationSystem>();
     m_spawnEventBroadcaster = Red::GetGameSystem<Red::IEntitySpawnerEventsBroadcaster>();
     m_persistentStateType = Red::GetClass<DynamicEntitySystemPS>();
-    m_attached = true;
+    m_ready = true;
 }
 
 void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored,
@@ -88,7 +88,7 @@ void App::DynamicEntitySystem::OnBeforeWorldDetach(Red::world::RuntimeScene* aSc
 
 void App::DynamicEntitySystem::OnAfterWorldDetach()
 {
-    m_attached = false;
+    m_ready = false;
     m_restored = false;
     m_persistentState.Reset();
 
@@ -117,7 +117,7 @@ void App::DynamicEntitySystem::OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueu
 
 bool App::DynamicEntitySystem::IsReady() const
 {
-    return m_attached;
+    return m_ready;
 }
 
 bool App::DynamicEntitySystem::IsRestored() const
@@ -127,7 +127,7 @@ bool App::DynamicEntitySystem::IsRestored() const
 
 Red::EntityID App::DynamicEntitySystem::CreateEntity(const DynamicEntitySpecPtr& aEntitySpec)
 {
-    if (!m_attached)
+    if (!m_ready)
         return {};
 
     if (!aEntitySpec->IsValid())
@@ -159,7 +159,7 @@ Red::EntityID App::DynamicEntitySystem::CreateEntity(const DynamicEntitySpecPtr&
 
 bool App::DynamicEntitySystem::DeleteEntity(Red::EntityID aEntityID)
 {
-    if (!m_attached)
+    if (!m_ready)
         return false;
 
     auto entityState = RemoveEntityState(aEntityID);
@@ -181,7 +181,7 @@ bool App::DynamicEntitySystem::DeleteEntity(Red::EntityID aEntityID)
 
 bool App::DynamicEntitySystem::EnableEntity(Red::EntityID aEntityID)
 {
-    if (!m_attached)
+    if (!m_ready)
         return false;
 
     std::unique_lock _(m_entityStateLock);
@@ -202,7 +202,7 @@ bool App::DynamicEntitySystem::EnableEntity(Red::EntityID aEntityID)
 
 bool App::DynamicEntitySystem::DisableEntity(Red::EntityID aEntityID)
 {
-    if (!m_attached)
+    if (!m_ready)
         return false;
 
     std::unique_lock _(m_entityStateLock);
@@ -395,7 +395,7 @@ App::DynamicEntityStatePtr App::DynamicEntitySystem::RemoveEntityState(Red::Enti
 
 bool App::DynamicEntitySystem::IsSpawned(Red::EntityID aEntityID)
 {
-    if (!m_attached)
+    if (!m_ready)
         return false;
 
     return GetEntity(aEntityID);
@@ -403,7 +403,7 @@ bool App::DynamicEntitySystem::IsSpawned(Red::EntityID aEntityID)
 
 bool App::DynamicEntitySystem::IsSpawning(Red::EntityID aEntityID)
 {
-    if (!m_attached)
+    if (!m_ready)
         return false;
 
     return m_populationSystem->IsSpawning(aEntityID);
@@ -411,7 +411,7 @@ bool App::DynamicEntitySystem::IsSpawning(Red::EntityID aEntityID)
 
 Red::Handle<Red::Entity> App::DynamicEntitySystem::GetEntity(Red::EntityID aEntityID)
 {
-    if (!m_attached)
+    if (!m_ready)
         return {};
 
     Red::Handle<Red::Entity> entity;
@@ -422,7 +422,7 @@ Red::Handle<Red::Entity> App::DynamicEntitySystem::GetEntity(Red::EntityID aEnti
 
 Red::DynArray<Red::CName> App::DynamicEntitySystem::GetTags(Red::EntityID aEntityID)
 {
-    if (!m_attached)
+    if (!m_ready)
         return {};
 
     std::shared_lock _(m_entityStateLock);
@@ -438,7 +438,7 @@ Red::DynArray<Red::CName> App::DynamicEntitySystem::GetTags(Red::EntityID aEntit
 
 bool App::DynamicEntitySystem::AssignTag(Red::EntityID aEntityID, Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return false;
 
     std::unique_lock _(m_entityStateLock);
@@ -461,7 +461,7 @@ bool App::DynamicEntitySystem::AssignTag(Red::EntityID aEntityID, Red::CName aTa
 
 bool App::DynamicEntitySystem::UnassignTag(Red::EntityID aEntityID, Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return false;
 
     std::unique_lock _(m_entityStateLock);
@@ -484,7 +484,7 @@ bool App::DynamicEntitySystem::UnassignTag(Red::EntityID aEntityID, Red::CName a
 
 bool App::DynamicEntitySystem::IsPopulated(Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return false;
 
     std::shared_lock _(m_entityStateLock);
@@ -494,7 +494,7 @@ bool App::DynamicEntitySystem::IsPopulated(Red::CName aTag)
 
 Red::EntityID App::DynamicEntitySystem::GetTaggedID(Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return {};
 
     std::shared_lock _(m_entityStateLock);
@@ -508,7 +508,7 @@ Red::EntityID App::DynamicEntitySystem::GetTaggedID(Red::CName aTag)
 
 Red::DynArray<Red::EntityID> App::DynamicEntitySystem::GetTaggedIDs(Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return {};
 
     std::shared_lock _(m_entityStateLock);
@@ -524,7 +524,7 @@ Red::DynArray<Red::EntityID> App::DynamicEntitySystem::GetTaggedIDs(Red::CName a
 
 Red::DynArray<Red::Handle<Red::Entity>> App::DynamicEntitySystem::GetTagged(Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return {};
 
     std::shared_lock _(m_entityStateLock);
@@ -546,7 +546,7 @@ Red::DynArray<Red::Handle<Red::Entity>> App::DynamicEntitySystem::GetTagged(Red:
 
 void App::DynamicEntitySystem::DeleteTagged(Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return;
 
     Core::Set<Red::EntityID> tagged;
@@ -563,7 +563,7 @@ void App::DynamicEntitySystem::DeleteTagged(Red::CName aTag)
 
 void App::DynamicEntitySystem::EnableTagged(Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return;
 
     Core::Set<Red::EntityID> tagged;
@@ -580,7 +580,7 @@ void App::DynamicEntitySystem::EnableTagged(Red::CName aTag)
 
 void App::DynamicEntitySystem::DisableTagged(Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return;
 
     Core::Set<Red::EntityID> tagged;
@@ -598,7 +598,7 @@ void App::DynamicEntitySystem::DisableTagged(Red::CName aTag)
 void App::DynamicEntitySystem::RegisterListener(Red::CName aTag, const Red::Handle<Red::IScriptable>& aTarget,
                                                 Red::CName aFunction)
 {
-    if (!m_attached)
+    if (!m_ready)
         return;
 
     std::unique_lock _(m_listenersLock);
@@ -609,7 +609,7 @@ void App::DynamicEntitySystem::RegisterListener(Red::CName aTag, const Red::Hand
 void App::DynamicEntitySystem::UnregisterListener(Red::CName aTag, const Red::Handle<Red::IScriptable>& aTarget,
                                                   Red::CName aFunction)
 {
-    if (!m_attached)
+    if (!m_ready)
         return;
 
     std::unique_lock _(m_listenersLock);
@@ -625,7 +625,7 @@ void App::DynamicEntitySystem::UnregisterListener(Red::CName aTag, const Red::Ha
 
 void App::DynamicEntitySystem::UnregisterListeners(Red::CName aTag)
 {
-    if (!m_attached)
+    if (!m_ready)
         return;
 
     std::unique_lock _(m_listenersLock);

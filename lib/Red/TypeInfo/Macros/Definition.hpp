@@ -11,10 +11,14 @@
   return ::nameof::cstring<_name.size()>{_name}; }()
 #define X_RTTI_NAME(...) X_RTTI_NAME_SV(__VA_ARGS__).data()
 
-#define X_RTTI_GETTER_NAME_SV(...) []() constexpr noexcept { \
-  constexpr auto n1 = Red::Detail::RemoveMemberPrefix(#__VA_ARGS__); \
-  constexpr auto n2 = Red::Detail::UpFirstConstStr<n1.size()>(n1.data()); \
-  return Red::Detail::ConcatConstStr<3, n2.size() - 1>("Get", n2.data()); }()
+#define X_RTTI_GETTER_NAME_SV(_member) []() constexpr noexcept { \
+    constexpr auto n1 = Red::Detail::RemoveMemberPrefix(#_member); \
+    constexpr auto n2 = Red::Detail::UpFirstConstStr<n1.size()>(n1.data()); \
+    if constexpr (std::is_same_v<Red::Detail::PropertyPtr<decltype(&Type::_member)>::value_type, bool>) \
+        return Red::Detail::ConcatConstStr<2, n2.size() - 1>("Is", n2.data()); \
+    else \
+        return Red::Detail::ConcatConstStr<3, n2.size() - 1>("Get", n2.data()); \
+    }()
 #define X_RTTI_GETTER_NAME(...) X_RTTI_GETTER_NAME_SV(__VA_ARGS__).data()
 
 #define X_RTTI_SELECT(_0, _1, _2, _3, ...) _3
@@ -24,7 +28,12 @@
 #define X_RTTI_SELECT_MACRO(F, ...) X_RTTI_SELECT_BY_NARG(F, X_RTTI_EXPAND_NOARG __VA_ARGS__ (F))
 #define X_RTTI_OVERLOAD(F, ...) X_RTTI_SELECT_MACRO(F, __VA_ARGS__)(__VA_ARGS__)
 
+#define RTTI_MEMBER_ACCESS(_class) \
+    friend class Red::TypeInfoBuilder<Red::Scope::For<_class>()>; \
+    friend class Red::ClassDescriptor<_class>;
+
 #define RTTI_IMPL_TYPEINFO(_class) \
+    RTTI_MEMBER_ACCESS(_class); \
     Red::CClass* GetNativeType() \
     { \
         return Red::GetClass<_class>(); \
@@ -40,10 +49,6 @@ public: \
     { \
         return AllocatorType::Get(); \
     }
-
-#define RTTI_DECLARE_FRIENDS(_class) \
-    friend class Red::TypeInfoBuilder<Red::Scope::For<_class>()>; \
-    friend class Red::ClassDescriptor<_class>;
 
 #define RTTI_DEFINE_CLASS(...) X_RTTI_OVERLOAD(X_RTTI_DEF_CLASS, __VA_ARGS__)
 #define X_RTTI_DEF_CLASS_1(_class) X_RTTI_DEF_CLASS_3(_class, X_RTTI_TYPENAME(_class),)
