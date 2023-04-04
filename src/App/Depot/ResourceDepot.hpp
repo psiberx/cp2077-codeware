@@ -1,10 +1,12 @@
 #pragma once
 
+#include "ResourceToken.hpp"
+
 namespace App
 {
 struct ResourceDepot : Red::IScriptable
 {
-    bool IsArchiveExists(const Red::CString& aPath)
+    bool ArchiveExists(const Red::CString& aPath)
     {
         const auto depot = Red::ResourceDepot::Get();
 
@@ -27,11 +29,23 @@ struct ResourceDepot : Red::IScriptable
         return false;
     }
 
-    bool IsResourceExists(const Red::RaRef<>& aRef)
+    bool ResourceExists(const Red::RaRef<>& aRef)
     {
         const auto depot = Red::ResourceDepot::Get();
 
         return depot && depot->ResourceExists(aRef.path);
+    }
+
+    [[nodiscard]] Red::Handle<ResourceTokenWrapper> LoadResource(const Red::ResourceAsyncReference<>& aRef) const
+    {
+        const auto loader = Red::ResourceLoader::Get();
+
+        return Red::MakeHandle<ResourceTokenWrapper>(loader->LoadAsync(aRef.path));
+    }
+
+    [[nodiscard]] Red::Handle<ResourceTokenWrapper> LoadReference(const Red::ResourceReference<>& aRef) const
+    {
+        return Red::MakeHandle<ResourceTokenWrapper>(aRef.token);
     }
 
     static Red::Handle<ResourceDepot> Get()
@@ -45,8 +59,10 @@ struct ResourceDepot : Red::IScriptable
 }
 
 RTTI_DEFINE_CLASS(App::ResourceDepot, {
-    RTTI_METHOD(IsArchiveExists);
-    RTTI_METHOD(IsResourceExists);
+    RTTI_METHOD(ArchiveExists);
+    RTTI_METHOD(ResourceExists);
+    RTTI_METHOD(LoadResource);
+    RTTI_METHOD(LoadReference);
 });
 
 RTTI_EXPAND_CLASS(Red::ScriptGameInstance, {
