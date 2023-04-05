@@ -2,6 +2,7 @@
 #include "App/Depot/ResourceReference.hpp"
 #include "App/Depot/ResourceToken.hpp"
 #include "App/Entity/EntityEx.hpp"
+#include "App/Ink/inkCharacterEventEx.hpp"
 #include "App/Ink/inkComponent.hpp"
 #include "App/Ink/inkLayerWrapper.hpp"
 #include "App/Ink/inkSystem.hpp"

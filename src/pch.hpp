@@ -68,6 +68,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentState.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/CharacterEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ControllerProcessor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IEffect.hpp>

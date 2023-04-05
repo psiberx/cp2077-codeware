@@ -40,8 +40,6 @@ public class TextInput extends inkCustomController {
 
     protected let m_isFocused: Bool;
 
-    protected let m_inputEvents: ref<inkHashMap>;
-
     protected let m_lastInputEvent: ref<inkCharacterEvent>;
 
     protected let m_isHoldComplete: Bool;
@@ -51,7 +49,6 @@ public class TextInput extends inkCustomController {
     protected let m_holdTickProxy: ref<inkAnimProxy>;
 
     protected cb func OnCreate() {
-        this.InitializeProps();
         this.CreateWidgets();
         this.CreateAnimations();
     }
@@ -66,10 +63,6 @@ public class TextInput extends inkCustomController {
         this.ApplyDisabledState();
         this.ApplyHoveredState();
         this.ApplyFocusedState();
-    }
-
-    protected func InitializeProps() {
-        this.m_inputEvents = new inkHashMap();
     }
 
     protected func CreateWidgets() {
@@ -413,28 +406,17 @@ public class TextInput extends inkCustomController {
         this.CallCustomCallback(n"OnInput");
     }
 
-    protected func GetEventHash(event: ref<inkCharacterEvent>) -> Uint64 {
-        return Cast<Uint64>(1000 * EnumInt(event.GetType())) + Cast<Uint64>(event.GetCharacter());
-    }
-
     protected cb func OnCharacterKey(event: ref<inkCharacterEvent>) {
-        // NOTE: inkCharacterEvent currently has no PRESS / RELEASE indication.
-        // We use a hash map to detect if the exact same event was sent before.
-        // If event is not in the map, then it's a PRESS, otherwise it's a RELEASE.
-
-        let eventHash: Uint64 = this.GetEventHash(event);
-
-        if !this.m_inputEvents.KeyExist(eventHash) {
-            this.ProcessInputEvent(event);
-
-            this.m_lastInputEvent = event;
-            this.m_inputEvents.Insert(eventHash, event);
-        } else {
-            this.m_inputEvents.Remove(eventHash);
-
-            if eventHash == this.GetEventHash(this.m_lastInputEvent) {
-                this.m_lastInputEvent = null;
-            }
+        switch event.GetAction() {
+            case EInputAction.IACT_Press:
+                this.ProcessInputEvent(event);
+                this.m_lastInputEvent = event;
+                break;
+            case EInputAction.IACT_Release:
+                if Equals(event.GetType(), this.m_lastInputEvent.GetType()) && Equals(event.GetCharacter(), this.m_lastInputEvent.GetCharacter()) {
+                     this.m_lastInputEvent = null;
+                }
+                break;
         }
 
         this.m_isHoldComplete = false;
