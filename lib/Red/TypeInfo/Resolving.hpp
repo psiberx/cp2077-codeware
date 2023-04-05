@@ -439,4 +439,6 @@ RTTI_TYPE_PREFIX(WeakHandle, "whandle:");
 RTTI_TYPE_PREFIX(ScriptRef, "script_ref:");
 RTTI_TYPE_PREFIX(ResourceReference, "rRef:");
 RTTI_TYPE_PREFIX(ResourceAsyncReference, "raRef:");
+
+RTTI_TYPE_NAME(char, "Uint8");
 }

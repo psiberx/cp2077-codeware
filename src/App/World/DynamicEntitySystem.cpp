@@ -28,11 +28,10 @@ void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*,
         }, "");
 
     m_persistencySystem->GetPersistentState(m_persistentState, SystemPersistentID, m_persistentStateType, true);
+    m_persistentState->RestoreAfterLoading();
 
-    for (const auto& entityState : m_persistentState->m_entityStates)
+    for (const auto& entityState : m_persistentState->GetEntityStates())
     {
-        entityState->entitySpec->PrepareForRestoring();
-
         if (!entityState->entitySpec->persistState)
         {
             RemovePersistentState(entityState);
@@ -42,6 +41,9 @@ void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*,
         RestoreEntityState(entityState);
     }
 
+    m_persistentState->Clear();
+
+    if (!m_entityStates.empty())
     {
         std::shared_lock _(m_entityStateLock);
         for (const auto& entityState : m_entityStates)
@@ -52,8 +54,6 @@ void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*,
             }
         }
     }
-
-    m_persistentState->m_entityStates.Clear();
 }
 
 uint32_t App::DynamicEntitySystem::OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2)
@@ -64,17 +64,18 @@ uint32_t App::DynamicEntitySystem::OnBeforeGameSave(const Red::JobGroup& aJobGro
     {
         if (entityState->entitySpec->persistState || entityState->entitySpec->persistSpawn)
         {
-            entityState->entitySpec->PrepareForSaving();
-            m_persistentState->m_entityStates.PushBack(entityState);
+            m_persistentState->AddEntityState(entityState);
         }
     }
+
+    m_persistentState->PrepareForSaving();
 
     return 0;
 }
 
 void App::DynamicEntitySystem::OnAfterGameSave()
 {
-    m_persistentState->m_entityStates.Clear();
+    m_persistentState->Clear();
 }
 
 void App::DynamicEntitySystem::OnBeforeWorldDetach(Red::world::RuntimeScene* aScene)

@@ -58,7 +58,7 @@ struct DynamicEntitySpec : Red::IScriptable
         templateHash = templatePath.path;
     }
 
-    void PrepareForRestoring()
+    void RestoreAfterLoading()
     {
         templatePath.path = templateHash;
     }
