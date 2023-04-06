@@ -94,7 +94,7 @@ inline void ExtractArg(CStackFrame* aFrame, T* aInstance = nullptr)
     aFrame->currentParam++;
 
     const auto opcode = *(aFrame->code++);
-    OpcodeHandlers::Run(opcode, aFrame->context, aFrame, aInstance, nullptr);
+    OpcodeHandlers::Run(opcode, aFrame->context, aFrame, aInstance, IsScriptRef<T> ? aInstance : nullptr);
 
     if constexpr (std::is_pointer_v<T>)
     {

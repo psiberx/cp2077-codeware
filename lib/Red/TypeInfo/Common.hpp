@@ -166,7 +166,11 @@ concept IsSpecialization = Specialization<T>::value;
 
 template<typename T, typename U = std::remove_cvref_t<T>>
 concept IsOptional = Specialization<U>::value
-    && std::is_same_v<U, Red::Optional<typename Specialization<U>::argument_type, Specialization<U>::argument_value>>;
+    && std::is_same_v<U, Optional<typename Specialization<U>::argument_type, Specialization<U>::argument_value>>;
+
+template<typename T, typename U = std::remove_cvref_t<T>>
+concept IsScriptRef = Specialization<U>::value
+    && std::is_same_v<U, ScriptRef<typename Specialization<U>::argument_type>>;
 }
 
 template<typename T, auto ADefault>

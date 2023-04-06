@@ -155,4 +155,10 @@ public:
         return reinterpret_cast<T*>(GetAddress());
     }
 };
+
+template<typename T>
+inline T* OffsetPtr(void* aBase, uintptr_t aOffset)
+{
+    return reinterpret_cast<T*>(reinterpret_cast<uintptr_t>(aBase) + aOffset);
+}
 }
