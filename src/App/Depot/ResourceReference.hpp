@@ -62,6 +62,14 @@ struct ResourceAsyncWrapper
 
     Red::ResourceAsyncReference<> resource;
 };
+
+struct ResourceScriptReferenceEx
+{
+    inline static uint64_t GetHash(const Red::redResourceReferenceScriptToken& aReference)
+    {
+        return aReference.resource.path;
+    }
+};
 }
 
 RTTI_DEFINE_CLASS(App::ResourceWrapper, "ResourceRef", {
@@ -78,4 +86,8 @@ RTTI_DEFINE_CLASS(App::ResourceAsyncWrapper, "ResourceAsyncRef", {
     RTTI_METHOD(GetPath);
     RTTI_METHOD(GetHash);
     RTTI_METHOD(IsEmpty);
+});
+
+RTTI_EXPAND_CLASS(Red::redResourceReferenceScriptToken, {
+    RTTI_METHOD_FQN(App::ResourceScriptReferenceEx::GetHash);
 });

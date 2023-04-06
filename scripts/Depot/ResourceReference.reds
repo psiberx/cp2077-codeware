@@ -22,3 +22,6 @@ public static func OperatorAssignMultiply(out res: ResourceRef, path: ResRef) {
 public static func OperatorAssignMultiply(out res: ResourceAsyncRef, path: ResRef) {
     ResourceAsyncRef.SetPath(res, path);
 }
+
+@addMethod(ResRef)
+public static native func GetHash(self: ResRef) -> Uint64
