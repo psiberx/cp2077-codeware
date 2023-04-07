@@ -24,6 +24,12 @@ concept HasDescribeHandler = requires(TDescriptor* d)
     { TSpec::Describe(d) };
 };
 
+template<typename T>
+concept HasSystemGetter = requires(T*)
+{
+    { T::Get() } -> std::convertible_to<Handle<T>>;
+};
+
 template<typename TSpec>
 concept HasMinValueGetter = requires
 {
@@ -719,13 +725,22 @@ struct SystemBuilder
 
         if (aRet)
         {
-            static const auto& gameInstance = CGameEngine::Get()->framework->gameInstance;
-            static const auto systemType = GetType<TSystem>();
-
-            const auto systemInstance = gameInstance->systemMap.Get(systemType);
-            if (systemInstance)
+            if constexpr (Detail::HasSystemGetter<TSystem>)
             {
-                *aRet = *systemInstance;
+                *aRet = TSystem::Get();
+            }
+            else
+            {
+                const auto framework = CGameEngine::Get()->framework;
+                if (framework && framework->gameInstance)
+                {
+                    static const auto systemType = GetType<TSystem>();
+                    const auto systemInstance = framework->gameInstance->systemMap.Get(systemType);
+                    if (systemInstance)
+                    {
+                        *aRet = *systemInstance;
+                    }
+                }
             }
         }
     }
@@ -770,6 +785,18 @@ struct SystemBuilder
 
         gameInstance->systemInstances.PushBack(systemInstance);
         gameInstance->systemMap.Insert(systemType, systemInstance);
+    }
+
+    static inline Handle<TSystem> BuildSystem()
+    {
+        if constexpr (Detail::HasSystemGetter<TSystem>)
+        {
+            return TSystem::Get();
+        }
+        else
+        {
+            return MakeHandle<TSystem>();
+        }
     }
 };
 
