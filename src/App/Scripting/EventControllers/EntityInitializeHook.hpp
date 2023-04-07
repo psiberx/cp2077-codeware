@@ -1,5 +1,6 @@
 #pragma once
 
+#include "EntityLifecycleEvent.hpp"
 #include "App/Scripting/CallbackSystem.hpp"
 #include "App/Scripting/EventController.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
@@ -12,11 +13,11 @@ class EntityInitializeHook
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto InitializeEvent = Red::CName("Entity/Initialize");
+    constexpr static auto EventName = Red::CName("Entity/Initialize");
 
     Core::Vector<Red::CName> GetEvents() override
     {
-        return {InitializeEvent};
+        return {EventName};
     }
 
     bool Initialize() override
@@ -36,10 +37,10 @@ protected:
     {
         if (aRequest->entityID)
         {
-            *Core::OffsetPtr<Red::EntityID>(aEntity, 0x48) = aRequest->entityID;
+            Raw::Entity::EntityID{aEntity} = aRequest->entityID;
         }
 
-        CallbackSystem::PassEvent(InitializeEvent, Red::AsWeakHandle(aEntity));
+        CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
     }
 };
 }

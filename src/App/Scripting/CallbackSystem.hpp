@@ -2,6 +2,7 @@
 
 #include "EventCallback.hpp"
 #include "EventController.hpp"
+#include "EventObject.hpp"
 
 namespace App
 {
@@ -15,12 +16,10 @@ public:
                           Red::Optional<bool> aPermanent);
     void UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
                             Red::Optional<Red::CName> aFunction);
-
     void RegisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::CName aFunction,
                                 Red::Optional<bool> aPermanent);
     void UnregisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::Optional<Red::CName> aFunction);
-
-    //void TriggerEvent(Red::CName aEvent, Red::Optional<Red::DynArray<Red::Variant>>& aArgs);
+    void FireCallbacks(const Red::Handle<NamedEvent>& aEvent);
 
     template<typename TController>
     inline void RegisterEvent()
@@ -33,12 +32,14 @@ public:
         }
     }
 
-    template<typename... Args>
-    inline static void PassEvent(Red::CName aEvent, Args&&... aArgs)
+    static void PassEvent(const Red::Handle<NamedEvent>& aEvent);
+
+    template<typename Event, typename... Args>
+    inline static void PassEvent(Red::CName aEventName, Args&&... aArgs)
     {
         if (s_self)
         {
-            s_self->TriggerEvent(aEvent, std::forward<Args>(aArgs)...);
+            s_self->TriggerEvent<Event>(aEventName, std::forward<Args>(aArgs)...);
         }
     }
 
@@ -49,17 +50,18 @@ protected:
     inline void InitializeEvent(Red::CName aEvent);
     inline void UninitializeEvent(Red::CName aEvent);
 
-    template<typename... Args>
-    inline void TriggerEvent(Red::CName aEvent, Args&&... aArgs)
+    template<typename Event, typename... Args>
+    inline void TriggerEvent(Red::CName aEventName, Args&&... aArgs)
     {
         std::shared_lock _(m_callbacksLock);
-        const auto& callbackListIt = m_callbacksByEvent.find(aEvent);
+        const auto& callbackListIt = m_callbacksByEvent.find(aEventName);
 
         if (callbackListIt != m_callbacksByEvent.end())
         {
+            const auto event = Red::MakeHandle<Event>(aEventName, std::forward<Args>(aArgs)...);
             for (const auto& callback : callbackListIt.value())
             {
-                callback(aEvent, std::forward<Args>(aArgs)...);
+                callback(event);
             }
         }
     }
@@ -80,4 +82,5 @@ RTTI_DEFINE_CLASS(App::CallbackSystem, {
     RTTI_METHOD(UnregisterCallback);
     RTTI_METHOD(RegisterStaticCallback);
     RTTI_METHOD(UnregisterStaticCallback);
+    RTTI_METHOD(FireCallbacks);
 });

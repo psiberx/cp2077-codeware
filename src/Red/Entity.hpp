@@ -37,6 +37,10 @@ RED4EXT_ASSERT_OFFSET(EntityInitializeRequest, unkCC, 0xCC);
 
 namespace Raw::Entity
 {
+using EntityID = Core::OffsetPtr<0x48, Red::EntityID>;
+using TemplatePath = Core::OffsetPtr<0x60, Red::ResourcePath>;
+using ComponentsStorage = Core::OffsetPtr<0x70, Red::ent::ComponentsStorage>;
+
 constexpr auto GetComponents = Core::RawFunc<
     /* addr = */ Red::Addresses::Entity_GetComponents,
     /* type = */ Red::DynArray<Red::Handle<Red::IComponent>>& (*)(Red::Entity* aEntity)>();

@@ -9,7 +9,7 @@ enum DynamicEntityEventType
 }
 
 public native class DynamicEntityEvent {
-    public native func GetType() -> DynamicEntityEventType
+    public native func GetEventType() -> DynamicEntityEventType
     public native func GetEntityID() -> EntityID
-    public native func GetTag() -> CName
+    public native func GetEntityTag() -> CName
 }

@@ -118,3 +118,25 @@ void App::CallbackSystem::UninitializeEvent(Red::CName aEvent)
         controllerIt.value()->Uninitialize();
     }
 }
+
+void App::CallbackSystem::FireCallbacks(const Red::Handle<NamedEvent>& aEvent)
+{
+    std::shared_lock _(m_callbacksLock);
+    const auto& callbackListIt = m_callbacksByEvent.find(aEvent->eventName);
+
+    if (callbackListIt != m_callbacksByEvent.end())
+    {
+        for (const auto& callback : callbackListIt.value())
+        {
+            callback(aEvent);
+        }
+    }
+}
+
+void App::CallbackSystem::PassEvent(const Red::Handle<NamedEvent>& aEvent)
+{
+    if (s_self)
+    {
+        s_self->FireCallbacks(aEvent);
+    }
+}

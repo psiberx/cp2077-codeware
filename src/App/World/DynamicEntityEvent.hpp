@@ -16,15 +16,15 @@ struct DynamicEntityEvent : Red::IScriptable
     DynamicEntityEvent() = default;
 
     DynamicEntityEvent(DynamicEntityEventType aType, const Red::EntityID& aEntityId, Red::CName aTag)
-        : type(aType)
+        : eventType(aType)
         , entityID(aEntityId)
-        , tag(aTag)
+        , entityTag(aTag)
     {
     }
 
-    DynamicEntityEventType type;
+    DynamicEntityEventType eventType;
     Red::EntityID entityID;
-    Red::CName tag;
+    Red::CName entityTag;
 
     RTTI_IMPL_TYPEINFO(App::DynamicEntityEvent);
     RTTI_IMPL_ALLOCATOR();
@@ -34,7 +34,7 @@ struct DynamicEntityEvent : Red::IScriptable
 RTTI_DEFINE_ENUM(App::DynamicEntityEventType);
 
 RTTI_DEFINE_CLASS(App::DynamicEntityEvent, {
-    RTTI_GETTER(type);
+    RTTI_GETTER(eventType);
     RTTI_GETTER(entityID);
-    RTTI_GETTER(tag);
+    RTTI_GETTER(entityTag);
 });

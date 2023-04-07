@@ -1,5 +1,6 @@
 #pragma once
 
+#include "EntityLifecycleEvent.hpp"
 #include "App/Scripting/CallbackSystem.hpp"
 #include "App/Scripting/EventController.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
@@ -12,11 +13,11 @@ class EntityReassembleHook
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto ReassembleEvent = Red::CName("Entity/Reassemble");
+    constexpr static auto EventName = Red::CName("Entity/Reassemble");
 
     Core::Vector<Red::CName> GetEvents() override
     {
-        return {ReassembleEvent};
+        return {EventName};
     }
 
     bool Initialize() override
@@ -36,10 +37,10 @@ protected:
                                   Red::DynArray<Red::Handle<Red::IComponent>>& aNewComponents,
                                   Red::Handle<Red::ent::EntityParametersStorage>& aEntityParams)
     {
-        auto storage = Core::OffsetPtr<Red::ent::ComponentsStorage>(aEntity, 0x70);
+        auto storage = Raw::Entity::ComponentsStorage(aEntity);
         auto compCount = storage->components.size;
 
-        CallbackSystem::PassEvent(ReassembleEvent, Red::AsWeakHandle(aEntity));
+        CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
 
         if (compCount != storage->components.size)
         {

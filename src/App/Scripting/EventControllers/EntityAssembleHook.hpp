@@ -1,5 +1,6 @@
 #pragma once
 
+#include "EntityLifecycleEvent.hpp"
 #include "App/Scripting/CallbackSystem.hpp"
 #include "App/Scripting/EventController.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
@@ -12,11 +13,11 @@ class EntityAssembleHook
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto AssembleEvent = Red::CName("Entity/Assemble");
+    constexpr static auto EventName = Red::CName("Entity/Assemble");
 
     Core::Vector<Red::CName> GetEvents() override
     {
-        return {AssembleEvent};
+        return {EventName};
     }
 
     bool Initialize() override
@@ -34,7 +35,7 @@ public:
 protected:
     inline static void OnAssemble(Red::Entity* aEntity, uintptr_t a2, uintptr_t a3)
     {
-        CallbackSystem::PassEvent(AssembleEvent, Red::AsWeakHandle(aEntity));
+        CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
     }
 };
 }
