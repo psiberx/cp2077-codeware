@@ -4,6 +4,18 @@
 
 namespace Red
 {
+enum class EntityStatus : uint8_t
+{
+    Undefined = 0,
+    Initializing = 1,
+    Detached = 2,
+    Attaching = 3,
+    Attached = 4,
+    Detaching = 5,
+    Uninitializing = 6,
+    Uninitialized = 7,
+};
+
 struct EntityInitializeRequest
 {
     WorldTransform transform;                                     // 00
@@ -40,22 +52,40 @@ namespace Raw::Entity
 using EntityID = Core::OffsetPtr<0x48, Red::EntityID>;
 using TemplatePath = Core::OffsetPtr<0x60, Red::ResourcePath>;
 using ComponentsStorage = Core::OffsetPtr<0x70, Red::ent::ComponentsStorage>;
-
-constexpr auto GetComponents = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_GetComponents,
-    /* type = */ Red::DynArray<Red::Handle<Red::IComponent>>& (*)(Red::Entity* aEntity)>();
+using Scene = Core::OffsetPtr<0xB8, Red::world::RuntimeScene>;
+using Status = Core::OffsetPtr<0x156, Red::EntityStatus>;
 
 constexpr auto OnAssemble = Core::RawFunc<
     /* addr = */ Red::Addresses::Entity_OnAssemble,
     /* type = */ uintptr_t (*)(Red::Entity* aEntity, uintptr_t, uintptr_t)>();
-
-constexpr auto Initialize = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_Initialize,
-    /* type = */ void (*)(Red::Entity* aEntity, uintptr_t, Red::EntityInitializeRequest* aRequest)>();
 
 constexpr auto Reassemble = Core::RawFunc<
     /* addr = */ Red::Addresses::Entity_Reassemble,
     /* type = */ void (*)(Red::Entity* aEntity, uintptr_t, uint64_t, uint64_t,
                           Red::DynArray<Red::Handle<Red::IComponent>>& aNewComponents,
                           Red::Handle<Red::ent::EntityParametersStorage>& aEntityParams)>();
+
+constexpr auto Initialize = Core::RawFunc<
+    /* addr = */ Red::Addresses::Entity_Initialize,
+    /* type = */ void (*)(Red::Entity* aEntity, uintptr_t, Red::EntityInitializeRequest* aRequest)>();
+
+constexpr auto Uninitialize = Core::RawFunc<
+    /* addr = */ Red::Addresses::Entity_Uninitialize,
+    /* type = */ void (*)(Red::Entity* aEntity)>();
+
+constexpr auto Dispose = Core::RawFunc<
+    /* addr = */ Red::Addresses::Entity_Dispose,
+    /* type = */ void (*)(Red::Entity* aEntity)>();
+
+constexpr auto Attach = Core::RawFunc<
+    /* addr = */ Red::Addresses::Entity_Attach,
+    /* type = */ void (*)(Red::Entity* aEntity, uintptr_t)>();
+
+constexpr auto Detach = Core::RawFunc<
+    /* addr = */ Red::Addresses::Entity_Detach,
+    /* type = */ void (*)(Red::Entity* aEntity)>();
+
+// constexpr auto GetComponents = Core::RawFunc<
+//     /* addr = */ Red::Addresses::Entity_GetComponents,
+//     /* type = */ Red::DynArray<Red::Handle<Red::IComponent>>& (*)(Red::Entity* aEntity)>();
 }

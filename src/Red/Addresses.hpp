@@ -14,10 +14,14 @@ constexpr uintptr_t GetScriptGameInstance = 0x1413F5C80 - ImageBase; // 40 53 48
 
 constexpr uintptr_t CBaseEngine_InitEngine = 0x140A7A190 - ImageBase; // 48 89 5C 24 10 55 56 41 56 48 8D 6C 24 B9 48 81 EC F0 00 00 00 4C 8B F2 48 8B F1 E8, expected: 1, index: 0
 
+constexpr uintptr_t Entity_Attach = 0x141047670 - ImageBase; // 48 89 5C 24 08 48 89 74 24 10 48 89 7C 24 18 4C 89 64 24 20 55 41 56 41 57 48 8B EC 48 81 EC 80 00 00 00 C6 81 56 01 00 00 03 4C 8B FA 80 7A 18 00, expected: 1, index: 0
+constexpr uintptr_t Entity_Detach = 0x14104AC70 - ImageBase; // 48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 40 48 8B 81 B8 00 00 00 48 8B F1 C6 81 56 01 00 00 05, expected: 1, index: 0
+constexpr uintptr_t Entity_Dispose = 0x14104ADE0 - ImageBase; // 40 56 48 83 EC 60 0F B6 81 56 01 00 00 48 8B F1 2C 02 3C 03 0F 87 ? ? ? ? 48 8B 89 B8 00 00 00, expected: 1, index: 0
 constexpr uintptr_t Entity_GetComponents = 0x14104B5B0 - ImageBase; // 48 83 C1 70 E9, expected: 7, index: 1
-constexpr uintptr_t Entity_OnAssemble = 0x141046F30 - ImageBase; // 48 89 5C 24 08 57 48 81 EC 00 01 00 00 48 8B 02 48 8B FA 48 89 41 60 48 8B D9 48 8B 42 08 48 89 41 50, expected: 1, index: 0
 constexpr uintptr_t Entity_Initialize = 0x14104C9B0 - ImageBase; // 48 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 B8 FB FF FF 48 81 EC 48 05 00 00, expected: 1, index: 0
+constexpr uintptr_t Entity_OnAssemble = 0x141046F30 - ImageBase; // 48 89 5C 24 08 57 48 81 EC 00 01 00 00 48 8B 02 48 8B FA 48 89 41 60 48 8B D9 48 8B 42 08 48 89 41 50, expected: 1, index: 0
 constexpr uintptr_t Entity_Reassemble = 0x141047050 - ImageBase; // 40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 88 48 81 EC 78 01 00 00 4C 8B EA 49 8B D9 48 8D 55 88, expected: 1, index: 0
+constexpr uintptr_t Entity_Uninitialize = 0x141051A10 - ImageBase; // 48 89 5C 24 18 55 56 57 48 83 EC 50 48 8B F1 C6 81 56 01 00 00 06 48 81 C1 D8 00 00 00 E8, expected: 1, index: 0
 
 constexpr uintptr_t InkLayer_RegisterListener = 0x14085C2D0 - ImageBase; // 48 89 5C 24 10 48 89 74 24 18 57 48 83 EC 40 48 8B F1 48 8B FA 48 81 C1 30 01 00 00 E8, expected: 2, index: 0
 constexpr uintptr_t InkLayer_AttachWidgetTree = 0x14085CCF0 - ImageBase; // 48 89 5C 24 10 48 89 74 24 20 55 57 41 56 48 8B EC 48 83 EC 70 4C 8B F1 49 8B D8 48 8D 4D 30, expected: 2, index: 1

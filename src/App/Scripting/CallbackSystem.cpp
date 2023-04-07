@@ -1,15 +1,21 @@
 #include "CallbackSystem.hpp"
 #include "App/Scripting/EventControllers/EntityAssembleHook.hpp"
+#include "App/Scripting/EventControllers/EntityAttachHook.hpp"
+#include "App/Scripting/EventControllers/EntityDetachHook.hpp"
 #include "App/Scripting/EventControllers/EntityInitializeHook.hpp"
 #include "App/Scripting/EventControllers/EntityReassembleHook.hpp"
+#include "App/Scripting/EventControllers/EntityUninitializeHook.hpp"
 
 App::CallbackSystem::CallbackSystem()
 {
     s_self = this;
 
     RegisterEvent<EntityAssembleHook>();
+    RegisterEvent<EntityAttachHook>();
+    RegisterEvent<EntityDetachHook>();
     RegisterEvent<EntityInitializeHook>();
     RegisterEvent<EntityReassembleHook>();
+    RegisterEvent<EntityUninitializeHook>();
 }
 
 App::CallbackSystem::~CallbackSystem()
