@@ -22,20 +22,18 @@ public:
 
     bool Initialize() override
     {
-        return IsHooked<Raw::Entity::Reassemble>()
-            || HookBefore<Raw::Entity::Reassemble>(&Reassemble);
+        return IsHooked<Raw::Entity::Reassemble>() || HookBefore<Raw::Entity::Reassemble>(&OnReassemble);
     }
 
     bool Uninitialize() override
     {
-        return !IsHooked<Raw::Entity::Reassemble>()
-            || Unhook<Raw::Entity::Reassemble>();
+        return !IsHooked<Raw::Entity::Reassemble>() || Unhook<Raw::Entity::Reassemble>();
     }
 
 protected:
-    inline static void Reassemble(Red::Entity* aEntity, uintptr_t, uint64_t, uint64_t,
-                                  Red::DynArray<Red::Handle<Red::IComponent>>& aNewComponents,
-                                  Red::Handle<Red::ent::EntityParametersStorage>& aEntityParams)
+    inline static void OnReassemble(Red::Entity* aEntity, uintptr_t, uint64_t, uint64_t,
+                                    Red::DynArray<Red::Handle<Red::IComponent>>& aNewComponents,
+                                    Red::Handle<Red::ent::EntityParametersStorage>& aEntityParams)
     {
         auto storage = Raw::Entity::ComponentsStorage(aEntity);
         auto compCount = storage->components.size;

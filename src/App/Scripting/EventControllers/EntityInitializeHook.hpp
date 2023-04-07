@@ -22,14 +22,12 @@ public:
 
     bool Initialize() override
     {
-        return IsHooked<Raw::Entity::Initialize>()
-            || HookBefore<Raw::Entity::Initialize>(&OnInitialize);
+        return IsHooked<Raw::Entity::Initialize>() || HookBefore<Raw::Entity::Initialize>(&OnInitialize);
     }
 
     bool Uninitialize() override
     {
-        return !IsHooked<Raw::Entity::Initialize>()
-            || Unhook<Raw::Entity::Initialize>();
+        return !IsHooked<Raw::Entity::Initialize>() || Unhook<Raw::Entity::Initialize>();
     }
 
 protected:

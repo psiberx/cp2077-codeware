@@ -22,18 +22,16 @@ public:
 
     bool Initialize() override
     {
-        return IsHooked<Raw::Entity::OnAssemble>()
-            || HookAfter<Raw::Entity::OnAssemble>(&OnAssemble);
+        return IsHooked<Raw::Entity::OnAssemble>() || HookAfter<Raw::Entity::OnAssemble>(&OnAssemble);
     }
 
     bool Uninitialize() override
     {
-        return !IsHooked<Raw::Entity::OnAssemble>()
-            || Unhook<Raw::Entity::OnAssemble>();
+        return !IsHooked<Raw::Entity::OnAssemble>() || Unhook<Raw::Entity::OnAssemble>();
     }
 
 protected:
-    inline static void OnAssemble(Red::Entity* aEntity, uintptr_t a2, uintptr_t a3)
+    inline static void OnAssemble(Red::Entity* aEntity, uintptr_t, uintptr_t)
     {
         CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
     }

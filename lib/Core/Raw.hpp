@@ -84,7 +84,7 @@ template<uintptr_t A, typename T>
 class RawPtr : public RawBase
 {
 public:
-    using Type = std::conditional_t<std::is_pointer_v<T>, std::remove_pointer_t<T>, T>;
+    using Type = std::remove_pointer_t<T>;
     using Ptr = Type*;
 
     static constexpr uintptr_t offset = A;
@@ -160,7 +160,7 @@ template<uintptr_t A, typename T>
 class OffsetPtr
 {
 public:
-    using Type = std::conditional_t<std::is_pointer_v<T>, std::remove_pointer_t<T>, T>;
+    using Type = std::remove_pointer_t<T>;
     using Ptr = Type*;
 
     static constexpr uintptr_t offset = A;
@@ -171,40 +171,31 @@ public:
     {
     }
 
-    [[nodiscard]] inline operator Type&() const
+    [[nodiscard]] inline operator bool() const
     {
-        if constexpr (indirect)
+        if constexpr (std::is_same_v<Type, bool>)
         {
-            return **GetPtr();
+            return GetValuePtr() || *GetValuePtr();
         }
         else
         {
-            return *GetPtr();
+            return GetValuePtr();
         }
+    }
+
+    [[nodiscard]] inline operator Type&() const
+    {
+        return *GetValuePtr();
     }
 
     [[nodiscard]] inline operator Type*() const
     {
-        if constexpr (indirect)
-        {
-            return *GetPtr();
-        }
-        else
-        {
-            return GetPtr();
-        }
+        return GetValuePtr();
     }
 
     [[nodiscard]] inline Type* operator->() const
     {
-        if constexpr (indirect)
-        {
-            return *GetPtr();
-        }
-        else
-        {
-            return GetPtr();
-        }
+        return GetValuePtr();
     }
 
     OffsetPtr& operator=(T&& aRhs) const noexcept
@@ -222,6 +213,18 @@ public:
     [[nodiscard]] inline T* GetPtr() const noexcept
     {
         return reinterpret_cast<T*>(GetAddress());
+    }
+
+    [[nodiscard]] inline Type* GetValuePtr() const noexcept
+    {
+        if constexpr (indirect)
+        {
+            return *GetPtr();
+        }
+        else
+        {
+            return GetPtr();
+        }
     }
 
     [[nodiscard]] inline uintptr_t GetAddress() const noexcept
