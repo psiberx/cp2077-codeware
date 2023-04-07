@@ -25,3 +25,11 @@ public static func OperatorAssignMultiply(out res: ResourceAsyncRef, path: ResRe
 
 @addMethod(ResRef)
 public static native func GetHash(self: ResRef) -> Uint64
+
+public static func OperatorEqual(lhs: ResRef, rhs: ResRef) -> Bool {
+    return Equals(lhs, rhs);
+}
+
+public static func OperatorNotEqual(lhs: ResRef, rhs: ResRef) -> Bool {
+    return NotEquals(lhs, rhs);
+}
