@@ -13,12 +13,14 @@ public:
     ~CallbackSystem() override;
 
     void RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget, Red::CName aFunction,
-                          Red::Optional<bool> aPermanent);
+                          Red::Optional<bool> aSticky);
     void UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
                             Red::Optional<Red::CName> aFunction);
+
     void RegisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::CName aFunction,
-                                Red::Optional<bool> aPermanent);
+                                Red::Optional<bool> aSticky);
     void UnregisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::Optional<Red::CName> aFunction);
+
     void FireCallbacks(const Red::Handle<NamedEvent>& aEvent);
 
     template<typename TController>
@@ -43,6 +45,8 @@ public:
         }
     }
 
+    static Red::Handle<CallbackSystem>& Get();
+
 protected:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
     void OnAfterWorldDetach() override;
@@ -53,16 +57,22 @@ protected:
     template<typename Event, typename... Args>
     inline void TriggerEvent(Red::CName aEventName, Args&&... aArgs)
     {
-        std::shared_lock _(m_callbacksLock);
-        const auto& callbackListIt = m_callbacksByEvent.find(aEventName);
-
-        if (callbackListIt != m_callbacksByEvent.end())
+        Core::Vector<EventCallback> callbacks;
         {
-            const auto event = Red::MakeHandle<Event>(aEventName, std::forward<Args>(aArgs)...);
-            for (const auto& callback : callbackListIt.value())
-            {
-                callback(event);
-            }
+            std::shared_lock _(m_callbacksLock);
+            const auto& callbacksIt = m_callbacksByEvent.find(aEventName);
+
+            if (callbacksIt == m_callbacksByEvent.end())
+                return;
+
+            callbacks = callbacksIt.value();
+        }
+
+        const auto event = Red::MakeHandle<Event>(aEventName, std::forward<Args>(aArgs)...);
+
+        for (const auto& callback : callbacks)
+        {
+            callback(event);
         }
     }
 
@@ -70,7 +80,7 @@ protected:
     Core::Map<Red::CName, Core::Vector<EventCallback>> m_callbacksByEvent;
     Core::Map<Red::CName, Core::SharedPtr<EventController>> m_eventControllers;
 
-    inline static CallbackSystem* s_self;
+    inline static Red::Handle<CallbackSystem> s_self;
 
     RTTI_IMPL_TYPEINFO(App::CallbackSystem);
     RTTI_IMPL_ALLOCATOR();

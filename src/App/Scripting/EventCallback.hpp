@@ -4,17 +4,17 @@ namespace App
 {
 struct EventCallback
 {
-    EventCallback(const Red::WeakHandle<Red::IScriptable>& aObject, Red::CName aFunction, bool aPermanent)
+    EventCallback(const Red::WeakHandle<Red::IScriptable>& aObject, Red::CName aFunction, bool aSticky)
         : object(aObject)
         , function(aFunction)
-        , permanent(aPermanent)
+        , sticky(aSticky)
     {
     }
 
-    EventCallback(Red::CName aType, Red::CName aFunction, bool aPermanent)
+    EventCallback(Red::CName aType, Red::CName aFunction, bool aSticky)
         : type(aType)
         , function(aFunction)
-        , permanent(aPermanent)
+        , sticky(aSticky)
     {
     }
 
@@ -46,14 +46,14 @@ struct EventCallback
         return type;
     }
 
-    [[nodiscard]] bool IsPermanent() const noexcept
+    [[nodiscard]] bool IsSticky() const noexcept
     {
-        return permanent;
+        return sticky;
     }
 
     Red::WeakHandle<Red::IScriptable> object;
     Red::CName type;
     Red::CName function;
-    bool permanent;
+    bool sticky;
 };
 }

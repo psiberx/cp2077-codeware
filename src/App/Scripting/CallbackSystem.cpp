@@ -8,8 +8,6 @@
 
 App::CallbackSystem::CallbackSystem()
 {
-    s_self = this;
-
     RegisterEvent<EntityAssembleHook>();
     RegisterEvent<EntityAttachHook>();
     RegisterEvent<EntityDetachHook>();
@@ -20,7 +18,7 @@ App::CallbackSystem::CallbackSystem()
 
 App::CallbackSystem::~CallbackSystem()
 {
-    s_self = nullptr;
+    s_self.Reset();
 }
 
 void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
@@ -37,7 +35,7 @@ void App::CallbackSystem::OnAfterWorldDetach()
         auto& callbackList = it.value();
 
         std::erase_if(callbackList, [](EventCallback& aCallback) -> bool {
-            return !aCallback.IsPermanent();
+            return !aCallback.IsSticky();
         });
 
         if (callbackList.empty())
@@ -48,10 +46,10 @@ void App::CallbackSystem::OnAfterWorldDetach()
 }
 
 void App::CallbackSystem::RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
-                                           Red::CName aFunction, Red::Optional<bool> aPermanent)
+                                           Red::CName aFunction, Red::Optional<bool> aSticky)
 {
     std::unique_lock _(m_callbacksLock);
-    m_callbacksByEvent[aEvent].emplace_back(aTarget, aFunction, aPermanent);
+    m_callbacksByEvent[aEvent].emplace_back(aTarget, aFunction, aSticky);
 
     InitializeEvent(aEvent);
 }
@@ -78,10 +76,10 @@ void App::CallbackSystem::UnregisterCallback(Red::CName aEvent, const Red::Handl
 }
 
 void App::CallbackSystem::RegisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::CName aFunction,
-                                                 Red::Optional<bool> aPermanent)
+                                                 Red::Optional<bool> aSticky)
 {
     std::unique_lock _(m_callbacksLock);
-    m_callbacksByEvent[aEvent].emplace_back(aType, aFunction, aPermanent);
+    m_callbacksByEvent[aEvent].emplace_back(aType, aFunction, aSticky);
 
     InitializeEvent(aEvent);
 }
@@ -127,15 +125,20 @@ void App::CallbackSystem::UninitializeEvent(Red::CName aEvent)
 
 void App::CallbackSystem::FireCallbacks(const Red::Handle<NamedEvent>& aEvent)
 {
-    std::shared_lock _(m_callbacksLock);
-    const auto& callbackListIt = m_callbacksByEvent.find(aEvent->eventName);
-
-    if (callbackListIt != m_callbacksByEvent.end())
+    Core::Vector<EventCallback> callbacks;
     {
-        for (const auto& callback : callbackListIt.value())
-        {
-            callback(aEvent);
-        }
+        std::shared_lock _(m_callbacksLock);
+        const auto& callbacksIt = m_callbacksByEvent.find(aEvent->eventName);
+
+        if (callbacksIt == m_callbacksByEvent.end())
+            return;
+
+        callbacks = callbacksIt.value();
+    }
+
+    for (const auto& callback : callbacks)
+    {
+        callback(aEvent);
     }
 }
 
@@ -145,4 +148,14 @@ void App::CallbackSystem::PassEvent(const Red::Handle<NamedEvent>& aEvent)
     {
         s_self->FireCallbacks(aEvent);
     }
+}
+
+Red::Handle<App::CallbackSystem>& App::CallbackSystem::Get()
+{
+    if (!s_self)
+    {
+        s_self = Red::MakeHandle<CallbackSystem>();
+    }
+
+    return s_self;
 }

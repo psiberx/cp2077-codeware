@@ -11,6 +11,14 @@ struct NamedEvent : Red::IScriptable
     {
     }
 
+    void InitEvent(Red::CName aEventName)
+    {
+        if (!eventName)
+        {
+            eventName = aEventName;
+        }
+    }
+
     Red::CName eventName;
 
     RTTI_IMPL_TYPEINFO(App::NamedEvent);
@@ -20,5 +28,6 @@ struct NamedEvent : Red::IScriptable
 
 RTTI_DEFINE_CLASS(App::NamedEvent, {
     RTTI_ABSTRACT();
+    RTTI_METHOD(InitEvent);
     RTTI_GETTER(eventName);
 });
