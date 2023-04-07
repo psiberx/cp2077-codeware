@@ -66,6 +66,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/IGameSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IPersistencySystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IPopulationSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/Object.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentState.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
@@ -107,7 +108,3 @@
 #include "Red/TypeInfo.hpp"
 #include "Red/Specializations.hpp"
 #include "Red/Utils.hpp"
-
-#ifdef VERBOSE
-#include "Red/Log.hpp"
-#endif

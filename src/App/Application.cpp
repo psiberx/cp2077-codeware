@@ -11,9 +11,11 @@
 App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
 {
     Register<Core::RuntimeProvider>(aHandle)->SetBaseImagePathDepth(2);
+
     Register<Support::MinHookProvider>();
     Register<Support::SpdlogProvider>();
     Register<Support::RedLibProvider>();
+
     Register<App::ScriptingService>();
     Register<App::PersistencyService>();
     Register<App::WidgetBuildingService>();
