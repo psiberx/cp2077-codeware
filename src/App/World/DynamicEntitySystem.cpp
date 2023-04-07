@@ -666,25 +666,30 @@ void App::DynamicEntitySystem::UnregisterListeners(Red::CName aTag)
 void App::DynamicEntitySystem::ProcessListeners(Red::EntityID aEntityID, App::DynamicEntityEventType aType,
                                                 Red::DynArray<Red::CName>& aTags)
 {
-    std::shared_lock _(m_listenersLock);
-
     for (auto& tag : aTags)
     {
+        Core::Vector<EventListener> listeners;
+        {
+            std::shared_lock _(m_listenersLock);
+            const auto& listenersIt = m_listenersByTag.find(tag);
+
+            if (listenersIt == m_listenersByTag.end())
+                continue;
+
+            listeners = listenersIt.value();
+        }
+
         auto event = Red::MakeHandle<DynamicEntityEvent>(aType, aEntityID, tag);
 
-        auto listenersIt = m_listenersByTag.find(tag);
-        if (listenersIt != m_listenersByTag.end())
+        for (const auto& listener : listeners)
         {
-            for (const auto& listener : listenersIt.value())
+            if (!listener.target.Expired())
             {
-                if (!listener.target.Expired())
-                {
-                    Red::CallVirtual(listener.target.Lock(), listener.function, event);
-                }
+                Red::CallVirtual(listener.target.Lock(), listener.function, event);
             }
-
-            // TODO: Auto remove expired listeners
         }
+
+        // TODO: Auto remove expired listeners
     }
 }
 
