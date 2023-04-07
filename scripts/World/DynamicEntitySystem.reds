@@ -8,6 +8,8 @@ public native class DynamicEntitySystem extends IGameSystem {
     public native func EnableEntity(id: EntityID) -> Bool
     public native func DisableEntity(id: EntityID) -> Bool
 
+    public native func IsManaged(id: EntityID) -> Bool
+    public native func IsTagged(id: EntityID, tag: CName) -> Bool
     public native func IsSpawned(id: EntityID) -> Bool
     public native func IsSpawning(id: EntityID) -> Bool
     public native func GetEntity(id: EntityID) -> ref<Entity>

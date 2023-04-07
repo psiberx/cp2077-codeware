@@ -394,6 +394,38 @@ App::DynamicEntityStatePtr App::DynamicEntitySystem::RemoveEntityState(Red::Enti
     return entityState;
 }
 
+bool App::DynamicEntitySystem::IsManaged(Red::EntityID aEntityID)
+{
+    if (!m_ready)
+        return false;
+
+    std::shared_lock _(m_entityStateLock);
+
+    return m_entityStateByID.contains(aEntityID);
+}
+
+bool App::DynamicEntitySystem::IsTagged(Red::EntityID aEntityID, Red::CName aTag)
+{
+    if (!m_ready)
+        return false;
+
+    std::shared_lock _(m_entityStateLock);
+    auto entityStateIt = m_entityStateByID.find(aEntityID);
+
+    if (entityStateIt == m_entityStateByID.end())
+        return false;
+
+    auto& entityState = entityStateIt.value();
+
+    for (const auto& tag : entityState->entitySpec->tags)
+    {
+        if (tag == aTag)
+            return true;
+    }
+
+    return false;
+}
+
 bool App::DynamicEntitySystem::IsSpawned(Red::EntityID aEntityID)
 {
     if (!m_ready)
@@ -427,7 +459,6 @@ Red::DynArray<Red::CName> App::DynamicEntitySystem::GetTags(Red::EntityID aEntit
         return {};
 
     std::shared_lock _(m_entityStateLock);
-
     auto entityStateIt = m_entityStateByID.find(aEntityID);
 
     if (entityStateIt == m_entityStateByID.end())
@@ -443,7 +474,6 @@ bool App::DynamicEntitySystem::AssignTag(Red::EntityID aEntityID, Red::CName aTa
         return false;
 
     std::unique_lock _(m_entityStateLock);
-
     auto entityStateIt = m_entityStateByID.find(aEntityID);
 
     if (entityStateIt == m_entityStateByID.end())
@@ -466,7 +496,6 @@ bool App::DynamicEntitySystem::UnassignTag(Red::EntityID aEntityID, Red::CName a
         return false;
 
     std::unique_lock _(m_entityStateLock);
-
     auto entityStateIt = m_entityStateByID.find(aEntityID);
 
     if (entityStateIt == m_entityStateByID.end())

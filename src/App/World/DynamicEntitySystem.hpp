@@ -20,6 +20,8 @@ public:
     bool EnableEntity(Red::EntityID aEntityID);
     bool DisableEntity(Red::EntityID aEntityID);
 
+    bool IsManaged(Red::EntityID aEntityID);
+    bool IsTagged(Red::EntityID aEntityID, Red::CName aTag);
     bool IsSpawned(Red::EntityID aEntityID);
     bool IsSpawning(Red::EntityID aEntityID);
     Red::Handle<Red::Entity> GetEntity(Red::EntityID aEntityID);
@@ -111,6 +113,8 @@ RTTI_DEFINE_CLASS(App::DynamicEntitySystem, {
     RTTI_METHOD(EnableEntity);
     RTTI_METHOD(DisableEntity);
 
+    RTTI_METHOD(IsManaged);
+    RTTI_METHOD(IsTagged);
     RTTI_METHOD(IsSpawned);
     RTTI_METHOD(IsSpawning);
     RTTI_METHOD(GetEntity);
