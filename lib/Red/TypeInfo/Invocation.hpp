@@ -82,15 +82,14 @@ inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... 
 
     if (combinedArgCount > 0)
     {
-        ((args.emplace_back(Red::ResolveType<Args>(), &aArgs)), ...);
+        ((args.emplace_back(Red::ResolveType<Args>(), const_cast<std::remove_cvref_t<Args>*>(&aArgs))), ...);
 
         if (aFunc->returnType)
         {
             stack.result = args.data();
 
-            if (stack.result->type != aFunc->returnType->type)
+            if (!Red::IsCompatible(stack.result->type, aFunc->returnType->type))
             {
-                // TODO: Compatible handles
                 return false;
             }
 
@@ -110,9 +109,8 @@ inline bool CallFunction(CBaseFunction* aFunc, IScriptable* aContext, Args&&... 
 
             for (uint32_t i = 0; i < aFunc->params.size; ++i)
             {
-                if (stack.args[i].type != aFunc->params[i]->type)
+                if (!Red::IsCompatible(aFunc->params[i]->type, stack.args[i].type, stack.args[i].value))
                 {
-                    // TODO: Compatible handles
                     return false;
                 }
             }
