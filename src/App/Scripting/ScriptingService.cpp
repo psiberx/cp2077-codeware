@@ -5,15 +5,20 @@ namespace
 {
 constexpr auto ResourceWrapperName = Red::GetTypeName<App::ResourceWrapper>();
 constexpr auto ResourceAsyncWrapperName = Red::GetTypeName<App::ResourceAsyncWrapper>();
-constexpr auto ScriptResourceReferenceAlias = Red::CName(Red::redResourceReferenceScriptToken::ALIAS);
-
+constexpr auto ResourceScriptReferenceAlias = Red::CName(Red::redResourceReferenceScriptToken::ALIAS);
 constexpr auto ResourceReferencePrefix = Red::GetTypePrefixStr<Red::ResourceReference>();
 constexpr auto ResourceAsyncReferencePrefix = Red::GetTypePrefixStr<Red::ResourceAsyncReference>();
 }
 
 void App::ScriptingService::OnBootstrap()
 {
-    if (!HookAfter<Raw::IScriptable::InitializeScriptData>(&OnInitializeScriptable))
+    if (!HookAfter<Raw::ScriptBundle::Destruct>(&OnInitializeScripts))
+        throw std::runtime_error("Failed to hook ScriptBundle::Destruct.");
+
+    if (!HookAfter<Raw::CGameFramework::InitializeGameInstance>(&OnInitializeGameInstance))
+        throw std::runtime_error("Failed to hook CGameFramework::InitializeGameInstance.");
+
+    if (!HookAfter<Raw::IScriptable::InitializeScriptData>(&OnInitializeInstance))
         throw std::runtime_error("Failed to hook IScriptable::InitializeScriptData.");
 
     if (!HookAfter<Raw::ScriptValidator::CompareTypeName>(&OnValidateTypeName))
@@ -23,7 +28,39 @@ void App::ScriptingService::OnBootstrap()
         throw std::runtime_error("Failed to hook ScriptGameInstance.");
 }
 
-void App::ScriptingService::OnInitializeScriptable(Red::IScriptable* aInstance, Red::CClass* aClass, void*)
+void App::ScriptingService::OnInitializeScripts()
+{
+    Red::DynArray<Red::CClass*> envTypes;
+    Red::CRTTISystem::Get()->GetDerivedClasses(Red::GetClass<ScriptableEnv>(), envTypes);
+
+    for (auto envType : envTypes)
+    {
+        const auto& envIt = s_environments.find(envType);
+
+        if (envIt != s_environments.end())
+        {
+            auto& env = envIt.value();
+            Red::CallVirtual(env, "OnReload");
+        }
+        else
+        {
+            auto env = Red::AsHandle<ScriptableEnv>(envType->CreateInstance());
+            Red::CallVirtual(env, "OnLoad");
+
+            s_environments.emplace(envType, std::move(env));
+        }
+    }
+}
+
+void App::ScriptingService::OnInitializeGameInstance()
+{
+    for (const auto& [envType, env] : s_environments)
+    {
+        Red::CallVirtual(env, "OnInitialize");
+    }
+}
+
+void App::ScriptingService::OnInitializeInstance(Red::IScriptable* aInstance, Red::CClass* aClass, void*)
 {
     if (aClass->flags.isScriptedClass)
     {
@@ -40,7 +77,7 @@ void App::ScriptingService::OnValidateTypeName(bool& aValid, Red::CName aScriptT
             aValid = strncmp(ResourceReferencePrefix.data(), aNativeTypeName.ToString(),
                              ResourceReferencePrefix.size() - 1) == 0;
         }
-        else if (aScriptTypeName == ResourceAsyncWrapperName || aScriptTypeName == ScriptResourceReferenceAlias)
+        else if (aScriptTypeName == ResourceAsyncWrapperName || aScriptTypeName == ResourceScriptReferenceAlias)
         {
             aValid = strncmp(ResourceAsyncReferencePrefix.data(), aNativeTypeName.ToString(),
                              ResourceAsyncReferencePrefix.size() - 1) == 0;

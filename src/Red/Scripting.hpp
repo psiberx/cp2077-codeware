@@ -15,3 +15,10 @@ constexpr auto CompareTypeName = Core::RawFunc<
     /* addr = */ Red::Addresses::ScriptValidator_CompareTypeName,
     /* type = */ bool (*)(Red::CName aScriptTypeName, Red::CName aNativeTypeName)>();
 }
+
+namespace Raw::ScriptBundle
+{
+constexpr auto Destruct = Core::RawFunc<
+    /* addr = */ Red::Addresses::ScriptBundle_dtor,
+    /* type = */ void (*)(void* aBundle)>();
+}
