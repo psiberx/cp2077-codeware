@@ -15,6 +15,8 @@ void App::WidgetBuildingService::OnBootstrap()
 void App::WidgetBuildingService::OnShutdown()
 {
     Unhook<Raw::inkWidget::ScriptReparent>();
+    Unhook<Raw::inkCompoundWidget::ScriptAddChild>();
+    Unhook<Raw::inkLogicController::OnInitialize>();
 }
 
 void App::WidgetBuildingService::AfterReparentFromScript(Red::inkWidget* aWidget, Red::CStackFrame*, void*, void*)
@@ -91,7 +93,7 @@ bool App::WidgetBuildingService::AttachController(const Red::Handle<Red::inkWidg
 
     Raw::inkLayer::RegisterListener(layer, aController);
 
-	aController->OnInitialize();
+    aController->OnInitialize();
 
     return true;
 }
