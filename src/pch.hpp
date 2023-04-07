@@ -53,20 +53,23 @@
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Quaternion.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Vector4.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/ComponentsStorage.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/Entity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityID.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/EntityParametersStorage.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/IComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/EntityStubComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IDynamicEntityIDSystem.hpp>
-#include <RED4ext/Scripting/Natives/Generated/game/IEntityStubSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IEntitySpawnerEventsBroadcaster.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/IEntityStubSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IGameSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IPersistencySystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IPopulationSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentState.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/ui/CustomizationAppearance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CharacterEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
@@ -87,6 +90,8 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLogicController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetReference.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
+#include <RED4ext/Scripting/Natives/Generated/net/PeerID.hpp>
+#include <RED4ext/Scripting/Natives/Generated/population/PopulationSpawnParameter.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
 
@@ -101,6 +106,7 @@
 #include "Red/LogChannel.hpp"
 #include "Red/TypeInfo.hpp"
 #include "Red/Specializations.hpp"
+#include "Red/Utils.hpp"
 
 #ifdef VERBOSE
 #include "Red/Log.hpp"

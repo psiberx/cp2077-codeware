@@ -21,6 +21,12 @@ def patterns():
                      pattern="48 83 C1 70 E9",
                      expected=7,
                      index=1),
+                Item(name="OnAssemble",
+                     pattern="48 89 5C 24 08 57 48 81 EC 00 01 00 00 48 8B 02 48 8B FA 48 89 41 60 48 8B D9 48 8B 42 08 48 89 41 50"),
+                Item(name="Initialize",
+                     pattern="48 89 54 24 10 55 53 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 B8 FB FF FF 48 81 EC 48 05 00 00"),
+                Item(name="Reassemble",
+                     pattern="40 55 53 56 57 41 54 41 55 41 56 41 57 48 8D 6C 24 88 48 81 EC 78 01 00 00 4C 8B EA 49 8B D9 48 8D 55 88"),
             ]),
             Group(name="InkLayer", functions=[
                 Item(name="RegisterListener",

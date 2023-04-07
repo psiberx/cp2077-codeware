@@ -9,6 +9,7 @@
 #include "App/Ink/inkWidgetEx.hpp"
 #include "App/Ink/inkWidgetReferenceEx.hpp"
 #include "App/Reflection/Reflection.hpp"
+#include "App/Scripting/CallbackSystem.hpp"
 #include "App/Utils/Bits.hpp"
 #include "App/Utils/CName.hpp"
 #include "App/Utils/CRUID.hpp"
