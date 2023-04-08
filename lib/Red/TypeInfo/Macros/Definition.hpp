@@ -29,7 +29,7 @@
 #define X_RTTI_OVERLOAD(F, ...) X_RTTI_SELECT_MACRO(F, __VA_ARGS__)(__VA_ARGS__)
 
 #define RTTI_MEMBER_ACCESS(_class) \
-    friend class Red::TypeInfoBuilder<Red::Scope::For<_class>()>; \
+    friend struct Red::TypeInfoBuilder<Red::Scope::For<_class>()>; \
     friend class Red::ClassDescriptor<_class>;
 
 #define RTTI_IMPL_TYPEINFO(_class) \

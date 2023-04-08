@@ -1,5 +1,7 @@
 # Codeware
 
+Codeware is a library and framework for creating redscript and Cyber Engine Tweaks mods.
+
 ## Getting Started
 
 ### Prerequisites
