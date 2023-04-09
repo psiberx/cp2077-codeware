@@ -3,6 +3,7 @@
 #include "App/Depot/ResourceToken.hpp"
 #include "App/Entity/EntityEx.hpp"
 #include "App/Entity/GameObjectEx.hpp"
+#include "App/Entity/TagListEx.hpp"
 #include "App/Ink/inkCharacterEventEx.hpp"
 #include "App/Ink/inkComponent.hpp"
 #include "App/Ink/inkLayerWrapper.hpp"
