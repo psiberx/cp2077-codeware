@@ -375,7 +375,7 @@ inline std::string MakeScriptFunctionName(CBaseFunction* aFunc, const char* aNam
     return name;
 }
 
-inline Memory::AllocationResult MakeScriptForwardCode(CBaseFunction* aFunc)
+inline RawBuffer MakeScriptForwardCode(CBaseFunction* aFunc)
 {
     constexpr uint8_t ParamOp = 25;
     constexpr uint8_t CallStaticOp = 36;
@@ -429,9 +429,7 @@ inline Memory::AllocationResult MakeScriptForwardCode(CBaseFunction* aFunc)
     *code = ParamEndOp;
     code += OpSize;
 
-    buffer.size = finalCodeSize;
-
-    return buffer;
+    return {buffer.memory, finalCodeSize};
 }
 
 using FunctionFlagsStorage = uint32_t;
@@ -585,14 +583,14 @@ public:
 
         Memory::RTTIFunctionAllocator allocator;
         auto scriptFunc = allocator.Alloc<CClassFunction>();
-        std::memcpy(scriptFunc, nativeFunc, sizeof(CClassFunction));
+        std::memcpy(scriptFunc, nativeFunc, sizeof(CClassFunction)); // NOLINT(bugprone-undefined-memory-manipulation)
 
         auto fullName = Detail::MakeScriptFunctionName(scriptFunc, aName);
         scriptFunc->shortName = CNamePool::Add(aName);
         scriptFunc->fullName = CNamePool::Add(fullName.c_str());
 
         auto bytecode = Detail::MakeScriptForwardCode(nativeFunc);
-        scriptFunc->bytecode.bytecode.buffer.data = bytecode.memory;
+        scriptFunc->bytecode.bytecode.buffer.data = bytecode.data;
         scriptFunc->bytecode.bytecode.buffer.size = bytecode.size;
 
         scriptFunc->flags.isNative = false;
@@ -892,6 +890,10 @@ struct ClassDefinition
                 if constexpr (Detail::IsGameSystem<TClass>)
                 {
                     type->parent = GetClass<IGameSystem>();
+                }
+                else if constexpr (Detail::IsScriptableSystem<TClass>)
+                {
+                    type->parent = GetClass<ScriptableSystem>();
                 }
                 else
                 {
