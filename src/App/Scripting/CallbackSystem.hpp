@@ -49,7 +49,17 @@ public:
 
 protected:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
+    void OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup&) override;
+    void OnBeforeWorldDetach(Red::world::RuntimeScene* aScene) override;
+    void OnWorldDetached(Red::world::RuntimeScene* aScene) override;
     void OnAfterWorldDetach() override;
+    uint32_t OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2) override;
+    void OnGameSave(void* aStream) override;
+    void OnAfterGameSave() override;
+    void OnGamePrepared() override;
+    bool OnGameRestored() override;
+    void OnGamePaused() override;
+    void OnGameResumed() override;
 
     inline void InitializeEvent(Red::CName aEvent);
     inline void UninitializeEvent(Red::CName aEvent);
@@ -75,6 +85,9 @@ protected:
             callback(event);
         }
     }
+
+    bool m_restored;
+    bool m_pregame;
 
     std::shared_mutex m_callbacksLock;
     Core::Map<Red::CName, Core::Vector<EventCallback>> m_callbacksByEvent;

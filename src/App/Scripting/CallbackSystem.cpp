@@ -1,12 +1,16 @@
 #include "CallbackSystem.hpp"
-#include "App/Scripting/EventControllers/EntityAssembleHook.hpp"
-#include "App/Scripting/EventControllers/EntityAttachHook.hpp"
-#include "App/Scripting/EventControllers/EntityDetachHook.hpp"
-#include "App/Scripting/EventControllers/EntityInitializeHook.hpp"
-#include "App/Scripting/EventControllers/EntityReassembleHook.hpp"
-#include "App/Scripting/EventControllers/EntityUninitializeHook.hpp"
+#include "App/Scripting/Events/EntityAssembleHook.hpp"
+#include "App/Scripting/Events/EntityAttachHook.hpp"
+#include "App/Scripting/Events/EntityDetachHook.hpp"
+#include "App/Scripting/Events/EntityInitializeHook.hpp"
+#include "App/Scripting/Events/EntityReassembleHook.hpp"
+#include "App/Scripting/Events/EntityUninitializeHook.hpp"
+#include "App/Scripting/Events/GameSessionEvent.hpp"
+#include "Red/InkSystem.hpp"
 
 App::CallbackSystem::CallbackSystem()
+    : m_restored(false)
+    , m_pregame(false)
 {
     RegisterEvent<EntityAssembleHook>();
     RegisterEvent<EntityAttachHook>();
@@ -23,10 +27,33 @@ App::CallbackSystem::~CallbackSystem()
 
 void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
+    {
+        auto handler = Red::InkSystem::Get()->GetSystemRequestsHandler();
+        Red::CallVirtual(handler.instance, "IsPreGame", m_pregame);
+    }
+
+    TriggerEvent<GameSessionEvent>("Session/BeforeStart", m_pregame, m_restored);
+}
+
+void App::CallbackSystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup&)
+{
+    m_restored = aRestored;
+}
+
+void App::CallbackSystem::OnBeforeWorldDetach(RED4ext::world::RuntimeScene* aScene)
+{
+    TriggerEvent<GameSessionEvent>("Session/BeforeEnd", m_pregame, m_restored);
+}
+
+void App::CallbackSystem::OnWorldDetached(RED4ext::world::RuntimeScene* aScene)
+{
+    TriggerEvent<GameSessionEvent>("Session/End", m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnAfterWorldDetach()
 {
+    m_restored = false;
+
     std::unique_lock _(m_callbacksLock);
 
     for (auto it = m_callbacksByEvent.begin(); it != m_callbacksByEvent.end(); ++it)
@@ -43,6 +70,50 @@ void App::CallbackSystem::OnAfterWorldDetach()
             UninitializeEvent(event);
         }
     }
+}
+
+uint32_t App::CallbackSystem::OnBeforeGameSave(const RED4ext::JobGroup& aJobGroup, void* a2)
+{
+    TriggerEvent<GameSessionEvent>("Session/BeforeSave", m_pregame, m_restored);
+
+    return 0;
+}
+
+void App::CallbackSystem::OnGameSave(void* aStream)
+{
+    TriggerEvent<GameSessionEvent>("Session/Save", m_pregame, m_restored);
+}
+
+void App::CallbackSystem::OnAfterGameSave()
+{
+    TriggerEvent<GameSessionEvent>("Session/AfterSave", m_pregame, m_restored);
+}
+
+void App::CallbackSystem::OnGamePrepared()
+{
+    TriggerEvent<GameSessionEvent>("Session/Start", m_pregame, m_restored);
+
+    if (!m_restored)
+    {
+        TriggerEvent<GameSessionEvent>("Session/Ready", m_pregame, m_restored);
+    }
+}
+
+bool App::CallbackSystem::OnGameRestored()
+{
+    TriggerEvent<GameSessionEvent>("Session/Ready", m_pregame, m_restored);
+
+    return true;
+}
+
+void App::CallbackSystem::OnGamePaused()
+{
+    TriggerEvent<GameSessionEvent>("Session/Pause", m_pregame, m_restored);
+}
+
+void App::CallbackSystem::OnGameResumed()
+{
+    TriggerEvent<GameSessionEvent>("Session/Resume", m_pregame, m_restored);
 }
 
 void App::CallbackSystem::RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
