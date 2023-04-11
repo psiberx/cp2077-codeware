@@ -13,4 +13,4 @@ RTTI_EXPAND_CLASS(Red::TagList, {
     RTTI_METHOD(Contains, bool(T::*)(const DynArray<CName>&) const, "HasTags");
     RTTI_METHOD(Add, void(T::*)(const DynArray<CName>&), "AddTags");
     RTTI_METHOD(Remove, void(T::*)(const DynArray<CName>&), "RemoveTags");
-})
+});
