@@ -77,6 +77,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ControllerProcessor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IEffect.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/ISystemRequestsHandler.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IWidgetController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/Layer.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/LayerProxy.hpp>

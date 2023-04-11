@@ -14,3 +14,8 @@ Red::DynArray<Red::Handle<Red::inkLayer>>& Red::InkSystem::GetLayers()
 {
     return layerManagers[0]->layers;
 }
+
+Red::WeakHandle<Red::ink::ISystemRequestsHandler>& Red::InkSystem::GetSystemRequestsHandler()
+{
+    return requestsHandler;
+}

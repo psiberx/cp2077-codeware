@@ -17,10 +17,13 @@ struct InkSystem
 
     InkLayerManager* GetLayerManager();
     DynArray<Handle<inkLayer>>& GetLayers();
+    WeakHandle<ink::ISystemRequestsHandler>& GetSystemRequestsHandler();
 
-    uint8_t unk00[0x338];
-    DynArray<SharedPtr<InkLayerManager>> layerManagers; // 338
+    uint8_t unk00[0x328];
+    WeakHandle<ink::ISystemRequestsHandler> requestsHandler; // 328
+    DynArray<SharedPtr<InkLayerManager>> layerManagers;      // 338
 };
+RED4EXT_ASSERT_OFFSET(InkSystem, requestsHandler, 0x328);
 RED4EXT_ASSERT_OFFSET(InkSystem, layerManagers, 0x338);
 }
 
