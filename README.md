@@ -6,12 +6,12 @@ Codeware is a library and framework for creating redscript and Cyber Engine Twea
 
 ### Prerequisites
 
-- [RED4ext](https://docs.red4ext.com/getting-started/installing-red4ext) 1.10.0+
+- [RED4ext](https://docs.red4ext.com/getting-started/installing-red4ext) 1.11.0+
 
 ### Compatibility
 
 - [redscript](https://github.com/jac3km4/redscript) 0.5.10+
-- [Cyber Engine Tweaks](https://github.com/yamashi/CyberEngineTweaks) 1.23.0+
+- [Cyber Engine Tweaks](https://github.com/yamashi/CyberEngineTweaks) 1.24.0+
 
 ### Installation
 
