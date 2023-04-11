@@ -6,6 +6,7 @@
 #include "App/Scripting/Events/EntityReassembleHook.hpp"
 #include "App/Scripting/Events/EntityUninitializeHook.hpp"
 #include "App/Scripting/Events/GameSessionEvent.hpp"
+#include "App/Scripting/Events/PlayerSpawnedHook.hpp"
 #include "Red/InkSystem.hpp"
 
 App::CallbackSystem::CallbackSystem()
@@ -18,6 +19,7 @@ App::CallbackSystem::CallbackSystem()
     RegisterEvent<EntityInitializeHook>();
     RegisterEvent<EntityReassembleHook>();
     RegisterEvent<EntityUninitializeHook>();
+    RegisterEvent<PlayerSpawnedHook>();
 }
 
 App::CallbackSystem::~CallbackSystem()
@@ -79,10 +81,10 @@ uint32_t App::CallbackSystem::OnBeforeGameSave(const RED4ext::JobGroup& aJobGrou
     return 0;
 }
 
-void App::CallbackSystem::OnGameSave(void* aStream)
-{
-    TriggerEvent<GameSessionEvent>("Session/Save", m_pregame, m_restored);
-}
+// void App::CallbackSystem::OnGameSave(void* aStream)
+// {
+//     TriggerEvent<GameSessionEvent>("Session/Save", m_pregame, m_restored);
+// }
 
 void App::CallbackSystem::OnAfterGameSave()
 {
@@ -92,11 +94,6 @@ void App::CallbackSystem::OnAfterGameSave()
 void App::CallbackSystem::OnGamePrepared()
 {
     TriggerEvent<GameSessionEvent>("Session/Start", m_pregame, m_restored);
-
-    if (!m_restored)
-    {
-        TriggerEvent<GameSessionEvent>("Session/Ready", m_pregame, m_restored);
-    }
 }
 
 bool App::CallbackSystem::OnGameRestored()
@@ -211,6 +208,16 @@ void App::CallbackSystem::FireCallbacks(const Red::Handle<NamedEvent>& aEvent)
     {
         callback(aEvent);
     }
+}
+
+bool App::CallbackSystem::IsRestored() const
+{
+    return m_restored;
+}
+
+bool App::CallbackSystem::IsPreGame() const
+{
+    return m_pregame;
 }
 
 void App::CallbackSystem::PassEvent(const Red::Handle<NamedEvent>& aEvent)

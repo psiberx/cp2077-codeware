@@ -105,6 +105,10 @@ def patterns():
                 Item(name="InitializeState",
                      pattern="40 55 53 56 41 56 41 57 48 8D 6C 24 C9 48 81 EC ? ? ? ? 4C 8B F2 33 DB 48 8B 52 10 48 8B F1"),
             ]),
+            Group(name="PlayerSystem", functions=[
+                Item(name="OnPlayerSpawned",
+                     pattern="48 8B C4 4C 89 48 20 55 56 57 48 8B EC 48 81 EC 80 00 00 00"),
+            ]),
             Group(name="ScriptBundle", functions=[
                 Item(name="dtor",
                      pattern="48 89 5C 24 08 48 89 74 24 10 57 48 83 EC 20 48 8B D9 E8 ? ? ? ? 48 8D 8B 38 01 00 00"),

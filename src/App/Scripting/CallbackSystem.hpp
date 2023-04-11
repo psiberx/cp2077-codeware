@@ -23,14 +23,28 @@ public:
 
     void FireCallbacks(const Red::Handle<NamedEvent>& aEvent);
 
-    template<typename TController>
-    inline void RegisterEvent()
-    {
-        auto controller = Core::MakeShared<TController>();
+    [[nodiscard]] bool IsRestored() const;
+    [[nodiscard]] bool IsPreGame() const;
 
-        for (const auto& event : controller->GetEvents())
+    template<typename Event, typename... Args>
+    inline void TriggerEvent(Red::CName aEventName, Args&&... aArgs)
+    {
+        Core::Vector<EventCallback> callbacks;
         {
-            m_eventControllers.emplace(event, controller);
+            std::shared_lock _(m_callbacksLock);
+            const auto& callbacksIt = m_callbacksByEvent.find(aEventName);
+
+            if (callbacksIt == m_callbacksByEvent.end())
+                return;
+
+            callbacks = callbacksIt.value();
+        }
+
+        const auto event = Red::MakeHandle<Event>(aEventName, std::forward<Args>(aArgs)...);
+
+        for (const auto& callback : callbacks)
+        {
+            callback(event);
         }
     }
 
@@ -54,37 +68,26 @@ protected:
     void OnWorldDetached(Red::world::RuntimeScene* aScene) override;
     void OnAfterWorldDetach() override;
     uint32_t OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2) override;
-    void OnGameSave(void* aStream) override;
+    // void OnGameSave(void* aStream) override;
     void OnAfterGameSave() override;
     void OnGamePrepared() override;
     bool OnGameRestored() override;
     void OnGamePaused() override;
     void OnGameResumed() override;
 
-    inline void InitializeEvent(Red::CName aEvent);
-    inline void UninitializeEvent(Red::CName aEvent);
-
-    template<typename Event, typename... Args>
-    inline void TriggerEvent(Red::CName aEventName, Args&&... aArgs)
+    template<typename TController>
+    inline void RegisterEvent()
     {
-        Core::Vector<EventCallback> callbacks;
+        auto controller = Core::MakeShared<TController>();
+
+        for (const auto& event : controller->GetEvents())
         {
-            std::shared_lock _(m_callbacksLock);
-            const auto& callbacksIt = m_callbacksByEvent.find(aEventName);
-
-            if (callbacksIt == m_callbacksByEvent.end())
-                return;
-
-            callbacks = callbacksIt.value();
-        }
-
-        const auto event = Red::MakeHandle<Event>(aEventName, std::forward<Args>(aArgs)...);
-
-        for (const auto& callback : callbacks)
-        {
-            callback(event);
+            m_eventControllers.emplace(event, controller);
         }
     }
+
+    inline void InitializeEvent(Red::CName aEvent);
+    inline void UninitializeEvent(Red::CName aEvent);
 
     bool m_restored;
     bool m_pregame;
