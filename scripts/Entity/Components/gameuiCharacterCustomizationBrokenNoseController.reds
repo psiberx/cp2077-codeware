@@ -1,0 +1,4 @@
+public native class gameuiCharacterCustomizationBrokenNoseController extends gameuiICharacterCustomizationComponent {
+  native let stage1App: gameuiCharacterCustomizationBrokenNoseControllerBrokenNoseAppearance;
+  native let stage2App: gameuiCharacterCustomizationBrokenNoseControllerBrokenNoseAppearance;
+}

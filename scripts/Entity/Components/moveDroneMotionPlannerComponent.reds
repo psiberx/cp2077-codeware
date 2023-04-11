@@ -1,0 +1,1 @@
+public native class moveDroneMotionPlannerComponent extends moveMotionPlannerComponent {}

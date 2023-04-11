@@ -1,0 +1,1 @@
+public abstract native class gameuiICharacterCustomizationBodyController extends gameuiICharacterCustomizationComponent {}
