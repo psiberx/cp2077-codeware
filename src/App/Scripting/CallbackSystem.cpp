@@ -7,19 +7,21 @@
 #include "App/Scripting/Events/EntityUninitializeHook.hpp"
 #include "App/Scripting/Events/GameSessionEvent.hpp"
 #include "App/Scripting/Events/PlayerSpawnedHook.hpp"
+#include "App/Scripting/Events/RawInputHandler.hpp"
 #include "Red/InkSystem.hpp"
 
 App::CallbackSystem::CallbackSystem()
     : m_restored(false)
     , m_pregame(false)
 {
-    RegisterEvent<EntityAssembleHook>();
-    RegisterEvent<EntityAttachHook>();
-    RegisterEvent<EntityDetachHook>();
-    RegisterEvent<EntityInitializeHook>();
-    RegisterEvent<EntityReassembleHook>();
-    RegisterEvent<EntityUninitializeHook>();
-    RegisterEvent<PlayerSpawnedHook>();
+    RegisterController<EntityAssembleHook>();
+    RegisterController<EntityAttachHook>();
+    RegisterController<EntityDetachHook>();
+    RegisterController<EntityInitializeHook>();
+    RegisterController<EntityReassembleHook>();
+    RegisterController<EntityUninitializeHook>();
+    RegisterController<PlayerSpawnedHook>();
+    RegisterController<RawInputHandler>();
 }
 
 App::CallbackSystem::~CallbackSystem()

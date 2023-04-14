@@ -76,7 +76,7 @@ protected:
     void OnGameResumed() override;
 
     template<typename TController>
-    inline void RegisterEvent()
+    inline void RegisterController()
     {
         auto controller = Core::MakeShared<TController>();
 
