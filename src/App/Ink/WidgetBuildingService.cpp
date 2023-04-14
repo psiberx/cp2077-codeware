@@ -23,7 +23,7 @@ void App::WidgetBuildingService::AfterReparentFromScript(Red::inkWidget* aWidget
 {
     if (!aWidget->layerProxy)
     {
-        AttachWidgetTree(*aWidget);
+        AttachWidgetTree(Red::AsHandle(aWidget));
     }
 }
 

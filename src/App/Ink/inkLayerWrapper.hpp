@@ -2,9 +2,7 @@
 
 namespace App
 {
-struct inkLayerWrapper
-    : Red::SelfHandle<inkLayerWrapper>
-    , Red::IScriptable
+struct inkLayerWrapper : Red::IScriptable
 {
     inkLayerWrapper()
         : layer(nullptr)

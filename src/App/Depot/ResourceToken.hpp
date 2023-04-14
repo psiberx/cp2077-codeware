@@ -2,7 +2,7 @@
 
 namespace App
 {
-struct ResourceTokenWrapper : Red::SelfHandle<ResourceTokenWrapper>, Red::IScriptable
+struct ResourceTokenWrapper : Red::IScriptable
 {
     ResourceTokenWrapper() = default;
 

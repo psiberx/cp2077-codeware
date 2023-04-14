@@ -13,7 +13,7 @@ struct inkComponent : Red::inkLogicController
 
         if (root)
         {
-            root->logicController = *this;
+            root->logicController = Red::ToHandle(this);
             detached = root;
             widget = root;
         }

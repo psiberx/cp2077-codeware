@@ -17,7 +17,7 @@ struct inkWidgetEx : Red::inkWidget
             logicController = aController;
         }
 
-        WidgetBuildingService::AttachController(*this, aController);
+        WidgetBuildingService::AttachController(Red::AsHandle(this), aController);
     }
 };
 }

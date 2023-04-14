@@ -45,7 +45,7 @@ void App::ScriptingService::OnInitializeScripts()
         }
         else
         {
-            auto env = Red::AsHandle<ScriptableEnv>(envType->CreateInstance());
+            auto env = Red::ToHandle<ScriptableEnv>(envType->CreateInstance());
             Red::CallVirtual(env, "OnLoad");
 
             s_environments.emplace(envType, std::move(env));
