@@ -17,6 +17,7 @@
 #include "App/Utils/CRUID.hpp"
 #include "App/Utils/Hashing.hpp"
 #include "App/Utils/NodeRef.hpp"
+#include "App/Utils/String.hpp"
 #include "App/World/DynamicEntityEvent.hpp"
 #include "App/World/DynamicEntitySpec.hpp"
 #include "App/World/DynamicEntityState.hpp"
