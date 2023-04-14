@@ -13,6 +13,9 @@ class ScriptingService
     : public Core::Feature
     , public Core::HookingAgent
 {
+public:
+    Red::Handle<ScriptableEnv> GetEnvironment(Red::CClass* aType);
+
 protected:
     void OnBootstrap() override;
 

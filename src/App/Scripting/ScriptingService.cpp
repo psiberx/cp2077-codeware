@@ -1,4 +1,5 @@
 #include "ScriptingService.hpp"
+#include "ScriptableEnv.hpp"
 #include "App/Depot/ResourceReference.hpp"
 
 namespace
@@ -96,4 +97,14 @@ void App::ScriptingService::GetScriptGameInstance(Red::IScriptable* aContext, Re
     {
         *aRet = game;
     }
+}
+
+Red::Handle<App::ScriptableEnv> App::ScriptingService::GetEnvironment(Red::CClass* aType)
+{
+    auto it = s_environments.find(aType);
+
+    if (it == s_environments.end())
+        return {};
+
+    return it.value();
 }
