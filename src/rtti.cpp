@@ -6,6 +6,7 @@
 #include "App/Entity/TagListEx.hpp"
 #include "App/Ink/inkCharacterEventEx.hpp"
 #include "App/Ink/inkComponent.hpp"
+#include "App/Ink/inkKeyInputEvent.hpp"
 #include "App/Ink/inkLayerWrapper.hpp"
 #include "App/Ink/inkSystem.hpp"
 #include "App/Ink/inkWidgetEx.hpp"

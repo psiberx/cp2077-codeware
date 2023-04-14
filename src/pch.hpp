@@ -52,6 +52,7 @@
 #include <RED4ext/Scripting/CProperty.hpp>
 #include <RED4ext/Scripting/IScriptable.hpp>
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
+#include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Quaternion.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Vector4.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/ComponentsStorage.hpp>
@@ -78,6 +79,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ControllerProcessor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IEffect.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/InputEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ISystemRequestsHandler.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IWidgetController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/Layer.hpp>

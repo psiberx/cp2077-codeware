@@ -2,6 +2,11 @@
 
 #include "Red/Addresses.hpp"
 
+namespace Red
+{
+struct EventManager {};
+}
+
 namespace Raw::inkLayer
 {
 constexpr auto RegisterListener = Core::RawFunc<
@@ -16,6 +21,8 @@ constexpr auto AttachWidgetTree = Core::RawFunc<
 
 namespace Raw::inkWidget
 {
+using EventManager = Core::OffsetPtr<0x50, Red::EventManager>;
+
 constexpr auto GetLayer = Core::RawFunc<
     /* addr = */ Red::Addresses::InkWidget_GetLayer,
     /* type = */ void (*)(Red::inkWidget* aWidget, Red::Handle<Red::inkLayerProxy>& aProxy)>();
@@ -27,6 +34,10 @@ constexpr auto SetLayer = Core::RawFunc<
 constexpr auto ScriptReparent = Core::RawFunc<
     /* addr = */ Red::Addresses::InkWidget_ScriptReparent,
     /* type = */ void (*)(Red::inkWidget* aWidget, Red::CStackFrame* aFrame, void*, void*)>();
+
+constexpr auto TriggerEvent = Core::RawFunc<
+    /* addr = */ Red::Addresses::InkWidget_TriggerEvent,
+    /* type = */ bool (*)(void* aManager, Red::CName aName, Red::Handle<Red::Event> aObject)>();
 }
 
 namespace Raw::inkCompoundWidget

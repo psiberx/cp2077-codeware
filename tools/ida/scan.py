@@ -65,6 +65,9 @@ def patterns():
                 Item(name="Instance",
                      pattern="BA ? ? 00 00 41 87 87 ? ? 00 00 4C 89 ? ? ? ? ? E8",
                      offset=15),
+            ], functions=[
+                Item(name="ProcessCharacterEvent",
+                     pattern="48 89 5C 24 20 55 56 41 57 48 8B EC 48 83 EC 70 48 8B 81 B8 02 00 00 0F 57 C0 45 8B F8 8B DA 4C 8B C9"),
             ]),
             Group(name="InkWidget", functions=[
                 Item(name="GetLayer",
@@ -76,6 +79,10 @@ def patterns():
                 Item(name="ScriptAddChild",
                      pattern="48 89 5C 24 08 57 48 83 EC 40 FE 42 62 4C 8D 15 ? ? ? ? 33 C0 0F 57 C0 48 89 42 30 48 8B F9 48 8B 4A 40 45 33 C9 48 89 42 38 48 8B DA",
                      expected=17),
+                Item(name="TriggerEvent",
+                     pattern="48 89 5C 24 08 57 48 83 EC 40 49 8B F8 E8 ? ? ? ? 48 85 C0 0F 84 ? ? ? ? 48 8B 0F 48 89 4C 24 20 48 8B 4F 08 48 89 4C 24 28 48 85 C9",
+                     expected=2,
+                     index=1),
             ]),
             Group(name="InkWidgetLibrary", functions=[
                 Item(name="AsyncSpawnFromExternal",

@@ -5,7 +5,7 @@
 
 namespace App
 {
-struct inkSystem : Red::IScriptable
+struct inkSystem : Red::IGameSystem
 {
     Red::DynArray<Red::Handle<App::inkLayerWrapper>> GetLayers()
     {
@@ -38,11 +38,6 @@ struct inkSystem : Red::IScriptable
         return {};
     }
 
-    static Red::Handle<inkSystem> Get()
-    {
-        return Red::MakeHandle<inkSystem>();
-    }
-
     RTTI_IMPL_TYPEINFO(App::inkSystem);
     RTTI_IMPL_ALLOCATOR();
 };
@@ -51,8 +46,4 @@ struct inkSystem : Red::IScriptable
 RTTI_DEFINE_CLASS(App::inkSystem, {
     RTTI_METHOD(GetLayers);
     RTTI_METHOD(GetLayer);
-});
-
-RTTI_EXPAND_CLASS(Red::ScriptGameInstance, {
-    RTTI_METHOD_FQN(App::inkSystem::Get, "GetInkSystem");
 });

@@ -1,6 +1,7 @@
 #include "Application.hpp"
 #include "App/Entity/PersistencyService.hpp"
 #include "App/Ink/WidgetBuildingService.hpp"
+#include "App/Ink/WidgetInputService.hpp"
 #include "App/Ink/WidgetSpawningService.hpp"
 #include "App/Scripting/ScriptingService.hpp"
 #include "Core/Foundation/LocaleProvider.hpp"
@@ -22,4 +23,5 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
     Register<App::PersistencyService>();
     Register<App::WidgetBuildingService>();
     Register<App::WidgetSpawningService>();
+    Register<App::WidgetInputService>();
 }
