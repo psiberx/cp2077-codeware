@@ -12,10 +12,10 @@ template<typename T, auto ADefault>
 requires (!std::is_void_v<T>)
 struct Optional<T, ADefault>
 {
-    template<typename = std::enable_if_t<!std::is_same_v<T, bool>>>
-    inline explicit operator bool()
+    template<typename U, typename = std::enable_if_t<!std::is_same_v<U, T>>>
+    [[nodiscard]] inline explicit operator U()
     {
-        return static_cast<bool>(value);
+        return static_cast<U>(value);
     }
 
     inline operator T&()
@@ -58,10 +58,10 @@ struct Optional<T, ADefault>
 template<typename T>
 struct Optional<T, 0>
 {
-    template<typename = std::enable_if_t<!std::is_same_v<T, bool>>>
-    inline explicit operator bool()
+    template<typename U, typename = std::enable_if_t<!std::is_same_v<U, T>>>
+    [[nodiscard]] inline explicit operator U()
     {
-        return static_cast<bool>(value);
+        return static_cast<U>(value);
     }
 
     inline operator T&()
