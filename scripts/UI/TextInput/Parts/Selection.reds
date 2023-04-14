@@ -7,15 +7,10 @@ import Codeware.UI.inkCustomController
 
 public class Selection extends inkCustomController {
     protected let m_selection: wref<inkRectangle>;
-
     protected let m_startPosition: Int32;
-
     protected let m_endPosition: Int32;
-
     protected let m_maxPosition: Int32;
-
     protected let m_fontSize: Float;
-
     protected let m_padSize: Float;
 
     protected cb func OnCreate() {

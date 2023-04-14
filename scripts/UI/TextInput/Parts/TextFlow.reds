@@ -126,7 +126,7 @@ public class TextFlow extends inkCustomController {
 
     public func SetText(text: String) {
         this.m_value = text;
-        this.m_length = StrLen(text);
+        this.m_length = UTF8StrLen(text);
 
         this.m_text.SetText(this.m_value);
 
@@ -263,8 +263,8 @@ public class TextFlow extends inkCustomController {
                 this.m_value += char;
                 break;
             default:
-                this.m_value = StrLeft(this.m_value, position)
-                    + char + StrRight(this.m_value, this.m_length - position);
+                this.m_value = UTF8StrLeft(this.m_value, position)
+                    + char + UTF8StrRight(this.m_value, this.m_length - position);
         }
 
         this.m_length += 1;
@@ -274,20 +274,54 @@ public class TextFlow extends inkCustomController {
         this.UpdatePlaceholder();
     }
 
+    public func InsertTextAt(position: Int32, text: String) {
+        let length = UTF8StrLen(text);
+
+        if this.m_length + length > this.m_maxLength {
+            return;
+        }
+
+        position = Max(position, 0);
+        position = Min(position, this.m_length);
+
+        switch position {
+            case 0:
+                this.m_value = text + this.m_value;
+                break;
+            case this.m_length:
+                this.m_value += text;
+                break;
+            default:
+                this.m_value = UTF8StrLeft(this.m_value, position)
+                    + text + UTF8StrRight(this.m_value, this.m_length - position);
+        }
+
+        this.m_length += length;
+        this.m_text.SetText(this.m_value);
+
+        while length > 0 {
+            this.ProcessInsertion(position, -1.0);
+            position += 1;
+            length -= 1;
+        }
+
+        this.UpdatePlaceholder();
+    }
+
     public func DeleteCharAt(position: Int32) {
         position = Max(position, 0);
         position = Min(position, this.m_length - 1);
 
         switch position {
             case 0:
-                this.m_value = StrRight(this.m_value, this.m_length - 1);
+                this.m_value = UTF8StrRight(this.m_value, this.m_length - 1);
                 break;
             case this.m_length - 1:
-                this.m_value = StrLeft(this.m_value, this.m_length - 1);
+                this.m_value = UTF8StrLeft(this.m_value, this.m_length - 1);
                 break;
             default:
-                this.m_value = StrLeft(this.m_value, position)
-                    + StrRight(this.m_value, this.m_length - position - 1);
+                this.m_value = UTF8StrLeft(this.m_value, position)
+                    + UTF8StrRight(this.m_value, this.m_length - position - 1);
         }
 
         this.m_length -= 1;
@@ -308,8 +342,8 @@ public class TextFlow extends inkCustomController {
             return;
         }
 
-        this.m_value = StrLeft(this.m_value, start) + StrRight(this.m_value, this.m_length - end);
-        this.m_length = StrLen(this.m_value);
+        this.m_value = UTF8StrLeft(this.m_value, start) + UTF8StrRight(this.m_value, this.m_length - end);
+        this.m_length = UTF8StrLen(this.m_value);
 
         this.m_text.SetText(this.m_value);
 

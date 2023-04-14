@@ -86,11 +86,11 @@ public class TextMeasurer extends inkCustomController {
     }
 
     protected func MakeTargetChar() -> String {
-        return StrMid(this.m_targetText, Min(StrLen(this.m_targetText), this.m_targetPosition) - 1, 1);
+        return UTF8StrMid(this.m_targetText, Min(UTF8StrLen(this.m_targetText), this.m_targetPosition) - 1, 1);
     }
 
     protected func MakeTargetChunk() -> String {
-        return StrLeft(this.m_targetText, this.m_targetPosition);
+        return UTF8StrLeft(this.m_targetText, this.m_targetPosition);
     }
 
     protected func QueueMeasure(text: String, char: Bool, length: Int32, position: Int32) -> Bool {
@@ -232,12 +232,16 @@ public class TextMeasurer extends inkCustomController {
         return this.QueueMeasure(char, true, position, position);
     }
 
+    public func MeasureSpan(text: String, position: Int32, length: Int32) -> Bool {
+        return this.QueueMeasure(text, true, position + length, position);
+    }
+
     public func MeasureAllChars(text: String) -> Bool {
-        return this.QueueMeasure(text, true, StrLen(text), 1);
+        return this.QueueMeasure(text, true, UTF8StrLen(text), 1);
     }
 
     public func MeasureChunk(text: String) -> Bool {
-        return this.QueueMeasure(text, false, StrLen(text), 1);
+        return this.QueueMeasure(text, false, UTF8StrLen(text), 1);
     }
 
     public func MeasureChunk(text: String, position: Int32) -> Bool {

@@ -2,16 +2,10 @@
 // Codeware.UI.TextInput [WIP]
 // -----------------------------------------------------------------------------
 //
-// Controls:
-// - Supports most of the standard controls for text inputs
-// - `Alt + Left` / `Alt + Right` to jump to the start and end
-// - `Caps Lock` is currently not working as expected
-//
 // Events:
 // - OnInput
 //
 // TODO:
-// - Switch keyboard layouts
 // - Navigate with `Ctrl + Left` / `Ctrl + Right`
 // - Select text using mouse cursor
 //
@@ -21,31 +15,18 @@ import Codeware.UI.TextInput.*
 
 public class TextInput extends inkCustomController {
     protected let m_root: wref<inkCompoundWidget>;
-
     protected let m_wrapper: wref<inkWidget>;
-
     protected let m_measurer: ref<TextMeasurer>;
-
     protected let m_viewport: ref<Viewport>;
-
     protected let m_selection: ref<Selection>;
-
     protected let m_text: ref<TextFlow>;
-
     protected let m_caret: ref<Caret>;
-
     protected let m_isDisabled: Bool;
-
     protected let m_isHovered: Bool;
-
     protected let m_isFocused: Bool;
-
-    protected let m_lastInputEvent: ref<inkCharacterEvent>;
-
+    protected let m_lastInputEvent: ref<inkKeyInputEvent>;
     protected let m_isHoldComplete: Bool;
-
     protected let m_holdTickCounter: Int32;
-
     protected let m_holdTickProxy: ref<inkAnimProxy>;
 
     protected cb func OnCreate() {
@@ -165,9 +146,8 @@ public class TextInput extends inkCustomController {
         this.RegisterToCallback(n"OnFocusReceived", this, n"OnFocusReceived");
         this.RegisterToCallback(n"OnFocusLost", this, n"OnFocusLost");
 
-        //this.RegisterToCallback(n"OnPress", this, n"OnPressKey");
         this.RegisterToCallback(n"OnRelease", this, n"OnReleaseKey");
-        this.RegisterToCallback(n"OnCharacterKey", this, n"OnCharacterKey");
+        this.RegisterToCallback(n"OnInputKey", this, n"OnInputKey");
 
         this.m_measurer.RegisterToCallback(n"OnTextMeasured", this, n"OnTextMeasured");
         this.m_measurer.RegisterToCallback(n"OnCharMeasured", this, n"OnTextMeasured");
@@ -190,78 +170,49 @@ public class TextInput extends inkCustomController {
         this.m_holdTickProxy.RegisterToCallback(inkanimEventType.OnStartLoop, this, n"OnHoldTick");
     }
 
-    protected func TranslateChar(code: Int32, opt isCapsLocked: Bool) -> String {
-        let char: String = StrChar(code);
+    protected func ProcessInputEvent(event: ref<inkKeyInputEvent>) {
+        if !event.IsControlDown() && !event.IsAltDown() && event.IsCharacter() {
+            if this.m_text.IsFull() {
+                return;
+            }
 
-        switch this.m_text.GetLetterCase() {
-            case textLetterCase.UpperCase:
-                char = StrUpper(char);
-                break;
-            case textLetterCase.LowerCase:
-                char = StrLower(char);
-                break;
-            default:
-                if isCapsLocked {
-                    char = StrUpper(char);
-                }
+            if this.m_measurer.IsMeasuring() {
+                return;
+            }
+
+            let char = event.GetCharacter();
+
+            switch this.m_text.GetLetterCase() {
+                case textLetterCase.UpperCase:
+                    char = UTF8StrUpper(char);
+                    break;
+                case textLetterCase.LowerCase:
+                    char = UTF8StrLower(char);
+                    break;
+            }
+
+            if !this.m_selection.IsEmpty() {
+                this.m_text.DeleteCharRange(
+                    this.m_selection.GetLeftPosition(),
+                    this.m_selection.GetRightPosition()
+                );
+            }
+
+            this.m_text.InsertCharAt(this.m_caret.GetPosition(), char);
+
+            this.m_caret.SetMaxPosition(this.m_text.GetLength());
+            this.m_caret.MoveToNextChar();
+
+            this.m_selection.SetMaxPosition(this.m_text.GetLength());
+            this.m_selection.Clear();
+
+            this.m_measurer.MeasureChar(char, this.m_caret.GetPosition());
+            //this.m_measurer.MeasureChunk(this.m_text.GetText(), this.m_caret.GetPosition());
+            return;
         }
 
-        return char;
-    }
-
-    protected func ProcessInputEvent(event: ref<inkCharacterEvent>) {
-        switch event.GetType() {
-            case inkCharacterEventType.CharInput:
-                if this.m_text.IsFull() {
-                    break;
-                }
-
-                if this.m_measurer.IsMeasuring() {
-                    break;
-                }
-
-                if event.IsAltDown() {
-                    // TODO: Alt + ... -- Switch layouts
-                    break;
-                }
-
-                if event.IsControlDown() {
-                    let code: Int32 = Cast(event.GetCharacter());
-
-                    // Ctrl + A
-                    if code == 64 || code == 97 {
-                        this.m_selection.SelectAll();
-                        this.m_caret.MoveToStart();
-                        this.UpdateLayout();
-                    }
-                    break;
-                }
-
-                // NOTE: Caps Lock modifier returns holding state instead of the lock on / off state.
-
-                let code: Int32 = Cast(event.GetCharacter());
-                let char: String = this.TranslateChar(code, event.IsCapsLocked());
-
-                if !this.m_selection.IsEmpty() {
-                    this.m_text.DeleteCharRange(
-                        this.m_selection.GetLeftPosition(),
-                        this.m_selection.GetRightPosition()
-                    );
-                }
-
-                this.m_text.InsertCharAt(this.m_caret.GetPosition(), char);
-
-                this.m_caret.SetMaxPosition(this.m_text.GetLength());
-                this.m_caret.MoveToNextChar();
-
-                this.m_selection.SetMaxPosition(this.m_text.GetLength());
-                this.m_selection.Clear();
-
-                this.m_measurer.MeasureChar(char, this.m_caret.GetPosition());
-                //this.m_measurer.MeasureChunk(this.m_text.GetText(), this.m_caret.GetPosition());
-                break;
-
-            case inkCharacterEventType.Delete:
+        switch event.GetKey() {
+            case EInputKey.IK_Delete:
                 if this.m_measurer.IsMeasuring() {
                     break;
                 }
@@ -289,7 +240,7 @@ public class TextInput extends inkCustomController {
                 this.TriggerChangeCallback();
                 break;
 
-            case inkCharacterEventType.Backspace:
+            case EInputKey.IK_Backspace:
                 if this.m_measurer.IsMeasuring() {
                     break;
                 }
@@ -318,7 +269,8 @@ public class TextInput extends inkCustomController {
                 this.TriggerChangeCallback();
                 break;
 
-            case inkCharacterEventType.MoveCaretForward:
+            case EInputKey.IK_Right:
+            case EInputKey.IK_End:
                 if this.m_measurer.IsMeasuring() {
                     break;
                 }
@@ -333,15 +285,15 @@ public class TextInput extends inkCustomController {
                     );
                 }
 
-                if event.IsAltDown() {
+                if Equals(event.GetKey(), EInputKey.IK_End) {
                     this.m_caret.MoveToEnd();
                 } else {
                     if event.IsControlDown() {
-                        let stop: Int32 = this.m_text.GetNextStop(this.m_caret.GetPosition());
+                        let stop = this.m_text.GetNextStop(this.m_caret.GetPosition());
                         if stop >= 0 {
                             this.m_caret.SetPosition(stop);
                         } else {
-                            this.m_caret.MoveToEnd();
+                            this.m_caret.MoveToNextChar();
                         }
                     } else {
                         this.m_caret.MoveToNextChar();
@@ -359,7 +311,8 @@ public class TextInput extends inkCustomController {
                 this.UpdateLayout();
                 break;
 
-            case inkCharacterEventType.MoveCaretBackward:
+            case EInputKey.IK_Left:
+            case EInputKey.IK_Home:
                 if this.m_measurer.IsMeasuring() {
                     break;
                 }
@@ -374,7 +327,7 @@ public class TextInput extends inkCustomController {
                     );
                 }
 
-                if event.IsAltDown() {
+                if Equals(event.GetKey(), EInputKey.IK_Home) {
                     this.m_caret.MoveToStart();
                 } else {
                     if event.IsControlDown() {
@@ -382,7 +335,7 @@ public class TextInput extends inkCustomController {
                         if stop >= 0 {
                             this.m_caret.SetPosition(stop);
                         } else {
-                            this.m_caret.MoveToStart();
+                            this.m_caret.MoveToPrevChar();
                         }
                     } else {
                         this.m_caret.MoveToPrevChar();
@@ -399,6 +352,81 @@ public class TextInput extends inkCustomController {
 
                 this.UpdateLayout();
                 break;
+
+            case EInputKey.IK_A:
+                if event.IsControlDown() {
+                    this.m_selection.SelectAll();
+                    this.m_caret.MoveToStart();
+                    this.UpdateLayout();
+                }
+                break;
+
+            case EInputKey.IK_C:
+                if event.IsControlDown() && !this.m_selection.IsEmpty() {
+                    GameInstance.GetInkSystem().SetClipboard(
+                        UTF8StrMid(
+                            this.m_text.GetText(),
+                            this.m_selection.GetLeftPosition(),
+                            this.m_selection.GetRightPosition() - this.m_selection.GetLeftPosition()
+                        )
+                    );
+                }
+                break;
+
+            case EInputKey.IK_X:
+                if event.IsControlDown() && !this.m_selection.IsEmpty() {
+                    GameInstance.GetInkSystem().SetClipboard(
+                        UTF8StrMid(
+                            this.m_text.GetText(),
+                            this.m_selection.GetLeftPosition(),
+                            this.m_selection.GetRightPosition() - this.m_selection.GetLeftPosition()
+                        )
+                    );
+
+                    let position = this.m_selection.GetLeftPosition();
+
+                    this.m_text.DeleteCharRange(
+                        this.m_selection.GetLeftPosition(),
+                        this.m_selection.GetRightPosition()
+                    );
+
+                    this.m_caret.SetMaxPosition(this.m_text.GetLength());
+                    this.m_caret.SetPosition(position);
+
+                    this.m_selection.SetMaxPosition(this.m_text.GetLength());
+                    this.m_selection.Clear();
+
+                    this.UpdateLayout();
+                }
+                break;
+
+            case EInputKey.IK_V:
+                let clipboard = GameInstance.GetInkSystem().GetClipboard();
+                let length = UTF8StrLen(clipboard);
+
+                if event.IsControlDown() && length > 0 {
+                    let position = this.m_caret.GetPosition();
+
+                    if !this.m_selection.IsEmpty() {
+                        position = this.m_selection.GetLeftPosition();
+
+                        this.m_text.DeleteCharRange(
+                            this.m_selection.GetLeftPosition(),
+                            this.m_selection.GetRightPosition()
+                        );
+
+                        this.m_selection.Clear();
+                    }
+
+                    this.m_text.InsertTextAt(position, clipboard);
+                    this.m_caret.SetMaxPosition(this.m_text.GetLength());
+                    this.m_caret.SetPosition(position + length);
+                    this.m_selection.SetMaxPosition(this.m_text.GetLength());
+                    this.m_measurer.MeasureSpan(this.m_text.GetText(), position, length);
+
+                    this.UpdateLayout();
+                }
+                break;
         }
     }
 
@@ -406,14 +434,14 @@ public class TextInput extends inkCustomController {
         this.CallCustomCallback(n"OnInput");
     }
 
-    protected cb func OnCharacterKey(event: ref<inkCharacterEvent>) {
+    protected cb func OnInputKey(event: ref<inkKeyInputEvent>) {
         switch event.GetAction() {
             case EInputAction.IACT_Press:
                 this.ProcessInputEvent(event);
                 this.m_lastInputEvent = event;
                 break;
             case EInputAction.IACT_Release:
-                if Equals(event.GetType(), this.m_lastInputEvent.GetType()) && Equals(event.GetCharacter(), this.m_lastInputEvent.GetCharacter()) {
+                if Equals(event.GetKey(), this.m_lastInputEvent.GetKey()) {
                      this.m_lastInputEvent = null;
                 }
                 break;
@@ -481,6 +509,10 @@ public class TextInput extends inkCustomController {
 
     protected cb func OnFocusLost(event: ref<inkEvent>) {
         this.SetFocusedState(false);
+
+        this.m_lastInputEvent = null;
+        this.m_isHoldComplete = false;
+        this.m_holdTickCounter = 0;
     }
 
     public func GetName() -> CName {
