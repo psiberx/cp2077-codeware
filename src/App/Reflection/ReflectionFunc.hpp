@@ -55,16 +55,16 @@ struct ReflectionFunc : Red::IScriptable
     }
 
     Red::Variant Call(Red::IScriptable* aContext,
-                      const Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
-                      const Red::Optional<Red::ScriptRef<bool>>& aStatus) const
+                      Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
+                      Red::Optional<Red::ScriptRef<bool>>& aStatus) const
     {
         Red::Variant ret;
 
         if (aArgs->size != m_func->params.size)
         {
-            if (aStatus->ref)
+            if (aStatus)
             {
-                *aStatus->ref = false;
+                aStatus = false;
             }
 
             return ret;
@@ -76,9 +76,9 @@ struct ReflectionFunc : Red::IScriptable
 
             if (!aContext || !aContext->GetType()->IsA(func->parent))
             {
-                if (aStatus->ref)
+                if (aStatus)
                 {
-                    *aStatus->ref = false;
+                    aStatus = false;
                 }
 
                 return ret;
@@ -93,9 +93,9 @@ struct ReflectionFunc : Red::IScriptable
         {
             if (!Red::IsCompatible(m_func->params[i]->type, aArgs->entries[i].GetType(), aArgs->entries[i].GetDataPtr()))
             {
-                if (aStatus->ref)
+                if (aStatus)
                 {
-                    *aStatus->ref = false;
+                    aStatus = false;
                 }
 
                 return ret;
@@ -115,9 +115,9 @@ struct ReflectionFunc : Red::IScriptable
 
         const auto success = m_func->Execute(&stack);
 
-        if (aStatus->ref)
+        if (aStatus)
         {
-            *aStatus->ref = success;
+            aStatus = success;
         }
 
         return ret;
@@ -134,8 +134,8 @@ struct ReflectionMemberFunc : ReflectionFunc
     using ReflectionFunc::ReflectionFunc;
 
     Red::Variant Call(const Red::Handle<Red::IScriptable>& aContext,
-                      const Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
-                      const Red::Optional<Red::ScriptRef<bool>>& aStatus)
+                      Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
+                      Red::Optional<Red::ScriptRef<bool>>& aStatus)
     {
         return ReflectionFunc::Call(aContext.GetPtr(), aArgs, aStatus);
     }
@@ -148,8 +148,8 @@ struct ReflectionStaticFunc : ReflectionFunc
 {
     using ReflectionFunc::ReflectionFunc;
 
-    Red::Variant Call(const Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
-                      const Red::Optional<Red::ScriptRef<bool>>& aStatus)
+    Red::Variant Call(Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
+                      Red::Optional<Red::ScriptRef<bool>>& aStatus)
     {
         return ReflectionFunc::Call(nullptr, aArgs, aStatus);
     }
