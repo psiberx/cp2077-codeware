@@ -3,6 +3,7 @@
 #include "App/Ink/WidgetBuildingService.hpp"
 #include "App/Ink/WidgetSpawningService.hpp"
 #include "App/Scripting/ScriptingService.hpp"
+#include "Core/Foundation/LocaleProvider.hpp"
 #include "Core/Foundation/RuntimeProvider.hpp"
 #include "Support/MinHook/MinHookProvider.hpp"
 #include "Support/RedLib/RedLibProvider.hpp"
@@ -10,6 +11,7 @@
 
 App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
 {
+    Register<Core::LocaleProvider>();
     Register<Core::RuntimeProvider>(aHandle)->SetBaseImagePathDepth(2);
 
     Register<Support::MinHookProvider>();
