@@ -1,2 +1,2 @@
 
-public static native func NameToHash(name: CName) -> Uint64;
+public static native func NameToHash(name: CName) -> Uint64
