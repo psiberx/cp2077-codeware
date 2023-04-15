@@ -19,7 +19,17 @@ struct Reflection
         if (aVariant.IsEmpty())
             return {};
 
-        return Red::MakeHandle<ReflectionType>(aVariant.GetType());
+        auto type = aVariant.GetType();
+
+        switch (type->GetType())
+        {
+        case Red::ERTTIType::Class:
+            return Red::MakeHandle<ReflectionClass>(reinterpret_cast<Red::CClass*>(type));
+        case Red::ERTTIType::Enum:
+            return Red::MakeHandle<ReflectionEnum>(reinterpret_cast<Red::CEnum*>(type));
+        default:
+            return Red::MakeHandle<ReflectionType>(type);
+        }
     }
 
      static Red::Handle<ReflectionClass> GetClassOf(const Red::Variant& aVariant, Red::Optional<bool, true> aActualType)
@@ -69,7 +79,15 @@ struct Reflection
         if (!type)
             return {};
 
-        return Red::MakeHandle<ReflectionType>(type);
+        switch (type->GetType())
+        {
+        case Red::ERTTIType::Class:
+            return Red::MakeHandle<ReflectionClass>(reinterpret_cast<Red::CClass*>(type));
+        case Red::ERTTIType::Enum:
+            return Red::MakeHandle<ReflectionEnum>(reinterpret_cast<Red::CEnum*>(type));
+        default:
+            return Red::MakeHandle<ReflectionType>(type);
+        }
     }
 
     static Red::Handle<ReflectionClass> GetClass(Red::CName aName)
