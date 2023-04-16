@@ -17,6 +17,7 @@
 #include "App/Scripting/Events/EntityLifecycleEvent.hpp"
 #include "App/Scripting/Events/GameSessionEvent.hpp"
 #include "App/Scripting/Events/KeyInputEvent.hpp"
+#include "App/Scripting/StackTrace.hpp"
 #include "App/Utils/Bits.hpp"
 #include "App/Utils/CName.hpp"
 #include "App/Utils/CRUID.hpp"
