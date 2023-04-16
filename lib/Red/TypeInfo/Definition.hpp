@@ -807,6 +807,23 @@ protected:
 class GlobalDescriptor : public CRTTISystem
 {
 public:
+    template<typename T>
+    inline auto Get()
+    {
+        if constexpr (std::is_class_v<T>)
+        {
+            return reinterpret_cast<ClassDescriptor<T>*>(GetClass(GetTypeName<T>()));
+        }
+        else if constexpr (std::is_enum_v<T>)
+        {
+            return reinterpret_cast<EnumDescriptor<T>*>(GetEnum(GetTypeName<T>()));
+        }
+        else
+        {
+            return GetType(GetTypeName<T>());
+        }
+    }
+
     template<class TContext, typename TRet, typename TRetType>
     CGlobalFunction* AddFunction(NativeFunctionPtr<TContext, TRet, TRetType> aFunc, const char* aName,
                                  CBaseFunction::Flags aFlags = {})
