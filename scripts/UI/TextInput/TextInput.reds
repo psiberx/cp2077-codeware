@@ -397,6 +397,7 @@ public class TextInput extends inkCustomController {
                     this.m_selection.Clear();
 
                     this.UpdateLayout();
+                    this.TriggerChangeCallback();
                 }
                 break;
 
@@ -423,8 +424,6 @@ public class TextInput extends inkCustomController {
                     this.m_caret.SetPosition(position + length);
                     this.m_selection.SetMaxPosition(this.m_text.GetLength());
                     this.m_measurer.MeasureSpan(this.m_text.GetText(), position, length);
-
-                    this.UpdateLayout();
                 }
                 break;
         }
