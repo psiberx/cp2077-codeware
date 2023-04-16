@@ -15,7 +15,6 @@ module Codeware.UI
 
 public abstract class InGamePopup extends CustomPopup {
     protected let m_vignette: wref<inkImage>;
-
     protected let m_container: wref<inkCompoundWidget>;
 
     protected cb func OnCreate() {

@@ -24,9 +24,7 @@ module Codeware.UI
 
 public abstract class CustomPopup extends inkCustomController {
     protected let m_notificationData: ref<inkGameNotificationData>;
-
     protected let m_notificationToken: ref<inkGameNotificationToken>;
-
     protected let m_transitionAnimProxy: ref<inkAnimProxy>;
 
     protected func SetNotificationData(notificationData: ref<inkGameNotificationData>) {
