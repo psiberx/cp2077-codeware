@@ -1,6 +1,13 @@
 @addMethod(inkWidgetRef)
 public static native func Set(self: script_ref<inkWidgetRef>, widget: ref<inkWidget>);
 
+@addMethod(inkWidgetRef)
+public static func Create(widget: ref<inkWidget>) -> inkWidgetRef {
+    let ref = new inkWidgetRef();
+    inkWidgetRef.Set(ref, widget);
+    return ref;
+}
+
 @addMethod(inkBorderRef)
 public static func Create(widget: ref<inkBorder>) -> inkBorderRef {
     let ref = new inkBorderRef();

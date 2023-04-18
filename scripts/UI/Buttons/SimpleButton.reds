@@ -8,25 +8,16 @@ public class SimpleButton extends CustomButton {
     protected let m_isFlipped: Bool;
 
     protected let m_bg: wref<inkImage>;
-
     protected let m_fill: wref<inkImage>;
-
     protected let m_frame: wref<inkImage>;
 
     protected let m_disabledRootAnimDef: ref<inkAnimDef>;
-
     protected let m_disabledRootAnimProxy: ref<inkAnimProxy>;
-
     protected let m_hoverFillAnimDef: ref<inkAnimDef>;
-
     protected let m_hoverFillAnimProxy: ref<inkAnimProxy>;
-
     protected let m_hoverFrameAnimDef: ref<inkAnimDef>;
-
     protected let m_hoverFrameAnimProxy: ref<inkAnimProxy>;
-
     protected let m_pressedFillAnimDef: ref<inkAnimDef>;
-
     protected let m_pressedFillAnimProxy: ref<inkAnimProxy>;
 
     protected func CreateWidgets() {
