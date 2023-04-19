@@ -1,6 +1,6 @@
 #pragma once
 
-#include "App/Ink/inkLayerWrapper.hpp"
+#include "App/UI/inkLayerWrapper.hpp"
 #include "Red/InkSystem.hpp"
 
 namespace App
