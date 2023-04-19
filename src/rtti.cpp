@@ -10,6 +10,7 @@
 #include "App/Ink/inkLayerWrapper.hpp"
 #include "App/Ink/inkSystem.hpp"
 #include "App/Ink/inkWidgetEx.hpp"
+#include "App/Ink/inkWidgetLibraryEx.hpp"
 #include "App/Ink/inkWidgetReferenceEx.hpp"
 #include "App/Reflection/Reflection.hpp"
 #include "App/Scripting/CallbackSystem.hpp"

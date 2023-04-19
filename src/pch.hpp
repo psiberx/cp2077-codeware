@@ -67,6 +67,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/Widget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLibraryItemInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLibraryResource.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/WidgetLibraryResourceWrapper.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLogicController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetReference.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
