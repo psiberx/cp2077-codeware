@@ -113,30 +113,40 @@ using FinalRetType = T;
 template<typename T = void>
 inline void ExtractArg(CStackFrame* aFrame, T* aInstance = nullptr)
 {
-    if constexpr (std::is_pointer_v<T>)
+    using U = std::remove_cvref_t<T>;
+
+    if constexpr (std::is_pointer_v<U>)
     {
         aFrame->useDirectData = true;
+    }
+    else if constexpr (IsScriptRef<U>)
+    {
+        if ((aFrame->paramFlags >> aFrame->currentParam) & 1)
+        {
+            aInstance->AllocateValue();
+        }
     }
 
     aFrame->data = nullptr;
     aFrame->dataType = nullptr;
-    ++aFrame->currentParam;
 
     const auto opcode = *(aFrame->code++);
-    OpcodeHandlers::Run(opcode, aFrame->context, aFrame, aInstance, IsScriptRef<T> ? aInstance : nullptr);
+    OpcodeHandlers::Run(opcode, aFrame->context, aFrame, aInstance, IsScriptRef<U> ? aInstance : nullptr);
 
-    if constexpr (std::is_pointer_v<T>)
+    if constexpr (std::is_pointer_v<U>)
     {
         aFrame->useDirectData = false;
 
-        if constexpr (!std::is_void_v<T>)
+        if constexpr (!std::is_void_v<U>)
         {
             if (aFrame->data && aInstance)
             {
-                *aInstance = reinterpret_cast<T>(aFrame->data);
+                *aInstance = reinterpret_cast<U>(aFrame->data);
             }
         }
     }
+
+    ++aFrame->currentParam;
 }
 
 template<typename C, typename T, std::size_t I>
@@ -153,14 +163,6 @@ inline void ExtractArg(C* aContext, CStackFrame* aFrame, T* aArg)
         ScriptRef<C> ctx;
         ExtractArg(aFrame, &ctx);
         *aArg = ctx.ref;
-    }
-    else if constexpr (IsScriptRef<U>)
-    {
-        if ((aFrame->paramFlags >> aFrame->currentParam) & 1)
-        {
-            aArg->AllocateValue();
-        }
-        ExtractArg(aFrame, aArg);
     }
     else if constexpr (std::is_same_v<T, CStackFrame*>)
     {
@@ -445,6 +447,12 @@ inline bool IsSpecial(CBaseFunction* aFunc)
 inline void MarkSpecial(CBaseFunction* aFunc)
 {
     *reinterpret_cast<Detail::FunctionFlagsStorage*>(&aFunc->flags) |= Detail::FunctionSpecialFlag;
+}
+
+template<typename T = void>
+inline void GetParameter(CStackFrame* aFrame, T* aInstance = nullptr)
+{
+    Detail::ExtractArg(aFrame, aInstance);
 }
 
 template<typename C, typename R, typename RT>
