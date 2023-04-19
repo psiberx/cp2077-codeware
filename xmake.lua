@@ -5,7 +5,6 @@ set_version("1.1.2", {build = "%y%m%d%H%M"})
 
 set_arch("x64")
 set_languages("cxx20", "cxx2a")
-set_optimize("none")
 add_cxxflags("/MP /GR- /EHsc")
 
 if is_mode("debug") then
