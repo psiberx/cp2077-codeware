@@ -14,15 +14,16 @@ class EntityAttachHook
 {
 public:
     constexpr static auto EventName = Red::CName("Entity/Attach");
+    constexpr static auto PostEventName = Red::CName("Entity/Attached");
 
     Core::Vector<Red::CName> GetEvents() override
     {
-        return {EventName};
+        return {EventName, PostEventName};
     }
 
     bool Initialize() override
     {
-        return IsHooked<Raw::Entity::Attach>() || HookBefore<Raw::Entity::Attach>(&OnAttach);
+        return IsHooked<Raw::Entity::Attach>() || Hook<Raw::Entity::Attach>(&OnAttach);
     }
 
     bool Uninitialize() override
@@ -31,9 +32,11 @@ public:
     }
 
 protected:
-    inline static void OnAttach(Red::Entity* aEntity, uintptr_t)
+    inline static void OnAttach(Red::Entity* aEntity, uintptr_t a2)
     {
         CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
+        Raw::Entity::Attach(aEntity, a2);
+        CallbackSystem::PassEvent<EntityLifecycleEvent>(PostEventName, Red::AsWeakHandle(aEntity));
     }
 };
 }
