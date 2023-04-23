@@ -43,18 +43,17 @@ struct ResourceTokenWrapper : Red::IScriptable
 
     void RegisterCallback(const Red::Handle<Red::IScriptable>& aListener, Red::CName aCallback)
     {
-        auto& weakToken = *reinterpret_cast<Red::WeakHandle<ResourceTokenWrapper>*>(&ref);
-
         if (IsFinished())
         {
-            Red::CallVirtual(aListener, aCallback, weakToken);
+            Red::CallVirtual(aListener, aCallback, Red::AsWeakHandle(this));
         }
         else
         {
-            m_token->OnLoaded([weakToken, weakListener = Red::WeakHandle(aListener), aCallback](Red::Handle<Red::CResource>&) {
-                if (!weakToken.Expired() && !weakListener.Expired())
+            m_token->OnLoaded([self = Red::ToHandle(this),
+                               weakListener = Red::WeakHandle(aListener), aCallback](Red::Handle<Red::CResource>&) {
+                if (auto listener = weakListener.Lock())
                 {
-                    Red::CallVirtual(weakListener.Lock(), aCallback, &weakToken);
+                    Red::CallVirtual(listener, aCallback, self);
                 }
             });
         }
