@@ -109,4 +109,8 @@ public abstract class InGamePopup extends CustomPopup {
     protected func PlayHideSound() {
         //this.PlaySound(n"RadialMenu", n"OnClose");
     }
+
+    public func GetQueueName() -> CName {
+        return n"game_popup";
+    }
 }

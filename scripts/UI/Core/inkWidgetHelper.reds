@@ -21,4 +21,21 @@ public abstract class inkWidgetHelper {
 
         return false;
     }
+
+    public static func GetControllersByType(widget: ref<inkWidget>, controllerType: CName, out controllers: array<ref<inkLogicController>>) {
+        let controller = widget.GetControllerByType(controllerType);
+        if IsDefined(controller) {
+            ArrayPush(controllers, controller);
+        } else {
+            let container = widget as inkCompoundWidget;
+            if IsDefined(container) {
+                let i = 0;
+                let n = container.GetNumChildren();
+                while i < n {
+                    inkWidgetHelper.GetControllersByType(container.GetWidget(i), controllerType, controllers);
+                    i += 1;
+                }
+            }
+        }
+    }
 }

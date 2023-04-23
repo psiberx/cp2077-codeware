@@ -38,15 +38,13 @@ module Codeware.UI
 
 public abstract class inkCustomController extends inkLogicController {
     private let m_isCreated: Bool;
-
     private let m_isInitialized: Bool;
 
     private let m_detachedWidget: ref<inkWidget>;
-
     private let m_gameController: wref<inkGameController>;
+    private let m_pendingCallbacks: array<inkPendingCallback>;
 
     protected let m_rootWidget: wref<inkWidget>;
-
     protected let m_containerWidget: wref<inkCompoundWidget>;
 
     protected func IsInitialized() -> Bool {
@@ -69,6 +67,13 @@ public abstract class inkCustomController extends inkLogicController {
 
             if !inkWidgetHelper.InWindowTree(this.m_rootWidget) {
                 this.m_detachedWidget = this.m_rootWidget;
+            }
+
+            if ArraySize(this.m_pendingCallbacks) > 0 {
+                for callback in this.m_pendingCallbacks {
+                    this.m_rootWidget.RegisterToCallback(callback.event, callback.object, callback.function);
+                }
+                ArrayClear(this.m_pendingCallbacks);
             }
         } else {
             this.m_detachedWidget = null;
@@ -191,6 +196,8 @@ public abstract class inkCustomController extends inkLogicController {
     public func RegisterToCallback(eventName: CName, object: ref<IScriptable>, functionName: CName) {
         if IsDefined(this.m_rootWidget) {
             this.m_rootWidget.RegisterToCallback(eventName, object, functionName);
+        } else {
+            ArrayPush(this.m_pendingCallbacks, new inkPendingCallback(eventName, object, functionName));
         }
     }
 
@@ -272,4 +279,10 @@ public abstract class inkCustomController extends inkLogicController {
     public func Mount(rootController: ref<inkGameController>) {
         this.Mount(rootController.GetRootCompoundWidget(), rootController);
     }
+}
+
+private struct inkPendingCallback {
+    let event: CName;
+    let object: ref<IScriptable>;
+    let function: CName;
 }

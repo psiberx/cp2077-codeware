@@ -245,7 +245,7 @@ public class InMenuPopupContent extends inkCustomController {
 
         let container = new inkVerticalPanel();
         container.SetAnchor(inkEAnchor.Fill);
-        container.SetMargin(new inkMargin(66.0, 40.0, 0.0, 40.0));
+        container.SetMargin(new inkMargin(66.0, 40.0, 20.0, 40.0));
         container.Reparent(inkVerticalPanelWidget18);
 
         this.m_content = main;

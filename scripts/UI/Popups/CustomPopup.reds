@@ -38,6 +38,11 @@ public abstract class CustomPopup extends inkCustomController {
         this.m_notificationData = null;
     }
 
+    protected func IsTopPopup() -> Bool {
+        let popupData = this.m_notificationData as CustomPopupNotificationData;
+        return !IsDefined(popupData) || popupData.manager.IsOnTop(this);
+    }
+
     protected cb func OnAttach() {
         this.RegisterToGlobalInputCallback(n"OnPostOnRelease", this, n"OnGlobalReleaseInput");
 
@@ -50,6 +55,7 @@ public abstract class CustomPopup extends inkCustomController {
 
         this.UnregisterFromGlobalInputCallback(n"OnPostOnRelease", this, n"OnGlobalReleaseInput");
 
+        this.CallCustomCallback(n"OnClose");
         this.CallCustomCallback(n"OnHide");
         this.OnHide();
     }
@@ -106,11 +112,11 @@ public abstract class CustomPopup extends inkCustomController {
         this.SetRootWidget(null);
     }
 
-    protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) {
-        if evt.IsAction(n"cancel") {
+    protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Bool {
+        if evt.IsAction(n"cancel") && !evt.IsHandled() && this.IsTopPopup() {
             this.Close();
             evt.Handle();
-            return;
+            return true;
         }
 
         if this.UseCursor() && evt.IsAction(n"mouse_left") {
@@ -118,6 +124,8 @@ public abstract class CustomPopup extends inkCustomController {
                 this.GetGameController().RequestSetFocus(null);
             }
         }
+
+        return false;
     }
 
     public func GetName() -> CName {

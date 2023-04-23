@@ -32,17 +32,13 @@ module Codeware.UI
 
 public abstract class CustomButton extends inkCustomController {
     protected let m_root: wref<inkCompoundWidget>;
-
     protected let m_label: wref<inkText>;
 
     protected let m_useAnimations: Bool;
-
     protected let m_useSounds: Bool;
 
     protected let m_isDisabled: Bool;
-
     protected let m_isHovered: Bool;
-
     protected let m_isPressed: Bool;
 
     protected cb func OnCreate() {
@@ -61,8 +57,8 @@ public abstract class CustomButton extends inkCustomController {
     protected func CreateAnimations()
 
     protected func RegisterListeners() {
-        this.RegisterToCallback(n"OnHoverOver", this, n"OnHoverOver");
-        this.RegisterToCallback(n"OnHoverOut", this, n"OnHoverOut");
+        this.RegisterToCallback(n"OnEnter", this, n"OnHoverOver");
+        this.RegisterToCallback(n"OnLeave", this, n"OnHoverOut");
         this.RegisterToCallback(n"OnPress", this, n"OnPress");
         this.RegisterToCallback(n"OnRelease", this, n"OnRelease");
     }

@@ -7,6 +7,8 @@ module Codeware.UI
 public abstract class InMenuPopup extends CustomPopup {
     protected let m_container: wref<inkCompoundWidget>;
 
+    protected let m_result: GenericMessageNotificationResult;
+
     protected cb func OnCreate() {
         super.OnCreate();
 
@@ -68,4 +70,79 @@ public abstract class InMenuPopup extends CustomPopup {
 
         this.SetContainerWidget(container);
     }
+
+    protected cb func OnCancel()
+    protected cb func OnConfirm()
+
+    protected cb func OnInitialize() {
+        super.OnInitialize();
+
+        let buttons: array<ref<inkLogicController>>;
+        inkWidgetHelper.GetControllersByType(this.m_container, n"Codeware.UI.PopupButton", buttons);
+
+        for button in buttons {
+            switch (button as PopupButton).GetInputAction() {
+                case n"system_notification_confirm":
+                    button.RegisterToCallback(n"OnBtnClick", this, n"OnConfirmClick");
+                    break;
+                case n"back":
+                    button.RegisterToCallback(n"OnBtnClick", this, n"OnCancelClick");
+                    break;
+            }
+        }
+    }
+
+	protected cb func OnConfirmClick(widget: wref<inkWidget>) {
+		this.Confirm();
+	}
+
+	protected cb func OnCancelClick(widget: wref<inkWidget>) {
+		this.Cancel();
+	}
+
+    protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Bool {
+        if evt.IsAction(n"cancel") && !evt.IsHandled() && this.IsTopPopup() {
+            this.Cancel();
+            evt.Handle();
+            return true;
+        }
+
+        if evt.IsAction(n"proceed") && !evt.IsHandled() && this.IsTopPopup() {
+            this.Confirm();
+            evt.Handle();
+            return true;
+        }
+
+        return super.OnGlobalReleaseInput(evt);
+    }
+
+    protected func Cancel() {
+        this.m_result = GenericMessageNotificationResult.Cancel;
+
+        this.OnCancel();
+        this.CallCustomCallback(n"OnCancel");
+
+        this.Close();
+    }
+
+    protected func Confirm() {
+        this.m_result = GenericMessageNotificationResult.Confirm;
+
+        this.OnConfirm();
+        this.CallCustomCallback(n"OnConfirm");
+
+        this.Close();
+    }
+
+    public func GetQueueName() -> CName {
+        return n"menu_popup";
+    }
+
+	public func UseCursor() -> Bool {
+		return true;
+	}
+
+	public func GetResult() -> GenericMessageNotificationResult {
+	    return this.m_result;
+	}
 }

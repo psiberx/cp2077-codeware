@@ -170,6 +170,10 @@ public class PopupButton extends CustomButton {
         this.ApplyFlippedState();
     }
 
+    public func GetInputAction() -> CName {
+        return this.m_input.GetInputAction();
+    }
+
     public func SetInputAction(action: CName) {
         this.m_input.SetInputAction(action);
 
