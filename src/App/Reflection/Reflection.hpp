@@ -123,7 +123,7 @@ struct Reflection
         return Red::MakeHandle<ReflectionStaticFunc>(func);
     }
 
-    [[nodiscard]] Red::DynArray<Red::Handle<ReflectionType>> GetTypes() const
+    static Red::DynArray<Red::Handle<ReflectionType>> GetTypes()
     {
         Red::DynArray<Red::Handle<ReflectionType>> wrappers;
 
@@ -135,7 +135,7 @@ struct Reflection
         return wrappers;
     }
 
-    [[nodiscard]] Red::DynArray<Red::Handle<ReflectionClass>> GetClasses() const
+    static Red::DynArray<Red::Handle<ReflectionClass>> GetClasses()
     {
         Red::DynArray<Red::Handle<ReflectionClass>> wrappers;
 
@@ -150,7 +150,27 @@ struct Reflection
         return wrappers;
     }
 
-    [[nodiscard]] Red::DynArray<Red::Handle<ReflectionEnum>> GetEnums() const
+    static Red::DynArray<Red::Handle<ReflectionClass>> GetDerivedClasses(Red::CName aBase)
+    {
+        auto rtti = Red::CRTTISystem::Get();
+        auto base = rtti->GetClass(aBase);
+
+        if (!base)
+            return {};
+
+        Red::DynArray<Red::Handle<ReflectionClass>> wrappers;
+        Red::DynArray<Red::CClass*> classes;
+        rtti->GetDerivedClasses(base, classes);
+
+        for (const auto& derived : classes)
+        {
+            wrappers.PushBack(Red::MakeHandle<ReflectionClass>(derived));
+        }
+
+        return wrappers;
+    }
+
+    static Red::DynArray<Red::Handle<ReflectionEnum>> GetEnums()
     {
         Red::DynArray<Red::Handle<ReflectionEnum>> wrappers;
 
@@ -165,7 +185,7 @@ struct Reflection
         return wrappers;
     }
 
-    [[nodiscard]] Red::DynArray<Red::Handle<ReflectionStaticFunc>> GetGlobalFunctions() const
+    static Red::DynArray<Red::Handle<ReflectionStaticFunc>> GetGlobalFunctions()
     {
         Red::DynArray<Red::Handle<ReflectionStaticFunc>> wrappers;
 
@@ -188,6 +208,7 @@ RTTI_DEFINE_CLASS(App::Reflection, {
     RTTI_METHOD(GetGlobalFunction);
     RTTI_METHOD(GetTypes);
     RTTI_METHOD(GetClasses);
+    RTTI_METHOD(GetDerivedClasses);
     RTTI_METHOD(GetEnums);
     RTTI_METHOD(GetGlobalFunctions);
 });

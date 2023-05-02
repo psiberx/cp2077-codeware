@@ -42,25 +42,22 @@ struct ReflectionClass : ReflectionType
 
     [[nodiscard]] Red::Handle<ReflectionMemberFunc> GetFunction(Red::CName aName) const
     {
-        auto func = m_class->funcsByName.Get(aName);
+        auto func = Red::Detail::GetFunction(m_class, aName);
 
         if (!func)
             return {};
 
-        return Red::MakeHandle<ReflectionMemberFunc>(*func);
+        return Red::MakeHandle<ReflectionMemberFunc>(func);
     }
 
     [[nodiscard]] Red::Handle<ReflectionStaticFunc> GetStaticFunction(Red::CName aName) const
     {
-        for (const auto& func : m_class->staticFuncs)
-        {
-            if (func->fullName == aName)
-            {
-                return Red::MakeHandle<ReflectionStaticFunc>(func);
-            }
-        }
+        auto func = Red::Detail::GetStaticFunction(m_class, aName);
 
-        return {};
+        if (!func)
+            return {};
+
+        return Red::MakeHandle<ReflectionStaticFunc>(func);
     }
 
     [[nodiscard]] Red::DynArray<Red::Handle<ReflectionProp>> GetProperties() const
