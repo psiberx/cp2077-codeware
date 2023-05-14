@@ -9,33 +9,21 @@ module Codeware.UI
 import Codeware.UI.TextInput.*
 
 public class HubTextInput extends TextInput {
-
     protected let m_bg: wref<inkImage>;
-
     protected let m_fill: wref<inkImage>;
-
     protected let m_frame: wref<inkImage>;
-
     protected let m_hover: wref<inkImage>;
-
     protected let m_focus: wref<inkImage>;
 
     protected let m_useAnimations: Bool;
 
     protected let m_activeRootAnimDef: ref<inkAnimDef>;
-
     protected let m_activeRootAnimProxy: ref<inkAnimProxy>;
-
     protected let m_hoverFrameAnimDef: ref<inkAnimDef>;
-
     protected let m_hoverFrameAnimProxy: ref<inkAnimProxy>;
-
     protected let m_focusFillAnimDef: ref<inkAnimDef>;
-
     protected let m_focusFillAnimProxy: ref<inkAnimProxy>;
-
     protected let m_focusFrameAnimDef: ref<inkAnimDef>;
-
     protected let m_focusFrameAnimProxy: ref<inkAnimProxy>;
 
     protected func CreateWidgets() {
