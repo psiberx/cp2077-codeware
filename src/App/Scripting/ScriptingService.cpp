@@ -45,6 +45,13 @@ void App::ScriptingService::OnInitializeScripts()
         }
         else
         {
+            if (envType->flags.isAbstract)
+            {
+                LogWarning("Can't create scriptable environment {} because class is abstract.",
+                           envType->name.ToString());
+                continue;
+            }
+
             auto env = Red::ToHandle<ScriptableEnv>(envType->CreateInstance());
             Red::CallVirtual(env, "OnLoad");
 

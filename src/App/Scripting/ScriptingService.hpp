@@ -3,6 +3,7 @@
 #include "App/Scripting/ScriptableEnv.hpp"
 #include "Core/Foundation/Feature.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
+#include "Core/Logging/LoggingAgent.hpp"
 #include "Red/GameFramework.hpp"
 #include "Red/GameInstance.hpp"
 #include "Red/Scripting.hpp"
@@ -12,6 +13,7 @@ namespace App
 class ScriptingService
     : public Core::Feature
     , public Core::HookingAgent
+    , public Core::LoggingAgent
 {
 public:
     Red::Handle<ScriptableEnv> GetEnvironment(Red::CClass* aType);
