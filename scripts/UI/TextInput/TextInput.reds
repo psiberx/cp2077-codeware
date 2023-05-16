@@ -21,9 +21,11 @@ public class TextInput extends inkCustomController {
     protected let m_selection: ref<Selection>;
     protected let m_text: ref<TextFlow>;
     protected let m_caret: ref<Caret>;
+
     protected let m_isDisabled: Bool;
     protected let m_isHovered: Bool;
     protected let m_isFocused: Bool;
+
     protected let m_lastInputEvent: ref<inkKeyInputEvent>;
     protected let m_isHoldComplete: Bool;
     protected let m_holdTickCounter: Int32;
@@ -96,9 +98,7 @@ public class TextInput extends inkCustomController {
     }
 
     protected func ApplyDisabledState() {}
-
     protected func ApplyHoveredState() {}
-
     protected func ApplyFocusedState() {}
 
     protected func SetDisabledState(isDisabled: Bool) {
@@ -464,8 +464,13 @@ public class TextInput extends inkCustomController {
     }
 
     protected cb func OnReleaseKey(event: ref<inkPointerEvent>) {
-        if this.m_isFocused && !this.m_measurer.IsMeasuring() {
-            if event.IsAction(n"mouse_left") {
+        if !this.m_measurer.IsMeasuring() {
+            if event.IsAction(n"unequip_item") {
+                this.SetText("");
+                return;
+            }
+
+            if this.m_isFocused && event.IsAction(n"mouse_left") {
                 let clickPoint: Vector2 = WidgetUtils.GlobalToLocal(this.m_text.GetRootWidget(), event.GetScreenSpacePosition());
                 let clickPosition: Int32 = this.m_text.GetCharPosition(clickPoint.X);
 
@@ -539,6 +544,7 @@ public class TextInput extends inkCustomController {
         this.m_caret.MoveToStart();
 
         this.UpdateLayout();
+        this.TriggerChangeCallback();
     }
 
     public func GetDefaultText() -> String {
