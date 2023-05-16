@@ -38,4 +38,18 @@ public abstract class inkWidgetHelper {
             }
         }
     }
+
+    public static func GetClosestControllerByType(widget: ref<inkWidget>, controllerType: CName) -> ref<inkLogicController> {
+        while IsDefined(widget) {
+            let controller = widget.GetControllerByType(controllerType);
+
+            if IsDefined(controller) {
+                return controller;
+            }
+
+            widget = widget.parentWidget;
+        }
+
+        return null;
+    }
 }
