@@ -1,17 +1,3 @@
-// -----------------------------------------------------------------------------
-// inkScrollController
-// -----------------------------------------------------------------------------
-//
-// - Viewport are size
-//
-// -----------------------------------------------------------------------------
-//
-// class inkScrollController extends inkLeafWidget {
-//   public func GetFitToContentDirection() -> inkFitToContentDirection
-//   public func SetFitToContentDirection(value: inkFitToContentDirection)
-// }
-//
-
 @addField(inkScrollController)
 native let ScrollArea: inkScrollAreaRef;
 
@@ -57,9 +43,6 @@ native let viewportSize: Vector2;
 @addField(inkScrollController)
 native let scrollDelta: Float;
 
-@addField(inkScrollController)
-private let lastScrollDelta: Float;
-
 @addMethod(inkScrollController)
 public func GetScrollPosition() -> Float {
     return this.position;
@@ -98,13 +81,12 @@ public func IsEnabled() -> Bool {
 @addMethod(inkScrollController)
 public func SetEnabled(enabled: Bool) {
     if enabled {
-        if this.lastScrollDelta > 0.0 {
-            this.scrollDelta = this.lastScrollDelta;
+        if Equals(this.direction, inkEScrollDirection.Horizontal) {
+            this.scrollDelta = this.contentSize.X - this.viewportSize.X;
+        } else {
+            this.scrollDelta = this.contentSize.Y - this.viewportSize.Y;
         }
     } else {
-        if this.scrollDelta > 0.0 {
-            this.lastScrollDelta = this.scrollDelta;
-        }
         this.scrollDelta = 0.0;
     }
 }
