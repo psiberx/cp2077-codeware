@@ -26,6 +26,7 @@ public abstract class CustomPopup extends inkCustomController {
     protected let m_notificationData: ref<inkGameNotificationData>;
     protected let m_notificationToken: ref<inkGameNotificationToken>;
     protected let m_transitionAnimProxy: ref<inkAnimProxy>;
+    protected let m_closeAction: CName;
 
     protected func SetNotificationData(notificationData: ref<inkGameNotificationData>) {
         this.m_notificationData = notificationData;
@@ -41,6 +42,12 @@ public abstract class CustomPopup extends inkCustomController {
     protected func IsTopPopup() -> Bool {
         let popupData = this.m_notificationData as CustomPopupNotificationData;
         return !IsDefined(popupData) || popupData.manager.IsOnTop(this);
+    }
+
+    protected cb func OnInitialize() {
+        super.OnInitialize();
+
+        this.m_closeAction = n"cancel";
     }
 
     protected cb func OnAttach() {
@@ -113,7 +120,7 @@ public abstract class CustomPopup extends inkCustomController {
     }
 
     protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Bool {
-        if evt.IsAction(n"cancel") && !evt.IsHandled() && this.IsTopPopup() {
+        if evt.IsAction(this.m_closeAction) && !evt.IsHandled() && this.IsTopPopup() {
             this.Close();
             evt.Handle();
             return true;

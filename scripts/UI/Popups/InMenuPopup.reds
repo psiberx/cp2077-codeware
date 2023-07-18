@@ -8,6 +8,7 @@ public abstract class InMenuPopup extends CustomPopup {
     protected let m_container: wref<inkCompoundWidget>;
 
     protected let m_result: GenericMessageNotificationResult;
+    protected let m_confirmAction: CName;
 
     protected cb func OnCreate() {
         super.OnCreate();
@@ -77,16 +78,28 @@ public abstract class InMenuPopup extends CustomPopup {
     protected cb func OnInitialize() {
         super.OnInitialize();
 
+        this.m_confirmAction = n"proceed";
+
         let buttons: array<ref<inkLogicController>>;
         inkWidgetHelper.GetControllersByType(this.m_container, n"Codeware.UI.PopupButton", buttons);
 
         for button in buttons {
-            switch (button as PopupButton).GetInputAction() {
+            let action = (button as PopupButton).GetInputAction();
+            switch action {
+                case n"proceed":
+                case n"proceed_popup":
+                case n"one_click_confirm":
                 case n"system_notification_confirm":
+                case n"UI_Apply":
                     button.RegisterToCallback(n"OnBtnClick", this, n"OnConfirmClick");
+                    this.m_confirmAction = action;
                     break;
+                case n"cancel":
+                case n"cancel_popup":
                 case n"back":
+                case n"UI_Cancel":
                     button.RegisterToCallback(n"OnBtnClick", this, n"OnCancelClick");
+                    this.m_closeAction = action;
                     break;
             }
         }
@@ -101,13 +114,13 @@ public abstract class InMenuPopup extends CustomPopup {
 	}
 
     protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Bool {
-        if evt.IsAction(n"cancel") && !evt.IsHandled() && this.IsTopPopup() {
+        if evt.IsAction(this.m_closeAction) && !evt.IsHandled() && this.IsTopPopup() {
             this.Cancel();
             evt.Handle();
             return true;
         }
 
-        if evt.IsAction(n"proceed") && !evt.IsHandled() && this.IsTopPopup() {
+        if evt.IsAction(this.m_confirmAction) && !evt.IsHandled() && this.IsTopPopup() {
             this.Confirm();
             evt.Handle();
             return true;
