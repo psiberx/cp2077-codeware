@@ -64,6 +64,7 @@ protected:
     void RemovePopulation(const App::DynamicEntityStatePtr& aEntityState);
     void RemovePersistentState(const DynamicEntityStatePtr& aEntityState);
     void AcquireEntityStub(const App::DynamicEntityStatePtr& aEntityState, Red::EntityStubTokenPtr& aToken);
+    void ResetEntityStub(const DynamicEntityStatePtr& aEntityState);
     void RemoveEntityStub(const DynamicEntityStatePtr& aEntityState);
 
     DynamicEntityStatePtr CreateEntityState(Red::EntityID aEntityID, const DynamicEntitySpecPtr& aEntitySpec);

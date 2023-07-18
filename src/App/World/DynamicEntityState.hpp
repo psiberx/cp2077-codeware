@@ -20,6 +20,11 @@ struct DynamicEntityState : Red::IScriptable
         entityStub = aToken.ExtractStub();
     }
 
+    void ResetStub()
+    {
+        entityStub = nullptr;
+    }
+
     Red::EntityID entityID;
     Red::Handle<DynamicEntitySpec> entitySpec;
     Red::EntityStub* entityStub;

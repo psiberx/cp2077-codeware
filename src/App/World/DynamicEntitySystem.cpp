@@ -168,14 +168,13 @@ bool App::DynamicEntitySystem::DeleteEntity(Red::EntityID aEntityID)
     if (!entityState)
         return false;
 
-    if (entityState->entitySpec->active) /*IsSpawned(aEntityID)*/
+    if (entityState->entitySpec->active && entityState->entityStub && IsSpawned(aEntityID))
     {
         ProcessListeners(aEntityID, DynamicEntityEventType::Despawned, entityState->entitySpec->tags);
     }
 
     DespawnFromEntityState(entityState);
     RemovePersistentState(entityState);
-    RemoveEntityStub(entityState);
 
     return true;
 }
@@ -281,7 +280,19 @@ bool App::DynamicEntitySystem::RespawnFromEntityState(const App::DynamicEntitySt
 
 bool App::DynamicEntitySystem::DespawnFromEntityState(const App::DynamicEntityStatePtr& aEntityState)
 {
-    RemovePopulation(aEntityState);
+    if (aEntityState->entityStub)
+    {
+        RemovePopulation(aEntityState);
+
+        if (aEntityState->entitySpec->persistState)
+        {
+            ResetEntityStub(aEntityState);
+        }
+        else
+        {
+            RemoveEntityStub(aEntityState);
+        }
+    }
 
     return true;
 }
@@ -320,6 +331,12 @@ void App::DynamicEntitySystem::AcquireEntityStub(const App::DynamicEntityStatePt
 {
     std::unique_lock _(m_entityStateLock);
     aEntityState->AcquireStub(*aToken);
+}
+
+void App::DynamicEntitySystem::ResetEntityStub(const App::DynamicEntityStatePtr& aEntityState)
+{
+    std::unique_lock _(m_entityStateLock);
+    aEntityState->ResetStub();
 }
 
 void App::DynamicEntitySystem::RemoveEntityStub(const App::DynamicEntityStatePtr& aEntityState)
