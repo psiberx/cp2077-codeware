@@ -71,7 +71,7 @@ void App::CallbackSystem::OnAfterWorldDetach()
 
         if (callbackList.empty())
         {
-            UninitializeEvent(event);
+            DeactivateEvent(event);
         }
     }
 }
@@ -121,7 +121,7 @@ void App::CallbackSystem::RegisterCallback(Red::CName aEvent, const Red::Handle<
     std::unique_lock _(m_callbacksLock);
     m_callbacksByEvent[aEvent].emplace_back(aTarget, aFunction, aSticky);
 
-    InitializeEvent(aEvent);
+    ActivateEvent(aEvent);
 }
 
 void App::CallbackSystem::UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
@@ -140,7 +140,7 @@ void App::CallbackSystem::UnregisterCallback(Red::CName aEvent, const Red::Handl
 
         if (callbackList.empty())
         {
-            UninitializeEvent(aEvent);
+            DeactivateEvent(aEvent);
         }
     }
 }
@@ -151,7 +151,7 @@ void App::CallbackSystem::RegisterStaticCallback(Red::CName aEvent, Red::CName a
     std::unique_lock _(m_callbacksLock);
     m_callbacksByEvent[aEvent].emplace_back(aType, aFunction, aSticky);
 
-    InitializeEvent(aEvent);
+    ActivateEvent(aEvent);
 }
 
 void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEvent, Red::CName aType,
@@ -170,26 +170,26 @@ void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEvent, Red::CName
 
         if (callbackList.empty())
         {
-            UninitializeEvent(aEvent);
+            DeactivateEvent(aEvent);
         }
     }
 }
 
-void App::CallbackSystem::InitializeEvent(Red::CName aEvent)
+void App::CallbackSystem::ActivateEvent(Red::CName aEvent)
 {
     const auto& controllerIt = m_eventControllers.find(aEvent);
     if (controllerIt != m_eventControllers.end())
     {
-        controllerIt.value()->Initialize();
+        controllerIt.value()->ActivateEvent(aEvent);
     }
 }
 
-void App::CallbackSystem::UninitializeEvent(Red::CName aEvent)
+void App::CallbackSystem::DeactivateEvent(Red::CName aEvent)
 {
     const auto& controllerIt = m_eventControllers.find(aEvent);
     if (controllerIt != m_eventControllers.end())
     {
-        controllerIt.value()->Uninitialize();
+        controllerIt.value()->DeactivateEvent(aEvent);
     }
 }
 

@@ -15,6 +15,14 @@ struct KeyInputEvent : NamedEvent
     {
     }
 
+    KeyInputEvent(Red::CName aName, Red::KeyboardState& aState, const Red::RawInputData& aInput)
+        : NamedEvent(aName)
+        , state(aState)
+        , action(aInput.action)
+        , key(aInput.key)
+    {
+    }
+
     KeyInputEvent(Red::CName aName, Red::KeyboardState& aState, Red::EInputAction aAction, Red::EInputKey aKey)
         : NamedEvent(aName)
         , state(aState)

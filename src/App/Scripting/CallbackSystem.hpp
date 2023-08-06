@@ -86,8 +86,8 @@ protected:
         }
     }
 
-    inline void InitializeEvent(Red::CName aEvent);
-    inline void UninitializeEvent(Red::CName aEvent);
+    inline void ActivateEvent(Red::CName aEvent);
+    inline void DeactivateEvent(Red::CName aEvent);
 
     bool m_restored;
     bool m_pregame;

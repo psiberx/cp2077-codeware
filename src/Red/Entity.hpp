@@ -50,10 +50,13 @@ RED4EXT_ASSERT_OFFSET(EntityInitializeRequest, unkCC, 0xCC);
 namespace Raw::Entity
 {
 using EntityID = Core::OffsetPtr<0x48, Red::EntityID>;
+// using AppearanceName = Core::OffsetPtr<0x50, Red::CName>;
 using TemplatePath = Core::OffsetPtr<0x60, Red::ResourcePath>;
 using ComponentsStorage = Core::OffsetPtr<0x70, Red::ent::ComponentsStorage>;
 using Scene = Core::OffsetPtr<0xB8, Red::world::RuntimeScene>;
+// using VisualTags = Core::OffsetPtr<0x138, Red::TagList>;
 using Status = Core::OffsetPtr<0x156, Red::EntityStatus>;
+// using Tags = Core::OffsetPtr<0x230, Red::TagList>;
 
 constexpr auto OnAssemble = Core::RawFunc<
     /* addr = */ Red::Addresses::Entity_OnAssemble,

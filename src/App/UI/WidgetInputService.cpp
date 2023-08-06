@@ -1,18 +1,15 @@
 #include "WidgetInputService.hpp"
-#include "inkKeyInputEvent.hpp"
-
-#include <winuser.h>
+#include "App/UI/inkKeyInputEvent.hpp"
+#include "Red/InkCore.hpp"
 
 namespace
 {
 constexpr auto RawInputEventName = Red::CName("OnInputKey");
-
-App::RawInputCallback s_callback;
 }
 
 void App::WidgetInputService::OnBootstrap()
 {
-    if (!HookBefore<Raw::inkSystem::ProcessCharacterEvent>(&OnInput))
+    if (!HookBefore<Raw::inkSystem::ProcessCharacterEvent>(&OnCharacterInput))
         throw std::runtime_error("Failed to hook inkSystem::ProcessCharacterEvent.");
 }
 
@@ -21,15 +18,10 @@ void App::WidgetInputService::OnShutdown()
     Unhook<Raw::inkSystem::ProcessCharacterEvent>();
 }
 
-void App::WidgetInputService::OnInput(Red::InkSystem* aSystem, Red::EInputKey aKey, Red::EInputAction aAction)
+void App::WidgetInputService::OnCharacterInput(Red::InkSystem* aSystem, Red::EInputKey aKey, Red::EInputAction aAction)
 {
-    if (aAction != Red::EInputAction::IACT_Axis)
+    if (aAction == Red::EInputAction::IACT_Press || aAction == Red::EInputAction::IACT_Release)
     {
-        if (s_callback)
-        {
-            s_callback(aSystem->keyboardState, aAction, aKey);
-        }
-
         if (aSystem->inputWidget)
         {
             auto event = Red::MakeHandle<inkKeyInputEvent>(aSystem->keyboardState, aKey, aAction, ToCharacter(aKey));
@@ -41,7 +33,7 @@ void App::WidgetInputService::OnInput(Red::InkSystem* aSystem, Red::EInputKey aK
 
 std::string App::WidgetInputService::ToCharacter(Red::EInputKey aKey)
 {
-    if (!IsCharacter(aKey))
+    if (!IsCharacterInput(aKey))
         return {};
 
     BYTE keyboardState[256];
@@ -61,7 +53,7 @@ std::string App::WidgetInputService::ToCharacter(Red::EInputKey aKey)
     return converter.to_bytes(buffer);
 }
 
-bool App::WidgetInputService::IsCharacter(Red::EInputKey aKey)
+bool App::WidgetInputService::IsCharacterInput(Red::EInputKey aKey)
 {
     return aKey == Red::EInputKey::IK_Space
         || (aKey >= Red::EInputKey::IK_0 && aKey <= Red::EInputKey::IK_9)
@@ -69,14 +61,4 @@ bool App::WidgetInputService::IsCharacter(Red::EInputKey aKey)
         || (aKey >= Red::EInputKey::IK_NumPad0 && aKey <= Red::EInputKey::IK_NumSlash)
         || (aKey >= Red::EInputKey::IK_Semicolon && aKey <= Red::EInputKey::IK_Tilde)
         || (aKey >= Red::EInputKey::IK_LeftBracket && aKey <= Red::EInputKey::IK_SingleQuote);
-}
-
-void App::WidgetInputService::SetCallback(App::RawInputCallback aCallback)
-{
-    s_callback = aCallback;
-}
-
-void App::WidgetInputService::ClearCallback()
-{
-    s_callback = nullptr;
 }

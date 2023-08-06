@@ -68,6 +68,8 @@ def patterns():
             ], functions=[
                 Item(name="ProcessCharacterEvent",
                      pattern="48 89 5C 24 20 55 56 41 57 48 8B EC 48 83 EC 70 48 8B 81 B8 02 00 00 0F 57 C0 45 8B F8 8B DA 4C 8B C9"),
+                Item(name="ProcessInputEvents",
+                     pattern="4C 89 44 24 ? 48 89 54 24 ? 55 53 57 41 55 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 4C 8B E9 49 8B F8 B9"),
             ]),
             Group(name="InkWidget", functions=[
                 Item(name="GetLayer",
@@ -96,7 +98,7 @@ def patterns():
                      expected=2,
                      index=1),
                 Item(name="SpawnFromLocal",
-                     pattern="40 53 48 83 EC 20 48 8B DA 49 8B D0 E8 ? ? ? ? 48 85 C0 74 ? 48 8B  D3 48 8B C8 E8",
+                     pattern="40 53 48 83 EC 20 48 8B DA 49 8B D0 E8 ? ? ? ? 48 85 C0 74 ? 48 8B D3 48 8B C8 E8",
                      expected=2,
                      index=1),
             ]),

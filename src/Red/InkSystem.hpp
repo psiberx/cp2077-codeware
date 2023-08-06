@@ -39,6 +39,10 @@ constexpr auto Instance = Core::RawPtr<
     /* addr = */ Red::Addresses::InkSystem_Instance,
     /* type = */ Red::InkSystem*>();
 
+constexpr auto ProcessInputEvents = Core::RawFunc<
+    /* addr = */ Red::Addresses::InkSystem_ProcessInputEvents,
+    /* type = */ void (*)(Red::InkSystem*, uint64_t a2, Red::RawInputBuffer&)>();
+
 constexpr auto ProcessCharacterEvent = Core::RawFunc<
     /* addr = */ Red::Addresses::InkSystem_ProcessCharacterEvent,
     /* type = */ bool (*)(Red::InkSystem*, Red::EInputKey, Red::EInputAction)>();
