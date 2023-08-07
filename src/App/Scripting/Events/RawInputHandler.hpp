@@ -24,12 +24,12 @@ public:
     }
 
 protected:
-    bool Initialize() override
+    bool OnActivateHook() override
     {
         return HookBefore<Raw::inkSystem::ProcessInputEvents>(&OnRawInput);
     }
 
-    bool Uninitialize() override
+    bool OnDeactivateHook() override
     {
         return Unhook<Raw::inkSystem::ProcessInputEvents>();
     }

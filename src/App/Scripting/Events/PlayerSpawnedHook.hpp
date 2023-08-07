@@ -20,17 +20,17 @@ public:
         return {EventName};
     }
 
-    bool Initialize() override
+protected:
+    bool OnActivateHook() override
     {
         return IsHooked<Raw::PlayerSystem::OnPlayerSpawned>() || HookAfter<Raw::PlayerSystem::OnPlayerSpawned>(&OnPlayerSpawned);
     }
 
-    bool Uninitialize() override
+    bool OnDeactivateHook() override
     {
         return !IsHooked<Raw::PlayerSystem::OnPlayerSpawned>() || Unhook<Raw::PlayerSystem::OnPlayerSpawned>();
     }
 
-protected:
     inline static void OnPlayerSpawned()
     {
         auto system = CallbackSystem::Get();

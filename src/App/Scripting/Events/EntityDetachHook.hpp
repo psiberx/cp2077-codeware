@@ -20,17 +20,17 @@ public:
         return {EventName};
     }
 
-    bool Initialize() override
+protected:
+    bool OnActivateHook() override
     {
         return IsHooked<Raw::Entity::Detach>() || HookBefore<Raw::Entity::Detach>(&OnDetach);
     }
 
-    bool Uninitialize() override
+    bool OnDeactivateHook() override
     {
         return !IsHooked<Raw::Entity::Detach>() || Unhook<Raw::Entity::Detach>();
     }
 
-protected:
     inline static void OnDetach(Red::Entity* aEntity)
     {
         CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));

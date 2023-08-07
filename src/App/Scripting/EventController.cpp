@@ -9,7 +9,7 @@ bool App::EventController::ActivateEvent(Red::CName aEvent)
 
         if (!m_initialized)
         {
-            Initialize();
+            OnActivateHook();
             m_initialized = true;
         }
     }
@@ -26,7 +26,7 @@ bool App::EventController::DeactivateEvent(Red::CName aEvent)
 
         if (m_initialized && m_activeEvents.empty())
         {
-            Uninitialize();
+            OnDeactivateHook();
             m_initialized = false;
         }
     }

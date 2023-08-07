@@ -20,19 +20,19 @@ public:
         return {EventName};
     }
 
-    bool Initialize() override
+protected:
+    bool OnActivateHook() override
     {
         return (IsHooked<Raw::Entity::Uninitialize>() || HookBefore<Raw::Entity::Uninitialize>(&OnUninitialize))
             && (IsHooked<Raw::Entity::Dispose>() || HookBefore<Raw::Entity::Dispose>(&OnDispose));
     }
 
-    bool Uninitialize() override
+    bool OnDeactivateHook() override
     {
         return (!IsHooked<Raw::Entity::Uninitialize>() || Unhook<Raw::Entity::Uninitialize>())
             && (!IsHooked<Raw::Entity::Dispose>() || Unhook<Raw::Entity::Dispose>());
     }
 
-protected:
     inline static void OnUninitialize(Red::Entity* aEntity)
     {
         CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));

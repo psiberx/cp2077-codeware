@@ -20,17 +20,17 @@ public:
         return {EventName};
     }
 
-    bool Initialize() override
+protected:
+    bool OnActivateHook() override
     {
         return IsHooked<Raw::Entity::Reassemble>() || HookBefore<Raw::Entity::Reassemble>(&OnReassemble);
     }
 
-    bool Uninitialize() override
+    bool OnDeactivateHook() override
     {
         return !IsHooked<Raw::Entity::Reassemble>() || Unhook<Raw::Entity::Reassemble>();
     }
 
-protected:
     inline static void OnReassemble(Red::Entity* aEntity, uintptr_t, uint64_t, uint64_t,
                                     Red::DynArray<Red::Handle<Red::IComponent>>& aNewComponents,
                                     Red::Handle<Red::ent::EntityParametersStorage>& aEntityParams)

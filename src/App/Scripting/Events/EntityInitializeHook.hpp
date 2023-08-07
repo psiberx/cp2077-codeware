@@ -20,17 +20,17 @@ public:
         return {EventName};
     }
 
-    bool Initialize() override
+protected:
+    bool OnActivateHook() override
     {
         return IsHooked<Raw::Entity::Initialize>() || HookBefore<Raw::Entity::Initialize>(&OnInitialize);
     }
 
-    bool Uninitialize() override
+    bool OnDeactivateHook() override
     {
         return !IsHooked<Raw::Entity::Initialize>() || Unhook<Raw::Entity::Initialize>();
     }
 
-protected:
     inline static void OnInitialize(Red::Entity* aEntity, uintptr_t a2, Red::EntityInitializeRequest* aRequest)
     {
         if (aRequest->entityID)

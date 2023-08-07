@@ -21,17 +21,17 @@ public:
         return {EventName, PostEventName};
     }
 
-    bool Initialize() override
+protected:
+    bool OnActivateHook() override
     {
         return IsHooked<Raw::Entity::Attach>() || Hook<Raw::Entity::Attach>(&OnAttach);
     }
 
-    bool Uninitialize() override
+    bool OnDeactivateHook() override
     {
         return !IsHooked<Raw::Entity::Attach>() || Unhook<Raw::Entity::Attach>();
     }
 
-protected:
     inline static void OnAttach(Red::Entity* aEntity, uintptr_t a2)
     {
         CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));

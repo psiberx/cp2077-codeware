@@ -10,8 +10,8 @@ public:
     virtual bool DeactivateEvent(Red::CName aEvent);
 
 protected:
-    virtual bool Initialize() = 0;
-    virtual bool Uninitialize() = 0;
+    virtual bool OnActivateHook() = 0;
+    virtual bool OnDeactivateHook() = 0;
     virtual void OnActivateEvent(Red::CName aEvent) {}
     virtual void OnDeactivateEvent(Red::CName aEvent) {}
 
