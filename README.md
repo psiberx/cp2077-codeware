@@ -23,6 +23,7 @@ Codeware is a library and framework for creating redscript and Cyber Engine Twea
 
 - [Entities](https://github.com/psiberx/cp2077-codeware/wiki#entities)
 - [Vehicles](https://github.com/psiberx/cp2077-codeware/wiki#vehicles)
+- [Inventory](https://github.com/psiberx/cp2077-codeware/wiki#inventory)
 - [Lifecycle](https://github.com/psiberx/cp2077-codeware/wiki#lifecycle)
 - [Widgets](https://github.com/psiberx/cp2077-codeware/wiki#widgets)
 - [Localization](https://github.com/psiberx/cp2077-codeware/wiki#localization)
