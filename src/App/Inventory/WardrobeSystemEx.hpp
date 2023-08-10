@@ -14,9 +14,7 @@ struct WardrobeSystemEx : Red::WardrobeSystem
         auto key = Red::GetFlatValue<Red::CName>({aItemID.tdbid, ".appearanceName"});
 
         std::unique_lock _(mutex);
-        store.Remove(key);
-
-        return true;
+        return store.Remove(key);
     }
 };
 }
