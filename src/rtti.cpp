@@ -4,6 +4,7 @@
 #include "App/Entity/EntityEx.hpp"
 #include "App/Entity/GameObjectEx.hpp"
 #include "App/Entity/TagListEx.hpp"
+#include "App/Inventory/WardrobeSystemEx.hpp"
 #include "App/Reflection/Reflection.hpp"
 #include "App/Scripting/CallbackSystem.hpp"
 #include "App/Scripting/EventObject.hpp"

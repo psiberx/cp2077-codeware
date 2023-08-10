@@ -47,6 +47,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentState.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ScriptableSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/WardrobeSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/CustomizationAppearance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CharacterEvent.hpp>

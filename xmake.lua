@@ -1,7 +1,7 @@
 set_xmakever("2.5.9")
 
 set_project("Codeware")
-set_version("1.1.8", {build = "%y%m%d%H%M"})
+set_version("1.1.9", {build = "%y%m%d%H%M"})
 
 set_arch("x64")
 set_languages("cxx20", "cxx2a")
@@ -29,7 +29,7 @@ else
     set_runtimes("MD")
 end
 
-add_requires("fmt", "hopscotch-map", "minhook", "spdlog", "tiltedcore")
+add_requires("hopscotch-map", "minhook", "spdlog", "tiltedcore")
 
 target("Codeware")
     set_default(true)
@@ -40,7 +40,7 @@ target("Codeware")
     add_headerfiles("src/**.hpp", "lib/**.hpp")
     add_includedirs("src/", "lib/")
     add_deps("RED4ext.SDK", "nameof", "semver", "wil")
-    add_packages("fmt", "hopscotch-map", "minhook", "spdlog", "tiltedcore")
+    add_packages("hopscotch-map", "minhook", "spdlog", "tiltedcore")
     add_syslinks("Version")
     add_defines("WINVER=0x0601", "WIN32_LEAN_AND_MEAN", "NOMINMAX")
     set_configdir("src")
