@@ -3,9 +3,6 @@
 namespace
 {
 constexpr auto ControllerSeparator = ':';
-
-constexpr auto WaitTimeout = std::chrono::milliseconds(200);
-constexpr auto WaitTick = std::chrono::milliseconds(2);
 }
 
 void App::WidgetSpawningService::OnBootstrap()
@@ -169,14 +166,7 @@ void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResourc
         auto* externalLibrary = aLibrary.externalLibraries.End() - 1;
         externalLibrary->LoadAsync();
 
-        const auto start = std::chrono::steady_clock::now();
-        while (!externalLibrary->IsLoaded() && !externalLibrary->IsFailed())
-        {
-            std::this_thread::sleep_for(WaitTick);
-
-            if (std::chrono::steady_clock::now() - start >= WaitTimeout)
-                break;
-        }
+        Red::WaitForResource(externalLibrary->token, std::chrono::milliseconds(1000));
     }
 }
 
