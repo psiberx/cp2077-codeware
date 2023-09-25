@@ -19,8 +19,8 @@ void App::ScriptingService::OnBootstrap()
     if (!HookAfter<Raw::CGameFramework::InitializeGameInstance>(&OnInitializeGameInstance))
         throw std::runtime_error("Failed to hook CGameFramework::InitializeGameInstance.");
 
-    if (!HookAfter<Raw::IScriptable::InitializeScriptData>(&OnInitializeInstance))
-        throw std::runtime_error("Failed to hook IScriptable::InitializeScriptData.");
+    // if (!HookAfter<Raw::IScriptable::InitializeScriptData>(&OnInitializeInstance))
+    //     throw std::runtime_error("Failed to hook IScriptable::InitializeScriptData.");
 
     if (!HookAfter<Raw::ScriptValidator::CompareTypeName>(&OnValidateTypeName))
         throw std::runtime_error("Failed to hook ScriptValidator::CompareTypeName.");

@@ -32,7 +32,7 @@ App::CallbackSystem::~CallbackSystem()
 void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
     {
-        auto handler = Red::InkSystem::Get()->GetSystemRequestsHandler();
+        auto& handler = Red::InkSystem::Get()->GetSystemRequestsHandler();
         Red::CallVirtual(handler.instance, "IsPreGame", m_pregame);
     }
 
