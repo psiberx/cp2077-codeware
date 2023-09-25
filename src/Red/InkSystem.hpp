@@ -20,15 +20,15 @@ struct InkSystem
     DynArray<Handle<inkLayer>>& GetLayers();
     WeakHandle<ink::ISystemRequestsHandler>& GetSystemRequestsHandler();
 
-    uint8_t unk00[0x2B0];                                    // 000
-    WeakHandle<ink::Widget> inputWidget;                     // 2B0
-    KeyboardState keyboardState;                             // 2C0
-    uint8_t unk2C2[0x360 - 0x2C2];                           // 2C2
+    uint8_t unk00[0x2E8];                                    // 000
+    WeakHandle<ink::Widget> inputWidget;                     // 2E8
+    KeyboardState keyboardState;                             // 2F8
+    uint8_t unk2FA[0x360 - 0x2FA];                           // 2FA
     WeakHandle<ink::ISystemRequestsHandler> requestsHandler; // 360
     DynArray<SharedPtr<InkLayerManager>> layerManagers;      // 370
 };
-RED4EXT_ASSERT_OFFSET(InkSystem, inputWidget, 0x2B0);
-RED4EXT_ASSERT_OFFSET(InkSystem, keyboardState, 0x2C0);
+RED4EXT_ASSERT_OFFSET(InkSystem, inputWidget, 0x2E8);
+RED4EXT_ASSERT_OFFSET(InkSystem, keyboardState, 0x2F8);
 RED4EXT_ASSERT_OFFSET(InkSystem, requestsHandler, 0x360);
 RED4EXT_ASSERT_OFFSET(InkSystem, layerManagers, 0x370);
 }
