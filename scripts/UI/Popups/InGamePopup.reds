@@ -75,11 +75,11 @@ public abstract class InGamePopup extends CustomPopup {
     }
 
     protected func SetTimeDilation() {
-        TimeDilationHelper.SetTimeDilationWithProfile(this.GetPlayer(), "radialMenu", true);
+        TimeDilationHelper.SetTimeDilationWithProfile(this.GetPlayer(), "radialMenu", true, true);
     }
 
     protected func ResetTimeDilation() {
-        TimeDilationHelper.SetTimeDilationWithProfile(this.GetPlayer(), "radialMenu", false);
+        TimeDilationHelper.SetTimeDilationWithProfile(this.GetPlayer(), "radialMenu", false, false);
     }
 
     protected func SetBackgroundBlur() {

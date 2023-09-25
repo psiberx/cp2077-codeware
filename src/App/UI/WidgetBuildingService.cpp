@@ -100,7 +100,7 @@ bool App::WidgetBuildingService::AttachController(const Red::Handle<Red::inkWidg
 
 bool App::WidgetBuildingService::IsLegacyController(Red::inkLogicController* aController)
 {
-    return aController->unk30
-           && aController->unk30->propsByName.Get("detachedWidget")
-           && aController->unk30->propsByName.Get("gameController");
+    return aController->nativeType
+           && aController->nativeType->propsByName.Get("detachedWidget")
+           && aController->nativeType->propsByName.Get("gameController");
 }

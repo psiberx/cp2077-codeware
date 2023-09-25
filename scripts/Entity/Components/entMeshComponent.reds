@@ -5,10 +5,16 @@ native let mesh: ResourceAsyncRef;
 native let meshAppearance: CName;
 
 @addField(MeshComponent)
-native let castShadows: Bool;
+native let castShadows: shadowsShadowCastingMode;
 
 @addField(MeshComponent)
-native let castLocalShadows: Bool;
+native let castLocalShadows: shadowsShadowCastingMode;
+
+@addField(MeshComponent)
+native let castRayTracedGlobalShadows: shadowsShadowCastingMode;
+
+@addField(MeshComponent)
+native let castRayTracedLocalShadows: shadowsShadowCastingMode;
 
 @addField(MeshComponent)
 native let motionBlurScale: Float;

@@ -17,9 +17,6 @@ native let gamepadHoldIndicatorLibraryRef: inkWidgetLibraryReference;
 native let keyboardHoldIndicatorLibraryRef: inkWidgetLibraryReference;
 
 @addField(inkInputDisplayController)
-native let supportAnimatedHoldIndicator: Bool;
-
-@addField(inkInputDisplayController)
 native let holdIndicationType: inkInputHintHoldIndicationType;
 
 @addField(inkInputDisplayController)
