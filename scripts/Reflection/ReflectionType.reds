@@ -17,10 +17,10 @@ public native class ReflectionType {
     }
 
     public func AsClass() -> ref<ReflectionClass> {
-        return this as ReflectionClass;
+        return Reflection.GetClass(this.GetName());
     }
 
     public func AsEnum() -> ref<ReflectionEnum> {
-        return this as ReflectionEnum;
+        return Reflection.GetEnum(this.GetName());
     }
 }

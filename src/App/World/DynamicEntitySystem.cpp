@@ -318,7 +318,7 @@ void App::DynamicEntitySystem::RegisterPopulation(const App::DynamicEntityStateP
 
 void App::DynamicEntitySystem::RemovePopulation(const App::DynamicEntityStatePtr& aEntityState)
 {
-    m_populationSystem->RemoveEntity(aEntityState->entityID, "");
+    m_populationSystem->RemoveEntity(aEntityState->entityID, 0);
 }
 
 void App::DynamicEntitySystem::RemovePersistentState(const App::DynamicEntityStatePtr& aEntityState)
