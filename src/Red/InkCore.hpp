@@ -15,8 +15,9 @@ constexpr auto RegisterListener = Core::RawFunc<
 
 constexpr auto AttachWidgetTree = Core::RawFunc<
     /* addr = */ Red::Addresses::InkLayer_AttachWidgetTree,
-    /* type = */ void (*)(Red::inkLayer* aLayer, const Red::Handle<Red::inkWidget>& aWidget,
-                          const Red::Handle<Red::inkLayerProxy>& aProxy)>();
+    /* type = */ uint64_t (*)(Red::inkLayer* aLayer,
+                              const Red::Handle<Red::inkWidget>& aWidget,
+                              const Red::WeakHandle<Red::inkLayerProxy>& aProxy)>();
 }
 
 namespace Raw::inkWidget

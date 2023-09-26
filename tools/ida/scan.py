@@ -44,9 +44,9 @@ def patterns():
                      expected=2,
                      index=0),
                 Item(name="AttachWidgetTree",
-                     pattern="48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8B EC 48 83 EC ? 83 65 ? 00 48 8D 05 ? ? ? ? 83 65 ? 00 48 8B FA 48 8B F1 48 89 45 ? BA 00 04 00 00",
+                     pattern="48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 48 8B EC 48 83 EC ? 83 65 ? 00 48 8D 05 ? ? ? ? 83 65 ? 00 48 8B FA 48 8B F1",
                      expected=2,
-                     index=1),
+                     index=0),
             ]),
             Group(name="InkLogicController", functions=[
                 Item(name="OnInitialize",
