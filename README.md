@@ -6,13 +6,13 @@ Codeware is a library and framework for creating redscript and Cyber Engine Twea
 
 ### Prerequisites
 
-- [RED4ext](https://docs.red4ext.com/getting-started/installing-red4ext) 1.15.0+
+- [RED4ext](https://docs.red4ext.com/getting-started/installing-red4ext) 1.16.0+
 
 ### Compatibility
 
-- Cyberpunk 2077 1.63 Hotfix 1
-- [redscript](https://github.com/jac3km4/redscript) 0.5.10+
-- [Cyber Engine Tweaks](https://github.com/yamashi/CyberEngineTweaks) 1.25.0+
+- Cyberpunk 2077 2.0
+- [redscript](https://github.com/jac3km4/redscript) 0.5.15+
+- [Cyber Engine Tweaks](https://github.com/yamashi/CyberEngineTweaks) 1.26.0+
 
 ### Installation
 
