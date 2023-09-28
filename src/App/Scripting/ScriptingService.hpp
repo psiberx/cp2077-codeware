@@ -23,7 +23,8 @@ protected:
 
     static void OnInitializeScripts();
     static void OnInitializeGameInstance();
-    static void OnInitializeInstance(Red::IScriptable* aInstance, Red::CClass* aClass, void* aValueHolder);
+    // static void OnInitializeInstance(Red::IScriptable* aInstance, Red::CClass* aClass, void* aValueHolder);
+    static void OnCreateInstance(Red::IScriptable*& aInstance, Red::CClass* aClass, uint32_t, bool);
     static void OnValidateTypeName(bool& aValid, Red::CName aScriptTypeName, Red::CName aNativeTypeName);
 
     static void GetScriptGameInstance(Red::IScriptable* aContext, Red::CStackFrame* aFrame,

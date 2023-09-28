@@ -22,6 +22,9 @@ void App::ScriptingService::OnBootstrap()
     // if (!HookAfter<Raw::IScriptable::InitializeScriptData>(&OnInitializeInstance))
     //     throw std::runtime_error("Failed to hook IScriptable::InitializeScriptData.");
 
+    if (!HookAfter<Raw::CClass::CreateInstance>(&OnCreateInstance))
+        throw std::runtime_error("Failed to hook CClass::CreateInstance.");
+
     if (!HookAfter<Raw::ScriptValidator::CompareTypeName>(&OnValidateTypeName))
         throw std::runtime_error("Failed to hook ScriptValidator::CompareTypeName.");
 
@@ -68,9 +71,17 @@ void App::ScriptingService::OnInitializeGameInstance()
     }
 }
 
-void App::ScriptingService::OnInitializeInstance(Red::IScriptable* aInstance, Red::CClass* aClass, void*)
+// void App::ScriptingService::OnInitializeInstance(Red::IScriptable* aInstance, Red::CClass* aClass, void*)
+// {
+//     if (aClass->flags.isScriptedClass)
+//     {
+//         Red::CallVirtual(aInstance, aClass, "OnConstruct");
+//     }
+// }
+
+void App::ScriptingService::OnCreateInstance(Red::IScriptable*& aInstance, Red::CClass* aClass, uint32_t, bool)
 {
-    if (aClass->flags.isScriptedClass)
+    if (aInstance && aClass->flags.isScriptedClass)
     {
         Red::CallVirtual(aInstance, aClass, "OnConstruct");
     }
