@@ -39,10 +39,10 @@ void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
     TriggerEvent<GameSessionEvent>("Session/BeforeStart", m_pregame, m_restored);
 }
 
-void App::CallbackSystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup&)
-{
-    m_restored = aRestored;
-}
+// void App::CallbackSystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup& aJobGroup)
+// {
+//     m_restored = aRestored;
+// }
 
 void App::CallbackSystem::OnBeforeWorldDetach(RED4ext::world::RuntimeScene* aScene)
 {
@@ -93,9 +93,9 @@ void App::CallbackSystem::OnAfterGameSave()
     TriggerEvent<GameSessionEvent>("Session/AfterSave", m_pregame, m_restored);
 }
 
-void App::CallbackSystem::OnGamePrepared()
+void App::CallbackSystem::OnGameLoad(const Red::JobGroup& aJobGroup, bool& aSuccess, void* aStream)
 {
-    TriggerEvent<GameSessionEvent>("Session/Start", m_pregame, m_restored);
+    m_restored = true;
 }
 
 bool App::CallbackSystem::OnGameRestored()
@@ -103,6 +103,11 @@ bool App::CallbackSystem::OnGameRestored()
     TriggerEvent<GameSessionEvent>("Session/Ready", m_pregame, m_restored);
 
     return true;
+}
+
+void App::CallbackSystem::OnGamePrepared()
+{
+    TriggerEvent<GameSessionEvent>("Session/Start", m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnGamePaused()

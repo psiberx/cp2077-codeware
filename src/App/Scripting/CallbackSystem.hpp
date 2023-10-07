@@ -63,13 +63,14 @@ public:
 
 protected:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
-    void OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup&) override;
+    // void OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup&) override;
     void OnBeforeWorldDetach(Red::world::RuntimeScene* aScene) override;
     void OnWorldDetached(Red::world::RuntimeScene* aScene) override;
     void OnAfterWorldDetach() override;
     uint32_t OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2) override;
     // void OnGameSave(void* aStream) override;
     void OnAfterGameSave() override;
+    void OnGameLoad(const Red::JobGroup& aJobGroup, bool& aSuccess, void* aStream) override;
     void OnGamePrepared() override;
     bool OnGameRestored() override;
     void OnGamePaused() override;
