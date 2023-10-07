@@ -160,7 +160,7 @@ struct Reflection
 
         Red::DynArray<Red::Handle<ReflectionClass>> wrappers;
         Red::DynArray<Red::CClass*> classes;
-        rtti->GetDerivedClasses(base, classes);
+        rtti->GetClasses(base, classes, nullptr, true);
 
         for (const auto& derived : classes)
         {
