@@ -76,6 +76,9 @@
 #include <RED4ext/Scripting/Natives/Generated/population/PopulationSpawnParameter.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemWeather.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/WeatherScriptInterface.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/WeatherState.hpp>
 
 #include <nameof.hpp>
 #include <semver.hpp>
