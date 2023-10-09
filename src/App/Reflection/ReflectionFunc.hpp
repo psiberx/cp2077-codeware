@@ -56,7 +56,8 @@ struct ReflectionFunc : Red::IScriptable
 
     Red::Variant Call(Red::IScriptable* aContext,
                       Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
-                      Red::Optional<Red::ScriptRef<bool>>& aStatus) const
+                      Red::Optional<Red::ScriptRef<bool>>& aStatus,
+                      Red::CStackFrame* aFrame) const
     {
         Red::Variant ret;
 
@@ -113,7 +114,7 @@ struct ReflectionFunc : Red::IScriptable
             stack.result->value = ret.GetDataPtr();
         }
 
-        const auto success = m_func->Execute(&stack);
+        const auto success = Red::Detail::CallFunctionWithStack(aFrame, m_func, stack);
 
         if (aStatus)
         {
@@ -135,9 +136,10 @@ struct ReflectionMemberFunc : ReflectionFunc
 
     Red::Variant Call(const Red::Handle<Red::IScriptable>& aContext,
                       Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
-                      Red::Optional<Red::ScriptRef<bool>>& aStatus)
+                      Red::Optional<Red::ScriptRef<bool>>& aStatus,
+                      Red::CStackFrame* aFrame)
     {
-        return ReflectionFunc::Call(aContext.GetPtr(), aArgs, aStatus);
+        return ReflectionFunc::Call(aContext.GetPtr(), aArgs, aStatus, aFrame);
     }
 
     RTTI_IMPL_TYPEINFO(App::ReflectionMemberFunc);
@@ -149,9 +151,10 @@ struct ReflectionStaticFunc : ReflectionFunc
     using ReflectionFunc::ReflectionFunc;
 
     Red::Variant Call(Red::Optional<Red::DynArray<Red::Variant>>& aArgs,
-                      Red::Optional<Red::ScriptRef<bool>>& aStatus)
+                      Red::Optional<Red::ScriptRef<bool>>& aStatus,
+                      Red::CStackFrame* aFrame)
     {
-        return ReflectionFunc::Call(nullptr, aArgs, aStatus);
+        return ReflectionFunc::Call(nullptr, aArgs, aStatus, aFrame);
     }
 
     RTTI_IMPL_TYPEINFO(App::ReflectionStaticFunc);

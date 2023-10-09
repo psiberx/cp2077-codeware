@@ -32,3 +32,4 @@
 #include "App/World/DynamicEntitySystem.hpp"
 #include "App/World/DynamicEntitySystemPS.hpp"
 #include "App/World/VehicleSystemEx.hpp"
+#include "App/World/WeatherSystemEx.hpp"
