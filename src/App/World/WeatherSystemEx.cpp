@@ -15,7 +15,7 @@ bool App::WeatherSystemEx::SetWeather(Red::CName aWeather, Red::Optional<float> 
     return true;
 }
 
-bool App::WeatherSystemEx::ResetWeather(Red::Optional<bool> aForceRestore)
+bool App::WeatherSystemEx::ResetWeather(Red::Optional<bool> aForceRestore, Red::Optional<float> aBlendTime)
 {
     auto* system = Raw::WeatherScriptInterface::System::Ptr(this);
 
@@ -26,7 +26,7 @@ bool App::WeatherSystemEx::ResetWeather(Red::Optional<bool> aForceRestore)
 
     if (aForceRestore)
     {
-        if (!Raw::RuntimeSystemWeather::SetWeatherByIndex(system, 0, "", 0.0, 1.0, 0))
+        if (!Raw::RuntimeSystemWeather::SetWeatherByIndex(system, 0, "", aBlendTime, 0.0, 0))
             return false;
     }
 

@@ -5,7 +5,7 @@ namespace App
 struct WeatherSystemEx : Red::WeatherSystem
 {
     bool SetWeather(Red::CName aWeather, Red::Optional<float> aBlendTime, Red::Optional<uint32_t> aPriority);
-    bool ResetWeather(Red::Optional<bool> aForceRestore);
+    bool ResetWeather(Red::Optional<bool> aForceRestore, Red::Optional<float> aBlendTime);
 };
 }
 

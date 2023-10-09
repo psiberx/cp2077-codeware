@@ -20,16 +20,16 @@ using CurrentSource = Core::OffsetPtr<0x98, Red::CName>;
 using PreviouseStateIndex = Core::OffsetPtr<0xB8, uint32_t>;
 
 constexpr auto SetWeatherByName = Core::RawFunc<
-    /* addr = */ 0x140B3935C - Red::Addresses::ImageBase,
+    /* addr = */ Red::Addresses::RuntimeSystemWeather_SetWeatherByName,
     /* type = */ bool (*)(Red::world::RuntimeSystemWeather* aSystem, Red::CName aWeather, Red::CName aSource,
                           float aBlendTime, uint32_t a5, uint32_t aPriority)>();
 
 constexpr auto SetWeatherByIndex = Core::RawFunc<
-    /* addr = */ 0x140B37D48 - Red::Addresses::ImageBase,
+    /* addr = */ Red::Addresses::RuntimeSystemWeather_SetWeatherByIndex,
     /* type = */ bool (*)(Red::world::RuntimeSystemWeather* aSystem, uint32_t aIndex, Red::CName aSource,
                           float aBlendTime, float a5, uint32_t aPriority)>();
 
-constexpr auto GetWeatherState = Core::RawFunc<
-    /* addr = */ 0x14013AC1C - Red::Addresses::ImageBase,
-    /* type = */ void (*)(Red::world::RuntimeSystemWeather* aSystem, Red::world::WeatherState* aWeather, uint32_t aIndex)>();
+// constexpr auto GetWeatherState = Core::RawFunc<
+//     /* addr = */ 0x14013AC1C - Red::Addresses::ImageBase,
+//     /* type = */ void (*)(Red::world::RuntimeSystemWeather* aSystem, Red::world::WeatherState* aWeather, uint32_t aIndex)>();
 }

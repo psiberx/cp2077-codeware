@@ -110,6 +110,12 @@ def patterns():
                 Item(name="OnPlayerSpawned",
                      pattern="48 89 5C 24 18 48 89 74 24 20 55 57 41 54 41 56 41 57 48 8B EC 48 83 EC 50 48 8B DA 48 8B F9"),
             ]),
+            Group(name="RuntimeSystemWeather", functions=[
+                Item(name="SetWeatherByName",
+                     pattern="48 8B C4 48 89 58 ? 48 89 70 ? 48 89 78 ? 55 41 56 41 57 48 8B EC 48 83 EC ? 48 8B DA"),
+                Item(name="SetWeatherByIndex",
+                     pattern="48 8B C4 48 89 58 ? 48 89 70 ? 55 57 41 56 48 8D A8 ? ? ? ? 48 81 EC ? ? ? ? 0F 29 70 ? 8B F2 0F 29 78 ? 48 8D 54 24"),
+            ]),
             Group(name="ScriptBundle", functions=[
                 Item(name="dtor",
                      pattern="40 53 48 83 EC ? 48 8B D9 E8 ? ? ? ? 48 8D 8B ? ? ? ? FF 15 ? ? ? ? 48 8D 8B ? ? ? ? E8"),
