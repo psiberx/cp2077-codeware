@@ -25,8 +25,9 @@
 #include <RED4ext/ResourceLoader.hpp>
 #include <RED4ext/SystemUpdate.hpp>
 
-#include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
+#include <RED4ext/Scripting/Natives/Generated/CMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
+#include <RED4ext/Scripting/Natives/Generated/MorphTargetMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Quaternion.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Vector4.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/ComponentsStorage.hpp>
@@ -34,6 +35,10 @@
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityParametersStorage.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/IComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/MeshComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/MorphTargetManagerComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/MorphTargetSkinnedMeshComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/SkinnedMeshComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/EntityStubComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IDynamicEntityIDSystem.hpp>
@@ -54,9 +59,9 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ControllerProcessor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IEffect.hpp>
-#include <RED4ext/Scripting/Natives/Generated/ink/InputEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ISystemRequestsHandler.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IWidgetController.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/InputEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/Layer.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/LayerProxy.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/MultiChildren.hpp>
@@ -72,6 +77,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLogicController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetReference.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
+#include <RED4ext/Scripting/Natives/Generated/mesh/MeshAppearance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/net/PeerID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/population/PopulationSpawnParameter.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
@@ -79,6 +85,7 @@
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemWeather.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherScriptInterface.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherState.hpp>
+#include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 
 #include <nameof.hpp>
 #include <semver.hpp>

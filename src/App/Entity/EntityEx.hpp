@@ -20,6 +20,8 @@ struct EntityEx : Red::Entity
     {
         Raw::Entity::ComponentsStorage(this)->components.PushBack(aComponent);
     }
+
+    bool ApplyMorphTarget(Red::CName aTarget, Red::CName aRegion, float aValue);
 };
 }
 
@@ -27,4 +29,5 @@ RTTI_EXPAND_CLASS(Red::Entity, App::EntityEx, {
     RTTI_METHOD(GetTemplatePath);
     RTTI_METHOD(GetComponents);
     RTTI_METHOD(AddComponent);
+    RTTI_METHOD(ApplyMorphTarget);
 });

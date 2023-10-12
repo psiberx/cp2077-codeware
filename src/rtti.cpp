@@ -1,6 +1,7 @@
 #include "App/Depot/ResourceDepot.hpp"
 #include "App/Depot/ResourceReference.hpp"
 #include "App/Depot/ResourceToken.hpp"
+#include "App/Entity/ComponentEx.hpp"
 #include "App/Entity/EntityEx.hpp"
 #include "App/Entity/GameObjectEx.hpp"
 #include "App/Entity/TagListEx.hpp"

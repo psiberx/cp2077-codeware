@@ -22,6 +22,10 @@ def patterns():
                      expected=2,
                      index=0),
             ]),
+            Group(name="CMesh", functions=[
+                Item(name="GetAppearance",
+                     pattern="40 53 48 83 EC ? 48 8B D9 E8 ? ? ? ? 48 83 38 00 74 ? 48 83 C4 ? 5B C3"),
+            ]),
             Group(name="Entity", functions=[
                 Item(name="Attach",
                      pattern="48 89 5C 24 ? 48 89 6C 24 ? 48 89 74 24 ? 57 48 83 EC 60 C6 81 ? ? ? ? 03 48 8B F2 80 7A ? 00"),
@@ -97,6 +101,14 @@ def patterns():
             Group(name="IScriptable", functions=[
                 Item(name="InitializeScriptData",
                      pattern="48 89 51 30 4C 89 41 38 C3"),
+            ]),
+            Group(name="MeshAppearance", functions=[
+                Item(name="LoadMaterialSetupAsync",
+                     pattern="48 89 5C 24 ? 55 56 57 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 65 48 8B 04 25 ? ? ? ? 48 8B D9 B9 ? ? ? ? 0F 57 C0"),
+            ]),
+            Group(name="MorphTargetManager", functions=[
+                Item(name="ApplyMorphTarget",
+                     pattern="48 8B C4 48 89 58 ? 48 89 68 ? 48 89 70 ? 57 48 83 EC ? 33 F6 0F 29 70 ? 40 88 70 ? 0F 28 F3 49 8B F8"),
             ]),
             Group(name="NodeRef", functions=[
                 Item(name="Create",
