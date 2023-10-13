@@ -36,7 +36,7 @@ def patterns():
                 Item(name="Initialize",
                      pattern="48 89 5C 24 ? 55 56 57 41 54 41 55 41 56 41 57 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? 8A 81 ? ? ? ? 4C 8D A1"),
                 Item(name="OnAssemble",
-                     pattern="40 53 48 83 EC ? 4C 8B 42 ? 48 8B D9 83 61 ? 00 4C 89 41 ? 48 8B 42 ? 48 89 41 ? F7 42 28 FF FF FF 7F 75 ? 4D 85 C0 75"),
+                     pattern="48 89 5C 24 ? 57 48 81 EC ? ? ? ? 48 8B 02 48 8B FA 48 89 41 ? 48 8B D9 48 8B 42 ? 48 89 41 ? 48 8B 42"),
                 Item(name="Reassemble",
                      pattern="48 8B C4 48 89 58 ? 48 89 70 ? 48 89 78 ? 55 41 56 41 57 48 8D 68 ? 48 81 EC ? ? ? ? 4C 8B F2 49 8B F9 48"),
                 Item(name="Uninitialize",

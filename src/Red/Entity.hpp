@@ -60,7 +60,7 @@ using Status = Core::OffsetPtr<0x156, Red::EntityStatus>;
 
 constexpr auto OnAssemble = Core::RawFunc<
     /* addr = */ Red::Addresses::Entity_OnAssemble,
-    /* type = */ uintptr_t (*)(Red::Entity* aEntity, uintptr_t, uintptr_t)>();
+    /* type = */ bool (*)(Red::Entity* aEntity, uintptr_t)>();
 
 constexpr auto Reassemble = Core::RawFunc<
     /* addr = */ Red::Addresses::Entity_Reassemble,

@@ -31,7 +31,7 @@ protected:
         return !IsHooked<Raw::Entity::OnAssemble>() || Unhook<Raw::Entity::OnAssemble>();
     }
 
-    inline static void OnAssemble(Red::Entity* aEntity, uintptr_t, uintptr_t)
+    inline static void OnAssemble(Red::Entity* aEntity, uintptr_t)
     {
         CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
     }
