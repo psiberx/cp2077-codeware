@@ -22,9 +22,10 @@ public:
     [[nodiscard]] bool IsEnabled() const;
     bool SetEnabled(bool isEnabled) const;
 
-    [[nodiscard]] Red::ResourcePath GetResource() const;
-    bool SetResource(Red::ResourcePath aPath) const;
-    [[nodiscard]] Red::SharedPtr<Red::ResourceToken<Red::CMesh>> LoadResource(bool aWait = false) const;
+    [[nodiscard]] Red::ResourcePath GetResourcePath() const;
+    bool SetResourcePath(Red::ResourcePath aPath) const;
+    bool LoadResource(bool aWait = false) const;
+    [[nodiscard]] Red::SharedPtr<Red::ResourceToken<Red::CMesh>> LoadResourceToken(bool aWait = false) const;
 
     [[nodiscard]] Red::CName GetAppearanceName() const;
     bool SetAppearanceName(Red::CName aAppearance) const;

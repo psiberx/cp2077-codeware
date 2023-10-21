@@ -134,7 +134,7 @@ bool App::ComponentWrapper::SetEnabled(bool isEnabled) const
     return true;
 }
 
-Red::ResourcePath App::ComponentWrapper::GetResource() const
+Red::ResourcePath App::ComponentWrapper::GetResourcePath() const
 {
     switch (m_componentType)
     {
@@ -151,7 +151,7 @@ Red::ResourcePath App::ComponentWrapper::GetResource() const
     return {};
 }
 
-bool App::ComponentWrapper::SetResource(Red::ResourcePath aPath) const
+bool App::ComponentWrapper::SetResourcePath(Red::ResourcePath aPath) const
 {
     switch (m_componentType)
     {
@@ -168,7 +168,23 @@ bool App::ComponentWrapper::SetResource(Red::ResourcePath aPath) const
     return false;
 }
 
-Red::SharedPtr<Red::ResourceToken<Red::CMesh>> App::ComponentWrapper::LoadResource(bool aWait) const
+bool App::ComponentWrapper::LoadResource(bool aWait) const
+{
+    if (!IsMeshComponent())
+        return false;
+
+    Red::JobQueue jobQueue;
+    Raw::MeshComponent::LoadResource(m_component, jobQueue);
+
+    if (aWait)
+    {
+        Red::WaitForQueue(jobQueue, std::chrono::milliseconds(1000));
+    }
+
+    return true;
+}
+
+Red::SharedPtr<Red::ResourceToken<Red::CMesh>> App::ComponentWrapper::LoadResourceToken(bool aWait) const
 {
     Red::ResourceReference<Red::CMesh> meshRef;
 
