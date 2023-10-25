@@ -14,7 +14,29 @@ struct WardrobeSystemEx : Red::WardrobeSystem
         auto key = Red::GetFlatValue<Red::CName>({aItemID.tdbid, ".appearanceName"});
 
         std::unique_lock _(mutex);
-        return store.Remove(key);
+        auto success = store.Remove(key);
+
+        if (!success)
+        {
+            Core::Vector<Red::CName> otherKeys;
+            store.ForEach([&otherKeys, &aItemID](const Red::CName& aStoreKey, const Red::ItemID& aStoreItemID)
+                          {
+                              if (aItemID.tdbid == aStoreItemID.tdbid)
+                              {
+                                  otherKeys.push_back(aStoreKey);
+                              }
+                          });
+
+            for (const auto& otherKey : otherKeys)
+            {
+                if (store.Remove(otherKey))
+                {
+                    success = true;
+                }
+            }
+        }
+
+        return success;
     }
 };
 }
