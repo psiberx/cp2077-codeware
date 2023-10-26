@@ -19,3 +19,8 @@ Red::WeakHandle<Red::ink::ISystemRequestsHandler>& Red::InkSystem::GetSystemRequ
 {
     return requestsHandler;
 }
+
+Red::ink::ISystemRequestsHandler* Red::InkSystem::GetSystemRequestsHandlerPtr()
+{
+    return requestsHandler.instance;
+}

@@ -19,6 +19,7 @@ struct InkSystem
     InkLayerManager* GetLayerManager();
     DynArray<Handle<inkLayer>>& GetLayers();
     WeakHandle<ink::ISystemRequestsHandler>& GetSystemRequestsHandler();
+    ink::ISystemRequestsHandler* GetSystemRequestsHandlerPtr();
 
     uint8_t unk00[0x2E8];                                    // 000
     WeakHandle<ink::Widget> inputWidget;                     // 2E8
