@@ -44,12 +44,12 @@ void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
 //     m_restored = aRestored;
 // }
 
-void App::CallbackSystem::OnBeforeWorldDetach(RED4ext::world::RuntimeScene* aScene)
+void App::CallbackSystem::OnBeforeWorldDetach(Red::world::RuntimeScene* aScene)
 {
     TriggerEvent<GameSessionEvent>("Session/BeforeEnd", m_pregame, m_restored);
 }
 
-void App::CallbackSystem::OnWorldDetached(RED4ext::world::RuntimeScene* aScene)
+void App::CallbackSystem::OnWorldDetached(Red::world::RuntimeScene* aScene)
 {
     TriggerEvent<GameSessionEvent>("Session/End", m_pregame, m_restored);
 }
@@ -76,7 +76,7 @@ void App::CallbackSystem::OnAfterWorldDetach()
     }
 }
 
-uint32_t App::CallbackSystem::OnBeforeGameSave(const RED4ext::JobGroup& aJobGroup, void* a2)
+uint32_t App::CallbackSystem::OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2)
 {
     TriggerEvent<GameSessionEvent>("Session/BeforeSave", m_pregame, m_restored);
 
