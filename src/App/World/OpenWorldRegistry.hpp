@@ -17,12 +17,16 @@ struct PersistentStateRef
 struct MinorActivityData
 {
     Red::CName name;
-    Red::PhaseNodePath phaseNodePath;
+
     Red::JournalEntryHash mappinHash;
     Core::Vector<Red::NodeRef> communityRefs;
     Core::Vector<Red::FactHash> factHashes;
     Core::Vector<Red::JournalEntryHash> journalHashes;
     Core::Vector<PersistentStateRef> persistenceRefs;
+
+    Red::PhaseNodePath phaseNodePath;
+    Red::questPhaseInstance* phaseInstance;
+    Red::Handle<Red::questGraphDefinition> phaseGraph;
     Red::DynArray<Red::CName> inputSockets;
 };
 

@@ -59,6 +59,28 @@ struct PhaseNodePath
     NodeID subNodeID;
     NodeID nodeID;
 };
+
+struct QuestContext
+{
+    uint8_t unk0[0xF8];                       // 00
+    DynArray<questPhaseInstance*> phaseStack; // F8
+    uint16_t unk108;                          // 108
+    uint64_t unk110[0x44];                    // 110
+};
+RED4EXT_ASSERT_SIZE(QuestContext, 0x330);
+RED4EXT_ASSERT_OFFSET(QuestContext, phaseStack, 0xF8);
+
+struct QuestSocket
+{
+    QuestSocket(CName aName = {})
+        : name(aName)
+        , unk08(0)
+    {
+    }
+
+    CName name;
+    uint8_t unk08;
+};
 }
 
 namespace Raw::QuestsSystem
@@ -69,6 +91,15 @@ constexpr auto RestartPhase = Core::RawVFunc<
     /* addr = */ 0x238,
     /* type = */ void (Red::questIQuestsSystem::*)(const Red::PhaseNodePath& aNodePath,
                                                    const Red::DynArray<Red::CName>& aInputSockets)>();
+
+constexpr auto CreateContext = Core::RawFunc<
+    /* addr = */ 0x14027A6E4 - Red::Addresses::ImageBase, // FIXME
+    /* type = */ void* (*)(Red::questIQuestsSystem* aPhase,
+                           Red::QuestContext* aContext,
+                           int8_t a3 /* = 1 */,
+                           int8_t a4 /* = 0 */,
+                           int32_t a5 /* = 1000000 */,
+                           int32_t a6 /* = -1 */)>();
 }
 
 namespace Raw::PhaseInstance
@@ -81,4 +112,12 @@ constexpr auto Initialize = Core::RawFunc<
                            const Red::Handle<Red::questGraphDefinition>& aGraph,
                            const Red::NodePath& aParentPath,
                            Red::NodeID aPhaseNodeID)>();
+
+constexpr auto ProcessNode = Core::RawFunc<
+    /* addr = */ 0x14027DD1C - Red::Addresses::ImageBase, // FIXME
+    /* type = */ bool (*)(Red::questPhaseInstance* aPhase,
+                          Red::questNodeDefinition* aNode,
+                          Red::QuestContext& aContext,
+                          const Red::QuestSocket& aInputSocket,
+                          const Red::DynArray<Red::QuestSocket>& aOutputSocket)>();
 }

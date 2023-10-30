@@ -7,9 +7,8 @@ namespace App
 class OpenWorldSystem : public Red::IGameSystem
 {
 public:
-    bool CanReactivateMinorActivity(Red::CName aName);
     bool ReactivateMinorActivity(Red::CName aName);
-    bool ReactivateAllMinorActivities();
+    bool ReactivateMinorActivities();
 
 private:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
@@ -40,7 +39,6 @@ private:
 RTTI_DEFINE_CLASS(App::OpenWorldSystem, {
     RTTI_GETTER(m_ready);
 
-    RTTI_METHOD(CanReactivateMinorActivity);
     RTTI_METHOD(ReactivateMinorActivity);
-    RTTI_METHOD(ReactivateAllMinorActivities);
+    RTTI_METHOD(ReactivateMinorActivities);
 });

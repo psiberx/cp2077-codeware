@@ -1,4 +1,5 @@
 #include "OpenWorldSystem.hpp"
+#include "App/Quest/QuestPhaseGraphAccessor.hpp"
 #include "Core/Facades/Container.hpp"
 #include "Red/CommunitySystem.hpp"
 #include "Red/MappinSystem.hpp"
@@ -23,16 +24,6 @@ void App::OpenWorldSystem::OnAfterWorldDetach()
     m_ready = false;
 }
 
-bool App::OpenWorldSystem::CanReactivateMinorActivity(Red::CName aName)
-{
-    const auto& activity = m_registry->FindMinorActivity(aName);
-
-    if (!activity)
-        return false;
-
-    return IsMinorActivityCompleted(activity);
-}
-
 bool App::OpenWorldSystem::ReactivateMinorActivity(Red::CName aName)
 {
     const auto& activity = m_registry->FindMinorActivity(aName);
@@ -43,7 +34,7 @@ bool App::OpenWorldSystem::ReactivateMinorActivity(Red::CName aName)
     return ProcessMinorActivityReactivation(activity);
 }
 
-bool App::OpenWorldSystem::ReactivateAllMinorActivities()
+bool App::OpenWorldSystem::ReactivateMinorActivities()
 {
     bool success = false;
 
@@ -138,6 +129,41 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
     for (const auto& factHash : aActivity->factHashes)
     {
         m_factManager->SetFact(factHash, 0);
+    }
+
+    {
+        Red::QuestSocket inputSocket{};
+        Red::DynArray<Red::QuestSocket> outputSockets;
+
+        Red::QuestContext context{};
+        Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000000, -1);
+        context.phaseStack.PushBack(aActivity->phaseInstance);
+
+        QuestPhaseGraphAccessor graphAccessor(aActivity->phaseGraph);
+
+        for (const auto& node : graphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
+        {
+            if (const auto& nodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(node->type))
+            {
+                for (auto& param : nodeType->params)
+                {
+                    for (auto& state : param.variantStates)
+                    {
+                        state.show = !state.show;
+                    }
+                }
+
+                Raw::PhaseInstance::ProcessNode(aActivity->phaseInstance, node, context, inputSocket, outputSockets);
+
+                for (auto& param : nodeType->params)
+                {
+                    for (auto& state : param.variantStates)
+                    {
+                        state.show = !state.show;
+                    }
+                }
+            }
+        }
     }
 
     Raw::MappinSystem::SetPoiMappinPhase(m_mappinSystem, aActivity->mappinHash,

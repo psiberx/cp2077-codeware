@@ -25,6 +25,17 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
     if (!activityName)
         return;
 
+    {
+        auto it = m_activities.find(activityName);
+        if (it != m_activities.end())
+        {
+            auto& existingActivity = it.value();
+            existingActivity->phaseInstance = aPhase;
+            existingActivity->phaseGraph = aPhaseGraph;
+            return;
+        }
+    }
+
     auto communityActivations = graphAccessor.FindCommunityActivations();
 
     if (communityActivations.empty())
@@ -37,7 +48,6 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
     auto minorActivity = Core::MakeShared<MinorActivityData>();
     minorActivity->name = activityName;
     minorActivity->mappinHash = Red::Murmur3_32(mappinPhase->path->realPath.c_str());
-    minorActivity->phaseNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID);
 
     for (const auto& communityActivation : communityActivations)
     {
@@ -68,12 +78,16 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
         }
     }
 
+    minorActivity->phaseInstance = aPhase;
+    minorActivity->phaseGraph = aPhaseGraph;
+    minorActivity->phaseNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID);
     minorActivity->inputSockets.PushBack(graphAccessor.GetInputSocketName());
 
     m_activities.emplace(minorActivity->name, std::move(minorActivity));
 
 #ifndef NDEBUG
-    LogDebug("Minor Activity Discovered: {} {}", activityName.ToString(), aPhaseResource->path.hash);
+    LogDebug("Minor Activity Discovered: {}", activityName.ToString());
+    // LogDebug("Minor Activity Discovered: {} {}", activityName.ToString(), aPhaseResource->path.hash);
 #endif
 }
 

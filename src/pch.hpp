@@ -106,6 +106,8 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/QuestPhaseResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SetVar_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SpawnManagerNodeDefinition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/TogglePrefabVariant_NodeType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/WorldDataManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CommunityRegistryItem.hpp>
