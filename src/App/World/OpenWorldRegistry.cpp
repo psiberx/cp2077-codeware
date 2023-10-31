@@ -1,5 +1,6 @@
 #include "OpenWorldRegistry.hpp"
 #include "App/World/DistrictResolver.hpp"
+#include "Red/TweakDB.hpp"
 
 void App::OpenWorldRegistry::OnBootstrap()
 {
@@ -134,6 +135,23 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
     if (auto lootContainer = aPhaseGraphAccessor.FindLootContainer())
     {
         activity->lootContainerRef = lootContainer->objectRef;
+
+        activity->persistenceRefs.push_back({lootContainer->objectRef});
+        activity->persistenceRefs.push_back({lootContainer->objectRef, "inventory"});
+        activity->persistenceRefs.push_back({lootContainer->objectRef, "interactions"});
+
+        if (activity->lootItemIDs.empty())
+        {
+            for (const auto& suffix : {"_shard", "_onscreen", "_onscreen_01"})
+            {
+                Red::TweakDBID readableID(std::string("Items.") + activityName.ToString() + suffix);
+                if (Red::RecordExists(readableID))
+                {
+                    activity->lootItemIDs.push_back(readableID);
+                    break;
+                }
+            }
+        }
     }
 
     for (const auto& prefabNode : aPhaseGraphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
