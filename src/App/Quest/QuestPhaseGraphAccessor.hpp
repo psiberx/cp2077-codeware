@@ -16,18 +16,11 @@ public:
         return *reinterpret_cast<Core::Vector<Red::Handle<T>>*>(&m_nodesByType[Red::GetTypeName<T>()]);
     }
 
-    inline Red::Handle<Red::questJournalChangeMappinPhase_NodeType> FindCompletedPointOfInterestMappin()
+    inline Red::Handle<Red::questInputNodeDefinition> FindInputNode()
     {
-        for (const auto& node : GetNodesOfType<Red::questJournalNodeDefinition>())
+        for (const auto& inputNode : GetNodesOfType<Red::questInputNodeDefinition>())
         {
-            if (const auto& nodeType = Red::Cast<Red::questJournalChangeMappinPhase_NodeType>(node->type))
-            {
-                if (nodeType->path->className == Red::GetTypeName<Red::gameJournalPointOfInterestMappin>() &&
-                    nodeType->phase == Red::gamedataMappinPhase::CompletedPhase)
-                {
-                    return nodeType;
-                }
-            }
+            return inputNode;
         }
 
         return {};
@@ -41,13 +34,24 @@ public:
             {
                 if (nodeType->path->className == Red::GetTypeName<Red::gameJournalPointOfInterestMappin>())
                 {
-                    for (const auto& socket : node->sockets)
-                    {
-                        if (socket->name == "Active")
-                        {
-                            return nodeType;
-                        }
-                    }
+                    return nodeType;
+                }
+            }
+        }
+
+        return {};
+    }
+
+    inline Red::Handle<Red::questJournalChangeMappinPhase_NodeType> FindCompletedPointOfInterestMappin()
+    {
+        for (const auto& node : GetNodesOfType<Red::questJournalNodeDefinition>())
+        {
+            if (const auto& nodeType = Red::Cast<Red::questJournalChangeMappinPhase_NodeType>(node->type))
+            {
+                if (nodeType->path->className == Red::GetTypeName<Red::gameJournalPointOfInterestMappin>() &&
+                    nodeType->phase == Red::gamedataMappinPhase::CompletedPhase)
+                {
+                    return nodeType;
                 }
             }
         }
@@ -151,11 +155,62 @@ public:
         return GetNodesOfType<Red::questJournalNodeDefinition>();
     }
 
-    inline Red::Handle<Red::questInputNodeDefinition> FindInputNode()
+    inline Core::Vector<Red::Handle<Red::questJournalEntry_ConditionType>> FindJournalObjectives()
     {
-        for (const auto& inputNode : GetNodesOfType<Red::questInputNodeDefinition>())
+        Core::Vector<Red::Handle<Red::questJournalEntry_ConditionType>> objectives;
+
+        for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
         {
-            return inputNode;
+            if (const auto& condition = Red::Cast<Red::questJournalCondition>(node->condition))
+            {
+                if (const auto& conditionType = Red::Cast<Red::questJournalEntry_ConditionType>(condition->type))
+                {
+                    if (conditionType->state == Red::gameJournalEntryUserState::Active)
+                    {
+                        objectives.push_back(conditionType);
+                    }
+                }
+            }
+        }
+
+        return objectives;
+    }
+
+    inline Core::Vector<Red::Handle<Red::questInventory_ConditionType>> FindLootObjectives()
+    {
+        Core::Vector<Red::Handle<Red::questInventory_ConditionType>> objectives;
+
+        for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
+        {
+            if (const auto& condition = Red::Cast<Red::questObjectCondition>(node->condition))
+            {
+                if (const auto& conditionType = Red::Cast<Red::questInventory_ConditionType>(condition->type))
+                {
+                    if (conditionType->isPlayer)
+                    {
+                        objectives.push_back(conditionType);
+                    }
+                }
+            }
+        }
+
+        return objectives;
+    }
+
+    inline Red::Handle<Red::questInteraction_ConditionType> FindLootContainer()
+    {
+        for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
+        {
+            if (const auto& condition = Red::Cast<Red::questObjectCondition>(node->condition))
+            {
+                if (const auto& conditionType = Red::Cast<Red::questInteraction_ConditionType>(condition->type))
+                {
+                    if (conditionType->eventType == Red::questObjectInteractionEventType::Executed)
+                    {
+                        return conditionType;
+                    }
+                }
+            }
         }
 
         return {};

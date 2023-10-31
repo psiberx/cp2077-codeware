@@ -50,10 +50,6 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
     if (communities.empty() && spawners.empty())
         return false;
 
-    auto journalEntries = aPhaseGraphAccessor.FindJournalEntries();
-    auto factChanges = aPhaseGraphAccessor.FindFactChanges();
-    auto areaLinks = aPhaseGraphAccessor.FindAreaLinks();
-
     auto activity = Core::MakeShared<MinorActivityData>();
 
     activity->name = activityName;
@@ -78,7 +74,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
         activity->spawnerRefs.push_back(spawner->spawnerReference);
     }
 
-    for (const auto& areaLink : areaLinks)
+    for (const auto& areaLink : aPhaseGraphAccessor.FindAreaLinks())
     {
         if (areaLink->PSClassName)
         {
@@ -86,7 +82,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
         }
     }
 
-    for (const auto& journalEntry : journalEntries)
+    for (const auto& journalEntry : aPhaseGraphAccessor.FindJournalEntries())
     {
         if (journalEntry->type->path->className != Red::GetTypeName<Red::gameJournalPointOfInterestMappin>())
         {
@@ -94,11 +90,63 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
         }
     }
 
-    for (const auto& factChange : factChanges)
+    for (const auto& journalObjective : aPhaseGraphAccessor.FindJournalObjectives())
+    {
+        activity->journalHashes.push_back(Red::Murmur3_32(journalObjective->path->realPath.c_str()));
+    }
+
+    for (const auto& factChange : aPhaseGraphAccessor.FindFactChanges())
     {
         if (IsMinorActivityRelatedFact(factChange->factName))
         {
             activity->factHashes.emplace_back(factChange->factName.c_str());
+        }
+    }
+
+    for (const auto& lootObjective : aPhaseGraphAccessor.FindLootObjectives())
+    {
+        activity->lootItemIDs.push_back(lootObjective->itemID);
+    }
+
+    if (auto lootContainer = aPhaseGraphAccessor.FindLootContainer())
+    {
+        activity->lootContainerRef = lootContainer->objectRef;
+    }
+
+    for (const auto& prefabNode : aPhaseGraphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
+    {
+        if (auto& prefabNodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(prefabNode->type))
+        {
+            auto patchNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+            patchNode->id = prefabNode->id;
+
+            auto patchNodeType = Red::MakeHandle<Red::questTogglePrefabVariant_NodeType>();
+            patchNodeType->params = prefabNodeType->params;
+            for (auto& param : patchNodeType->params)
+            {
+                for (auto& state : param.variantStates)
+                {
+                    state.show = !state.show;
+                }
+            }
+
+            patchNode->type = patchNodeType;
+            activity->patchNodes.push_back(std::move(patchNode));
+        }
+
+        if (auto& prefabNodeType = Red::Cast<Red::questShowWorldNode_NodeType>(prefabNode->type))
+        {
+            auto patchNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+            patchNode->id = prefabNode->id;
+
+            auto patchNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
+            patchNodeType->objectRef = prefabNodeType->objectRef;
+            patchNodeType->componentName = prefabNodeType->componentName;
+            patchNodeType->isPlayer = prefabNodeType->isPlayer;
+            patchNodeType->show = !prefabNodeType->show;
+
+            patchNode->type = patchNodeType;
+            activity->patchNodes.push_back(std::move(patchNode));
         }
     }
 

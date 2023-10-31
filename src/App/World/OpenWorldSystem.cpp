@@ -12,6 +12,7 @@ void App::OpenWorldSystem::OnWorldAttached(Red::world::RuntimeScene*)
     m_communitySystem = Red::GetGameSystem<Red::gameICommunitySystem>();
     m_populationSystem = Red::GetGameSystem<Red::gameIPopulationSystem>();
     m_persistencySystem = Red::GetGameSystem<Red::gameIPersistencySystem>();
+    m_containerManager = Red::GetGameSystem<Red::gameIContainerManager>();
     m_journalManager = Red::GetGameSystem<Red::gameIJournalManager>();
     m_mappinSystem = Red::GetGameSystem<Red::gamemappinsIMappinSystem>();
     m_questsSystem = Red::GetGameSystem<Red::questIQuestsSystem>();
@@ -221,6 +222,20 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
         m_factManager->SetFact(factHash, 0);
     }
 
+    if (aActivity->lootContainerRef.hash && !aActivity->lootItemIDs.empty())
+    {
+        auto lootContainerID = ResolveNodeRef(aActivity->lootContainerRef);
+        if (lootContainerID)
+        {
+            for (const auto& itemTDBID : aActivity->lootItemIDs)
+            {
+                Red::ItemID itemID;
+                Red::CallStatic("gameItemID", "FromTDBID", itemID, itemTDBID);
+                Red::CallVirtual(m_containerManager, "InjectLoot", lootContainerID, itemID, 1u, nullptr);
+            }
+        }
+    }
+
     if (aActivity->mappinHash)
     {
         Raw::MappinSystem::SetPoiMappinPhase(m_mappinSystem, aActivity->mappinHash,
@@ -232,38 +247,17 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
         Red::QuestContext context{};
         Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000003, -1);
 
-        // TODO: Move prefabs to registry
+        if (!aActivity->patchNodes.empty())
         {
             context.phaseStack.PushBack(aActivity->phaseInstance);
 
             Red::QuestNodeSocket inputSocket;
             Red::DynArray<Red::QuestNodeSocket> outputSockets;
 
-            QuestPhaseGraphAccessor graphAccessor(aActivity->phaseGraph);
-
-            for (const auto& node : graphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
+            for (const auto& patchNode : aActivity->patchNodes)
             {
-                if (const auto& nodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(node->type))
-                {
-                    for (auto& param : nodeType->params)
-                    {
-                        for (auto& state : param.variantStates)
-                        {
-                            state.show = !state.show;
-                        }
-                    }
-
-                    Raw::PhaseInstance::ExecuteNode(aActivity->phaseInstance, node, context,
-                                                    inputSocket, outputSockets);
-
-                    for (auto& param : nodeType->params)
-                    {
-                        for (auto& state : param.variantStates)
-                        {
-                            state.show = !state.show;
-                        }
-                    }
-                }
+                Raw::PhaseInstance::ExecuteNode(aActivity->phaseInstance, patchNode, context,
+                                                inputSocket, outputSockets);
             }
 
             context.phaseStack.Clear();

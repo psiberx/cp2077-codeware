@@ -26,10 +26,13 @@ struct MinorActivityData
     Core::Vector<Red::FactName> factHashes;
     Core::Vector<Red::JournalEntryHash> journalHashes;
     Core::Vector<PersistentStateRef> persistenceRefs;
+    Core::Vector<Red::TweakDBID> lootItemIDs;
+    Red::NodeRef lootContainerRef;
 
     Red::questPhaseInstance* phaseInstance;
     Red::Handle<Red::questGraphDefinition> phaseGraph;
     Red::WeakHandle<Red::questNodeDefinition> inputNode;
+    Core::Vector<Red::Handle<Red::questNodeDefinition>> patchNodes;
     Red::QuestNodeSocket inputSocket;
     Red::PhaseNodePath inputNodePath;
 };

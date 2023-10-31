@@ -26,6 +26,7 @@ private:
     Red::gameICommunitySystem* m_communitySystem;
     Red::gameIPopulationSystem* m_populationSystem;
     Red::gameIPersistencySystem* m_persistencySystem;
+    Red::gameIContainerManager* m_containerManager;
     Red::gameIJournalManager* m_journalManager;
     Red::gamemappinsIMappinSystem* m_mappinSystem;
     Red::questIQuestsSystem* m_questsSystem;
