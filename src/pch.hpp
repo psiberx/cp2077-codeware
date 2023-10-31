@@ -25,6 +25,7 @@
 #include <RED4ext/ResourceLoader.hpp>
 #include <RED4ext/SystemUpdate.hpp>
 
+#include <RED4ext/Scripting/Natives/GameTime.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
 #include <RED4ext/Scripting/Natives/Generated/MorphTargetMesh.hpp>
@@ -63,7 +64,9 @@
 #include <RED4ext/Scripting/Natives/Generated/game/ScriptableSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/WardrobeSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/data/District.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/data/MappinPhase.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/data/MappinVariant.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/mappins/IMappinSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/CustomizationAppearance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>

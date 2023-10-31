@@ -26,32 +26,75 @@ void App::OpenWorldSystem::OnAfterWorldDetach()
     m_ready = false;
 }
 
-bool App::OpenWorldSystem::ReactivateMinorActivity(Red::CName aName)
+App::OpenWorldActivityState App::OpenWorldSystem::GetActivity(Red::CName aName)
 {
-    const auto& activity = m_registry->FindMinorActivity(aName);
+    const auto& activity = m_registry->FindActivity(aName);
 
     if (!activity)
-        return false;
+        return {};
 
-    return ProcessMinorActivityReactivation(activity);
+    return MakeActivityState(activity);
 }
 
-bool App::OpenWorldSystem::ReactivateMinorActivities()
+Red::DynArray<App::OpenWorldActivityState> App::OpenWorldSystem::GetActivities()
+{
+    Red::DynArray<OpenWorldActivityState> states;
+
+    for (const auto& activity : m_registry->GetAllActivities())
+    {
+        states.EmplaceBack(MakeActivityState(activity));
+    }
+
+    return states;
+}
+
+bool App::OpenWorldSystem::StartActivity(Red::CName aName)
+{
+    const auto& activity = m_registry->FindActivity(aName);
+
+    if (!activity || !IsActivityCompleted(activity))
+        return false;
+
+    return ProcessActivity(activity);
+}
+
+bool App::OpenWorldSystem::StartActivities(Red::Optional<OpenWorldActivityRequest>& aRequest)
 {
     bool success = false;
+    uint32_t timestamp = 0;
 
-    for (const auto& activity : m_registry->GetAllMinorActivities())
+    if (aRequest->HasCooldown())
     {
-        if (ProcessMinorActivityReactivation(activity))
+        Red::ScriptGameInstance game;
+        Red::CallStatic("ScriptGameInstance", "GetGameTime", timestamp, game);
+    }
+
+    for (const auto& activity : m_registry->GetAllActivities())
+    {
+        auto state = MakeActivityState(activity);
+
+        if (state.completed && aRequest->Match(state, timestamp))
         {
-            success = true;
+            if (ProcessActivity(activity))
+            {
+                success = true;
+            }
         }
     }
 
     return success;
 }
 
-bool App::OpenWorldSystem::IsMinorActivityCompleted(const Core::SharedPtr<App::MinorActivityData>& aActivity)
+App::OpenWorldActivityState App::OpenWorldSystem::MakeActivityState(
+    const Core::SharedPtr<App::ActivityDefinition>& aActivity)
+{
+    OpenWorldActivityState state(aActivity);
+    state.timestamp = Raw::JournalManager::GetEntryTimestamp(m_journalManager, aActivity->mappinEntry);
+    state.completed = IsActivityCompleted(aActivity);
+    return state;
+}
+
+bool App::OpenWorldSystem::IsActivityCompleted(const Core::SharedPtr<App::ActivityDefinition>& aActivity)
 {
     auto phase = Raw::MappinSystem::GetPoiMappinPhase(m_mappinSystem, aActivity->mappinHash);
     if (phase != Red::gamedataMappinPhase::Invalid)
@@ -73,11 +116,8 @@ bool App::OpenWorldSystem::IsMinorActivityCompleted(const Core::SharedPtr<App::M
     return false;
 }
 
-bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPtr<App::MinorActivityData>& aActivity)
+bool App::OpenWorldSystem::ProcessActivity(const Core::SharedPtr<App::ActivityDefinition>& aActivity)
 {
-    if (!IsMinorActivityCompleted(aActivity))
-        return false;
-
     Core::Vector<Red::EntityID> communityIDs;
     Core::Vector<Red::EntityID> spawnerIDs;
     Red::DynArray<Red::EntityID> entityIDs;
@@ -247,16 +287,16 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
         Red::QuestContext context{};
         Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000003, -1);
 
-        if (!aActivity->patchNodes.empty())
+        if (!aActivity->resetNodes.empty())
         {
             context.phaseStack.PushBack(aActivity->phaseInstance);
 
             Red::QuestNodeSocket inputSocket;
             Red::DynArray<Red::QuestNodeSocket> outputSockets;
 
-            for (const auto& patchNode : aActivity->patchNodes)
+            for (const auto& resetNode : aActivity->resetNodes)
             {
-                Raw::QuestPhaseInstance::ExecuteNode(aActivity->phaseInstance, patchNode, context,
+                Raw::QuestPhaseInstance::ExecuteNode(aActivity->phaseInstance, resetNode, context,
                                                      inputSocket, outputSockets);
             }
 
@@ -284,4 +324,70 @@ Red::EntityID App::OpenWorldSystem::ResolveNodeRef(Red::NodeRef aNodeRef)
     Red::CallGlobal("ResolveNodeRef", resolved, aNodeRef, context);
 
     return resolved.hash;
+}
+
+App::OpenWorldActivityState::OpenWorldActivityState()
+    : district(Red::gamedataDistrict::Invalid)
+    , area(Red::gamedataDistrict::Invalid)
+    , timestamp(0)
+    , completed(false)
+    , valid(false)
+{
+}
+
+App::OpenWorldActivityState::OpenWorldActivityState(const Core::SharedPtr<ActivityDefinition>& aSource)
+    : name(aSource->name)
+    , kind(aSource->kind)
+    , district(aSource->district)
+    , area(aSource->area)
+    , timestamp(0)
+    , completed(false)
+    , valid(true)
+{
+}
+
+App::OpenWorldActivityRequest::OpenWorldActivityRequest()
+    : district(Red::gamedataDistrict::Invalid)
+    , cooldown(0)
+{
+}
+
+bool App::OpenWorldActivityRequest::IsDefault() const
+{
+    return !kind && !cooldown && district == Red::gamedataDistrict::Invalid;
+}
+
+bool App::OpenWorldActivityRequest::HasCooldown() const
+{
+    return cooldown;
+}
+
+bool App::OpenWorldActivityRequest::Match(const App::OpenWorldActivityState& aActivity,
+                                          uint32_t aTimestamp) const
+{
+    if (kind)
+    {
+        if (aActivity.kind != kind)
+        {
+            return false;
+        }
+    }
+
+    if (district != Red::gamedataDistrict::Invalid)
+    {
+        if (aActivity.district != district && aActivity.area != district)
+        {
+            return false;
+        }
+    }
+
+    if (cooldown)
+    {
+        if (aTimestamp - aActivity.timestamp > cooldown)
+        {
+            return false;
+        }
+    }
+
+    return true;
 }

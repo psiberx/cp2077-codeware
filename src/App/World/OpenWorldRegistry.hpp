@@ -15,12 +15,18 @@ struct PersistentStateRef
     Red::CName component;
 };
 
-struct MinorActivityData
+struct ActivityDefinition
 {
     Red::CName name;
-    Red::CName category; // ncpd cyberpsycho
+    Red::CName kind; // ncpd cyberpsycho
+
+    Red::CName title;
+    Red::CName description;
+    Red::gamedataDistrict district;
+    Red::gamedataDistrict area;
 
     Red::JournalEntryHash mappinHash;
+    Red::Handle<Red::gameJournalEntry> mappinEntry;
     Core::Vector<Red::NodeRef> communityRefs;
     Core::Vector<Red::NodeRef> spawnerRefs;
     Core::Vector<Red::FactName> factHashes;
@@ -32,7 +38,7 @@ struct MinorActivityData
     Red::questPhaseInstance* phaseInstance;
     Red::Handle<Red::questGraphDefinition> phaseGraph;
     Red::WeakHandle<Red::questNodeDefinition> inputNode;
-    Core::Vector<Red::Handle<Red::questNodeDefinition>> patchNodes;
+    Core::Vector<Red::Handle<Red::questNodeDefinition>> resetNodes;
     Red::QuestNodeSocket inputSocket;
     Red::PhaseNodePath inputNodePath;
 };
@@ -43,9 +49,9 @@ class OpenWorldRegistry
     , public Core::LoggingAgent
 {
 public:
-    Core::Vector<Core::SharedPtr<MinorActivityData>> GetAllMinorActivities();
-    Core::Vector<Red::CName> GetAllMinorActivityNames();
-    Core::SharedPtr<MinorActivityData> FindMinorActivity(Red::CName aName);
+    Core::Vector<Core::SharedPtr<ActivityDefinition>> GetAllActivities();
+    Core::Vector<Red::CName> GetAllActivityNames();
+    Core::SharedPtr<ActivityDefinition> FindActivity(Red::CName aName);
 
 protected:
     void OnBootstrap() override;
@@ -68,6 +74,6 @@ protected:
     static bool IsMinorActivityRelatedFact(const Red::CString& aFactName);
 
 private:
-    Core::Map<Red::CName, Core::SharedPtr<MinorActivityData>> m_activities;
+    Core::Map<Red::CName, Core::SharedPtr<ActivityDefinition>> m_activities;
 };
 }

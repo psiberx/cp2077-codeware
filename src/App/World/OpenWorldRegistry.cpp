@@ -1,4 +1,5 @@
 #include "OpenWorldRegistry.hpp"
+#include "App/World/DistrictResolver.hpp"
 
 void App::OpenWorldRegistry::OnBootstrap()
 {
@@ -50,19 +51,41 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
     if (communities.empty() && spawners.empty())
         return false;
 
-    auto activity = Core::MakeShared<MinorActivityData>();
+    auto activity = Core::MakeShared<ActivityDefinition>();
 
     activity->name = activityName;
-    activity->category = "ncpd";
-
-    activity->phaseInstance = aPhase;
-    activity->phaseGraph = aPhaseGraph;
-
-    activity->inputNode = inputNode;
-    activity->inputSocket = {inputNode->socketName};
-    activity->inputNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID, inputNode->id);
+    activity->kind = "ncpd";
 
     activity->mappinHash = Red::Murmur3_32(poiMappin->path->realPath.c_str());
+
+    {
+        auto journalManager = Red::GetGameSystem<Red::gameIJournalManager>();
+        Raw::JournalManager::GetEntryByHash(journalManager, activity->mappinEntry, activity->mappinHash);
+
+        if (!activity->mappinEntry)
+            return false;
+    }
+
+    {
+        bool success;
+        bool active;
+        uint16_t phaseInt;
+        uint16_t variantInt;
+
+        auto mappinSystem = Red::GetGameSystem<Red::gamemappinsIMappinSystem>();
+        Red::CallVirtual(mappinSystem, "GetPointOfInterestMappinSavedState", success,
+                         activity->mappinHash, phaseInt, variantInt, active);
+
+        if (!success)
+            return false;
+
+        auto variant = static_cast<Red::gamedataMappinVariant>(variantInt);
+        Red::CallGlobal("gameuiMappinUIUtils::MappinToString;gamedataMappinVariant", activity->title, variant);
+        Red::CallGlobal("gameuiMappinUIUtils::MappinToDescriptionString;gamedataMappinVariant", activity->description, variant);
+    }
+
+    activity->district = DistrictResolver::GetDistrict(activity->name);
+    activity->area = DistrictResolver::GetArea(activity->name);
 
     for (const auto& community : communities)
     {
@@ -131,7 +154,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
             }
 
             patchNode->type = patchNodeType;
-            activity->patchNodes.push_back(std::move(patchNode));
+            activity->resetNodes.push_back(std::move(patchNode));
         }
 
         if (auto& prefabNodeType = Red::Cast<Red::questShowWorldNode_NodeType>(prefabNode->type))
@@ -146,9 +169,16 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
             patchNodeType->show = !prefabNodeType->show;
 
             patchNode->type = patchNodeType;
-            activity->patchNodes.push_back(std::move(patchNode));
+            activity->resetNodes.push_back(std::move(patchNode));
         }
     }
+
+    activity->phaseInstance = aPhase;
+    activity->phaseGraph = aPhaseGraph;
+
+    activity->inputNode = inputNode;
+    activity->inputSocket = {inputNode->socketName};
+    activity->inputNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID, inputNode->id);
 
     m_activities[activity->name] = std::move(activity);
 
@@ -199,8 +229,8 @@ Red::CName App::OpenWorldRegistry::ExtractMinorActivityName(const Red::CString& 
     constexpr auto PointOfInterestPrefixLength = std::char_traits<char>::length(PointOfInterestPrefix);
     constexpr auto MinorActivityPrefix = "minor_activities/";
     constexpr auto MinorActivityPrefixLength = std::char_traits<char>::length(MinorActivityPrefix);
-    constexpr auto MinorQuestPrefix = "minor_quests/";
-    constexpr auto MinorQuestPrefixLength = std::char_traits<char>::length(MinorQuestPrefix);
+    // constexpr auto MinorQuestPrefix = "minor_quests/";
+    // constexpr auto MinorQuestPrefixLength = std::char_traits<char>::length(MinorQuestPrefix);
 
     std::string_view path(aJournalPath.c_str());
 
@@ -219,11 +249,11 @@ Red::CName App::OpenWorldRegistry::ExtractMinorActivityName(const Red::CString& 
             return Red::CNamePool::Add(path.data());
         }
 
-        if (path.starts_with(MinorQuestPrefix))
-        {
-            path.remove_prefix(MinorQuestPrefixLength);
-            return Red::CNamePool::Add(path.data());
-        }
+        // if (path.starts_with(MinorQuestPrefix))
+        // {
+        //     path.remove_prefix(MinorQuestPrefixLength);
+        //     return Red::CNamePool::Add(path.data());
+        // }
     }
 
     return {};
@@ -239,9 +269,9 @@ bool App::OpenWorldRegistry::IsMinorActivityRelatedFact(const Red::CString& aFac
     return name.starts_with(MinorActivityPrefix) && !name.ends_with(TokenSuffix) && !name.ends_with(TutorialSuffix);
 }
 
-Core::Vector<Core::SharedPtr<App::MinorActivityData>> App::OpenWorldRegistry::GetAllMinorActivities()
+Core::Vector<Core::SharedPtr<App::ActivityDefinition>> App::OpenWorldRegistry::GetAllActivities()
 {
-    Core::Vector<Core::SharedPtr<App::MinorActivityData>> activities;
+    Core::Vector<Core::SharedPtr<App::ActivityDefinition>> activities;
 
     for (const auto& [_, activity] : m_activities)
     {
@@ -251,7 +281,7 @@ Core::Vector<Core::SharedPtr<App::MinorActivityData>> App::OpenWorldRegistry::Ge
     return activities;
 }
 
-Core::Vector<Red::CName> App::OpenWorldRegistry::GetAllMinorActivityNames()
+Core::Vector<Red::CName> App::OpenWorldRegistry::GetAllActivityNames()
 {
     Core::Vector<Red::CName> activities;
 
@@ -263,7 +293,7 @@ Core::Vector<Red::CName> App::OpenWorldRegistry::GetAllMinorActivityNames()
     return activities;
 }
 
-Core::SharedPtr<App::MinorActivityData> App::OpenWorldRegistry::FindMinorActivity(Red::CName aName)
+Core::SharedPtr<App::ActivityDefinition> App::OpenWorldRegistry::FindActivity(Red::CName aName)
 {
     const auto& it = m_activities.find(aName);
 

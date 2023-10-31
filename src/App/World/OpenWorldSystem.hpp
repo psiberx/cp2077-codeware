@@ -4,18 +4,49 @@
 
 namespace App
 {
+struct OpenWorldActivityState
+{
+    OpenWorldActivityState();
+    explicit OpenWorldActivityState(const Core::SharedPtr<ActivityDefinition>& aSource);
+
+    Red::CName name;
+    Red::CName kind;
+    Red::gamedataDistrict district;
+    Red::gamedataDistrict area;
+    uint32_t timestamp;
+    bool completed;
+    bool valid;
+};
+
+struct OpenWorldActivityRequest
+{
+    OpenWorldActivityRequest();
+
+    [[nodiscard]] bool IsDefault() const;
+    [[nodiscard]] bool HasCooldown() const;
+    [[nodiscard]] bool Match(const App::OpenWorldActivityState& aActivity, uint32_t aTimestamp) const;
+
+    Red::CName kind;
+    Red::gamedataDistrict district;
+    uint32_t cooldown;
+};
+
 class OpenWorldSystem : public Red::IGameSystem
 {
 public:
-    bool ReactivateMinorActivity(Red::CName aName);
-    bool ReactivateMinorActivities();
+    OpenWorldActivityState GetActivity(Red::CName aName);
+    Red::DynArray<OpenWorldActivityState> GetActivities();
+
+    bool StartActivity(Red::CName aName);
+    bool StartActivities(Red::Optional<OpenWorldActivityRequest>& aRequest);
 
 private:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
     void OnAfterWorldDetach() override;
 
-    bool IsMinorActivityCompleted(const Core::SharedPtr<MinorActivityData>& aActivity);
-    bool ProcessMinorActivityReactivation(const Core::SharedPtr<MinorActivityData>& aActivity);
+    bool IsActivityCompleted(const Core::SharedPtr<ActivityDefinition>& aActivity);
+    OpenWorldActivityState MakeActivityState(const Core::SharedPtr<ActivityDefinition>& aActivity);
+    bool ProcessActivity(const Core::SharedPtr<ActivityDefinition>& aActivity);
 
     static Red::EntityID ResolveNodeRef(Red::NodeRef aNodeRef);
 
@@ -39,7 +70,22 @@ private:
 
 RTTI_DEFINE_CLASS(App::OpenWorldSystem, {
     RTTI_GETTER(m_ready);
+    RTTI_METHOD(GetActivity);
+    RTTI_METHOD(GetActivities);
+    RTTI_METHOD(StartActivity);
+    RTTI_METHOD(StartActivities);
+});
 
-    RTTI_METHOD(ReactivateMinorActivity);
-    RTTI_METHOD(ReactivateMinorActivities);
+RTTI_DEFINE_CLASS(App::OpenWorldActivityState, {
+    RTTI_PROPERTY(name);
+    RTTI_PROPERTY(kind);
+    RTTI_PROPERTY(district);
+    RTTI_PROPERTY(timestamp);
+    RTTI_PROPERTY(completed);
+});
+
+RTTI_DEFINE_CLASS(App::OpenWorldActivityRequest, {
+    RTTI_PROPERTY(kind);
+    RTTI_PROPERTY(district);
+    RTTI_PROPERTY(cooldown);
 });
