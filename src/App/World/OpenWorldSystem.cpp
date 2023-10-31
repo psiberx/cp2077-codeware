@@ -61,6 +61,7 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
         return false;
 
     Core::Vector<Red::EntityID> communityIDs;
+    Core::Vector<Red::EntityID> spawnerIDs;
     Red::DynArray<Red::EntityID> entityIDs;
 
     for (const auto& communityRef : aActivity->communityRefs)
@@ -77,7 +78,61 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
             continue;
 
         communityIDs.push_back(communityID);
-        community.instance->GetEntityIDs(entityIDs);
+
+        for (auto& entry : community.instance->entries)
+        {
+            for (const auto& entityID : entry->spawner->restoredEntityIDs)
+            {
+                entityIDs.PushBack(entityID);
+            }
+            for (const auto& entityID : entry->spawner->spawnedEntityIDs)
+            {
+                entityIDs.PushBack(entityID);
+            }
+            for (const auto& entityID : entry->spawner->spawningStubIds)
+            {
+                entityIDs.PushBack(entityID);
+            }
+            for (const auto& entityID : entry->spawner->reservedEntityIDs)
+            {
+                entityIDs.PushBack(entityID);
+            }
+
+            // entry->spawner->restoredEntityIDs.Clear();
+            // entry->spawner->reservedEntityIDs.Clear();
+        }
+    }
+
+    for (const auto& spawnerRef : aActivity->spawnerRefs)
+    {
+        auto spawnerID = ResolveNodeRef(spawnerRef);
+
+        if (!spawnerID)
+            continue;
+
+        Red::WeakPtr<Red::Spawner> spawner;
+        Raw::CommunitySystem::GetSpawner(m_communitySystem, spawner, spawnerID);
+
+        if (!spawner.instance)
+            continue;
+
+        spawnerIDs.push_back(spawnerID);
+
+        for (const auto& entityID : spawner.instance->restoredEntityIDs)
+        {
+            entityIDs.PushBack(entityID);
+        }
+        for (const auto& entityID : spawner.instance->spawnedEntityIDs)
+        {
+            entityIDs.PushBack(entityID);
+        }
+        for (const auto& entityID : spawner.instance->reservedEntityIDs)
+        {
+            entityIDs.PushBack(entityID);
+        }
+
+        // spawner.instance->restoredEntityIDs.Clear();
+        // spawner.instance->reservedEntityIDs.Clear();
     }
 
     for (const auto& entityID : entityIDs)
@@ -89,16 +144,65 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
             return false;
     }
 
+    Red::QuestContext context{};
+    Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000003, -1);
+
+
+    {
+        Red::QuestNodeSocket inputSocket;
+        Red::DynArray<Red::QuestNodeSocket> outputSockets;
+
+        context.phaseStack.PushBack(aActivity->phaseInstance);
+
+        QuestPhaseGraphAccessor graphAccessor(aActivity->phaseGraph);
+
+        for (const auto& node : graphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
+        {
+            if (const auto& nodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(node->type))
+            {
+                for (auto& param : nodeType->params)
+                {
+                    for (auto& state : param.variantStates)
+                    {
+                        state.show = !state.show;
+                    }
+                }
+
+                Raw::PhaseInstance::ExecuteNode(aActivity->phaseInstance, node, context, inputSocket, outputSockets);
+
+                for (auto& param : nodeType->params)
+                {
+                    for (auto& state : param.variantStates)
+                    {
+                        state.show = !state.show;
+                    }
+                }
+            }
+        }
+
+        context.phaseStack.Clear();
+    }
+
     for (const auto& communityID : communityIDs)
     {
         Raw::CommunitySystem::DeactivateCommunity(m_communitySystem, communityID, {});
+        Raw::CommunitySystem::Update(m_communitySystem, true);
+
         Raw::CommunitySystem::ResetCommunity(m_communitySystem, communityID, {});
+        Raw::CommunitySystem::Update(m_communitySystem, true);
+    }
+
+    for (const auto& spawnerID : spawnerIDs)
+    {
+        Raw::CommunitySystem::DeactivateSpawner(m_communitySystem, spawnerID);
+        Raw::CommunitySystem::Update(m_communitySystem, true);
+
+        Raw::CommunitySystem::ResetSpawner(m_communitySystem, spawnerID);
         Raw::CommunitySystem::Update(m_communitySystem, true);
     }
 
     for (const auto& entityID : entityIDs)
     {
-        // m_persistencySystem->ResetPersistentState(entityID, true);
         m_persistencySystem->RemoveDynamicEntityState(entityID);
     }
 
@@ -131,45 +235,18 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
         m_factManager->SetFact(factHash, 0);
     }
 
-    {
-        Red::QuestSocket inputSocket{};
-        Red::DynArray<Red::QuestSocket> outputSockets;
-
-        Red::QuestContext context{};
-        Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000000, -1);
-        context.phaseStack.PushBack(aActivity->phaseInstance);
-
-        QuestPhaseGraphAccessor graphAccessor(aActivity->phaseGraph);
-
-        for (const auto& node : graphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
-        {
-            if (const auto& nodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(node->type))
-            {
-                for (auto& param : nodeType->params)
-                {
-                    for (auto& state : param.variantStates)
-                    {
-                        state.show = !state.show;
-                    }
-                }
-
-                Raw::PhaseInstance::ProcessNode(aActivity->phaseInstance, node, context, inputSocket, outputSockets);
-
-                for (auto& param : nodeType->params)
-                {
-                    for (auto& state : param.variantStates)
-                    {
-                        state.show = !state.show;
-                    }
-                }
-            }
-        }
-    }
-
     Raw::MappinSystem::SetPoiMappinPhase(m_mappinSystem, aActivity->mappinHash,
                                          Red::gamedataMappinPhase::DiscoveredPhase);
 
-    Raw::QuestsSystem::RestartPhase(m_questsSystem, aActivity->phaseNodePath, aActivity->inputSockets);
+    {
+        Red::DynArray<Red::QuestNodeSocket> outputSockets;
+        Raw::PhaseInstance::ExequteSequence(aActivity->phaseInstance,
+                                            context,
+                                            aActivity->inputNode,
+                                            aActivity->inputSocket,
+                                            true,
+                                            outputSockets);
+    }
 
     return true;
 }

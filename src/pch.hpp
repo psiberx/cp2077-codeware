@@ -105,6 +105,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/PhaseNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/QuestPhaseResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SetVar_NodeType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/Spawner_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SpawnManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/TogglePrefabVariant_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/WorldDataManagerNodeDefinition.hpp>

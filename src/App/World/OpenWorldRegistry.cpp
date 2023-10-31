@@ -15,6 +15,11 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
         return;
 
     QuestPhaseGraphAccessor graphAccessor(aPhaseGraph);
+    auto inputNode = graphAccessor.FindInputNode();
+
+    if (!inputNode)
+        return;
+
     auto mappinPhase = graphAccessor.FindCompletedMappinPhase();
 
     if (!mappinPhase)
@@ -32,13 +37,15 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
             auto& existingActivity = it.value();
             existingActivity->phaseInstance = aPhase;
             existingActivity->phaseGraph = aPhaseGraph;
+            existingActivity->inputNode = inputNode;
             return;
         }
     }
 
-    auto communityActivations = graphAccessor.FindCommunityActivations();
+    auto communities = graphAccessor.FindCommunities();
+    auto spawners = graphAccessor.FindSpawners();
 
-    if (communityActivations.empty())
+    if (communities.empty() && spawners.empty())
         return;
 
     auto journalEntries = graphAccessor.FindJournalEntries();
@@ -46,12 +53,25 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
     auto areaLinks = graphAccessor.FindAreaLinks();
 
     auto minorActivity = Core::MakeShared<MinorActivityData>();
+
+    minorActivity->phaseInstance = aPhase;
+    minorActivity->phaseGraph = aPhaseGraph;
+
+    minorActivity->inputNode = inputNode;
+    minorActivity->inputSocket = {inputNode->socketName};
+    minorActivity->inputNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID, inputNode->id);
+
     minorActivity->name = activityName;
     minorActivity->mappinHash = Red::Murmur3_32(mappinPhase->path->realPath.c_str());
 
-    for (const auto& communityActivation : communityActivations)
+    for (const auto& community : communities)
     {
-        minorActivity->communityRefs.push_back(communityActivation->spawnerReference);
+        minorActivity->communityRefs.push_back(community->spawnerReference);
+    }
+
+    for (const auto& spawner : spawners)
+    {
+        minorActivity->spawnerRefs.push_back(spawner->spawnerReference);
     }
 
     for (const auto& areaLink : areaLinks)
@@ -78,11 +98,6 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
         }
     }
 
-    minorActivity->phaseInstance = aPhase;
-    minorActivity->phaseGraph = aPhaseGraph;
-    minorActivity->phaseNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID);
-    minorActivity->inputSockets.PushBack(graphAccessor.GetInputSocketName());
-
     m_activities.emplace(minorActivity->name, std::move(minorActivity));
 
 #ifndef NDEBUG
@@ -91,10 +106,11 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
 #endif
 }
 
-Red::PhaseNodePath App::OpenWorldRegistry::MakePhaseNodePath(Red::NodePath aParentPath, Red::NodeID aNodeID)
+Red::PhaseNodePath App::OpenWorldRegistry::MakePhaseNodePath(Red::NodePath aParentPath, Red::NodeID aPhaseNodeID,
+                                                             Red::NodeID aInputNodeID)
 {
-    aParentPath.PushBack(aNodeID);
-    return {aParentPath};
+    aParentPath.PushBack(aPhaseNodeID);
+    return {aParentPath, aInputNodeID};
 }
 
 Red::CName App::OpenWorldRegistry::ExtractMinorActivityName(const Red::CString& aJournalPath)

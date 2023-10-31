@@ -70,9 +70,9 @@ struct QuestContext
 RED4EXT_ASSERT_SIZE(QuestContext, 0x330);
 RED4EXT_ASSERT_OFFSET(QuestContext, phaseStack, 0xF8);
 
-struct QuestSocket
+struct QuestNodeSocket
 {
-    QuestSocket(CName aName = {})
+    QuestNodeSocket(CName aName = {})
         : name(aName)
         , unk08(0)
     {
@@ -87,10 +87,14 @@ namespace Raw::QuestsSystem
 {
 using FactManager = Core::OffsetPtr<0xF8, Red::FactManager*>;
 
-constexpr auto RestartPhase = Core::RawVFunc<
-    /* addr = */ 0x238,
-    /* type = */ void (Red::questIQuestsSystem::*)(const Red::PhaseNodePath& aNodePath,
-                                                   const Red::DynArray<Red::CName>& aInputSockets)>();
+// constexpr auto StopPhase = Core::RawVFunc<
+//     /* addr = */ 0x210,
+//     /* type = */ void (Red::questIQuestsSystem::*)(const Red::PhaseNodePath& aNodePath, uint8_t a2)>();
+//
+// constexpr auto RestartPhase = Core::RawVFunc<
+//     /* addr = */ 0x238,
+//     /* type = */ void (Red::questIQuestsSystem::*)(const Red::PhaseNodePath& aNodePath,
+//                                                    const Red::DynArray<Red::CName>& aInputSockets)>();
 
 constexpr auto CreateContext = Core::RawFunc<
     /* addr = */ 0x14027A6E4 - Red::Addresses::ImageBase, // FIXME
@@ -113,11 +117,20 @@ constexpr auto Initialize = Core::RawFunc<
                            const Red::NodePath& aParentPath,
                            Red::NodeID aPhaseNodeID)>();
 
-constexpr auto ProcessNode = Core::RawFunc<
+constexpr auto ExequteSequence = Core::RawFunc<
+    /* addr = */ 0x1404D9A70 - Red::Addresses::ImageBase, // FIXME
+    /* type = */ bool (*)(Red::questPhaseInstance* aPhase,
+                          Red::QuestContext& aContext,
+                          const Red::WeakHandle<Red::questNodeDefinition>& aNode,
+                          const Red::QuestNodeSocket& aInputSocket,
+                          bool a5,
+                          const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
+
+constexpr auto ExecuteNode = Core::RawFunc<
     /* addr = */ 0x14027DD1C - Red::Addresses::ImageBase, // FIXME
     /* type = */ bool (*)(Red::questPhaseInstance* aPhase,
                           Red::questNodeDefinition* aNode,
                           Red::QuestContext& aContext,
-                          const Red::QuestSocket& aInputSocket,
-                          const Red::DynArray<Red::QuestSocket>& aOutputSocket)>();
+                          const Red::QuestNodeSocket& aInputSocket,
+                          const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
 }

@@ -32,7 +32,7 @@ public:
         return {};
     }
 
-    inline Core::Vector<Red::Handle<Red::questCommunityTemplate_NodeType>> FindCommunityActivations()
+    inline Core::Vector<Red::Handle<Red::questCommunityTemplate_NodeType>> FindCommunities()
     {
         Core::Vector<Red::Handle<Red::questCommunityTemplate_NodeType>> communities;
 
@@ -46,6 +46,28 @@ public:
                         communityType->action == Red::populationSpawnerObjectCtrlAction::Reactivate)
                     {
                         communities.push_back(communityType);
+                    }
+                }
+            }
+        }
+
+        return communities;
+    }
+
+    inline Core::Vector<Red::Handle<Red::questSpawner_NodeType>> FindSpawners()
+    {
+        Core::Vector<Red::Handle<Red::questSpawner_NodeType>> communities;
+
+        for (const auto& spawnNode : GetNodesOfType<Red::questSpawnManagerNodeDefinition>())
+        {
+            for (const auto& spawnAction : spawnNode->actions)
+            {
+                if (const auto& spawnerType = Red::Cast<Red::questSpawner_NodeType>(spawnAction.type))
+                {
+                    if (spawnerType->action == Red::populationSpawnerObjectCtrlAction::Activate ||
+                        spawnerType->action == Red::populationSpawnerObjectCtrlAction::Reactivate)
+                    {
+                        communities.push_back(spawnerType);
                     }
                 }
             }
@@ -79,14 +101,14 @@ public:
         return GetNodesOfType<Red::questJournalNodeDefinition>();
     }
 
-    inline Red::CName GetInputSocketName()
+    inline Red::Handle<Red::questInputNodeDefinition> FindInputNode()
     {
         for (const auto& inputNode : GetNodesOfType<Red::questInputNodeDefinition>())
         {
-            return inputNode->socketName;
+            return inputNode;
         }
 
-        return "In1";
+        return {};
     }
 
 private:
