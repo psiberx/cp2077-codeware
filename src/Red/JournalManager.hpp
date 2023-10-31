@@ -21,6 +21,10 @@ constexpr auto ChangeEntryState = Core::RawVFunc<
                                                      Red::gameJournalNotifyOption aNotifyOption,
                                                      uint32_t a4)>();
 
+constexpr auto GetEntryState = Core::RawVFunc<
+    /* addr = */ 0x2A8,
+    /* type = */ Red::gameJournalEntryState (Red::gameIJournalManager::*)(Red::Handle<Red::gameJournalEntry>& aEntry)>();
+
 constexpr auto GetEntryTimestamp = Core::RawVFunc<
     /* addr = */ 0x2C0,
     /* type = */ uint32_t (Red::gameIJournalManager::*)(Red::Handle<Red::gameJournalEntry>& aEntry)>();

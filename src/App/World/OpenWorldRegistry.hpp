@@ -1,5 +1,6 @@
 #pragma once
 
+#include "App/Quest/QuestPhaseGraphAccessor.hpp"
 #include "Core/Foundation/Feature.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Core/Logging/LoggingAgent.hpp"
@@ -17,11 +18,12 @@ struct PersistentStateRef
 struct MinorActivityData
 {
     Red::CName name;
+    Red::CName category; // ncpd cyberpsycho
 
     Red::JournalEntryHash mappinHash;
     Core::Vector<Red::NodeRef> communityRefs;
     Core::Vector<Red::NodeRef> spawnerRefs;
-    Core::Vector<Red::FactHash> factHashes;
+    Core::Vector<Red::FactName> factHashes;
     Core::Vector<Red::JournalEntryHash> journalHashes;
     Core::Vector<PersistentStateRef> persistenceRefs;
 
@@ -44,11 +46,18 @@ public:
 
 protected:
     void OnBootstrap() override;
-    void OnInitializePhase(Red::questPhaseInstance* aPhase, uint64_t a2,
+    void OnInitializePhase(Red::questPhaseInstance* aPhase, Red::QuestContext& aContext,
                            const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                            const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                           const Red::NodePath& aParentPath,
-                           Red::NodeID aNodeID);
+                           const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID);
+
+    bool RegisterCrimeActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor, Red::questPhaseInstance* aPhase,
+                               const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
+                               const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID);
+
+    bool RegisterCyberpsychoActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor, Red::questPhaseInstance* aPhase,
+                                     const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
+                                     const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID);
 
     static Red::PhaseNodePath MakePhaseNodePath(Red::NodePath aParentPath, Red::NodeID aPhaseNodeID,
                                                 Red::NodeID aInputNodeID);

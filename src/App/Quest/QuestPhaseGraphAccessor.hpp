@@ -16,15 +16,65 @@ public:
         return *reinterpret_cast<Core::Vector<Red::Handle<T>>*>(&m_nodesByType[Red::GetTypeName<T>()]);
     }
 
-    inline Red::Handle<Red::questJournalChangeMappinPhase_NodeType> FindCompletedMappinPhase()
+    inline Red::Handle<Red::questJournalChangeMappinPhase_NodeType> FindCompletedPointOfInterestMappin()
     {
-        for (const auto& journalNode : GetNodesOfType<Red::questJournalNodeDefinition>())
+        for (const auto& node : GetNodesOfType<Red::questJournalNodeDefinition>())
         {
-            if (const auto& mappinPhaseType = Red::Cast<Red::questJournalChangeMappinPhase_NodeType>(journalNode->type))
+            if (const auto& nodeType = Red::Cast<Red::questJournalChangeMappinPhase_NodeType>(node->type))
             {
-                if (mappinPhaseType->phase == Red::gamedataMappinPhase::CompletedPhase)
+                if (nodeType->path->className == Red::GetTypeName<Red::gameJournalPointOfInterestMappin>() &&
+                    nodeType->phase == Red::gamedataMappinPhase::CompletedPhase)
                 {
-                    return mappinPhaseType;
+                    return nodeType;
+                }
+            }
+        }
+
+        return {};
+    }
+
+    inline Red::Handle<Red::questJournalEntry_NodeType> FindPointOfInterestMappin()
+    {
+        for (const auto& node : GetNodesOfType<Red::questJournalNodeDefinition>())
+        {
+            if (const auto& nodeType = Red::Cast<Red::questJournalEntry_NodeType>(node->type))
+            {
+                if (nodeType->path->className == Red::GetTypeName<Red::gameJournalPointOfInterestMappin>())
+                {
+                    for (const auto& socket : node->sockets)
+                    {
+                        if (socket->name == "Active")
+                        {
+                            return nodeType;
+                        }
+                    }
+                }
+            }
+        }
+
+        return {};
+    }
+
+    inline Red::Handle<Red::questCharacterKilled_ConditionType> FindCharacterKill()
+    {
+        for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
+        {
+            if (const auto& condition = Red::Cast<Red::questCharacterCondition>(node->condition))
+            {
+                if (const auto& conditionType = Red::Cast<Red::questCharacterKilled_ConditionType>(condition->type))
+                {
+                    return conditionType;
+                }
+            }
+        }
+
+        for (const auto& node : GetNodesOfType<Red::questConditionNodeDefinition>())
+        {
+            if (const auto& condition = Red::Cast<Red::questCharacterCondition>(node->condition))
+            {
+                if (const auto& conditionType = Red::Cast<Red::questCharacterKilled_ConditionType>(condition->type))
+                {
+                    return conditionType;
                 }
             }
         }
@@ -36,16 +86,16 @@ public:
     {
         Core::Vector<Red::Handle<Red::questCommunityTemplate_NodeType>> communities;
 
-        for (const auto& spawnNode : GetNodesOfType<Red::questSpawnManagerNodeDefinition>())
+        for (const auto& node : GetNodesOfType<Red::questSpawnManagerNodeDefinition>())
         {
-            for (const auto& spawnAction : spawnNode->actions)
+            for (const auto& action : node->actions)
             {
-                if (const auto& communityType = Red::Cast<Red::questCommunityTemplate_NodeType>(spawnAction.type))
+                if (const auto& nodeType = Red::Cast<Red::questCommunityTemplate_NodeType>(action.type))
                 {
-                    if (communityType->action == Red::populationSpawnerObjectCtrlAction::Activate ||
-                        communityType->action == Red::populationSpawnerObjectCtrlAction::Reactivate)
+                    if (nodeType->action == Red::populationSpawnerObjectCtrlAction::Activate ||
+                        nodeType->action == Red::populationSpawnerObjectCtrlAction::Reactivate)
                     {
-                        communities.push_back(communityType);
+                        communities.push_back(nodeType);
                     }
                 }
             }
@@ -58,16 +108,16 @@ public:
     {
         Core::Vector<Red::Handle<Red::questSpawner_NodeType>> communities;
 
-        for (const auto& spawnNode : GetNodesOfType<Red::questSpawnManagerNodeDefinition>())
+        for (const auto& node : GetNodesOfType<Red::questSpawnManagerNodeDefinition>())
         {
-            for (const auto& spawnAction : spawnNode->actions)
+            for (const auto& action : node->actions)
             {
-                if (const auto& spawnerType = Red::Cast<Red::questSpawner_NodeType>(spawnAction.type))
+                if (const auto& nodeType = Red::Cast<Red::questSpawner_NodeType>(action.type))
                 {
-                    if (spawnerType->action == Red::populationSpawnerObjectCtrlAction::Activate ||
-                        spawnerType->action == Red::populationSpawnerObjectCtrlAction::Reactivate)
+                    if (nodeType->action == Red::populationSpawnerObjectCtrlAction::Activate ||
+                        nodeType->action == Red::populationSpawnerObjectCtrlAction::Reactivate)
                     {
-                        communities.push_back(spawnerType);
+                        communities.push_back(nodeType);
                     }
                 }
             }
@@ -80,9 +130,9 @@ public:
     {
         Core::Vector<Red::Handle<Red::questSetVar_NodeType>> changes;
 
-        for (const auto& factNode : GetNodesOfType<Red::questFactsDBManagerNodeDefinition>())
+        for (const auto& node : GetNodesOfType<Red::questFactsDBManagerNodeDefinition>())
         {
-            if (const auto& setVarType = Red::Cast<Red::questSetVar_NodeType>(factNode->type))
+            if (const auto& setVarType = Red::Cast<Red::questSetVar_NodeType>(node->type))
             {
                 changes.push_back(setVarType);
             }
@@ -114,17 +164,24 @@ public:
 private:
     inline void CollectNodes(const Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
     {
+        Core::Vector<Red::Handle<Red::questPhaseNodeDefinition>> nestedPhases;
+
         for (const auto& node : aPhaseGraph->nodes)
         {
-            m_nodesByType[node->GetNativeType()->GetName()].push_back(node);
+            m_nodesByType[node->GetType()->name].push_back(node);
 
             if (const auto& phaseNode = Red::Cast<Red::questPhaseNodeDefinition>(node))
             {
                 if (phaseNode->phaseGraph)
                 {
-                    CollectNodes(phaseNode->phaseGraph);
+                    nestedPhases.push_back(phaseNode);
                 }
             }
+        }
+
+        for (const auto& phaseNode : nestedPhases)
+        {
+            CollectNodes(phaseNode->phaseGraph);
         }
     }
 

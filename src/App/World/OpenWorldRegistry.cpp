@@ -1,84 +1,88 @@
 #include "OpenWorldRegistry.hpp"
-#include "App/Quest/QuestPhaseGraphAccessor.hpp"
 
 void App::OpenWorldRegistry::OnBootstrap()
 {
     HookAfter<Raw::PhaseInstance::Initialize>(&OpenWorldRegistry::OnInitializePhase);
 }
 
-void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, uint64_t a2,
+void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, Red::QuestContext& aContext,
                                                const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                                const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
                                                const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID)
 {
+    if (aParentPath.size == 0 && aPhaseNodeID == 0)
+    {
+        m_activities.clear();
+    }
+
     if (!aPhaseResource)
         return;
 
-    QuestPhaseGraphAccessor graphAccessor(aPhaseGraph);
-    auto inputNode = graphAccessor.FindInputNode();
+    QuestPhaseGraphAccessor phaseGraphAccessor(aPhaseGraph);
+
+    RegisterCrimeActivity(phaseGraphAccessor, aPhase, aPhaseGraph, aParentPath, aPhaseNodeID);
+    // RegisterCyberpsychoActivity(phaseGraphAccessor, aPhase, aPhaseGraph, aParentPath, aPhaseNodeID);
+}
+
+bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+                                                   Red::questPhaseInstance* aPhase,
+                                                   const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
+                                                   const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID)
+{
+    auto inputNode = aPhaseGraphAccessor.FindInputNode();
 
     if (!inputNode)
-        return;
+        return false;
 
-    auto mappinPhase = graphAccessor.FindCompletedMappinPhase();
+    auto poiMappin = aPhaseGraphAccessor.FindCompletedPointOfInterestMappin();
 
-    if (!mappinPhase)
-        return;
+    if (!poiMappin)
+        return false;
 
-    auto activityName = ExtractMinorActivityName(mappinPhase->path->realPath);
+    auto activityName = ExtractMinorActivityName(poiMappin->path->realPath);
 
     if (!activityName)
-        return;
+        return false;
 
-    {
-        auto it = m_activities.find(activityName);
-        if (it != m_activities.end())
-        {
-            auto& existingActivity = it.value();
-            existingActivity->phaseInstance = aPhase;
-            existingActivity->phaseGraph = aPhaseGraph;
-            existingActivity->inputNode = inputNode;
-            return;
-        }
-    }
-
-    auto communities = graphAccessor.FindCommunities();
-    auto spawners = graphAccessor.FindSpawners();
+    auto communities = aPhaseGraphAccessor.FindCommunities();
+    auto spawners = aPhaseGraphAccessor.FindSpawners();
 
     if (communities.empty() && spawners.empty())
-        return;
+        return false;
 
-    auto journalEntries = graphAccessor.FindJournalEntries();
-    auto factChanges = graphAccessor.FindFactChanges();
-    auto areaLinks = graphAccessor.FindAreaLinks();
+    auto journalEntries = aPhaseGraphAccessor.FindJournalEntries();
+    auto factChanges = aPhaseGraphAccessor.FindFactChanges();
+    auto areaLinks = aPhaseGraphAccessor.FindAreaLinks();
 
-    auto minorActivity = Core::MakeShared<MinorActivityData>();
+    auto activity = Core::MakeShared<MinorActivityData>();
 
-    minorActivity->phaseInstance = aPhase;
-    minorActivity->phaseGraph = aPhaseGraph;
+    activity->name = activityName;
+    activity->category = "ncpd";
 
-    minorActivity->inputNode = inputNode;
-    minorActivity->inputSocket = {inputNode->socketName};
-    minorActivity->inputNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID, inputNode->id);
+    activity->phaseInstance = aPhase;
+    activity->phaseGraph = aPhaseGraph;
 
-    minorActivity->name = activityName;
-    minorActivity->mappinHash = Red::Murmur3_32(mappinPhase->path->realPath.c_str());
+    activity->inputNode = inputNode;
+    activity->inputSocket = {inputNode->socketName};
+    activity->inputNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID, inputNode->id);
+
+    activity->mappinHash = Red::Murmur3_32(poiMappin->path->realPath.c_str());
 
     for (const auto& community : communities)
     {
-        minorActivity->communityRefs.push_back(community->spawnerReference);
+        activity->communityRefs.push_back(community->spawnerReference);
     }
 
     for (const auto& spawner : spawners)
     {
-        minorActivity->spawnerRefs.push_back(spawner->spawnerReference);
+        activity->spawnerRefs.push_back(spawner->spawnerReference);
     }
 
     for (const auto& areaLink : areaLinks)
     {
         if (areaLink->PSClassName)
         {
-            minorActivity->persistenceRefs.push_back({areaLink->objectRef.reference, areaLink->componentName});
+            activity->persistenceRefs.push_back({areaLink->objectRef.reference, areaLink->componentName});
         }
     }
 
@@ -86,7 +90,7 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
     {
         if (journalEntry->type->path->className != Red::GetTypeName<Red::gameJournalPointOfInterestMappin>())
         {
-            minorActivity->journalHashes.push_back(Red::Murmur3_32(journalEntry->type->path->realPath.c_str()));
+            activity->journalHashes.push_back(Red::Murmur3_32(journalEntry->type->path->realPath.c_str()));
         }
     }
 
@@ -94,16 +98,42 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
     {
         if (IsMinorActivityRelatedFact(factChange->factName))
         {
-            minorActivity->factHashes.push_back(Red::FNV1a32(factChange->factName.c_str()));
+            activity->factHashes.emplace_back(factChange->factName.c_str());
         }
     }
 
-    m_activities.emplace(minorActivity->name, std::move(minorActivity));
+    m_activities[activity->name] = std::move(activity);
 
 #ifndef NDEBUG
     LogDebug("Minor Activity Discovered: {}", activityName.ToString());
-    // LogDebug("Minor Activity Discovered: {} {}", activityName.ToString(), aPhaseResource->path.hash);
 #endif
+
+    return true;
+}
+
+bool App::OpenWorldRegistry::RegisterCyberpsychoActivity(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+                                                         Red::questPhaseInstance* aPhase,
+                                                         const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
+                                                         const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID)
+{
+    auto poiMappin = aPhaseGraphAccessor.FindPointOfInterestMappin();
+
+    if (!poiMappin)
+        return false;
+
+    auto activityName = ExtractMinorActivityName(poiMappin->path->realPath);
+
+    if (!activityName)
+        return false;
+
+    auto characterKill = aPhaseGraphAccessor.FindCharacterKill();
+
+    if (!characterKill)
+        return false;
+
+    // Check questSetVar_NodeType:glossary_cyberpsychosis
+
+    return false;
 }
 
 Red::PhaseNodePath App::OpenWorldRegistry::MakePhaseNodePath(Red::NodePath aParentPath, Red::NodeID aPhaseNodeID,
@@ -117,8 +147,12 @@ Red::CName App::OpenWorldRegistry::ExtractMinorActivityName(const Red::CString& 
 {
     constexpr auto AddonPrefix = "ep1/";
     constexpr auto AddonPrefixLength = std::char_traits<char>::length(AddonPrefix);
-    constexpr auto MinorActivityPrefix = "points_of_interest/minor_activities/";
+    constexpr auto PointOfInterestPrefix = "points_of_interest/";
+    constexpr auto PointOfInterestPrefixLength = std::char_traits<char>::length(PointOfInterestPrefix);
+    constexpr auto MinorActivityPrefix = "minor_activities/";
     constexpr auto MinorActivityPrefixLength = std::char_traits<char>::length(MinorActivityPrefix);
+    constexpr auto MinorQuestPrefix = "minor_quests/";
+    constexpr auto MinorQuestPrefixLength = std::char_traits<char>::length(MinorQuestPrefix);
 
     std::string_view path(aJournalPath.c_str());
 
@@ -127,10 +161,21 @@ Red::CName App::OpenWorldRegistry::ExtractMinorActivityName(const Red::CString& 
         path.remove_prefix(AddonPrefixLength);
     }
 
-    if (path.starts_with(MinorActivityPrefix))
+    if (path.starts_with(PointOfInterestPrefix))
     {
-        path.remove_prefix(MinorActivityPrefixLength);
-        return Red::CNamePool::Add(path.data());
+        path.remove_prefix(PointOfInterestPrefixLength);
+
+        if (path.starts_with(MinorActivityPrefix))
+        {
+            path.remove_prefix(MinorActivityPrefixLength);
+            return Red::CNamePool::Add(path.data());
+        }
+
+        if (path.starts_with(MinorQuestPrefix))
+        {
+            path.remove_prefix(MinorQuestPrefixLength);
+            return Red::CNamePool::Add(path.data());
+        }
     }
 
     return {};

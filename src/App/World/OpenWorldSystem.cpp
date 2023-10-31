@@ -2,6 +2,7 @@
 #include "App/Quest/QuestPhaseGraphAccessor.hpp"
 #include "Core/Facades/Container.hpp"
 #include "Red/CommunitySystem.hpp"
+#include "Red/JournalManager.hpp"
 #include "Red/MappinSystem.hpp"
 
 void App::OpenWorldSystem::OnWorldAttached(Red::world::RuntimeScene*)
@@ -52,7 +53,23 @@ bool App::OpenWorldSystem::ReactivateMinorActivities()
 bool App::OpenWorldSystem::IsMinorActivityCompleted(const Core::SharedPtr<App::MinorActivityData>& aActivity)
 {
     auto phase = Raw::MappinSystem::GetPoiMappinPhase(m_mappinSystem, aActivity->mappinHash);
-    return phase == Red::gamedataMappinPhase::CompletedPhase;
+    if (phase != Red::gamedataMappinPhase::Invalid)
+    {
+        return phase == Red::gamedataMappinPhase::CompletedPhase;
+    }
+
+    // Red::Handle<Red::gameJournalEntry> entry;
+    // Raw::JournalManager::GetEntryByHash(m_journalManager, entry, aActivity->mappinHash);
+    // if (entry)
+    // {
+    //     auto state = Raw::JournalManager::GetEntryState(m_journalManager, entry);
+    //     if (state != Red::gameJournalEntryState::Undefined)
+    //     {
+    //         return state == Red::gameJournalEntryState::Inactive || state == Red::gameJournalEntryState::Succeeded;
+    //     }
+    // }
+
+    return false;
 }
 
 bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPtr<App::MinorActivityData>& aActivity)
@@ -152,44 +169,6 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
             return false;
     }
 
-    Red::QuestContext context{};
-    Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000003, -1);
-
-    {
-        context.phaseStack.PushBack(aActivity->phaseInstance);
-
-        Red::QuestNodeSocket inputSocket;
-        Red::DynArray<Red::QuestNodeSocket> outputSockets;
-
-        QuestPhaseGraphAccessor graphAccessor(aActivity->phaseGraph);
-
-        for (const auto& node : graphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
-        {
-            if (const auto& nodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(node->type))
-            {
-                for (auto& param : nodeType->params)
-                {
-                    for (auto& state : param.variantStates)
-                    {
-                        state.show = !state.show;
-                    }
-                }
-
-                Raw::PhaseInstance::ExecuteNode(aActivity->phaseInstance, node, context, inputSocket, outputSockets);
-
-                for (auto& param : nodeType->params)
-                {
-                    for (auto& state : param.variantStates)
-                    {
-                        state.show = !state.show;
-                    }
-                }
-            }
-        }
-
-        context.phaseStack.Clear();
-    }
-
     for (const auto& communityID : communityIDs)
     {
         Raw::CommunitySystem::DeactivateCommunity(m_communitySystem, communityID, {});
@@ -242,17 +221,64 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
         m_factManager->SetFact(factHash, 0);
     }
 
-    Raw::MappinSystem::SetPoiMappinPhase(m_mappinSystem, aActivity->mappinHash,
-                                         Red::gamedataMappinPhase::DiscoveredPhase);
-
+    if (aActivity->mappinHash)
     {
-        Red::DynArray<Red::QuestNodeSocket> outputSockets;
-        Raw::PhaseInstance::ExequteSequence(aActivity->phaseInstance,
-                                            context,
-                                            aActivity->inputNode,
-                                            aActivity->inputSocket,
-                                            true,
-                                            outputSockets);
+        Raw::MappinSystem::SetPoiMappinPhase(m_mappinSystem, aActivity->mappinHash,
+                                             Red::gamedataMappinPhase::DiscoveredPhase);
+    }
+
+    if (aActivity->phaseGraph)
+    {
+        Red::QuestContext context{};
+        Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000003, -1);
+
+        // TODO: Move prefabs to registry
+        {
+            context.phaseStack.PushBack(aActivity->phaseInstance);
+
+            Red::QuestNodeSocket inputSocket;
+            Red::DynArray<Red::QuestNodeSocket> outputSockets;
+
+            QuestPhaseGraphAccessor graphAccessor(aActivity->phaseGraph);
+
+            for (const auto& node : graphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
+            {
+                if (const auto& nodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(node->type))
+                {
+                    for (auto& param : nodeType->params)
+                    {
+                        for (auto& state : param.variantStates)
+                        {
+                            state.show = !state.show;
+                        }
+                    }
+
+                    Raw::PhaseInstance::ExecuteNode(aActivity->phaseInstance, node, context,
+                                                    inputSocket, outputSockets);
+
+                    for (auto& param : nodeType->params)
+                    {
+                        for (auto& state : param.variantStates)
+                        {
+                            state.show = !state.show;
+                        }
+                    }
+                }
+            }
+
+            context.phaseStack.Clear();
+        }
+
+        if (aActivity->inputNode)
+        {
+            Red::DynArray<Red::QuestNodeSocket> outputSockets;
+            Raw::PhaseInstance::ExequteSequence(aActivity->phaseInstance,
+                                                context,
+                                                aActivity->inputNode,
+                                                aActivity->inputSocket,
+                                                true,
+                                                outputSockets);
+        }
     }
 
     return true;

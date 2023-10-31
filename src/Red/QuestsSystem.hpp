@@ -4,28 +4,42 @@
 
 namespace Red
 {
-using FactHash = uint32_t;
-using FactStoreIndex = uint32_t;
+struct FactName
+{
+    constexpr FactName(uint32_t aHash = 0) noexcept
+        : hash(aHash)
+    {
+    }
+
+    constexpr FactName(const char* aName) noexcept
+        : hash(FNV1a32(aName))
+    {
+    }
+
+    uint32_t hash;
+};
 
 struct FactStore
 {
     uint64_t unk00;
-    Red::Map<FactHash, int32_t> data;
+    Red::Map<FactName, int32_t> data;
 };
+
+using FactStoreIndex = uint32_t;
 
 struct FactManager
 {
     virtual ~FactManager() = 0;                                                      // 00
     virtual void sub_08() = 0;                                                       // 08
-    virtual int32_t GetFact(FactStoreIndex aStore, FactHash aFact) = 0;              // 10
-    virtual void SetFact(FactStoreIndex aStore, FactHash aFact, int32_t aValue) = 0; // 18
+    virtual int32_t GetFact(FactStoreIndex aStore, FactName aFact) = 0;              // 10
+    virtual void SetFact(FactStoreIndex aStore, FactName aFact, int32_t aValue) = 0; // 18
 
-    inline uint32_t GetFact(FactHash aFact)
+    inline uint32_t GetFact(FactName aFact)
     {
         return GetFact(1, aFact);
     }
 
-    inline void SetFact(FactHash aFact, int32_t aValue)
+    inline void SetFact(FactName aFact, int32_t aValue)
     {
         SetFact(1, aFact, aValue);
     }
@@ -111,7 +125,7 @@ namespace Raw::PhaseInstance
 constexpr auto Initialize = Core::RawFunc<
     /* addr = */ 0x14027CFA4 - Red::Addresses::ImageBase, // FIXME
     /* type = */ void* (*)(Red::questPhaseInstance* aPhase,
-                           uint64_t a2,
+                           Red::QuestContext& aContext,
                            const Red::Handle<Red::questQuestPhaseResource>& aResource,
                            const Red::Handle<Red::questGraphDefinition>& aGraph,
                            const Red::NodePath& aParentPath,

@@ -68,6 +68,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>
 #include <RED4ext/Scripting/Natives/Generated/graph/GraphDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/graph/GraphNodeDefinition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/graph/GraphSocketDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CharacterEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ControllerProcessor.hpp>
@@ -93,14 +94,21 @@
 #include <RED4ext/Scripting/Natives/Generated/mesh/MeshAppearance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/net/PeerID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/population/PopulationSpawnParameter.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/CharacterCondition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/CharacterKilled_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/CommunityTemplate_NodeType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/ComparisonParam.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/ConditionNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/EventManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/FactsDBManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/GraphDefinition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/ICharacterConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/IQuestsSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/InputNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalChangeMappinPhase_NodeType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/JournalEntry_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalNodeDefinition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/PauseConditionNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/PhaseInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/PhaseNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/QuestPhaseResource.hpp>
@@ -108,6 +116,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/Spawner_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SpawnManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/TogglePrefabVariant_NodeType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/UniversalRef.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/WorldDataManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
