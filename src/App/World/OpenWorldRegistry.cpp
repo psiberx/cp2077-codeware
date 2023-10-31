@@ -14,6 +14,11 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
 {
     if (aParentPath.size == 0 && aPhaseNodeID == 0)
     {
+#ifndef NDEBUG
+        LogDebug("Building activities...");
+        LogDebug("| Group | Activity | Area | District | Description |");
+#endif
+
         m_activities.clear();
     }
 
@@ -198,11 +203,29 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
     activity->inputSocket = {inputNode->socketName};
     activity->inputNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID, inputNode->id);
 
-    m_activities[activity->name] = std::move(activity);
-
 #ifndef NDEBUG
-    LogDebug("Minor Activity Discovered: {}", activityName.ToString());
+    Red::CString localizedTitle;
+    Red::CallGlobal("GetLocalizedTextByKey", localizedTitle, activity->title);
+
+    Red::CString localizedDescription;
+    Red::CallGlobal("GetLocalizedTextByKey", localizedDescription, activity->description);
+
+    Red::CName areaName;
+    Red::CallGlobal("EnumValueToName", areaName, Red::GetTypeName<Red::gamedataDistrict>(), activity->area);
+
+    Red::CName districtName;
+    Red::CallGlobal("EnumValueToName", districtName, Red::GetTypeName<Red::gamedataDistrict>(), activity->district);
+
+    LogDebug("| `{}` | `{}` | `{}` | `{}` | {}: {} |",
+             activity->kind.ToString(),
+             activity->name.ToString(),
+             areaName.ToString(),
+             districtName.ToString(),
+             localizedTitle.c_str(),
+             localizedDescription.c_str());
 #endif
+
+    m_activities[activity->name] = std::move(activity);
 
     return true;
 }
