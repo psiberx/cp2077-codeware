@@ -35,8 +35,8 @@ RED4EXT_ASSERT_OFFSET(CommunityEntry, spawner, 0x30);
 
 struct Community
 {
-    virtual void GetEntityIDs(DynArray<EntityID>& aOut) const = 0;
-    virtual uint32_t GetEntityCount() const = 0;
+    virtual void GetActiveEntityIDs(DynArray<EntityID>& aOut) const = 0;
+    virtual uint32_t GetActiveEntityCount() const = 0;
     virtual bool IsOwnedEntity(EntityID aEntityID) = 0;
     virtual ~Community() = 0;
 
@@ -52,8 +52,8 @@ RED4EXT_ASSERT_OFFSET(Community, template_, 0x38);
 
 struct Spawner
 {
-    virtual void GetEntityIDs(DynArray<EntityID>& aOut) const = 0;
-    virtual uint32_t GetEntityCount() const = 0;
+    virtual void GetActiveEntityIDs(DynArray<EntityID>& aOut) const = 0;
+    virtual uint32_t GetActiveEntityCount() const = 0;
     virtual bool IsOwnedEntity(EntityID aEntityID) = 0;
     virtual ~Spawner() = 0;
 

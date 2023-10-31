@@ -79,6 +79,13 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
 
         communityIDs.push_back(communityID);
 
+        Red::DynArray<Red::EntityID> communityEntityIDs;
+        community.instance->GetActiveEntityIDs(communityEntityIDs);
+        for (const auto& entityID : communityEntityIDs)
+        {
+            entityIDs.PushBack(entityID);
+        }
+
         for (auto& entry : community.instance->entries)
         {
             for (const auto& entityID : entry->spawner->restoredEntityIDs)
@@ -97,9 +104,6 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
             {
                 entityIDs.PushBack(entityID);
             }
-
-            // entry->spawner->restoredEntityIDs.Clear();
-            // entry->spawner->reservedEntityIDs.Clear();
         }
     }
 
@@ -118,6 +122,13 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
 
         spawnerIDs.push_back(spawnerID);
 
+        Red::DynArray<Red::EntityID> spawnerEntityIDs;
+        spawner.instance->GetActiveEntityIDs(spawnerEntityIDs);
+        for (const auto& entityID : spawnerEntityIDs)
+        {
+            entityIDs.PushBack(entityID);
+        }
+
         for (const auto& entityID : spawner.instance->restoredEntityIDs)
         {
             entityIDs.PushBack(entityID);
@@ -130,9 +141,6 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
         {
             entityIDs.PushBack(entityID);
         }
-
-        // spawner.instance->restoredEntityIDs.Clear();
-        // spawner.instance->reservedEntityIDs.Clear();
     }
 
     for (const auto& entityID : entityIDs)
@@ -147,12 +155,11 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
     Red::QuestContext context{};
     Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000003, -1);
 
-
     {
+        context.phaseStack.PushBack(aActivity->phaseInstance);
+
         Red::QuestNodeSocket inputSocket;
         Red::DynArray<Red::QuestNodeSocket> outputSockets;
-
-        context.phaseStack.PushBack(aActivity->phaseInstance);
 
         QuestPhaseGraphAccessor graphAccessor(aActivity->phaseGraph);
 
