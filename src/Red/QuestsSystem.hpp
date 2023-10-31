@@ -101,6 +101,15 @@ namespace Raw::QuestsSystem
 {
 using FactManager = Core::OffsetPtr<0xF8, Red::FactManager*>;
 
+constexpr auto CreateContext = Core::RawFunc<
+    /* addr = */ Red::Addresses::QuestsSystem_CreateContext,
+    /* type = */ void* (*)(Red::questIQuestsSystem* aPhase,
+                           Red::QuestContext* aContext,
+                           int8_t a3 /* = 1 */,
+                           int8_t a4 /* = 0 */,
+                           int32_t a5 /* = 1000000 */,
+                           int32_t a6 /* = -1 */)>();
+
 // constexpr auto StopPhase = Core::RawVFunc<
 //     /* addr = */ 0x210,
 //     /* type = */ void (Red::questIQuestsSystem::*)(const Red::PhaseNodePath& aNodePath, uint8_t a2)>();
@@ -109,21 +118,12 @@ using FactManager = Core::OffsetPtr<0xF8, Red::FactManager*>;
 //     /* addr = */ 0x238,
 //     /* type = */ void (Red::questIQuestsSystem::*)(const Red::PhaseNodePath& aNodePath,
 //                                                    const Red::DynArray<Red::CName>& aInputSockets)>();
-
-constexpr auto CreateContext = Core::RawFunc<
-    /* addr = */ 0x14027A6E4 - Red::Addresses::ImageBase, // FIXME
-    /* type = */ void* (*)(Red::questIQuestsSystem* aPhase,
-                           Red::QuestContext* aContext,
-                           int8_t a3 /* = 1 */,
-                           int8_t a4 /* = 0 */,
-                           int32_t a5 /* = 1000000 */,
-                           int32_t a6 /* = -1 */)>();
 }
 
-namespace Raw::PhaseInstance
+namespace Raw::QuestPhaseInstance
 {
 constexpr auto Initialize = Core::RawFunc<
-    /* addr = */ 0x14027CFA4 - Red::Addresses::ImageBase, // FIXME
+    /* addr = */ Red::Addresses::QuestPhaseInstance_Initialize,
     /* type = */ void* (*)(Red::questPhaseInstance* aPhase,
                            Red::QuestContext& aContext,
                            const Red::Handle<Red::questQuestPhaseResource>& aResource,
@@ -131,8 +131,8 @@ constexpr auto Initialize = Core::RawFunc<
                            const Red::NodePath& aParentPath,
                            Red::NodeID aPhaseNodeID)>();
 
-constexpr auto ExequteSequence = Core::RawFunc<
-    /* addr = */ 0x1404D9A70 - Red::Addresses::ImageBase, // FIXME
+constexpr auto ExequteGraph = Core::RawFunc<
+    /* addr = */ Red::Addresses::QuestPhaseInstance_ExequteGraph,
     /* type = */ bool (*)(Red::questPhaseInstance* aPhase,
                           Red::QuestContext& aContext,
                           const Red::WeakHandle<Red::questNodeDefinition>& aNode,
@@ -141,7 +141,7 @@ constexpr auto ExequteSequence = Core::RawFunc<
                           const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
 
 constexpr auto ExecuteNode = Core::RawFunc<
-    /* addr = */ 0x14027DD1C - Red::Addresses::ImageBase, // FIXME
+    /* addr = */ Red::Addresses::QuestPhaseInstance_ExecuteNode,
     /* type = */ bool (*)(Red::questPhaseInstance* aPhase,
                           Red::questNodeDefinition* aNode,
                           Red::QuestContext& aContext,

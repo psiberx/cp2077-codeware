@@ -2,7 +2,7 @@
 
 void App::OpenWorldRegistry::OnBootstrap()
 {
-    HookAfter<Raw::PhaseInstance::Initialize>(&OpenWorldRegistry::OnInitializePhase);
+    HookAfter<Raw::QuestPhaseInstance::Initialize>(&OpenWorldRegistry::OnInitializePhase);
 }
 
 void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, Red::QuestContext& aContext,

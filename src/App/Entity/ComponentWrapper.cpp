@@ -274,8 +274,6 @@ bool App::ComponentWrapper::LoadAppearance() const
         break;
     }
 
-    // todo: forced option
-
     if (meshRef.LoadAsync() && meshRef.IsLoaded())
     {
         auto meshApp = Raw::CMesh::GetAppearance(meshRef.token->resource, meshAppName);

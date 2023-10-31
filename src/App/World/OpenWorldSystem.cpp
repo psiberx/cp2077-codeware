@@ -256,8 +256,8 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
 
             for (const auto& patchNode : aActivity->patchNodes)
             {
-                Raw::PhaseInstance::ExecuteNode(aActivity->phaseInstance, patchNode, context,
-                                                inputSocket, outputSockets);
+                Raw::QuestPhaseInstance::ExecuteNode(aActivity->phaseInstance, patchNode, context,
+                                                     inputSocket, outputSockets);
             }
 
             context.phaseStack.Clear();
@@ -266,12 +266,8 @@ bool App::OpenWorldSystem::ProcessMinorActivityReactivation(const Core::SharedPt
         if (aActivity->inputNode)
         {
             Red::DynArray<Red::QuestNodeSocket> outputSockets;
-            Raw::PhaseInstance::ExequteSequence(aActivity->phaseInstance,
-                                                context,
-                                                aActivity->inputNode,
-                                                aActivity->inputSocket,
-                                                true,
-                                                outputSockets);
+            Raw::QuestPhaseInstance::ExequteGraph(aActivity->phaseInstance, context, aActivity->inputNode,
+                                                  aActivity->inputSocket, true, outputSockets);
         }
     }
 

@@ -77,46 +77,44 @@ RED4EXT_ASSERT_OFFSET(Spawner, transform, 0x20);
 RED4EXT_ASSERT_OFFSET(Spawner, record, 0x60);
 RED4EXT_ASSERT_OFFSET(Spawner, spawnedEntityIDs, 0x88);
 RED4EXT_ASSERT_OFFSET(Spawner, reservedEntityIDs, 0x98);
-
 }
 
 namespace Raw::CommunitySystem
 {
 constexpr auto ActivateCommunity = Core::RawVFunc<
     /* addr = */ 0x1A8,
-    /* type = */ void (Red::gameICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
 
 constexpr auto DeactivateCommunity = Core::RawVFunc<
     /* addr = */ 0x1B0,
-    /* type = */ void (Red::gameICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
 
 constexpr auto ResetCommunity = Core::RawVFunc<
     /* addr = */ 0x1C0,
-    /* type = */ void (Red::gameICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
 
 constexpr auto GetCommunity = Core::RawVFunc<
     /* addr = */ 0x220,
-    /* type = */ void* (Red::gameICommunitySystem::*)(Red::WeakPtr<Red::Community>& aOut,
-                                                      const Red::EntityID& aCommunityID)>();
+    /* type = */ void* (Red::ICommunitySystem::*)(Red::WeakPtr<Red::Community>& aOut, 
+                                                  const Red::EntityID& aCommunityID)>();
 
 constexpr auto ActivateSpawner = Core::RawVFunc<
     /* addr = */ 0x1D0,
-    /* type = */ void (Red::gameICommunitySystem::*)(Red::EntityID aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aSpawnerID)>();
 
 constexpr auto DeactivateSpawner = Core::RawVFunc<
     /* addr = */ 0x1D8,
-    /* type = */ void (Red::gameICommunitySystem::*)(Red::EntityID aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aSpawnerID)>();
 
 constexpr auto ResetSpawner = Core::RawVFunc<
     /* addr = */ 0x1E0,
-    /* type = */ void (Red::gameICommunitySystem::*)(Red::EntityID aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aSpawnerID)>();
 
 constexpr auto GetSpawner = Core::RawVFunc<
     /* addr = */ 0x258,
-    /* type = */ void* (Red::gameICommunitySystem::*)(Red::WeakPtr<Red::Spawner>& aOut,
-                                                      Red::EntityID aSpawnerID)>();
+    /* type = */ void* (Red::ICommunitySystem::*)(Red::WeakPtr<Red::Spawner>& aOut, Red::EntityID aSpawnerID)>();
 
 constexpr auto Update = Core::RawFunc<
-    /* addr = */ 0x140251834 - Red::Addresses::ImageBase, // FIXME
-    /* type = */ void (*)(Red::gameICommunitySystem* aSystem, bool a2)>();
+    /* addr = */ Red::Addresses::CommunitySystem_Update,
+    /* type = */ void (*)(Red::ICommunitySystem* aSystem, bool a2)>();
 }
