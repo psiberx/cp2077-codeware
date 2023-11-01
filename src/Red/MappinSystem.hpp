@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Red/Addresses.hpp"
+
 namespace Raw::MappinSystem
 {
 constexpr auto SetPoiMappinPhase = Core::RawVFunc<
