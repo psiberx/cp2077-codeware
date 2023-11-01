@@ -49,7 +49,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
 
     auto activityName = ExtractMinorActivityName(poiMappin->path->realPath);
 
-    if (!activityName)
+    if (!activityName || activityName == "ma_wbr_nok_01") // FIXME
         return false;
 
     auto communities = aPhaseGraphAccessor.FindCommunities();
