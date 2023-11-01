@@ -128,8 +128,13 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
     {
         if (IsMinorActivityRelatedFact(factChange->factName))
         {
-            activity->factHashes.emplace_back(factChange->factName.c_str());
+            activity->namedFacts.emplace_back(factChange->factName.c_str());
         }
+    }
+
+    for (const auto& graphPath : aPhaseGraphAccessor.GetAllGraphPaths(aParentPath, aPhaseNodeID))
+    {
+        activity->graphFacts.emplace_back(graphPath);
     }
 
     for (const auto& lootObjective : aPhaseGraphAccessor.FindLootObjectives())
@@ -142,8 +147,8 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
         activity->lootContainerRef = lootContainer->objectRef;
 
         activity->persistenceRefs.push_back({lootContainer->objectRef});
-        activity->persistenceRefs.push_back({lootContainer->objectRef, "inventory"});
-        activity->persistenceRefs.push_back({lootContainer->objectRef, "interactions"});
+        // activity->persistenceRefs.push_back({lootContainer->objectRef, "inventory"});
+        // activity->persistenceRefs.push_back({lootContainer->objectRef, "interactions"});
 
         if (activity->lootItemIDs.empty())
         {
@@ -198,6 +203,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
 
     activity->phaseInstance = aPhase;
     activity->phaseGraph = aPhaseGraph;
+    activity->phaseNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID);
 
     activity->inputNode = inputNode;
     activity->inputSocket = {inputNode->socketName};
@@ -258,8 +264,15 @@ bool App::OpenWorldRegistry::RegisterCyberpsychoActivity(App::QuestPhaseGraphAcc
 Red::PhaseNodePath App::OpenWorldRegistry::MakePhaseNodePath(Red::NodePath aParentPath, Red::NodeID aPhaseNodeID,
                                                              Red::NodeID aInputNodeID)
 {
-    aParentPath.PushBack(aPhaseNodeID);
-    return {aParentPath, aInputNodeID};
+    if (aInputNodeID == static_cast<Red::NodeID>(-1))
+    {
+        return {aParentPath, aPhaseNodeID};
+    }
+    else
+    {
+        aParentPath.PushBack(aPhaseNodeID);
+        return {aParentPath, aInputNodeID};
+    }
 }
 
 Red::CName App::OpenWorldRegistry::ExtractMinorActivityName(const Red::CString& aJournalPath)

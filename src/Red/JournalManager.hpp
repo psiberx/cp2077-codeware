@@ -16,10 +16,10 @@ constexpr auto GetEntryByHash = Core::RawVFunc<
 
 constexpr auto ChangeEntryState = Core::RawVFunc<
     /* addr = */ 0x260,
-    /* type = */ void* (Red::gameIJournalManager::*)(Red::Handle<Red::gameJournalEntry>& aEntry,
-                                                     Red::gameJournalEntryState aEntryState,
-                                                     Red::gameJournalNotifyOption aNotifyOption,
-                                                     uint32_t a4)>();
+    /* type = */ bool (Red::gameIJournalManager::*)(Red::Handle<Red::gameJournalEntry>& aEntry,
+                                                    Red::gameJournalEntryState aEntryState,
+                                                    Red::gameJournalNotifyOption aNotifyOption,
+                                                    uint32_t a4)>();
 
 constexpr auto GetEntryState = Core::RawVFunc<
     /* addr = */ 0x2A8,

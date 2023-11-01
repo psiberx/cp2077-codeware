@@ -5,6 +5,7 @@
 #include "App/UI/WidgetInputService.hpp"
 #include "App/UI/WidgetSpawningService.hpp"
 #include "App/World/OpenWorldRegistry.hpp"
+#include "App/World/OpenWorldTracker.hpp"
 #include "Core/Foundation/LocaleProvider.hpp"
 #include "Core/Foundation/RuntimeProvider.hpp"
 #include "Support/MinHook/MinHookProvider.hpp"
@@ -23,6 +24,7 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
     Register<App::ScriptingService>();
     Register<App::PersistencyService>();
     Register<App::OpenWorldRegistry>();
+    Register<App::OpenWorldTracker>();
     Register<App::WidgetBuildingService>();
     Register<App::WidgetSpawningService>();
     Register<App::WidgetInputService>();

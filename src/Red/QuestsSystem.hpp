@@ -4,49 +4,6 @@
 
 namespace Red
 {
-struct FactName
-{
-    constexpr FactName(uint32_t aHash = 0) noexcept
-        : hash(aHash)
-    {
-    }
-
-    constexpr FactName(const char* aName) noexcept
-        : hash(FNV1a32(aName))
-    {
-    }
-
-    uint32_t hash;
-};
-
-struct FactStore
-{
-    uint64_t unk00;
-    Red::Map<FactName, int32_t> data;
-};
-
-using FactStoreIndex = uint32_t;
-
-struct FactManager
-{
-    virtual ~FactManager() = 0;                                                      // 00
-    virtual void sub_08() = 0;                                                       // 08
-    virtual int32_t GetFact(FactStoreIndex aStore, FactName aFact) = 0;              // 10
-    virtual void SetFact(FactStoreIndex aStore, FactName aFact, int32_t aValue) = 0; // 18
-
-    inline uint32_t GetFact(FactName aFact)
-    {
-        return GetFact(1, aFact);
-    }
-
-    inline void SetFact(FactName aFact, int32_t aValue)
-    {
-        SetFact(1, aFact, aValue);
-    }
-
-    FactStore* data[11];
-};
-
 using NodeID = uint16_t;
 using NodePath = DynArray<NodeID>;
 using NodePathHash = uint32_t;
@@ -55,24 +12,35 @@ struct PhaseNodePath
 {
     PhaseNodePath() = default;
 
-    PhaseNodePath(NodePathHash aPhaseHash, NodeID aNodeID = 0, NodeID aSubNodeID = 0)
+    PhaseNodePath(NodePathHash aPhaseHash, NodeID aNodeID = 0)
         : phaseHash(aPhaseHash)
-        , subNodeID(aSubNodeID)
         , nodeID(aNodeID)
     {
     }
 
-    PhaseNodePath(const NodePath& aNodePath, NodeID aNodeID = 0, NodeID aSubNodeID = 0)
+    PhaseNodePath(const NodePath& aNodePath, NodeID aNodeID = 0)
         : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), aNodePath.size * sizeof(NodeID)))
-        , subNodeID(aSubNodeID)
         , nodeID(aNodeID)
     {
+    }
+
+    operator uint64_t() const noexcept
+    {
+        return (static_cast<uint64_t>(phaseHash) << 32) + nodeID;
+    }
+
+    operator uint32_t() const noexcept
+    {
+        uint64_t data = *this;
+        return FNV1a32(reinterpret_cast<uint8_t*>(&data), sizeof(data));
     }
 
     NodePathHash phaseHash;
-    NodeID subNodeID;
-    NodeID nodeID;
+    NodePathHash nodeID;
 };
+RED4EXT_ASSERT_SIZE(PhaseNodePath, 0x8);
+RED4EXT_ASSERT_OFFSET(PhaseNodePath, phaseHash, 0x0);
+// RED4EXT_ASSERT_OFFSET(PhaseNodePath, nodeID, 0x6);
 
 struct QuestContext
 {
@@ -94,6 +62,77 @@ struct QuestNodeSocket
 
     CName name;
     uint8_t unk08;
+};
+
+struct FactID
+{
+    constexpr FactID(uint32_t aHash = 0) noexcept
+        : hash(aHash)
+    {
+    }
+
+    constexpr FactID(const char* aName) noexcept
+        : hash(FNV1a32(aName))
+    {
+    }
+
+    FactID(PhaseNodePath aPath) noexcept
+        : hash(aPath)
+    {
+    }
+
+    uint32_t hash;
+};
+
+struct FactStore
+{
+    uint64_t unk00;
+    Red::Map<FactID, int32_t> data;
+};
+
+using FactStoreIndex = uint32_t;
+
+struct FactManager
+{
+    static constexpr FactStoreIndex NamedFactStore = 1;
+    static constexpr FactStoreIndex GraphStoreMin = 2;
+    static constexpr FactStoreIndex GraphStoreMax = 10;
+
+    virtual ~FactManager() = 0;                                                    // 00
+    virtual void sub_08() = 0;                                                     // 08
+    virtual int32_t GetFact(FactStoreIndex aStore, FactID aFact) = 0;              // 10
+    virtual void SetFact(FactStoreIndex aStore, FactID aFact, int32_t aValue) = 0; // 18
+
+    inline uint32_t GetFact(FactID aFact)
+    {
+        return GetFact(NamedFactStore, aFact);
+    }
+
+    inline void SetFact(FactID aFact, int32_t aValue)
+    {
+        SetFact(NamedFactStore, aFact, aValue);
+    }
+
+    inline void ResetFact(FactID aFact)
+    {
+        SetFact(NamedFactStore, aFact, 0);
+    }
+
+    inline void ResetGraphFact(FactID aFact)
+    {
+        for (auto store = GraphStoreMin; store <= GraphStoreMax; ++store)
+        {
+#ifndef NDEBUG
+            if (GetFact(store, aFact) != 0)
+            {
+                __nop();
+            }
+#endif
+            SetFact(store, aFact, 0);
+        }
+    }
+
+    FactStore* data[11];
 };
 }
 
@@ -133,18 +172,18 @@ constexpr auto Initialize = Core::RawFunc<
 
 constexpr auto ExequteGraph = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestPhaseInstance_ExequteGraph,
-    /* type = */ bool (*)(Red::questPhaseInstance* aPhase,
-                          Red::QuestContext& aContext,
-                          const Red::WeakHandle<Red::questNodeDefinition>& aNode,
-                          const Red::QuestNodeSocket& aInputSocket,
-                          bool a5,
-                          const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
+    /* type = */ uint8_t (*)(Red::questPhaseInstance* aPhase,
+                             Red::QuestContext& aContext,
+                             const Red::WeakHandle<Red::questNodeDefinition>& aNode,
+                             const Red::QuestNodeSocket& aInputSocket,
+                             bool a5,
+                             const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
 
 constexpr auto ExecuteNode = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestPhaseInstance_ExecuteNode,
-    /* type = */ bool (*)(Red::questPhaseInstance* aPhase,
-                          Red::questNodeDefinition* aNode,
-                          Red::QuestContext& aContext,
-                          const Red::QuestNodeSocket& aInputSocket,
-                          const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
+    /* type = */ uint8_t (*)(Red::questPhaseInstance* aPhase,
+                             Red::questNodeDefinition* aNode,
+                             Red::QuestContext& aContext,
+                             const Red::QuestNodeSocket& aInputSocket,
+                             const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
 }

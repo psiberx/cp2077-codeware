@@ -1,11 +1,14 @@
 #pragma once
 
+#include "Red/QuestsSystem.hpp"
+
 namespace App
 {
 class QuestPhaseGraphAccessor
 {
 public:
     explicit QuestPhaseGraphAccessor(const Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
+        : m_graph(aPhaseGraph)
     {
         CollectNodes(aPhaseGraph);
     }
@@ -216,7 +219,38 @@ public:
         return {};
     }
 
+    inline Core::Vector<Red::PhaseNodePath> GetAllGraphPaths(const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID)
+    {
+        Core::Vector<Red::PhaseNodePath> allPaths;
+        CollectPaths(allPaths, aParentPath, aPhaseNodeID, m_graph);
+        return allPaths;
+    }
+
 private:
+    inline void CollectPaths(Core::Vector<Red::PhaseNodePath>& aOutPaths,
+                             const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID,
+                             const Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
+    {
+        Red::NodePath currentPath(aParentPath);
+        currentPath.PushBack(aPhaseNodeID);
+
+        for (const auto& node : aPhaseGraph->nodes)
+        {
+            if (auto questNode = Red::Cast<Red::questNodeDefinition>(node))
+            {
+                aOutPaths.emplace_back(currentPath, questNode->id);
+
+                if (const auto& phaseNode = Red::Cast<Red::questPhaseNodeDefinition>(node))
+                {
+                    if (phaseNode->phaseGraph)
+                    {
+                        CollectPaths(aOutPaths, currentPath, questNode->id, phaseNode->phaseGraph);
+                    }
+                }
+            }
+        }
+    }
+
     inline void CollectNodes(const Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
     {
         Core::Vector<Red::Handle<Red::questPhaseNodeDefinition>> nestedPhases;
@@ -240,6 +274,7 @@ private:
         }
     }
 
+    const Red::Handle<Red::questGraphDefinition>& m_graph;
     Core::Map<Red::CName, Core::Vector<Red::Handle<Red::graphGraphNodeDefinition>>> m_nodesByType;
 };
 }

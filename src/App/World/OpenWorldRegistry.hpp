@@ -12,7 +12,8 @@ namespace App
 struct PersistentStateRef
 {
     Red::NodeRef objectRef;
-    Red::CName component;
+    Red::CName componentName;
+    Red::CName persistentStateType;
 };
 
 struct ActivityDefinition
@@ -29,7 +30,8 @@ struct ActivityDefinition
     Red::Handle<Red::gameJournalEntry> mappinEntry;
     Core::Vector<Red::NodeRef> communityRefs;
     Core::Vector<Red::NodeRef> spawnerRefs;
-    Core::Vector<Red::FactName> factHashes;
+    Core::Vector<Red::FactID> namedFacts;
+    Core::Vector<Red::FactID> graphFacts;
     Core::Vector<Red::JournalEntryHash> journalHashes;
     Core::Vector<PersistentStateRef> persistenceRefs;
     Core::Vector<Red::TweakDBID> lootItemIDs;
@@ -37,10 +39,11 @@ struct ActivityDefinition
 
     Red::questPhaseInstance* phaseInstance;
     Red::Handle<Red::questGraphDefinition> phaseGraph;
+    Red::PhaseNodePath phaseNodePath;
     Red::WeakHandle<Red::questNodeDefinition> inputNode;
-    Core::Vector<Red::Handle<Red::questNodeDefinition>> resetNodes;
     Red::QuestNodeSocket inputSocket;
     Red::PhaseNodePath inputNodePath;
+    Core::Vector<Red::Handle<Red::questNodeDefinition>> resetNodes;
 };
 
 class OpenWorldRegistry
@@ -69,7 +72,7 @@ protected:
                                      const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID);
 
     static Red::PhaseNodePath MakePhaseNodePath(Red::NodePath aParentPath, Red::NodeID aPhaseNodeID,
-                                                Red::NodeID aInputNodeID);
+                                                Red::NodeID aInputNodeID = -1);
     static Red::CName ExtractMinorActivityName(const Red::CString& aJournalPath);
     static bool IsMinorActivityRelatedFact(const Red::CString& aFactName);
 

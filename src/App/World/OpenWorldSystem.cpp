@@ -1,9 +1,9 @@
 #include "OpenWorldSystem.hpp"
-#include "App/Quest/QuestPhaseGraphAccessor.hpp"
 #include "Core/Facades/Container.hpp"
 #include "Red/CommunitySystem.hpp"
 #include "Red/JournalManager.hpp"
 #include "Red/MappinSystem.hpp"
+#include "Red/TweakDB.hpp"
 
 void App::OpenWorldSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
@@ -48,41 +48,46 @@ Red::DynArray<App::OpenWorldActivityState> App::OpenWorldSystem::GetActivities()
     return states;
 }
 
-bool App::OpenWorldSystem::StartActivity(Red::CName aName)
+App::OpenWorldActivityResult App::OpenWorldSystem::StartActivity(Red::CName aName)
 {
     const auto& activity = m_registry->FindActivity(aName);
 
-    if (!activity || !IsActivityCompleted(activity))
-        return false;
+    if (!activity)
+        return OpenWorldActivityResult::NotFound;
+
+    if (!IsActivityCompleted(activity))
+        return OpenWorldActivityResult::NotFinished;
 
     return ProcessActivity(activity);
 }
 
-bool App::OpenWorldSystem::StartActivities(Red::Optional<OpenWorldActivityRequest>& aRequest)
+int32_t App::OpenWorldSystem::StartActivities(Red::Optional<OpenWorldActivityRequest>& aRequest)
 {
-    bool success = false;
-    uint32_t timestamp = 0;
+    int32_t successful = 0;
+    uint32_t gameTime = 0;
+    float realTimeMultiplier = 1.0;
 
     if (aRequest->HasCooldown())
     {
         Red::ScriptGameInstance game;
-        Red::CallStatic("ScriptGameInstance", "GetGameTime", timestamp, game);
+        Red::CallStatic("ScriptGameInstance", "GetGameTime", gameTime, game);
+        realTimeMultiplier = Red::GetFlatValue<float>("timeSystem.settings.realTimeMultiplier");
     }
 
     for (const auto& activity : m_registry->GetAllActivities())
     {
         auto state = MakeActivityState(activity);
 
-        if (state.completed && aRequest->Match(state, timestamp))
+        if (state.completed && aRequest->Match(state, gameTime, realTimeMultiplier))
         {
-            if (ProcessActivity(activity))
+            if (ProcessActivity(activity) == OpenWorldActivityResult::OK)
             {
-                success = true;
+                ++successful;
             }
         }
     }
 
-    return success;
+    return successful;
 }
 
 App::OpenWorldActivityState App::OpenWorldSystem::MakeActivityState(
@@ -116,7 +121,8 @@ bool App::OpenWorldSystem::IsActivityCompleted(const Core::SharedPtr<App::Activi
     return false;
 }
 
-bool App::OpenWorldSystem::ProcessActivity(const Core::SharedPtr<App::ActivityDefinition>& aActivity)
+App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
+    const Core::SharedPtr<App::ActivityDefinition>& aActivity)
 {
     Core::Vector<Red::EntityID> communityIDs;
     Core::Vector<Red::EntityID> spawnerIDs;
@@ -207,8 +213,23 @@ bool App::OpenWorldSystem::ProcessActivity(const Core::SharedPtr<App::ActivityDe
         m_populationSystem->FindEntity(entity, entityID);
 
         if (entity)
-            return false;
+            return OpenWorldActivityResult::StillSpawned;
     }
+
+    // for (const auto& persistenceRef : aActivity->persistenceRefs)
+    // {
+    //     auto objectID = ResolveNodeRef(persistenceRef.objectRef);
+    //
+    //     if (!objectID)
+    //         continue;
+    //
+    //     Red::Handle<Red::Entity> entity;
+    //     Red::ScriptGameInstance game;
+    //     Red::CallStatic("ScriptGameInstance", "FindEntityByID", entity, game, objectID);
+    //
+    //     if (entity)
+    //         return OpenWorldActivityResult::StillSpawned;
+    // }
 
     for (const auto& communityID : communityIDs)
     {
@@ -240,7 +261,7 @@ bool App::OpenWorldSystem::ProcessActivity(const Core::SharedPtr<App::ActivityDe
         if (!objectID)
             continue;
 
-        m_persistencySystem->ResetPersistentState({objectID, persistenceRef.component}, true);
+        m_persistencySystem->ResetPersistentState({objectID, persistenceRef.componentName}, false);
     }
 
     for (const auto& journalHash : aActivity->journalHashes)
@@ -257,9 +278,14 @@ bool App::OpenWorldSystem::ProcessActivity(const Core::SharedPtr<App::ActivityDe
                                               1);
     }
 
-    for (const auto& factHash : aActivity->factHashes)
+    for (const auto& factID : aActivity->namedFacts)
     {
-        m_factManager->SetFact(factHash, 0);
+        m_factManager->ResetFact(factID);
+    }
+
+    for (const auto& factID : aActivity->graphFacts)
+    {
+        m_factManager->ResetGraphFact(factID);
     }
 
     if (aActivity->lootContainerRef.hash && !aActivity->lootItemIDs.empty())
@@ -311,7 +337,7 @@ bool App::OpenWorldSystem::ProcessActivity(const Core::SharedPtr<App::ActivityDe
         }
     }
 
-    return true;
+    return OpenWorldActivityResult::OK;
 }
 
 Red::EntityID App::OpenWorldSystem::ResolveNodeRef(Red::NodeRef aNodeRef)
@@ -354,16 +380,16 @@ App::OpenWorldActivityRequest::OpenWorldActivityRequest()
 
 bool App::OpenWorldActivityRequest::IsDefault() const
 {
-    return !kind && !cooldown && district == Red::gamedataDistrict::Invalid;
+    return !kind && cooldown <= 0 && district == Red::gamedataDistrict::Invalid;
 }
 
 bool App::OpenWorldActivityRequest::HasCooldown() const
 {
-    return cooldown;
+    return cooldown > 0;
 }
 
 bool App::OpenWorldActivityRequest::Match(const App::OpenWorldActivityState& aActivity,
-                                          uint32_t aTimestamp) const
+                                          uint32_t aGameTime, float aRealTimeMultiplier) const
 {
     if (kind)
     {
@@ -381,9 +407,9 @@ bool App::OpenWorldActivityRequest::Match(const App::OpenWorldActivityState& aAc
         }
     }
 
-    if (cooldown)
+    if (cooldown > 0)
     {
-        if (aTimestamp - aActivity.timestamp > cooldown)
+        if ((aGameTime - aActivity.timestamp) / aRealTimeMultiplier <= cooldown)
         {
             return false;
         }

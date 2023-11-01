@@ -126,6 +126,10 @@ def patterns():
                 Item(name="OnPlayerSpawned",
                      pattern="48 89 5C 24 18 48 89 74 24 20 55 57 41 54 41 56 41 57 48 8B EC 48 83 EC 50 48 8B DA 48 8B F9"),
             ]),
+            Group(name="PointOfInterestMappin", functions=[
+                Item(name="SetPhase",
+                     pattern="48 89 5C 24 ? 48 89 74 24 ? 48 89 7C 24 ? 55 41 56 41 57 48 8B EC 48 83 EC ? 48 8B D9 44 8B F2"),
+            ]),
             Group(name="QuestsSystem", functions=[
                 Item(name="CreateContext",
                      pattern="48 8B C4 48 89 58 ? 48 89 68 ? 48 89 70 ? 48 89 78 ? 41 56 48 83 EC ? 48 8B 41 ? 4C 8D 91 ? ? ? ? 48 89 44 24"),

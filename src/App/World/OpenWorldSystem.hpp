@@ -4,6 +4,15 @@
 
 namespace App
 {
+enum class OpenWorldActivityResult
+{
+    OK,
+    Invalid,
+    NotFound,
+    NotFinished,
+    StillSpawned,
+};
+
 struct OpenWorldActivityState
 {
     OpenWorldActivityState();
@@ -24,11 +33,12 @@ struct OpenWorldActivityRequest
 
     [[nodiscard]] bool IsDefault() const;
     [[nodiscard]] bool HasCooldown() const;
-    [[nodiscard]] bool Match(const App::OpenWorldActivityState& aActivity, uint32_t aTimestamp) const;
+    [[nodiscard]] bool Match(const App::OpenWorldActivityState& aActivity, uint32_t aGameTime,
+                             float aRealTimeMultiplier) const;
 
     Red::CName kind;
     Red::gamedataDistrict district;
-    uint32_t cooldown;
+    float cooldown;
 };
 
 class OpenWorldSystem : public Red::IGameSystem
@@ -37,8 +47,8 @@ public:
     OpenWorldActivityState GetActivity(Red::CName aName);
     Red::DynArray<OpenWorldActivityState> GetActivities();
 
-    bool StartActivity(Red::CName aName);
-    bool StartActivities(Red::Optional<OpenWorldActivityRequest>& aRequest);
+    OpenWorldActivityResult StartActivity(Red::CName aName);
+    int32_t StartActivities(Red::Optional<OpenWorldActivityRequest>& aRequest);
 
 private:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
@@ -46,7 +56,7 @@ private:
 
     bool IsActivityCompleted(const Core::SharedPtr<ActivityDefinition>& aActivity);
     OpenWorldActivityState MakeActivityState(const Core::SharedPtr<ActivityDefinition>& aActivity);
-    bool ProcessActivity(const Core::SharedPtr<ActivityDefinition>& aActivity);
+    OpenWorldActivityResult ProcessActivity(const Core::SharedPtr<ActivityDefinition>& aActivity);
 
     static Red::EntityID ResolveNodeRef(Red::NodeRef aNodeRef);
 
@@ -68,13 +78,7 @@ private:
 };
 }
 
-RTTI_DEFINE_CLASS(App::OpenWorldSystem, {
-    RTTI_GETTER(m_ready);
-    RTTI_METHOD(GetActivity);
-    RTTI_METHOD(GetActivities);
-    RTTI_METHOD(StartActivity);
-    RTTI_METHOD(StartActivities);
-});
+RTTI_DEFINE_ENUM(App::OpenWorldActivityResult);
 
 RTTI_DEFINE_CLASS(App::OpenWorldActivityState, {
     RTTI_PROPERTY(name);
@@ -88,4 +92,12 @@ RTTI_DEFINE_CLASS(App::OpenWorldActivityRequest, {
     RTTI_PROPERTY(kind);
     RTTI_PROPERTY(district);
     RTTI_PROPERTY(cooldown);
+});
+
+RTTI_DEFINE_CLASS(App::OpenWorldSystem, {
+    RTTI_GETTER(m_ready);
+    RTTI_METHOD(GetActivity);
+    RTTI_METHOD(GetActivities);
+    RTTI_METHOD(StartActivity);
+    RTTI_METHOD(StartActivities);
 });

@@ -2,9 +2,9 @@
 
 namespace App
 {
-void ModLog(Red::ScriptRef<Red::CString>& aText)
+void ModLog(Red::CName aMod, Red::ScriptRef<Red::CString>& aText)
 {
-    Red::Log::Channel("DEBUG", aText.ref->c_str());
+    Red::Log::Channel("DEBUG", std::format("[{}] {}", aMod.ToString(), aText.ref->c_str()));
 }
 }
 
