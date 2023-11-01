@@ -16,7 +16,8 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
     {
 #ifndef NDEBUG
         LogDebug("Building activities...");
-        LogDebug("| Group | Activity | Area | District | Description |");
+        LogDebug("| Type | Activity | Area | District | Description |");
+        LogDebug("|:---|:---|:---|:---|:---|");
 #endif
 
         m_activities.clear();

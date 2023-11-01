@@ -1,5 +1,6 @@
 #include "OpenWorldSystem.hpp"
 #include "Core/Facades/Container.hpp"
+#include "Core/Facades/Log.hpp"
 #include "Red/CommunitySystem.hpp"
 #include "Red/JournalManager.hpp"
 #include "Red/MappinSystem.hpp"
@@ -373,14 +374,13 @@ App::OpenWorldActivityState::OpenWorldActivityState(const Core::SharedPtr<Activi
 }
 
 App::OpenWorldActivityRequest::OpenWorldActivityRequest()
-    : district(Red::gamedataDistrict::Invalid)
-    , cooldown(0)
+    : cooldown(0)
 {
 }
 
 bool App::OpenWorldActivityRequest::IsDefault() const
 {
-    return !kind && cooldown <= 0 && district == Red::gamedataDistrict::Invalid;
+    return !kind && cooldown <= 0 && districts.size <= 0;
 }
 
 bool App::OpenWorldActivityRequest::HasCooldown() const
@@ -399,9 +399,18 @@ bool App::OpenWorldActivityRequest::Match(const App::OpenWorldActivityState& aAc
         }
     }
 
-    if (district != Red::gamedataDistrict::Invalid)
+    if (districts.size > 0)
     {
-        if (aActivity.district != district && aActivity.area != district)
+        bool match = false;
+        for (const auto& district : districts)
+        {
+            if (aActivity.district == district || aActivity.area == district)
+            {
+                match = true;
+                break;
+            }
+        }
+        if (!match)
         {
             return false;
         }
@@ -409,7 +418,7 @@ bool App::OpenWorldActivityRequest::Match(const App::OpenWorldActivityState& aAc
 
     if (cooldown > 0)
     {
-        if ((aGameTime - aActivity.timestamp) / aRealTimeMultiplier <= cooldown)
+        if (static_cast<float>(aGameTime - aActivity.timestamp) / aRealTimeMultiplier <= cooldown)
         {
             return false;
         }

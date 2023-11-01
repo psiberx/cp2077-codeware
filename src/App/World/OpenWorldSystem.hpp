@@ -37,7 +37,7 @@ struct OpenWorldActivityRequest
                              float aRealTimeMultiplier) const;
 
     Red::CName kind;
-    Red::gamedataDistrict district;
+    Red::DynArray<Red::gamedataDistrict> districts;
     float cooldown;
 };
 
@@ -90,7 +90,7 @@ RTTI_DEFINE_CLASS(App::OpenWorldActivityState, {
 
 RTTI_DEFINE_CLASS(App::OpenWorldActivityRequest, {
     RTTI_PROPERTY(kind);
-    RTTI_PROPERTY(district);
+    RTTI_PROPERTY(districts);
     RTTI_PROPERTY(cooldown);
 });
 
