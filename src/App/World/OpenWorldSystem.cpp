@@ -49,15 +49,23 @@ Red::DynArray<App::OpenWorldActivityState> App::OpenWorldSystem::GetActivities()
     return states;
 }
 
-App::OpenWorldActivityResult App::OpenWorldSystem::StartActivity(Red::CName aName)
+App::OpenWorldActivityResult App::OpenWorldSystem::StartActivity(Red::CName aName, Red::Optional<bool> aForce)
 {
     const auto& activity = m_registry->FindActivity(aName);
 
     if (!activity)
         return OpenWorldActivityResult::NotFound;
 
-    if (!IsActivityCompleted(activity))
-        return OpenWorldActivityResult::NotFinished;
+    auto state = MakeActivityState(activity);
+
+    if (!state.completed)
+    {
+        if (state.discovered)
+            return OpenWorldActivityResult::Unfinished;
+
+        if (!aForce)
+            return OpenWorldActivityResult::Undiscovered;
+    }
 
     return ProcessActivity(activity);
 }
@@ -79,12 +87,12 @@ int32_t App::OpenWorldSystem::StartActivities(Red::Optional<OpenWorldActivityReq
     {
         auto state = MakeActivityState(activity);
 
-        if (state.completed && aRequest->Match(state, gameTime, realTimeMultiplier))
+        if (!aRequest->Match(state, gameTime, realTimeMultiplier))
+            continue;
+
+        if (ProcessActivity(activity) == OpenWorldActivityResult::OK)
         {
-            if (ProcessActivity(activity) == OpenWorldActivityResult::OK)
-            {
-                ++successful;
-            }
+            ++successful;
         }
     }
 
@@ -96,7 +104,11 @@ App::OpenWorldActivityState App::OpenWorldSystem::MakeActivityState(
 {
     OpenWorldActivityState state(aActivity);
     state.timestamp = Raw::JournalManager::GetEntryTimestamp(m_journalManager, aActivity->mappinEntry);
-    state.completed = IsActivityCompleted(aActivity);
+
+    auto phase = Raw::MappinSystem::GetPoiMappinPhase(m_mappinSystem, aActivity->mappinHash);
+    state.completed = (phase == Red::gamedataMappinPhase::CompletedPhase);
+    state.discovered = state.completed || (phase == Red::gamedataMappinPhase::DiscoveredPhase);
+
     return state;
 }
 
@@ -372,6 +384,34 @@ Red::EntityID App::OpenWorldSystem::ResolveNodeRef(Red::NodeRef aNodeRef)
     return resolved.hash;
 }
 
+void App::OpenWorldSystem::PrintActivities(Red::Optional<OpenWorldActivityRequest>& aRequest)
+{
+    int32_t counter = 0;
+    uint32_t gameTime = 0;
+    float realTimeMultiplier = 1.0;
+
+    if (aRequest->HasCooldown())
+    {
+        Red::ScriptGameInstance game;
+        Red::CallStatic("ScriptGameInstance", "GetGameTime", gameTime, game);
+        realTimeMultiplier = Red::GetFlatValue<float>("timeSystem.settings.realTimeMultiplier");
+    }
+
+    for (const auto& activity : m_registry->GetAllActivities())
+    {
+        auto state = MakeActivityState(activity);
+
+        if (!aRequest->Match(state, gameTime, realTimeMultiplier))
+            continue;
+
+        ++counter;
+        Red::Log::Debug("[OpenWorldSystem] {} {} {}",
+                        counter,
+                        activity->name.ToString(),
+                        (state.completed ? "completed" : (state.discovered ? "discovered" : "undiscovered")));
+    }
+}
+
 void App::OpenWorldSystem::DumpActivities()
 {
     if (m_registry)
@@ -418,6 +458,15 @@ bool App::OpenWorldActivityRequest::HasCooldown() const
 bool App::OpenWorldActivityRequest::Match(const App::OpenWorldActivityState& aActivity,
                                           uint32_t aGameTime, float aRealTimeMultiplier) const
 {
+    if (!aActivity.completed)
+    {
+        if (aActivity.discovered)
+            return false;
+
+        if (!force)
+            return false;
+    }
+
     if (kind)
     {
         if (aActivity.kind != kind)

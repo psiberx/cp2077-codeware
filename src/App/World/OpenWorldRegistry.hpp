@@ -78,6 +78,7 @@ protected:
                                                 Red::NodeID aInputNodeID = -1);
     static Red::CName ExtractMinorActivityName(const Red::CString& aJournalPath);
     static bool IsMinorActivityRelatedFact(const Red::CString& aFactName);
+    static bool IsCombatActivityVariant(Red::gamedataMappinVariant aVariant);
 
 private:
     inline static Core::Map<Red::CName, Core::SharedPtr<ActivityDefinition>> s_activities;

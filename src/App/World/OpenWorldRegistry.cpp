@@ -54,7 +54,6 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
         return;
 
     QuestPhaseGraphAccessor phaseGraphAccessor(aPhaseGraph);
-
     RegisterCrimeActivity(phaseGraphAccessor, aPhase, aPhaseGraph, aParentPath, aPhaseNodeID);
     // RegisterCyberpsychoActivity(phaseGraphAccessor, aPhase, aPhaseGraph, aParentPath, aPhaseNodeID);
 }
@@ -76,7 +75,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
 
     auto activityName = ExtractMinorActivityName(poiMappin->path->realPath);
 
-    if (!activityName || activityName == "ma_wbr_nok_01") // FIXME
+    if (!activityName)
         return false;
 
     auto communities = aPhaseGraphAccessor.FindCommunities();
@@ -99,11 +98,13 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
         if (!activity->mappinEntry)
             return false;
 
-        if (auto& mappinData = Red::Cast<Red::gamemappinsPhaseVariant>(activity->mappinEntry->mappinData.typedVariant))
-        {
-            Red::CallGlobal("gameuiMappinUIUtils::MappinToString;gamedataMappinVariant", activity->title, mappinData->variant);
-            Red::CallGlobal("gameuiMappinUIUtils::MappinToDescriptionString;gamedataMappinVariant", activity->description, mappinData->variant);
-        }
+        auto& mappinData = Red::Cast<Red::gamemappinsPhaseVariant>(activity->mappinEntry->mappinData.typedVariant);
+
+        if (!mappinData || !IsCombatActivityVariant(mappinData->variant))
+            return false;
+
+        Red::CallGlobal("gameuiMappinUIUtils::MappinToString;gamedataMappinVariant", activity->title, mappinData->variant);
+        Red::CallGlobal("gameuiMappinUIUtils::MappinToDescriptionString;gamedataMappinVariant", activity->description, mappinData->variant);
     }
 
     activity->district = DistrictResolver::GetDistrict(activity->name);
@@ -316,6 +317,12 @@ bool App::OpenWorldRegistry::IsMinorActivityRelatedFact(const Red::CString& aFac
 
     std::string_view name(aFactName.c_str());
     return name.starts_with(MinorActivityPrefix) && !name.ends_with(TokenSuffix) && !name.ends_with(TutorialSuffix);
+}
+
+bool App::OpenWorldRegistry::IsCombatActivityVariant(Red::gamedataMappinVariant aVariant)
+{
+    return aVariant == Red::gamedataMappinVariant::GangWatchVariant
+        || aVariant == Red::gamedataMappinVariant::OutpostVariant;
 }
 
 Core::Vector<Core::SharedPtr<App::ActivityDefinition>> App::OpenWorldRegistry::GetAllActivities()

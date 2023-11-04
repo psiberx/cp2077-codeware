@@ -9,7 +9,8 @@ enum class OpenWorldActivityResult
     OK,
     Invalid,
     NotFound,
-    NotFinished,
+    Undiscovered,
+    Unfinished,
     StillSpawned,
 };
 
@@ -24,6 +25,7 @@ struct OpenWorldActivityState
     Red::gamedataDistrict area;
     uint32_t timestamp;
     bool completed;
+    bool discovered;
     bool valid;
 };
 
@@ -39,6 +41,7 @@ struct OpenWorldActivityRequest
     Red::CName kind;
     Red::DynArray<Red::gamedataDistrict> districts;
     float cooldown;
+    bool force;
 };
 
 class OpenWorldSystem : public Red::IGameSystem
@@ -47,9 +50,10 @@ public:
     OpenWorldActivityState GetActivity(Red::CName aName);
     Red::DynArray<OpenWorldActivityState> GetActivities();
 
-    OpenWorldActivityResult StartActivity(Red::CName aName);
+    OpenWorldActivityResult StartActivity(Red::CName aName, Red::Optional<bool> aForce);
     int32_t StartActivities(Red::Optional<OpenWorldActivityRequest>& aRequest);
 
+    void PrintActivities(Red::Optional<OpenWorldActivityRequest>& aRequest);
     void DumpActivities();
 
 private:
@@ -88,12 +92,14 @@ RTTI_DEFINE_CLASS(App::OpenWorldActivityState, {
     RTTI_PROPERTY(district);
     RTTI_PROPERTY(timestamp);
     RTTI_PROPERTY(completed);
+    RTTI_PROPERTY(discovered);
 });
 
 RTTI_DEFINE_CLASS(App::OpenWorldActivityRequest, {
     RTTI_PROPERTY(kind);
     RTTI_PROPERTY(districts);
     RTTI_PROPERTY(cooldown);
+    RTTI_PROPERTY(force);
 });
 
 RTTI_DEFINE_CLASS(App::OpenWorldSystem, {
@@ -102,5 +108,6 @@ RTTI_DEFINE_CLASS(App::OpenWorldSystem, {
     RTTI_METHOD(GetActivities);
     RTTI_METHOD(StartActivity);
     RTTI_METHOD(StartActivities);
+    RTTI_METHOD(PrintActivities);
     RTTI_METHOD(DumpActivities);
 });
