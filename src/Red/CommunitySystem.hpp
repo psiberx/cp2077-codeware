@@ -21,16 +21,19 @@ struct CommunityEntry
 {
     virtual ~CommunityEntry() = 0;
 
-    DynArray<CName> phases;         // 08
-    EntityID communityID;           // 18
-    CName name;                     // 20
-    bool active;                    // 28
-    uint16_t unk2A;                 // 2A
-    uint8_t unk2C;                  // 2C
-    CommunityEntrySpawner* spawner; // 30
+    DynArray<CName> phases;          // 08
+    EntityID communityID;            // 18
+    CName name;                      // 20
+    int32_t active;                  // 28
+    uint16_t unk2C;                  // 2C
+    uint8_t unk2E;                   // 2E
+    CommunityEntrySpawner* spawner;  // 30
+    void* unk38;                     // 38
+    communitySpawnEntry* spawnEntry; // 40
 };
 RED4EXT_ASSERT_OFFSET(CommunityEntry, name, 0x20);
-RED4EXT_ASSERT_OFFSET(CommunityEntry, unk2A, 0x2A);
+RED4EXT_ASSERT_OFFSET(CommunityEntry, unk2C, 0x2C);
+RED4EXT_ASSERT_OFFSET(CommunityEntry, unk2E, 0x2E);
 RED4EXT_ASSERT_OFFSET(CommunityEntry, spawner, 0x30);
 
 struct Community
@@ -44,7 +47,7 @@ struct Community
     bool active;                                      // 10
     bool initialized;                                 // 11
     DynArray<CommunityEntry*> entries;                // 18
-    DynArray<void*> unk28;                            // 28
+    DynArray<CommunityEntry*> unk28;                  // 28
     Handle<communityCommunityTemplateData> template_; // 38
 };
 RED4EXT_ASSERT_OFFSET(Community, entries, 0x18);
@@ -88,6 +91,10 @@ constexpr auto ActivateCommunity = Core::RawVFunc<
 constexpr auto DeactivateCommunity = Core::RawVFunc<
     /* addr = */ 0x1B0,
     /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
+
+constexpr auto SetCommunityPhase = Core::RawVFunc<
+    /* addr = */ 0x1B8,
+    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName, Red::CName aPhaseName)>();
 
 constexpr auto ResetCommunity = Core::RawVFunc<
     /* addr = */ 0x1C0,

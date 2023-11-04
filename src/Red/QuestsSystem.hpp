@@ -124,9 +124,7 @@ struct FactManager
         {
 #ifndef NDEBUG
             if (GetFact(store, aFact) != 0)
-            {
                 __nop();
-            }
 #endif
             SetFact(store, aFact, 0);
         }

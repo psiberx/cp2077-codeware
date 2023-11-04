@@ -153,6 +153,8 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
         for (auto& entry : community.instance->entries)
         {
+            entry->unk2C = -1;
+
             for (const auto& entityID : entry->spawner->restoredEntityIDs)
             {
                 entityIDs.PushBack(entityID);
@@ -239,6 +241,22 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
         Raw::CommunitySystem::ResetCommunity(m_communitySystem, communityID, {});
         Raw::CommunitySystem::Update(m_communitySystem, true);
+
+        Red::WeakPtr<Red::Community> community;
+        Raw::CommunitySystem::GetCommunity(m_communitySystem, community, communityID);
+
+        if (!community.instance)
+            continue;
+
+        for (auto& entry : community.instance->entries)
+        {
+            if (entry->phases.size > 0)
+            {
+                Raw::CommunitySystem::SetCommunityPhase(m_communitySystem, communityID, entry->name, entry->phases[0]);
+            }
+        }
+
+        Raw::CommunitySystem::Update(m_communitySystem, true);
     }
 
     for (const auto& spawnerID : spawnerIDs)
@@ -253,6 +271,7 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
     for (const auto& entityID : entityIDs)
     {
         m_persistencySystem->RemoveDynamicEntityState(entityID);
+        m_persistencySystem->ResetPersistentState({entityID}, false);
     }
 
     for (const auto& persistenceRef : aActivity->persistenceRefs)
