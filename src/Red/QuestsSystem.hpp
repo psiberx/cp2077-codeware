@@ -5,20 +5,20 @@
 namespace Red
 {
 using NodeID = uint16_t;
-using NodePath = DynArray<NodeID>;
+using QuestNodePath = DynArray<NodeID>;
 using NodePathHash = uint32_t;
 
-struct PhaseNodePath
+struct QuestNodeKey
 {
-    PhaseNodePath() = default;
+    QuestNodeKey() = default;
 
-    PhaseNodePath(NodePathHash aPhaseHash, NodeID aNodeID = 0)
+    QuestNodeKey(NodePathHash aPhaseHash, NodeID aNodeID = 0)
         : phaseHash(aPhaseHash)
         , nodeID(aNodeID)
     {
     }
 
-    PhaseNodePath(const NodePath& aNodePath, NodeID aNodeID = 0)
+    QuestNodeKey(const QuestNodePath& aNodePath, NodeID aNodeID = 0)
         : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), aNodePath.size * sizeof(NodeID)))
         , nodeID(aNodeID)
     {
@@ -38,15 +38,15 @@ struct PhaseNodePath
     NodePathHash phaseHash;
     NodePathHash nodeID;
 };
-RED4EXT_ASSERT_SIZE(PhaseNodePath, 0x8);
-RED4EXT_ASSERT_OFFSET(PhaseNodePath, phaseHash, 0x0);
+RED4EXT_ASSERT_SIZE(QuestNodeKey, 0x8);
+RED4EXT_ASSERT_OFFSET(QuestNodeKey, phaseHash, 0x0);
 // RED4EXT_ASSERT_OFFSET(PhaseNodePath, nodeID, 0x6);
 
 struct QuestContext
 {
     uint8_t unk0[0xF8];                       // 00
     DynArray<questPhaseInstance*> phaseStack; // F8
-    uint16_t unk108;                          // 108
+    NodeID nodeID;                            // 108
     uint64_t unk110[0x44];                    // 110
 };
 RED4EXT_ASSERT_SIZE(QuestContext, 0x330);
@@ -76,7 +76,7 @@ struct FactID
     {
     }
 
-    FactID(PhaseNodePath aPath) noexcept
+    FactID(QuestNodeKey aPath) noexcept
         : hash(aPath)
     {
     }
@@ -159,13 +159,13 @@ constexpr auto CreateContext = Core::RawFunc<
 
 namespace Raw::QuestLoader
 {
-using PreloadList = Core::OffsetPtr<0x20, Red::DynArray<Red::NodePath>*>;
-using SortedPreloadList = Core::OffsetPtr<0x20, Red::SortedArray<Red::NodePath>*>;
-using NodePathMap = Core::OffsetPtr<0x48, Red::HashMap<Red::ResourcePath, Red::NodePath>>;
+using PreloadList = Core::OffsetPtr<0x20, Red::DynArray<Red::QuestNodePath>*>;
+using SortedPreloadList = Core::OffsetPtr<0x20, Red::SortedArray<Red::QuestNodePath>*>;
+using NodePathMap = Core::OffsetPtr<0x48, Red::HashMap<Red::ResourcePath, Red::QuestNodePath>>;
 
 constexpr auto PhasePreloadCheck = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestLoader_PhasePreloadCheck,
-    /* type = */ bool (*)(void* aLoader, const Red::NodePath& aPhaseNodePath)>();
+    /* type = */ bool (*)(void* aLoader, const Red::QuestNodePath& aPhaseNodePath)>();
 }
 
 namespace Raw::QuestPhaseInstance
@@ -175,8 +175,8 @@ constexpr auto Initialize = Core::RawFunc<
     /* type = */ void* (*)(Red::questPhaseInstance* aPhase,
                            Red::QuestContext& aContext,
                            const Red::Handle<Red::questQuestPhaseResource>& aResource,
-                           const Red::Handle<Red::questGraphDefinition>& aGraph,
-                           const Red::NodePath& aParentPath,
+                           Red::Handle<Red::questGraphDefinition>& aGraph,
+                           const Red::QuestNodePath& aParentPath,
                            Red::NodeID aPhaseNodeID)>();
 
 constexpr auto ExequteGraph = Core::RawFunc<
@@ -195,4 +195,14 @@ constexpr auto ExecuteNode = Core::RawFunc<
                              Red::QuestContext& aContext,
                              const Red::QuestNodeSocket& aInputSocket,
                              const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
+}
+
+namespace Raw::QuestSocketDefinition
+{
+using OwnerNode = Core::OffsetPtr<0x48, Red::WeakHandle<Red::questNodeDefinition>>;
+}
+
+namespace Raw::QuestConditionType
+{
+using OwnerNodeID = Core::OffsetPtr<0x30, Red::NodePathHash>;
 }

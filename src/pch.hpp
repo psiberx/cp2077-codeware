@@ -61,6 +61,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/Object.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentState.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/ResetContainerEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ScriptableSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/WardrobeSystem.hpp>
@@ -71,6 +72,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/mappins/PhaseVariant.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/CustomizationAppearance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/GameSystemUI.hpp>
+#include <RED4ext/Scripting/Natives/Generated/graph/GraphConnectionDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/graph/GraphDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/graph/GraphNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/graph/GraphSocketDefinition.hpp>
@@ -101,6 +103,7 @@
 #include <RED4ext/Scripting/Natives/Generated/population/PopulationSpawnParameter.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/CharacterCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/CharacterKilled_ConditionType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/CharacterSpawned_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/CommunityTemplate_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ComparisonParam.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ConditionNodeDefinition.hpp>
@@ -118,6 +121,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalEntry_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalEntry_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalNodeDefinition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/NodeLoadingCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ObjectCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/PauseConditionNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/PhaseInstance.hpp>
@@ -125,6 +129,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/QuestPhaseResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SetVar_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ShowWorldNode_NodeType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/SocketDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SpawnManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/Spawner_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/TogglePrefabVariant_NodeType.hpp>

@@ -219,19 +219,19 @@ public:
         return {};
     }
 
-    inline Core::Vector<Red::PhaseNodePath> GetAllGraphPaths(const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID)
+    inline Core::Vector<Red::QuestNodeKey> GetAllGraphPaths(const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID)
     {
-        Core::Vector<Red::PhaseNodePath> allPaths;
+        Core::Vector<Red::QuestNodeKey> allPaths;
         CollectPaths(allPaths, aParentPath, aPhaseNodeID, m_graph);
         return allPaths;
     }
 
 private:
-    inline void CollectPaths(Core::Vector<Red::PhaseNodePath>& aOutPaths,
-                             const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID,
+    inline void CollectPaths(Core::Vector<Red::QuestNodeKey>& aOutPaths,
+                             const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID,
                              const Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
     {
-        Red::NodePath currentPath(aParentPath);
+        Red::QuestNodePath currentPath(aParentPath);
         currentPath.PushBack(aPhaseNodeID);
 
         for (const auto& node : aPhaseGraph->nodes)

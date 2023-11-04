@@ -38,11 +38,12 @@ struct ActivityDefinition
     Red::NodeRef lootContainerRef;
 
     Red::questPhaseInstance* phaseInstance;
-    Red::Handle<Red::questGraphDefinition> phaseGraph;
-    Red::PhaseNodePath phaseNodePath;
+    Red::WeakHandle<Red::questGraphDefinition> phaseGraph;
+    Red::QuestNodePath phaseNodePath;
+    Red::QuestNodeKey phaseNodeKey;
     Red::WeakHandle<Red::questNodeDefinition> inputNode;
     Red::QuestNodeSocket inputSocket;
-    Red::PhaseNodePath inputNodePath;
+    Red::QuestNodeKey inputNodeKey;
     Core::Vector<Red::Handle<Red::questNodeDefinition>> resetNodes;
 };
 
@@ -57,31 +58,34 @@ public:
     Core::SharedPtr<ActivityDefinition> FindActivity(Red::CName aName);
     void DumpActivities();
 
+    Red::WeakHandle<Red::questPhaseInstance> GetPhaseInstance(Red::QuestNodeKey aPhasePath);
+
 protected:
     void OnBootstrap() override;
-    static void OnPhasePreloadCheck(bool& aPreload, void* aLoader, const Red::NodePath& aPhaseNodePath);
+    static void OnPhasePreloadCheck(bool& aPreload, void* aLoader, const Red::QuestNodePath& aPhaseNodePath);
     static void OnInitializePhase(Red::questPhaseInstance* aPhase, Red::QuestContext& aContext,
                                   const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
-                                  const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                  const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID);
+                                  Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
+                                  const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID);
 
     static bool RegisterCrimeActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                       Red::questPhaseInstance* aPhase,
-                                      const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                      const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID);
+                                      Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
+                                      const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID);
     static bool RegisterCyberpsychoActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                             Red::questPhaseInstance* aPhase,
                                             const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                            const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID);
+                                            const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID);
 
-    static Red::PhaseNodePath MakePhaseNodePath(Red::NodePath aParentPath, Red::NodeID aPhaseNodeID,
-                                                Red::NodeID aInputNodeID = -1);
+    static Red::QuestNodeKey MakePhaseNodeKey(Red::QuestNodePath aParentPath, Red::NodeID aPhaseNodeID,
+                                              Red::NodeID aInputNodeID = -1);
     static Red::CName ExtractMinorActivityName(const Red::CString& aJournalPath);
     static bool IsMinorActivityRelatedFact(const Red::CString& aFactName);
     static bool IsCombatActivityVariant(Red::gamedataMappinVariant aVariant);
 
 private:
     inline static Core::Map<Red::CName, Core::SharedPtr<ActivityDefinition>> s_activities;
-    inline static Red::NodePath s_minorActivitiesPhasePath;
+    inline static Core::Map<uint64_t, Red::WeakHandle<Red::questPhaseInstance>> s_phaseInstances;
+    inline static Red::QuestNodePath s_minorActivitiesRootPhasePath;
 };
 }

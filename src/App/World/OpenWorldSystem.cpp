@@ -343,7 +343,18 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
     if (aActivity->phaseGraph)
     {
         Red::QuestContext context{};
-        Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, 1000003, -1);
+        Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, -1, -1);
+
+        // {
+        //     auto phaseNodePath = aActivity->phaseNodePath;
+        //     auto maxDepth = phaseNodePath.size - 1;
+        //     for (auto depth = 1; depth <= maxDepth; ++depth)
+        //     {
+        //         phaseNodePath.size = depth;
+        //         auto phaseInstance = m_registry->GetPhaseInstance(phaseNodePath);
+        //         context.phaseStack.PushBack(phaseInstance.instance);
+        //     }
+        // }
 
         if (!aActivity->resetNodes.empty())
         {

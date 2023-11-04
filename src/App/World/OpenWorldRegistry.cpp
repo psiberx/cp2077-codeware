@@ -1,4 +1,5 @@
 #include "OpenWorldRegistry.hpp"
+#include "App/Quest/QuestPhaseGraphBuilder.hpp"
 #include "App/World/DistrictResolver.hpp"
 #include "Red/TweakDB.hpp"
 
@@ -13,11 +14,11 @@ void App::OpenWorldRegistry::OnBootstrap()
     HookAfter<Raw::QuestPhaseInstance::Initialize>(&OpenWorldRegistry::OnInitializePhase);
 }
 
-void App::OpenWorldRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader, const Red::NodePath& aPhaseNodePath)
+void App::OpenWorldRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader, const Red::QuestNodePath& aPhaseNodePath)
 {
     if (!aPreload)
     {
-        if (s_minorActivitiesPhasePath.size == 0)
+        if (s_minorActivitiesRootPhasePath.size == 0)
         {
             auto& nodePathMap = Raw::QuestLoader::NodePathMap::Ref(aLoader);
             auto minorActivitiesPhasePath = nodePathMap.Get(MinorActivitiesResource);
@@ -25,12 +26,12 @@ void App::OpenWorldRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader, 
             if (!minorActivitiesPhasePath)
                 return;
 
-            s_minorActivitiesPhasePath = *minorActivitiesPhasePath;
+            s_minorActivitiesRootPhasePath = *minorActivitiesPhasePath;
         }
 
-        if (aPhaseNodePath.size > s_minorActivitiesPhasePath.size &&
-            std::memcmp(aPhaseNodePath.entries, s_minorActivitiesPhasePath.entries,
-                        s_minorActivitiesPhasePath.size * sizeof(Red::NodeID)) == 0)
+        if (aPhaseNodePath.size > s_minorActivitiesRootPhasePath.size &&
+            std::memcmp(aPhaseNodePath.entries, s_minorActivitiesRootPhasePath.entries,
+                        s_minorActivitiesRootPhasePath.size * sizeof(Red::NodeID)) == 0)
         {
             auto& preloadList = Raw::QuestLoader::PreloadList::Ref(aLoader);
             preloadList.PushBack(aPhaseNodePath);
@@ -42,12 +43,18 @@ void App::OpenWorldRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader, 
 
 void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, Red::QuestContext& aContext,
                                                const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
-                                               const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                               const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID)
+                                               Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
+                                               const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID)
 {
     if (aParentPath.size == 0 && aPhaseNodeID == 0)
     {
         s_activities.clear();
+        s_phaseInstances.clear();
+    }
+
+    {
+        auto phaseNodeKey = MakePhaseNodeKey(aParentPath, aPhaseNodeID, 0);
+        s_phaseInstances[phaseNodeKey] = Red::AsWeakHandle(aPhase);
     }
 
     if (!aPhaseResource)
@@ -60,8 +67,8 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
 
 bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                                    Red::questPhaseInstance* aPhase,
-                                                   const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                                   const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID)
+                                                   Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
+                                                   const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID)
 {
     auto inputNode = aPhaseGraphAccessor.FindInputNode();
 
@@ -162,10 +169,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
     if (auto lootContainer = aPhaseGraphAccessor.FindLootContainer())
     {
         activity->lootContainerRef = lootContainer->objectRef;
-
         activity->persistenceRefs.push_back({lootContainer->objectRef});
-        // activity->persistenceRefs.push_back({lootContainer->objectRef, "inventory"});
-        // activity->persistenceRefs.push_back({lootContainer->objectRef, "interactions"});
 
         if (activity->lootItemIDs.empty())
         {
@@ -178,6 +182,17 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
                     break;
                 }
             }
+        }
+
+        {
+            QuestPhaseGraphBuilder phaseGraphBuilder{aPhaseGraph};
+
+            auto pauseNode = phaseGraphBuilder.AddStaticEntitySpawnWait(activity->lootContainerRef);
+            auto eventNode = phaseGraphBuilder.AddEventDispatch(activity->lootContainerRef);
+            eventNode->event = Red::MakeHandle<Red::gameResetContainerEvent>();
+
+            phaseGraphBuilder.AddConnection(inputNode, pauseNode);
+            phaseGraphBuilder.AddConnection(pauseNode, eventNode);
         }
     }
 
@@ -221,11 +236,13 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
 
     activity->phaseInstance = aPhase;
     activity->phaseGraph = aPhaseGraph;
-    activity->phaseNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID);
+    activity->phaseNodeKey = MakePhaseNodeKey(aParentPath, aPhaseNodeID);
+    activity->phaseNodePath = aParentPath;
+    activity->phaseNodePath.PushBack(aPhaseNodeID);
 
     activity->inputNode = inputNode;
     activity->inputSocket = {inputNode->socketName};
-    activity->inputNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID, inputNode->id);
+    activity->inputNodeKey = MakePhaseNodeKey(aParentPath, aPhaseNodeID, inputNode->id);
 
     s_activities[activity->name] = std::move(activity);
 
@@ -235,7 +252,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
 bool App::OpenWorldRegistry::RegisterCyberpsychoActivity(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                                          Red::questPhaseInstance* aPhase,
                                                          const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                                         const Red::NodePath& aParentPath, Red::NodeID aPhaseNodeID)
+                                                         const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID)
 {
     auto poiMappin = aPhaseGraphAccessor.FindPointOfInterestMappin();
 
@@ -257,8 +274,8 @@ bool App::OpenWorldRegistry::RegisterCyberpsychoActivity(App::QuestPhaseGraphAcc
     return false;
 }
 
-Red::PhaseNodePath App::OpenWorldRegistry::MakePhaseNodePath(Red::NodePath aParentPath, Red::NodeID aPhaseNodeID,
-                                                             Red::NodeID aInputNodeID)
+Red::QuestNodeKey App::OpenWorldRegistry::MakePhaseNodeKey(Red::QuestNodePath aParentPath, Red::NodeID aPhaseNodeID,
+                                                           Red::NodeID aInputNodeID)
 {
     if (aInputNodeID == static_cast<Red::NodeID>(-1))
     {
@@ -354,6 +371,16 @@ Core::SharedPtr<App::ActivityDefinition> App::OpenWorldRegistry::FindActivity(Re
     const auto& it = s_activities.find(aName);
 
     if (it == s_activities.end())
+        return {};
+
+    return it.value();
+}
+
+Red::WeakHandle<Red::questPhaseInstance> App::OpenWorldRegistry::GetPhaseInstance(Red::QuestNodeKey aPhasePath)
+{
+    const auto& it = s_phaseInstances.find(aPhasePath);
+
+    if (it == s_phaseInstances.end())
         return {};
 
     return it.value();
