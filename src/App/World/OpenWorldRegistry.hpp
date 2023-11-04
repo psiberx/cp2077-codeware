@@ -27,7 +27,7 @@ struct ActivityDefinition
     Red::gamedataDistrict area;
 
     Red::JournalEntryHash mappinHash;
-    Red::Handle<Red::gameJournalEntry> mappinEntry;
+    Red::Handle<Red::gameJournalPointOfInterestMappin> mappinEntry;
     Core::Vector<Red::NodeRef> communityRefs;
     Core::Vector<Red::NodeRef> spawnerRefs;
     Core::Vector<Red::FactID> namedFacts;

@@ -71,24 +71,30 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
 
         if (!activity->mappinEntry)
             return false;
-    }
 
-    {
-        bool success;
-        bool active;
-        uint16_t phaseInt;
-        uint16_t variantInt;
-
-        auto mappinSystem = Red::GetGameSystem<Red::gamemappinsIMappinSystem>();
-        Red::CallVirtual(mappinSystem, "GetPointOfInterestMappinSavedState", success,
-                         activity->mappinHash, phaseInt, variantInt, active);
-
-        if (!success)
-            return false;
-
-        auto variant = static_cast<Red::gamedataMappinVariant>(variantInt);
-        Red::CallGlobal("gameuiMappinUIUtils::MappinToString;gamedataMappinVariant", activity->title, variant);
-        Red::CallGlobal("gameuiMappinUIUtils::MappinToDescriptionString;gamedataMappinVariant", activity->description, variant);
+        if (auto& mappinData = Red::Cast<Red::gamemappinsPhaseVariant>(activity->mappinEntry->mappinData.typedVariant))
+        {
+            Red::CallGlobal("gameuiMappinUIUtils::MappinToString;gamedataMappinVariant", activity->title, mappinData->variant);
+            Red::CallGlobal("gameuiMappinUIUtils::MappinToDescriptionString;gamedataMappinVariant", activity->description, mappinData->variant);
+        }
+        // else
+        // {
+        //     bool success;
+        //     bool active;
+        //     uint16_t phaseInt;
+        //     uint16_t variantInt;
+        //
+        //     auto mappinSystem = Red::GetGameSystem<Red::gamemappinsIMappinSystem>();
+        //     Red::CallVirtual(mappinSystem, "GetPointOfInterestMappinSavedState", success,
+        //                      activity->mappinHash, phaseInt, variantInt, active);
+        //
+        //     if (success)
+        //     {
+        //         auto variant = static_cast<Red::gamedataMappinVariant>(variantInt);
+        //         Red::CallGlobal("gameuiMappinUIUtils::MappinToString;gamedataMappinVariant", activity->title, variant);
+        //         Red::CallGlobal("gameuiMappinUIUtils::MappinToDescriptionString;gamedataMappinVariant", activity->description, variant);
+        //     }
+        // }
     }
 
     activity->district = DistrictResolver::GetDistrict(activity->name);
@@ -169,12 +175,9 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
     {
         if (auto& prefabNodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(prefabNode->type))
         {
-            auto patchNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
-            patchNode->id = prefabNode->id;
-
-            auto patchNodeType = Red::MakeHandle<Red::questTogglePrefabVariant_NodeType>();
-            patchNodeType->params = prefabNodeType->params;
-            for (auto& param : patchNodeType->params)
+            auto resetNodeType = Red::MakeHandle<Red::questTogglePrefabVariant_NodeType>();
+            resetNodeType->params = prefabNodeType->params;
+            for (auto& param : resetNodeType->params)
             {
                 for (auto& state : param.variantStates)
                 {
@@ -182,23 +185,27 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
                 }
             }
 
-            patchNode->type = patchNodeType;
-            activity->resetNodes.push_back(std::move(patchNode));
+            auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+            resetNode->id = prefabNode->id;
+            resetNode->type = resetNodeType;
+
+            activity->resetNodes.push_back(std::move(resetNode));
+            continue;
         }
 
         if (auto& prefabNodeType = Red::Cast<Red::questShowWorldNode_NodeType>(prefabNode->type))
         {
-            auto patchNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
-            patchNode->id = prefabNode->id;
+            auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
+            resetNodeType->objectRef = prefabNodeType->objectRef;
+            resetNodeType->componentName = prefabNodeType->componentName;
+            resetNodeType->isPlayer = prefabNodeType->isPlayer;
+            resetNodeType->show = !prefabNodeType->show;
 
-            auto patchNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
-            patchNodeType->objectRef = prefabNodeType->objectRef;
-            patchNodeType->componentName = prefabNodeType->componentName;
-            patchNodeType->isPlayer = prefabNodeType->isPlayer;
-            patchNodeType->show = !prefabNodeType->show;
+            auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+            resetNode->id = prefabNode->id;
+            resetNode->type = resetNodeType;
 
-            patchNode->type = patchNodeType;
-            activity->resetNodes.push_back(std::move(patchNode));
+            activity->resetNodes.push_back(std::move(resetNode));
         }
     }
 
