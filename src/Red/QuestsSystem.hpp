@@ -157,6 +157,17 @@ constexpr auto CreateContext = Core::RawFunc<
 //                                                    const Red::DynArray<Red::CName>& aInputSockets)>();
 }
 
+namespace Raw::QuestLoader
+{
+using PreloadList = Core::OffsetPtr<0x20, Red::DynArray<Red::NodePath>*>;
+using SortedPreloadList = Core::OffsetPtr<0x20, Red::SortedArray<Red::NodePath>*>;
+using NodePathMap = Core::OffsetPtr<0x48, Red::HashMap<Red::ResourcePath, Red::NodePath>>;
+
+constexpr auto PhasePreloadCheck = Core::RawFunc<
+    /* addr = */ Red::Addresses::QuestLoader_PhasePreloadCheck,
+    /* type = */ bool (*)(void* aLoader, const Red::NodePath& aPhaseNodePath)>();
+}
+
 namespace Raw::QuestPhaseInstance
 {
 constexpr auto Initialize = Core::RawFunc<

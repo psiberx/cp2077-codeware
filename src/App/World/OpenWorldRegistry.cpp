@@ -2,9 +2,42 @@
 #include "App/World/DistrictResolver.hpp"
 #include "Red/TweakDB.hpp"
 
+namespace
+{
+constexpr auto MinorActivitiesResource = R"(base\open_world\minor_activities\open_world_minor_activities.questphase)";
+}
+
 void App::OpenWorldRegistry::OnBootstrap()
 {
+    HookAfter<Raw::QuestLoader::PhasePreloadCheck>(&OpenWorldRegistry::OnPhasePreloadCheck);
     HookAfter<Raw::QuestPhaseInstance::Initialize>(&OpenWorldRegistry::OnInitializePhase);
+}
+
+void App::OpenWorldRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader, const Red::NodePath& aPhaseNodePath)
+{
+    if (!aPreload)
+    {
+        if (s_minorActivitiesPhasePath.size == 0)
+        {
+            auto& nodePathMap = Raw::QuestLoader::NodePathMap::Ref(aLoader);
+            auto minorActivitiesPhasePath = nodePathMap.Get(MinorActivitiesResource);
+
+            if (!minorActivitiesPhasePath)
+                return;
+
+            s_minorActivitiesPhasePath = *minorActivitiesPhasePath;
+        }
+
+        if (aPhaseNodePath.size > s_minorActivitiesPhasePath.size &&
+            std::memcmp(aPhaseNodePath.entries, s_minorActivitiesPhasePath.entries,
+                        s_minorActivitiesPhasePath.size * sizeof(Red::NodeID)) == 0)
+        {
+            auto& preloadList = Raw::QuestLoader::PreloadList::Ref(aLoader);
+            preloadList.PushBack(aPhaseNodePath);
+
+            aPreload = true;
+        }
+    }
 }
 
 void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, Red::QuestContext& aContext,
@@ -14,13 +47,7 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
 {
     if (aParentPath.size == 0 && aPhaseNodeID == 0)
     {
-#ifndef NDEBUG
-        LogDebug("Building activities...");
-        LogDebug("| Type | Activity | Area | District | Description |");
-        LogDebug("|:---|:---|:---|:---|:---|");
-#endif
-
-        m_activities.clear();
+        s_activities.clear();
     }
 
     if (!aPhaseResource)
@@ -77,24 +104,6 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
             Red::CallGlobal("gameuiMappinUIUtils::MappinToString;gamedataMappinVariant", activity->title, mappinData->variant);
             Red::CallGlobal("gameuiMappinUIUtils::MappinToDescriptionString;gamedataMappinVariant", activity->description, mappinData->variant);
         }
-        // else
-        // {
-        //     bool success;
-        //     bool active;
-        //     uint16_t phaseInt;
-        //     uint16_t variantInt;
-        //
-        //     auto mappinSystem = Red::GetGameSystem<Red::gamemappinsIMappinSystem>();
-        //     Red::CallVirtual(mappinSystem, "GetPointOfInterestMappinSavedState", success,
-        //                      activity->mappinHash, phaseInt, variantInt, active);
-        //
-        //     if (success)
-        //     {
-        //         auto variant = static_cast<Red::gamedataMappinVariant>(variantInt);
-        //         Red::CallGlobal("gameuiMappinUIUtils::MappinToString;gamedataMappinVariant", activity->title, variant);
-        //         Red::CallGlobal("gameuiMappinUIUtils::MappinToDescriptionString;gamedataMappinVariant", activity->description, variant);
-        //     }
-        // }
     }
 
     activity->district = DistrictResolver::GetDistrict(activity->name);
@@ -217,29 +226,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
     activity->inputSocket = {inputNode->socketName};
     activity->inputNodePath = MakePhaseNodePath(aParentPath, aPhaseNodeID, inputNode->id);
 
-#ifndef NDEBUG
-    Red::CString localizedTitle;
-    Red::CallGlobal("GetLocalizedTextByKey", localizedTitle, activity->title);
-
-    Red::CString localizedDescription;
-    Red::CallGlobal("GetLocalizedTextByKey", localizedDescription, activity->description);
-
-    Red::CName areaName;
-    Red::CallGlobal("EnumValueToName", areaName, Red::GetTypeName<Red::gamedataDistrict>(), activity->area);
-
-    Red::CName districtName;
-    Red::CallGlobal("EnumValueToName", districtName, Red::GetTypeName<Red::gamedataDistrict>(), activity->district);
-
-    LogDebug("| `{}` | `{}` | `{}` | `{}` | {}: {} |",
-             activity->kind.ToString(),
-             activity->name.ToString(),
-             areaName.ToString(),
-             districtName.ToString(),
-             localizedTitle.c_str(),
-             localizedDescription.c_str());
-#endif
-
-    m_activities[activity->name] = std::move(activity);
+    s_activities[activity->name] = std::move(activity);
 
     return true;
 }
@@ -335,7 +322,7 @@ Core::Vector<Core::SharedPtr<App::ActivityDefinition>> App::OpenWorldRegistry::G
 {
     Core::Vector<Core::SharedPtr<App::ActivityDefinition>> activities;
 
-    for (const auto& [_, activity] : m_activities)
+    for (const auto& [_, activity] : s_activities)
     {
         activities.push_back(activity);
     }
@@ -347,7 +334,7 @@ Core::Vector<Red::CName> App::OpenWorldRegistry::GetAllActivityNames()
 {
     Core::Vector<Red::CName> activities;
 
-    for (const auto& [name, _] : m_activities)
+    for (const auto& [name, _] : s_activities)
     {
         activities.push_back(name);
     }
@@ -357,10 +344,41 @@ Core::Vector<Red::CName> App::OpenWorldRegistry::GetAllActivityNames()
 
 Core::SharedPtr<App::ActivityDefinition> App::OpenWorldRegistry::FindActivity(Red::CName aName)
 {
-    const auto& it = m_activities.find(aName);
+    const auto& it = s_activities.find(aName);
 
-    if (it == m_activities.end())
+    if (it == s_activities.end())
         return {};
 
     return it.value();
+}
+
+void App::OpenWorldRegistry::DumpActivities()
+{
+#ifndef NDEBUG
+    LogDebug("| Type | Activity | Area | District | Description |");
+    LogDebug("|:---|:---|:---|:---|:---|");
+
+    for (const auto& [_, activity] : s_activities)
+    {
+        Red::CString localizedTitle;
+        Red::CallGlobal("GetLocalizedTextByKey", localizedTitle, activity->title);
+
+        Red::CString localizedDescription;
+        Red::CallGlobal("GetLocalizedTextByKey", localizedDescription, activity->description);
+
+        Red::CName areaName;
+        Red::CallGlobal("EnumValueToName", areaName, Red::GetTypeName<Red::gamedataDistrict>(), activity->area);
+
+        Red::CName districtName;
+        Red::CallGlobal("EnumValueToName", districtName, Red::GetTypeName<Red::gamedataDistrict>(), activity->district);
+
+        LogDebug("| `{}` | `{}` | `{}` | `{}` | {}: {} |",
+                 activity->kind.ToString(),
+                 activity->name.ToString(),
+                 areaName.ToString(),
+                 districtName.ToString(),
+                 localizedTitle.c_str(),
+                 localizedDescription.c_str());
+    }
+#endif
 }

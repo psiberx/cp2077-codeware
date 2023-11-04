@@ -372,6 +372,14 @@ Red::EntityID App::OpenWorldSystem::ResolveNodeRef(Red::NodeRef aNodeRef)
     return resolved.hash;
 }
 
+void App::OpenWorldSystem::DumpActivities()
+{
+    if (m_registry)
+    {
+        m_registry->DumpActivities();
+    }
+}
+
 App::OpenWorldActivityState::OpenWorldActivityState()
     : district(Red::gamedataDistrict::Invalid)
     , area(Red::gamedataDistrict::Invalid)

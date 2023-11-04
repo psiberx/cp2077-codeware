@@ -50,6 +50,8 @@ public:
     OpenWorldActivityResult StartActivity(Red::CName aName);
     int32_t StartActivities(Red::Optional<OpenWorldActivityRequest>& aRequest);
 
+    void DumpActivities();
+
 private:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
     void OnAfterWorldDetach() override;
@@ -100,4 +102,5 @@ RTTI_DEFINE_CLASS(App::OpenWorldSystem, {
     RTTI_METHOD(GetActivities);
     RTTI_METHOD(StartActivity);
     RTTI_METHOD(StartActivities);
+    RTTI_METHOD(DumpActivities);
 });
