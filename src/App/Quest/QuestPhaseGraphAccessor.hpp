@@ -158,9 +158,9 @@ public:
         return GetNodesOfType<Red::questJournalNodeDefinition>();
     }
 
-    inline Core::Vector<Red::Handle<Red::questJournalEntry_ConditionType>> FindJournalObjectives()
+    inline Core::Vector<Red::Handle<Red::gameJournalPath>> FindJournalObjectives()
     {
-        Core::Vector<Red::Handle<Red::questJournalEntry_ConditionType>> objectives;
+        Core::Vector<Red::Handle<Red::gameJournalPath>> objectives;
 
         for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
         {
@@ -170,7 +170,15 @@ public:
                 {
                     if (conditionType->state == Red::gameJournalEntryUserState::Active)
                     {
-                        objectives.push_back(conditionType);
+                        objectives.push_back(conditionType->path);
+                    }
+                    continue;
+                }
+                if (const auto& conditionType = Red::Cast<Red::questJournalEntryState_ConditionType>(condition->type))
+                {
+                    if (conditionType->state == Red::gameJournalEntryState::Active && !conditionType->inverted)
+                    {
+                        objectives.push_back(conditionType->path);
                     }
                 }
             }

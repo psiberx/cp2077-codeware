@@ -145,7 +145,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
 
     for (const auto& journalObjective : aPhaseGraphAccessor.FindJournalObjectives())
     {
-        activity->journalHashes.push_back(Red::Murmur3_32(journalObjective->path->realPath.c_str()));
+        activity->journalHashes.push_back(Red::Murmur3_32(journalObjective->realPath.c_str()));
     }
 
     for (const auto& factChange : aPhaseGraphAccessor.FindFactChanges())
@@ -173,7 +173,7 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
 
         if (activity->lootItemIDs.empty())
         {
-            for (const auto& suffix : {"_shard", "_onscreen", "_onscreen_01"})
+            for (const auto& suffix : {"_shard", "_onscreen", "_onscreen_01", "_onscreen_02"})
             {
                 Red::TweakDBID readableID(std::string("Items.") + activityName.ToString() + suffix);
                 if (Red::RecordExists(readableID))

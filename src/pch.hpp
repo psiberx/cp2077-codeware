@@ -120,6 +120,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalEntry_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalEntry_NodeType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/JournalEntryState_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/NodeLoadingCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ObjectCondition.hpp>

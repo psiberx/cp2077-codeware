@@ -231,20 +231,20 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
             return OpenWorldActivityResult::StillSpawned;
     }
 
-    // for (const auto& persistenceRef : aActivity->persistenceRefs)
-    // {
-    //     auto objectID = ResolveNodeRef(persistenceRef.objectRef);
-    //
-    //     if (!objectID)
-    //         continue;
-    //
-    //     Red::Handle<Red::Entity> entity;
-    //     Red::ScriptGameInstance game;
-    //     Red::CallStatic("ScriptGameInstance", "FindEntityByID", entity, game, objectID);
-    //
-    //     if (entity)
-    //         return OpenWorldActivityResult::StillSpawned;
-    // }
+    for (const auto& persistenceRef : aActivity->persistenceRefs)
+    {
+        auto objectID = ResolveNodeRef(persistenceRef.objectRef);
+
+        if (!objectID)
+            continue;
+
+        Red::Handle<Red::Entity> entity;
+        Red::ScriptGameInstance game;
+        Red::CallStatic("ScriptGameInstance", "FindEntityByID", entity, game, objectID);
+
+        if (entity)
+            return OpenWorldActivityResult::StillSpawned;
+    }
 
     for (const auto& communityID : communityIDs)
     {
