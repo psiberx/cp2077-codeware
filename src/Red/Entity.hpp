@@ -92,10 +92,3 @@ constexpr auto Detach = Core::RawFunc<
 //     /* addr = */ Red::Addresses::Entity_GetComponents,
 //     /* type = */ Red::DynArray<Red::Handle<Red::IComponent>>& (*)(Red::Entity* aEntity)>();
 }
-
-namespace Raw::EntityID
-{
-constexpr auto ToStringDEBUG = Core::RawFunc<
-    /* addr = */ 0x140E75FC4 - Red::Addresses::ImageBase, // FIXME
-    /* type = */ Red::CString* (*)(const Red::EntityID& aEntityID, Red::CString&)>();
-}

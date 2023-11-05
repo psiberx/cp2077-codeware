@@ -6,12 +6,11 @@ namespace App
 {
 Red::NodeRef CreateNodeRef(Red::ScriptRef<Red::CString>& aReference)
 {
-    std::string_view reference{aReference.ref->c_str(), aReference.ref->Length()};
+    Red::NodeRef nodeRef{};
+    Red::StringView nodeRefStr{aReference.ref->c_str(), aReference.ref->Length()};
+    Raw::NodeRef::Create(nodeRef, nodeRefStr);
 
-    Red::NodeRef instance;
-    Raw::NodeRef::Create(instance, reference);
-
-    return instance;
+    return nodeRef;
 }
 
 uint64_t NodeRefToHash(Red::NodeRef aRef)

@@ -25,6 +25,7 @@
 #include "App/Utils/Bits.hpp"
 #include "App/Utils/CName.hpp"
 #include "App/Utils/CRUID.hpp"
+#include "App/Utils/Debug.hpp"
 #include "App/Utils/Hashing.hpp"
 #include "App/Utils/Logging.hpp"
 #include "App/Utils/NodeRef.hpp"
