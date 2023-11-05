@@ -5,7 +5,7 @@
 
 namespace App
 {
-Red::CString InspectHash64(uint64_t aHash)
+Red::CString InspectHash(uint64_t aHash)
 {
     if (!aHash)
         return {};
@@ -62,11 +62,11 @@ Red::CString InspectRef(const Red::CString& aReference)
     Red::StringView nodeRefStr{aReference.c_str(), aReference.Length()};
     Raw::NodeRef::Create(nodeRef, nodeRefStr);
 
-    return InspectHash64(nodeRef.hash);
+    return InspectHash(nodeRef.hash);
 }
 }
 
 RTTI_DEFINE_GLOBALS({
-    RTTI_FUNCTION(App::InspectHash64);
+    RTTI_FUNCTION(App::InspectHash);
     RTTI_FUNCTION(App::InspectRef);
 });
