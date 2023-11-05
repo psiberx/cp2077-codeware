@@ -28,10 +28,14 @@ Red::CString InspectHash64(uint64_t aHash)
     {
         Red::EntityID entityID{aHash};
         Raw::EntityID::ToStringDEBUG(entityID, debugStr);
-    }
 
-    if (debugStr.Length() != 0)
-        return debugStr;
+        if (debugStr.Length() != 0)
+        {
+            std::string_view debugStrView(debugStr.c_str(), debugStr.Length());
+            if (!debugStrView.starts_with("UNKNOWN:"))
+                return debugStr;
+        }
+    }
 
     {
         Red::CName name{aHash};
