@@ -61,8 +61,25 @@ void App::OpenWorldRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase, 
         return;
 
     QuestPhaseGraphAccessor phaseGraphAccessor(aPhaseGraph);
+    ApplyActivityBugfixes(phaseGraphAccessor, aPhaseResource, aPhaseGraph);
     RegisterCrimeActivity(phaseGraphAccessor, aPhase, aPhaseGraph, aParentPath, aPhaseNodeID);
     // RegisterCyberpsychoActivity(phaseGraphAccessor, aPhase, aPhaseGraph, aParentPath, aPhaseNodeID);
+}
+
+void App::OpenWorldRegistry::ApplyActivityBugfixes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+                                                   const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
+                                                   Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
+{
+    if (aPhaseResource->path == R"(base\open_world\minor_activities\badlands\inland_avenue_se1\ma_bls_se1_ina_09\ma_bls_ina_se1_09_phase.questphase)")
+    {
+        for (auto& prefabNode : aPhaseGraphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
+        {
+            if (auto& prefabNodeType = Red::Cast<Red::questShowWorldNode_NodeType>(prefabNode->type))
+            {
+                prefabNodeType->show = false;
+            }
+        }
+    }
 }
 
 bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
@@ -127,11 +144,13 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
         activity->spawnerRefs.push_back(spawner->spawnerReference);
     }
 
-    for (const auto& areaLink : aPhaseGraphAccessor.FindAreaLinks())
+    for (const auto& event : aPhaseGraphAccessor.FindManagerEvents())
     {
-        if (areaLink->PSClassName)
+        if (event->PSClassName)
         {
-            activity->persistenceRefs.push_back({areaLink->objectRef.reference, areaLink->componentName});
+            activity->persistenceRefs.push_back({event->objectRef.reference});
+            activity->persistenceRefs.push_back({event->objectRef.reference, event->componentName});
+            activity->persistenceRefs.push_back({event->objectRef.reference, "master"});
         }
     }
 
@@ -231,6 +250,37 @@ bool App::OpenWorldRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor&
             resetNode->type = resetNodeType;
 
             activity->resetNodes.push_back(std::move(resetNode));
+        }
+    }
+
+    for (const auto& managerNode : aPhaseGraphAccessor.GetNodesOfType<Red::questEventManagerNodeDefinition>())
+    {
+        if (managerNode->event->GetType()->GetName() == "QuestExecuteTransition")
+        {
+            auto transition = managerNode->event->GetType()->GetProperty("transition")
+                                  ->GetValuePtr<Red::AreaTypeTransition>(managerNode->event.instance);
+
+            if (transition->transitionTo == Red::ESecurityAreaType::DISABLED &&
+                transition->transitionMode == Red::ETransitionMode::FORCED)
+            {
+                auto resetEvent = managerNode->event->GetType()->CreateInstance(true);
+                auto resetTransition = managerNode->event->GetType()->GetProperty("transition")
+                                  ->GetValuePtr<Red::AreaTypeTransition>(resetEvent);
+                resetTransition->transitionTo = Red::ESecurityAreaType::DANGEROUS;
+                resetTransition->transitionMode = Red::ETransitionMode::FORCED;
+
+                auto resetNode = Red::MakeHandle<Red::questEventManagerNodeDefinition>();
+                resetNode->id = managerNode->id;
+                resetNode->event = Red::Handle(reinterpret_cast<Red::IScriptable*>(resetEvent));
+                resetNode->objectRef = managerNode->objectRef;
+                resetNode->managerName = managerNode->managerName;
+                resetNode->componentName = managerNode->componentName;
+                resetNode->PSClassName = managerNode->PSClassName;
+                resetNode->isObjectPlayer = managerNode->isObjectPlayer;
+                resetNode->isUiEvent = managerNode->isUiEvent;
+
+                activity->resetNodes.push_back(std::move(resetNode));
+            }
         }
     }
 

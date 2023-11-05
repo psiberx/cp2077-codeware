@@ -132,6 +132,29 @@ struct FactManager
 
     FactStore* data[11];
 };
+
+enum class ESecurityAreaType
+{
+    DISABLED = 0,
+    SAFE = 1,
+    RESTRICTED = 2,
+    DANGEROUS = 3,
+};
+
+enum class ETransitionMode
+{
+    GENTLE = 0,
+    FORCED = 1,
+};
+
+struct AreaTypeTransition
+{
+    ESecurityAreaType transitionTo;
+    int32_t transitionHour;
+    ETransitionMode transitionMode;
+    uint32_t listenerID;
+    bool locked;
+};
 }
 
 namespace Raw::QuestsSystem

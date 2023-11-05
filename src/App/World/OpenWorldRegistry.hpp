@@ -68,6 +68,9 @@ protected:
                                   Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
                                   const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID);
 
+    static void ApplyActivityBugfixes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+                                      const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
+                                      Red::Handle<Red::questGraphDefinition>& aPhaseGraph);
     static bool RegisterCrimeActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                       Red::questPhaseInstance* aPhase,
                                       Red::Handle<Red::questGraphDefinition>& aPhaseGraph,

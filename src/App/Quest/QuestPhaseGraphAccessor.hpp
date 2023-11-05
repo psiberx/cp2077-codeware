@@ -148,7 +148,7 @@ public:
         return changes;
     }
 
-    inline Core::Vector<Red::Handle<Red::questEventManagerNodeDefinition>> FindAreaLinks()
+    inline Core::Vector<Red::Handle<Red::questEventManagerNodeDefinition>> FindManagerEvents()
     {
         return GetNodesOfType<Red::questEventManagerNodeDefinition>();
     }

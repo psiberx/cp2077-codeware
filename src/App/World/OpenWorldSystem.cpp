@@ -87,6 +87,15 @@ int32_t App::OpenWorldSystem::StartActivities(Red::Optional<OpenWorldActivityReq
     {
         auto state = MakeActivityState(activity);
 
+        if (!state.completed)
+        {
+            if (state.discovered)
+                continue;
+
+            if (!aRequest->force)
+                continue;
+        }
+
         if (!aRequest->Match(state, gameTime, realTimeMultiplier))
             continue;
 
@@ -469,15 +478,6 @@ bool App::OpenWorldActivityRequest::HasCooldown() const
 bool App::OpenWorldActivityRequest::Match(const App::OpenWorldActivityState& aActivity,
                                           uint32_t aGameTime, float aRealTimeMultiplier) const
 {
-    if (!aActivity.completed)
-    {
-        if (aActivity.discovered)
-            return false;
-
-        if (!force)
-            return false;
-    }
-
     if (kind)
     {
         if (aActivity.kind != kind)
