@@ -32,7 +32,7 @@ Red::CString InspectHash(uint64_t aHash)
         if (debugStr.Length() != 0)
         {
             std::string_view debugStrView(debugStr.c_str(), debugStr.Length());
-            if (!debugStrView.starts_with("UNKNOWN:"))
+            if (!debugStrView.starts_with("UNKNOWN:") && !debugStrView.starts_with("dynamic:"))
                 return debugStr;
         }
     }
