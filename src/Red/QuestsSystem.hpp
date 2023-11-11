@@ -18,7 +18,13 @@ struct QuestNodeKey
     {
     }
 
-    QuestNodeKey(const QuestNodePath& aNodePath, NodeID aNodeID = 0)
+    QuestNodeKey(const QuestNodePath& aNodePath)
+        : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), (aNodePath.size - 1) * sizeof(NodeID)))
+        , nodeID(aNodePath.Back())
+    {
+    }
+
+    QuestNodeKey(const QuestNodePath& aNodePath, NodeID aNodeID)
         : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), aNodePath.size * sizeof(NodeID)))
         , nodeID(aNodeID)
     {
@@ -223,6 +229,10 @@ constexpr auto PhasePreloadCheck = Core::RawFunc<
 
 namespace Raw::QuestPhaseInstance
 {
+using Resource = Core::OffsetPtr<0x30, Red::Handle<Red::questQuestPhaseResource>>;
+using Grapth = Core::OffsetPtr<0x40, Red::Handle<Red::questGraphDefinition>>;
+using Path = Core::OffsetPtr<0x70, Red::QuestNodePath>;
+using PathHash = Core::OffsetPtr<0x80, Red::NodePathHash>;
 using Handlers = Core::OffsetPtr<0x98, Red::HashMap<Red::NodePathHash, Red::SharedPtr<Red::QuestPhaseHandler>>>;
 
 constexpr auto Initialize = Core::RawFunc<

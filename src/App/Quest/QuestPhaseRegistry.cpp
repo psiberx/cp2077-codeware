@@ -2,6 +2,7 @@
 #include "App/Device/ResetSecuritySystemNetwork.hpp"
 #include "App/Quest/QuestPhaseGraphBuilder.hpp"
 #include "App/World/DistrictResolver.hpp"
+#include "Red/NodeRef.hpp"
 #include "Red/TweakDB.hpp"
 
 namespace
@@ -47,24 +48,80 @@ void App::QuestPhaseRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase,
                                                Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
                                                const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID)
 {
+    std::unique_lock phasesLockRW(s_phasesLock);
+
     if (aParentPath.size == 0 && aPhaseNodeID == 0)
     {
+        std::unique_lock activitiesLockRW(s_activitiesLock);
+        s_activitiesReady = false;
         s_activities.clear();
-        s_phaseInstances.clear();
+        s_phasesReady = false;
+        s_phases.clear();
+    }
+
+    auto& phasePathHash = Raw::QuestPhaseInstance::PathHash::Ref(aPhase);
+    s_phases[phasePathHash] = Red::AsWeakHandle(aPhase);
+}
+
+bool App::QuestPhaseRegistry::PhasesInitialized()
+{
+    std::shared_lock phasesLockR(s_phasesLock);
+
+    return !s_phases.empty();
+}
+
+Red::questPhaseInstance* App::QuestPhaseRegistry::GetPhaseInstance(Red::QuestNodeKey aPhasePath)
+{
+    std::shared_lock phasesLockR(s_phasesLock);
+    const auto& it = s_phases.find(aPhasePath);
+
+    if (it == s_phases.end())
+        return nullptr;
+
+    if (!it.value())
+        return nullptr;
+
+    return it.value().instance;
+}
+
+bool App::QuestPhaseRegistry::ActivitiesInitialized()
+{
+    std::shared_lock activitiesLockR(s_activitiesLock);
+
+    return s_activitiesReady;
+}
+
+void App::QuestPhaseRegistry::InitializeActivities()
+{
+    if (ActivitiesInitialized())
+        return;
+
+    {
+        std::shared_lock phasesLockR(s_phasesLock);
+        for (auto& [_, phaseWeak] : s_phases)
+        {
+            if (auto phase = phaseWeak.Lock())
+            {
+                auto& phaseInstance = phase.instance;
+                auto& phaseResource = Raw::QuestPhaseInstance::Resource::Ref(phaseInstance);
+
+                if (phaseResource)
+                {
+                    auto& phaseGraph = Raw::QuestPhaseInstance::Grapth::Ref(phaseInstance);
+                    auto& phaseNodePath = Raw::QuestPhaseInstance::Path::Ref(phaseInstance);
+
+                    QuestPhaseGraphAccessor phaseGraphAccessor{phaseGraph};
+                    ApplyActivityBugfixes(phaseGraphAccessor, phaseResource, phaseGraph);
+                    RegisterCrimeActivity(phaseGraphAccessor, phaseInstance, phaseResource, phaseGraph, phaseNodePath);
+                }
+            }
+        }
     }
 
     {
-        auto phaseNodeKey = MakePhaseNodeKey(aParentPath, aPhaseNodeID, 0);
-        s_phaseInstances[phaseNodeKey] = Red::AsWeakHandle(aPhase);
+        std::unique_lock activitiesLockRW(s_activitiesLock);
+        s_activitiesReady = true;
     }
-
-    if (!aPhaseResource)
-        return;
-
-    QuestPhaseGraphAccessor phaseGraphAccessor(aPhaseGraph);
-    ApplyActivityBugfixes(phaseGraphAccessor, aPhaseResource, aPhaseGraph);
-    RegisterCrimeActivity(phaseGraphAccessor, aPhase, aPhaseResource, aPhaseGraph, aParentPath, aPhaseNodeID);
-    // RegisterCyberpsychoActivity(phaseGraphAccessor, aPhase, aPhaseGraph, aParentPath, aPhaseNodeID);
 }
 
 void App::QuestPhaseRegistry::ApplyActivityBugfixes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
@@ -87,7 +144,7 @@ bool App::QuestPhaseRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor
                                                    Red::questPhaseInstance* aPhase,
                                                    const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                                    Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                                   const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID)
+                                                   const Red::QuestNodePath& aPhaseNodePath)
 {
     auto inputNode = aPhaseGraphAccessor.FindInputNode();
 
@@ -183,9 +240,9 @@ bool App::QuestPhaseRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor
     //     }
     // }
 
-    for (const auto& graphPath : aPhaseGraphAccessor.GetAllGraphPaths(aParentPath, aPhaseNodeID))
+    for (const auto& graphNodePath : aPhaseGraphAccessor.GetAllGraphNodePaths(aPhaseNodePath))
     {
-        activity->graphFacts.emplace_back(graphPath);
+        activity->graphFacts.emplace_back(graphNodePath);
     }
 
     for (const auto& lootObjective : aPhaseGraphAccessor.FindLootObjectives())
@@ -210,139 +267,67 @@ bool App::QuestPhaseRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor
                 }
             }
         }
-
-        {
-            QuestPhaseGraphBuilder phaseGraphBuilder{aPhaseGraph};
-
-            {
-                auto pauseNode = phaseGraphBuilder.AddStaticEntitySpawnWait(activity->lootContainerRef);
-                auto eventNode = phaseGraphBuilder.AddEventDispatch(activity->lootContainerRef);
-                eventNode->event = Red::MakeHandle<Red::gameResetContainerEvent>();
-
-                phaseGraphBuilder.AddConnection(inputNode, pauseNode);
-                phaseGraphBuilder.AddConnection(pauseNode, eventNode);
-            }
-        }
     }
 
-    Red::NodeID resetNodeID = 900;
-
-    for (const auto& factChange : aPhaseGraphAccessor.FindFactChanges())
+    for (const auto& suffix : {"_dvc_sec_sys", "_dvc_sec_system", "_dvc_security_system"})
     {
-        if (IsMinorActivityRelatedFact(factChange->factName))
+        Red::NodeRef securitySystemRef{Red::FNV1a64(suffix, activityName)};
+
+        if (Red::ResolveNodeRef(securitySystemRef))
         {
-            activity->namedFacts.emplace_back(factChange->factName.c_str());
+            activity->securitySystemRef = securitySystemRef;
 
-            auto resetNodeType = Red::MakeHandle<Red::questSetVar_NodeType>();
-            resetNodeType->factName = factChange->factName;
-            resetNodeType->setExactValue = true;
-            resetNodeType->value = 0;
+            activity->persistenceRefs.push_back({securitySystemRef});
+            activity->persistenceRefs.push_back({securitySystemRef, "controller"});
+            activity->persistenceRefs.push_back({securitySystemRef, "master"});
 
-            auto resetNode = Red::MakeHandle<Red::questFactsDBManagerNodeDefinition>();
-            resetNode->id = ++resetNodeID;
-            resetNode->type = resetNodeType;
-
-            activity->resetNodes.push_back(std::move(resetNode));
+#ifndef NDEBUG
+            LogDebug("SecuritySystem: {}{}", activityName.ToString(), suffix);
+#endif
+            break;
         }
     }
 
-    if (aPhaseResource->phasePrefabs.size > 0)
     {
-        for (const auto& phasePrefab : aPhaseResource->phasePrefabs)
+        QuestPhaseGraphBuilder phaseGraphBuilder{aPhaseGraph};
+
+        if (activity->lootContainerRef)
         {
-            auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
-            resetNodeType->objectRef = phasePrefab.prefabNodeRef;
-            resetNodeType->show = true;
+            auto pauseNode = phaseGraphBuilder.AddStaticEntitySpawnWait(activity->lootContainerRef);
+            auto eventNode = phaseGraphBuilder.AddEventDispatch(activity->lootContainerRef);
+            eventNode->event = Red::MakeHandle<Red::gameResetContainerEvent>();
 
-            auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
-            resetNode->id = ++resetNodeID;
-            resetNode->type = resetNodeType;
+            phaseGraphBuilder.AddConnection(inputNode, pauseNode);
+            phaseGraphBuilder.AddConnection(pauseNode, eventNode);
+        }
 
-            activity->resetNodes.push_back(std::move(resetNode));
+        if (activity->securitySystemRef)
+        {
+            auto eventNode = phaseGraphBuilder.AddEventDispatch(activity->securitySystemRef);
+            eventNode->event = Red::MakeHandle<ResetSecuritySystemNetwork>();
+            eventNode->PSClassName = "SecuritySystemControllerPS";
+            eventNode->componentName = "controller";
+
+            phaseGraphBuilder.AddConnection(inputNode, eventNode);
         }
     }
 
-    for (const auto& prefabNode : aPhaseGraphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
-    {
-        if (auto& prefabNodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(prefabNode->type))
-        {
-            auto resetNodeType = Red::MakeHandle<Red::questTogglePrefabVariant_NodeType>();
-            resetNodeType->params = prefabNodeType->params;
-            for (auto& param : resetNodeType->params)
-            {
-                for (auto& state : param.variantStates)
-                {
-                    state.show = !state.show;
-                }
-            }
-
-            auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
-            resetNode->id = ++resetNodeID;
-            resetNode->type = resetNodeType;
-
-            activity->resetNodes.push_back(std::move(resetNode));
-            continue;
-        }
-
-        if (auto& prefabNodeType = Red::Cast<Red::questShowWorldNode_NodeType>(prefabNode->type))
-        {
-            auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
-            resetNodeType->objectRef = prefabNodeType->objectRef;
-            resetNodeType->componentName = prefabNodeType->componentName;
-            resetNodeType->isPlayer = prefabNodeType->isPlayer;
-            resetNodeType->show = !prefabNodeType->show;
-
-            auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
-            resetNode->id = ++resetNodeID;
-            resetNode->type = resetNodeType;
-
-            activity->resetNodes.push_back(std::move(resetNode));
-        }
-    }
-
-    for (const auto& managerNode : aPhaseGraphAccessor.GetNodesOfType<Red::questEventManagerNodeDefinition>())
-    {
-        if (managerNode->event->GetType()->GetName() == "QuestExecuteTransition")
-        {
-            auto transition = managerNode->event->GetType()->GetProperty("transition")
-                                  ->GetValuePtr<Red::AreaTypeTransition>(managerNode->event.instance);
-
-            if (transition->transitionTo == Red::ESecurityAreaType::DISABLED &&
-                transition->transitionMode == Red::ETransitionMode::FORCED)
-            {
-                auto resetEvent = managerNode->event->GetType()->CreateInstance(true);
-                auto resetTransition = managerNode->event->GetType()->GetProperty("transition")
-                                  ->GetValuePtr<Red::AreaTypeTransition>(resetEvent);
-                resetTransition->transitionTo = Red::ESecurityAreaType::DANGEROUS;
-                resetTransition->transitionMode = Red::ETransitionMode::FORCED;
-
-                auto resetNode = Red::MakeHandle<Red::questEventManagerNodeDefinition>();
-                resetNode->id = managerNode->id;
-                resetNode->event = Red::Handle(reinterpret_cast<Red::IScriptable*>(resetEvent));
-                resetNode->objectRef = managerNode->objectRef;
-                resetNode->managerName = managerNode->managerName;
-                resetNode->componentName = managerNode->componentName;
-                resetNode->PSClassName = managerNode->PSClassName;
-                resetNode->isObjectPlayer = managerNode->isObjectPlayer;
-                resetNode->isUiEvent = managerNode->isUiEvent;
-
-                activity->resetNodes.push_back(std::move(resetNode));
-            }
-        }
-    }
+    GenerateResetNodes(aPhaseGraphAccessor, aPhaseResource, activity->resetNodes);
 
     activity->phaseInstance = aPhase;
     activity->phaseGraph = aPhaseGraph;
     activity->phaseResource = aPhaseResource;
-    activity->phaseNodeKey = MakePhaseNodeKey(aParentPath, aPhaseNodeID);
-    activity->phaseNodePath = aParentPath;
-    activity->phaseNodePath.PushBack(aPhaseNodeID);
+    activity->phaseNodeKey = aPhaseNodePath;
+    activity->phaseNodePath = aPhaseNodePath;
 
     activity->inputNode = inputNode;
     activity->inputSocket = {inputNode->socketName};
-    activity->inputNodeKey = MakePhaseNodeKey(aParentPath, aPhaseNodeID, inputNode->id);
+    activity->inputNodeKey = {aPhaseNodePath, inputNode->id};
 
-    s_activities[activity->name] = std::move(activity);
+    {
+        std::unique_lock activitiesLockRW(s_activitiesLock);
+        s_activities[activity->name] = std::move(activity);
+    }
 
     return true;
 }
@@ -372,17 +357,114 @@ bool App::QuestPhaseRegistry::RegisterCyberpsychoActivity(App::QuestPhaseGraphAc
     return false;
 }
 
-Red::QuestNodeKey App::QuestPhaseRegistry::MakePhaseNodeKey(Red::QuestNodePath aParentPath, Red::NodeID aPhaseNodeID,
-                                                           Red::NodeID aInputNodeID)
+void App::QuestPhaseRegistry::GenerateResetNodes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+                                                 const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
+                                                 Core::Vector<Red::Handle<Red::questNodeDefinition>>& aResetNodes)
 {
-    if (aInputNodeID == static_cast<Red::NodeID>(-1))
+    Red::NodeID resetNodeID = 900;
+
+    for (const auto& factChange : aPhaseGraphAccessor.FindFactChanges())
     {
-        return {aParentPath, aPhaseNodeID};
+        if (IsMinorActivityRelatedFact(factChange->factName))
+        {
+            //activity->namedFacts.emplace_back(factChange->factName.c_str());
+
+            auto resetNodeType = Red::MakeHandle<Red::questSetVar_NodeType>();
+            resetNodeType->factName = factChange->factName;
+            resetNodeType->setExactValue = true;
+            resetNodeType->value = 0;
+
+            auto resetNode = Red::MakeHandle<Red::questFactsDBManagerNodeDefinition>();
+            resetNode->id = ++resetNodeID;
+            resetNode->type = resetNodeType;
+
+            aResetNodes.push_back(std::move(resetNode));
+        }
     }
-    else
+
+    if (aPhaseResource->phasePrefabs.size > 0)
     {
-        aParentPath.PushBack(aPhaseNodeID);
-        return {aParentPath, aInputNodeID};
+        for (const auto& phasePrefab : aPhaseResource->phasePrefabs)
+        {
+            auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
+            resetNodeType->objectRef = phasePrefab.prefabNodeRef;
+            resetNodeType->show = true;
+
+            auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+            resetNode->id = ++resetNodeID;
+            resetNode->type = resetNodeType;
+
+            aResetNodes.push_back(std::move(resetNode));
+        }
+    }
+
+    for (const auto& prefabNode : aPhaseGraphAccessor.GetNodesOfType<Red::questWorldDataManagerNodeDefinition>())
+    {
+        if (auto& prefabNodeType = Red::Cast<Red::questTogglePrefabVariant_NodeType>(prefabNode->type))
+        {
+            auto resetNodeType = Red::MakeHandle<Red::questTogglePrefabVariant_NodeType>();
+            resetNodeType->params = prefabNodeType->params;
+            for (auto& param : resetNodeType->params)
+            {
+                for (auto& state : param.variantStates)
+                {
+                    state.show = !state.show;
+                }
+            }
+
+            auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+            resetNode->id = ++resetNodeID;
+            resetNode->type = resetNodeType;
+
+            aResetNodes.push_back(std::move(resetNode));
+            continue;
+        }
+
+        if (auto& prefabNodeType = Red::Cast<Red::questShowWorldNode_NodeType>(prefabNode->type))
+        {
+            auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
+            resetNodeType->objectRef = prefabNodeType->objectRef;
+            resetNodeType->componentName = prefabNodeType->componentName;
+            resetNodeType->isPlayer = prefabNodeType->isPlayer;
+            resetNodeType->show = !prefabNodeType->show;
+
+            auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+            resetNode->id = ++resetNodeID;
+            resetNode->type = resetNodeType;
+
+            aResetNodes.push_back(std::move(resetNode));
+        }
+    }
+
+    for (const auto& managerNode : aPhaseGraphAccessor.GetNodesOfType<Red::questEventManagerNodeDefinition>())
+    {
+        if (managerNode->event->GetType()->GetName() == "QuestExecuteTransition")
+        {
+            auto transition = managerNode->event->GetType()->GetProperty("transition")
+                                  ->GetValuePtr<Red::AreaTypeTransition>(managerNode->event.instance);
+
+            if (transition->transitionTo == Red::ESecurityAreaType::DISABLED &&
+                transition->transitionMode == Red::ETransitionMode::FORCED)
+            {
+                auto resetEvent = managerNode->event->GetType()->CreateInstance(true);
+                auto resetTransition = managerNode->event->GetType()->GetProperty("transition")
+                                  ->GetValuePtr<Red::AreaTypeTransition>(resetEvent);
+                resetTransition->transitionTo = Red::ESecurityAreaType::DANGEROUS;
+                resetTransition->transitionMode = Red::ETransitionMode::FORCED;
+
+                auto resetNode = Red::MakeHandle<Red::questEventManagerNodeDefinition>();
+                resetNode->id = ++resetNodeID;
+                resetNode->event = Red::Handle(reinterpret_cast<Red::IScriptable*>(resetEvent));
+                resetNode->objectRef = managerNode->objectRef;
+                resetNode->managerName = managerNode->managerName;
+                resetNode->componentName = managerNode->componentName;
+                resetNode->PSClassName = managerNode->PSClassName;
+                resetNode->isObjectPlayer = managerNode->isObjectPlayer;
+                resetNode->isUiEvent = managerNode->isUiEvent;
+
+                aResetNodes.push_back(std::move(resetNode));
+            }
+        }
     }
 }
 
@@ -452,31 +534,9 @@ bool App::QuestPhaseRegistry::IsCombatActivityVariant(Red::gamedataMappinVariant
         || aVariant == Red::gamedataMappinVariant::OutpostVariant;
 }
 
-bool App::QuestPhaseRegistry::HasRegisteredPhases()
-{
-    return !s_phaseInstances.empty();
-}
-
-Red::questPhaseInstance* App::QuestPhaseRegistry::GetPhaseInstance(Red::QuestNodeKey aPhasePath)
-{
-    const auto& it = s_phaseInstances.find(aPhasePath);
-
-    if (it == s_phaseInstances.end())
-        return nullptr;
-
-    if (!it.value())
-        return nullptr;
-
-    return it.value().instance;
-}
-
-bool App::QuestPhaseRegistry::HasRegisteredActivities()
-{
-    return !s_activities.empty();
-}
-
 Core::Vector<Core::SharedPtr<App::ActivityDefinition>> App::QuestPhaseRegistry::GetAllActivities()
 {
+    std::shared_lock activitiesLockR(s_activitiesLock);
     Core::Vector<Core::SharedPtr<App::ActivityDefinition>> activities;
 
     for (const auto& [_, activity] : s_activities)
@@ -489,6 +549,7 @@ Core::Vector<Core::SharedPtr<App::ActivityDefinition>> App::QuestPhaseRegistry::
 
 Core::Vector<Red::CName> App::QuestPhaseRegistry::GetAllActivityNames()
 {
+    std::shared_lock activitiesLockR(s_activitiesLock);
     Core::Vector<Red::CName> activities;
 
     for (const auto& [name, _] : s_activities)
@@ -501,6 +562,7 @@ Core::Vector<Red::CName> App::QuestPhaseRegistry::GetAllActivityNames()
 
 Core::SharedPtr<App::ActivityDefinition> App::QuestPhaseRegistry::FindActivity(Red::CName aName)
 {
+    std::shared_lock activitiesLockR(s_activitiesLock);
     const auto& it = s_activities.find(aName);
 
     if (it == s_activities.end())
@@ -512,6 +574,8 @@ Core::SharedPtr<App::ActivityDefinition> App::QuestPhaseRegistry::FindActivity(R
 void App::QuestPhaseRegistry::DumpActivities()
 {
 #ifndef NDEBUG
+    std::shared_lock activitiesLockR(s_activitiesLock);
+
     LogDebug("| Type | Activity | Area | District | Description |");
     LogDebug("|:---|:---|:---|:---|:---|");
 

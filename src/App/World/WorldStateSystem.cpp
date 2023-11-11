@@ -22,7 +22,7 @@ void App::WorldStateSystem::OnAfterWorldDetach()
 
 bool App::WorldStateSystem::IsReady()
 {
-    return m_ready && m_questPhaseRegistry->HasRegisteredPhases();
+    return m_ready && m_questPhaseRegistry->PhasesInitialized();
 }
 
 void App::WorldStateSystem::ActivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName)

@@ -31,12 +31,14 @@ void App::OpenWorldSystem::OnAfterWorldDetach()
 
 bool App::OpenWorldSystem::OnGameRestored()
 {
+    m_questPhaseRegistry->InitializeActivities();
+
     return true;
 }
 
 bool App::OpenWorldSystem::IsReady()
 {
-    return m_ready && m_questPhaseRegistry->HasRegisteredActivities();
+    return m_ready && m_questPhaseRegistry->ActivitiesInitialized();
 }
 
 App::OpenWorldActivityState App::OpenWorldSystem::GetActivity(Red::CName aName)

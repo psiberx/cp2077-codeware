@@ -249,32 +249,32 @@ public:
         return {};
     }
 
-    inline Core::Vector<Red::QuestNodeKey> GetAllGraphPaths(const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID)
+    inline Core::Vector<Red::QuestNodeKey> GetAllGraphNodePaths(const Red::QuestNodePath& aPhaseNodePath)
     {
         Core::Vector<Red::QuestNodeKey> allPaths;
-        CollectPaths(allPaths, aParentPath, aPhaseNodeID, m_graph);
+        CollectPaths(allPaths, aPhaseNodePath, m_graph);
         return allPaths;
     }
 
 private:
     inline void CollectPaths(Core::Vector<Red::QuestNodeKey>& aOutPaths,
-                             const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID,
+                             const Red::QuestNodePath& aPhaseNodePath,
                              const Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
     {
-        Red::QuestNodePath currentPath(aParentPath);
-        currentPath.PushBack(aPhaseNodeID);
-
         for (const auto& node : aPhaseGraph->nodes)
         {
             if (auto questNode = Red::Cast<Red::questNodeDefinition>(node))
             {
-                aOutPaths.emplace_back(currentPath, questNode->id);
+                aOutPaths.emplace_back(aPhaseNodePath, questNode->id);
 
                 if (const auto& phaseNode = Red::Cast<Red::questPhaseNodeDefinition>(node))
                 {
                     if (phaseNode->phaseGraph)
                     {
-                        CollectPaths(aOutPaths, currentPath, questNode->id, phaseNode->phaseGraph);
+                        auto nestedPhaseNodePath = aPhaseNodePath;
+                        nestedPhaseNodePath.PushBack(questNode->id);
+
+                        CollectPaths(aOutPaths, nestedPhaseNodePath, phaseNode->phaseGraph);
                     }
                 }
             }
