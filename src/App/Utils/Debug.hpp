@@ -5,7 +5,7 @@
 
 namespace App
 {
-Red::CString InspectHash(uint64_t aHash)
+inline Red::CString InspectHash(uint64_t aHash)
 {
     if (!aHash)
         return {};
@@ -56,7 +56,7 @@ Red::CString InspectHash(uint64_t aHash)
     return {};
 }
 
-Red::CString InspectRef(const Red::CString& aReference)
+inline Red::CString InspectRef(const Red::CString& aReference)
 {
     Red::NodeRef nodeRef{};
     Red::StringView nodeRefStr{aReference.c_str(), aReference.Length()};

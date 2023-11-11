@@ -32,7 +32,7 @@ protected func QueueSystemPSEvent(evt: ref<Event>, opt self: Bool) {
 }
 
 @addMethod(SecuritySystemControllerPS)
-protected func OnResetSecuritySystem(evt: ref<ResetSecuritySystem>) -> EntityNotificationType {
+protected func OnResetSecuritySystemNetwork(evt: ref<ResetSecuritySystemNetwork>) -> EntityNotificationType {
     if !this.m_agentsRegistry.IsReady() {
         this.CompileSecurityAgentRegistry();
     }
