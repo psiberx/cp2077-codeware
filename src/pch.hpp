@@ -108,6 +108,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/ComparisonParam.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ConditionNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/EventManagerNodeDefinition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/FactsDBCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/FactsDBManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/GraphDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ICharacterConditionType.hpp>
@@ -118,9 +119,9 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/Inventory_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalChangeMappinPhase_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalCondition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/JournalEntryState_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalEntry_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalEntry_NodeType.hpp>
-#include <RED4ext/Scripting/Natives/Generated/quest/JournalEntryState_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/JournalNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/NodeLoadingCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ObjectCondition.hpp>
@@ -132,9 +133,11 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/ShowWorldNode_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SocketDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SpawnManagerNodeDefinition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/SpawnSet_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/Spawner_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/TogglePrefabVariant_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/UniversalRef.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/VarComparison_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/WorldDataManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
@@ -152,8 +155,7 @@
 #include "Core/Stl.hpp"
 
 #include "Red/Alias.hpp"
-#include "Red/Framework.hpp"
-#include "Red/LogChannel.hpp"
+#include "Red/Engine.hpp"
 #include "Red/TypeInfo.hpp"
 #include "Red/Specializations.hpp"
 #include "Red/Utils.hpp"

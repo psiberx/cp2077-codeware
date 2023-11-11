@@ -1,6 +1,7 @@
 #pragma once
 
-#include "App/World/OpenWorldRegistry.hpp"
+#include "App/Quest/QuestPhaseRegistry.hpp"
+#include "App/Quest/QuestNodeExecutor.hpp"
 
 namespace App
 {
@@ -47,6 +48,8 @@ struct OpenWorldActivityRequest
 class OpenWorldSystem : public Red::IGameSystem
 {
 public:
+    bool IsReady();
+
     OpenWorldActivityState GetActivity(Red::CName aName);
     Red::DynArray<OpenWorldActivityState> GetActivities();
 
@@ -59,16 +62,16 @@ public:
 private:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
     void OnAfterWorldDetach() override;
+    bool OnGameRestored() override;
 
     bool IsActivityCompleted(const Core::SharedPtr<ActivityDefinition>& aActivity);
     OpenWorldActivityState MakeActivityState(const Core::SharedPtr<ActivityDefinition>& aActivity);
     OpenWorldActivityResult ProcessActivity(const Core::SharedPtr<ActivityDefinition>& aActivity);
 
-    static Red::EntityID ResolveNodeRef(Red::NodeRef aNodeRef);
-
     bool m_ready;
 
-    Core::SharedPtr<OpenWorldRegistry> m_registry;
+    Core::SharedPtr<QuestPhaseRegistry> m_questPhaseRegistry;
+    Core::UniquePtr<QuestNodeExecutor> m_questNodeExecutor;
 
     Red::gameICommunitySystem* m_communitySystem;
     Red::gameIPopulationSystem* m_populationSystem;

@@ -4,12 +4,11 @@
 #include "Red/CommunitySystem.hpp"
 #include "Red/JournalManager.hpp"
 #include "Red/MappinSystem.hpp"
+#include "Red/NodeRef.hpp"
 #include "Red/TweakDB.hpp"
 
 void App::OpenWorldSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
-    m_registry = Core::Resolve<OpenWorldRegistry>();
-
     m_communitySystem = Red::GetGameSystem<Red::gameICommunitySystem>();
     m_populationSystem = Red::GetGameSystem<Red::gameIPopulationSystem>();
     m_persistencySystem = Red::GetGameSystem<Red::gameIPersistencySystem>();
@@ -19,6 +18,9 @@ void App::OpenWorldSystem::OnWorldAttached(Red::world::RuntimeScene*)
     m_questsSystem = Red::GetGameSystem<Red::questIQuestsSystem>();
     m_factManager = Raw::QuestsSystem::FactManager::Ptr(m_questsSystem);
 
+    m_questPhaseRegistry = Core::Resolve<QuestPhaseRegistry>();
+    m_questNodeExecutor = Core::MakeUnique<QuestNodeExecutor>(m_questPhaseRegistry, m_questsSystem);
+
     m_ready = true;
 }
 
@@ -27,9 +29,19 @@ void App::OpenWorldSystem::OnAfterWorldDetach()
     m_ready = false;
 }
 
+bool App::OpenWorldSystem::OnGameRestored()
+{
+    return true;
+}
+
+bool App::OpenWorldSystem::IsReady()
+{
+    return m_ready && m_questPhaseRegistry->HasRegisteredActivities();
+}
+
 App::OpenWorldActivityState App::OpenWorldSystem::GetActivity(Red::CName aName)
 {
-    const auto& activity = m_registry->FindActivity(aName);
+    const auto& activity = m_questPhaseRegistry->FindActivity(aName);
 
     if (!activity)
         return {};
@@ -41,7 +53,7 @@ Red::DynArray<App::OpenWorldActivityState> App::OpenWorldSystem::GetActivities()
 {
     Red::DynArray<OpenWorldActivityState> states;
 
-    for (const auto& activity : m_registry->GetAllActivities())
+    for (const auto& activity : m_questPhaseRegistry->GetAllActivities())
     {
         states.EmplaceBack(MakeActivityState(activity));
     }
@@ -51,7 +63,7 @@ Red::DynArray<App::OpenWorldActivityState> App::OpenWorldSystem::GetActivities()
 
 App::OpenWorldActivityResult App::OpenWorldSystem::StartActivity(Red::CName aName, Red::Optional<bool> aForce)
 {
-    const auto& activity = m_registry->FindActivity(aName);
+    const auto& activity = m_questPhaseRegistry->FindActivity(aName);
 
     if (!activity)
         return OpenWorldActivityResult::NotFound;
@@ -83,7 +95,7 @@ int32_t App::OpenWorldSystem::StartActivities(Red::Optional<OpenWorldActivityReq
         realTimeMultiplier = Red::GetFlatValue<float>("timeSystem.settings.realTimeMultiplier");
     }
 
-    for (const auto& activity : m_registry->GetAllActivities())
+    for (const auto& activity : m_questPhaseRegistry->GetAllActivities())
     {
         auto state = MakeActivityState(activity);
 
@@ -152,7 +164,7 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
     for (const auto& communityRef : aActivity->communityRefs)
     {
-        auto communityID = ResolveNodeRef(communityRef);
+        auto communityID = Red::ResolveEntityID(communityRef.objectRef);
 
         if (!communityID)
             continue;
@@ -197,7 +209,7 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
     for (const auto& spawnerRef : aActivity->spawnerRefs)
     {
-        auto spawnerID = ResolveNodeRef(spawnerRef);
+        auto spawnerID = Red::ResolveEntityID(spawnerRef);
 
         if (!spawnerID)
             continue;
@@ -242,7 +254,7 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
     for (const auto& persistenceRef : aActivity->persistenceRefs)
     {
-        auto objectID = ResolveNodeRef(persistenceRef.objectRef);
+        auto objectID = Red::ResolveEntityID(persistenceRef.objectRef);
 
         if (!objectID)
             continue;
@@ -253,6 +265,8 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
         if (entity)
             return OpenWorldActivityResult::StillSpawned;
+
+        // TODO: Use node registry for static nodes?
     }
 
     for (const auto& communityID : communityIDs)
@@ -297,7 +311,7 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
     for (const auto& persistenceRef : aActivity->persistenceRefs)
     {
-        auto objectID = ResolveNodeRef(persistenceRef.objectRef);
+        auto objectID = Red::ResolveEntityID(persistenceRef.objectRef);
 
         if (!objectID)
             continue;
@@ -319,10 +333,10 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
                                               1);
     }
 
-    for (const auto& factID : aActivity->namedFacts)
-    {
-        m_factManager->ResetFact(factID);
-    }
+    // for (const auto& factID : aActivity->namedFacts)
+    // {
+    //     m_factManager->ResetFact(factID);
+    // }
 
     for (const auto& factID : aActivity->graphFacts)
     {
@@ -331,7 +345,7 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
     if (aActivity->lootContainerRef.hash && !aActivity->lootItemIDs.empty())
     {
-        auto lootContainerID = ResolveNodeRef(aActivity->lootContainerRef);
+        auto lootContainerID = Red::ResolveEntityID(aActivity->lootContainerRef);
         if (lootContainerID)
         {
             for (const auto& itemTDBID : aActivity->lootItemIDs)
@@ -351,57 +365,18 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
     if (aActivity->phaseGraph)
     {
-        Red::QuestContext context{};
-        Raw::QuestsSystem::CreateContext(m_questsSystem, &context, 1, 0, -1, -1);
-
-        // {
-        //     auto phaseNodePath = aActivity->phaseNodePath;
-        //     auto maxDepth = phaseNodePath.size - 1;
-        //     for (auto depth = 1; depth <= maxDepth; ++depth)
-        //     {
-        //         phaseNodePath.size = depth;
-        //         auto phaseInstance = m_registry->GetPhaseInstance(phaseNodePath);
-        //         context.phaseStack.PushBack(phaseInstance.instance);
-        //     }
-        // }
-
         if (!aActivity->resetNodes.empty())
         {
-            context.phaseStack.PushBack(aActivity->phaseInstance);
-
-            Red::QuestNodeSocket inputSocket;
-            Red::DynArray<Red::QuestNodeSocket> outputSockets;
-
-            for (const auto& resetNode : aActivity->resetNodes)
-            {
-                Raw::QuestPhaseInstance::ExecuteNode(aActivity->phaseInstance, resetNode, context,
-                                                     inputSocket, outputSockets);
-            }
-
-            context.phaseStack.Clear();
+            m_questNodeExecutor->ExecuteNodes(aActivity->resetNodes, aActivity->phaseInstance);
         }
 
         if (aActivity->inputNode)
         {
-            Red::DynArray<Red::QuestNodeSocket> outputSockets;
-            Raw::QuestPhaseInstance::ExequteGraph(aActivity->phaseInstance, context, aActivity->inputNode,
-                                                  aActivity->inputSocket, true, outputSockets);
+            m_questNodeExecutor->ExecuteGraph(aActivity->inputNode, aActivity->inputSocket, aActivity->phaseInstance);
         }
     }
 
     return OpenWorldActivityResult::OK;
-}
-
-Red::EntityID App::OpenWorldSystem::ResolveNodeRef(Red::NodeRef aNodeRef)
-{
-    // Red::worldGlobalNodeRef context{};
-    // Red::ExecuteFunction("worldGlobalNodeID", "GetRoot", &context);
-    static const Red::GlobalNodeRef context{Red::FNV1a64("$")};
-
-    Red::GlobalNodeRef resolved{};
-    Red::CallGlobal("ResolveNodeRef", resolved, aNodeRef, context);
-
-    return resolved.hash;
 }
 
 void App::OpenWorldSystem::PrintActivities(Red::Optional<OpenWorldActivityRequest>& aRequest)
@@ -417,7 +392,7 @@ void App::OpenWorldSystem::PrintActivities(Red::Optional<OpenWorldActivityReques
         realTimeMultiplier = Red::GetFlatValue<float>("timeSystem.settings.realTimeMultiplier");
     }
 
-    for (const auto& activity : m_registry->GetAllActivities())
+    for (const auto& activity : m_questPhaseRegistry->GetAllActivities())
     {
         auto state = MakeActivityState(activity);
 
@@ -434,9 +409,9 @@ void App::OpenWorldSystem::PrintActivities(Red::Optional<OpenWorldActivityReques
 
 void App::OpenWorldSystem::DumpActivities()
 {
-    if (m_registry)
+    if (m_questPhaseRegistry)
     {
-        m_registry->DumpActivities();
+        m_questPhaseRegistry->DumpActivities();
     }
 }
 
@@ -445,6 +420,7 @@ App::OpenWorldActivityState::OpenWorldActivityState()
     , area(Red::gamedataDistrict::Invalid)
     , timestamp(0)
     , completed(false)
+    , discovered(false)
     , valid(false)
 {
 }
@@ -456,12 +432,14 @@ App::OpenWorldActivityState::OpenWorldActivityState(const Core::SharedPtr<Activi
     , area(aSource->area)
     , timestamp(0)
     , completed(false)
+    , discovered(false)
     , valid(true)
 {
 }
 
 App::OpenWorldActivityRequest::OpenWorldActivityRequest()
     : cooldown(0)
+    , force(false)
 {
 }
 

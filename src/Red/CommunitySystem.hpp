@@ -86,40 +86,40 @@ namespace Raw::CommunitySystem
 {
 constexpr auto ActivateCommunity = Core::RawVFunc<
     /* addr = */ 0x1A8,
-    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName)>();
 
 constexpr auto DeactivateCommunity = Core::RawVFunc<
     /* addr = */ 0x1B0,
-    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName)>();
 
 constexpr auto SetCommunityPhase = Core::RawVFunc<
     /* addr = */ 0x1B8,
-    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName, Red::CName aPhaseName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName, Red::CName aPhaseName)>();
 
 constexpr auto ResetCommunity = Core::RawVFunc<
     /* addr = */ 0x1C0,
-    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName)>();
 
 constexpr auto GetCommunity = Core::RawVFunc<
     /* addr = */ 0x220,
     /* type = */ void* (Red::ICommunitySystem::*)(Red::WeakPtr<Red::Community>& aOut, 
-                                                  const Red::EntityID& aCommunityID)>();
+                                                  const uint64_t& aCommunityID)>();
 
 constexpr auto ActivateSpawner = Core::RawVFunc<
     /* addr = */ 0x1D0,
-    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID)>();
 
 constexpr auto DeactivateSpawner = Core::RawVFunc<
     /* addr = */ 0x1D8,
-    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID)>();
 
 constexpr auto ResetSpawner = Core::RawVFunc<
     /* addr = */ 0x1E0,
-    /* type = */ void (Red::ICommunitySystem::*)(Red::EntityID aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID)>();
 
 constexpr auto GetSpawner = Core::RawVFunc<
     /* addr = */ 0x258,
-    /* type = */ void* (Red::ICommunitySystem::*)(Red::WeakPtr<Red::Spawner>& aOut, Red::EntityID aSpawnerID)>();
+    /* type = */ void* (Red::ICommunitySystem::*)(Red::WeakPtr<Red::Spawner>& aOut, uint64_t aSpawnerID)>();
 
 constexpr auto Update = Core::RawFunc<
     /* addr = */ Red::Addresses::CommunitySystem_Update,

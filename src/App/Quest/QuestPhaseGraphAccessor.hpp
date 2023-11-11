@@ -111,9 +111,31 @@ public:
         return communities;
     }
 
+    inline Core::Vector<Red::Handle<Red::questSpawnSet_NodeType>> FindSpawnSets()
+    {
+        Core::Vector<Red::Handle<Red::questSpawnSet_NodeType>> spawnSets;
+
+        for (const auto& node : GetNodesOfType<Red::questSpawnManagerNodeDefinition>())
+        {
+            for (const auto& action : node->actions)
+            {
+                if (const auto& nodeType = Red::Cast<Red::questSpawnSet_NodeType>(action.type))
+                {
+                    if (nodeType->action == Red::populationSpawnerObjectCtrlAction::Activate ||
+                        nodeType->action == Red::populationSpawnerObjectCtrlAction::Reactivate)
+                    {
+                        spawnSets.push_back(nodeType);
+                    }
+                }
+            }
+        }
+
+        return spawnSets;
+    }
+
     inline Core::Vector<Red::Handle<Red::questSpawner_NodeType>> FindSpawners()
     {
-        Core::Vector<Red::Handle<Red::questSpawner_NodeType>> communities;
+        Core::Vector<Red::Handle<Red::questSpawner_NodeType>> spawners;
 
         for (const auto& node : GetNodesOfType<Red::questSpawnManagerNodeDefinition>())
         {
@@ -124,13 +146,13 @@ public:
                     if (nodeType->action == Red::populationSpawnerObjectCtrlAction::Activate ||
                         nodeType->action == Red::populationSpawnerObjectCtrlAction::Reactivate)
                     {
-                        communities.push_back(nodeType);
+                        spawners.push_back(nodeType);
                     }
                 }
             }
         }
 
-        return communities;
+        return spawners;
     }
 
     inline Core::Vector<Red::Handle<Red::questSetVar_NodeType>> FindFactChanges()

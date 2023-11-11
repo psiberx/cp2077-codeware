@@ -1,10 +1,10 @@
 #include "Application.hpp"
 #include "App/Entity/PersistencyService.hpp"
+#include "App/Quest/QuestPhaseRegistry.hpp"
 #include "App/Scripting/ScriptingService.hpp"
 #include "App/UI/WidgetBuildingService.hpp"
 #include "App/UI/WidgetInputService.hpp"
 #include "App/UI/WidgetSpawningService.hpp"
-#include "App/World/OpenWorldRegistry.hpp"
 #include "App/World/OpenWorldTracker.hpp"
 #include "Core/Foundation/LocaleProvider.hpp"
 #include "Core/Foundation/RuntimeProvider.hpp"
@@ -23,7 +23,7 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
 
     Register<App::ScriptingService>();
     Register<App::PersistencyService>();
-    Register<App::OpenWorldRegistry>();
+    Register<App::QuestPhaseRegistry>();
     Register<App::OpenWorldTracker>();
     Register<App::WidgetBuildingService>();
     Register<App::WidgetSpawningService>();

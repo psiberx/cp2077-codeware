@@ -42,12 +42,25 @@ RED4EXT_ASSERT_SIZE(QuestNodeKey, 0x8);
 RED4EXT_ASSERT_OFFSET(QuestNodeKey, phaseHash, 0x0);
 // RED4EXT_ASSERT_OFFSET(PhaseNodePath, nodeID, 0x6);
 
+struct QuestPhaseContext
+{
+    virtual ~QuestPhaseContext() = default;
+
+    uintptr_t game;
+    uintptr_t unk1;
+    uintptr_t unk2;
+    uintptr_t unk3;
+    uintptr_t unk4;
+    void* prefabLoader;
+    uint64_t unk110[0x3D];
+};
+
 struct QuestContext
 {
     uint8_t unk0[0xF8];                       // 00
     DynArray<questPhaseInstance*> phaseStack; // F8
     NodeID nodeID;                            // 108
-    uint64_t unk110[0x44];                    // 110
+    QuestPhaseContext phaseContext;           // 110
 };
 RED4EXT_ASSERT_SIZE(QuestContext, 0x330);
 RED4EXT_ASSERT_OFFSET(QuestContext, phaseStack, 0xF8);
@@ -62,6 +75,15 @@ struct QuestNodeSocket
 
     CName name;
     uint8_t unk08;
+};
+
+struct QuestPhaseHandler
+{
+    virtual Memory::IAllocator* GetAllocator() = 0;
+    virtual ~QuestPhaseHandler() = 0;
+    virtual void Initialize(QuestPhaseContext* aContext) = 0;
+    virtual void Reinitialize(QuestPhaseContext* aContext) = 0;
+    virtual void Uninitialize(QuestPhaseContext* aContext) = 0;
 };
 
 struct FactID
@@ -115,6 +137,10 @@ struct FactManager
 
     inline void ResetFact(FactID aFact)
     {
+#ifndef NDEBUG
+        if (GetFact(NamedFactStore, aFact) != 0)
+            __nop();
+#endif
         SetFact(NamedFactStore, aFact, 0);
     }
 
@@ -172,11 +198,15 @@ constexpr auto CreateContext = Core::RawFunc<
 
 // constexpr auto StopPhase = Core::RawVFunc<
 //     /* addr = */ 0x210,
-//     /* type = */ void (Red::questIQuestsSystem::*)(const Red::PhaseNodePath& aNodePath, uint8_t a2)>();
-//
+//     /* type = */ void (Red::questIQuestsSystem::*)(const Red::QuestNodeKey& aNodeKey, uint8_t a2)>();
+
+// constexpr auto PreparePhase = Core::RawVFunc<
+//     /* addr = */ 0x228,
+//     /* type = */ bool (Red::questIQuestsSystem::*)(const Red::QuestNodeKey& aNodeKey)>();
+
 // constexpr auto RestartPhase = Core::RawVFunc<
 //     /* addr = */ 0x238,
-//     /* type = */ void (Red::questIQuestsSystem::*)(const Red::PhaseNodePath& aNodePath,
+//     /* type = */ void (Red::questIQuestsSystem::*)(const Red::QuestNodeKey& aNodeKey,
 //                                                    const Red::DynArray<Red::CName>& aInputSockets)>();
 }
 
@@ -193,6 +223,8 @@ constexpr auto PhasePreloadCheck = Core::RawFunc<
 
 namespace Raw::QuestPhaseInstance
 {
+using Handlers = Core::OffsetPtr<0x98, Red::HashMap<Red::NodePathHash, Red::SharedPtr<Red::QuestPhaseHandler>>>;
+
 constexpr auto Initialize = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestPhaseInstance_Initialize,
     /* type = */ void* (*)(Red::questPhaseInstance* aPhase,

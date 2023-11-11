@@ -9,6 +9,12 @@
 
 namespace App
 {
+struct CommunityRef
+{
+    Red::NodeRef objectRef;
+    Red::CName entryName;
+};
+
 struct PersistentStateRef
 {
     Red::NodeRef objectRef;
@@ -28,17 +34,19 @@ struct ActivityDefinition
 
     Red::JournalEntryHash mappinHash;
     Red::Handle<Red::gameJournalPointOfInterestMappin> mappinEntry;
-    Core::Vector<Red::NodeRef> communityRefs;
+    Core::Vector<Red::TweakDBID> lootItemIDs;
+    Red::NodeRef lootContainerRef;
+
+    Core::Vector<CommunityRef> communityRefs;
     Core::Vector<Red::NodeRef> spawnerRefs;
     Core::Vector<Red::FactID> namedFacts;
     Core::Vector<Red::FactID> graphFacts;
     Core::Vector<Red::JournalEntryHash> journalHashes;
     Core::Vector<PersistentStateRef> persistenceRefs;
-    Core::Vector<Red::TweakDBID> lootItemIDs;
-    Red::NodeRef lootContainerRef;
 
     Red::questPhaseInstance* phaseInstance;
     Red::WeakHandle<Red::questGraphDefinition> phaseGraph;
+    Red::WeakHandle<Red::questQuestPhaseResource> phaseResource;
     Red::QuestNodePath phaseNodePath;
     Red::QuestNodeKey phaseNodeKey;
     Red::WeakHandle<Red::questNodeDefinition> inputNode;
@@ -47,18 +55,20 @@ struct ActivityDefinition
     Core::Vector<Red::Handle<Red::questNodeDefinition>> resetNodes;
 };
 
-class OpenWorldRegistry
+class QuestPhaseRegistry
     : public Core::Feature
     , public Core::HookingAgent
     , public Core::LoggingAgent
 {
 public:
+    bool HasRegisteredPhases();
+    Red::questPhaseInstance* GetPhaseInstance(Red::QuestNodeKey aPhasePath);
+
+    bool HasRegisteredActivities();
     Core::Vector<Core::SharedPtr<ActivityDefinition>> GetAllActivities();
     Core::Vector<Red::CName> GetAllActivityNames();
     Core::SharedPtr<ActivityDefinition> FindActivity(Red::CName aName);
     void DumpActivities();
-
-    Red::WeakHandle<Red::questPhaseInstance> GetPhaseInstance(Red::QuestNodeKey aPhasePath);
 
 protected:
     void OnBootstrap() override;
@@ -73,6 +83,7 @@ protected:
                                       Red::Handle<Red::questGraphDefinition>& aPhaseGraph);
     static bool RegisterCrimeActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                       Red::questPhaseInstance* aPhase,
+                                      const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                       Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
                                       const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID);
     static bool RegisterCyberpsychoActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
@@ -87,8 +98,10 @@ protected:
     static bool IsCombatActivityVariant(Red::gamedataMappinVariant aVariant);
 
 private:
-    inline static Core::Map<Red::CName, Core::SharedPtr<ActivityDefinition>> s_activities;
+    // TODO: locks
     inline static Core::Map<uint64_t, Red::WeakHandle<Red::questPhaseInstance>> s_phaseInstances;
+
+    inline static Core::Map<Red::CName, Core::SharedPtr<ActivityDefinition>> s_activities;
     inline static Red::QuestNodePath s_minorActivitiesRootPhasePath;
 };
 }
