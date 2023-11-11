@@ -4,28 +4,34 @@
 
 namespace Red
 {
-using NodeID = uint16_t;
-using QuestNodePath = DynArray<NodeID>;
-using NodePathHash = uint32_t;
+using QuestNodeID = uint16_t;
+using QuestNodePath = DynArray<QuestNodeID>;
+using QuestNodePathHash = uint32_t;
+
+bool IsRelatedQuestNodePath(const QuestNodePath& aParentPath, const QuestNodePath& aPath)
+{
+    return aPath.size > aParentPath.size &&
+           std::memcmp(aPath.entries, aParentPath.entries, aParentPath.size * sizeof(Red::QuestNodeID)) == 0;
+}
 
 struct QuestNodeKey
 {
     QuestNodeKey() = default;
 
-    QuestNodeKey(NodePathHash aPhaseHash, NodeID aNodeID = 0)
+    QuestNodeKey(QuestNodePathHash aPhaseHash, QuestNodeID aNodeID = 0)
         : phaseHash(aPhaseHash)
         , nodeID(aNodeID)
     {
     }
 
     QuestNodeKey(const QuestNodePath& aNodePath)
-        : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), (aNodePath.size - 1) * sizeof(NodeID)))
+        : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), (aNodePath.size - 1) * sizeof(QuestNodeID)))
         , nodeID(aNodePath.Back())
     {
     }
 
-    QuestNodeKey(const QuestNodePath& aNodePath, NodeID aNodeID)
-        : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), aNodePath.size * sizeof(NodeID)))
+    QuestNodeKey(const QuestNodePath& aNodePath, QuestNodeID aNodeID)
+        : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), aNodePath.size * sizeof(QuestNodeID)))
         , nodeID(aNodeID)
     {
     }
@@ -41,8 +47,8 @@ struct QuestNodeKey
         return FNV1a32(reinterpret_cast<uint8_t*>(&data), sizeof(data));
     }
 
-    NodePathHash phaseHash;
-    NodePathHash nodeID;
+    QuestNodePathHash phaseHash;
+    QuestNodePathHash nodeID;
 };
 RED4EXT_ASSERT_SIZE(QuestNodeKey, 0x8);
 RED4EXT_ASSERT_OFFSET(QuestNodeKey, phaseHash, 0x0);
@@ -65,7 +71,7 @@ struct QuestContext
 {
     uint8_t unk0[0xF8];                       // 00
     DynArray<questPhaseInstance*> phaseStack; // F8
-    NodeID nodeID;                            // 108
+    QuestNodeID nodeID;                            // 108
     QuestPhaseContext phaseContext;           // 110
 };
 RED4EXT_ASSERT_SIZE(QuestContext, 0x330);
@@ -192,6 +198,7 @@ struct AreaTypeTransition
 namespace Raw::QuestsSystem
 {
 using FactManager = Core::OffsetPtr<0xF8, Red::FactManager*>;
+using PathHashMap = Core::OffsetPtr<0x78, Red::HashMap<Red::QuestNodePathHash, Red::QuestNodePath>>;
 
 constexpr auto CreateContext = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestsSystem_CreateContext,
@@ -231,9 +238,9 @@ namespace Raw::QuestPhaseInstance
 {
 using Resource = Core::OffsetPtr<0x30, Red::Handle<Red::questQuestPhaseResource>>;
 using Grapth = Core::OffsetPtr<0x40, Red::Handle<Red::questGraphDefinition>>;
-using Path = Core::OffsetPtr<0x70, Red::QuestNodePath>;
-using PathHash = Core::OffsetPtr<0x80, Red::NodePathHash>;
-using Handlers = Core::OffsetPtr<0x98, Red::HashMap<Red::NodePathHash, Red::SharedPtr<Red::QuestPhaseHandler>>>;
+using NodePath = Core::OffsetPtr<0x70, Red::QuestNodePath>;
+using NodePathHash = Core::OffsetPtr<0x80, Red::QuestNodePathHash>;
+using Handlers = Core::OffsetPtr<0x98, Red::HashMap<Red::QuestNodePathHash, Red::SharedPtr<Red::QuestPhaseHandler>>>;
 
 constexpr auto Initialize = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestPhaseInstance_Initialize,
@@ -242,7 +249,7 @@ constexpr auto Initialize = Core::RawFunc<
                            const Red::Handle<Red::questQuestPhaseResource>& aResource,
                            Red::Handle<Red::questGraphDefinition>& aGraph,
                            const Red::QuestNodePath& aParentPath,
-                           Red::NodeID aPhaseNodeID)>();
+                           Red::QuestNodeID aPhaseNodeID)>();
 
 constexpr auto ExequteGraph = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestPhaseInstance_ExequteGraph,
@@ -269,5 +276,5 @@ using OwnerNode = Core::OffsetPtr<0x48, Red::WeakHandle<Red::questNodeDefinition
 
 namespace Raw::QuestConditionType
 {
-using OwnerNodeID = Core::OffsetPtr<0x30, Red::NodePathHash>;
+using OwnerNodeID = Core::OffsetPtr<0x30, Red::QuestNodePathHash>;
 }

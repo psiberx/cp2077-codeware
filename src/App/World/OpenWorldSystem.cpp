@@ -335,11 +335,6 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
                                               1);
     }
 
-    // for (const auto& factID : aActivity->namedFacts)
-    // {
-    //     m_factManager->ResetFact(factID);
-    // }
-
     for (const auto& factID : aActivity->graphFacts)
     {
         m_factManager->ResetGraphFact(factID);

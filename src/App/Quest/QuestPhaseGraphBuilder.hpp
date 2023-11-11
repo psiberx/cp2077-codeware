@@ -8,7 +8,7 @@ class QuestPhaseGraphBuilder
 {
 public:
     QuestPhaseGraphBuilder(Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                    Red::NodeID aNextNodeID = 10001)
+                                    Red::QuestNodeID aNextNodeID = 10001)
         : m_graph(aPhaseGraph)
         , m_nextNodeID(aNextNodeID)
     {
@@ -119,6 +119,6 @@ public:
 
 private:
     Red::Handle<Red::questGraphDefinition>& m_graph;
-    Red::NodeID m_nextNodeID;
+    Red::QuestNodeID m_nextNodeID;
 };
 }

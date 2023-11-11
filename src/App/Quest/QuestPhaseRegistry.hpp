@@ -78,7 +78,7 @@ protected:
     static void OnInitializePhase(Red::questPhaseInstance* aPhase, Red::QuestContext& aContext,
                                   const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                   Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                  const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID);
+                                  const Red::QuestNodePath& aParentNodePath, Red::QuestNodeID aPhaseNodeID);
 
     static void ApplyActivityBugfixes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                       const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
@@ -91,7 +91,7 @@ protected:
     static bool RegisterCyberpsychoActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                             Red::questPhaseInstance* aPhase,
                                             const Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
-                                            const Red::QuestNodePath& aParentPath, Red::NodeID aPhaseNodeID);
+                                            const Red::QuestNodePath& aParentPath, Red::QuestNodeID aPhaseNodeID);
     static void GenerateResetNodes(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                    const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                    Core::Vector<Red::Handle<Red::questNodeDefinition>>& aResetNodes);
@@ -107,8 +107,8 @@ private:
 
     inline static std::shared_mutex s_activitiesLock;
     inline static Core::Map<Red::CName, Core::SharedPtr<ActivityDefinition>> s_activities;
-    inline static Red::QuestNodePath s_minorActivitiesRootPhasePath;
-    inline static Red::QuestNodePath s_communitiesRootPhasePath;
+    inline static Red::QuestNodePath s_minorActivitiesPhasePath;
+    inline static Red::QuestNodePath s_globalCommunityPhasePath;
     inline static bool s_activitiesReady;
 };
 }
