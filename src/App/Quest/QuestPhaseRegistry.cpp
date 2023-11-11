@@ -8,7 +8,8 @@
 namespace
 {
 constexpr auto MinorActivitiesResource = R"(base\open_world\minor_activities\open_world_minor_activities.questphase)";
-constexpr auto GlobalCommunityResource = R"(base\open_world\community\global_phase\open_world_global_commuinity_phase.questphase)";
+constexpr auto CommunityMainResource = R"(base\open_world\phases\open_world_content.questphase)";
+constexpr auto CommunityBugfixResource = R"(base\quest\bugfixing\open_world_bugfixing.questphase)";
 }
 
 void App::QuestPhaseRegistry::OnBootstrap()
@@ -22,18 +23,18 @@ void App::QuestPhaseRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader,
 {
     if (!aPreload)
     {
-        if (s_minorActivitiesPhasePath.size == 0)
+        if (s_communityMainPhasePath.size == 0)
         {
             auto& nodePathMap = Raw::QuestLoader::NodePathMap::Ref(aLoader);
-            auto minorActivitiesPhasePath = nodePathMap.Get(MinorActivitiesResource);
+            auto openWorldPhasePath = nodePathMap.Get(CommunityMainResource);
 
-            if (!minorActivitiesPhasePath)
+            if (!openWorldPhasePath)
                 return;
 
-            s_minorActivitiesPhasePath = *minorActivitiesPhasePath;
+            s_communityMainPhasePath = *openWorldPhasePath;
         }
 
-        if (Red::IsRelatedQuestNodePath(s_minorActivitiesPhasePath, aPhaseNodePath))
+        if (Red::IsRelatedQuestNodePath(s_communityMainPhasePath, aPhaseNodePath))
         {
             auto& preloadList = Raw::QuestLoader::PreloadList::Ref(aLoader);
             preloadList.PushBack(aPhaseNodePath);
@@ -73,9 +74,13 @@ void App::QuestPhaseRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase,
         {
             s_minorActivitiesPhasePath = phaseNodePath;
         }
-        else if (aPhaseResource->path == GlobalCommunityResource)
+        else if (aPhaseResource->path == CommunityMainResource)
         {
-            s_globalCommunityPhasePath = phaseNodePath;
+            s_communityMainPhasePath = phaseNodePath;
+        }
+        else if (aPhaseResource->path == CommunityBugfixResource)
+        {
+            s_communityBugfixPhasePath = phaseNodePath;
         }
     }
 }
@@ -113,50 +118,69 @@ void App::QuestPhaseRegistry::InitializeActivities()
     if (ActivitiesInitialized())
         return;
 
+    std::shared_lock phasesLockR(s_phasesLock);
+    std::unique_lock activitiesLockRW(s_activitiesLock);
+
+    Core::Vector<Red::questPhaseInstance*> communityPhases;
+
+    for (auto& [_, phaseWeak] : s_phases)
     {
-        std::shared_lock phasesLockR(s_phasesLock);
-
-        Core::Vector<Red::questPhaseInstance*> communityPhases;
-
-        for (auto& [_, phaseWeak] : s_phases)
+        if (auto phase = phaseWeak.Lock())
         {
-            if (auto phase = phaseWeak.Lock())
+            auto& phaseInstance = phase.instance;
+            auto& phaseResource = Raw::QuestPhaseInstance::Resource::Ref(phaseInstance);
+
+            if (phaseResource)
             {
-                auto& phaseInstance = phase.instance;
-                auto& phaseResource = Raw::QuestPhaseInstance::Resource::Ref(phaseInstance);
+                auto& phaseGraph = Raw::QuestPhaseInstance::Graph::Ref(phaseInstance);
+                auto& phaseNodePath = Raw::QuestPhaseInstance::NodePath::Ref(phaseInstance);
+                auto& phaseNodePathHash = Raw::QuestPhaseInstance::NodePathHash::Ref(phaseInstance);
 
-                if (phaseResource)
+                if (Red::IsRelatedQuestNodePath(s_minorActivitiesPhasePath, phaseNodePath))
                 {
-                    auto& phaseGraph = Raw::QuestPhaseInstance::Grapth::Ref(phaseInstance);
-                    auto& phaseNodePath = Raw::QuestPhaseInstance::NodePath::Ref(phaseInstance);
-
-                    if (Red::IsRelatedQuestNodePath(s_minorActivitiesPhasePath, phaseNodePath))
-                    {
-                        QuestPhaseGraphAccessor phaseGraphAccessor{phaseGraph};
-                        ApplyActivityBugfixes(phaseGraphAccessor, phaseResource, phaseGraph);
-                        RegisterCrimeActivity(phaseGraphAccessor, phaseInstance, phaseResource, phaseGraph, phaseNodePath);
-                    }
-                    else if (Red::IsRelatedQuestNodePath(s_globalCommunityPhasePath, phaseNodePath))
-                    {
-                        communityPhases.push_back(phaseInstance);
-                    }
+                    QuestPhaseGraphAccessor phaseGraphAccessor{phaseGraph, true};
+                    ApplyActivityBugfixes(phaseGraphAccessor, phaseResource, phaseGraph);
+                    RegisterMinorActivity(phaseGraphAccessor, phaseInstance, phaseResource, phaseGraph, phaseNodePath);
+                }
+                else if (Red::IsRelatedQuestNodePath(s_communityMainPhasePath, phaseNodePath) ||
+                         Red::IsRelatedQuestNodePath(s_communityBugfixPhasePath, phaseNodePath))
+                {
+                    communityPhases.push_back(phaseInstance);
                 }
             }
         }
+    }
 
-        for (auto& phase : communityPhases)
+#ifndef NDEBUG
+    for (auto& phaseInstance : communityPhases)
+    {
+        auto& phaseGraph = Raw::QuestPhaseInstance::Graph::Ref(phaseInstance);
+        auto& phaseNodePathHash = Raw::QuestPhaseInstance::NodePathHash::Ref(phaseInstance);
+
+        QuestPhaseGraphAccessor phaseGraphAccessor{phaseGraph, true};
+
+        for (const auto& factCondition : phaseGraphAccessor.FindFactConditions())
         {
-            // TODO: Detect communities affected by minor activities
+            Red::FactID factID{factCondition->factName.c_str()};
+
+            auto it = s_activitiesByFacts.find(factID);
+            if (it != s_activitiesByFacts.end())
+            {
+                s_populationsByFacts[factID].push_back(phaseNodePathHash);
+
+                for (const auto& activityName : it.value())
+                {
+                    LogDebug("Population: {} {} {}", activityName.ToString(), phaseNodePathHash, factCondition->factName.c_str());
+                }
+            }
         }
     }
+#endif
 
-    {
-        std::unique_lock activitiesLockRW(s_activitiesLock);
-        s_activitiesReady = true;
-    }
+    s_activitiesReady = true;
 }
 
-void App::QuestPhaseRegistry::ApplyActivityBugfixes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+bool App::QuestPhaseRegistry::ApplyActivityBugfixes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                                     const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                                     Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
 {
@@ -169,10 +193,14 @@ void App::QuestPhaseRegistry::ApplyActivityBugfixes(App::QuestPhaseGraphAccessor
                 prefabNodeType->show = false;
             }
         }
+
+        return true;
     }
+
+    return false;
 }
 
-bool App::QuestPhaseRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+bool App::QuestPhaseRegistry::RegisterMinorActivity(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                                     Red::questPhaseInstance* aPhase,
                                                     const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                                     Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
@@ -259,7 +287,7 @@ bool App::QuestPhaseRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor
         }
     }
 
-    for (const auto& journalObjective : aPhaseGraphAccessor.FindJournalObjectives())
+    for (const auto& journalObjective : aPhaseGraphAccessor.FindJournalConditions())
     {
         activity->journalHashes.push_back(Red::Murmur3_32(journalObjective->realPath.c_str()));
     }
@@ -277,12 +305,12 @@ bool App::QuestPhaseRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor
         activity->graphFacts.emplace_back(graphNodePath);
     }
 
-    for (const auto& lootObjective : aPhaseGraphAccessor.FindLootObjectives())
+    for (const auto& lootObjective : aPhaseGraphAccessor.FindLootConditions())
     {
         activity->lootItemIDs.push_back(lootObjective->itemID);
     }
 
-    if (auto lootContainer = aPhaseGraphAccessor.FindLootContainer())
+    if (auto lootContainer = aPhaseGraphAccessor.FindLootContainerCondition())
     {
         activity->lootContainerRef = lootContainer->objectRef;
         activity->persistenceRefs.push_back({lootContainer->objectRef});
@@ -356,10 +384,12 @@ bool App::QuestPhaseRegistry::RegisterCrimeActivity(App::QuestPhaseGraphAccessor
     activity->inputSocket = {inputNode->socketName};
     activity->inputNodeKey = {aPhaseNodePath, inputNode->id};
 
+    for (const auto& factID : activity->namedFacts)
     {
-        std::unique_lock activitiesLockRW(s_activitiesLock);
-        s_activities[activity->name] = std::move(activity);
+        s_activitiesByFacts[factID].push_back(activity->name);
     }
+
+    s_activities[activity->name] = std::move(activity);
 
     return true;
 }
@@ -379,7 +409,7 @@ bool App::QuestPhaseRegistry::RegisterCyberpsychoActivity(App::QuestPhaseGraphAc
     if (!activityName)
         return false;
 
-    auto characterKill = aPhaseGraphAccessor.FindCharacterKill();
+    auto characterKill = aPhaseGraphAccessor.FindCharacterKillCondition();
 
     if (!characterKill)
         return false;
@@ -541,10 +571,11 @@ bool App::QuestPhaseRegistry::IsMinorActivityRelatedFact(const Red::CString& aFa
     constexpr auto MinorActivityPrefix = "ma_";
     constexpr auto TokenSuffix = "_token";
     constexpr auto TutorialSuffix = "_tutorial";
+    constexpr auto AchievementSuffix = "_achievement";
 
     std::string_view name(aFactName.c_str());
 
-    if (name.ends_with(TutorialSuffix) || name.ends_with(TokenSuffix))
+    if (name.ends_with(TutorialSuffix) || name.ends_with(TokenSuffix) || name.ends_with(AchievementSuffix))
         return false;
 
     return true;

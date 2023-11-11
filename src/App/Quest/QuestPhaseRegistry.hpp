@@ -56,6 +56,24 @@ struct ActivityDefinition
     Core::Vector<Red::Handle<Red::questNodeDefinition>> resetNodes;
 };
 
+struct PopulationDefinition
+{
+    Core::Vector<CommunityRef> communityRefs;
+    Core::Vector<Red::NodeRef> spawnerRefs;
+    Core::Vector<Red::FactID> graphFacts;
+    Core::Vector<PersistentStateRef> persistenceRefs;
+
+    Red::questPhaseInstance* phaseInstance;
+    Red::WeakHandle<Red::questGraphDefinition> phaseGraph;
+    Red::WeakHandle<Red::questQuestPhaseResource> phaseResource;
+    Red::QuestNodePath phaseNodePath;
+    Red::QuestNodeKey phaseNodeKey;
+    Red::WeakHandle<Red::questNodeDefinition> inputNode;
+    Red::QuestNodeSocket inputSocket;
+    Red::QuestNodeKey inputNodeKey;
+    Core::Vector<Red::Handle<Red::questNodeDefinition>> resetNodes;
+};
+
 class QuestPhaseRegistry
     : public Core::Feature
     , public Core::HookingAgent
@@ -80,10 +98,10 @@ protected:
                                   Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
                                   const Red::QuestNodePath& aParentNodePath, Red::QuestNodeID aPhaseNodeID);
 
-    static void ApplyActivityBugfixes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+    static bool ApplyActivityBugfixes(App::QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                       const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                       Red::Handle<Red::questGraphDefinition>& aPhaseGraph);
-    static bool RegisterCrimeActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
+    static bool RegisterMinorActivity(QuestPhaseGraphAccessor& aPhaseGraphAccessor,
                                       Red::questPhaseInstance* aPhase,
                                       const Red::Handle<Red::questQuestPhaseResource>& aPhaseResource,
                                       Red::Handle<Red::questGraphDefinition>& aPhaseGraph,
@@ -107,8 +125,12 @@ private:
 
     inline static std::shared_mutex s_activitiesLock;
     inline static Core::Map<Red::CName, Core::SharedPtr<ActivityDefinition>> s_activities;
+    inline static Core::Map<uint64_t, Core::SharedPtr<PopulationDefinition>> s_populations;
+    inline static Core::Map<uint32_t, Core::Vector<Red::CName>> s_activitiesByFacts;
+    inline static Core::Map<uint32_t, Core::Vector<uint64_t>> s_populationsByFacts;
     inline static Red::QuestNodePath s_minorActivitiesPhasePath;
-    inline static Red::QuestNodePath s_globalCommunityPhasePath;
+    inline static Red::QuestNodePath s_communityMainPhasePath;
+    inline static Red::QuestNodePath s_communityBugfixPhasePath;
     inline static bool s_activitiesReady;
 };
 }

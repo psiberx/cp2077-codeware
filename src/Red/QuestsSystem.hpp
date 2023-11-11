@@ -8,7 +8,7 @@ using QuestNodeID = uint16_t;
 using QuestNodePath = DynArray<QuestNodeID>;
 using QuestNodePathHash = uint32_t;
 
-bool IsRelatedQuestNodePath(const QuestNodePath& aParentPath, const QuestNodePath& aPath)
+inline bool IsRelatedQuestNodePath(const QuestNodePath& aParentPath, const QuestNodePath& aPath)
 {
     return aPath.size > aParentPath.size &&
            std::memcmp(aPath.entries, aParentPath.entries, aParentPath.size * sizeof(Red::QuestNodeID)) == 0;
@@ -100,6 +100,8 @@ struct QuestPhaseHandler
 
 struct FactID
 {
+    constexpr FactID() = default;
+
     constexpr FactID(uint32_t aHash = 0) noexcept
         : hash(aHash)
     {
@@ -113,6 +115,11 @@ struct FactID
     FactID(QuestNodeKey aPath) noexcept
         : hash(aPath)
     {
+    }
+
+    operator uint32_t() const noexcept
+    {
+        return hash;
     }
 
     uint32_t hash;
@@ -237,7 +244,7 @@ constexpr auto PhasePreloadCheck = Core::RawFunc<
 namespace Raw::QuestPhaseInstance
 {
 using Resource = Core::OffsetPtr<0x30, Red::Handle<Red::questQuestPhaseResource>>;
-using Grapth = Core::OffsetPtr<0x40, Red::Handle<Red::questGraphDefinition>>;
+using Graph = Core::OffsetPtr<0x40, Red::Handle<Red::questGraphDefinition>>;
 using NodePath = Core::OffsetPtr<0x70, Red::QuestNodePath>;
 using NodePathHash = Core::OffsetPtr<0x80, Red::QuestNodePathHash>;
 using Handlers = Core::OffsetPtr<0x98, Red::HashMap<Red::QuestNodePathHash, Red::SharedPtr<Red::QuestPhaseHandler>>>;

@@ -7,10 +7,10 @@ namespace App
 class QuestPhaseGraphAccessor
 {
 public:
-    explicit QuestPhaseGraphAccessor(const Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
+    explicit QuestPhaseGraphAccessor(const Red::Handle<Red::questGraphDefinition>& aPhaseGraph, bool aRecursive = true)
         : m_graph(aPhaseGraph)
     {
-        CollectNodes(aPhaseGraph);
+        CollectNodes(aPhaseGraph, aRecursive);
     }
 
     template<class T>
@@ -55,33 +55,6 @@ public:
                     nodeType->phase == Red::gamedataMappinPhase::CompletedPhase)
                 {
                     return nodeType;
-                }
-            }
-        }
-
-        return {};
-    }
-
-    inline Red::Handle<Red::questCharacterKilled_ConditionType> FindCharacterKill()
-    {
-        for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
-        {
-            if (const auto& condition = Red::Cast<Red::questCharacterCondition>(node->condition))
-            {
-                if (const auto& conditionType = Red::Cast<Red::questCharacterKilled_ConditionType>(condition->type))
-                {
-                    return conditionType;
-                }
-            }
-        }
-
-        for (const auto& node : GetNodesOfType<Red::questConditionNodeDefinition>())
-        {
-            if (const auto& condition = Red::Cast<Red::questCharacterCondition>(node->condition))
-            {
-                if (const auto& conditionType = Red::Cast<Red::questCharacterKilled_ConditionType>(condition->type))
-                {
-                    return conditionType;
                 }
             }
         }
@@ -170,6 +143,24 @@ public:
         return changes;
     }
 
+    inline Core::Vector<Red::Handle<Red::questVarComparison_ConditionType>> FindFactConditions()
+    {
+        Core::Vector<Red::Handle<Red::questVarComparison_ConditionType>> conditions;
+
+        for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
+        {
+            if (const auto& condition = Red::Cast<Red::questFactsDBCondition>(node->condition))
+            {
+                if (const auto& conditionType = Red::Cast<Red::questVarComparison_ConditionType>(condition->type))
+                {
+                    conditions.push_back(conditionType);
+                }
+            }
+        }
+
+        return conditions;
+    }
+
     inline Core::Vector<Red::Handle<Red::questEventManagerNodeDefinition>> FindManagerEvents()
     {
         return GetNodesOfType<Red::questEventManagerNodeDefinition>();
@@ -180,9 +171,9 @@ public:
         return GetNodesOfType<Red::questJournalNodeDefinition>();
     }
 
-    inline Core::Vector<Red::Handle<Red::gameJournalPath>> FindJournalObjectives()
+    inline Core::Vector<Red::Handle<Red::gameJournalPath>> FindJournalConditions()
     {
-        Core::Vector<Red::Handle<Red::gameJournalPath>> objectives;
+        Core::Vector<Red::Handle<Red::gameJournalPath>> conditions;
 
         for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
         {
@@ -192,7 +183,7 @@ public:
                 {
                     if (conditionType->state == Red::gameJournalEntryUserState::Active)
                     {
-                        objectives.push_back(conditionType->path);
+                        conditions.push_back(conditionType->path);
                     }
                     continue;
                 }
@@ -200,18 +191,18 @@ public:
                 {
                     if (conditionType->state == Red::gameJournalEntryState::Active && !conditionType->inverted)
                     {
-                        objectives.push_back(conditionType->path);
+                        conditions.push_back(conditionType->path);
                     }
                 }
             }
         }
 
-        return objectives;
+        return conditions;
     }
 
-    inline Core::Vector<Red::Handle<Red::questInventory_ConditionType>> FindLootObjectives()
+    inline Core::Vector<Red::Handle<Red::questInventory_ConditionType>> FindLootConditions()
     {
-        Core::Vector<Red::Handle<Red::questInventory_ConditionType>> objectives;
+        Core::Vector<Red::Handle<Red::questInventory_ConditionType>> conditions;
 
         for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
         {
@@ -221,16 +212,16 @@ public:
                 {
                     if (conditionType->isPlayer)
                     {
-                        objectives.push_back(conditionType);
+                        conditions.push_back(conditionType);
                     }
                 }
             }
         }
 
-        return objectives;
+        return conditions;
     }
 
-    inline Red::Handle<Red::questInteraction_ConditionType> FindLootContainer()
+    inline Red::Handle<Red::questInteraction_ConditionType> FindLootContainerCondition()
     {
         for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
         {
@@ -242,6 +233,33 @@ public:
                     {
                         return conditionType;
                     }
+                }
+            }
+        }
+
+        return {};
+    }
+
+    inline Red::Handle<Red::questCharacterKilled_ConditionType> FindCharacterKillCondition()
+    {
+        for (const auto& node : GetNodesOfType<Red::questPauseConditionNodeDefinition>())
+        {
+            if (const auto& condition = Red::Cast<Red::questCharacterCondition>(node->condition))
+            {
+                if (const auto& conditionType = Red::Cast<Red::questCharacterKilled_ConditionType>(condition->type))
+                {
+                    return conditionType;
+                }
+            }
+        }
+
+        for (const auto& node : GetNodesOfType<Red::questConditionNodeDefinition>())
+        {
+            if (const auto& condition = Red::Cast<Red::questCharacterCondition>(node->condition))
+            {
+                if (const auto& conditionType = Red::Cast<Red::questCharacterKilled_ConditionType>(condition->type))
+                {
+                    return conditionType;
                 }
             }
         }
@@ -281,7 +299,7 @@ private:
         }
     }
 
-    inline void CollectNodes(const Red::Handle<Red::questGraphDefinition>& aPhaseGraph)
+    inline void CollectNodes(const Red::Handle<Red::questGraphDefinition>& aPhaseGraph, bool aRecursive)
     {
         Core::Vector<Red::Handle<Red::questPhaseNodeDefinition>> nestedPhases;
 
@@ -298,9 +316,12 @@ private:
             }
         }
 
-        for (const auto& phaseNode : nestedPhases)
+        if (aRecursive)
         {
-            CollectNodes(phaseNode->phaseGraph);
+            for (const auto& phaseNode : nestedPhases)
+            {
+                CollectNodes(phaseNode->phaseGraph, aRecursive);
+            }
         }
     }
 
