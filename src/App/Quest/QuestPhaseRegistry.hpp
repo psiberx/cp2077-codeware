@@ -81,7 +81,7 @@ class QuestPhaseRegistry
 {
 public:
     bool PhasesInitialized();
-    Red::questPhaseInstance* GetPhaseInstance(Red::QuestNodeKey aPhasePath);
+    Red::questPhaseInstance* GetPhaseInstance(Red::QuestNodePathHash aPhasePathHash);
 
     bool ActivitiesInitialized();
     void InitializeActivities();
@@ -120,7 +120,7 @@ protected:
 
 private:
     inline static std::shared_mutex s_phasesLock;
-    inline static Core::Map<uint64_t, Red::WeakHandle<Red::questPhaseInstance>> s_phases;
+    inline static Core::Map<Red::QuestNodePathHash, Red::WeakHandle<Red::questPhaseInstance>> s_phases;
     inline static bool s_phasesReady;
 
     inline static std::shared_mutex s_activitiesLock;

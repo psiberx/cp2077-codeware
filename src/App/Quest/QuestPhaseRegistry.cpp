@@ -62,6 +62,10 @@ void App::QuestPhaseRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase,
         s_phasesReady = false;
         s_phases.clear();
     }
+    else if (s_activitiesReady)
+    {
+        __nop();
+    }
 
     auto& phaseNodePathHash = Raw::QuestPhaseInstance::NodePathHash::Ref(aPhase);
     s_phases[phaseNodePathHash] = Red::AsWeakHandle(aPhase);
@@ -92,10 +96,10 @@ bool App::QuestPhaseRegistry::PhasesInitialized()
     return !s_phases.empty();
 }
 
-Red::questPhaseInstance* App::QuestPhaseRegistry::GetPhaseInstance(Red::QuestNodeKey aPhasePath)
+Red::questPhaseInstance* App::QuestPhaseRegistry::GetPhaseInstance(Red::QuestNodePathHash aPhasePathHash)
 {
     std::shared_lock phasesLockR(s_phasesLock);
-    const auto& it = s_phases.find(aPhasePath);
+    const auto& it = s_phases.find(aPhasePathHash);
 
     if (it == s_phases.end())
         return nullptr;

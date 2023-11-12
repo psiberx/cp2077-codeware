@@ -10,7 +10,7 @@ void App::WorldStateSystem::OnWorldAttached(Red::world::RuntimeScene*)
     m_factManager = Raw::QuestsSystem::FactManager::Ptr(m_questsSystem);
 
     m_questPhaseRegistry = Core::Resolve<QuestPhaseRegistry>();
-    m_questNodeExecutor = Core::MakeUnique<QuestNodeExecutor>(m_questPhaseRegistry, m_questsSystem);
+    m_questPhaseExecutor = Core::MakeUnique<QuestPhaseExecutor>(m_questPhaseRegistry, m_questsSystem);
 
     m_ready = true;
 }
@@ -57,7 +57,7 @@ void App::WorldStateSystem::TogglePrefab(Red::NodeRef aNodeRef, bool aState)
     resetNode->id = 0;
     resetNode->type = resetNodeType;
 
-    m_questNodeExecutor->ExecuteNode(resetNode);
+    m_questPhaseExecutor->ExecuteNode(resetNode);
 }
 
 void App::WorldStateSystem::TogglePrefabVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState)
@@ -77,5 +77,5 @@ void App::WorldStateSystem::TogglePrefabVariant(Red::NodeRef aNodeRef, Red::CNam
     resetNode->id = 0;
     resetNode->type = resetNodeType;
 
-    m_questNodeExecutor->ExecuteNode(resetNode);
+    m_questPhaseExecutor->ExecuteNode(resetNode);
 }

@@ -19,7 +19,7 @@ void App::OpenWorldSystem::OnWorldAttached(Red::world::RuntimeScene*)
     m_factManager = Raw::QuestsSystem::FactManager::Ptr(m_questsSystem);
 
     m_questPhaseRegistry = Core::Resolve<QuestPhaseRegistry>();
-    m_questNodeExecutor = Core::MakeUnique<QuestNodeExecutor>(m_questPhaseRegistry, m_questsSystem);
+    m_questPhaseExecutor = Core::MakeUnique<QuestPhaseExecutor>(m_questPhaseRegistry, m_questsSystem);
 
     m_ready = true;
 }
@@ -364,12 +364,13 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
     {
         if (!aActivity->resetNodes.empty())
         {
-            m_questNodeExecutor->ExecuteNodes(aActivity->resetNodes, aActivity->phaseInstance);
+            m_questPhaseExecutor->ExecuteNodes(aActivity->resetNodes, aActivity->phaseInstance);
         }
 
         if (aActivity->inputNode)
         {
-            m_questNodeExecutor->ExecuteGraph(aActivity->inputNode, aActivity->inputSocket, aActivity->phaseInstance);
+            m_questPhaseExecutor->ExecutePath(aActivity->phaseNodePath, aActivity->inputNodeKey.nodeID, aActivity->inputSocket.name);
+            // m_questNodeExecutor->ExecuteGraph(aActivity->inputNode, aActivity->inputSocket, aActivity->phaseInstance);
         }
     }
 

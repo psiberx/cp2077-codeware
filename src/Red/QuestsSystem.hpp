@@ -14,6 +14,20 @@ inline bool IsRelatedQuestNodePath(const QuestNodePath& aParentPath, const Quest
            std::memcmp(aPath.entries, aParentPath.entries, aParentPath.size * sizeof(Red::QuestNodeID)) == 0;
 }
 
+inline QuestNodePathHash MakeQuestNodePathHash(const QuestNodePath& aNodePath, int32_t aLength = 0)
+{
+    if (aLength == 0)
+    {
+        aLength = static_cast<int32_t>(aNodePath.size);
+    }
+    else if (aLength < 0)
+    {
+        aLength += static_cast<int32_t>(aNodePath.size);
+    }
+
+    return FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), aLength * sizeof(QuestNodeID));
+}
+
 struct QuestNodeKey
 {
     QuestNodeKey() = default;
@@ -25,13 +39,13 @@ struct QuestNodeKey
     }
 
     QuestNodeKey(const QuestNodePath& aNodePath)
-        : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), (aNodePath.size - 1) * sizeof(QuestNodeID)))
+        : phaseHash(MakeQuestNodePathHash(aNodePath, -1))
         , nodeID(aNodePath.Back())
     {
     }
 
     QuestNodeKey(const QuestNodePath& aNodePath, QuestNodeID aNodeID)
-        : phaseHash(FNV1a32(reinterpret_cast<uint8_t*>(aNodePath.entries), aNodePath.size * sizeof(QuestNodeID)))
+        : phaseHash(MakeQuestNodePathHash(aNodePath))
         , nodeID(aNodeID)
     {
     }
@@ -52,7 +66,7 @@ struct QuestNodeKey
 };
 RED4EXT_ASSERT_SIZE(QuestNodeKey, 0x8);
 RED4EXT_ASSERT_OFFSET(QuestNodeKey, phaseHash, 0x0);
-// RED4EXT_ASSERT_OFFSET(PhaseNodePath, nodeID, 0x6);
+RED4EXT_ASSERT_OFFSET(QuestNodeKey, nodeID, 0x4);
 
 struct QuestPhaseContext
 {
@@ -71,7 +85,7 @@ struct QuestContext
 {
     uint8_t unk0[0xF8];                       // 00
     DynArray<questPhaseInstance*> phaseStack; // F8
-    QuestNodeID nodeID;                            // 108
+    QuestNodeID nodeID;                       // 108
     QuestPhaseContext phaseContext;           // 110
 };
 RED4EXT_ASSERT_SIZE(QuestContext, 0x330);
@@ -204,8 +218,10 @@ struct AreaTypeTransition
 
 namespace Raw::QuestsSystem
 {
+using Mutex = Core::OffsetPtr<0x60, Red::SharedMutex>;
+using RootPhase = Core::OffsetPtr<0x68, Red::Handle<Red::questPhaseInstance>>;
+using NodePathHashMap = Core::OffsetPtr<0x78, Red::HashMap<Red::QuestNodePathHash, Red::QuestNodePath>>;
 using FactManager = Core::OffsetPtr<0xF8, Red::FactManager*>;
-using PathHashMap = Core::OffsetPtr<0x78, Red::HashMap<Red::QuestNodePathHash, Red::QuestNodePath>>;
 
 constexpr auto CreateContext = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestsSystem_CreateContext,
@@ -258,22 +274,30 @@ constexpr auto Initialize = Core::RawFunc<
                            const Red::QuestNodePath& aParentPath,
                            Red::QuestNodeID aPhaseNodeID)>();
 
-constexpr auto ExequteGraph = Core::RawFunc<
-    /* addr = */ Red::Addresses::QuestPhaseInstance_ExequteGraph,
+constexpr auto ExecuteGraph = Core::RawFunc<
+    /* addr = */ Red::Addresses::QuestPhaseInstance_ExecuteGraph,
     /* type = */ uint8_t (*)(Red::questPhaseInstance* aPhase,
                              Red::QuestContext& aContext,
-                             const Red::WeakHandle<Red::questNodeDefinition>& aNode,
+                             const Red::WeakHandle<Red::questNodeDefinition>& aInputNode,
                              const Red::QuestNodeSocket& aInputSocket,
                              bool a5,
-                             const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
+                             Red::DynArray<Red::QuestNodeSocket>& aOutputSockets)>();
 
 constexpr auto ExecuteNode = Core::RawFunc<
     /* addr = */ Red::Addresses::QuestPhaseInstance_ExecuteNode,
     /* type = */ uint8_t (*)(Red::questPhaseInstance* aPhase,
-                             Red::questNodeDefinition* aNode,
+                             Red::questNodeDefinition* aInputNode,
                              Red::QuestContext& aContext,
                              const Red::QuestNodeSocket& aInputSocket,
-                             const Red::DynArray<Red::QuestNodeSocket>& aOutputSocket)>();
+                             Red::DynArray<Red::QuestNodeSocket>& aOutputSockets)>();
+
+constexpr auto ExecutePath = Core::RawVFunc<
+    /* addr = */ 0x120,
+    /* type = */ uint8_t (Red::questPhaseInstance::*)(Red::QuestContext& aContext,
+                                                      const Red::QuestNodePath& aPhaseNodePath,
+                                                      Red::QuestNodeID aInputNodeID,
+                                                      Red::CName aInputSocketName,
+                                                      Red::DynArray<Red::QuestNodeSocket>& aOutputSockets)>();
 }
 
 namespace Raw::QuestSocketDefinition

@@ -69,7 +69,7 @@ constexpr uintptr_t PointOfInterestMappin_SetPhase = 0x1426E5870 - ImageBase; //
 constexpr uintptr_t QuestLoader_PhasePreloadCheck = 0x140C7CE1C - ImageBase; // 48 89 5C 24 ? 48 89 74 24 ? 57 48 83 EC ? 48 8B F1 48 8B FA 48 8B 49 ? E8 ? ? ? ? 32 DB 84 C0 74, expected: 1, index: 0
 
 constexpr uintptr_t QuestPhaseInstance_Initialize = 0x14027CFA4 - ImageBase; // 4C 89 4C 24 ? 4C 89 44 24 ? 55 53 56 57 41 54 41 55 41 56 41 57 48 8B EC 48 83 EC ? 33 C0 48 8D 9A ? ? ? ? 89 81 ? ? ? ? 48 8D 75, expected: 1, index: 0
-constexpr uintptr_t QuestPhaseInstance_ExequteGraph = 0x1404D9A70 - ImageBase; // 4C 8B DC 49 89 5B ? 49 89 6B ? 49 89 73 ? 57 41 54 41 55 41 56 41 57 48 83 EC ? 49 8B 40 ? 4D 8B E9, expected: 1, index: 0
+constexpr uintptr_t QuestPhaseInstance_ExecuteGraph = 0x1404D9A70 - ImageBase; // 4C 8B DC 49 89 5B ? 49 89 6B ? 49 89 73 ? 57 41 54 41 55 41 56 41 57 48 83 EC ? 49 8B 40 ? 4D 8B E9, expected: 1, index: 0
 constexpr uintptr_t QuestPhaseInstance_ExecuteNode = 0x14027DD1C - ImageBase; // 48 89 5C 24 ? 48 89 6C 24 ? 56 57 41 56 48 83 EC ? 48 8B 02 48 8B E9 48 8B CA 49 8B D9 49 8B F8 48 8B F2, expected: 1, index: 0
 
 constexpr uintptr_t QuestsSystem_CreateContext = 0x14027A6E4 - ImageBase; // 48 8B C4 48 89 58 ? 48 89 68 ? 48 89 70 ? 48 89 78 ? 41 56 48 83 EC ? 48 8B 41 ? 4C 8D 91 ? ? ? ? 48 89 44 24, expected: 1, index: 0

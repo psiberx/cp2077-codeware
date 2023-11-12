@@ -1,6 +1,6 @@
 #pragma once
 
-#include "App/Quest/QuestNodeExecutor.hpp"
+#include "App/Quest/QuestPhaseExecutor.hpp"
 #include "App/Quest/QuestPhaseRegistry.hpp"
 
 namespace App
@@ -23,7 +23,7 @@ private:
     bool m_ready;
 
     Core::SharedPtr<QuestPhaseRegistry> m_questPhaseRegistry;
-    Core::UniquePtr<QuestNodeExecutor> m_questNodeExecutor;
+    Core::UniquePtr<QuestPhaseExecutor> m_questPhaseExecutor;
 
     Red::gameICommunitySystem* m_communitySystem;
     Red::questIQuestsSystem* m_questsSystem;
