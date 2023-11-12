@@ -128,9 +128,7 @@ private:
     inline static Core::Map<uint64_t, Core::SharedPtr<PopulationDefinition>> s_populations;
     inline static Core::Map<uint32_t, Core::Vector<Red::CName>> s_activitiesByFacts;
     inline static Core::Map<uint32_t, Core::Vector<uint64_t>> s_populationsByFacts;
-    inline static Red::QuestNodePath s_minorActivitiesPhasePath;
-    inline static Red::QuestNodePath s_communityMainPhasePath;
-    inline static Red::QuestNodePath s_communityBugfixPhasePath;
+    inline static Core::Map<Red::ResourcePath, Red::QuestNodePath> s_openWorldPhaseNodePaths;
     inline static bool s_activitiesReady;
 };
 }

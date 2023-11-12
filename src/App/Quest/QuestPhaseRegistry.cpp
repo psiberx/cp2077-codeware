@@ -7,9 +7,17 @@
 
 namespace
 {
-constexpr auto MinorActivitiesResource = R"(base\open_world\minor_activities\open_world_minor_activities.questphase)";
-constexpr auto CommunityMainResource = R"(base\open_world\phases\open_world_content.questphase)";
-constexpr auto CommunityBugfixResource = R"(base\quest\bugfixing\open_world_bugfixing.questphase)";
+constexpr auto MinorActivitiesResource = Red::ResourcePath(R"(base\open_world\minor_activities\open_world_minor_activities.questphase)");
+
+constexpr auto OpenWorldPhaseResources = {
+    MinorActivitiesResource,
+    Red::ResourcePath(R"(base\open_world\city_scenes\open_world_city_scenes.questphase)"),
+    Red::ResourcePath(R"(base\open_world\community\global_phase\open_world_global_commuinity_phase.questphase)"),
+    Red::ResourcePath(R"(base\open_world\fixers\open_world_fixers.questphase)"),
+    Red::ResourcePath(R"(base\open_world\phases\city_entities\city_entities.questphase)"),
+    Red::ResourcePath(R"(base\open_world\vendors\open_world_vendors.questphase)"),
+    Red::ResourcePath(R"(base\quest\bugfixing\open_world_bugfixing.questphase)"),
+};
 }
 
 void App::QuestPhaseRegistry::OnBootstrap()
@@ -23,23 +31,27 @@ void App::QuestPhaseRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader,
 {
     if (!aPreload)
     {
-        if (s_communityMainPhasePath.size == 0)
+        for (const auto& openWorldPhasePath : OpenWorldPhaseResources)
         {
-            auto& nodePathMap = Raw::QuestLoader::NodePathMap::Ref(aLoader);
-            auto openWorldPhasePath = nodePathMap.Get(CommunityMainResource);
+            auto openWorldPhaseNodePathIt = s_openWorldPhaseNodePaths.find(openWorldPhasePath);
+            if (openWorldPhaseNodePathIt == s_openWorldPhaseNodePaths.end())
+            {
+                auto* phaseNodePath = Raw::QuestLoader::NodePathMap::Ref(aLoader).Get(openWorldPhasePath);
 
-            if (!openWorldPhasePath)
-                return;
+                if (!phaseNodePath)
+                    continue;
 
-            s_communityMainPhasePath = *openWorldPhasePath;
-        }
+                openWorldPhaseNodePathIt = s_openWorldPhaseNodePaths.insert({openWorldPhasePath, *phaseNodePath}).first;
+            }
 
-        if (Red::IsRelatedQuestNodePath(s_communityMainPhasePath, aPhaseNodePath))
-        {
-            auto& preloadList = Raw::QuestLoader::PreloadList::Ref(aLoader);
-            preloadList.PushBack(aPhaseNodePath);
+            if (Red::IsRelatedQuestNodePath(openWorldPhaseNodePathIt.value(), aPhaseNodePath))
+            {
+                auto& preloadList = Raw::QuestLoader::PreloadList::Ref(aLoader);
+                preloadList.PushBack(aPhaseNodePath);
 
-            aPreload = true;
+                aPreload = true;
+                break;
+            }
         }
     }
 }
@@ -74,17 +86,13 @@ void App::QuestPhaseRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase,
     {
         auto& phaseNodePath = Raw::QuestPhaseInstance::NodePath::Ref(aPhase);
 
-        if (aPhaseResource->path == MinorActivitiesResource)
+        for (const auto& openWorldPhasePath : OpenWorldPhaseResources)
         {
-            s_minorActivitiesPhasePath = phaseNodePath;
-        }
-        else if (aPhaseResource->path == CommunityMainResource)
-        {
-            s_communityMainPhasePath = phaseNodePath;
-        }
-        else if (aPhaseResource->path == CommunityBugfixResource)
-        {
-            s_communityBugfixPhasePath = phaseNodePath;
+            if (aPhaseResource->path == openWorldPhasePath)
+            {
+                s_openWorldPhaseNodePaths[openWorldPhasePath] = phaseNodePath;
+                break;
+            }
         }
     }
 }
@@ -129,29 +137,43 @@ void App::QuestPhaseRegistry::InitializeActivities()
 
     for (auto& [_, phaseWeak] : s_phases)
     {
-        if (auto phase = phaseWeak.Lock())
+        auto phase = phaseWeak.Lock();
+
+        if (!phase)
+            continue;
+
+        auto& phaseInstance = phase.instance;
+        auto& phaseResource = Raw::QuestPhaseInstance::Resource::Ref(phaseInstance);
+
+        if (!phaseResource)
+            continue;
+
+        auto& phaseGraph = Raw::QuestPhaseInstance::Graph::Ref(phaseInstance);
+        auto& phaseNodePath = Raw::QuestPhaseInstance::NodePath::Ref(phaseInstance);
+        auto& phaseNodePathHash = Raw::QuestPhaseInstance::NodePathHash::Ref(phaseInstance);
+
+        for (const auto& openWorldPhasePath : OpenWorldPhaseResources)
         {
-            auto& phaseInstance = phase.instance;
-            auto& phaseResource = Raw::QuestPhaseInstance::Resource::Ref(phaseInstance);
+            const auto& openWorldPhaseNodePathIt = s_openWorldPhaseNodePaths.find(openWorldPhasePath);
+            if (openWorldPhaseNodePathIt == s_openWorldPhaseNodePaths.end())
+                continue;
 
-            if (phaseResource)
+            const auto& openWorldPhaseNodePath = openWorldPhaseNodePathIt.value();
+            if (!Red::IsRelatedQuestNodePath(openWorldPhaseNodePath, phaseNodePath))
+                continue;
+
+            if (openWorldPhasePath == MinorActivitiesResource)
             {
-                auto& phaseGraph = Raw::QuestPhaseInstance::Graph::Ref(phaseInstance);
-                auto& phaseNodePath = Raw::QuestPhaseInstance::NodePath::Ref(phaseInstance);
-                auto& phaseNodePathHash = Raw::QuestPhaseInstance::NodePathHash::Ref(phaseInstance);
-
-                if (Red::IsRelatedQuestNodePath(s_minorActivitiesPhasePath, phaseNodePath))
-                {
-                    QuestPhaseGraphAccessor phaseGraphAccessor{phaseGraph, true};
-                    ApplyActivityBugfixes(phaseGraphAccessor, phaseResource, phaseGraph);
-                    RegisterMinorActivity(phaseGraphAccessor, phaseInstance, phaseResource, phaseGraph, phaseNodePath);
-                }
-                else if (Red::IsRelatedQuestNodePath(s_communityMainPhasePath, phaseNodePath) ||
-                         Red::IsRelatedQuestNodePath(s_communityBugfixPhasePath, phaseNodePath))
-                {
-                    communityPhases.push_back(phaseInstance);
-                }
+                QuestPhaseGraphAccessor phaseGraphAccessor{phaseGraph, true};
+                ApplyActivityBugfixes(phaseGraphAccessor, phaseResource, phaseGraph);
+                RegisterMinorActivity(phaseGraphAccessor, phaseInstance, phaseResource, phaseGraph, phaseNodePath);
             }
+            else
+            {
+                communityPhases.push_back(phaseInstance);
+            }
+
+            break;
         }
     }
 
