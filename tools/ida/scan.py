@@ -70,8 +70,8 @@ def patterns():
             ]),
             Group(name="InkSystem", pointers=[
                 Item(name="Instance",
-                     pattern="B9 ? ? 00 00 87 86 ? ? 00 00 48 89 35 ? ? ? ? E8",
-                     offset=14),
+                     pattern="45 33 FF 41 8B C7 B9 ? ? ? ? 87 87 ? ? ? ? 48 89 3D ? ? ? ? E8",
+                     offset=20),
             ], functions=[
                 Item(name="ProcessCharacterEvent",
                      pattern="48 89 5C 24 ? 44 89 44 24 ? 55 48 8B EC 48 83 EC 50 44 8B D2 48 8B D9 48 81 C1 ? ? ? ? 48 8D 55 ? E8"),
@@ -100,7 +100,7 @@ def patterns():
                 Item(name="SpawnFromExternal",
                      pattern="48 89 5C 24 ? 57 48 83 EC ? 48 8B FA 49 8B D9 48 8D 54 24 ? E8 ? ? ? ? 48 8B 4C 24 ? 48 85 C9 74 ? 4C 8B C3 48 8B D7 E8"),
                 Item(name="SpawnFromLocal",
-                     pattern="40 53 48 83 EC 20 48 8B DA 49 8B D0 E8 ? ? ? ? 48 85 C0 74 ? 48 8B D3 48 8B C8 E8"),
+                     pattern="40 53 48 83 EC 20 48 8B DA 49 8B D0 E8 ? ? ? ? 48 85 C0 74 ? 48 8B D3 48 8B C8 E8 ? ? ? ? 48 8B C3"),
             ]),
             Group(name="IScriptable", functions=[
                 Item(name="InitializeScriptData",

@@ -128,6 +128,8 @@ public class HubLinkButton extends CustomButton {
         let label: ref<inkText> = new inkText();
         label.SetName(n"label");
         label.SetFontFamily("base\\gameplay\\gui\\fonts\\raj\\raj.inkfontfamily");
+        label.SetFontStyle(n"Semi-Bold");
+        label.SetFontSize(50);
         label.SetLetterCase(textLetterCase.UpperCase);
         label.SetVerticalAlignment(textVerticalAlignment.Center);
         label.SetContentHAlign(inkEHorizontalAlign.Center);
@@ -138,8 +140,8 @@ public class HubLinkButton extends CustomButton {
         label.SetVAlign(inkEVerticalAlign.Center);
         label.SetStyle(r"base\\gameplay\\gui\\fullscreen\\hub_menu\\hub_menu_style.inkstyle");
         label.BindProperty(n"tintColor", n"HubMenuButton.textColor");
-        label.BindProperty(n"fontSize", n"MenuLabel.MainFontSize");
-        label.BindProperty(n"fontStyle", n"MainColors.HeaderFontWeight");
+        //label.BindProperty(n"fontSize", n"MenuLabel.MainFontSize");
+        //label.BindProperty(n"fontStyle", n"MainColors.HeaderFontWeight");
         label.SetSize(new Vector2(360.0, 120.0));
         label.Reparent(container);
 
