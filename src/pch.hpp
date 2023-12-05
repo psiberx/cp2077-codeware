@@ -37,6 +37,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ent/Entity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityParametersStorage.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/GarmentSkinnedMeshComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/IComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/MeshComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/MorphTargetManagerComponent.hpp>
@@ -136,6 +137,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/SpawnSet_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/Spawner_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/TogglePrefabVariant_NodeType.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/TriggerCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/UniversalRef.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/VarComparison_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/WorldDataManagerNodeDefinition.hpp>
@@ -156,6 +158,6 @@
 
 #include "Red/Alias.hpp"
 #include "Red/Engine.hpp"
-#include "Red/TypeInfo.hpp"
 #include "Red/Specializations.hpp"
+#include "Red/TypeInfo.hpp"
 #include "Red/Utils.hpp"
