@@ -74,10 +74,6 @@ void App::QuestPhaseRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase,
         s_phasesReady = false;
         s_phases.clear();
     }
-    else if (s_activitiesReady)
-    {
-        __nop();
-    }
 
     auto& phaseNodePathHash = Raw::QuestPhaseInstance::NodePathHash::Ref(aPhase);
     s_phases[phaseNodePathHash] = Red::AsWeakHandle(aPhase);
