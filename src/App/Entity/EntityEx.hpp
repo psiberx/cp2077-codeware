@@ -11,6 +11,21 @@ struct EntityEx : Red::Entity
         return *Raw::Entity::TemplatePath(this);
     }
 
+    Red::Handle<Red::IComponent> FindComponentByType(Red::CName aType)
+    {
+        if (auto type = Red::GetClass(aType))
+        {
+            for (const auto& component : Raw::Entity::ComponentsStorage::Ptr(this)->components)
+            {
+                if (component->GetType()->IsA(type))
+                {
+                    return component;
+                }
+            }
+        }
+        return {};
+    }
+
     Red::DynArray<Red::Handle<Red::IComponent>> GetComponents()
     {
         return Raw::Entity::ComponentsStorage(this)->components;
@@ -27,6 +42,7 @@ struct EntityEx : Red::Entity
 
 RTTI_EXPAND_CLASS(Red::Entity, App::EntityEx, {
     RTTI_METHOD(GetTemplatePath);
+    RTTI_METHOD(FindComponentByType);
     RTTI_METHOD(GetComponents);
     RTTI_METHOD(AddComponent);
     RTTI_METHOD(ApplyMorphTarget);

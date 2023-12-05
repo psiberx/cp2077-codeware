@@ -5,6 +5,9 @@ public native func GetTemplatePath() -> ResRef
 public native func GetComponents() -> array<ref<IComponent>>
 
 @addMethod(Entity)
+public native func FindComponentByType(type: CName) -> ref<IComponent>
+
+@addMethod(Entity)
 public native func AddComponent(component: ref<IComponent>)
 
 @addMethod(Entity)
