@@ -18,29 +18,19 @@ module Codeware.Localization
 
 public class LocalizationSystem extends ScriptableSystem {
     private let m_interfaceLanguage: CName;
-
     private let m_subtitleLanguage: CName;
-
     private let m_voiceLanguage: CName;
-
     private let m_playerGender: PlayerGender;
 
     private let m_providers: array<ref<ModLocalizationProvider>>;
-
     private let m_interfaceTranslationLanguage: CName;
-
     private let m_interfaceTranslationData: ref<inkHashMap>;
-
     private let m_subtitleTranslationLanguage: CName;
-
     private let m_subtitleTranslationData: ref<inkHashMap>;
 
     private let m_settingsWatcher: ref<LanguageSettingsWatcher>;
-
     private let m_genderWatcher: ref<PlayerGenderWatcher>;
-
     private let m_localeChanged: Bool;
-
     private let m_genderChanged: Bool;
 
     private func OnAttach() {
@@ -234,11 +224,11 @@ public class LocalizationSystem extends ScriptableSystem {
     }
 
     public func GetSubtitleLanguage() -> CName {
-        return this.m_interfaceLanguage;
+        return this.m_subtitleLanguage;
     }
 
     public func GetVoiceLanguage() -> CName {
-        return this.m_interfaceLanguage;
+        return this.m_voiceLanguage;
     }
 
     public func GetPlayerGender() -> PlayerGender {
