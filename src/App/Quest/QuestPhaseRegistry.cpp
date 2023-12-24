@@ -22,8 +22,8 @@ constexpr auto OpenWorldPhaseResources = {
 
 void App::QuestPhaseRegistry::OnBootstrap()
 {
-    HookAfter<Raw::QuestLoader::PhasePreloadCheck>(&QuestPhaseRegistry::OnPhasePreloadCheck);
-    HookAfter<Raw::QuestPhaseInstance::Initialize>(&QuestPhaseRegistry::OnInitializePhase);
+    // HookAfter<Raw::QuestLoader::PhasePreloadCheck>(&QuestPhaseRegistry::OnPhasePreloadCheck);
+    // HookAfter<Raw::QuestPhaseInstance::Initialize>(&QuestPhaseRegistry::OnInitializePhase);
 }
 
 void App::QuestPhaseRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader,
