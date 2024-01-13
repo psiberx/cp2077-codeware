@@ -20,25 +20,14 @@ RED4EXT_C_EXPORT bool RED4EXT_CALL Main(RED4ext::PluginHandle aHandle, RED4ext::
     {
     case RED4ext::EMainReason::Load:
     {
-        g_mutex = Core::MakeUnique<Core::OwnerMutex>(App::Project::Name);
-
-        if (g_mutex->Obtain())
-        {
-            g_app = Core::MakeUnique<App::Application>(aHandle, aSdk);
-            g_app->Bootstrap();
-        }
+        g_app = Core::MakeUnique<App::Application>(aHandle, aSdk);
+        g_app->Bootstrap();
         break;
     }
     case RED4ext::EMainReason::Unload:
     {
-        if (g_mutex->IsOwner())
-        {
-            g_app->Shutdown();
-            g_app = nullptr;
-
-            g_mutex->Release();
-            g_mutex = nullptr;
-        }
+        g_app->Shutdown();
+        g_app = nullptr;
         break;
     }
     }
