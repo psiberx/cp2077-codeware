@@ -22,9 +22,16 @@ public:
         return Defer(this);
     }
 
+    auto SetAppendTimestampToPath(bool aActivate) noexcept
+    {
+        m_appendTimestamp = aActivate;
+        return Defer(this);
+    }
+
 protected:
     void OnInitialize() override;
 
     std::filesystem::path m_logPath;
+    bool m_appendTimestamp{ true };
 };
 }
