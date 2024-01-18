@@ -12,6 +12,7 @@
 #include <memory>
 #include <ranges>
 #include <source_location>
+#include <set>
 #include <string>
 #include <string_view>
 #include <type_traits>
