@@ -24,14 +24,14 @@ struct InkSystem
     uint8_t unk00[0x2E8];                                    // 000
     WeakHandle<ink::Widget> inputWidget;                     // 2E8
     KeyboardState keyboardState;                             // 2F8
-    uint8_t unk2FA[0x360 - 0x2FA];                           // 2FA
-    WeakHandle<ink::ISystemRequestsHandler> requestsHandler; // 360
-    DynArray<SharedPtr<InkLayerManager>> layerManagers;      // 370
+    uint8_t unk2FA[0x368 - 0x2FA];                           // 2FA
+    WeakHandle<ink::ISystemRequestsHandler> requestsHandler; // 368
+    DynArray<SharedPtr<InkLayerManager>> layerManagers;      // 378
 };
 RED4EXT_ASSERT_OFFSET(InkSystem, inputWidget, 0x2E8);
 RED4EXT_ASSERT_OFFSET(InkSystem, keyboardState, 0x2F8);
-RED4EXT_ASSERT_OFFSET(InkSystem, requestsHandler, 0x360);
-RED4EXT_ASSERT_OFFSET(InkSystem, layerManagers, 0x370);
+RED4EXT_ASSERT_OFFSET(InkSystem, requestsHandler, 0x368);
+RED4EXT_ASSERT_OFFSET(InkSystem, layerManagers, 0x378);
 }
 
 namespace Raw::inkSystem
