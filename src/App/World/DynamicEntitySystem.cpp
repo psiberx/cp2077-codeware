@@ -748,7 +748,7 @@ Red::TweakDBID App::DynamicEntitySystem::ConvertTemplateToRecord(Red::RaRef<> aT
         {
             static const auto recordHash = Red::Murmur3_32(reinterpret_cast<const uint8_t*>("SpawnableObject"), 15);
             using CreateTDBRecord_t = void (*)(Red::TweakDB*, uint32_t, Red::TweakDBID);
-            Red::RelocFunc<CreateTDBRecord_t> CreateTDBRecord(Red::Addresses::TweakDB_CreateRecord);
+            static Red::UniversalRelocFunc<CreateTDBRecord_t> CreateTDBRecord(Red::Detail::AddressHashes::TweakDB_CreateRecord);
             CreateTDBRecord(m_tweakDB, recordHash, recordID);
         }
     }
