@@ -1,6 +1,5 @@
 #pragma once
 
-#include "Red/Addresses.hpp"
 #include "Red/Input.hpp"
 
 namespace Red
@@ -37,14 +36,14 @@ RED4EXT_ASSERT_OFFSET(InkSystem, layerManagers, 0x378);
 namespace Raw::inkSystem
 {
 constexpr auto Instance = Core::RawPtr<
-    /* addr = */ Red::Addresses::InkSystem_Instance,
+    /* addr = */ Red::AddressLib::InkSystem_Instance,
     /* type = */ Red::InkSystem*>();
 
 constexpr auto ProcessInputEvents = Core::RawFunc<
-    /* addr = */ Red::Addresses::InkSystem_ProcessInputEvents,
+    /* addr = */ Red::AddressLib::InkSystem_ProcessInputEvents,
     /* type = */ void (*)(Red::InkSystem*, uint64_t a2, Red::RawInputBuffer&)>();
 
 constexpr auto ProcessCharacterEvent = Core::RawFunc<
-    /* addr = */ Red::Addresses::InkSystem_ProcessCharacterEvent,
+    /* addr = */ Red::AddressLib::InkSystem_ProcessCharacterEvent,
     /* type = */ bool (*)(Red::InkSystem*, Red::EInputKey, Red::EInputAction)>();
 }

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/Addresses.hpp"
-
 namespace Red
 {
 struct InkSpawningRequest
@@ -47,7 +45,7 @@ RED4EXT_ASSERT_OFFSET(InkSpawningInfo, context, 0x38);
 namespace Raw::InkSpawner
 {
 constexpr auto FinishAsyncSpawn = Core::RawFunc<
-    /* addr = */ Red::Addresses::InkSpawner_FinishAsyncSpawn,
+    /* addr = */ Red::AddressLib::InkSpawner_FinishAsyncSpawn,
     /* type = */ bool (*)(
         Red::InkSpawningContext& aContext,
         Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)>();

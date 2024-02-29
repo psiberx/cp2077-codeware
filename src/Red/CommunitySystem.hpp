@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/Addresses.hpp"
-
 namespace Red
 {
 struct CommunityEntrySpawner
@@ -122,6 +120,6 @@ constexpr auto GetSpawner = Core::RawVFunc<
     /* type = */ void* (Red::ICommunitySystem::*)(Red::WeakPtr<Red::Spawner>& aOut, uint64_t aSpawnerID)>();
 
 constexpr auto Update = Core::RawFunc<
-    /* addr = */ Red::Addresses::CommunitySystem_Update,
+    /* addr = */ Red::AddressLib::CommunitySystem_Update,
     /* type = */ void (*)(Red::ICommunitySystem* aSystem, bool a2)>();
 }

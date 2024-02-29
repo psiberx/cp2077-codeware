@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Addresses.hpp"
-
 namespace Red
 {
 struct PersistentObject
@@ -27,6 +25,6 @@ RED4EXT_ASSERT_SIZE(PersistentStateParams, 0x30);
 namespace Raw::PersistentObject
 {
 constexpr auto InitializeState = Core::RawFunc<
-    /* addr = */ Red::Addresses::PersistentObject_InitializeState,
+    /* addr = */ Red::AddressLib::PersistentObject_InitializeState,
     /* type = */ void (*)(Red::PersistentObject* aObject, Red::PersistentStateParams* aParams)>();
 }

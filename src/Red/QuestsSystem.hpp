@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/Addresses.hpp"
-
 namespace Red
 {
 using QuestNodeID = uint16_t;
@@ -224,7 +222,7 @@ using NodePathHashMap = Core::OffsetPtr<0x78, Red::HashMap<Red::QuestNodePathHas
 using FactManager = Core::OffsetPtr<0xF8, Red::FactManager*>;
 
 constexpr auto CreateContext = Core::RawFunc<
-    /* addr = */ Red::Addresses::QuestsSystem_CreateContext,
+    /* addr = */ Red::AddressLib::QuestsSystem_CreateContext,
     /* type = */ void* (*)(Red::questIQuestsSystem* aPhase,
                            Red::QuestContext* aContext,
                            int8_t a3 /* = 1 */,
@@ -253,7 +251,7 @@ using SortedPreloadList = Core::OffsetPtr<0x20, Red::SortedArray<Red::QuestNodeP
 using NodePathMap = Core::OffsetPtr<0x48, Red::HashMap<Red::ResourcePath, Red::QuestNodePath>>;
 
 constexpr auto PhasePreloadCheck = Core::RawFunc<
-    /* addr = */ Red::Addresses::QuestLoader_PhasePreloadCheck,
+    /* addr = */ Red::AddressLib::QuestLoader_PhasePreloadCheck,
     /* type = */ bool (*)(void* aLoader, const Red::QuestNodePath& aPhaseNodePath)>();
 }
 
@@ -266,7 +264,7 @@ using NodePathHash = Core::OffsetPtr<0x80, Red::QuestNodePathHash>;
 using Handlers = Core::OffsetPtr<0x98, Red::HashMap<Red::QuestNodePathHash, Red::SharedPtr<Red::QuestPhaseHandler>>>;
 
 constexpr auto Initialize = Core::RawFunc<
-    /* addr = */ Red::Addresses::QuestPhaseInstance_Initialize,
+    /* addr = */ Red::AddressLib::QuestPhaseInstance_Initialize,
     /* type = */ void* (*)(Red::questPhaseInstance* aPhase,
                            Red::QuestContext& aContext,
                            const Red::Handle<Red::questQuestPhaseResource>& aResource,
@@ -275,7 +273,7 @@ constexpr auto Initialize = Core::RawFunc<
                            Red::QuestNodeID aPhaseNodeID)>();
 
 constexpr auto ExecuteGraph = Core::RawFunc<
-    /* addr = */ Red::Addresses::QuestPhaseInstance_ExecuteGraph,
+    /* addr = */ Red::AddressLib::QuestPhaseInstance_ExecuteGraph,
     /* type = */ uint8_t (*)(Red::questPhaseInstance* aPhase,
                              Red::QuestContext& aContext,
                              const Red::WeakHandle<Red::questNodeDefinition>& aInputNode,
@@ -284,7 +282,7 @@ constexpr auto ExecuteGraph = Core::RawFunc<
                              Red::DynArray<Red::QuestNodeSocket>& aOutputSockets)>();
 
 constexpr auto ExecuteNode = Core::RawFunc<
-    /* addr = */ Red::Addresses::QuestPhaseInstance_ExecuteNode,
+    /* addr = */ Red::AddressLib::QuestPhaseInstance_ExecuteNode,
     /* type = */ uint8_t (*)(Red::questPhaseInstance* aPhase,
                              Red::questNodeDefinition* aInputNode,
                              Red::QuestContext& aContext,

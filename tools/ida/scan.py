@@ -5,7 +5,7 @@ from pathlib import Path
 # Defines patterns and output files
 def patterns():
     return [
-        Output(filename="src/Red/Addresses.hpp", namespace="Red::Addresses", groups=[
+        Output(filename="src/Red/Addresses/Direct.hpp", namespace="Red::Address", groups=[
             Group(functions=[
                 Item(name="Main",
                      pattern="40 55 53 48 8D AC 24 ? ? ? ? 48 81 EC ? ? ? ? FF 15 ? ? ? ? E8"),
@@ -102,10 +102,10 @@ def patterns():
                 Item(name="SpawnFromLocal",
                      pattern="40 53 48 83 EC 20 48 8B DA 49 8B D0 E8 ? ? ? ? 48 85 C0 74 ? 48 8B D3 48 8B C8 E8 ? ? ? ? 48 8B C3"),
             ]),
-            Group(name="IScriptable", functions=[
-                Item(name="InitializeScriptData",
-                     pattern="48 89 51 30 4C 89 41 38 C3"),
-            ]),
+#             Group(name="IScriptable", functions=[
+#                 Item(name="InitializeScriptData",
+#                      pattern="48 89 51 30 4C 89 41 38 C3"),
+#             ]),
             Group(name="MeshAppearance", functions=[
                 Item(name="LoadMaterialSetupAsync",
                      pattern="48 89 5C 24 ? 55 56 57 41 56 41 57 48 8D 6C 24 ? 48 81 EC ? ? ? ? 65 48 8B 04 25 ? ? ? ? 48 8B D9 B9 ? ? ? ? 0F 57 C0"),

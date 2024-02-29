@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/Addresses.hpp"
-
 namespace Red
 {
 enum class EntityStatus : uint8_t
@@ -59,36 +57,36 @@ using Status = Core::OffsetPtr<0x156, Red::EntityStatus>;
 // using Tags = Core::OffsetPtr<0x230, Red::TagList>;
 
 constexpr auto OnAssemble = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_OnAssemble,
+    /* addr = */ Red::AddressLib::Entity_OnAssemble,
     /* type = */ bool (*)(Red::Entity* aEntity, uintptr_t)>();
 
 constexpr auto Reassemble = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_Reassemble,
+    /* addr = */ Red::AddressLib::Entity_Reassemble,
     /* type = */ void (*)(Red::Entity* aEntity, uintptr_t, uint64_t, uint64_t,
                           Red::DynArray<Red::Handle<Red::IComponent>>& aNewComponents,
                           Red::Handle<Red::ent::EntityParametersStorage>& aEntityParams)>();
 
 constexpr auto Initialize = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_Initialize,
+    /* addr = */ Red::AddressLib::Entity_Initialize,
     /* type = */ void (*)(Red::Entity* aEntity, uintptr_t, Red::EntityInitializeRequest* aRequest)>();
 
 constexpr auto Uninitialize = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_Uninitialize,
+    /* addr = */ Red::AddressLib::Entity_Uninitialize,
     /* type = */ void (*)(Red::Entity* aEntity)>();
 
 constexpr auto Dispose = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_Dispose,
+    /* addr = */ Red::AddressLib::Entity_Dispose,
     /* type = */ void (*)(Red::Entity* aEntity)>();
 
 constexpr auto Attach = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_Attach,
+    /* addr = */ Red::AddressLib::Entity_Attach,
     /* type = */ void (*)(Red::Entity* aEntity, uintptr_t)>();
 
 constexpr auto Detach = Core::RawFunc<
-    /* addr = */ Red::Addresses::Entity_Detach,
+    /* addr = */ Red::AddressLib::Entity_Detach,
     /* type = */ void (*)(Red::Entity* aEntity)>();
 
 // constexpr auto GetComponents = Core::RawFunc<
-//     /* addr = */ Red::Addresses::Entity_GetComponents,
+//     /* addr = */ Red::AddressLib::Entity_GetComponents,
 //     /* type = */ Red::DynArray<Red::Handle<Red::IComponent>>& (*)(Red::Entity* aEntity)>();
 }

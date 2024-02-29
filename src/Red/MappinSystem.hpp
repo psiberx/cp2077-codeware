@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/Addresses.hpp"
-
 namespace Raw::MappinSystem
 {
 constexpr auto SetPoiMappinPhase = Core::RawVFunc<
@@ -19,6 +17,6 @@ namespace Raw::PointOfInterestMappin
 using JournalHash = Core::OffsetPtr<0x8C, uint32_t>;
 
 constexpr auto SetPhase = Core::RawFunc<
-    /* addr = */ Red::Addresses::PointOfInterestMappin_SetPhase,
+    /* addr = */ Red::AddressLib::PointOfInterestMappin_SetPhase,
     /* type = */ bool (*)(void* aMappin, Red::gamedataMappinPhase aMappinPhase)>();
 }
