@@ -22,7 +22,7 @@ constexpr uint32_t Entity_Reassemble = 1560690857;
 constexpr uint32_t Entity_Uninitialize = 3596356635;
 
 constexpr uint32_t InkLayer_RegisterListener = 4792499;
-constexpr uint32_t InkLayer_AttachWidgetTree = 1205214905;
+constexpr uint32_t InkLayer_AttachWidgetTree = 2050958960;
 
 constexpr uint32_t InkLogicController_OnInitialize = 2671382832;
 constexpr uint32_t InkLogicController_OnUninitialize = 1159862457;

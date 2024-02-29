@@ -62,8 +62,8 @@ public:
 
         auto conditionType = Red::MakeHandle<Red::questCharacterSpawned_ConditionType>();
         conditionType->comparisonParams = comparisonParam;
-        conditionType->objectRef.type = Red::gameEntityReferenceType::EntityRef;
-        conditionType->objectRef.reference = aReference;
+        conditionType->puppetRef.type = Red::gameEntityReferenceType::EntityRef;
+        conditionType->puppetRef.reference = aReference;
 
         auto condition = Red::MakeHandle<Red::questCharacterCondition>();
         condition->type = conditionType;
