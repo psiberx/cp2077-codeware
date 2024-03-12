@@ -59,6 +59,11 @@ struct ResourceTokenWrapper : Red::IScriptable
         }
     }
 
+    static Red::Handle<ResourceTokenWrapper> FromResRef(const Red::ResourceReference<>& aResRef)
+    {
+        return Red::MakeHandle<ResourceTokenWrapper>(aResRef.token);
+    }
+
     Red::SharedPtr<Red::ResourceToken<Red::CResource>> m_token;
 
     RTTI_IMPL_TYPEINFO(App::ResourceTokenWrapper);
@@ -74,4 +79,6 @@ RTTI_DEFINE_CLASS(App::ResourceTokenWrapper, "ResourceToken", {
     RTTI_METHOD(IsLoaded);
     RTTI_METHOD(IsFailed);
     RTTI_METHOD(RegisterCallback);
+
+    RTTI_METHOD(FromResRef);
 });

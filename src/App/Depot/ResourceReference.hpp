@@ -1,5 +1,7 @@
 #pragma once
 
+#include <App/Depot/ResourceToken.hpp>
+
 namespace App
 {
 struct ResourceWrapper
@@ -18,6 +20,11 @@ struct ResourceWrapper
     [[nodiscard]] uint64_t GetHash() const
     {
         return resource.path;
+    }
+
+    [[nodiscard]] Red::Handle<ResourceTokenWrapper> GetToken() const
+    {
+        return ResourceTokenWrapper::FromResRef(resource);
     }
 
     [[nodiscard]] bool IsEmpty() const
@@ -76,6 +83,7 @@ RTTI_DEFINE_CLASS(App::ResourceWrapper, "ResourceRef", {
     RTTI_METHOD(LoadPath);
     RTTI_METHOD(GetPath);
     RTTI_METHOD(GetHash);
+    RTTI_METHOD(GetToken);
     RTTI_METHOD(IsEmpty);
     RTTI_METHOD(IsLoaded);
     RTTI_METHOD(IsFailed);
