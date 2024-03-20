@@ -2,7 +2,7 @@
 
 namespace Red::AddressLib
 {
-constexpr uint32_t Main = 3649178469;
+constexpr uint32_t Main = 3545369307;
 constexpr uint32_t GetScriptGameInstance = 1559305924;
 
 constexpr uint32_t CBaseEngine_InitEngine = 3273923080;
@@ -30,7 +30,7 @@ constexpr uint32_t InkLogicController_OnArrangeChildrenComplete = 3589084925;
 
 constexpr uint32_t InkSpawner_FinishAsyncSpawn = 2488155854;
 
-constexpr uint32_t InkSystem_Instance = 2635337807;
+constexpr uint32_t InkSystem_Instance = 2755465343;
 constexpr uint32_t InkSystem_ProcessCharacterEvent = 4284882427;
 constexpr uint32_t InkSystem_ProcessInputEvents = 673454961;
 
@@ -70,7 +70,7 @@ constexpr uint32_t RuntimeSystemWeather_SetWeatherByIndex = 1821516328;
 
 constexpr uint32_t ScriptBundle_dtor = 3993832650;
 
-constexpr uint32_t ScriptValidator_CompareTypeName = 1156189659;
+constexpr uint32_t ScriptValidator_CompareTypeName = 1327107674;
 
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
 }
