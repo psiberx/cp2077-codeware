@@ -488,8 +488,8 @@ inline const Handle<T>& Cast(const Handle<U>& aObject)
 template<typename T, typename U = ISerializable>
 inline const WeakHandle<T>& Cast(const WeakHandle<U>& aObject)
 {
-    static const Handle<T> s_null;
-    return (aObject && aObject->GetType()->IsA(Red::GetClass<T>()))
+    static const WeakHandle<T> s_null;
+    return (aObject && aObject.instance->GetType()->IsA(Red::GetClass<T>()))
                ? *reinterpret_cast<const WeakHandle<T>*>(&aObject)
                : s_null;
 }
@@ -506,31 +506,23 @@ inline bool IsInstanceOf(ISerializable* aObject)
     return aObject->GetType()->IsA(Red::GetClass<T>());
 }
 
-inline bool IsCompatible(CBaseRTTIType* aLhsType, CBaseRTTIType* aRhsType)
+template<typename T>
+inline bool IsInstanceOf(const WeakHandle<ISerializable>& aObject)
 {
-    if (aLhsType != aRhsType)
-    {
-        auto metaType = aLhsType->GetType();
-
-        if (metaType == aRhsType->GetType() && (metaType == ERTTIType::Handle || metaType == ERTTIType::WeakHandle))
-        {
-            auto lhsSubType = reinterpret_cast<CClass*>(reinterpret_cast<CRTTIHandleType*>(aLhsType)->innerType);
-            auto rhsSubType = reinterpret_cast<CClass*>(reinterpret_cast<CRTTIHandleType*>(aRhsType)->innerType);
-
-            return rhsSubType->IsA(lhsSubType);
-        }
-    }
-
-    return true;
+    return aObject && aObject.instance->GetType()->IsA(Red::GetClass<T>());
 }
 
-inline bool IsCompatible(CBaseRTTIType* aLhsType, CBaseRTTIType* aRhsType, void* aRhsValue)
+inline bool IsCompatible(CBaseRTTIType* aLhsType, CBaseRTTIType* aRhsType, void* aRhsValue = nullptr)
 {
+    if (!aLhsType || !aRhsType)
+        return false;
+
     if (aLhsType != aRhsType)
     {
-        auto metaType = aLhsType->GetType();
+        auto lhsMetaType = aLhsType->GetType();
 
-        if (metaType == aRhsType->GetType() && (metaType == ERTTIType::Handle || metaType == ERTTIType::WeakHandle))
+        if ((lhsMetaType == ERTTIType::Handle || lhsMetaType == ERTTIType::WeakHandle)
+            && lhsMetaType == aRhsType->GetType())
         {
             auto lhsSubType = reinterpret_cast<CClass*>(reinterpret_cast<CRTTIHandleType*>(aLhsType)->innerType);
             auto rhsInstance = aRhsValue ? reinterpret_cast<Handle<ISerializable>*>(aRhsValue)->instance : nullptr;
@@ -540,6 +532,8 @@ inline bool IsCompatible(CBaseRTTIType* aLhsType, CBaseRTTIType* aRhsType, void*
 
             return rhsSubType->IsA(lhsSubType);
         }
+
+        return false;
     }
 
     return true;

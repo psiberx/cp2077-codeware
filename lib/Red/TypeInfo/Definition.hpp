@@ -517,6 +517,13 @@ public:
         }
     }
 
+    void SetNamespace(const char* aNamespace)
+    {
+        constexpr auto NamespaceDelimiter = ".";
+
+        SetAlias(std::string(aNamespace).append(NamespaceDelimiter).append(name.ToString()).data());
+    }
+
     template<class TContext, typename TRet, typename TRetType>
     CClassFunction* AddFunction(NativeFunctionPtr<TContext, TRet, TRetType> aFunc, const char* aName,
                                 CBaseFunction::Flags aFlags = {})
