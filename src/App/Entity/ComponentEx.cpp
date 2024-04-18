@@ -1,26 +1,32 @@
 #include "ComponentEx.hpp"
 #include "App/Entity/ComponentWrapper.hpp"
 
-bool App::ComponentEx::ChangeResource(Red::ResourceAsyncReference<> aReference, Red::Optional<bool> aWait)
+bool App::ComponentEx::ChangeResource(const Red::ResourceAsyncReference<>& aReference, Red::Optional<bool> aWait)
 {
     ComponentWrapper wrapper(this);
-    return wrapper.SetResourcePath(aReference.path) && wrapper.LoadResource(aWait);
+    return wrapper.SetResourcePath(aReference.path) && wrapper.LoadResource(true, aWait);
 }
 
 bool App::ComponentEx::LoadResource(Red::Optional<bool> aWait)
 {
     ComponentWrapper wrapper(this);
-    return wrapper.LoadResource(aWait);
+    return wrapper.LoadResource(true, aWait);
 }
 
-bool App::ComponentEx::ChangeAppearance(Red::CName aName)
+bool App::ComponentEx::ChangeAppearance(Red::CName aName, Red::Optional<bool> aWait)
 {
     ComponentWrapper wrapper(this);
-    return wrapper.SetAppearanceName(aName) && wrapper.LoadAppearance();
+    return wrapper.SetAppearanceName(aName) && wrapper.LoadResource(true, aWait);
 }
 
-bool App::ComponentEx::LoadAppearance()
+bool App::ComponentEx::LoadAppearance(Red::Optional<bool> aWait)
 {
     ComponentWrapper wrapper(this);
-    return wrapper.LoadAppearance();
+    return wrapper.LoadResource(true, aWait);
+}
+
+bool App::ComponentEx::RefreshAppearance()
+{
+    ComponentWrapper wrapper(this);
+    return wrapper.RefreshAppearance();
 }

@@ -27,15 +27,17 @@ public:
     [[nodiscard]] Red::ResourcePath GetResourcePath() const;
     bool SetResourcePath(Red::ResourcePath aPath) const;
 
-    bool LoadResource(bool aWait = false) const;
-    Red::SharedPtr<Red::ResourceToken<Red::CMesh>> LoadResourceToken(bool aWait = false) const;
+    bool LoadResource(bool aRefresh, bool aWait) const;
+    [[nodiscard]] Red::SharedPtr<Red::ResourceToken<Red::CMesh>> LoadResourceToken(bool aWait = false) const;
 
     [[nodiscard]] Red::CName GetAppearanceName() const;
     bool SetAppearanceName(Red::CName aAppearance) const;
-    bool LoadAppearance() const;
+    // bool LoadAppearance() const;
 
     [[nodiscard]] uint64_t GetChunkMask() const;
     bool SetChunkMask(uint64_t aChunkMask) const;
+
+    bool RefreshAppearance() const;
 
 private:
     Red::IComponent* m_component;

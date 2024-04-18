@@ -181,7 +181,7 @@ bool App::ComponentWrapper::SetResourcePath(Red::ResourcePath aPath) const
     return false;
 }
 
-bool App::ComponentWrapper::LoadResource(bool aWait) const
+bool App::ComponentWrapper::LoadResource(bool aRefresh, bool aWait) const
 {
     if (!IsMeshComponent())
         return false;
@@ -192,6 +192,11 @@ bool App::ComponentWrapper::LoadResource(bool aWait) const
     if (aWait)
     {
         Red::WaitForQueue(jobQueue, std::chrono::milliseconds(1000));
+    }
+
+    if (aRefresh)
+    {
+        jobQueue.Dispatch([component = m_component] { Raw::MeshComponent::RefreshAppearance(component); });
     }
 
     return true;
@@ -267,41 +272,41 @@ bool App::ComponentWrapper::SetAppearanceName(Red::CName aAppearance) const
     return false;
 }
 
-bool App::ComponentWrapper::LoadAppearance() const
-{
-    Red::ResourceReference<Red::CMesh> meshRef;
-    Red::CName meshAppName;
-
-    switch (m_componentType)
-    {
-    case ComponentType::MeshComponent:
-        meshRef = GetComponentMeshReference(reinterpret_cast<Red::ent::MeshComponent*>(m_component));
-        meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::MeshComponent*>(m_component));
-        break;
-    case ComponentType::SkinnedMeshComponent:
-    case ComponentType::GarmentSkinnedMeshComponent:
-        meshRef = GetComponentMeshReference(reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component));
-        meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component));
-        break;
-    case ComponentType::MorphTargetSkinnedMeshComponent:
-        meshRef = GetComponentMeshReference(reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component));
-        meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component));
-        break;
-    case ComponentType::Unsupported:
-        break;
-    }
-
-    if (meshRef.LoadAsync() && meshRef.IsLoaded())
-    {
-        auto meshApp = Raw::CMesh::GetAppearance(meshRef.token->resource, meshAppName);
-        if (meshApp && meshApp->name == meshAppName)
-        {
-            Raw::MeshAppearance::LoadMaterialSetupAsync(*meshApp.GetPtr(), meshApp, 0);
-        }
-    }
-
-    return true;
-}
+// bool App::ComponentWrapper::LoadAppearance() const
+// {
+//     Red::ResourceReference<Red::CMesh> meshRef;
+//     Red::CName meshAppName;
+//
+//     switch (m_componentType)
+//     {
+//     case ComponentType::MeshComponent:
+//         meshRef = GetComponentMeshReference(reinterpret_cast<Red::ent::MeshComponent*>(m_component));
+//         meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::MeshComponent*>(m_component));
+//         break;
+//     case ComponentType::SkinnedMeshComponent:
+//     case ComponentType::GarmentSkinnedMeshComponent:
+//         meshRef = GetComponentMeshReference(reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component));
+//         meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component));
+//         break;
+//     case ComponentType::MorphTargetSkinnedMeshComponent:
+//         meshRef = GetComponentMeshReference(reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component));
+//         meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component));
+//         break;
+//     case ComponentType::Unsupported:
+//         break;
+//     }
+//
+//     if (meshRef.LoadAsync() && meshRef.IsLoaded())
+//     {
+//         auto meshApp = Raw::CMesh::GetAppearance(meshRef.token->resource, meshAppName);
+//         if (meshApp && meshApp->name == meshAppName)
+//         {
+//             Raw::MeshAppearance::LoadMaterialSetupAsync(*meshApp.GetPtr(), meshApp, 0);
+//         }
+//     }
+//
+//     return false;
+// }
 
 uint64_t App::ComponentWrapper::GetChunkMask() const
 {
@@ -337,4 +342,13 @@ bool App::ComponentWrapper::SetChunkMask(uint64_t aChunkMask) const
     }
 
     return false;
+}
+
+bool App::ComponentWrapper::RefreshAppearance() const
+{
+    if (!IsMeshComponent())
+        return false;
+
+    Raw::MeshComponent::RefreshAppearance(m_component);
+    return true;
 }
