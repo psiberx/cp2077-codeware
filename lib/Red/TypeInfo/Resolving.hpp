@@ -236,11 +236,11 @@ public:
         if (!s_resolved)
         {
             Resolve();
-        }
 
-        if (!s_type || s_type->GetType() != ERTTIType::Class)
-        {
-            return nullptr;
+            if (s_type && s_type->GetType() != ERTTIType::Class)
+            {
+                s_type = nullptr;
+            }
         }
 
         return reinterpret_cast<CClass*>(s_type);
@@ -251,11 +251,11 @@ public:
         if (!s_resolved)
         {
             Resolve();
-        }
 
-        if (!s_type || s_type->GetType() != ERTTIType::Handle)
-        {
-            return nullptr;
+            if (s_type && s_type->GetType() != ERTTIType::Handle)
+            {
+                s_type = nullptr;
+            }
         }
 
         return reinterpret_cast<CRTTIHandleType*>(s_type);
@@ -266,11 +266,11 @@ public:
         if (!s_resolved)
         {
             Resolve();
-        }
 
-        if (!s_type || s_type->GetType() != ERTTIType::WeakHandle)
-        {
-            return nullptr;
+            if (s_type && s_type->GetType() != ERTTIType::WeakHandle)
+            {
+                s_type = nullptr;
+            }
         }
 
         return reinterpret_cast<CRTTIWeakHandleType*>(s_type);
@@ -281,11 +281,11 @@ public:
         if (!s_resolved)
         {
             Resolve();
-        }
 
-        if (!s_type || s_type->GetType() != ERTTIType::Array)
-        {
-            return nullptr;
+            if (s_type && s_type->GetType() != ERTTIType::Array)
+            {
+                s_type = nullptr;
+            }
         }
 
         return reinterpret_cast<CRTTIArrayType*>(s_type);
@@ -296,11 +296,11 @@ public:
         if (!s_resolved)
         {
             Resolve();
-        }
 
-        if (!s_type || s_type->GetType() != ERTTIType::Enum)
-        {
-            return nullptr;
+            if (s_type && s_type->GetType() != ERTTIType::Enum)
+            {
+                s_type = nullptr;
+            }
         }
 
         return reinterpret_cast<CEnum*>(s_type);

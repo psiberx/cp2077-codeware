@@ -7,6 +7,10 @@ constexpr uint32_t GetScriptGameInstance = 1559305924;
 
 constexpr uint32_t CBaseEngine_InitEngine = 3273923080;
 
+constexpr uint32_t CBaseFunction_InternalExecute = 2744524784; // rtti::Function::InternalCallNative
+
+constexpr uint32_t CBaseStack_ResolveContext = 1745688837;
+
 constexpr uint32_t CGameFramework_InitializeGameInstance = 4007601841;
 
 constexpr uint32_t CMesh_GetAppearance = 773462733;
@@ -45,6 +49,9 @@ constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromLocal = 118698863;
 constexpr uint32_t InkWidgetLibrary_SpawnFromExternal = 506278179;
 constexpr uint32_t InkWidgetLibrary_SpawnFromLocal = 1158555307;
 
+constexpr uint32_t IScriptable_CheckClass = 2487884020;
+constexpr uint32_t IScriptable_CheckExactClass = 1797004238;
+
 constexpr uint32_t MeshAppearance_LoadMaterialSetupAsync = 1419388740;
 
 constexpr uint32_t MorphTargetManager_ApplyMorphTarget = 633871992;
@@ -70,7 +77,15 @@ constexpr uint32_t RuntimeSystemWeather_SetWeatherByIndex = 1821516328;
 
 constexpr uint32_t ScriptBundle_dtor = 3993832650;
 
+constexpr uint32_t ScriptOpCodes_Handlers = 961751128;
+constexpr uint32_t ScriptOpCodes_Handlers_New = 2669615409;
+constexpr uint32_t ScriptOpCodes_Handlers_Cast = 2439126103;
+constexpr uint32_t ScriptOpCodes_Register = 2070546748;
+
+constexpr uint32_t ScriptValidator_CompareType = 376118797;
 constexpr uint32_t ScriptValidator_CompareTypeName = 1327107674;
+constexpr uint32_t ScriptValidator_Validate = 898639042;
+constexpr uint32_t ScriptValidator_ValidateProperty = 560604283;
 
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
 }
