@@ -1,36 +1,3 @@
-// -----------------------------------------------------------------------------
-// inkImage
-// -----------------------------------------------------------------------------
-//
-// - 9-slice scaling
-// - Alignment options for tiles
-//
-// -----------------------------------------------------------------------------
-//
-// class inkImage extends inkLeafWidget {
-//   public func UsesNineSliceScale() -> Bool
-//   public func SetNineSliceScale(enable: Bool)
-//   public func GetNineSliceGrid() -> inkMargin
-//   public func SetNineSliceGrid(grid: inkMargin)
-//   public func GetTileHAlign() -> inkEHorizontalAlign
-//   public func SetTileHAlign(tileHAlign: inkEHorizontalAlign)
-//   public func GetTileVAlign() -> inkEVerticalAlign
-//   public func SetTileVAlign(tileVAlign: inkEVerticalAlign)
-// }
-//
-
-@addField(inkImage)
-native let useNineSliceScale: Bool;
-
-@addField(inkImage)
-native let nineSliceScale: inkMargin;
-
-@addField(inkImage)
-native let tileHAlign: inkEHorizontalAlign;
-
-@addField(inkImage)
-native let tileVAlign: inkEVerticalAlign;
-
 @addMethod(inkImage)
 public func UsesNineSliceScale() -> Bool {
     return this.useNineSliceScale;

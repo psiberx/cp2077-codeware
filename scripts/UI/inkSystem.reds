@@ -1,4 +1,3 @@
-
 public native class inkSystem extends IGameSystem {
     private let m_clipboard: String;
 

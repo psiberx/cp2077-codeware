@@ -1,6 +1,3 @@
-//@addField(inkWidgetLibraryResource)
-//native let library: ResourceAsyncRef;
-
 @addMethod(inkWidgetLibraryResource)
 public static native func SetPath(self: script_ref<inkWidgetLibraryResource>, path: ResRef);
 

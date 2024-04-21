@@ -1,4 +1,3 @@
-
 @addMethod(VehicleSystem)
 public native func ToggleGarageVehicle(garageID: GarageVehicleID, enable: Bool) -> Bool
 

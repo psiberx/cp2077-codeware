@@ -1,4 +1,3 @@
-
 public native class inkLayerWrapper {
     public native func GetLayerName() -> CName
     public native func GetVirtualWindow() -> wref<inkVirtualWindow>

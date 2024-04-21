@@ -45,7 +45,7 @@ struct ResourceTokenWrapper : Red::IScriptable
     {
         if (IsFinished())
         {
-            Red::CallVirtual(aListener, aCallback, Red::AsWeakHandle(this));
+            Red::CallVirtual(aListener, aCallback, Red::AsHandle(this));
         }
         else
         {

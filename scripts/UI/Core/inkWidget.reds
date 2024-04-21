@@ -1,36 +1,3 @@
-// -----------------------------------------------------------------------------
-// inkWidget
-// -----------------------------------------------------------------------------
-//
-// - Parent widget
-// - Primary logic controller
-// - Secondary logic controllers
-// - Custom user data
-//
-// -----------------------------------------------------------------------------
-//
-// class inkWidget {
-//   public func GetParentWidget() -> wref<inkWidget>
-//   public func AttachController(controller: ref<inkLogicController>, opt secondary: Bool)
-//   public func SetUserData(userData: ref<inkUserData>)
-// }
-//
-
-@addField(inkWidget)
-native let parentWidget: wref<inkWidget>;
-
-@addField(inkWidget)
-native let logicController: ref<inkLogicController>;
-
-@addField(inkWidget)
-native let secondaryControllers: array<ref<inkLogicController>>;
-
-@addField(inkWidget)
-native let userData: array<ref<inkUserData>>;
-
-@addField(inkWidget)
-native let canSupportFocus: Bool;
-
 @addMethod(inkWidget)
 public func GetParentWidget() -> wref<inkWidget> {
     return this.parentWidget;
@@ -49,6 +16,11 @@ public func CanSupportFocus() -> Bool {
 @addMethod(inkWidget)
 public func SetSupportFocus(enabled: Bool) {
     this.canSupportFocus = enabled;
+}
+
+@addMethod(inkWidget)
+public func AddEffect(effect: ref<inkIEffect>) {
+    ArrayPush(this.effects, effect);
 }
 
 @addMethod(inkWidget)
