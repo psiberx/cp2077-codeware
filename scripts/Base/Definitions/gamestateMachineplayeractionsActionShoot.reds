@@ -1,0 +1,1 @@
+public native class gamestateMachineplayeractionsActionShoot extends gamestateMachineplayeractionsWeaponActionBase {}

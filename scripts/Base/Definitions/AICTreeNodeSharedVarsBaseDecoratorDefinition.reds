@@ -1,0 +1,1 @@
+public abstract native class AICTreeNodeSharedVarsBaseDecoratorDefinition extends AICTreeNodeDecoratorDefinition {}

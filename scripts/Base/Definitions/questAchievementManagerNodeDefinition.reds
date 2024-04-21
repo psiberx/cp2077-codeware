@@ -1,0 +1,2 @@
+public native class questAchievementManagerNodeDefinition extends questDisableableNodeDefinition {
+}

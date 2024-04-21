@@ -1,0 +1,1 @@
+public native class gamePlayerArmorStatPoolsListener extends gamePuppetStatPoolsListener {}

@@ -1,0 +1,2 @@
+public native struct scnCheckFactInterruptConditionParams {
+}

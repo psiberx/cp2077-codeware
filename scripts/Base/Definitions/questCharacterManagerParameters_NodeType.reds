@@ -1,0 +1,2 @@
+public native class questCharacterManagerParameters_NodeType extends questICharacterManager_NodeType {
+}

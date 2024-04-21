@@ -1,0 +1,1 @@
+public native class gameExtraStatPoolDataModifierStatListener extends gameStatPoolDataModifierStatListener {}

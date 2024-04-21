@@ -1,0 +1,1 @@
+public native class gamestateMachineStateMachineBodyLocomotionTier1 extends gamestateMachineStateMachineBody {}

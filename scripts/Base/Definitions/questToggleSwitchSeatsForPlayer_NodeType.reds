@@ -1,0 +1,1 @@
+public native class questToggleSwitchSeatsForPlayer_NodeType extends questIVehicleManagerNodeType {}

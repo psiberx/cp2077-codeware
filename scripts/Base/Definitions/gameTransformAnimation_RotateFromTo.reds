@@ -1,0 +1,2 @@
+public native class gameTransformAnimation_RotateFromTo extends gameTransformAnimationTrackItemImpl {
+}

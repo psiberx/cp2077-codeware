@@ -1,0 +1,1 @@
+public native class questLifePath_ConditionType extends questIStatsScriptConditionType {}

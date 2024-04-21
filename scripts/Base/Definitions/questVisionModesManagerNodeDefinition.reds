@@ -1,0 +1,2 @@
+public native class questVisionModesManagerNodeDefinition extends questDisableableNodeDefinition {
+}

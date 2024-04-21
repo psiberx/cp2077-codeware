@@ -1,0 +1,2 @@
+public native class scnOverrideInterruptConditions_InterruptionScenarioOperation extends scnIInterruptionScenarioOperation {
+}

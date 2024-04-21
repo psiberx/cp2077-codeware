@@ -1,0 +1,2 @@
+public abstract native class AIbehaviorCompositeConditionDefinition extends AIbehaviorConditionDefinition {
+}

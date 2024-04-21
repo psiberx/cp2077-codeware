@@ -1,0 +1,1 @@
+public native class questNewPlayerPuppetAttached_ConditionType extends questISceneConditionType {}

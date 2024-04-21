@@ -1,0 +1,1 @@
+public native class gameinteractionsSuppressedPredicate extends gameinteractionsIPredicateType {}

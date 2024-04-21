@@ -1,0 +1,1 @@
+public native class questCleanupNotifications_NodeType extends questIUIManagerNodeType {}

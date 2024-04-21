@@ -1,0 +1,1 @@
+public native class rendRenderMultilayerMaskBlobPS4 extends rendRenderMultilayerMaskBlob {}

@@ -1,0 +1,3 @@
+public native class gameEffectParameter_IntEvaluator_Blackboard extends gameIEffectParameter_IntEvaluator {
+  native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
+}

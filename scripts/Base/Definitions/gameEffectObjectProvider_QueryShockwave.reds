@@ -1,0 +1,1 @@
+public native class gameEffectObjectProvider_QueryShockwave extends gameEffectObjectProvider_QuerySphere {}

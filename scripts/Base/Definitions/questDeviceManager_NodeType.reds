@@ -1,0 +1,2 @@
+public native class questDeviceManager_NodeType extends questIInteractiveObjectManagerNodeType {
+}

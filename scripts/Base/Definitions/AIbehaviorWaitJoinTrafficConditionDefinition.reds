@@ -1,0 +1,1 @@
+public native class AIbehaviorWaitJoinTrafficConditionDefinition extends AIbehaviorConditionDefinition {}

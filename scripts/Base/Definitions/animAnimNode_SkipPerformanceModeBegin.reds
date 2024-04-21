@@ -1,0 +1,1 @@
+public native class animAnimNode_SkipPerformanceModeBegin extends animAnimNode_OnePoseInput {}

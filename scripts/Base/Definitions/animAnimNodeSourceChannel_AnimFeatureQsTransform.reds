@@ -1,0 +1,1 @@
+public native class animAnimNodeSourceChannel_AnimFeatureQsTransform extends animIAnimNodeSourceChannel_QsTransform {}

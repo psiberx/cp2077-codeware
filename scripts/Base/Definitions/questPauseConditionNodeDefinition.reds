@@ -1,0 +1,2 @@
+public native class questPauseConditionNodeDefinition extends questSignalStoppingNodeDefinition {
+}

@@ -1,0 +1,2 @@
+public native class ExpressionTreeCGeneralCompositeNodeDefinition extends ExpressionTreeCGeneralNodeDefinition {
+}

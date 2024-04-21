@@ -1,0 +1,1 @@
+public native class AIbehaviorDriveJoinTrafficTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {}

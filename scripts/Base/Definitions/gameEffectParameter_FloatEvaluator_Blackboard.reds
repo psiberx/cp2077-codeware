@@ -1,0 +1,3 @@
+public native class gameEffectParameter_FloatEvaluator_Blackboard extends gameIEffectParameter_FloatEvaluator {
+  native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
+}

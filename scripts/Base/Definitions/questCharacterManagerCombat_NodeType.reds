@@ -1,0 +1,2 @@
+public native class questCharacterManagerCombat_NodeType extends questICharacterManager_NodeType {
+}

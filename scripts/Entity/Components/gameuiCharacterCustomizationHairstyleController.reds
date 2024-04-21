@@ -1,2 +1,0 @@
-public native class gameuiCharacterCustomizationHairstyleController extends gameuiCharacterCustomizationHeadPartsController {
-}

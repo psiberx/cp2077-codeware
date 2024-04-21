@@ -1,0 +1,1 @@
+public native class animAnimNodeSourceChannel_SocketVector extends animIAnimNodeSourceChannel_Vector {}

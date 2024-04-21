@@ -1,0 +1,1 @@
+public native class animAnimNodeSourceChannel_AnimFeatureVector extends animIAnimNodeSourceChannel_Vector {}

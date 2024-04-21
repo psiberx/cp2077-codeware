@@ -1,0 +1,6 @@
+public native class worldSplineNode extends worldSocketNode {
+  native let destSnapedNode: NodeRef;
+  native let destSnapedSocketName: CName;
+  native let entrySnapedNode: NodeRef;
+  native let entrySnapedSocketName: CName;
+}

@@ -1,0 +1,1 @@
+public native class questGatherTriggerNotifier_QuestInstance extends questTriggerNotifier_QuestInstance {}

@@ -1,0 +1,1 @@
+public importonly native class gameuiCharacterCustomizationSystem extends gameuiICharacterCustomizationSystem {}

@@ -1,0 +1,2 @@
+public native class AITreeNodeInterruptionDecoratorDefinition extends AICTreeNodeDecoratorDefinition {
+}

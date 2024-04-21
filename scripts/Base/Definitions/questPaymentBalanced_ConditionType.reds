@@ -1,0 +1,1 @@
+public native class questPaymentBalanced_ConditionType extends questIPayment_ConditionType {}

@@ -1,0 +1,5 @@
+enum worldEClusteringModel {
+  HierarchicalGrid = 0,
+  AlwaysLoaded = 1,
+  Discard = 2,
+}

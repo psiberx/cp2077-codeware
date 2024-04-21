@@ -1,0 +1,5 @@
+enum scnRidActorPlacement {
+  SceneOrigin = 0,
+  Actual = 1,
+  Player = 2,
+}

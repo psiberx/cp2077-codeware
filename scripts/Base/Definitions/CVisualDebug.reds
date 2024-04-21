@@ -1,0 +1,18 @@
+public native class CVisualDebug extends IScriptable {
+  public final native func AddArrow()
+  public final native func AddAxis()
+  public final native func AddBar()
+  public final native func AddBarColorAreas()
+  public final native func AddBarColorSmooth()
+  public final native func AddBox()
+  public final native func AddLine()
+  public final native func AddSphere()
+  public final native func AddText()
+  public final native func RemoveArrow()
+  public final native func RemoveAxis()
+  public final native func RemoveBar()
+  public final native func RemoveBox()
+  public final native func RemoveLine()
+  public final native func RemoveSphere()
+  public final native func RemoveText()
+}

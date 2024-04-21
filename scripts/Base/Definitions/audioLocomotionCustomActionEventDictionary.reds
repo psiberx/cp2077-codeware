@@ -1,0 +1,2 @@
+public native class audioLocomotionCustomActionEventDictionary extends audioInlinedAudioMetadata {
+}

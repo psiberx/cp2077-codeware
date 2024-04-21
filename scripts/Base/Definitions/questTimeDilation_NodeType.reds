@@ -1,0 +1,2 @@
+public native class questTimeDilation_NodeType extends questIGameManagerNonSignalStoppingNodeType {
+}

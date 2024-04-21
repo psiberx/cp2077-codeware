@@ -1,0 +1,1 @@
+public native class gameEffectObjectProvider_Stimuli_EntitiesInRange extends EffectObjectProvider {}

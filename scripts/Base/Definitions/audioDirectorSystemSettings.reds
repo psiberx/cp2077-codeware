@@ -1,0 +1,29 @@
+public native class audioDirectorSystemSettings extends audioAudioMetadata {
+  native let combatVoManagerSettingsName: CName;
+  native let singleConversationMinRepeatTime: Float;
+  native let allConversationsMinRepeatTime: Float;
+  native let maxVelocityMagnitudeToConsiderPlayerVehicleInactive: Float;
+  native let maxVelocityMagnitudeToConsiderTrafficVehicleIdle: Float;
+  native let playerInactiveMinTimeNeededToEngageMovingFaster: Float;
+  native let vehEngageMovingFasterInterpolation: audioVehicleEngageMovingFasterInterpolationData;
+  native let playerBrakeEventCooldown: Float;
+  native let trafficSpeedRC: Float;
+  native let trafficAccelerationRC: Float;
+  native let trafficRpmRC: Float;
+  native let trafficSlipRatioSkidThreshold: Float;
+  native let trafficHornSingleVehicleCooldown: Float;
+  native let trafficHornAllVehiclesCooldown: Float;
+  native let trafficHornMaxDistanceRangeToPlayer: Float;
+  native let overHeadVisibilityMaxOcclusion: Float;
+  native let overHeadVisibilityMaxObstruction: Float;
+  native let conversationMixCooldown: Float;
+  native let enemyPingCooldown: Float;
+  native let idleTimeBeforeAllowingOwMusicChange: Float;
+  native let drivingStreamingAmbientEmittersDistanceRolloff: Float;
+  native let lowHealthStateMaxTime: Float;
+  native let lowGearMaxTrafficSpeed: Float;
+  native let lowGearAccelerationThreshold: Float;
+  native let mediumGearMaxTrafficSpeed: Float;
+  native let mediumGearAccelerationThreshold: Float;
+  native let highGearAccelerationThreshold: Float;
+}

@@ -1,0 +1,2 @@
+public native class questAudioCharacterSystemsManager_NodeType extends questIAudioCharacterManager_NodeType {
+}

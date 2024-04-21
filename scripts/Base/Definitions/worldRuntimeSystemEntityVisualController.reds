@@ -1,0 +1,1 @@
+public native class worldRuntimeSystemEntityVisualController extends worldIRuntimeSystem {}

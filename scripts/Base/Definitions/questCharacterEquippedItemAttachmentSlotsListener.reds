@@ -1,0 +1,1 @@
+public native class questCharacterEquippedItemAttachmentSlotsListener extends AttachmentSlotsListener {}

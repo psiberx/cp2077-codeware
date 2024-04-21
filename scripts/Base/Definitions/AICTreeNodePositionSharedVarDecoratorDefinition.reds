@@ -1,0 +1,1 @@
+public native class AICTreeNodePositionSharedVarDecoratorDefinition extends AICTreeNodeSingleSharedVarDecoratorDefinition {}
