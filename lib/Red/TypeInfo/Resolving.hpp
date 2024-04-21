@@ -415,6 +415,12 @@ inline CClass* GetClass(CName aTypeName)
     return reinterpret_cast<CClass*>(type);
 }
 
+inline CClass* GetScriptClass(CName aTypeName)
+{
+    auto type = GetClass(aTypeName);
+    return type ? type : CRTTISystem::Get()->GetClassByScriptName(aTypeName);
+}
+
 template<CName AType>
 inline CEnum* GetEnum() noexcept
 {
@@ -504,6 +510,11 @@ template<typename T>
 inline bool IsInstanceOf(ISerializable* aObject)
 {
     return aObject->GetType()->IsA(Red::GetClass<T>());
+}
+
+inline bool IsInstanceOf(ISerializable* aObject, CName aClassName)
+{
+    return aObject->GetType()->IsA(Red::GetClass(aClassName));
 }
 
 template<typename T>
