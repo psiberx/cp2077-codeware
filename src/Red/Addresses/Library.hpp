@@ -87,5 +87,8 @@ constexpr uint32_t ScriptValidator_CompareTypeName = 1327107674;
 constexpr uint32_t ScriptValidator_Validate = 898639042;
 constexpr uint32_t ScriptValidator_ValidateProperty = 560604283;
 
+constexpr uint32_t Serializer_OnDependenciesReady = 1185093671;
+constexpr uint32_t Serializer_OnResourceReady = 1147149338;
+
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
 }
