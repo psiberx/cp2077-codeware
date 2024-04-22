@@ -9,30 +9,30 @@ constexpr auto CreateInstance = Core::RawFunc<
     /* type = */ Red::IScriptable* (*)(Red::CClass*, uint32_t, bool)>();
 }
 
-namespace Raw::CBaseStack
-{
-constexpr auto ResolveContext = Core::RawFunc<
-    /* addr = */ Red::AddressLib::CBaseStack_ResolveContext,
-    /* type = */ Red::IScriptable* (*)(Red::CBaseStack*)>();
-}
+// namespace Raw::CBaseStack
+// {
+// constexpr auto ResolveContext = Core::RawFunc<
+//     /* addr = */ Red::AddressLib::CBaseStack_ResolveContext,
+//     /* type = */ Red::IScriptable* (*)(Red::CBaseStack*)>();
+// }
 
-namespace Raw::CBaseFunction
-{
-constexpr auto InternalExecute = Core::RawFunc<
-    /* addr = */ Red::AddressLib::CBaseFunction_InternalExecute,
-    /* type = */ bool (*)(Red::CBaseFunction*, Red::CBaseStack*, Red::CStackFrame*)>();
-}
+// namespace Raw::CBaseFunction
+// {
+// constexpr auto InternalExecute = Core::RawFunc<
+//     /* addr = */ Red::AddressLib::CBaseFunction_InternalExecute,
+//     /* type = */ bool (*)(Red::CBaseFunction*, Red::CBaseStack*, Red::CStackFrame*)>();
+// }
 
-namespace Raw::IScriptable
-{
-constexpr auto CheckClass = Core::RawFunc<
-    /* addr = */ Red::AddressLib::IScriptable_CheckClass,
-    /* type = */ void (*)(Red::IScriptable* aContext, Red::CStackFrame*, bool* aRet, Red::CBaseRTTIType*)>();
-
-constexpr auto CheckExactClass = Core::RawFunc<
-    /* addr = */ Red::AddressLib::IScriptable_CheckExactClass,
-    /* type = */ void (*)(Red::IScriptable* aContext, Red::CStackFrame*, bool* aRet, Red::CBaseRTTIType*)>();
-}
+// namespace Raw::IScriptable
+// {
+// constexpr auto CheckClass = Core::RawFunc<
+//     /* addr = */ Red::AddressLib::IScriptable_CheckClass,
+//     /* type = */ void (*)(Red::IScriptable* aContext, Red::CStackFrame*, bool* aRet, Red::CBaseRTTIType*)>();
+//
+// constexpr auto CheckExactClass = Core::RawFunc<
+//     /* addr = */ Red::AddressLib::IScriptable_CheckExactClass,
+//     /* type = */ void (*)(Red::IScriptable* aContext, Red::CStackFrame*, bool* aRet, Red::CBaseRTTIType*)>();
+// }
 
 namespace Raw::ScriptValidator
 {
@@ -53,7 +53,7 @@ namespace Raw::ScriptBundle
 {
 constexpr auto Destruct = Core::RawFunc<
     /* addr = */ Red::AddressLib::ScriptBundle_dtor,
-    /* type = */ void (*)(void* aBundle)>();
+    /* type = */ void (*)(Red::ScriptBundle* aBundle)>();
 }
 
 namespace Raw::ScriptOpCodes

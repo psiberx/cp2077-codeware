@@ -37,12 +37,6 @@ void App::ScriptingService::OnBootstrap()
     if (!HookAfter<Raw::CClass::CreateInstance>(&OnCreateInstance))
         throw std::runtime_error("Failed to hook CClass::CreateInstance.");
 
-    // if (!Hook<Raw::IScriptable::CheckClass>(&OnCheckScriptableClass))
-    //     throw std::runtime_error("Failed to hook IScriptable::CheckClass.");
-    //
-    // if (!Hook<Raw::IScriptable::CheckExactClass>(&OnCheckScriptableExactClass))
-    //     throw std::runtime_error("Failed to hook IScriptable::CheckExactClass.");
-
     if (!Hook<Raw::GetScriptGameInstance>(&GetScriptGameInstance))
         throw std::runtime_error("Failed to hook ScriptGameInstance.");
 }
@@ -227,46 +221,6 @@ void App::ScriptingService::OnCreateInstance(Red::IScriptable*& aInstance, Red::
         Red::CallVirtual(aInstance, aClass, "OnConstruct");
     }
 }
-
-// void App::ScriptingService::OnCheckScriptableClass(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
-//                                                    bool* aRet, Red::CBaseRTTIType* aType)
-// {
-//     if (aContext && !aContext->GetNativeType()->IsA(Red::GetClass<Red::IScriptable>()))
-//     {
-//         Red::CName className;
-//         Red::GetParameter(aFrame, &className);
-//         ++aFrame->code;
-//
-//         if (aRet)
-//         {
-//             *aRet = aContext->GetNativeType()->IsA(Red::GetClass(className));
-//         }
-//     }
-//     else
-//     {
-//         Raw::IScriptable::CheckClass(aContext, aFrame, aRet, aType);
-//     }
-// }
-
-// void App::ScriptingService::OnCheckScriptableExactClass(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
-//                                                         bool* aRet, Red::CBaseRTTIType* aType)
-// {
-//     if (aContext && !aContext->GetNativeType()->IsA(Red::GetClass<Red::IScriptable>()))
-//     {
-//         Red::CName className;
-//         Red::GetParameter(aFrame, &className);
-//         ++aFrame->code;
-//
-//         if (aRet)
-//         {
-//             *aRet = (aContext->GetNativeType()->name == className);
-//         }
-//     }
-//     else
-//     {
-//         Raw::IScriptable::CheckExactClass(aContext, aFrame, aRet, aType);
-//     }
-// }
 
 void App::ScriptingService::GetScriptGameInstance(Red::IScriptable*, Red::CStackFrame* aFrame,
                                                   Red::ScriptGameInstance* aRet, Red::CBaseRTTIType*)
