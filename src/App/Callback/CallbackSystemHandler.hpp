@@ -23,14 +23,16 @@ struct CallbackSystemHandler : Red::IScriptable
 public:
     CallbackSystemHandler() = default;
 
-    CallbackSystemHandler(const Red::WeakHandle<Red::IScriptable>& aContext, Red::CName aFunction)
-        : contextWeak(aContext)
+    CallbackSystemHandler(Red::CName aEventType, Red::WeakHandle<Red::IScriptable> aContext, Red::CName aFunction)
+        : eventType(aEventType)
+        , contextWeak(std::move(aContext))
         , function(aFunction)
     {
     }
 
-    CallbackSystemHandler(Red::CName aContext, Red::CName aFunction)
-        : contextType(aContext)
+    CallbackSystemHandler(Red::CName aEventType, Red::CName aContext, Red::CName aFunction)
+        : eventType(aEventType)
+        , contextType(aContext)
         , function(aFunction)
     {
     }
@@ -127,7 +129,7 @@ public:
         return lifetime == CallbackLifetime::Forever;
     }
 
-    [[nodiscard]] bool IsValid() noexcept
+    [[nodiscard]] bool IsRegistered()
     {
         std::shared_lock _(stateLock);
         return valid;
@@ -135,6 +137,7 @@ public:
 
     Red::Handle<CallbackSystemHandler> AddTarget(const Red::Handle<CallbackSystemTarget>& aTarget)
     {
+        if (aTarget->Supports(eventType))
         {
             std::unique_lock _(stateLock);
             targets.push_back(aTarget);
@@ -146,6 +149,7 @@ public:
 
     Red::Handle<CallbackSystemHandler> RemoveTarget(const Red::Handle<CallbackSystemTarget>& aTarget)
     {
+        if (aTarget->Supports(eventType))
         {
             std::unique_lock _(stateLock);
             std::erase_if(targets, [&aTarget](const Red::Handle<CallbackSystemTarget>& aCandidate) -> bool {
@@ -198,6 +202,7 @@ private:
         return false;
     }
 
+    Red::CName eventType;
     Red::WeakHandle<Red::IScriptable> contextWeak;
     Red::CName contextType;
     Red::CName function;
@@ -223,4 +228,5 @@ RTTI_DEFINE_CLASS(App::CallbackSystemHandler, {
     RTTI_METHOD(SetRunMode);
     RTTI_METHOD(SetLifetime);
     RTTI_METHOD(Unregister);
+    RTTI_METHOD(IsRegistered);
 });

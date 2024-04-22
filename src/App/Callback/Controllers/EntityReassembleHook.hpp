@@ -15,9 +15,9 @@ class EntityReassembleHook
 public:
     constexpr static auto EventName = Red::CName("Entity/Reassemble");
 
-    Core::Vector<Red::CName> GetEvents() override
+    Core::Map<Red::CName, Red::CName> GetEvents() override
     {
-        return {EventName};
+        return {{EventName, Red::GetTypeName<EntityLifecycleEvent>()}};
     }
 
 protected:

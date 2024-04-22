@@ -18,9 +18,12 @@ public:
     constexpr static auto KeyEventName = Red::CName("Input/Key");
     constexpr static auto AxisEventName = Red::CName("Input/Axis");
 
-    Core::Vector<Red::CName> GetEvents() override
+    Core::Map<Red::CName, Red::CName> GetEvents() override
     {
-        return {KeyEventName, AxisEventName};
+        return {
+            {KeyEventName, Red::GetTypeName<KeyInputEvent>()},
+            {AxisEventName, Red::GetTypeName<AxisInputEvent>()},
+        };
     }
 
 protected:

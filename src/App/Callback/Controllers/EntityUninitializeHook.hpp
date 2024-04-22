@@ -15,9 +15,9 @@ class EntityUninitializeHook
 public:
     constexpr static auto EventName = Red::CName("Entity/Uninitialize");
 
-    Core::Vector<Red::CName> GetEvents() override
+    Core::Map<Red::CName, Red::CName> GetEvents() override
     {
-        return {EventName};
+        return {{EventName, Red::GetTypeName<EntityLifecycleEvent>()}};
     }
 
 protected:

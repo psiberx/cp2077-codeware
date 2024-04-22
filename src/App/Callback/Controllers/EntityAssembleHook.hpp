@@ -15,9 +15,9 @@ class EntityAssembleHook
 public:
     constexpr static auto EventName = Red::CName("Entity/Assemble");
 
-    Core::Vector<Red::CName> GetEvents() override
+    Core::Map<Red::CName, Red::CName> GetEvents() override
     {
-        return {EventName};
+        return {{EventName, Red::GetTypeName<EntityLifecycleEvent>()}};
     }
 
 protected:

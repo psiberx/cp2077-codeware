@@ -5,5 +5,6 @@ public native class CallbackSystemHandler {
     public native func SetRunMode(runMode: CallbackRunMode) -> ref<CallbackSystemHandler>
     public native func SetLifetime(lifetime: CallbackLifetime) -> ref<CallbackSystemHandler>
 
+    public native func IsRegistered() -> Bool
     public native func Unregister()
 }

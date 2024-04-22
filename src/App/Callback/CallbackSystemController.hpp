@@ -5,7 +5,7 @@ namespace App
 class CallbackSystemController
 {
 public:
-    virtual Core::Vector<Red::CName> GetEvents() = 0;
+    virtual Core::Map<Red::CName, Red::CName> GetEvents() = 0;
     virtual bool ActivateEvent(Red::CName aEvent);
     virtual bool DeactivateEvent(Red::CName aEvent);
 

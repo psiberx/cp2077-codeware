@@ -16,9 +16,12 @@ public:
     constexpr static auto EventName = Red::CName("Entity/Attach");
     constexpr static auto PostEventName = Red::CName("Entity/Attached");
 
-    Core::Vector<Red::CName> GetEvents() override
+    Core::Map<Red::CName, Red::CName> GetEvents() override
     {
-        return {EventName, PostEventName};
+        return {
+            {EventName, Red::GetTypeName<EntityLifecycleEvent>()},
+            {PostEventName, Red::GetTypeName<EntityLifecycleEvent>()},
+        };
     }
 
 protected:

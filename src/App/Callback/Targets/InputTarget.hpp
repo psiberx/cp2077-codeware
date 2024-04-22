@@ -29,6 +29,11 @@ struct InputTarget : CallbackSystemTarget
         return key == target->key && action == target->action;
     }
 
+    bool Supports(Red::CName aEventType) override
+    {
+        return aEventType == Red::GetTypeName<KeyInputEvent>();
+    }
+
     static Red::Handle<InputTarget> Key(Red::EInputKey aKey, Red::Optional<Red::EInputAction> aAction)
     {
         auto target = Red::MakeHandle<InputTarget>();

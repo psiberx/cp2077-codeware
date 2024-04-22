@@ -12,9 +12,9 @@ public:
     CallbackSystem();
     ~CallbackSystem() override;
 
-    Red::Handle<CallbackSystemHandler> RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
+    Red::Handle<CallbackSystemHandler> RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aContext,
                                                         Red::CName aFunction, Red::Optional<bool> aSticky);
-    Red::Handle<CallbackSystemHandler> RegisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::CName aFunction,
+    Red::Handle<CallbackSystemHandler> RegisterStaticCallback(Red::CName aEventName, Red::CName aContext, Red::CName aFunction,
                                                               Red::Optional<bool> aSticky);
 
     void UnregisterCallback(Red::CName aHandler, const Red::Handle<Red::IScriptable>& aContext,
@@ -81,9 +81,10 @@ protected:
     {
         auto controller = Core::MakeShared<TController>();
 
-        for (const auto& event : controller->GetEvents())
+        for (const auto& [eventName, eventObjectType] : controller->GetEvents())
         {
-            m_eventControllers.emplace(event, controller);
+            m_eventControllers.emplace(eventName, controller);
+            m_supportedEvents.emplace(eventName, eventObjectType);
         }
     }
 
@@ -96,6 +97,7 @@ protected:
     std::shared_mutex m_callbacksLock;
     Core::Map<Red::CName, Core::Vector<Red::Handle<CallbackSystemHandler>>> m_callbacksByEvent;
     Core::Map<Red::CName, Core::SharedPtr<CallbackSystemController>> m_eventControllers;
+    Core::Map<Red::CName, Red::CName> m_supportedEvents;
 
     inline static Red::Handle<CallbackSystem> s_self;
 

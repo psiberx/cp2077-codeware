@@ -70,7 +70,7 @@ void App::CallbackSystem::OnAfterWorldDetach()
         auto& callbackList = it.value();
 
         std::erase_if(callbackList, [](Red::Handle<CallbackSystemHandler>& aCallback) -> bool {
-            return !aCallback->IsSticky();
+            return !aCallback->IsSticky() || !aCallback->IsRegistered();
         });
 
         if (callbackList.empty())
@@ -125,37 +125,47 @@ void App::CallbackSystem::OnGameResumed()
 }
 
 Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
-    Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget, Red::CName aFunction, Red::Optional<bool> aSticky)
+    Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext, Red::CName aFunction, Red::Optional<bool> aSticky)
 {
-    std::unique_lock _(m_callbacksLock);
+    auto eventType = m_supportedEvents[aEventName];
+    if (!eventType)
+        return {};
 
-    auto handler = Red::MakeHandle<CallbackSystemHandler>(aTarget, aFunction);
+    ActivateEvent(aEventName);
 
+    auto handler = Red::MakeHandle<CallbackSystemHandler>(eventType, aContext, aFunction);
     if (aSticky)
     {
         handler->SetLifetime(CallbackLifetime::Forever);
     }
 
-    m_callbacksByEvent[aEvent].push_back(handler);
-    ActivateEvent(aEvent);
+    {
+        std::unique_lock _(m_callbacksLock);
+        m_callbacksByEvent[aEventName].push_back(handler);
+    }
 
     return handler;
 }
 
 Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallback(
-    Red::CName aEvent, Red::CName aType, Red::CName aFunction, Red::Optional<bool> aSticky)
+    Red::CName aEventName, Red::CName aContext, Red::CName aFunction, Red::Optional<bool> aSticky)
 {
-    std::unique_lock _(m_callbacksLock);
+    auto eventType = m_supportedEvents[aEventName];
+    if (!eventType)
+        return {};
 
-    auto handler = Red::MakeHandle<CallbackSystemHandler>(aType, aFunction);
+    ActivateEvent(aEventName);
 
+    auto handler = Red::MakeHandle<CallbackSystemHandler>(eventType, aContext, aFunction);
     if (aSticky)
     {
         handler->SetLifetime(CallbackLifetime::Forever);
     }
 
-    m_callbacksByEvent[aEvent].push_back(handler);
-    ActivateEvent(aEvent);
+    {
+        std::unique_lock _(m_callbacksLock);
+        m_callbacksByEvent[aEventName].push_back(handler);
+    }
 
     return handler;
 }

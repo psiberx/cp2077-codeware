@@ -37,6 +37,11 @@ struct EntityTarget : CallbackSystemTarget
                templatePath == target->templatePath && appearanceName == target->appearanceName;
     }
 
+    bool Supports(Red::CName aEventType) override
+    {
+        return aEventType == Red::GetTypeName<EntityLifecycleEvent>();
+    }
+
     static Red::Handle<EntityTarget> ID(Red::EntityID aEntityID)
     {
         auto target = Red::MakeHandle<EntityTarget>();

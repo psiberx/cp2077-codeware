@@ -39,6 +39,11 @@ struct ResourceTarget : CallbackSystemTarget
         return path == target->path && type == target->type;
     }
 
+    bool Supports(Red::CName aEventType) override
+    {
+        return aEventType == Red::GetTypeName<ResourceEvent>();
+    }
+
     static Red::Handle<ResourceTarget> Path(const Red::RaRef<>& aRef)
     {
         return Red::MakeHandle<ResourceTarget>(aRef.path);
