@@ -15,6 +15,7 @@
 #include "App/Scripting/Events/GameSessionEvent.hpp"
 #include "App/Scripting/Events/KeyInputEvent.hpp"
 #include "App/Scripting/ISerializableEx.hpp"
+#include "App/Scripting/ScriptableService.hpp"
 #include "App/Scripting/StackTrace.hpp"
 #include "App/UI/inkCharacterEventEx.hpp"
 #include "App/UI/inkComponent.hpp"

@@ -1,6 +1,6 @@
 #include "ScriptingService.hpp"
-#include "ScriptableEnv.hpp"
 #include "App/Depot/ResourceReference.hpp"
+#include "App/Scripting/ScriptableService.hpp"
 
 namespace
 {
@@ -43,40 +43,36 @@ void App::ScriptingService::OnBootstrap()
 
 void App::ScriptingService::OnInitializeScripts()
 {
-    Red::DynArray<Red::CClass*> envTypes;
-    Red::CRTTISystem::Get()->GetDerivedClasses(Red::GetClass<ScriptableEnv>(), envTypes);
+    Red::DynArray<Red::CClass*> serviceTypes;
+    Red::CRTTISystem::Get()->GetDerivedClasses(Red::GetClass<ScriptableService>(), serviceTypes);
 
-    for (auto envType : envTypes)
+    for (auto serviceType : serviceTypes)
     {
-        const auto& envIt = s_environments.find(envType);
+        const auto& serviceIt = s_scriptableServices.find(serviceType);
 
-        if (envIt != s_environments.end())
+        if (serviceIt != s_scriptableServices.end())
         {
-            auto& env = envIt.value();
-            Red::CallVirtual(env, "OnReload");
+            auto& service = serviceIt.value();
+            Red::CallVirtual(service, "OnReload");
         }
         else
         {
-            if (envType->flags.isAbstract)
-            {
-                LogWarning("Can't create scriptable environment {} because class is abstract.",
-                           envType->name.ToString());
+            if (serviceType->flags.isAbstract)
                 continue;
-            }
 
-            auto env = Red::ToHandle<ScriptableEnv>(envType->CreateInstance());
-            Red::CallVirtual(env, "OnLoad");
+            auto service = Red::ToHandle<ScriptableService>(serviceType->CreateInstance());
+            Red::CallVirtual(service, "OnLoad");
 
-            s_environments.emplace(envType, std::move(env));
+            s_scriptableServices.emplace(serviceType, std::move(service));
         }
     }
 }
 
 void App::ScriptingService::OnInitializeGameInstance()
 {
-    for (const auto& [envType, env] : s_environments)
+    for (const auto& [serviceType, service] : s_scriptableServices)
     {
-        Red::CallVirtual(env, "OnInitialize");
+        Red::CallVirtual(service, "OnInitialize");
     }
 }
 
@@ -235,11 +231,11 @@ void App::ScriptingService::GetScriptGameInstance(Red::IScriptable*, Red::CStack
     }
 }
 
-Red::Handle<App::ScriptableEnv> App::ScriptingService::GetEnvironment(Red::CClass* aType)
+Red::Handle<App::ScriptableService> App::ScriptingService::GetScriptableService(Red::CClass* aType)
 {
-    auto it = s_environments.find(aType);
+    auto it = s_scriptableServices.find(aType);
 
-    if (it == s_environments.end())
+    if (it == s_scriptableServices.end())
         return {};
 
     return it.value();

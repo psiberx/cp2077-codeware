@@ -1,6 +1,6 @@
 #pragma once
 
-#include "App/Scripting/ScriptableEnv.hpp"
+#include "App/Scripting/ScriptableService.hpp"
 #include "Core/Foundation/Feature.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Core/Logging/LoggingAgent.hpp"
@@ -16,7 +16,7 @@ class ScriptingService
     , public Core::LoggingAgent
 {
 public:
-    Red::Handle<ScriptableEnv> GetEnvironment(Red::CClass* aType);
+    Red::Handle<ScriptableService> GetScriptableService(Red::CClass* aType);
 
 protected:
     void OnBootstrap() override;
@@ -33,6 +33,6 @@ protected:
     static void GetScriptGameInstance(Red::IScriptable*, Red::CStackFrame* aFrame,
                                       Red::ScriptGameInstance* aRet, Red::CBaseRTTIType*);
 
-    inline static Core::Map<Red::CClass*, Red::Handle<ScriptableEnv>> s_environments;
+    inline static Core::Map<Red::CClass*, Red::Handle<ScriptableService>> s_scriptableServices;
 };
 }

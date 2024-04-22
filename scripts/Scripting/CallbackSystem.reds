@@ -1,4 +1,3 @@
-
 public native class CallbackSystem extends IGameSystem {
     public native func RegisterCallback(event: CName, target: ref<IScriptable>, function: CName, opt sticky: Bool)
     public native func UnregisterCallback(event: CName, target: ref<IScriptable>, opt function: CName)
