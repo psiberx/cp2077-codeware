@@ -48,7 +48,7 @@ RED4EXT_ASSERT_OFFSET(EntityInitializeRequest, unkCC, 0xCC);
 namespace Raw::Entity
 {
 using EntityID = Core::OffsetPtr<0x48, Red::EntityID>;
-// using AppearanceName = Core::OffsetPtr<0x50, Red::CName>;
+using AppearanceName = Core::OffsetPtr<0x50, Red::CName>;
 using TemplatePath = Core::OffsetPtr<0x60, Red::ResourcePath>;
 using ComponentsStorage = Core::OffsetPtr<0x70, Red::ent::ComponentsStorage>;
 using Scene = Core::OffsetPtr<0xB8, Red::world::RuntimeScene>;

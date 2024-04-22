@@ -6,6 +6,8 @@
 #include "App/Callback/Events/GameSessionEvent.hpp"
 #include "App/Callback/Events/KeyInputEvent.hpp"
 #include "App/Callback/Events/ResourceEvent.hpp"
+#include "App/Callback/Targets/EntityTarget.hpp"
+#include "App/Callback/Targets/InputTarget.hpp"
 #include "App/Callback/Targets/ResourceTarget.hpp"
 #include "App/Depot/ResourceDepot.hpp"
 #include "App/Depot/ResourceReference.hpp"
