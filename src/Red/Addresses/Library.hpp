@@ -72,6 +72,8 @@ constexpr uint32_t QuestPhaseInstance_ExecuteNode = 3227858325;
 
 constexpr uint32_t QuestsSystem_CreateContext = 3144298192;
 
+constexpr uint32_t ResourcePath_Create = 3998356057;
+
 constexpr uint32_t RuntimeSystemWeather_SetWeatherByName = 2334794340;
 constexpr uint32_t RuntimeSystemWeather_SetWeatherByIndex = 1821516328;
 

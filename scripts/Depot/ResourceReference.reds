@@ -26,6 +26,9 @@ public static func OperatorAssignMultiply(out res: ResourceAsyncRef, path: ResRe
 @addMethod(ResRef)
 public static native func GetHash(self: ResRef) -> Uint64
 
+@addMethod(ResRef)
+public static native func ToString(self: ResRef) -> String
+
 public static func OperatorEqual(lhs: ResRef, rhs: ResRef) -> Bool {
     return Equals(lhs, rhs);
 }

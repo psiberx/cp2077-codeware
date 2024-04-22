@@ -1,6 +1,8 @@
 #pragma once
 
-#include <App/Depot/ResourceToken.hpp>
+#include "App/Depot/ResourcePathRegistry.hpp"
+#include "App/Depot/ResourceToken.hpp"
+#include "Core/Facades/Container.hpp"
 
 namespace App
 {
@@ -76,6 +78,11 @@ struct ResourceScriptReferenceEx
     {
         return aReference.resource.path;
     }
+
+    inline static Red::CString ToString(const Red::redResourceReferenceScriptToken& aReference)
+    {
+        return Core::Resolve<ResourcePathRegistry>()->GetPath(aReference.resource.path);
+    }
 };
 }
 
@@ -98,4 +105,5 @@ RTTI_DEFINE_CLASS(App::ResourceAsyncWrapper, "ResourceAsyncRef", {
 
 RTTI_EXPAND_CLASS(Red::redResourceReferenceScriptToken, {
     RTTI_METHOD_FQN(App::ResourceScriptReferenceEx::GetHash);
+    RTTI_METHOD_FQN(App::ResourceScriptReferenceEx::ToString);
 });
