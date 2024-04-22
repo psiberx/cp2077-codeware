@@ -48,7 +48,7 @@ void App::ScriptingService::OnInitializeScripts()
 
     for (auto serviceType : serviceTypes)
     {
-        const auto& serviceIt = s_scriptableServices.find(serviceType);
+        const auto& serviceIt = s_scriptableServices.find(serviceType->name);
 
         if (serviceIt != s_scriptableServices.end())
         {
@@ -63,7 +63,7 @@ void App::ScriptingService::OnInitializeScripts()
             auto service = Red::ToHandle<ScriptableService>(serviceType->CreateInstance());
             Red::CallVirtual(service, "OnLoad");
 
-            s_scriptableServices.emplace(serviceType, std::move(service));
+            s_scriptableServices.emplace(serviceType->name, std::move(service));
         }
     }
 }
@@ -231,7 +231,7 @@ void App::ScriptingService::GetScriptGameInstance(Red::IScriptable*, Red::CStack
     }
 }
 
-Red::Handle<App::ScriptableService> App::ScriptingService::GetScriptableService(Red::CClass* aType)
+Red::Handle<App::ScriptableService> App::ScriptingService::GetScriptableService(Red::CName aType)
 {
     auto it = s_scriptableServices.find(aType);
 

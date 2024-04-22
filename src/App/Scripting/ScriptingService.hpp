@@ -16,7 +16,7 @@ class ScriptingService
     , public Core::LoggingAgent
 {
 public:
-    Red::Handle<ScriptableService> GetScriptableService(Red::CClass* aType);
+    Red::Handle<ScriptableService> GetScriptableService(Red::CName aType);
 
 protected:
     void OnBootstrap() override;
@@ -33,6 +33,6 @@ protected:
     static void GetScriptGameInstance(Red::IScriptable*, Red::CStackFrame* aFrame,
                                       Red::ScriptGameInstance* aRet, Red::CBaseRTTIType*);
 
-    inline static Core::Map<Red::CClass*, Red::Handle<ScriptableService>> s_scriptableServices;
+    inline static Core::Map<Red::CName, Red::Handle<ScriptableService>> s_scriptableServices;
 };
 }

@@ -22,6 +22,7 @@
 #include "App/Reflection/Reflection.hpp"
 #include "App/Scripting/ISerializableEx.hpp"
 #include "App/Scripting/ScriptableService.hpp"
+#include "App/Scripting/ScriptableServiceContainer.hpp"
 #include "App/Scripting/StackTrace.hpp"
 #include "App/UI/inkCharacterEventEx.hpp"
 #include "App/UI/inkComponent.hpp"
