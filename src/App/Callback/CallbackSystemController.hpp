@@ -2,7 +2,7 @@
 
 namespace App
 {
-class EventController
+class CallbackSystemController
 {
 public:
     virtual Core::Vector<Red::CName> GetEvents() = 0;

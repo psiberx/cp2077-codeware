@@ -466,7 +466,7 @@ public:
     ClassDescriptor() : CClass({}, sizeof(TClass), {})
     {
         static_assert(std::is_class_v<TClass>, "TClass must be a struct or class");
-        static_assert(std::is_default_constructible_v<TClass>, "TClass must be default-constructible");
+        static_assert(std::is_abstract_v<TClass> || std::is_default_constructible_v<TClass>, "TClass must be default-constructible");
         static_assert(std::is_destructible_v<TClass>, "TClass must be destructible");
     }
 
@@ -718,7 +718,7 @@ class ClassDescriptorDefaultImpl : public ClassDescriptor<TClass>
                 CClass::parent->ConstructCls(aMemory);
             }
         }
-        else
+        else if constexpr (!std::is_abstract_v<TClass>)
         {
             new (aMemory) TClass();
         }

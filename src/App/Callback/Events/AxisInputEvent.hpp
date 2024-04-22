@@ -1,6 +1,6 @@
 #pragma once
 
-#include "App/Scripting/Events/KeyInputEvent.hpp"
+#include "App/Callback/Events/KeyInputEvent.hpp"
 #include "Red/Input.hpp"
 
 namespace App

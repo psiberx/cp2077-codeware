@@ -1,17 +1,17 @@
 #pragma once
 
-#include "App/Scripting/CallbackSystem.hpp"
-#include "App/Scripting/EventController.hpp"
-#include "App/Scripting/Events/AxisInputEvent.hpp"
-#include "App/Scripting/Events/KeyInputEvent.hpp"
+#include "App/Callback/CallbackSystem.hpp"
+#include "App/Callback/CallbackSystemController.hpp"
+#include "App/Callback/Events/AxisInputEvent.hpp"
+#include "App/Callback/Events/KeyInputEvent.hpp"
 #include "App/UI/WidgetInputService.hpp"
 #include "Core/Facades/Container.hpp"
 #include "Red/InkSystem.hpp"
 
 namespace App
 {
-class RawInputHandler
-    : public EventController
+class RawInputHook
+    : public CallbackSystemController
     , public Core::HookingAgent
 {
 public:

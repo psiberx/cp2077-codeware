@@ -2,11 +2,11 @@
 
 namespace App
 {
-struct NamedEvent : Red::IScriptable
+struct CallbackSystemEvent : Red::IScriptable
 {
-    NamedEvent() = default;
+    CallbackSystemEvent() = default;
 
-    explicit NamedEvent(Red::CName aName)
+    explicit CallbackSystemEvent(Red::CName aName)
         : eventName(aName)
     {
     }
@@ -21,12 +21,12 @@ struct NamedEvent : Red::IScriptable
 
     Red::CName eventName;
 
-    RTTI_IMPL_TYPEINFO(App::NamedEvent);
+    RTTI_IMPL_TYPEINFO(App::CallbackSystemEvent);
     RTTI_IMPL_ALLOCATOR();
 };
 }
 
-RTTI_DEFINE_CLASS(App::NamedEvent, {
+RTTI_DEFINE_CLASS(App::CallbackSystemEvent, {
     RTTI_ABSTRACT();
     RTTI_METHOD(InitEvent);
     RTTI_GETTER(eventName);

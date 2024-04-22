@@ -1,15 +1,15 @@
 #pragma once
 
-#include "App/Scripting/Events/GameSessionEvent.hpp"
-#include "App/Scripting/CallbackSystem.hpp"
-#include "App/Scripting/EventController.hpp"
+#include "App/Callback/CallbackSystem.hpp"
+#include "App/Callback/CallbackSystemController.hpp"
+#include "App/Callback/Events/GameSessionEvent.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Red/PlayerSystem.hpp"
 
 namespace App
 {
 class PlayerSpawnedHook
-    : public EventController
+    : public CallbackSystemController
     , public Core::HookingAgent
 {
 public:

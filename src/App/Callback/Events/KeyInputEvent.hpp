@@ -1,14 +1,14 @@
 #pragma once
 
-#include "App/Scripting/EventObject.hpp"
+#include "App/Callback/CallbackSystemEvent.hpp"
 #include "Red/Input.hpp"
 
 namespace App
 {
-struct KeyInputEvent : NamedEvent
+struct KeyInputEvent : CallbackSystemEvent
 {
     KeyInputEvent()
-        : NamedEvent()
+        : CallbackSystemEvent()
         , state()
         , action(Red::EInputAction::IACT_None)
         , key(Red::EInputKey::IK_None)
@@ -16,7 +16,7 @@ struct KeyInputEvent : NamedEvent
     }
 
     KeyInputEvent(Red::CName aName, Red::KeyboardState& aState, const Red::RawInputData& aInput)
-        : NamedEvent(aName)
+        : CallbackSystemEvent(aName)
         , state(aState)
         , action(aInput.action)
         , key(aInput.key)
@@ -24,7 +24,7 @@ struct KeyInputEvent : NamedEvent
     }
 
     KeyInputEvent(Red::CName aName, Red::KeyboardState& aState, Red::EInputAction aAction, Red::EInputKey aKey)
-        : NamedEvent(aName)
+        : CallbackSystemEvent(aName)
         , state(aState)
         , action(aAction)
         , key(aKey)
@@ -56,7 +56,7 @@ struct KeyInputEvent : NamedEvent
 }
 
 RTTI_DEFINE_CLASS(App::KeyInputEvent, {
-    RTTI_PARENT(App::NamedEvent);
+    RTTI_PARENT(App::CallbackSystemEvent);
     RTTI_METHOD(IsShiftDown);
     RTTI_METHOD(IsControlDown);
     RTTI_METHOD(IsAltDown);

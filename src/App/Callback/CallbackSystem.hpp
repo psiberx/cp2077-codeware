@@ -1,8 +1,8 @@
 #pragma once
 
-#include "EventCallback.hpp"
-#include "EventController.hpp"
-#include "EventObject.hpp"
+#include "CallbackSystemController.hpp"
+#include "CallbackSystemEvent.hpp"
+#include "CallbackSystemHandler.hpp"
 
 namespace App
 {
@@ -12,16 +12,16 @@ public:
     CallbackSystem();
     ~CallbackSystem() override;
 
-    void RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget, Red::CName aFunction,
-                          Red::Optional<bool> aSticky);
-    void UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
+    Red::Handle<CallbackSystemHandler> RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
+                                                        Red::CName aFunction, Red::Optional<bool> aSticky);
+    Red::Handle<CallbackSystemHandler> RegisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::CName aFunction,
+                                                              Red::Optional<bool> aSticky);
+
+    void UnregisterCallback(Red::CName aHandler, const Red::Handle<Red::IScriptable>& aContext,
                             Red::Optional<Red::CName> aFunction);
+    void UnregisterStaticCallback(Red::CName aHandler, Red::CName aContext, Red::Optional<Red::CName> aFunction);
 
-    void RegisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::CName aFunction,
-                                Red::Optional<bool> aSticky);
-    void UnregisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::Optional<Red::CName> aFunction);
-
-    void FireCallbacks(const Red::Handle<NamedEvent>& aEvent);
+    void FireCallbacks(const Red::Handle<CallbackSystemEvent>& aEvent);
 
     [[nodiscard]] bool IsRestored() const;
     [[nodiscard]] bool IsPreGame() const;
@@ -29,7 +29,7 @@ public:
     template<typename Event, typename... Args>
     inline void TriggerEvent(Red::CName aEventName, Args&&... aArgs)
     {
-        Core::Vector<EventCallback> callbacks;
+        Core::Vector<Red::Handle<CallbackSystemHandler>> callbacks;
         {
             std::shared_lock _(m_callbacksLock);
             const auto& callbacksIt = m_callbacksByEvent.find(aEventName);
@@ -44,11 +44,11 @@ public:
 
         for (const auto& callback : callbacks)
         {
-            callback(event);
+            (*callback)(event);
         }
     }
 
-    static void PassEvent(const Red::Handle<NamedEvent>& aEvent);
+    static void PassEvent(const Red::Handle<CallbackSystemEvent>& aEvent);
 
     template<typename Event, typename... Args>
     inline static void PassEvent(Red::CName aEventName, Args&&... aArgs)
@@ -94,8 +94,8 @@ protected:
     bool m_pregame;
 
     std::shared_mutex m_callbacksLock;
-    Core::Map<Red::CName, Core::Vector<EventCallback>> m_callbacksByEvent;
-    Core::Map<Red::CName, Core::SharedPtr<EventController>> m_eventControllers;
+    Core::Map<Red::CName, Core::Vector<Red::Handle<CallbackSystemHandler>>> m_callbacksByEvent;
+    Core::Map<Red::CName, Core::SharedPtr<CallbackSystemController>> m_eventControllers;
 
     inline static Red::Handle<CallbackSystem> s_self;
 

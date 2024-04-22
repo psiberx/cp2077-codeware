@@ -1,15 +1,15 @@
 #pragma once
 
-#include "App/Scripting/Events/EntityLifecycleEvent.hpp"
-#include "App/Scripting/CallbackSystem.hpp"
-#include "App/Scripting/EventController.hpp"
+#include "App/Callback/CallbackSystem.hpp"
+#include "App/Callback/CallbackSystemController.hpp"
+#include "App/Callback/Events/EntityLifecycleEvent.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Red/Entity.hpp"
 
 namespace App
 {
 class EntityUninitializeHook
-    : public EventController
+    : public CallbackSystemController
     , public Core::HookingAgent
 {
 public:

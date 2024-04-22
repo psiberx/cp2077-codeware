@@ -1,15 +1,15 @@
 #pragma once
 
-#include "App/Scripting/EventObject.hpp"
+#include "App/Callback/CallbackSystemEvent.hpp"
 
 namespace App
 {
-struct GameSessionEvent : NamedEvent
+struct GameSessionEvent : CallbackSystemEvent
 {
     GameSessionEvent() = default;
 
     GameSessionEvent(Red::CName aName, bool aPreGame, bool aRestored)
-        : NamedEvent(aName)
+        : CallbackSystemEvent(aName)
         , preGame(aPreGame)
         , restored(aRestored)
     {
@@ -24,7 +24,7 @@ struct GameSessionEvent : NamedEvent
 }
 
 RTTI_DEFINE_CLASS(App::GameSessionEvent, {
-    RTTI_PARENT(App::NamedEvent);
+    RTTI_PARENT(App::CallbackSystemEvent);
     RTTI_GETTER(restored);
     RTTI_GETTER(preGame);
 });

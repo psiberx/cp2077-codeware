@@ -1,13 +1,13 @@
 #include "CallbackSystem.hpp"
-#include "App/Scripting/Events/Controllers/EntityAssembleHook.hpp"
-#include "App/Scripting/Events/Controllers/EntityAttachHook.hpp"
-#include "App/Scripting/Events/Controllers/EntityDetachHook.hpp"
-#include "App/Scripting/Events/Controllers/EntityInitializeHook.hpp"
-#include "App/Scripting/Events/Controllers/EntityReassembleHook.hpp"
-#include "App/Scripting/Events/Controllers/EntityUninitializeHook.hpp"
-#include "App/Scripting/Events/Controllers/PlayerSpawnedHook.hpp"
-#include "App/Scripting/Events/Controllers/RawInputHandler.hpp"
-#include "App/Scripting/Events/GameSessionEvent.hpp"
+#include "App/Callback/Controllers/EntityAssembleHook.hpp"
+#include "App/Callback/Controllers/EntityAttachHook.hpp"
+#include "App/Callback/Controllers/EntityDetachHook.hpp"
+#include "App/Callback/Controllers/EntityInitializeHook.hpp"
+#include "App/Callback/Controllers/EntityReassembleHook.hpp"
+#include "App/Callback/Controllers/EntityUninitializeHook.hpp"
+#include "App/Callback/Controllers/PlayerSpawnedHook.hpp"
+#include "App/Callback/Controllers/RawInputHook.hpp"
+#include "App/Callback/Events/GameSessionEvent.hpp"
 #include "Red/InkSystem.hpp"
 
 App::CallbackSystem::CallbackSystem()
@@ -65,8 +65,8 @@ void App::CallbackSystem::OnAfterWorldDetach()
         auto& event = it.key();
         auto& callbackList = it.value();
 
-        std::erase_if(callbackList, [](EventCallback& aCallback) -> bool {
-            return !aCallback.IsSticky();
+        std::erase_if(callbackList, [](Red::Handle<CallbackSystemHandler>& aCallback) -> bool {
+            return !aCallback->IsSticky();
         });
 
         if (callbackList.empty())
@@ -120,63 +120,99 @@ void App::CallbackSystem::OnGameResumed()
     TriggerEvent<GameSessionEvent>("Session/Resume", m_pregame, m_restored);
 }
 
-void App::CallbackSystem::RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
-                                           Red::CName aFunction, Red::Optional<bool> aSticky)
+Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
+    Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget, Red::CName aFunction, Red::Optional<bool> aSticky)
 {
     std::unique_lock _(m_callbacksLock);
-    m_callbacksByEvent[aEvent].emplace_back(aTarget, aFunction, aSticky);
 
+    auto handler = Red::MakeHandle<CallbackSystemHandler>(aTarget, aFunction);
+
+    if (aSticky)
+    {
+        handler->SetLifetime(CallbackLifetime::Forever);
+    }
+
+    m_callbacksByEvent[aEvent].push_back(handler);
     ActivateEvent(aEvent);
+
+    return handler;
 }
 
-void App::CallbackSystem::UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aTarget,
+Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallback(
+    Red::CName aEvent, Red::CName aType, Red::CName aFunction, Red::Optional<bool> aSticky)
+{
+    std::unique_lock _(m_callbacksLock);
+
+    auto handler = Red::MakeHandle<CallbackSystemHandler>(aType, aFunction);
+
+    if (aSticky)
+    {
+        handler->SetLifetime(CallbackLifetime::Forever);
+    }
+
+    m_callbacksByEvent[aEvent].push_back(handler);
+    ActivateEvent(aEvent);
+
+    return handler;
+}
+
+void App::CallbackSystem::UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aContext,
                                              Red::Optional<Red::CName> aFunction)
 {
     std::unique_lock _(m_callbacksLock);
     const auto& callbackListIt = m_callbacksByEvent.find(aEvent);
 
-    if (callbackListIt != m_callbacksByEvent.end())
+    if (callbackListIt == m_callbacksByEvent.end())
+        return;
+
+    auto& callbackList = callbackListIt.value();
+
+    if (aFunction.IsEmpty())
     {
-        auto& callbackList = callbackListIt.value();
-
-        std::erase_if(callbackList, [&aTarget, &aFunction](EventCallback& aCallback) -> bool {
-            return aCallback.object.instance == aTarget && (aFunction.IsEmpty() || aCallback.function == aFunction);
+        std::erase_if(callbackList, [&aContext](Red::Handle<CallbackSystemHandler>& aHandler) -> bool {
+            return aHandler->IsSameContext(aContext);
         });
+    }
+    else
+    {
+        std::erase_if(callbackList, [&aContext, &aFunction](Red::Handle<CallbackSystemHandler>& aHandler) -> bool {
+            return aHandler->IsSameCallback(aContext, aFunction);
+        });
+    }
 
-        if (callbackList.empty())
-        {
-            DeactivateEvent(aEvent);
-        }
+    if (callbackList.empty())
+    {
+        DeactivateEvent(aEvent);
     }
 }
 
-void App::CallbackSystem::RegisterStaticCallback(Red::CName aEvent, Red::CName aType, Red::CName aFunction,
-                                                 Red::Optional<bool> aSticky)
-{
-    std::unique_lock _(m_callbacksLock);
-    m_callbacksByEvent[aEvent].emplace_back(aType, aFunction, aSticky);
-
-    ActivateEvent(aEvent);
-}
-
-void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEvent, Red::CName aType,
+void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEvent, Red::CName aContext,
                                                    Red::Optional<Red::CName> aFunction)
 {
     std::unique_lock _(m_callbacksLock);
     const auto& callbackListIt = m_callbacksByEvent.find(aEvent);
 
-    if (callbackListIt != m_callbacksByEvent.end())
+    if (callbackListIt == m_callbacksByEvent.end())
+        return;
+
+    auto& callbackList = callbackListIt.value();
+
+    if (aFunction.IsEmpty())
     {
-        auto& callbackList = callbackListIt.value();
-
-        std::erase_if(callbackList, [&aType, &aFunction](EventCallback& aCallback) -> bool {
-            return aCallback.type == aType && (aFunction.IsEmpty() || aCallback.function == aFunction);
+        std::erase_if(callbackList, [&aContext](Red::Handle<CallbackSystemHandler>& aHandler) -> bool {
+            return aHandler->IsSameContext(aContext);
         });
+    }
+    else
+    {
+        std::erase_if(callbackList, [&aContext, &aFunction](Red::Handle<CallbackSystemHandler>& aHandler) -> bool {
+            return aHandler->IsSameCallback(aContext, aFunction);
+        });
+    }
 
-        if (callbackList.empty())
-        {
-            DeactivateEvent(aEvent);
-        }
+    if (callbackList.empty())
+    {
+        DeactivateEvent(aEvent);
     }
 }
 
@@ -198,9 +234,9 @@ void App::CallbackSystem::DeactivateEvent(Red::CName aEvent)
     }
 }
 
-void App::CallbackSystem::FireCallbacks(const Red::Handle<NamedEvent>& aEvent)
+void App::CallbackSystem::FireCallbacks(const Red::Handle<CallbackSystemEvent>& aEvent)
 {
-    Core::Vector<EventCallback> callbacks;
+    Core::Vector<Red::Handle<CallbackSystemHandler>> callbacks;
     {
         std::shared_lock _(m_callbacksLock);
         const auto& callbacksIt = m_callbacksByEvent.find(aEvent->eventName);
@@ -213,7 +249,7 @@ void App::CallbackSystem::FireCallbacks(const Red::Handle<NamedEvent>& aEvent)
 
     for (const auto& callback : callbacks)
     {
-        callback(aEvent);
+        (*callback)(aEvent);
     }
 }
 
@@ -227,7 +263,7 @@ bool App::CallbackSystem::IsPreGame() const
     return m_pregame;
 }
 
-void App::CallbackSystem::PassEvent(const Red::Handle<NamedEvent>& aEvent)
+void App::CallbackSystem::PassEvent(const Red::Handle<CallbackSystemEvent>& aEvent)
 {
     if (s_self)
     {

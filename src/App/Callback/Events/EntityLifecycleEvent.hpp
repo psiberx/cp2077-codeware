@@ -1,15 +1,15 @@
 #pragma once
 
-#include "App/Scripting/EventObject.hpp"
+#include "App/Callback/CallbackSystemEvent.hpp"
 
 namespace App
 {
-struct EntityLifecycleEvent : NamedEvent
+struct EntityLifecycleEvent : CallbackSystemEvent
 {
     EntityLifecycleEvent() = default;
 
     EntityLifecycleEvent(Red::CName aName, Red::WeakHandle<Red::Entity> aEntity)
-        : NamedEvent(aName)
+        : CallbackSystemEvent(aName)
         , entity(std::move(aEntity))
     {
     }
@@ -22,6 +22,6 @@ struct EntityLifecycleEvent : NamedEvent
 }
 
 RTTI_DEFINE_CLASS(App::EntityLifecycleEvent, {
-    RTTI_PARENT(App::NamedEvent);
+    RTTI_PARENT(App::CallbackSystemEvent);
     RTTI_GETTER(entity);
 });

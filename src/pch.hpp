@@ -28,6 +28,7 @@
 
 #include <RED4ext/Scripting/Natives/GameTime.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CMesh.hpp>
+#include <RED4ext/Scripting/Natives/Generated/CResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
 #include <RED4ext/Scripting/Natives/Generated/MorphTargetMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Quaternion.hpp>

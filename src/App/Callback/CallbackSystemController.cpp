@@ -1,6 +1,6 @@
-#include "EventController.hpp"
+#include "CallbackSystemController.hpp"
 
-bool App::EventController::ActivateEvent(Red::CName aEvent)
+bool App::CallbackSystemController::ActivateEvent(Red::CName aEvent)
 {
     if (!m_activeEvents.contains(aEvent))
     {
@@ -17,7 +17,7 @@ bool App::EventController::ActivateEvent(Red::CName aEvent)
     return true;
 }
 
-bool App::EventController::DeactivateEvent(Red::CName aEvent)
+bool App::CallbackSystemController::DeactivateEvent(Red::CName aEvent)
 {
     if (m_activeEvents.contains(aEvent))
     {
@@ -34,7 +34,7 @@ bool App::EventController::DeactivateEvent(Red::CName aEvent)
     return true;
 }
 
-bool App::EventController::IsActiveEvent(Red::CName aEvent)
+bool App::CallbackSystemController::IsActiveEvent(Red::CName aEvent)
 {
     return m_activeEvents.contains(aEvent);
 }
