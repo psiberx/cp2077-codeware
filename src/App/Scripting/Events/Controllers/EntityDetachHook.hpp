@@ -1,6 +1,6 @@
 #pragma once
 
-#include "EntityLifecycleEvent.hpp"
+#include "App/Scripting/Events/EntityLifecycleEvent.hpp"
 #include "App/Scripting/CallbackSystem.hpp"
 #include "App/Scripting/EventController.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
@@ -8,12 +8,12 @@
 
 namespace App
 {
-class EntityAssembleHook
+class EntityDetachHook
     : public EventController
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto EventName = Red::CName("Entity/Assemble");
+    constexpr static auto EventName = Red::CName("Entity/Detach");
 
     Core::Vector<Red::CName> GetEvents() override
     {
@@ -23,15 +23,15 @@ public:
 protected:
     bool OnActivateHook() override
     {
-        return IsHooked<Raw::Entity::OnAssemble>() || HookAfter<Raw::Entity::OnAssemble>(&OnAssemble);
+        return IsHooked<Raw::Entity::Detach>() || HookBefore<Raw::Entity::Detach>(&OnDetach);
     }
 
     bool OnDeactivateHook() override
     {
-        return !IsHooked<Raw::Entity::OnAssemble>() || Unhook<Raw::Entity::OnAssemble>();
+        return !IsHooked<Raw::Entity::Detach>() || Unhook<Raw::Entity::Detach>();
     }
 
-    inline static void OnAssemble(Red::Entity* aEntity, uintptr_t)
+    inline static void OnDetach(Red::Entity* aEntity)
     {
         CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
     }

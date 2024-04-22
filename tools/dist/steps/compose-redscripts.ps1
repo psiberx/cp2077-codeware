@@ -9,7 +9,7 @@ foreach ($ScriptFile in $SourceFiles) {
     $Content = Get-Content $ScriptFile.FullName
     $Module = ($Content | Select-String -Pattern "^module\s+(.+)" -List | %{$_.matches.groups[1].Value})
     $Imports = ($Content | Select-String -Pattern "^import\s+(.+)" -List | %{$_.matches.groups[1].Value})
-    $Source = ($Content | Select-String -Pattern "^\s*(//|module\s|import\s)" -NotMatch) | Out-String
+    $Source = ($Content | Select-String -Pattern "^\s*(//|module\s|import\s)" -NotMatch | Select-String -Pattern "^\s*$" -NotMatch) | Out-String
     $Scope = $Module ?? $GlobalScope
 
     if ($Bundles[$Scope] -eq $null) {

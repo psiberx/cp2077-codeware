@@ -25,9 +25,9 @@ struct EventCallback
         {
             Red::CallStatic(type, function, std::forward<Args>(aArgs)...);
         }
-        else if (!object.Expired())
+        else if (auto context = object.Lock())
         {
-            Red::CallVirtual(object.Lock(), function, std::forward<Args>(aArgs)...);
+            Red::CallVirtual(context, function, std::forward<Args>(aArgs)...);
         }
     }
 

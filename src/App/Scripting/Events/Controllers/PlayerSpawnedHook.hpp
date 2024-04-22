@@ -1,6 +1,6 @@
 #pragma once
 
-#include "GameSessionEvent.hpp"
+#include "App/Scripting/Events/GameSessionEvent.hpp"
 #include "App/Scripting/CallbackSystem.hpp"
 #include "App/Scripting/EventController.hpp"
 #include "Core/Hooking/HookingAgent.hpp"

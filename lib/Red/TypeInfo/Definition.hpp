@@ -154,11 +154,11 @@ inline void ExtractArg(C* aContext, CStackFrame* aFrame, T* aArg)
 {
     using U = std::remove_cvref_t<T>;
 
-    if constexpr (I == 0 && !std::is_void_v<C> && std::is_base_of_v<IScriptable, C> && std::is_same_v<T, C*>)
+    if constexpr (I == 0 && !std::is_void_v<C> && std::is_base_of_v<ISerializable, C> && std::is_same_v<T, C*>)
     {
         *aArg = aContext;
     }
-    else if constexpr (I == 0 && !std::is_void_v<C> && !std::is_base_of_v<IScriptable, C> && std::is_same_v<T, C*>)
+    else if constexpr (I == 0 && !std::is_void_v<C> && !std::is_base_of_v<ISerializable, C> && std::is_same_v<T, C*>)
     {
         ScriptRef<C> ctx;
         ExtractArg(aFrame, &ctx);
