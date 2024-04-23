@@ -6,6 +6,7 @@ public native struct ResourceRef {
     public static native func IsEmpty(self: script_ref<ResourceRef>) -> Bool
     public static native func IsLoaded(self: script_ref<ResourceRef>) -> Bool
     public static native func IsFailed(self: script_ref<ResourceRef>) -> Bool
+    //public static native func ToString(self: script_ref<ResourceRef>) -> String
 }
 
 public native struct ResourceAsyncRef {
@@ -13,6 +14,7 @@ public native struct ResourceAsyncRef {
     public static native func GetPath(self: script_ref<ResourceAsyncRef>) -> ResRef
     public static native func GetHash(self: script_ref<ResourceAsyncRef>) -> Uint64
     public static native func IsEmpty(self: script_ref<ResourceAsyncRef>) -> Bool
+    //public static native func ToString(self: script_ref<ResourceAsyncRef>) -> String
 }
 
 public static func OperatorAssignMultiply(out res: ResourceRef, path: ResRef) {
@@ -28,6 +30,14 @@ public static native func GetHash(self: ResRef) -> Uint64
 
 @addMethod(ResRef)
 public static native func ToString(self: ResRef) -> String
+
+public static func OperatorEqual(lhs: ResourceAsyncRef, rhs: ResRef) -> Bool {
+    return Equals(ResourceAsyncRef.GetPath(lhs), rhs);
+}
+
+public static func OperatorNotEqual(lhs: ResourceAsyncRef, rhs: ResRef) -> Bool {
+    return NotEquals(ResourceAsyncRef.GetPath(lhs), rhs);
+}
 
 public static func OperatorEqual(lhs: ResRef, rhs: ResRef) -> Bool {
     return Equals(lhs, rhs);

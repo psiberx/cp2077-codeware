@@ -34,6 +34,7 @@
 #include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
 #include <RED4ext/Scripting/Natives/Generated/MorphTargetMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Quaternion.hpp>
+#include <RED4ext/Scripting/Natives/Generated/Transform.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Vector4.hpp>
 #include <RED4ext/Scripting/Natives/Generated/community/CommunityTemplateData.hpp>
 #include <RED4ext/Scripting/Natives/Generated/community/SpawnEntry.hpp>
@@ -148,8 +149,11 @@
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CommunityRegistryItem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/GlobalNodeID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/GlobalNodeRef.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/Node.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemWeather.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/StreamingSector.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherScriptInterface.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherState.hpp>
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
