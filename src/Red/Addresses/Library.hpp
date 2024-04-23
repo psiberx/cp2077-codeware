@@ -58,6 +58,9 @@ constexpr uint32_t MorphTargetManager_ApplyMorphTarget = 633871992;
 
 constexpr uint32_t NodeRef_Create = 3491172781;
 
+constexpr uint32_t ObjectSerializer_WriteToBuffer = 2646156567;
+constexpr uint32_t ObjectSerializer_ReadFromStrean = 125247621;
+
 constexpr uint32_t PersistentObject_InitializeState = 3442350580;
 
 constexpr uint32_t PlayerSystem_OnPlayerSpawned = 2050111212; // cp::PlayerSystem::OnPlayerMainObjectSpawned
@@ -89,8 +92,8 @@ constexpr uint32_t ScriptValidator_CompareTypeName = 1327107674;
 constexpr uint32_t ScriptValidator_Validate = 898639042;
 constexpr uint32_t ScriptValidator_ValidateProperty = 560604283;
 
-constexpr uint32_t Serializer_OnDependenciesReady = 1185093671;
-constexpr uint32_t Serializer_OnResourceReady = 1147149338;
+constexpr uint32_t ResourceSerializer_OnDependenciesReady = 1185093671;
+constexpr uint32_t ResourceSerializer_OnResourceReady = 1147149338;
 
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
 }

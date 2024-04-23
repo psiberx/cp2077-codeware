@@ -23,15 +23,17 @@ public:
 protected:
     bool OnActivateHook() override
     {
-        return IsHooked<Raw::Serializer::OnDependenciesReady>() || HookBefore<Raw::Serializer::OnDependenciesReady>(&OnDependenciesReady);
+        return IsHooked<Raw::ResourceSerializer::OnDependenciesReady>() ||
+               HookBefore<Raw::ResourceSerializer::OnDependenciesReady>(&OnDependenciesReady);
     }
 
     bool OnDeactivateHook() override
     {
-        return !IsHooked<Raw::Serializer::OnDependenciesReady>() || Unhook<Raw::Serializer::OnDependenciesReady>();
+        return !IsHooked<Raw::ResourceSerializer::OnDependenciesReady>() ||
+               Unhook<Raw::ResourceSerializer::OnDependenciesReady>();
     }
 
-    inline static void OnDependenciesReady(Red::Serializer* aSerializer)
+    inline static void OnDependenciesReady(Red::ResourceSerializer* aSerializer)
     {
         if (aSerializer->serializables.size > 0)
         {
