@@ -1,4 +1,3 @@
-
 public native class ReflectionFunc {
     public native func GetName() -> CName
     public native func GetFullName() -> CName

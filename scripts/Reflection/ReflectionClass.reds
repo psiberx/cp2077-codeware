@@ -1,4 +1,3 @@
-
 public native class ReflectionClass extends ReflectionType {
     public native func GetAlias() -> CName
     public native func GetParent() -> ref<ReflectionClass>
@@ -10,4 +9,5 @@ public native class ReflectionClass extends ReflectionType {
     public native func GetStaticFunctions() -> array<ref<ReflectionStaticFunc>>
     public native func IsNative() -> Bool
     public native func IsAbstract() -> Bool
+    public native func MakeHandle() -> ref<ISerializable>
 }

@@ -1,4 +1,3 @@
-
 public native class ReflectionEnum extends ReflectionType {
     public native func GetConstants() -> array<ref<ReflectionConst>>
     public native func IsNative() -> Bool

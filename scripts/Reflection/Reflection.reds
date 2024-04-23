@@ -1,4 +1,3 @@
-
 public native struct Reflection {
     public static native func GetTypeOf(value: Variant) -> ref<ReflectionType>
     public static native func GetClassOf(object: Variant, opt actual: Bool) -> ref<ReflectionClass>

@@ -1,4 +1,3 @@
-
 enum ERTTIType
 {
     Name = 0,

@@ -1,4 +1,3 @@
-
 public native class ReflectionType {
     public native func GetName() -> CName
     public native func GetMetaType() -> ERTTIType
