@@ -10,6 +10,7 @@
 #include "App/Callback/Controllers/ResourceReadyHook.hpp"
 #include "App/Callback/Controllers/RawInputHook.hpp"
 #include "App/Callback/Events/GameSessionEvent.hpp"
+#include "App/Scripting/ScriptableService.hpp"
 #include "Red/InkSystem.hpp"
 
 App::CallbackSystem::CallbackSystem()
@@ -125,7 +126,8 @@ void App::CallbackSystem::OnGameResumed()
 }
 
 Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
-    Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext, Red::CName aFunction, Red::Optional<bool> aSticky)
+    Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext, Red::CName aFunction,
+    Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
 {
     auto eventType = m_supportedEvents[aEventName];
     if (!eventType)
@@ -134,7 +136,7 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
     ActivateEvent(aEventName);
 
     auto handler = Red::MakeHandle<CallbackSystemHandler>(eventType, aContext, aFunction);
-    if (aSticky)
+    if (aSticky || (aFrame && aFrame->context && Red::IsInstanceOf<ScriptableService>(aFrame->context)))
     {
         handler->SetLifetime(CallbackLifetime::Forever);
     }
@@ -148,7 +150,8 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
 }
 
 Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallback(
-    Red::CName aEventName, Red::CName aContext, Red::CName aFunction, Red::Optional<bool> aSticky)
+    Red::CName aEventName, Red::CName aContext, Red::CName aFunction,
+    Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
 {
     auto eventType = m_supportedEvents[aEventName];
     if (!eventType)
@@ -157,7 +160,7 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallb
     ActivateEvent(aEventName);
 
     auto handler = Red::MakeHandle<CallbackSystemHandler>(eventType, aContext, aFunction);
-    if (aSticky)
+    if (aSticky || (aFrame && aFrame->context && Red::IsInstanceOf<ScriptableService>(aFrame->context)))
     {
         handler->SetLifetime(CallbackLifetime::Forever);
     }

@@ -12,10 +12,13 @@ public:
     CallbackSystem();
     ~CallbackSystem() override;
 
-    Red::Handle<CallbackSystemHandler> RegisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aContext,
-                                                        Red::CName aFunction, Red::Optional<bool> aSticky);
-    Red::Handle<CallbackSystemHandler> RegisterStaticCallback(Red::CName aEventName, Red::CName aContext, Red::CName aFunction,
-                                                              Red::Optional<bool> aSticky);
+    Red::Handle<CallbackSystemHandler> RegisterCallback(Red::CName aEvent,
+                                                        const Red::Handle<Red::IScriptable>& aContext,
+                                                        Red::CName aFunction, Red::Optional<bool> aSticky,
+                                                        Red::CStackFrame* aFrame = nullptr);
+    Red::Handle<CallbackSystemHandler> RegisterStaticCallback(Red::CName aEventName, Red::CName aContext,
+                                                              Red::CName aFunction, Red::Optional<bool> aSticky,
+                                                              Red::CStackFrame* aFrame = nullptr);
 
     void UnregisterCallback(Red::CName aHandler, const Red::Handle<Red::IScriptable>& aContext,
                             Red::Optional<Red::CName> aFunction);
