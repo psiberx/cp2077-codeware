@@ -1,6 +1,6 @@
 #pragma once
 
-#include "App/Scripting/ScriptableService.hpp"
+#include "App/Scripting/ScriptableServiceContainer.hpp"
 #include "Core/Foundation/Feature.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Core/Logging/LoggingAgent.hpp"
@@ -16,7 +16,7 @@ class ScriptingService
     , public Core::LoggingAgent
 {
 public:
-    Red::Handle<ScriptableService> GetScriptableService(Red::CName aType);
+    ScriptingService(const std::filesystem::path& aStateDir);
 
 protected:
     void OnBootstrap() override;
@@ -33,6 +33,6 @@ protected:
     static void GetScriptGameInstance(Red::IScriptable*, Red::CStackFrame* aFrame,
                                       Red::ScriptGameInstance* aRet, Red::CBaseRTTIType*);
 
-    inline static Core::Map<Red::CName, Red::Handle<ScriptableService>> s_scriptableServices;
+    inline static std::filesystem::path s_stateDir;
 };
 }

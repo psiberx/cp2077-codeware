@@ -5,7 +5,7 @@ public abstract native class ScriptableService {
 }
 
 // DEPRECATED
-// BACKWARDS COMPATIBILITY
 public abstract class ScriptableEnv extends ScriptableService {
-    public static final func Get(name: CName) -> ref<ScriptableService> = ScriptableServiceContainer.Get(name)
+    public static final func Get(name: CName) -> ref<ScriptableService>
+        = GameInstance.GetScriptableServiceContainer().GetService(name)
 }

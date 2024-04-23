@@ -25,7 +25,7 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
     Register<Support::RED4extProvider>(aHandle, aSdk)->EnableAddressLibrary();
     Register<Support::RedLibProvider>();
 
-    Register<App::ScriptingService>();
+    Register<App::ScriptingService>(Env::PersistentDataDir());
     Register<App::PersistencyService>();
     Register<App::ResourcePathRegistry>(Env::KnownHashesPath());
     Register<App::QuestPhaseRegistry>();

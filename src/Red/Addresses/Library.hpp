@@ -58,6 +58,7 @@ constexpr uint32_t MorphTargetManager_ApplyMorphTarget = 633871992;
 
 constexpr uint32_t NodeRef_Create = 3491172781;
 
+constexpr uint32_t ObjectSerializer_Prepare = 1944983789;
 constexpr uint32_t ObjectSerializer_WriteToBuffer = 2646156567;
 constexpr uint32_t ObjectSerializer_ReadFromStrean = 125247621;
 

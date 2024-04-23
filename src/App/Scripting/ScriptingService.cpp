@@ -1,6 +1,5 @@
 #include "ScriptingService.hpp"
 #include "App/Depot/ResourceReference.hpp"
-#include "App/Scripting/ScriptableService.hpp"
 
 namespace
 {
@@ -12,6 +11,11 @@ constexpr auto ResourceAsyncWrapperName = Red::GetTypeName<App::ResourceAsyncWra
 constexpr auto ResourceScriptReferenceAlias = Red::CName(Red::redResourceReferenceScriptToken::ALIAS);
 constexpr auto ResourceReferencePrefix = Red::GetTypePrefixStr<Red::ResourceReference>();
 constexpr auto ResourceAsyncReferencePrefix = Red::GetTypePrefixStr<Red::ResourceAsyncReference>();
+}
+
+App::ScriptingService::ScriptingService(const std::filesystem::path& aStateDir)
+{
+    s_stateDir = aStateDir;
 }
 
 void App::ScriptingService::OnBootstrap()
@@ -43,37 +47,22 @@ void App::ScriptingService::OnBootstrap()
 
 void App::ScriptingService::OnInitializeScripts()
 {
-    Red::DynArray<Red::CClass*> serviceTypes;
-    Red::CRTTISystem::Get()->GetDerivedClasses(Red::GetClass<ScriptableService>(), serviceTypes);
-
-    for (auto serviceType : serviceTypes)
+    if (Red::Detail::GetGlobalFunction("InitializeScripts;"))
     {
-        const auto& serviceIt = s_scriptableServices.find(serviceType->name);
-
-        if (serviceIt != s_scriptableServices.end())
+        if (!Red::CGameEngine::Get()->scriptsLoaded)
         {
-            auto& service = serviceIt.value();
-            Red::CallVirtual(service, "OnReload");
+            ScriptableServiceContainer::Build(s_stateDir)->OnInitializeScripts();
         }
         else
         {
-            if (serviceType->flags.isAbstract)
-                continue;
-
-            auto service = Red::ToHandle<ScriptableService>(serviceType->CreateInstance());
-            Red::CallVirtual(service, "OnLoad");
-
-            s_scriptableServices.emplace(serviceType->name, std::move(service));
+            ScriptableServiceContainer::Get()->OnInitializeScripts();
         }
     }
 }
 
 void App::ScriptingService::OnInitializeGameInstance()
 {
-    for (const auto& [serviceType, service] : s_scriptableServices)
-    {
-        Red::CallVirtual(service, "OnInitialize");
-    }
+    ScriptableServiceContainer::Get()->OnInitializeGameInstance();
 }
 
 void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundle* aBundle, void* aReport)
@@ -229,14 +218,4 @@ void App::ScriptingService::GetScriptGameInstance(Red::IScriptable*, Red::CStack
     {
         *aRet = game;
     }
-}
-
-Red::Handle<App::ScriptableService> App::ScriptingService::GetScriptableService(Red::CName aType)
-{
-    auto it = s_scriptableServices.find(aType);
-
-    if (it == s_scriptableServices.end())
-        return {};
-
-    return it.value();
 }
