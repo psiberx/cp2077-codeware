@@ -43,6 +43,10 @@ protected:
         {
             s_isKeyInputActive = true;
         }
+        else if (aEvent == AxisEventName)
+        {
+            s_isAxisInputActive = true;
+        }
     }
 
     void OnDeactivateEvent(Red::CName aEvent) override
@@ -50,6 +54,10 @@ protected:
         if (aEvent == KeyEventName)
         {
             s_isKeyInputActive = false;
+        }
+        else if (aEvent == AxisEventName)
+        {
+            s_isAxisInputActive = false;
         }
     }
 
@@ -99,15 +107,22 @@ protected:
                 }
             }
 
-            CallbackSystem::PassEvent<AxisInputEvent>(AxisEventName, aState, aInput);
+            if (s_isAxisInputActive)
+            {
+                CallbackSystem::PassEvent<AxisInputEvent>(AxisEventName, aState, aInput);
+            }
         }
         else
         {
-            CallbackSystem::PassEvent<KeyInputEvent>(KeyEventName, aState, aInput);
+            if (s_isKeyInputActive)
+            {
+                CallbackSystem::PassEvent<KeyInputEvent>(KeyEventName, aState, aInput);
+            }
         }
     }
 
     inline static Core::Set<Red::EInputKey> s_pressedKeys;
     inline static bool s_isKeyInputActive = false;
+    inline static bool s_isAxisInputActive = false;
 };
 }

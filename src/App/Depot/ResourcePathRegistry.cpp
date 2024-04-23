@@ -1,5 +1,27 @@
 #include "ResourcePathRegistry.hpp"
 
+App::ResourcePathRegistry::ResourcePathRegistry(const std::filesystem::path& aKnownHashesPath)
+{
+    if (std::filesystem::exists(aKnownHashesPath))
+    {
+        std::unique_lock _(s_lock);
+        std::thread([aKnownHashesPath]() {
+            LogInfo("[ResourcePathRegistry] Loading metadata...");
+
+            std::ifstream f(aKnownHashesPath);
+            {
+                std::string pathStr;
+                while (std::getline(f, pathStr))
+                {
+                    s_pathMap[Red::ResourcePath::HashSanitized(pathStr.data())] = std::move(pathStr);
+                }
+            }
+
+            LogInfo("[ResourcePathRegistry] Loaded {} predefined hashes.", s_pathMap.size());
+        }).detach();
+    }
+}
+
 void App::ResourcePathRegistry::OnBootstrap()
 {
     HookAfter<Raw::ResourcePath::Create>(&OnCreateResourcePath);
@@ -10,9 +32,7 @@ void App::ResourcePathRegistry::OnCreateResourcePath(Red::ResourcePath* aPath, c
     if (aPathStr)
     {
         std::unique_lock _(s_lock);
-        std::string_view pathStr(aPathStr->data, aPathStr->size);
-        s_pathMap[*aPath] = pathStr;
-        s_widlcardMap[*aPath] = pathStr.find('*');
+        s_pathMap[*aPath] = {aPathStr->data, aPathStr->size};
     }
 }
 
@@ -28,10 +48,4 @@ std::string_view App::ResourcePathRegistry::GetPath(Red::ResourcePath aPath) con
         return {};
 
     return it.value();
-}
-
-bool App::ResourcePathRegistry::IsWildcard(Red::ResourcePath aPath) const
-{
-    std::shared_lock _(s_lock);
-    return s_widlcardMap.contains(aPath);
 }

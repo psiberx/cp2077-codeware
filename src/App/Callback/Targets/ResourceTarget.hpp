@@ -2,6 +2,8 @@
 
 #include "App/Callback/CallbackSystemTarget.hpp"
 #include "App/Callback/Events/ResourceEvent.hpp"
+#include "App/Depot/ResourcePathRegistry.hpp"
+#include "Core/Facades/Container.hpp"
 
 namespace App
 {
@@ -23,8 +25,23 @@ struct ResourceTarget : CallbackSystemTarget
     {
         const auto* event = aEvent.GetPtr<ResourceEvent>();
 
-        if (path && event->resource->path != path)
-            return false;
+        if (path)
+        {
+            if (regex.has_value())
+            {
+                auto pathStr = Core::Resolve<ResourcePathRegistry>()->GetPath(event->resource->path);
+                if (pathStr.empty())
+                    return false;
+
+                if (!std::regex_match(pathStr.begin(), pathStr.end(), regex.value()))
+                    return false;
+            }
+            else
+            {
+                if (event->resource->path != path)
+                    return false;
+            }
+        }
 
         if (type && !event->resource->GetNativeType()->IsA(type))
             return false;
@@ -44,17 +61,43 @@ struct ResourceTarget : CallbackSystemTarget
         return aEventType == Red::GetTypeName<ResourceEvent>();
     }
 
-    static Red::Handle<ResourceTarget> Path(const Red::RaRef<>& aRef)
+    static Red::Handle<ResourceTarget> Path(const Red::RaRef<>& aResourceRef)
     {
-        return Red::MakeHandle<ResourceTarget>(aRef.path);
+        auto target = Red::MakeHandle<ResourceTarget>();
+        target->path = aResourceRef.path;
+
+        auto pathStr = Core::Resolve<ResourcePathRegistry>()->GetPath(target->path);
+        if (!pathStr.empty())
+        {
+            if (pathStr.starts_with("regex:"))
+            {
+                pathStr.remove_prefix(6);
+                target->regex = {pathStr.data(), pathStr.size()};
+            }
+            else if (pathStr.find('*') != std::string_view::npos)
+            {
+                static const std::regex regexWildcardMeta(R"([\.\^\$\-\+\(\)\[\]\{\}\|\?\\])");
+                static const std::regex regexWildcardStar("\\*");
+                std::string pattern{pathStr};
+                pattern = std::regex_replace(pattern, regexWildcardMeta, "\\$&");
+                pattern = std::regex_replace(pattern, regexWildcardStar, ".*");
+                target->regex = "^" + pattern + "$";
+            }
+        }
+
+        return target;
     }
 
-    static Red::Handle<ResourceTarget> Type(Red::CName aType)
+    static Red::Handle<ResourceTarget> Type(Red::CName aResourceType)
     {
-        return Red::MakeHandle<ResourceTarget>(Red::GetClass(aType));
+        auto target = Red::MakeHandle<ResourceTarget>();
+        target->type = Red::GetClass(aResourceType);
+
+        return target;
     }
 
     Red::ResourcePath path{};
+    std::optional<std::regex> regex{};
     Red::CClass* type{};
 
     RTTI_IMPL_TYPEINFO(App::ResourceTarget);

@@ -13,8 +13,9 @@ class ResourcePathRegistry
     , public Core::HookingAgent
 {
 public:
-    std::string_view GetPath(Red::ResourcePath aPath) const;
-    bool IsWildcard(Red::ResourcePath aPath) const;
+    ResourcePathRegistry(const std::filesystem::path& aKnownHashesPath);
+
+    [[nodiscard]] std::string_view GetPath(Red::ResourcePath aPath) const;
 
 protected:
     void OnBootstrap() override;
@@ -23,6 +24,5 @@ protected:
 
     inline static std::shared_mutex s_lock;
     inline static Core::Map<Red::ResourcePath, std::string> s_pathMap;
-    inline static Core::Map<Red::ResourcePath, bool> s_widlcardMap;
 };
 }

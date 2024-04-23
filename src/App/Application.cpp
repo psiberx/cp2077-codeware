@@ -1,6 +1,7 @@
 #include "Application.hpp"
 #include "App/Depot/ResourcePathRegistry.hpp"
 #include "App/Entity/PersistencyService.hpp"
+#include "App/Environment.hpp"
 #include "App/Quest/QuestPhaseRegistry.hpp"
 #include "App/Scripting/ScriptingService.hpp"
 #include "App/UI/WidgetBuildingService.hpp"
@@ -26,7 +27,7 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
 
     Register<App::ScriptingService>();
     Register<App::PersistencyService>();
-    Register<App::ResourcePathRegistry>();
+    Register<App::ResourcePathRegistry>(Env::KnownHashesPath());
     Register<App::QuestPhaseRegistry>();
     Register<App::OpenWorldTracker>();
     Register<App::WidgetBuildingService>();
