@@ -14,4 +14,5 @@ public native struct Sample_All_Supported_Replicated_Types {
   native let enum: Sample_Replicated_Enum;
   native let struct: Sample_Replicated_Struct;
   native let dynamicArray: array<Sample_Replicated_Struct>;
+  native let THandle: ref<Sample_Replicated_Serializable>;
 }

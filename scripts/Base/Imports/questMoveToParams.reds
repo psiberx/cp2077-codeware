@@ -1,4 +1,6 @@
 public native class questMoveToParams extends AICommandParams {
+  native let movementTargetRef: ref<questUniversalRef>;
+  native let facingTargetRef: ref<questUniversalRef>;
   native let rotateEntityTowardsFacingTarget: Bool;
   native let movementType: moveMovementType;
   native let ignoreNavigation: Bool;

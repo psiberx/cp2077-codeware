@@ -1,5 +1,7 @@
 public native class effectTrackItemDecal extends effectTrackItem {
   native let material: ResourceRef; // rRef<IMaterial>
+  native let scale: ref<IEvaluatorVector>;
+  native let emissiveScale: ref<IEvaluatorVector>;
   native let normalThreshold: Float;
   native let horizontalFlip: Bool;
   native let verticalFlip: Bool;

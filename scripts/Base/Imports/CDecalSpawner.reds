@@ -13,11 +13,13 @@ public native class CDecalSpawner extends ISerializable {
   native let specularity: Float;
   native let farZ: Float;
   native let nearZ: Float;
+  native let size: ref<IEvaluatorFloat>;
   native let depthFadePower: Float;
   native let normalFadeBias: Float;
   native let normalFadeScale: Float;
   native let doubleSided: Bool;
   native let projectionMode: ERenderDynamicDecalProjection;
+  native let decalLifetime: ref<IEvaluatorFloat>;
   native let decalFadeTime: Float;
   native let decalFadeInTime: Float;
   native let projectOnStatic: Bool;

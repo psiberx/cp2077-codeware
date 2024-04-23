@@ -5,6 +5,7 @@ public native class audioAcousticZoneMetadata extends audioAudioMetadata {
   native let eventsOnExit: array<CName>;
   native let eventsOnActive: array<CName>;
   native let soundBanks: array<CName>;
+  native let parameters: array<audioAcousticZoneParameterMapItem>;
   native let reverbSettings: CName;
   native let voReverbSettings: CName;
   native let footstepMaterialOverride: CName;

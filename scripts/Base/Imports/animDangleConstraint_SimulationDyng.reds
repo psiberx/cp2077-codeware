@@ -3,4 +3,5 @@ public native class animDangleConstraint_SimulationDyng extends animDangleConstr
   native let substepTime: Float;
   native let solverIterations: Uint32;
   native let particlesContainer: animDyngParticlesContainer;
+  native let dyngConstraint: ref<animIDyngConstraint>;
 }

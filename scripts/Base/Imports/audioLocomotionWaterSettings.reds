@@ -1,5 +1,7 @@
 public native class audioLocomotionWaterSettings extends audioAudioMetadata {
   native let defaultLegVfx: ResourceAsyncRef; // raRef<CResource>
+  native let locomotionStatesLegVfx: ref<audioLocomotionStateVfxDictionary>;
+  native let customActionLegVfx: ref<audioLocomotionCustomActionVfxDictionary>;
   native let minSpeedToApplyImpulses: Float;
   native let minHeelDepthToApplyImpulses: Float;
   native let shallowWaterDepth: Float;

@@ -13,4 +13,6 @@ public native class FunctionalTestsDataMemoryStatsData extends ISerializable {
   native let rawLocalTime: Uint64;
   native let playerPosition: String;
   native let playerOrientation: String;
+  native let poolsRuntimeInfo: array<FunctionalTestsDataMemoryPoolRuntimeData>;
+  native let poolsCurrentInfo: array<FunctionalTestsDataMemoryPoolStaticData>;
 }

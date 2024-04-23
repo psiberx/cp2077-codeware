@@ -1,5 +1,7 @@
 public native class worldPrefabNode extends worldNode {
   native let prefab: ResourceAsyncRef; // raRef<worldPrefab>
+  native let instanceData: ref<worldPrefabInstanceData>;
+  native let enabledVariants: ref<worldPrefabVariantsList>;
   native let canBeToggledInGame: Bool;
   native let noCollisions: Bool;
   native let enableRenderSceneLayerOverride: Bool;

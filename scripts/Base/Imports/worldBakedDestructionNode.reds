@@ -7,6 +7,7 @@ public native class worldBakedDestructionNode extends worldMeshNode {
   native let restartOnTrigger: Bool;
   native let disableCollidersOnTrigger: Bool;
   native let filterDataSource: physicsFilterDataSource;
+  native let filterData: ref<physicsFilterData>;
   native let damageThreshold: Float;
   native let damageEndurance: Float;
   native let impulseToDamage: Float;

@@ -1,12 +1,17 @@
 public native class CMesh extends resStreamedResource {
+  native let parameters: array<ref<meshMeshParameter>>;
   native let boundingBox: Box;
   native let surfaceAreaPerAxis: Vector3;
   native let materialEntries: array<CMeshMaterialEntry>;
   native let externalMaterials: array<ResourceAsyncRef>;
+  native let localMaterialInstances: array<ref<CMaterialInstance>>;
   native let localMaterialBuffer: meshMeshMaterialBuffer;
   native let preloadExternalMaterials: array<ResourceRef>;
+  native let preloadLocalMaterialInstances: array<ref<IMaterial>>;
   native let inplaceResources: array<ResourceRef>;
+  native let appearances: array<ref<meshMeshAppearance>>;
   native let objectType: ERenderObjectType;
+  native let renderResourceBlob: ref<IRenderResourceBlob>;
   native let lodLevelInfo: array<Float>;
   native let floatTrackNames: array<CName>;
   native let boneNames: array<CName>;

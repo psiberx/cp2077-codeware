@@ -4,4 +4,5 @@ public native class animAnimNode_BlendByMaskDynamic extends animAnimNode_Base {
   native let mask: animIntLink;
   native let weight: animFloatLink;
   native let masks: array<CName>;
+  native let syncMethod: ref<animISyncMethod>;
 }

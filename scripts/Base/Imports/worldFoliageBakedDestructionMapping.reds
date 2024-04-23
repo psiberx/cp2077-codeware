@@ -4,4 +4,5 @@ public native class worldFoliageBakedDestructionMapping extends worldFoliageDest
   native let audioMetadata: CName;
   native let destructionEffect: ResourceAsyncRef; // raRef<worldEffect>
   native let filterDataSource: physicsFilterDataSource;
+  native let filterData: ref<physicsFilterData>;
 }

@@ -2,6 +2,7 @@ public native class questAddRemoveItem_NodeTypeParams extends ISerializable {
   native let sendNotification: Bool;
   native let isPlayer: Bool;
   native let objectRef: EntityReference;
+  native let entityRef: ref<questUniversalRef>;
   native let nodeType: questEAddRemoveItemType;
   native let itemID: TweakDBID;
   native let quantity: Int32;

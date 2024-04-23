@@ -1,4 +1,5 @@
 public native class animAnimNode_ParentConstraint extends animAnimNode_OnePoseInput {
+  native let parentTransform: ref<animIAnimNodeSourceChannel_QsTransform>;
   native let isParentTransformResaved: Bool;
   native let parentTransformIndex: animTransformIndex;
   native let transformIndex: animTransformIndex;

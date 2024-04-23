@@ -3,4 +3,5 @@ public native class gameTransformAnimation_MoveOnSpline extends gameTransformAni
   native let from: Float;
   native let to: Float;
   native let rotationMode: gameTransformAnimation_MoveOnSplineRotationMode;
+  native let movement: ref<gameTransformAnimation_Movement>;
 }

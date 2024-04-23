@@ -5,4 +5,5 @@ public native class questvehicleRacingParams extends questVehicleSpecificCommand
   native let backwards: Bool;
   native let closest: Bool;
   native let rubberBanding: Bool;
+  native let rubberBandingParam: ref<questParamRubberbanding>;
 }

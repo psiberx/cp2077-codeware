@@ -1,8 +1,10 @@
 public native class worldPrefab extends resStreamedResource {
+  native let mainGroup: ref<worldNodesGroup>;
   native let type: worldPrefabType;
   native let teamOwnership: worldPrefabOwnership;
   native let streamingOcclusion: worldPrefabStreamingOcclusion;
   native let streamingImportance: worldPrefabStreamingImportance;
+  native let defaultVariants: ref<worldPrefabVariantsList>;
   native let isLocked: Bool;
   native let maxBounds: Box;
   native let environmentDefinition: ResourceAsyncRef; // raRef<worldEnvironmentDefinition>

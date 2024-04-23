@@ -1,6 +1,7 @@
 public native class effectTrackItemForwardDecal extends effectTrackItem {
   native let mesh: ResourceRef; // rRef<CMesh>
   native let appearance: CName;
+  native let scale: ref<IEvaluatorVector>;
   native let additionalRotation: Float;
   native let sizeThreshold: Float;
   native let randomRotation: Bool;

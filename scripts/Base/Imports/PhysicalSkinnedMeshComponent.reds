@@ -3,6 +3,7 @@ public importonly native class PhysicalSkinnedMeshComponent extends entSkinnedMe
   native let useResourceSimulationType: Bool;
   native let startInactive: Bool;
   native let filterDataSource: physicsFilterDataSource;
+  native let filterData: ref<physicsFilterData>;
 
   public final native func CreatePhysicalBodyInterface()
 }

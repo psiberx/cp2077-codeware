@@ -5,6 +5,7 @@ public native class questMoveOnSplineParams extends AICommandParams {
   native let reverse: Bool;
   native let startFromClosestPoint: Bool;
   native let splineRecalculation: Bool;
+  native let additionalParams: ref<questMoveOnSplineAdditionalParams>;
   native let useAlertedState: Bool;
   native let useCombatState: Bool;
   native let executeWhileDespawned: Bool;

@@ -2,6 +2,8 @@ public native class worldNodesGroup extends ISerializable {
   native let name: CName;
   native let id: Uint64;
   native let groupUniqueId: CRUID;
+  native let nodes: array<ref<worldNode>>;
+  native let subGroups: array<ref<worldNodesGroup>>;
   native let type: worldNodeGroupType;
   native let keepPosition: Bool;
   native let transform: Transform;

@@ -4,4 +4,5 @@ public native class gameAppearanceNameVisualTagsPreset_Entity extends ISerializa
   native let entityRigPathHash: Uint64;
   native let debugEntityRigPath: CName;
   native let commonVisualTags: redTagList;
+  native let appearancesToTags: array<gameAppearanceNameVisualTagsPreset_AppearanceTags>;
 }

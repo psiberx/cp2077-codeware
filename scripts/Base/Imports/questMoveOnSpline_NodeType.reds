@@ -9,5 +9,6 @@ public native class questMoveOnSpline_NodeType extends questIVehicleManagerNodeT
   native let trafficDeletionMode: vehicleAIPathTrafficDeletionMode;
   native let sceneBlendInDistance: Float;
   native let sceneBlendOutDistance: Float;
+  native let overrides: ref<questIVehicleMoveOnSpline_Overrides>;
   native let audioCurves: ResourceRef; // rRef<vehicleAudioVehicleCurveSet>
 }

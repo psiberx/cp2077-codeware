@@ -5,5 +5,6 @@ public native class CBitmapTexture extends ITexture {
   native let setup: STextureGroupSetup;
   native let histBiasMulCoef: Vector3;
   native let histBiasAddCoef: Vector3;
+  native let renderResourceBlob: ref<IRenderResourceBlob>;
   native let renderTextureResource: rendRenderTextureResource;
 }

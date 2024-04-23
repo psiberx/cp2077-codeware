@@ -7,4 +7,5 @@ public native class audioAudioFoliageMetadata extends audioAudioMetadata {
   native let minFoliageMeshVolumeThreshold: Float;
   native let maxFoliageMeshHeight: Float;
   native let playerInsideRequiredPercentage: Float;
+  native let foliageMaterials: ref<audioAudioFoliageMaterialDictionary>;
 }

@@ -2,4 +2,5 @@ public native class CParticleModificatorVectorFieldAttractor extends IParticleMo
   native let inheritVelocity: Bool;
   native let attract: Bool;
   native let drag: Bool;
+  native let restitution: ref<IEvaluatorFloat>;
 }

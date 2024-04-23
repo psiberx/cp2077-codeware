@@ -1,4 +1,5 @@
 public native class animAnimNode_DirectConnConstraint extends animAnimNode_OnePoseInput {
+  native let sourceTransform: ref<animIAnimNodeSourceChannel_QsTransform>;
   native let isSourceTransformResaved: Bool;
   native let sourceTransformIndex: animTransformIndex;
   native let transformIndex: animTransformIndex;

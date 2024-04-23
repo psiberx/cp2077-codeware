@@ -6,4 +6,5 @@ public abstract native class physicsICollider extends ISerializable {
   native let isImported: Bool;
   native let isQueryShapeOnly: Bool;
   native let volumeModifier: Float;
+  native let filterData: ref<physicsFilterData>;
 }

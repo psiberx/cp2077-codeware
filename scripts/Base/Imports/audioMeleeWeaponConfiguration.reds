@@ -11,5 +11,6 @@ public native class audioMeleeWeaponConfiguration extends audioAudioMetadata {
   native let attackChargedThreshold: Float;
   native let attackChargedSound: audioMeleeSound;
   native let attackDischargedSound: audioMeleeSound;
+  native let meleeSoundsByHitPerMaterialType: ref<audioMeleeHitTypeMeleeSoundDictionary>;
   native let meleeWeaponConfigurationsByRigTypeMap: audioMeleeRigTypeMeleeWeaponConfigurationMap;
 }

@@ -8,4 +8,5 @@ public native struct worldOffMeshConnectionsData {
   native let tagIntervals: array<Uint16>;
   native let tagsX: array<CName>;
   native let globalNodeIDs: array<GlobalNodeID>;
+  native let userData: array<ref<worldOffMeshUserData>>;
 }

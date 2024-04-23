@@ -5,9 +5,11 @@ public native class scnSceneResource extends CResource {
   native let executionTagEntries: array<scnExecutionTagEntry>;
   native let actors: array<scnActorDef>;
   native let playerActors: array<scnPlayerActorDef>;
+  native let sceneGraph: ref<scnSceneGraph>;
   native let localMarkers: array<scnLocalMarker>;
   native let props: array<scnPropDef>;
   native let ridResources: array<scnRidResourceHandler>;
+  native let workspots: array<ref<scnWorkspotData>>;
   native let workspotInstances: array<scnWorkspotInstance>;
   native let resouresReferences: scnSRRefCollection;
   native let screenplayStore: scnscreenplayStore;

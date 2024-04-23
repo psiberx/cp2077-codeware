@@ -2,4 +2,5 @@ public native class AIbehaviorMovementPolicyTaskDefinition extends AIbehaviorTas
   native let useCurrentPolicy: Bool;
   native let waitForPolicy: Bool;
   native let stopWhenDestinationReached: ref<AIArgumentMapping>;
+  native let policies: array<ref<AIbehaviorMovementPolicyTaskItemDefinition>>;
 }

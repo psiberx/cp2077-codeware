@@ -1,4 +1,5 @@
 public native class scnPlayFPPControlAnimEvent extends scnPlayAnimEvent {
+  native let gameplayAnimName: ref<scnAnimName>;
   native let FPPControlActive: Bool;
   native let blendOverride: scnfppBlendOverride;
   native let cameraUseTrajectorySpace: Bool;

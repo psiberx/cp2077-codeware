@@ -1,6 +1,7 @@
 public native class worldStaticSoundEmitterNode extends worldNode {
   native let radius: Float;
   native let audioName: CName;
+  native let Settings: ref<audioAmbientAreaSettings>;
   native let usePhysicsObstruction: Bool;
   native let occlusionEnabled: Bool;
   native let acousticRepositioningEnabled: Bool;

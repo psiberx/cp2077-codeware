@@ -2,10 +2,12 @@ public native class workWorkspotTree extends ISerializable {
   native let workspotRig: ResourceAsyncRef; // raRef<animRig>
   native let globalProps: array<workWorkspotGlobalProp>;
   native let propsPlaySyncAnim: Bool;
+  native let rootEntry: ref<workIEntry>;
   native let idCounter: Uint32;
   native let dontInjectWorkspotGraph: Bool;
   native let animGraphSlotName: CName;
   native let autoTransitionBlendTime: Float;
+  native let initialActions: array<ref<workIWorkspotItemAction>>;
   native let initialCanUseExits: Bool;
   native let blendOutTime: Float;
   native let finalAnimsets: array<workWorkspotAnimsetEntry>;

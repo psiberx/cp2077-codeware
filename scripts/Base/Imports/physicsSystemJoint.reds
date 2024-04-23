@@ -1,5 +1,7 @@
 public native class physicsSystemJoint extends physicsISystemObject {
   native let localToWorld: Matrix;
+  native let pinA: ref<physicsPhysicalJointPin>;
+  native let pinB: ref<physicsPhysicalJointPin>;
   native let driveY: physicsPhysicsJointDrive;
   native let driveX: physicsPhysicsJointDrive;
   native let driveZ: physicsPhysicsJointDrive;

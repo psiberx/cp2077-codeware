@@ -1,12 +1,16 @@
 public native class CParticleEmitter extends IParticleModule {
+  native let modules: array<ref<IParticleModule>>;
   native let positionX: Int32;
   native let positionY: Int32;
   native let material: ResourceRef; // rRef<IMaterial>
+  native let localMaterialInstance: ref<IMaterial>;
   native let maxParticles: Uint16;
   native let diffuseWrapFactor: Float;
   native let backLightingFactor: Float;
   native let lightingMipBias: Uint32;
   native let emitterLoops: Int8;
+  native let particleDrawer: ref<IParticleDrawer>;
+  native let decalSpawner: ref<CDecalSpawner>;
   native let maskInsideCar: Bool;
   native let maskInsideInterior: Bool;
   native let maskAboveWater: Bool;
@@ -21,6 +25,7 @@ public native class CParticleEmitter extends IParticleModule {
   native let windInfluence: Float;
   native let internalPriority: Uint8;
   native let lods: array<SParticleEmitterLODLevel>;
+  native let renderResourceBlob: ref<IRenderResourceBlob>;
   native let Enabled: Bool;
   native let Relative: Bool;
   native let UseEnvironmentFogColor: Bool;

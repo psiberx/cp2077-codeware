@@ -8,6 +8,7 @@ public native class worldInstancedDestructibleMeshNode extends worldMeshNode {
   native let useAggregate: Bool;
   native let enableSelfCollisionInAggregate: Bool;
   native let isDestructible: Bool;
+  native let filterData: ref<physicsFilterData>;
   native let damageThreshold: Float;
   native let damageEndurance: Float;
   native let accumulateDamage: Bool;

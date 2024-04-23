@@ -13,6 +13,7 @@ public native class animRig extends CResource {
   native let tags: redTagList;
   native let parts: array<animRigPart>;
   native let retargets: array<animRigRetarget>;
+  native let ikSetups: array<ref<animIRigIkSetup>>;
   native let ragdollDesc: array<physicsRagdollBodyInfo>;
   native let ragdollNames: array<physicsRagdollBodyNames>;
 }

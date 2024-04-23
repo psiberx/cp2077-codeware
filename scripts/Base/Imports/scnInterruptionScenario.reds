@@ -10,4 +10,8 @@ public native struct scnInterruptionScenario {
   native let playingLinesBehavior: scnInterruptReturnLinesBehavior;
   native let postInterruptSignalTimeDelay: Float;
   native let postReturnSignalTimeDelay: Float;
+  native let postInterruptSignalFactCondition: ref<scnInterruptFactConditionType>;
+  native let postReturnSignalFactCondition: ref<scnInterruptFactConditionType>;
+  native let interruptConditions: array<ref<scnIInterruptCondition>>;
+  native let returnConditions: array<ref<scnIReturnCondition>>;
 }

@@ -4,5 +4,6 @@ public native class questCharacterManagerParameters_SetStatusEffect extends ques
   native let statusEffectID: TweakDBID;
   native let isPlayerStatusEffectSource: Bool;
   native let statusEffectSourceObject: EntityReference;
+  native let recordSelector: ref<questRecordSelector>;
   native let set: Bool;
 }

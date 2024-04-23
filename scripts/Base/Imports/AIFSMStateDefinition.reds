@@ -5,4 +5,5 @@ public native struct AIFSMStateDefinition {
   native let onFailureTransition: AIFSMTransitionListDefinition;
   native let onInterruptionTransition: AIFSMTransitionListDefinition;
   native let onEventTransitions: AIFSMTransitionListDefinition;
+  native let childNode: ref<AICTreeNodeDefinition>;
 }

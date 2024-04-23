@@ -8,4 +8,7 @@ public native class animAnimNode_BlendOverride extends animAnimNode_Base {
   native let tracks: array<animOverrideBlendTrackInfo>;
   native let getDeltaMotionFromOverride: Bool;
   native let timeWarpingEnabled: Bool;
+  native let syncMethod: ref<animISyncMethod>;
+  native let blendMethod: ref<animIPoseBlendMethod>;
+  native let postProcess: ref<animIAnimNode_PostProcess>;
 }

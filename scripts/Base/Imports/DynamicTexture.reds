@@ -5,4 +5,5 @@ public native class DynamicTexture extends ITexture {
   native let mipChain: Bool;
   native let samplesCount: Uint8;
   native let dataFormat: DynamicTextureDataFormat;
+  native let generator: ref<IDynamicTextureGenerator>;
 }

@@ -1,4 +1,5 @@
 public native class animAnimSet extends CResource {
+  native let animations: array<ref<animAnimSetEntry>>;
   native let animationDataChunks: array<animAnimDataChunk>;
   native let fallbackDataAddresses: array<Uint16>;
   native let fallbackDataAddressIndexes: array<Uint8>;

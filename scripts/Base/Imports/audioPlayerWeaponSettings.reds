@@ -9,6 +9,7 @@ public native class audioPlayerWeaponSettings extends audioWeaponSettings {
   native let padVibrationReloadGain: Float;
   native let tails: CName;
   native let shellCasingsSettings: CName;
+  native let animEventOverrides: ref<audioWeaponEventOverrides>;
   native let quickMeleeHitEvent: CName;
   native let initEvent: CName;
   native let shutdownEvent: CName;

@@ -3,4 +3,5 @@ public native class gameTransformAnimation_RotateOnAxis extends gameTransformAni
   native let numberOfFullRotations: Float;
   native let startAngle: Float;
   native let reverseDirection: Bool;
+  native let movement: ref<gameTransformAnimation_Movement>;
 }

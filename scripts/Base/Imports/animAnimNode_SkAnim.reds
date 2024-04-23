@@ -14,5 +14,6 @@ public native class animAnimNode_SkAnim extends animAnimNode_Base {
   native let popDataByTag: CName;
   native let pushSafeCutTag: CName;
   native let convertToAdditive: Bool;
+  native let motionProvider: ref<animIMotionTableProvider>;
   native let applyInertializationOnAnimSetSwap: Bool;
 }

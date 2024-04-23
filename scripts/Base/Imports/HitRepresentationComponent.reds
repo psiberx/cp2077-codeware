@@ -4,4 +4,5 @@ public native class HitRepresentationComponent extends SlotComponent {
   native let bvhRoot: gameHitShapeBVH;
   native let useResourceData: Bool;
   native let resource: ResourceAsyncRef; // raRef<HitRepresentationResource>
+  native let appearanceOverrides: array<HitRepresentationOverride>;
 }

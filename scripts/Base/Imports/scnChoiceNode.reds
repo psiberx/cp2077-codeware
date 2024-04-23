@@ -5,6 +5,11 @@ public native class scnChoiceNode extends scnSceneGraphNode {
   native let mode: scnChoiceNodeNsOperationMode;
   native let persistentLineEvents: array<scnSceneEventId>;
   native let customPersistentLine: scnscreenplayItemId;
+  native let timedParams: ref<scnChoiceNodeNsTimedParams>;
+  native let reminderParams: ref<scnChoiceNodeNsActorReminderParams>;
+  native let shapeParams: ref<scnInteractionShapeParams>;
+  native let lookAtParams: ref<scnChoiceNodeNsLookAtParams>;
+  native let forceAttachToScreenCondition: ref<questIBaseCondition>;
   native let choiceGroup: CName;
   native let cpoHoldInputActionSection: Bool;
   native let doNotTurnOffPreventionSystem: Bool;
@@ -15,7 +20,10 @@ public native class scnChoiceNode extends scnSceneGraphNode {
   native let atwParams: scnChoiceNodeNsAttachToWorldParams;
   native let choicePriority: Uint8;
   native let hubPriority: Uint8;
+  native let mappinParams: ref<scnChoiceNodeNsMappinParams>;
   native let interruptCapability: scnInterruptCapability;
   native let interruptionSpeakerOverride: scnActorId;
   native let alwaysUseBrainGender: Bool;
+  native let timedSectionCondition: ref<scnTimedCondition>;
+  native let reminderCondition: ref<scnReminderCondition>;
 }

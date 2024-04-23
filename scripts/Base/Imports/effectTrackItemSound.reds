@@ -5,4 +5,5 @@ public native class effectTrackItemSound extends effectTrackItem {
   native let positionName: CName;
   native let emitterMetadataName: CName;
   native let rtpcName: CName;
+  native let rtpcValue: ref<IEvaluatorFloat>;
 }
