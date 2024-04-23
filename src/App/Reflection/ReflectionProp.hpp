@@ -1,5 +1,7 @@
 #pragma once
 
+#include "ReflectionType.hpp"
+
 namespace App
 {
 struct ReflectionProp : Red::IScriptable
