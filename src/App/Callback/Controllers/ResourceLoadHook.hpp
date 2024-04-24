@@ -13,7 +13,7 @@ class ResourceLoadHook
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto EventName = Red::CName("Resource/Load");
+    constexpr static auto EventName = Red::CName("Resource/Loaded");
 
     Core::Map<Red::CName, Red::CName> GetEvents() override
     {
