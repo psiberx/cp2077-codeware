@@ -67,26 +67,29 @@ void App::ScriptableServiceContainer::OnUninitialize()
 
 void App::ScriptableServiceContainer::LoadState()
 {
-    if (std::filesystem::exists(m_stateFilePath))
+    std::error_code error;
+    if (!std::filesystem::exists(m_stateFilePath, error))
+        return;
+
+    auto state = Red::MakeHandle<ScriptableServiceContainerState>();
+
+    try
     {
-        auto state = Red::MakeHandle<ScriptableServiceContainerState>();
+        Red::ObjectSerializer::ReadFromFile(state, m_stateFilePath);
+    }
+    catch (std::exception& ex)
+    {
+        LogError(R"([ScriptableServiceContainer] Can't load state from "{}": {})",
+                 m_stateFilePath.string(), ex.what());
+    }
 
-        try
+    if (state)
+    {
+        for (auto& service : state->services)
         {
-            Red::ObjectSerializer::ReadFromFile(state, m_stateFilePath);
-        }
-        catch (std::exception&)
-        {
-        }
-
-        if (state)
-        {
-            for (auto& service : state->services)
+            if (service)
             {
-                if (service)
-                {
-                    m_services.emplace(service->GetType()->name, std::move(service));
-                }
+                m_services.emplace(service->GetType()->name, std::move(service));
             }
         }
     }
@@ -105,8 +108,10 @@ void App::ScriptableServiceContainer::SaveState()
     {
         Red::ObjectSerializer::SaveToFile(state, m_stateFilePath);
     }
-    catch (std::exception&)
+    catch (std::exception& ex)
     {
+        LogError(R"([ScriptableServiceContainer] Can't save state to "{}": {})",
+                 m_stateFilePath.string(), ex.what());
     }
 }
 

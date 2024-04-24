@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Facades/Container.hpp"
+#include "Core/Logging/LoggingAgent.hpp"
 #include "App/Scripting/ScriptableService.hpp"
 
 namespace App
@@ -13,7 +13,7 @@ struct ScriptableServiceContainerState : Red::IScriptable
     RTTI_IMPL_ALLOCATOR();
 };
 
-struct ScriptableServiceContainer : Red::IGameSystem
+struct ScriptableServiceContainer : Red::IGameSystem, Core::LoggingAgent
 {
 public:
     ScriptableServiceContainer() = default;
