@@ -75,7 +75,7 @@ public class InGamePopupFooter extends inkCustomController {
     }
 
     protected cb func OnInitialize() {
-        this.m_buttonHints = ButtonHintsManager.GetInstance(this.GetGame()).SpawnButtonHints(this.m_inputHolder);
+        this.m_buttonHints = ButtonHintsManager.GetInstance().SpawnButtonHints(this.m_inputHolder);
         this.m_buttonHints.SetStyle(n"popup");
         this.m_buttonHints.AddButtonHint(n"cancel", "UI-UserActions-Close");
     }

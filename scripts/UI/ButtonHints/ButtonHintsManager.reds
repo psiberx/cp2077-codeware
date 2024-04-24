@@ -13,7 +13,7 @@
 module Codeware.UI
 import Codeware.*
 
-public class ButtonHintsManager extends IButtonHintsManager {
+public class ButtonHintsManager extends ScriptableService {
     private let m_buttonHints: ref<inkWidget>;
 
     private let m_inputHint: wref<inkInputDisplayController>;
@@ -63,23 +63,13 @@ public class ButtonHintsManager extends IButtonHintsManager {
         return key;
     }
 
-    public static func GetInstance(game: GameInstance) -> ref<ButtonHintsManager> {
-        let registry: ref<RegistrySystem> = RegistrySystem.GetInstance(game);
-        let instance: ref<ButtonHintsManager> = registry.Get(n"Codeware.UI.ButtonHintsManager") as ButtonHintsManager;
-
-        if !IsDefined(instance) {
-            instance = new ButtonHintsManager();
-            registry.Put(instance);
-        }
-
-        return instance;
+    public static func GetInstance() -> ref<ButtonHintsManager> {
+        return GameInstance.GetScriptableServiceContainer()
+            .GetService(n"Codeware.UI.ButtonHintsManager") as ButtonHintsManager;
     }
 
     public static func InitializeFromController(controller: ref<inkGameController>) {
-        let game: GameInstance = controller.GetPlayerControlledObject().GetGame();
-        let instance: ref<ButtonHintsManager> = ButtonHintsManager.GetInstance(game);
-
-        instance.Initialize(controller);
+        ButtonHintsManager.GetInstance().Initialize(controller);
     }
 }
 

@@ -1,4 +1,3 @@
-
 public static native func UTF8StrLen(str: script_ref<String>) -> Int32
 
 public static native func UTF8StrLeft(str: script_ref<String>, length: Int32) -> String

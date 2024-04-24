@@ -15,7 +15,7 @@
 module Codeware.UI
 import Codeware.*
 
-public class CustomPopupManager extends ICustomPopupManager {
+public class CustomPopupManager extends ScriptableService {
     private let m_gameController: wref<inkGameController>;
     private let m_notificationsContainer: wref<inkCompoundWidget>;
     private let m_bracketsContainer: wref<inkCompoundWidget>;
@@ -130,16 +130,9 @@ public class CustomPopupManager extends ICustomPopupManager {
         return Equals(topWidget, popupWidget);
     }
 
-    public static func GetInstance(game: GameInstance) -> ref<CustomPopupManager> {
-        let registry = RegistrySystem.GetInstance(game);
-        let instance = registry.Get(n"Codeware.UI.CustomPopupManager") as CustomPopupManager;
-
-        if !IsDefined(instance) {
-            instance = new CustomPopupManager();
-            registry.Put(instance);
-        }
-
-        return instance;
+    public static func GetInstance() -> ref<CustomPopupManager> {
+        return GameInstance.GetScriptableServiceContainer()
+            .GetService(n"Codeware.UI.CustomPopupManager") as CustomPopupManager;
     }
 }
 
@@ -149,15 +142,15 @@ public class CustomPopupManager extends ICustomPopupManager {
 protected cb func OnPlayerAttach(playerPuppet: ref<GameObject>) -> Bool {
     wrappedMethod(playerPuppet);
 
-    CustomPopupManager.GetInstance(this.GetPlayerControlledObject().GetGame()).Initialize(this);
+    CustomPopupManager.GetInstance().Initialize(this);
 }
 
 @addMethod(PopupsManager)
 protected cb func OnShowCustomPopup(evt: ref<ShowCustomPopupEvent>) -> Bool {
-    CustomPopupManager.GetInstance(this.GetPlayerControlledObject().GetGame()).ShowPopup(evt.GetPopupController());
+    CustomPopupManager.GetInstance().ShowPopup(evt.GetPopupController());
 }
 
 @addMethod(PopupsManager)
 protected cb func OnHideCustomPopup(evt: ref<HideCustomPopupEvent>) -> Bool {
-    CustomPopupManager.GetInstance(this.GetPlayerControlledObject().GetGame()).HidePopup(evt.GetPopupController());
+    CustomPopupManager.GetInstance().HidePopup(evt.GetPopupController());
 }

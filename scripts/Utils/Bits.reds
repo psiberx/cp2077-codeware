@@ -1,4 +1,3 @@
-
 public static native func BitTest8(value: Uint8, n: Int32) -> Bool
 public static native func BitSet8(value: Uint8, n: Int32, state: Bool) -> Uint8
 public static native func BitShiftL8(value: Uint8, n: Int32) -> Uint8
