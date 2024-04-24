@@ -64,6 +64,8 @@ constexpr uint32_t ObjectSerializer_ReadFromStrean = 125247621;
 
 constexpr uint32_t PersistentObject_InitializeState = 3442350580;
 
+constexpr uint32_t PhysicsTraceResult_GetHitObject = 2394822845;
+
 constexpr uint32_t PlayerSystem_OnPlayerSpawned = 2050111212; // cp::PlayerSystem::OnPlayerMainObjectSpawned
 
 constexpr uint32_t PointOfInterestMappin_SetPhase = 803085170;

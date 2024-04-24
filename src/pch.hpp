@@ -107,6 +107,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/mesh/MeshAppearance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/net/PeerID.hpp>
+#include <RED4ext/Scripting/Natives/Generated/physics/TraceResult.hpp>
 #include <RED4ext/Scripting/Natives/Generated/population/PopulationSpawnParameter.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/CharacterCondition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/CharacterKilled_ConditionType.hpp>
