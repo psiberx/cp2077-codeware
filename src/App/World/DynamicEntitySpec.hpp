@@ -38,11 +38,6 @@ struct DynamicEntitySpec : Red::IScriptable
 
     DynamicEntitySpec(DynamicEntitySpec&&) = default;
 
-    [[nodiscard]] inline bool IsValid() const
-    {
-        return IsRecord() || IsTemplate();
-    }
-
     [[nodiscard]] inline bool IsRecord() const
     {
         return recordID.IsValid();
@@ -84,7 +79,6 @@ using DynamicEntitySpecPtr = Red::Handle<DynamicEntitySpec>;
 }
 
 RTTI_DEFINE_CLASS(App::DynamicEntitySpec, {
-    RTTI_METHOD(IsValid);
     RTTI_PERSISTENT(recordID);
     RTTI_PROPERTY(templatePath);
     RTTI_PERSISTENT(templateHash);

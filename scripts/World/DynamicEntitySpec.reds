@@ -28,6 +28,4 @@ public native class DynamicEntitySpec {
 
     // Initital tags associated with the entity.
     public native let tags: array<CName>;
-
-    public native func IsValid() -> Bool
 }

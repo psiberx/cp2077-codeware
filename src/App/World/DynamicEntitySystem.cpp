@@ -1,4 +1,5 @@
 #include "DynamicEntitySystem.hpp"
+#include "Red/TweakDB.hpp"
 
 namespace
 {
@@ -7,7 +8,6 @@ constexpr auto SystemPersistentID = Red::PersistentID(Red::GetTypeName<App::Dyna
 
 void App::DynamicEntitySystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
-    m_tweakDB = Red::TweakDB::Get();
     m_persistencySystem = Red::GetGameSystem<Red::IPersistencySystem>();
     m_entityIDSystem = Red::GetGameSystem<Red::IDynamicEntityIDSystem>();
     m_entityStubSystem = Red::GetGameSystem<Red::IEntityStubSystem>();
@@ -131,7 +131,7 @@ Red::EntityID App::DynamicEntitySystem::CreateEntity(const DynamicEntitySpecPtr&
     if (!m_ready)
         return {};
 
-    if (!aEntitySpec->IsValid())
+    if (!ValidateEntitySpec(aEntitySpec))
         return {};
 
     Red::EntityID entityID{};
@@ -725,32 +725,30 @@ void App::DynamicEntitySystem::ProcessListeners(Red::EntityID aEntityID, Red::ga
     ProcessListeners(aEntityID, static_cast<DynamicEntityEventType>(static_cast<uint32_t>(aType)));
 }
 
+bool App::DynamicEntitySystem::ValidateEntitySpec(const App::DynamicEntitySpecPtr& aEntitySpec)
+{
+    if (aEntitySpec->IsRecord())
+    {
+        return Red::RecordExists(aEntitySpec->recordID, Red::GetClass<Red::gamedataSpawnableObject_Record>());
+    }
+
+    if (aEntitySpec->IsTemplate())
+    {
+        return Red::ResourceDepot::Get()->ResourceExists(aEntitySpec->templatePath.path);
+    }
+
+    return false;
+}
+
 Red::TweakDBID App::DynamicEntitySystem::ConvertTemplateToRecord(Red::RaRef<> aTemplate)
 {
     const auto hash = Red::FNV1a32(reinterpret_cast<const uint8_t*>(&aTemplate.path), sizeof(Red::ResourcePath));
     const auto recordID = Red::TweakDBID(hash, 1);
-    Red::Handle<Red::IScriptable>* record;
 
+    if (!Red::RecordExists(recordID))
     {
-        std::shared_lock _(m_tweakDB->mutex01);
-        record = m_tweakDB->recordsByID.Get(recordID);
-    }
-
-    if (!record)
-    {
-        {
-            static const auto type = Red::GetType<Red::RaRef<>>();
-            const auto offset = m_tweakDB->CreateFlatValue({type, &aTemplate});
-            auto flatID = Red::TweakDBID(recordID, ".entityTemplatePath");
-            flatID.SetTDBOffset(offset);
-            m_tweakDB->AddFlat(flatID);
-        }
-        {
-            static const auto recordHash = Red::Murmur3_32(reinterpret_cast<const uint8_t*>("SpawnableObject"), 15);
-            using CreateTDBRecord_t = void (*)(Red::TweakDB*, uint32_t, Red::TweakDBID);
-            static Red::UniversalRelocFunc<CreateTDBRecord_t> CreateTDBRecord(Red::Detail::AddressHashes::TweakDB_CreateRecord);
-            CreateTDBRecord(m_tweakDB, recordHash, recordID);
-        }
+        Red::CreateFlat(recordID, ".entityTemplatePath", aTemplate);
+        Red::CreateRecord(recordID, "SpawnableObject");
     }
 
     return recordID;

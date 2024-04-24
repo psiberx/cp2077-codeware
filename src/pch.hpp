@@ -74,6 +74,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/data/District.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/data/MappinPhase.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/data/MappinVariant.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/data/SpawnableObject_Record.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/mappins/IMappinSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/mappins/PhaseVariant.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ui/CustomizationAppearance.hpp>

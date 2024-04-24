@@ -72,6 +72,8 @@ protected:
     void AddEntityState(const DynamicEntityStatePtr& aEntityState);
     void UpdateTransientID(const DynamicEntityStatePtr& aEntityState);
     DynamicEntityStatePtr RemoveEntityState(Red::EntityID aEntityID);
+
+    bool ValidateEntitySpec(const DynamicEntitySpecPtr& aEntitySpec);
     Red::TweakDBID ConvertTemplateToRecord(Red::RaRef<> aTemplate);
 
     void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEventType aType, Red::DynArray<Red::CName>& aTags);
@@ -93,7 +95,6 @@ protected:
     Red::Handle<DynamicEntitySystemPS> m_persistentState;
     uint32_t m_spawnEventListenerID;
 
-    Red::TweakDB* m_tweakDB;
     Red::IPersistencySystem* m_persistencySystem;
     Red::IDynamicEntityIDSystem* m_entityIDSystem;
     Red::IEntityStubSystem* m_entityStubSystem;

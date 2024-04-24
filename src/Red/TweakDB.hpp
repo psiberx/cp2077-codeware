@@ -80,6 +80,19 @@ inline bool RecordExists(TweakDBID aRecordID)
     return tweakDB->recordsByID.Get(aRecordID);
 }
 
+inline bool RecordExists(TweakDBID aRecordID, Red::CClass* aRecordType)
+{
+    auto tweakDB = Red::TweakDB::Get();
+
+    std::shared_lock _(tweakDB->mutex01);
+
+    auto record = tweakDB->recordsByID.Get(aRecordID);
+    if (!record)
+        return false;
+
+    return record->instance->GetType()->IsA(aRecordType);
+}
+
 template<typename T>
 inline T* GetFlatPtr(TweakDBID aFlatID)
 {
