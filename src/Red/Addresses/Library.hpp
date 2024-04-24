@@ -49,6 +49,8 @@ constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromLocal = 118698863;
 constexpr uint32_t InkWidgetLibrary_SpawnFromExternal = 506278179;
 constexpr uint32_t InkWidgetLibrary_SpawnFromLocal = 1158555307;
 
+constexpr uint32_t ISerializable_Clone = 2601784524;
+
 constexpr uint32_t IScriptable_CheckClass = 2487884020;
 constexpr uint32_t IScriptable_CheckExactClass = 1797004238;
 

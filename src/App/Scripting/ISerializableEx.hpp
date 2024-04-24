@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Red/Scripting.hpp"
+
 namespace App
 {
 struct ISerializableEx : Red::ISerializable
@@ -13,10 +15,18 @@ struct ISerializableEx : Red::ISerializable
     {
         return GetNativeType()->name == aClassName;
     }
+
+    Red::Handle<Red::ISerializable> Clone()
+    {
+        Red::Handle<Red::ISerializable> clone;
+        Raw::ISerializable::Clone(clone, Red::ToHandle(this));
+        return clone;
+    }
 };
 }
 
 RTTI_EXPAND_CLASS(Red::ISerializable, App::ISerializableEx, {
     RTTI_METHOD(IsA);
     RTTI_METHOD(IsExactlyA);
+    RTTI_METHOD(Clone);
 });

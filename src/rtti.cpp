@@ -22,6 +22,7 @@
 #include "App/Player/VehicleSystemEx.hpp"
 #include "App/Player/WardrobeSystemEx.hpp"
 #include "App/Reflection/Reflection.hpp"
+#include "App/Scripting/IScriptableEx.hpp"
 #include "App/Scripting/ISerializableEx.hpp"
 #include "App/Scripting/ScriptableService.hpp"
 #include "App/Scripting/ScriptableServiceContainer.hpp"

@@ -23,17 +23,6 @@ constexpr auto CreateInstance = Core::RawFunc<
 //     /* type = */ bool (*)(Red::CBaseFunction*, Red::CBaseStack*, Red::CStackFrame*)>();
 // }
 
-// namespace Raw::IScriptable
-// {
-// constexpr auto CheckClass = Core::RawFunc<
-//     /* addr = */ Red::AddressLib::IScriptable_CheckClass,
-//     /* type = */ void (*)(Red::IScriptable* aContext, Red::CStackFrame*, bool* aRet, Red::CBaseRTTIType*)>();
-//
-// constexpr auto CheckExactClass = Core::RawFunc<
-//     /* addr = */ Red::AddressLib::IScriptable_CheckExactClass,
-//     /* type = */ void (*)(Red::IScriptable* aContext, Red::CStackFrame*, bool* aRet, Red::CBaseRTTIType*)>();
-// }
-
 namespace Raw::ScriptValidator
 {
 constexpr auto Validate = Core::RawFunc<
@@ -79,3 +68,22 @@ constexpr auto HandlerCast = Core::RawFunc<
     /* addr = */ Red::AddressLib::ScriptOpCodes_Handlers_Cast,
     /* type = */ void (*)(Red::IScriptable*, Red::CStackFrame* aFrame, void* aRet, Red::CBaseRTTIType* aType)>();
 }
+
+namespace Raw::ISerializable
+{
+constexpr auto Clone = Core::RawFunc<
+    /* addr = */ Red::AddressLib::ISerializable_Clone,
+    /* type = */ void* (*)(Red::Handle<Red::ISerializable>& aOut,
+                           const Red::Handle<Red::ISerializable>& aObject)>();
+}
+
+// namespace Raw::IScriptable
+// {
+// constexpr auto CheckClass = Core::RawFunc<
+//     /* addr = */ Red::AddressLib::IScriptable_CheckClass,
+//     /* type = */ void (*)(Red::IScriptable* aContext, Red::CStackFrame*, bool* aRet, Red::CBaseRTTIType*)>();
+//
+// constexpr auto CheckExactClass = Core::RawFunc<
+//     /* addr = */ Red::AddressLib::IScriptable_CheckExactClass,
+//     /* type = */ void (*)(Red::IScriptable* aContext, Red::CStackFrame*, bool* aRet, Red::CBaseRTTIType*)>();
+// }
