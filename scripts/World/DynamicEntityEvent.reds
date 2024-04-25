@@ -1,4 +1,3 @@
-
 enum DynamicEntityEventType
 {
     Created = 0,

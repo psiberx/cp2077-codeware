@@ -1,4 +1,3 @@
-
 public native class DynamicEntitySystem extends IGameSystem {
     public native func IsReady() -> Bool
     public native func IsRestored() -> Bool

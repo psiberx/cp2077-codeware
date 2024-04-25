@@ -1,4 +1,3 @@
-
 public native class DynamicEntitySpec {
     // The entity record or template to spawn. Can't be used together.
     public native let recordID: TweakDBID;
