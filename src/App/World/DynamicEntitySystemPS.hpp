@@ -1,6 +1,6 @@
 #pragma once
 
-#include "DynamicEntityState.hpp"
+#include "App/World/DynamicEntityState.hpp"
 
 namespace App
 {

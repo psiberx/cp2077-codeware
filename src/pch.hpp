@@ -154,6 +154,7 @@
 #include <RED4ext/Scripting/Natives/Generated/world/GlobalNodeID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/GlobalNodeRef.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/Node.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/RuntimeEntityRegistry.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemWeather.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/StreamingSector.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherScriptInterface.hpp>

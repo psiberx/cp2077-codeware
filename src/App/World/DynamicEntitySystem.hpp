@@ -1,9 +1,9 @@
 #pragma once
 
-#include "DynamicEntityEvent.hpp"
-#include "DynamicEntitySpec.hpp"
-#include "DynamicEntityState.hpp"
-#include "DynamicEntitySystemPS.hpp"
+#include "App/World/DynamicEntityEvent.hpp"
+#include "App/World/DynamicEntitySpec.hpp"
+#include "App/World/DynamicEntityState.hpp"
+#include "App/World/DynamicEntitySystemPS.hpp"
 
 namespace App
 {
@@ -54,8 +54,8 @@ protected:
     void OnAfterGameSave() override;
     void OnBeforeWorldDetach(Red::world::RuntimeScene*) override;
     void OnAfterWorldDetach() override;
-    void OnRegisterUpdates(Red::UpdateRegistrar* aRegistrar) override;
-    void OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue& aJobQueue);
+    void OnEntitySpawnerEvent(Red::game::EntitySpawnerEventType aType, Red::EntityID aEntityID, Red::EntityID,
+                              Red::EntityStub* aStub);
 
     bool SpawnFromEntityState(const DynamicEntityStatePtr& aEntityState);
     bool RespawnFromEntityState(const DynamicEntityStatePtr& aEntityState);

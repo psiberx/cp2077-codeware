@@ -82,6 +82,9 @@ constexpr uint32_t QuestsSystem_CreateContext = 3144298192;
 
 constexpr uint32_t ResourcePath_Create = 3998356057;
 
+constexpr uint32_t RuntimeEntityRegistry_RegisterEntity = 2840271332; // world::RuntimeEntityRegistry::RegisterEntity
+constexpr uint32_t RuntimeEntityRegistry_UnregisterEntity = 3878623943;
+
 constexpr uint32_t RuntimeSystemWeather_SetWeatherByName = 2334794340;
 constexpr uint32_t RuntimeSystemWeather_SetWeatherByIndex = 1821516328;
 

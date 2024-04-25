@@ -31,3 +31,14 @@ constexpr auto SetWeatherByIndex = Core::RawFunc<
 //     /* addr = */ 0x14013AC1C - Red::Address::ImageBase,
 //     /* type = */ void (*)(Red::world::RuntimeSystemWeather* aSystem, Red::world::WeatherState* aWeather, uint32_t aIndex)>();
 }
+
+namespace Raw::RuntimeEntityRegistry
+{
+constexpr auto RegisterEntity = Core::RawFunc<
+    /* addr = */ Red::AddressLib::RuntimeEntityRegistry_RegisterEntity,
+    /* type = */ void (*)(Red::world::RuntimeEntityRegistry* aSystem, Red::Entity* aEntity)>();
+
+constexpr auto UnregisterEntity = Core::RawFunc<
+    /* addr = */ Red::AddressLib::RuntimeEntityRegistry_UnregisterEntity,
+    /* type = */ void (*)(Red::world::RuntimeEntityRegistry* aSystem, Red::Entity* aEntity)>();
+}

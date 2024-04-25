@@ -1,4 +1,5 @@
 #include "DynamicEntitySystem.hpp"
+#include "Red/RuntimeScene.hpp"
 #include "Red/TweakDB.hpp"
 
 namespace
@@ -23,9 +24,7 @@ void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*,
     m_restored = aRestored;
 
     m_spawnEventListenerID = m_spawnEventBroadcaster->RegisterListener(
-        [this](Red::game::EntitySpawnerEventType aType, Red::EntityID aEntityID, Red::EntityID, Red::EntityStub*) {
-            ProcessListeners(aEntityID, aType);
-        }, "");
+        {this, &DynamicEntitySystem::OnEntitySpawnerEvent}, "");
 
     m_persistencySystem->GetPersistentState(m_persistentState, SystemPersistentID, m_persistentStateType, true);
     m_persistentState->RestoreAfterLoading();
@@ -106,14 +105,22 @@ void App::DynamicEntitySystem::OnAfterWorldDetach()
     }
 }
 
-void App::DynamicEntitySystem::OnRegisterUpdates(Red::UpdateRegistrar* aRegistrar)
+void App::DynamicEntitySystem::OnEntitySpawnerEvent(Red::game::EntitySpawnerEventType aType, Red::EntityID aEntityID,
+                                                    Red::EntityID, Red::EntityStub* aStub)
 {
-    // aRegistrar->RegisterUpdate(Red::UpdateTickGroup::FrameBegin, this, "DynamicEntitySystem/Tick",
-    //                            {this, &DynamicEntitySystem::OnUpdateTick});
-}
+    if (aType == Red::game::EntitySpawnerEventType::Spawn)
+    {
+        if (auto entity = GetEntity(aEntityID))
+        {
+            if (!Red::IsInstanceOf<Red::GameObject>(entity))
+            {
+                auto registry = Red::GetRuntimeSystem<Red::worldRuntimeEntityRegistry>();
+                Raw::RuntimeEntityRegistry::RegisterEntity(registry, entity);
+            }
+        }
+    }
 
-void App::DynamicEntitySystem::OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue& aJobQueue)
-{
+    ProcessListeners(aEntityID, aType);
 }
 
 bool App::DynamicEntitySystem::IsReady() const
