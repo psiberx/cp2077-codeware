@@ -217,10 +217,10 @@ template<uintptr_t A, typename T>
 class OffsetPtr
 {
 public:
-    using Type = std::remove_pointer_t<T>;
+    using Type = std::conditional_t<std::is_void_v<std::remove_pointer_t<T>>, void*, std::remove_pointer_t<T>>;
 
     static constexpr uintptr_t offset = A;
-    static constexpr bool indirect = std::is_pointer_v<T>;
+    static constexpr bool indirect = std::is_pointer_v<T> && !std::is_void_v<std::remove_pointer_t<T>>;
 
     constexpr OffsetPtr(uintptr_t aBase)
         : address(aBase + offset)

@@ -15,8 +15,13 @@ import Codeware.*
 
 public class ButtonHintsManager extends ScriptableService {
     private let m_buttonHints: ref<inkWidget>;
-
     private let m_inputHint: wref<inkInputDisplayController>;
+
+    private cb func OnUninitialize() {
+        ModLog(n"Codeware", "ButtonHintsManager::OnUninitialize");
+        this.m_buttonHints = null;
+        this.m_inputHint = null;
+    }
 
     public func IsInitialized() -> Bool {
         return IsDefined(this.m_buttonHints);
@@ -31,8 +36,8 @@ public class ButtonHintsManager extends ScriptableService {
     }
 
     public func Initialize(parent: ref<inkGameController>) {
-        let rootWidget: ref<inkCompoundWidget> = parent.GetRootCompoundWidget();
-        let buttonHints: ref<inkWidget> = parent.SpawnFromExternal(rootWidget, r"base\\gameplay\\gui\\common\\buttonhints.inkwidget", n"Root");
+        let rootWidget = parent.GetRootCompoundWidget();
+        let buttonHints = parent.SpawnFromExternal(rootWidget, r"base\\gameplay\\gui\\common\\buttonhints.inkwidget", n"Root");
 
         this.Initialize(buttonHints);
 
@@ -47,7 +52,7 @@ public class ButtonHintsManager extends ScriptableService {
 
     public func GetActionKey(action: CName) -> String {
         if !IsDefined(this.m_inputHint) {
-            let buttonHints: ref<ButtonHints> = this.m_buttonHints.GetController() as ButtonHints;
+            let buttonHints = this.m_buttonHints.GetController() as ButtonHints;
             buttonHints.ClearButtonHints();
             buttonHints.AddButtonHint(action, "");
 
@@ -56,9 +61,9 @@ public class ButtonHintsManager extends ScriptableService {
 
         this.m_inputHint.SetInputAction(action);
 
-        let icon: wref<inkImage> = this.m_inputHint.GetWidget(n"inputRoot/inputIcon") as inkImage;
-        let part: CName = icon.GetTexturePart();
-        let key: String = NameToString(part);
+        let icon = this.m_inputHint.GetWidget(n"inputRoot/inputIcon") as inkImage;
+        let part = icon.GetTexturePart();
+        let key = NameToString(part);
 
         return key;
     }

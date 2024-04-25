@@ -62,7 +62,14 @@ uint32_t App::ScriptableServiceContainer::OnBeforeGameSave(const Red::JobGroup& 
 
 void App::ScriptableServiceContainer::OnUninitialize()
 {
+    for (const auto& [serviceType, service] : m_services)
+    {
+        Red::CallVirtual(service, "OnUninitialize");
+    }
+
     SaveState();
+
+    m_services.clear();
 }
 
 void App::ScriptableServiceContainer::LoadState()

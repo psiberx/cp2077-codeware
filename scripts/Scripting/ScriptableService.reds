@@ -2,6 +2,7 @@ public abstract native class ScriptableService {
     // private cb func OnLoad()
     // private cb func OnReload()
     // private cb func OnInitialize()
+    // private cb func OnUninitialize()
 }
 
 // DEPRECATED
