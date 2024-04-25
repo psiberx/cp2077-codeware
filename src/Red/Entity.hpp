@@ -51,6 +51,7 @@ using EntityID = Core::OffsetPtr<0x48, Red::EntityID>;
 using AppearanceName = Core::OffsetPtr<0x50, Red::CName>;
 using TemplatePath = Core::OffsetPtr<0x60, Red::ResourcePath>;
 using ComponentsStorage = Core::OffsetPtr<0x70, Red::ent::ComponentsStorage>;
+using TransformComponent = Core::OffsetPtr<0xB0, Red::IPlacedComponent*>;
 using Scene = Core::OffsetPtr<0xB8, Red::world::RuntimeScene>;
 // using VisualTags = Core::OffsetPtr<0x138, Red::TagList>;
 using Status = Core::OffsetPtr<0x156, Red::EntityStatus>;
@@ -89,4 +90,11 @@ constexpr auto Detach = Core::RawFunc<
 // constexpr auto GetComponents = Core::RawFunc<
 //     /* addr = */ Red::AddressLib::Entity_GetComponents,
 //     /* type = */ Red::DynArray<Red::Handle<Red::IComponent>>& (*)(Red::Entity* aEntity)>();
+}
+
+namespace Raw::IPlacedComponent
+{
+constexpr auto SetTransform = Core::RawFunc<
+    /* addr = */ Red::AddressLib::IPlacedComponent_SetTransform,
+    /* type = */ void (*)(Red::IPlacedComponent* aComponent, const Red::WorldTransform& aTransform)>();
 }

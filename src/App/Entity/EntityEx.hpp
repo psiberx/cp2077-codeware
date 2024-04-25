@@ -36,6 +36,11 @@ struct EntityEx : Red::Entity
         Raw::Entity::ComponentsStorage(this)->components.PushBack(aComponent);
     }
 
+    void SetWorldTransform(const Red::WorldTransform& aTransform)
+    {
+        Raw::IPlacedComponent::SetTransform(Raw::Entity::TransformComponent::Ptr(this), aTransform);
+    }
+
     bool ApplyMorphTarget(Red::CName aTarget, Red::CName aRegion, float aValue);
 };
 }
@@ -46,4 +51,5 @@ RTTI_EXPAND_CLASS(Red::Entity, App::EntityEx, {
     RTTI_METHOD(GetComponents);
     RTTI_METHOD(AddComponent);
     RTTI_METHOD(ApplyMorphTarget);
+    RTTI_METHOD(SetWorldTransform);
 });
