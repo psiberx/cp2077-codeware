@@ -12,3 +12,6 @@ public native func AddComponent(component: ref<IComponent>)
 
 @addMethod(Entity)
 public native func ApplyMorphTarget(target: CName, region: CName, value: Float) -> Bool
+
+@addMethod(Entity)
+public native func SetWorldTransform(transform: WorldTransform)

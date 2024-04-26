@@ -50,6 +50,6 @@ RTTI_EXPAND_CLASS(Red::Entity, App::EntityEx, {
     RTTI_METHOD(FindComponentByType);
     RTTI_METHOD(GetComponents);
     RTTI_METHOD(AddComponent);
-    RTTI_METHOD(ApplyMorphTarget);
     RTTI_METHOD(SetWorldTransform);
+    RTTI_METHOD(ApplyMorphTarget);
 });
