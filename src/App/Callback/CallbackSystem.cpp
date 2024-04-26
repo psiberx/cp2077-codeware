@@ -129,12 +129,9 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
     Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext, Red::CName aFunction,
     Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
 {
-    auto eventType = m_supportedEvents[aEventName];
-    if (!eventType)
-        return {};
-
     ActivateEvent(aEventName);
 
+    auto eventType = m_supportedEvents[aEventName];
     auto handler = Red::MakeHandle<CallbackSystemHandler>(eventType, aContext, aFunction);
     if (aSticky || (aFrame && aFrame->context && Red::IsInstanceOf<ScriptableService>(aFrame->context)))
     {
@@ -153,12 +150,9 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallb
     Red::CName aEventName, Red::CName aContext, Red::CName aFunction,
     Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
 {
-    auto eventType = m_supportedEvents[aEventName];
-    if (!eventType)
-        return {};
-
     ActivateEvent(aEventName);
 
+    auto eventType = m_supportedEvents[aEventName];
     auto handler = Red::MakeHandle<CallbackSystemHandler>(eventType, aContext, aFunction);
     if (aSticky || (aFrame && aFrame->context && Red::IsInstanceOf<ScriptableService>(aFrame->context)))
     {
@@ -270,12 +264,15 @@ void App::CallbackSystem::FireCallbacks(const Red::Handle<CallbackSystemEvent>& 
     }
 }
 
-bool App::CallbackSystem::RegisterEvent(Red::CName aEventName, Red::CName aEventType)
+bool App::CallbackSystem::RegisterEvent(Red::CName aEventName, Red::Optional<Red::CName> aEventType)
 {
     std::unique_lock _(m_callbacksLock);
 
-    if (m_supportedEvents.contains(aEventName))
+    if (m_supportedEvents[aEventName])
         return false;
+
+    if (!aEventType)
+        aEventType = aEventName;
 
     if (!Red::GetClass(aEventType))
         return false;
@@ -285,7 +282,13 @@ bool App::CallbackSystem::RegisterEvent(Red::CName aEventName, Red::CName aEvent
     return true;
 }
 
-void App::CallbackSystem::DispatchEvent(Red::CName aEventName, const Red::Handle<CallbackSystemEvent>& aEvent)
+void App::CallbackSystem::DispatchEvent(const Red::Handle<CallbackSystemEvent>& aEvent)
+{
+    aEvent->SetEventName(aEvent->GetType()->name);
+    FireCallbacks(aEvent);
+}
+
+void App::CallbackSystem::DispatchEventAs(Red::CName aEventName, const Red::Handle<CallbackSystemEvent>& aEvent)
 {
     aEvent->SetEventName(aEventName);
     FireCallbacks(aEvent);

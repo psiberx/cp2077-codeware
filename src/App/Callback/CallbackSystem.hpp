@@ -24,8 +24,9 @@ public:
                             Red::Optional<Red::CName> aFunction);
     void UnregisterStaticCallback(Red::CName aEvent, Red::CName aContext, Red::Optional<Red::CName> aFunction);
 
-    bool RegisterEvent(Red::CName aEventName, Red::CName aEventType);
-    void DispatchEvent(Red::CName aEventName, const Red::Handle<CallbackSystemEvent>& aEvent);
+    bool RegisterEvent(Red::CName aEventName, Red::Optional<Red::CName> aEventType);
+    void DispatchEvent(const Red::Handle<CallbackSystemEvent>& aEvent);
+    void DispatchEventAs(Red::CName aEventName, const Red::Handle<CallbackSystemEvent>& aEvent);
 
     [[nodiscard]] bool IsRestored() const;
     [[nodiscard]] bool IsPreGame() const;
@@ -116,4 +117,5 @@ RTTI_DEFINE_CLASS(App::CallbackSystem, {
     RTTI_METHOD(UnregisterStaticCallback);
     RTTI_METHOD(RegisterEvent);
     RTTI_METHOD(DispatchEvent);
+    RTTI_METHOD(DispatchEventAs);
 });
