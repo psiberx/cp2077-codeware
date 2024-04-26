@@ -11,7 +11,7 @@ struct CallbackSystemEvent : Red::IScriptable
     {
     }
 
-    void InitEvent(Red::CName aEventName)
+    void SetEventName(Red::CName aEventName)
     {
         if (!eventName)
         {
@@ -28,6 +28,5 @@ struct CallbackSystemEvent : Red::IScriptable
 
 RTTI_DEFINE_CLASS(App::CallbackSystemEvent, {
     RTTI_ABSTRACT();
-    RTTI_METHOD(InitEvent);
     RTTI_GETTER(eventName);
 });

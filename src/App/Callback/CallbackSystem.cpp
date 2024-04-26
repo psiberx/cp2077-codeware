@@ -270,6 +270,27 @@ void App::CallbackSystem::FireCallbacks(const Red::Handle<CallbackSystemEvent>& 
     }
 }
 
+bool App::CallbackSystem::RegisterEvent(Red::CName aEventName, Red::CName aEventType)
+{
+    std::unique_lock _(m_callbacksLock);
+
+    if (m_supportedEvents.contains(aEventName))
+        return false;
+
+    if (!Red::GetClass(aEventType))
+        return false;
+
+    m_supportedEvents.insert_or_assign(aEventName, aEventType);
+
+    return true;
+}
+
+void App::CallbackSystem::DispatchEvent(Red::CName aEventName, const Red::Handle<CallbackSystemEvent>& aEvent)
+{
+    aEvent->SetEventName(aEventName);
+    FireCallbacks(aEvent);
+}
+
 bool App::CallbackSystem::IsRestored() const
 {
     return m_restored;
@@ -278,14 +299,6 @@ bool App::CallbackSystem::IsRestored() const
 bool App::CallbackSystem::IsPreGame() const
 {
     return m_pregame;
-}
-
-void App::CallbackSystem::PassEvent(const Red::Handle<CallbackSystemEvent>& aEvent)
-{
-    if (s_self)
-    {
-        s_self->FireCallbacks(aEvent);
-    }
 }
 
 Red::Handle<App::CallbackSystem>& App::CallbackSystem::Get()

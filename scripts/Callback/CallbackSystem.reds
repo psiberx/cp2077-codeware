@@ -1,11 +1,12 @@
 public native class CallbackSystem extends IGameSystem {
-    public native func RegisterCallback(event: CName, target: ref<IScriptable>, function: CName, opt sticky: Bool) -> ref<CallbackSystemHandler>
-    public native func RegisterStaticCallback(event: CName, target: CName, function: CName, opt sticky: Bool) -> ref<CallbackSystemHandler>
+    public native func RegisterCallback(eventName: CName, target: ref<IScriptable>, function: CName, opt sticky: Bool) -> ref<CallbackSystemHandler>
+    public native func RegisterStaticCallback(eventName: CName, target: CName, function: CName, opt sticky: Bool) -> ref<CallbackSystemHandler>
 
-    public native func UnregisterCallback(event: CName, target: ref<IScriptable>, opt function: CName)
-    public native func UnregisterStaticCallback(event: CName, target: CName, opt function: CName)
+    public native func UnregisterCallback(eventName: CName, target: ref<IScriptable>, opt function: CName)
+    public native func UnregisterStaticCallback(eventName: CName, target: CName, opt function: CName)
 
-    public native func FireCallbacks(event: ref<CallbackSystemEvent>)
+    public native func RegisterEvent(eventName: CName, eventType: CName) -> Bool
+    public native func DispatchEvent(eventName: CName, eventObject: ref<CallbackSystemEvent>)
 }
 
 @addMethod(GameInstance)

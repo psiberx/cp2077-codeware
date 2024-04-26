@@ -20,11 +20,12 @@ public:
                                                               Red::CName aFunction, Red::Optional<bool> aSticky,
                                                               Red::CStackFrame* aFrame = nullptr);
 
-    void UnregisterCallback(Red::CName aHandler, const Red::Handle<Red::IScriptable>& aContext,
+    void UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aContext,
                             Red::Optional<Red::CName> aFunction);
-    void UnregisterStaticCallback(Red::CName aHandler, Red::CName aContext, Red::Optional<Red::CName> aFunction);
+    void UnregisterStaticCallback(Red::CName aEvent, Red::CName aContext, Red::Optional<Red::CName> aFunction);
 
-    void FireCallbacks(const Red::Handle<CallbackSystemEvent>& aEvent);
+    bool RegisterEvent(Red::CName aEventName, Red::CName aEventType);
+    void DispatchEvent(Red::CName aEventName, const Red::Handle<CallbackSystemEvent>& aEvent);
 
     [[nodiscard]] bool IsRestored() const;
     [[nodiscard]] bool IsPreGame() const;
@@ -50,8 +51,6 @@ public:
             (*callback)(event);
         }
     }
-
-    static void PassEvent(const Red::Handle<CallbackSystemEvent>& aEvent);
 
     template<typename Event, typename... Args>
     inline static void PassEvent(Red::CName aEventName, Args&&... aArgs)
@@ -93,6 +92,7 @@ protected:
 
     inline void ActivateEvent(Red::CName aEvent);
     inline void DeactivateEvent(Red::CName aEvent);
+    inline void FireCallbacks(const Red::Handle<CallbackSystemEvent>& aEvent);
 
     bool m_restored;
     bool m_pregame;
@@ -114,5 +114,6 @@ RTTI_DEFINE_CLASS(App::CallbackSystem, {
     RTTI_METHOD(UnregisterCallback);
     RTTI_METHOD(RegisterStaticCallback);
     RTTI_METHOD(UnregisterStaticCallback);
-    RTTI_METHOD(FireCallbacks);
+    RTTI_METHOD(RegisterEvent);
+    RTTI_METHOD(DispatchEvent);
 });
