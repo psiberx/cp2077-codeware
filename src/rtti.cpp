@@ -48,6 +48,7 @@
 #include "App/World/DynamicEntityState.hpp"
 #include "App/World/DynamicEntitySystem.hpp"
 #include "App/World/DynamicEntitySystemPS.hpp"
+#include "App/World/NodeInstanceEx.hpp"
 #include "App/World/NodeSetupWrapper.hpp"
 #include "App/World/StreamingSectorEx.hpp"
 #include "App/World/WeatherSystemEx.hpp"

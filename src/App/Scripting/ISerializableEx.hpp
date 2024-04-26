@@ -6,6 +6,11 @@ namespace App
 {
 struct ISerializableEx : Red::ISerializable
 {
+    Red::CName GetClassName()
+    {
+        return GetNativeType()->name;
+    }
+
     bool IsA(Red::CName aClassName)
     {
         return GetNativeType()->IsA(Red::GetClass(aClassName));
@@ -26,6 +31,7 @@ struct ISerializableEx : Red::ISerializable
 }
 
 RTTI_EXPAND_CLASS(Red::ISerializable, App::ISerializableEx, {
+    RTTI_METHOD(GetClassName, "GetClassName");
     RTTI_METHOD(IsA);
     RTTI_METHOD(IsExactlyA);
     RTTI_METHOD(Clone);

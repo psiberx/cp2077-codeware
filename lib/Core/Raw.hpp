@@ -260,7 +260,7 @@ public:
     {
     }
 
-    constexpr OffsetPtr(void* aBase)
+    constexpr OffsetPtr(const void* aBase)
         : address(reinterpret_cast<uintptr_t>(aBase) + offset)
     {
     }
@@ -326,22 +326,22 @@ public:
         return address;
     }
 
-    inline static Type* Ptr(void* aBase)
+    inline static Type* Ptr(const void* aBase)
     {
         return OffsetPtr(aBase).GetValuePtr();
     }
 
-    inline static Type& Ref(void* aBase)
+    inline static Type& Ref(const void* aBase)
     {
         return *OffsetPtr(aBase).GetValuePtr();
     }
 
-    inline static uintptr_t Addr(void* aBase)
+    inline static uintptr_t Addr(const void* aBase)
     {
         return reinterpret_cast<uintptr_t>(OffsetPtr(aBase).GetValuePtr());
     }
 
-    inline static void Set(void* aBase, const Type& aValue)
+    inline static void Set(const void* aBase, const Type& aValue)
     {
         *OffsetPtr(aBase).GetValuePtr() = aValue;
     }
