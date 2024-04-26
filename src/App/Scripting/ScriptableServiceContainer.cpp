@@ -10,7 +10,7 @@ App::ScriptableServiceContainer::ScriptableServiceContainer(const std::filesyste
 void App::ScriptableServiceContainer::OnInitializeScripts()
 {
     Red::DynArray<Red::CClass*> serviceTypes;
-    Red::CRTTISystem::Get()->GetDerivedClasses(Red::GetClass<ScriptableService>(), serviceTypes);
+    Red::CRTTISystem::Get()->GetClasses(Red::GetClass<ScriptableService>(), serviceTypes);
 
     for (auto serviceType : serviceTypes)
     {
