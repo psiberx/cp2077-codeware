@@ -1,5 +1,34 @@
 #pragma once
 
+#include "Red/EntitySpawner.hpp"
+
+namespace Red
+{
+struct RuntimeSystemEntityAttachRequest
+{
+    RuntimeSystemEntityAttachRequest()
+        : unk30(0)
+        , unk32()
+    {
+    }
+
+    RuntimeSystemEntityAttachRequest(Handle<Entity> aEntity)
+        : entity(std::move(aEntity))
+        , unk30(0)
+        , unk32()
+    {
+    }
+
+    Handle<Entity> entity;       // 00
+    Handle<ISerializable> unk10; // 10
+    Handle<ISerializable> unk20; // 20
+    uint16_t unk30;              // 30
+    uint8_t unk32[0x40 - 0x32];  // 32
+};
+RED4EXT_ASSERT_SIZE(RuntimeSystemEntityAttachRequest, 0x40);
+RED4EXT_ASSERT_OFFSET(RuntimeSystemEntityAttachRequest, entity, 0x0);
+}
+
 namespace Raw::RuntimeScene
 {
 using Weather = Core::OffsetPtr<0x280, Red::Handle<Red::world::RuntimeSystemWeather>>;
@@ -8,6 +37,21 @@ using Weather = Core::OffsetPtr<0x280, Red::Handle<Red::world::RuntimeSystemWeat
 namespace Raw::WeatherScriptInterface
 {
 using System = Core::OffsetPtr<0x40, Red::world::RuntimeSystemWeather*>;
+}
+
+namespace Raw::RuntimeSystemEntity
+{
+using Spawner = Core::OffsetPtr<0x58, Red::EntitySpawner*>;
+
+constexpr auto AttachEntity = Core::RawFunc<
+    /* addr = */ Red::AddressLib::RuntimeSystemEntity_AttachEntity,
+    /* type = */ void (*)(Red::world::RuntimeSystemEntity* aSystem,
+                          const Red::RuntimeSystemEntityAttachRequest& aRequest)>();
+
+constexpr auto DetachEntity = Core::RawFunc<
+    /* addr = */ Red::AddressLib::RuntimeSystemEntity_DetachEntity,
+    /* type = */ void (*)(Red::world::RuntimeSystemEntity* aSystem,
+                          const Red::Handle<Red::Entity>& aEntity)>();
 }
 
 namespace Raw::RuntimeSystemWeather

@@ -25,6 +25,11 @@ constexpr uint32_t Entity_OnAssemble = 2182550867;
 constexpr uint32_t Entity_Reassemble = 1560690857;
 constexpr uint32_t Entity_Uninitialize = 3596356635;
 
+constexpr uint32_t EntitySpawner_SpawnEntity = 3068279668;
+
+constexpr uint32_t EntitySpawnerToken_dtor = 552341017;
+constexpr uint32_t EntitySpawnerToken_GetWaitHandle = 2091718968;
+
 constexpr uint32_t InkLayer_RegisterListener = 4792499;
 constexpr uint32_t InkLayer_AttachWidgetTree = 2050958960;
 
@@ -86,6 +91,12 @@ constexpr uint32_t ResourcePath_Create = 3998356057;
 
 constexpr uint32_t RuntimeEntityRegistry_RegisterEntity = 2840271332; // world::RuntimeEntityRegistry::RegisterEntity
 constexpr uint32_t RuntimeEntityRegistry_UnregisterEntity = 3878623943;
+
+constexpr uint32_t RuntimeScene_AttachEntity = 3800374702;
+constexpr uint32_t RuntimeScene_DetachEntity = 1732384813;
+
+constexpr uint32_t RuntimeSystemEntity_AttachEntity = 1576214475;
+constexpr uint32_t RuntimeSystemEntity_DetachEntity = 1737563910;
 
 constexpr uint32_t RuntimeSystemWeather_SetWeatherByName = 2334794340;
 constexpr uint32_t RuntimeSystemWeather_SetWeatherByIndex = 1821516328;

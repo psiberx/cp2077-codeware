@@ -40,19 +40,39 @@ public:
         return GetPtr();
     }
 
+    [[nodiscard]] inline Callable operator~() const
+    {
+        return GetOriginalPtr();
+    }
+
     [[nodiscard]] inline Callable GetPtr() const noexcept
     {
         return reinterpret_cast<Callable>(GetAddress());
     }
 
+    [[nodiscard]] inline Callable GetOriginalPtr() const noexcept
+    {
+        return reinterpret_cast<Callable>(GetOriginalAddress());
+    }
+
     inline static uintptr_t GetAddress() noexcept
     {
-        if (!address)
+        if (!original)
         {
             ResetAddress();
         }
 
         return address;
+    }
+
+    inline static uintptr_t GetOriginalAddress() noexcept
+    {
+        if (!original)
+        {
+            ResetAddress();
+        }
+
+        return original;
     }
 
     inline static void ResetAddress() noexcept
@@ -61,26 +81,39 @@ public:
 
         if constexpr (sizeof(target) == sizeof(uintptr_t))
         {
-            address = target ? target + GetImageBase() : 0;
+            original = target ? target + GetImageBase() : 0;
         }
         else
         {
-            address = AddressResolver::GetDefault().ResolveAddress(target);
+            original = AddressResolver::GetDefault().ResolveAddress(target);
         }
+
+        address = original;
     }
 
     inline static void SetAddress(uintptr_t aAddress) noexcept
     {
+        if (!original)
+        {
+            ResetAddress();
+        }
+
         address = aAddress;
     }
 
-    inline static R Invoke(Args... aArgs)
+    inline static auto Invoke(Args... aArgs)
     {
         return reinterpret_cast<Callable>(GetAddress())(std::forward<Args>(aArgs)...);
     }
 
+    inline static auto InvokeOriginal(Args... aArgs)
+    {
+        return reinterpret_cast<Callable>(GetOriginalAddress())(std::forward<Args>(aArgs)...);
+    }
+
 private:
     inline static uintptr_t address = 0;
+    inline static uintptr_t original = 0;
 };
 
 template<auto A, typename C, typename R, typename... Args>
@@ -105,7 +138,7 @@ public:
 
     constexpr RawVFunc() = default;
 
-    R operator()(C* aContext, Args... aArgs) const
+    auto operator()(C* aContext, Args... aArgs) const
     {
         auto vft = *reinterpret_cast<uintptr_t*>(aContext);
         auto callable = *reinterpret_cast<Callable*>(vft + offset);
