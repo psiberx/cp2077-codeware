@@ -26,6 +26,18 @@ struct EntityTarget : CallbackSystemTarget
         if (appearanceName && appearanceName != Raw::Entity::AppearanceName::Ref(entity))
             return false;
 
+        if (recordID)
+        {
+            auto gameObject = Red::Cast<Red::GameObject>(entity);
+            if (!gameObject)
+                return false;
+
+            Red::TweakDBID objectID;
+            Red::CallGlobal("gameObject::GetTDBID;GameObject", objectID, Red::AsWeakHandle(gameObject));
+            if (recordID != objectID)
+                return false;
+        }
+
         return true;
     }
 
@@ -58,6 +70,14 @@ struct EntityTarget : CallbackSystemTarget
         return target;
     }
 
+    static Red::Handle<EntityTarget> RecordID(Red::TweakDBID aRecordID)
+    {
+        auto target = Red::MakeHandle<EntityTarget>();
+        target->recordID = aRecordID;
+
+        return target;
+    }
+
     static Red::Handle<EntityTarget> Template(const Red::RaRef<>& aTemplate)
     {
         auto target = Red::MakeHandle<EntityTarget>();
@@ -76,6 +96,7 @@ struct EntityTarget : CallbackSystemTarget
 
     Red::EntityID entityID{};
     Red::CClass* entityType{};
+    Red::TweakDBID recordID{};
     Red::ResourcePath templatePath{};
     Red::CName appearanceName{};
 
@@ -88,6 +109,7 @@ RTTI_DEFINE_CLASS(App::EntityTarget, {
     RTTI_PARENT(App::CallbackSystemTarget);
     RTTI_METHOD(ID);
     RTTI_METHOD(Type);
+    RTTI_METHOD(RecordID);
     RTTI_METHOD(Template);
     RTTI_METHOD(Appearance);
 });
