@@ -2,6 +2,8 @@
 #include "App/Depot/ResourcePathRegistry.hpp"
 #include "App/Entity/PersistencyService.hpp"
 #include "App/Environment.hpp"
+#include "App/Migration.hpp"
+#include "App/Project.hpp"
 #include "App/Quest/QuestPhaseRegistry.hpp"
 #include "App/Scripting/ScriptingService.hpp"
 #include "App/UI/WidgetBuildingService.hpp"
@@ -18,14 +20,19 @@
 App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
 {
     Register<Core::LocaleProvider>();
-    Register<Core::RuntimeProvider>(aHandle)->SetBaseImagePathDepth(2);
+    Register<Core::RuntimeProvider>(aHandle)
+        ->SetBaseImagePathDepth(2);
 
     Register<Support::MinHookProvider>();
-    Register<Support::SpdlogProvider>()->AppendTimestampToLogName()->CreateRecentLogSymlink();
-    Register<Support::RED4extProvider>(aHandle, aSdk)->EnableAddressLibrary();
+    Register<Support::SpdlogProvider>()
+        ->AppendTimestampToLogName()
+        ->CreateRecentLogSymlink();
+    Register<Support::RED4extProvider>(aHandle, aSdk)
+        ->EnableAddressLibrary()
+        ->RegisterScripts(Env::ScriptsDir());
     Register<Support::RedLibProvider>();
 
-    Register<App::ScriptingService>(Env::PersistentDataDir());
+    Register<App::ScriptingService>(Env::PersistentDir());
     Register<App::PersistencyService>();
     Register<App::ResourcePathRegistry>(Env::KnownHashesPath());
     Register<App::QuestPhaseRegistry>();
@@ -33,4 +40,16 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
     Register<App::WidgetBuildingService>();
     Register<App::WidgetSpawningService>();
     Register<App::WidgetInputService>();
+}
+
+void App::Application::OnStarting()
+{
+    LogInfo("{} {} is initializing...", Project::Name, Project::Version.to_string());
+
+    Migration::CleanUp(Env::LegacyScriptsDir());
+}
+
+void App::Application::OnStarted()
+{
+    LogInfo("{} is initialized.", Project::Name);
 }
