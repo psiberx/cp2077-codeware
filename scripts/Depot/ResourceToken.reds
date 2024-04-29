@@ -1,5 +1,5 @@
 public native class ResourceToken {
-    public native func GetResource() -> ref<ISerializable>
+    public native func GetResource() -> ref<CResource>
     public native func GetPath() -> ResRef
     public native func GetHash() -> Uint64
     public native func IsFinished() -> Bool

@@ -29,6 +29,14 @@ struct ResourceWrapper
         return ResourceTokenWrapper::FromResRef(resource);
     }
 
+    [[nodiscard]] Red::Handle<Red::CResource> GetResource() const
+    {
+        if (!resource.token || !resource.token->IsFinished() || !resource.token->IsFailed())
+            return {};
+
+        return resource.token->resource;
+    }
+
     [[nodiscard]] bool IsEmpty() const
     {
         return !resource.path;
@@ -91,6 +99,7 @@ RTTI_DEFINE_CLASS(App::ResourceWrapper, "ResourceRef", {
     RTTI_METHOD(GetPath);
     RTTI_METHOD(GetHash);
     RTTI_METHOD(GetToken);
+    RTTI_METHOD(GetResource);
     RTTI_METHOD(IsEmpty);
     RTTI_METHOD(IsLoaded);
     RTTI_METHOD(IsFailed);

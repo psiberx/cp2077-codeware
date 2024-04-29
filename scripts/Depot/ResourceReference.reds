@@ -3,6 +3,7 @@ public native struct ResourceRef {
     public static native func GetPath(self: script_ref<ResourceRef>) -> ResRef
     public static native func GetHash(self: script_ref<ResourceRef>) -> Uint64
     public static native func GetToken(self: script_ref<ResourceRef>) -> ref<ResourceToken>
+    public static native func GetResource(self: script_ref<ResourceRef>) -> ref<CResource>
     public static native func IsEmpty(self: script_ref<ResourceRef>) -> Bool
     public static native func IsLoaded(self: script_ref<ResourceRef>) -> Bool
     public static native func IsFailed(self: script_ref<ResourceRef>) -> Bool
