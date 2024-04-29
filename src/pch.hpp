@@ -151,16 +151,20 @@
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CommunityRegistryItem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/EnvironmentAreaParameters.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/EnvironmentDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/GlobalNodeID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/GlobalNodeRef.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/INodeInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/Node.hpp>
+#include <RED4ext/Scripting/Natives/Generated/IAreaSettings.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeEntityRegistry.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemEntity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemWeather.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/StreamingSector.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherScriptInterface.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherState.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/WeatherStateTransition.hpp>
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 
 #include <nameof.hpp>

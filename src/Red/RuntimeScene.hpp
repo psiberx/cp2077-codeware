@@ -31,12 +31,12 @@ RED4EXT_ASSERT_OFFSET(RuntimeSystemEntityAttachRequest, entity, 0x0);
 
 namespace Raw::RuntimeScene
 {
-using Weather = Core::OffsetPtr<0x280, Red::Handle<Red::world::RuntimeSystemWeather>>;
+using Weather = Core::OffsetPtr<0x280, Red::Handle<Red::worldRuntimeSystemWeather>>;
 }
 
 namespace Raw::WeatherScriptInterface
 {
-using System = Core::OffsetPtr<0x40, Red::world::RuntimeSystemWeather*>;
+using System = Core::OffsetPtr<0x40, Red::worldRuntimeSystemWeather*>;
 }
 
 namespace Raw::RuntimeSystemEntity
@@ -63,17 +63,21 @@ using PreviouseStateIndex = Core::OffsetPtr<0xB8, uint32_t>;
 
 constexpr auto SetWeatherByName = Core::RawFunc<
     /* addr = */ Red::AddressLib::RuntimeSystemWeather_SetWeatherByName,
-    /* type = */ bool (*)(Red::world::RuntimeSystemWeather* aSystem, Red::CName aWeather, Red::CName aSource,
+    /* type = */ bool (*)(Red::worldRuntimeSystemWeather* aSystem, Red::CName aWeather, Red::CName aSource,
                           float aBlendTime, uint32_t a5, uint32_t aPriority)>();
 
 constexpr auto SetWeatherByIndex = Core::RawFunc<
     /* addr = */ Red::AddressLib::RuntimeSystemWeather_SetWeatherByIndex,
-    /* type = */ bool (*)(Red::world::RuntimeSystemWeather* aSystem, uint32_t aIndex, Red::CName aSource,
+    /* type = */ bool (*)(Red::worldRuntimeSystemWeather* aSystem, uint32_t aIndex, Red::CName aSource,
                           float aBlendTime, float a5, uint32_t aPriority)>();
 
-// constexpr auto GetWeatherState = Core::RawFunc<
-//     /* addr = */ 0x14013AC1C - Red::Address::ImageBase,
-//     /* type = */ void (*)(Red::world::RuntimeSystemWeather* aSystem, Red::world::WeatherState* aWeather, uint32_t aIndex)>();
+constexpr auto GetEnvironmentDefinition = Core::RawFunc<
+    /* addr = */ Red::AddressLib::RuntimeSystemWeather_GetEnvironmentDefinition,
+    /* type = */ void* (*)(Red::worldRuntimeSystemWeather* aSystem, Red::Handle<Red::worldEnvironmentDefinition>& aOut)>();
+
+constexpr auto GetWeatherState = Core::RawFunc<
+    /* addr = */ Red::AddressLib::RuntimeSystemWeather_GetWeatherState,
+    /* type = */ void* (*)(Red::worldRuntimeSystemWeather* aSystem, Red::Handle<Red::worldWeatherState>& aOut)>();
 }
 
 namespace Raw::RuntimeEntityRegistry

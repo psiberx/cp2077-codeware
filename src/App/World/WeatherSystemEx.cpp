@@ -32,3 +32,29 @@ bool App::WeatherSystemEx::ResetWeather(Red::Optional<bool> aForceRestore, Red::
 
     return true;
 }
+
+Red::Handle<Red::worldEnvironmentDefinition> App::WeatherSystemEx::GetEnvironmentDefinition()
+{
+    auto* system = Raw::WeatherScriptInterface::System::Ptr(this);
+
+    if (!system)
+        return {};
+
+    Red::Handle<Red::worldEnvironmentDefinition> definition;
+    Raw::RuntimeSystemWeather::GetEnvironmentDefinition(system, definition);
+
+    return definition;
+}
+
+Red::Handle<Red::worldWeatherState> App::WeatherSystemEx::GetWeatherState()
+{
+    auto* system = Raw::WeatherScriptInterface::System::Ptr(this);
+
+    if (!system)
+        return {};
+
+    Red::Handle<Red::worldWeatherState> state;
+    Raw::RuntimeSystemWeather::GetWeatherState(system, state);
+
+    return state;
+}
