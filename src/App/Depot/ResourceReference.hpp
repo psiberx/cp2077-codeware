@@ -31,7 +31,7 @@ struct ResourceWrapper
 
     [[nodiscard]] Red::Handle<Red::CResource> GetResource() const
     {
-        if (!resource.token || !resource.token->IsFinished() || !resource.token->IsFailed())
+        if (!resource.token || !resource.token->IsFinished() || resource.token->IsFailed())
             return {};
 
         return resource.token->resource;
