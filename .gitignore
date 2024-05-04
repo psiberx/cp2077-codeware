@@ -5,7 +5,6 @@
 /build
 /dev
 /src/App/Staging
-/wiki
 ~$*
 *.log
 CMakeLists.txt
