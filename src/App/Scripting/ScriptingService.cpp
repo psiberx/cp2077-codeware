@@ -11,6 +11,8 @@ constexpr auto ResourceAsyncWrapperName = Red::GetTypeName<App::ResourceAsyncWra
 constexpr auto ResourceScriptReferenceAlias = Red::CName(Red::redResourceReferenceScriptToken::ALIAS);
 constexpr auto ResourceReferencePrefix = Red::GetTypePrefixStr<Red::ResourceReference>();
 constexpr auto ResourceAsyncReferencePrefix = Red::GetTypePrefixStr<Red::ResourceAsyncReference>();
+
+constexpr auto KnowNameConflict = Red::CName("inkWidgetLibraryResource");
 }
 
 App::ScriptingService::ScriptingService(const std::filesystem::path& aStateDir)
@@ -78,27 +80,58 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
             }
             else if (!classDef->flags.isStruct)
             {
-                auto parent = classDef->parent;
-                while (parent)
+                auto parentDef = classDef->parent;
+                while (parentDef)
                 {
-                    if (parent->name == IScriptableTypeName)
+                    if (parentDef->name == IScriptableTypeName)
                     {
                         break;
                     }
-                    if (parent->name == ISerializableTypeName)
+                    if (parentDef->name == ISerializableTypeName)
                     {
                         classDef->flags.isStruct = true;
                         break;
                     }
-                    parent = parent->parent;
+                    parentDef = parentDef->parent;
                 }
             }
 
-            if (classDef->flags.isStruct)
+            if (classDef->flags.isStruct && classDef->name != KnowNameConflict)
             {
                 if (auto nativeClass = Red::GetScriptClass(classDef->name))
                 {
                     classDef->flags.isAbstract = nativeClass->flags.isAbstract;
+
+                    if (!classDef->parent && nativeClass->parent)
+                    {
+                        auto nativeParent = nativeClass->parent;
+                        auto parentDef = aBundle->definitionsByName.Get(nativeParent->name);
+
+                        if (!parentDef)
+                        {
+                            if (auto parentAlias = Red::GetScriptAlias(nativeParent->name))
+                            {
+                                parentDef = aBundle->definitionsByName.Get(parentAlias);
+                            }
+                        }
+
+                        classDef->parent = reinterpret_cast<Red::ScriptClass*>(*parentDef);
+
+                        if (classDef->properties.size > 0)
+                        {
+                            while (nativeParent)
+                            {
+                                for (auto i = static_cast<int32_t>(classDef->properties.size) - 1; i >= 0; --i)
+                                {
+                                    if (nativeParent->GetProperty(classDef->properties[i]->name))
+                                    {
+                                        classDef->properties.RemoveAt(i);
+                                    }
+                                }
+                                nativeParent = nativeParent->parent;
+                            }
+                        }
+                    }
                 }
             }
         }
