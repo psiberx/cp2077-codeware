@@ -70,14 +70,15 @@ struct QuestPhaseContext
 {
     virtual ~QuestPhaseContext() = default;
 
-    uintptr_t game;
-    uintptr_t unk1;
-    uintptr_t unk2;
-    uintptr_t unk3;
-    uintptr_t unk4;
-    void* prefabLoader;
-    uint64_t unk110[0x3D];
+    uintptr_t game;              // 08
+    uintptr_t unk1;              // 10
+    uintptr_t unk2;              // 18
+    uintptr_t unk3;              // 20
+    uintptr_t unk4;              // 28
+    void* prefabLoader;          // 30
+    uint8_t unk38[0x230 - 0x38]; // 38
 };
+RED4EXT_ASSERT_SIZE(QuestPhaseContext, 0x230);
 
 struct QuestContext
 {
@@ -86,7 +87,7 @@ struct QuestContext
     QuestNodeID nodeID;                       // 108
     QuestPhaseContext phaseContext;           // 110
 };
-RED4EXT_ASSERT_SIZE(QuestContext, 0x330);
+RED4EXT_ASSERT_SIZE(QuestContext, 0x340);
 RED4EXT_ASSERT_OFFSET(QuestContext, phaseStack, 0xF8);
 
 struct QuestNodeSocket
@@ -225,7 +226,7 @@ constexpr auto CreateContext = Core::RawFunc<
     /* addr = */ Red::AddressLib::QuestsSystem_CreateContext,
     /* type = */ void* (*)(Red::questIQuestsSystem* aPhase,
                            Red::QuestContext* aContext,
-                           int8_t a3 /* = 1 */,
+                           int32_t a3 /* = 1 */,
                            int8_t a4 /* = 0 */,
                            int32_t a5 /* = 1000000 */,
                            int32_t a6 /* = -1 */)>();

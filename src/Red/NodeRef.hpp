@@ -4,7 +4,7 @@
 
 namespace Red
 {
-inline NodeRef ResolveNodeRef(NodeRef aNodeRef, NodeRef aContext = NodeRef::GlobalRoot)
+inline NodeRef ResolveNodeRef(NodeRef aNodeRef, GlobalNodeRef aContext = GlobalNodeRef::GlobalRoot)
 {
     GlobalNodeRef resolved{};
     CallGlobal("ResolveNodeRef", resolved, aNodeRef, aContext);
@@ -12,7 +12,7 @@ inline NodeRef ResolveNodeRef(NodeRef aNodeRef, NodeRef aContext = NodeRef::Glob
     return resolved.hash;
 }
 
-inline EntityID ResolveEntityID(NodeRef aNodeRef, NodeRef aContext = NodeRef::GlobalRoot)
+inline EntityID ResolveEntityID(NodeRef aNodeRef, GlobalNodeRef aContext = GlobalNodeRef::GlobalRoot)
 {
     return ResolveNodeRef(aNodeRef).hash;
 }
