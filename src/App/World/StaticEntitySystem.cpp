@@ -60,7 +60,7 @@ void App::StaticEntitySystem::OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue
     if (m_disposed.empty())
         return;
 
-    for (auto it = m_disposed.begin(); it != m_disposed.end(); ++it)
+    for (auto it = m_disposed.begin(); it != m_disposed.end(); )
     {
         auto& entityID = it->first;
         auto& entity = it->second;
@@ -68,6 +68,7 @@ void App::StaticEntitySystem::OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue
         auto& status = Raw::Entity::Status::Ref(entity);
         if (status != Red::EntityStatus::Uninitialized)
         {
+            ++it;
             continue;
         }
 
@@ -89,7 +90,7 @@ void App::StaticEntitySystem::OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue
             }
         }
 
-        m_disposed.erase(it);
+        it = m_disposed.erase(it);
     }
 }
 
