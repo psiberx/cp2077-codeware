@@ -6,4 +6,5 @@ public native struct SamplerStateInfo {
   native let addressV: ETextureAddressing;
   native let addressW: ETextureAddressing;
   native let comparisonFunc: ETextureComparisonFunction;
+  native let register: Uint8;
 }

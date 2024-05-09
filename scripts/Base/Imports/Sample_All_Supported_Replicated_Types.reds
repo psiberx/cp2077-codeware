@@ -1,4 +1,5 @@
 public native struct Sample_All_Supported_Replicated_Types {
+  native let bool: Bool;
   native let uint8: Uint8;
   native let int8: Int8;
   native let uint16: Uint16;

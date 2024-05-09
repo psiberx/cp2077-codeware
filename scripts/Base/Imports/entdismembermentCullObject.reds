@@ -1,4 +1,5 @@
 public native struct entdismembermentCullObject {
+  native let Plane: Plane;
   native let Plane1: Plane;
   native let CapsulePointA: Vector3;
   native let CapsulePointB: Vector3;
