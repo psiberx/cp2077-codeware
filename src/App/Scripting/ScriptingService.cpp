@@ -22,29 +22,14 @@ App::ScriptingService::ScriptingService(const std::filesystem::path& aStateDir)
 
 void App::ScriptingService::OnBootstrap()
 {
-    if (!HookAfter<Raw::ScriptBundle::Destruct>(&OnInitializeScripts))
-        throw std::runtime_error("Failed to hook ScriptBundle::Destruct.");
-
-    if (!HookAfter<Raw::CGameFramework::InitializeGameInstance>(&OnInitializeGameInstance))
-        throw std::runtime_error("Failed to hook CGameFramework::InitializeGameInstance.");
-
-    if (!HookBefore<Raw::ScriptValidator::Validate>(&OnValidateScripts))
-        throw std::runtime_error("Failed to hook ScriptValidator::Validate.");
-
-    if (!Hook<Raw::ScriptValidator::CompareType>(&OnValidateScriptType))
-        throw std::runtime_error("Failed to hook ScriptValidator::CompareType.");
-
-    if (!HookAfter<Raw::ScriptValidator::CompareTypeName>(&OnValidateTypeName))
-        throw std::runtime_error("Failed to hook ScriptValidator::CompareTypeName.");
-
-    if (!HookAfter<Raw::ScriptOpCodes::Register>(&OnRegisterScriptOpCodes))
-        throw std::runtime_error("Failed to hook ScriptOpCodes::Register.");
-
-    if (!HookAfter<Raw::CClass::CreateInstance>(&OnCreateInstance))
-        throw std::runtime_error("Failed to hook CClass::CreateInstance.");
-
-    if (!Hook<Raw::GetScriptGameInstance>(&GetScriptGameInstance))
-        throw std::runtime_error("Failed to hook ScriptGameInstance.");
+    HookAfter<Raw::ScriptBundle::Destruct>(&OnInitializeScripts).OrThrow();
+    HookAfter<Raw::CGameFramework::InitializeGameInstance>(&OnInitializeGameInstance).OrThrow();
+    HookBefore<Raw::ScriptValidator::Validate>(&OnValidateScripts).OrThrow();
+    Hook<Raw::ScriptValidator::CompareType>(&OnValidateScriptType).OrThrow();
+    HookAfter<Raw::ScriptValidator::CompareTypeName>(&OnValidateTypeName).OrThrow();
+    HookAfter<Raw::ScriptOpCodes::Register>(&OnRegisterScriptOpCodes).OrThrow();
+    HookAfter<Raw::CClass::CreateInstance>(&OnCreateInstance).OrThrow();
+    Hook<Raw::GetScriptGameInstance>(&GetScriptGameInstance).OrThrow();
 }
 
 void App::ScriptingService::OnInitializeScripts()

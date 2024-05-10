@@ -9,8 +9,7 @@ constexpr auto RawInputEventName = Red::CName("OnInputKey");
 
 void App::WidgetInputService::OnBootstrap()
 {
-    if (!HookBefore<Raw::inkSystem::ProcessCharacterEvent>(&OnCharacterInput))
-        throw std::runtime_error("Failed to hook inkSystem::ProcessCharacterEvent.");
+    HookBefore<Raw::inkSystem::ProcessCharacterEvent>(&OnCharacterInput).OrThrow();
 }
 
 void App::WidgetInputService::OnShutdown()

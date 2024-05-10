@@ -2,14 +2,9 @@
 
 void App::WidgetBuildingService::OnBootstrap()
 {
-    if (!HookAfter<Raw::inkWidget::ScriptReparent>(&AfterReparentFromScript))
-        throw std::runtime_error("Failed to hook inkWidget::Reparent.");
-
-    if (!HookAfter<Raw::inkCompoundWidget::ScriptAddChild>(&AfterAddChildFromScript))
-        throw std::runtime_error("Failed to hook inkCompoundWidget::AddChild.");
-
-    if (!Hook<Raw::inkLogicController::OnInitialize>(&OnInitializeController))
-        throw std::runtime_error("Failed to hook inkLogicController::OnInitialize.");
+    HookAfter<Raw::inkWidget::ScriptReparent>(&AfterReparentFromScript).OrThrow();
+    HookAfter<Raw::inkCompoundWidget::ScriptAddChild>(&AfterAddChildFromScript).OrThrow();
+    Hook<Raw::inkLogicController::OnInitialize>(&OnInitializeController).OrThrow();
 }
 
 void App::WidgetBuildingService::OnShutdown()

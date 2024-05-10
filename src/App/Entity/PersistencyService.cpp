@@ -2,8 +2,7 @@
 
 void App::PersistencyService::OnBootstrap()
 {
-    if (!HookBefore<Raw::PersistentObject::InitializeState>(&OnInitializeState))
-        throw std::runtime_error("Failed to hook PersistentObject::InitializeState.");
+    HookBefore<Raw::PersistentObject::InitializeState>(&OnInitializeState).OrThrow();
 }
 
 void App::PersistencyService::OnInitializeState(Red::PersistentObject* aObject, Red::PersistentStateParams* aParams)
