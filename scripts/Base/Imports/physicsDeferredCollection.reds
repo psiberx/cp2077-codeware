@@ -1,2 +1,1 @@
-public native class physicsDeferredCollection extends ISerializable {
-}
+public native class physicsDeferredCollection extends ISerializable {}

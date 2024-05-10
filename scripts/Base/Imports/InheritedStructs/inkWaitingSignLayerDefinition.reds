@@ -7,7 +7,6 @@ public native struct inkWaitingSignLayerDefinition {
   native let isAffectedByFadeout: Bool;
   native let useGameInput: Bool;
   native let inputContext: CName;
-
   native let introAnimName: CName;
   native let waitingAnimName: CName;
   native let outroAnimName: CName;

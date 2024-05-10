@@ -1,2 +1,1 @@
-public native class UIGameContextChangedEvent extends Event {
-}
+public native class UIGameContextChangedEvent extends Event {}

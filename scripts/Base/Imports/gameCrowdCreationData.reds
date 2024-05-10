@@ -1,2 +1,1 @@
-public native struct gameCrowdCreationData {
-}
+public native struct gameCrowdCreationData {}

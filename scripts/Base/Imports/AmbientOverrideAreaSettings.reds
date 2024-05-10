@@ -1,2 +1,1 @@
-public native class AmbientOverrideAreaSettings extends IAreaSettings {
-}
+public native class AmbientOverrideAreaSettings extends IAreaSettings {}

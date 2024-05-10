@@ -7,7 +7,6 @@ public native struct inkPhotoModeLayerDefinition {
   native let isAffectedByFadeout: Bool;
   native let useGameInput: Bool;
   native let inputContext: CName;
-
   native let photoModeResource: ResourceRef; // rRef<inkWidgetLibraryResource>
   native let stickersResource: ResourceRef; // rRef<inkWidgetLibraryResource>
   native let cursorResource: ResourceRef; // rRef<inkWidgetLibraryResource>

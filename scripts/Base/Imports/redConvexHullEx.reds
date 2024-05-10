@@ -1,2 +1,1 @@
-public native struct redConvexHullEx {
-}
+public native struct redConvexHullEx {}

@@ -7,7 +7,6 @@ public native struct inkWorldLayerDefinition {
   native let isAffectedByFadeout: Bool;
   native let useGameInput: Bool;
   native let inputContext: CName;
-
   native let projectionPlaneSize: Vector2;
   native let renderingPlane: ERenderingPlane;
   native let isAlwaysVisible: Bool;

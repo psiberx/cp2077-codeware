@@ -41,7 +41,6 @@ public native struct saveMetadata {
   native let buildPatch: String;
   native let difficulty: gameDifficulty;
   native let facts: array<String>;
-
   native let saveVersion: Uint32;
   native let gameVersion: Uint32;
   native let timestampString: String;

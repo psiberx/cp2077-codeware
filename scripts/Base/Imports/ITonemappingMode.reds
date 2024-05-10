@@ -1,2 +1,1 @@
-public abstract native class ITonemappingMode extends ISerializable {
-}
+public abstract native class ITonemappingMode extends ISerializable {}

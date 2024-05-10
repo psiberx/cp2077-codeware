@@ -7,6 +7,5 @@ public native struct inkHUDLayerDefinition {
   native let isAffectedByFadeout: Bool;
   native let useGameInput: Bool;
   native let inputContext: CName;
-
   native let entriesResource: ResourceRef; // rRef<inkHudEntriesResource>
 }

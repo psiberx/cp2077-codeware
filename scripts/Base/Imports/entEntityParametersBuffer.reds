@@ -1,2 +1,1 @@
-public native struct entEntityParametersBuffer {
-}
+public native struct entEntityParametersBuffer {}

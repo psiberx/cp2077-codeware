@@ -1,2 +1,1 @@
-public native class DistantIrradianceeSettings extends IAreaSettings {
-}
+public native class DistantIrradianceeSettings extends IAreaSettings {}

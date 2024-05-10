@@ -9,7 +9,6 @@ public native struct gamePlayerPuppetReplicatedState {
   native let CPOMissionVotedHistory: array<CName>;
   native let animEventsState: gameReplicatedAnimControllerEventsState;
   native let entityEventsState: gameReplicatedEntityEventsState;
-
   native let recordID: TweakDBID;
   native let persistentID: Uint64;
 }

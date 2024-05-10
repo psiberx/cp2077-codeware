@@ -1,2 +1,1 @@
-public native class DismemberedBodyPartEvent extends Event {
-}
+public native class DismemberedBodyPartEvent extends Event {}

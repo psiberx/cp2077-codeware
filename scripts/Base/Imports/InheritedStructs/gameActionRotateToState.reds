@@ -5,7 +5,6 @@ public native struct gameActionRotateToState {
   native let useRotationTime: Bool;
   native let rotationSpeed: Float;
   native let rotationTime: Float;
-
   native let replicationId: Uint32;
   native let type: Uint16;
   native let startTimeStamp: netTime;

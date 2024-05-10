@@ -1,2 +1,1 @@
-public native struct toolsEditorObjectIDPath {
-}
+public native struct toolsEditorObjectIDPath {}

@@ -7,7 +7,6 @@ public native struct inkLoadingLayerDefinition {
   native let isAffectedByFadeout: Bool;
   native let useGameInput: Bool;
   native let inputContext: CName;
-
   native let splashLoadingScreenResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
   native let initialLoadingScreenResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
   native let fastTravelLoadingScreenResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>

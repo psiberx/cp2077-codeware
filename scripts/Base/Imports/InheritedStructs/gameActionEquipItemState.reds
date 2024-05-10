@@ -4,7 +4,6 @@ public native struct gameActionEquipItemState {
   native let startTimeStamp: netTime;
   native let stopTimeStamp: netTime;
   native let updateBucket: Uint8;
-
   native let slotId: TweakDBID;
   native let itemId: ItemID;
   native let animFeatureNameRight: CName;

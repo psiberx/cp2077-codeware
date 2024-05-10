@@ -1,2 +1,1 @@
-public native struct scnCameraAnimationLOD {
-}
+public native struct scnCameraAnimationLOD {}

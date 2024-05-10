@@ -1,7 +1,6 @@
 public abstract native struct gamePuppetReplicatedState {
   native let recordID: TweakDBID;
   native let persistentID: Uint64;
-
   native let initialOrientation: EulerAngles;
   native let initialLocation: Vector3;
   native let initialAppearance: CName;

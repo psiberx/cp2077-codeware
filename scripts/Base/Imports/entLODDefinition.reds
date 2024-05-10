@@ -1,2 +1,1 @@
-public native class entLODDefinition extends ISerializable {
-}
+public native class entLODDefinition extends ISerializable {}

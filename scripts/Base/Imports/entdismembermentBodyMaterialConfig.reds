@@ -1,2 +1,1 @@
-public native struct entdismembermentBodyMaterialConfig {
-}
+public native struct entdismembermentBodyMaterialConfig {}

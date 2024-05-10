@@ -1,2 +1,1 @@
-public native struct gamestateMachineStateContextConsumableParameters {
-}
+public native struct gamestateMachineStateContextConsumableParameters {}

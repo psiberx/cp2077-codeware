@@ -1,2 +1,1 @@
-public native class toolsMessageLocation_Resource extends toolsIMessageLocation {
-}
+public native class toolsMessageLocation_Resource extends toolsIMessageLocation {}

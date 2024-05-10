@@ -1,2 +1,1 @@
-public native struct RenderSettingFactors {
-}
+public native struct RenderSettingFactors {}

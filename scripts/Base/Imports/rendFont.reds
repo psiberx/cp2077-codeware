@@ -1,2 +1,1 @@
-public native class rendFont extends CResource {
-}
+public native class rendFont extends CResource {}

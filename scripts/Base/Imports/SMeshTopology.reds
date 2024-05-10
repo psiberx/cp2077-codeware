@@ -1,2 +1,1 @@
-public native struct SMeshTopology {
-}
+public native struct SMeshTopology {}

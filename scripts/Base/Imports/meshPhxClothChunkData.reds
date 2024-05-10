@@ -1,2 +1,1 @@
-public native struct meshPhxClothChunkData {
-}
+public native struct meshPhxClothChunkData {}

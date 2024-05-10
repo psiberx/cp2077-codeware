@@ -4,7 +4,6 @@ public native struct gameActionMoveToPositionState {
   native let startTimeStamp: netTime;
   native let stopTimeStamp: netTime;
   native let updateBucket: Uint8;
-
   native let target: Vector3;
   native let useSpotReservation: Bool;
   native let usePathfinding: Bool;

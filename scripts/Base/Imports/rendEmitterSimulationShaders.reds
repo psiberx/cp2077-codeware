@@ -1,2 +1,1 @@
-public native struct rendEmitterSimulationShaders {
-}
+public native struct rendEmitterSimulationShaders {}

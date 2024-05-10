@@ -1,2 +1,1 @@
-public native class worldSharedDataBuffer extends ISerializable {
-}
+public native class worldSharedDataBuffer extends ISerializable {}

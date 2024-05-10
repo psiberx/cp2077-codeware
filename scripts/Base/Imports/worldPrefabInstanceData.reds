@@ -1,2 +1,1 @@
-public native class worldPrefabInstanceData extends ISerializable {
-}
+public native class worldPrefabInstanceData extends ISerializable {}

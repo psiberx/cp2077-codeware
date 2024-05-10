@@ -5,13 +5,11 @@ public native struct gameActionRotateToObjectState {
   native let useRotationTime: Bool;
   native let rotationSpeed: Float;
   native let rotationTime: Float;
-
   native let replicationId: Uint32;
   native let type: Uint16;
   native let startTimeStamp: netTime;
   native let stopTimeStamp: netTime;
   native let updateBucket: Uint8;
-
   native let targetObject: wref<GameObject>;
   native let completeWhenRotated: Bool;
 }

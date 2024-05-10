@@ -1,2 +1,1 @@
-public native class EnvironmentColorGroupsSettings extends IAreaSettings {
-}
+public native class EnvironmentColorGroupsSettings extends IAreaSettings {}

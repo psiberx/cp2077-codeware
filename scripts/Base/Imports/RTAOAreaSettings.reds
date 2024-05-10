@@ -1,2 +1,1 @@
-public native class RTAOAreaSettings extends IAreaSettings {
-}
+public native class RTAOAreaSettings extends IAreaSettings {}

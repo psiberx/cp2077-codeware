@@ -4,6 +4,5 @@ public native struct gameActionHitReactionState {
   native let startTimeStamp: netTime;
   native let stopTimeStamp: netTime;
   native let updateBucket: Uint8;
-
   native let animFeature: ref<AnimFeature_HitReactionsData>;
 }

@@ -7,6 +7,5 @@ public native struct inkGameNotificationsLayerDefinition {
   native let isAffectedByFadeout: Bool;
   native let useGameInput: Bool;
   native let inputContext: CName;
-
   native let cursorResource: ResourceRef; // rRef<inkWidgetLibraryResource>
 }

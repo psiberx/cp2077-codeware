@@ -1,7 +1,6 @@
 public native struct gameAINetStateComponentReplicatedState {
   native let componentName: CName;
   native let enabled: Bool;
-
   native let replHighLevelState: gameNetAIState;
   native let replUpperBodyState: gameNetAIState;
   native let replStanceState: gameNetAIState;

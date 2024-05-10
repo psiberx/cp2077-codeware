@@ -4,7 +4,6 @@ public native struct gameActionRotateBaseState {
   native let startTimeStamp: netTime;
   native let stopTimeStamp: netTime;
   native let updateBucket: Uint8;
-
   native let angleOffset: Float;
   native let angleTolerance: Float;
   native let keepUpdatingTarget: Bool;

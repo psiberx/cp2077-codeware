@@ -1,2 +1,1 @@
-public native struct animCurvePathBakerAdvancedUserInput {
-}
+public native struct animCurvePathBakerAdvancedUserInput {}

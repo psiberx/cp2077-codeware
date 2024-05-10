@@ -1,2 +1,1 @@
-public native class HeatHazeAreaSettings extends IAreaSettings {
-}
+public native class HeatHazeAreaSettings extends IAreaSettings {}

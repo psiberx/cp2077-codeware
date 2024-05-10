@@ -6,7 +6,6 @@ public native struct entdismembermentFillMeshInfo {
   native let Offset: Transform;
   native let Scale: Vector3;
   native let Physics: entdismembermentPhysicsInfo;
-
   native let Simulation: entdismembermentSimulationTypeE;
   native let Dangle: entdismembermentDangleInfo;
 }

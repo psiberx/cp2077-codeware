@@ -1,2 +1,1 @@
-public native class entEntityInstanceData extends ISerializable {
-}
+public native class entEntityInstanceData extends ISerializable {}

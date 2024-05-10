@@ -1,2 +1,1 @@
-public native struct animPoseCorrectionGroup {
-}
+public native struct animPoseCorrectionGroup {}

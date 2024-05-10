@@ -4,7 +4,6 @@ public native struct gameActionMoveToState {
   native let startTimeStamp: netTime;
   native let stopTimeStamp: netTime;
   native let updateBucket: Uint8;
-
   native let targetPos: Vector3;
   native let toleranceRadius: Float;
   native let rotateEntity: Bool;

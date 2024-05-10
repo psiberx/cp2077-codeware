@@ -1,2 +1,1 @@
-public native class gamePersistentStateDataResource extends CResource {
-}
+public native class gamePersistentStateDataResource extends CResource {}

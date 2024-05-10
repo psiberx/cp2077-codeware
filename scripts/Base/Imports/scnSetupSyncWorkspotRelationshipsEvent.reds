@@ -1,2 +1,1 @@
-public native class scnSetupSyncWorkspotRelationshipsEvent extends scnSceneEvent {
-}
+public native class scnSetupSyncWorkspotRelationshipsEvent extends scnSceneEvent {}

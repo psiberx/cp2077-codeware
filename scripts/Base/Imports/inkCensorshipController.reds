@@ -1,2 +1,1 @@
-public native class inkCensorshipController extends inkLogicController {
-}
+public native class inkCensorshipController extends inkLogicController {}

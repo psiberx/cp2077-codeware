@@ -4,7 +4,6 @@ public native struct gameActionAnimationState {
   native let startTimeStamp: netTime;
   native let stopTimeStamp: netTime;
   native let updateBucket: Uint8;
-
   native let animFeatureName: CName;
   native let animFeature: ref<AnimFeature_AIAction>;
   native let useRootMotion: Bool;

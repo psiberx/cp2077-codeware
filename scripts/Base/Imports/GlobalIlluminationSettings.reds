@@ -1,2 +1,1 @@
-public native class GlobalIlluminationSettings extends IAreaSettings {
-}
+public native class GlobalIlluminationSettings extends IAreaSettings {}

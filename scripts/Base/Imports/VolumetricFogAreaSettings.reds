@@ -1,2 +1,1 @@
-public native class VolumetricFogAreaSettings extends IAreaSettings {
-}
+public native class VolumetricFogAreaSettings extends IAreaSettings {}

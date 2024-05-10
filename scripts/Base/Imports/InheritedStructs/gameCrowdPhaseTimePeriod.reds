@@ -1,6 +1,5 @@
 public native struct gameCrowdPhaseTimePeriod {
   native let hour: communityECommunitySpawnTime;
-
   native let mergeMode: gameCrowdCreationDataMergeMode;
   native let density: Float;
   native let Density: CName;

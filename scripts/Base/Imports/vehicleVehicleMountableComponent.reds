@@ -1,2 +1,1 @@
-public native class vehicleVehicleMountableComponent extends MountableComponent {
-}
+public native class vehicleVehicleMountableComponent extends MountableComponent {}

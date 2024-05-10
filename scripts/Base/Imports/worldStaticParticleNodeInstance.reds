@@ -1,2 +1,1 @@
-public native class worldStaticParticleNodeInstance extends worldINodeInstance {
-}
+public native class worldStaticParticleNodeInstance extends worldINodeInstance {}

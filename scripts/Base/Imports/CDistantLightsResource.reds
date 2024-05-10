@@ -1,2 +1,1 @@
-public native class CDistantLightsResource extends resStreamedResource {
-}
+public native class CDistantLightsResource extends resStreamedResource {}

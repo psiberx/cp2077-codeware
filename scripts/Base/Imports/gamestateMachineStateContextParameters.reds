@@ -1,2 +1,1 @@
-public native struct gamestateMachineStateContextParameters {
-}
+public native struct gamestateMachineStateContextParameters {}

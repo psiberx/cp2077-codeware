@@ -1,2 +1,1 @@
-public native struct rendRenderMorphTargetMeshBlobTextureData {
-}
+public native struct rendRenderMorphTargetMeshBlobTextureData {}

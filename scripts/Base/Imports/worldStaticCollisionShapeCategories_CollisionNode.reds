@@ -1,2 +1,1 @@
-public native struct worldStaticCollisionShapeCategories_CollisionNode {
-}
+public native struct worldStaticCollisionShapeCategories_CollisionNode {}

@@ -1,2 +1,1 @@
-public native struct animAnimDataChunk {
-}
+public native struct animAnimDataChunk {}

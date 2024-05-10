@@ -4,7 +4,6 @@ public native struct gameActionDieState {
   native let startTimeStamp: netTime;
   native let stopTimeStamp: netTime;
   native let updateBucket: Uint8;
-
   native let owner: wref<GameObject>;
   native let movingAgent: wref<moveComponent>;
   native let ragdollComponent: wref<RagdollComponent>;

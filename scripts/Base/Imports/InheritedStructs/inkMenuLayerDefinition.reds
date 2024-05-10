@@ -7,7 +7,6 @@ public native struct inkMenuLayerDefinition {
   native let isAffectedByFadeout: Bool;
   native let useGameInput: Bool;
   native let inputContext: CName;
-
   native let menuResource: ResourceRef; // rRef<inkMenuResource>
   native let cursorResource: ResourceRef; // rRef<inkWidgetLibraryResource>
 }

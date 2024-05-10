@@ -1,2 +1,1 @@
-public native class entDistanceLODsPresets extends ISerializable {
-}
+public native class entDistanceLODsPresets extends ISerializable {}

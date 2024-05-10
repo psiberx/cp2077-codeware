@@ -1,2 +1,1 @@
-public native class WindAreaSettings extends IAreaSettings {
-}
+public native class WindAreaSettings extends IAreaSettings {}
