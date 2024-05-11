@@ -13,6 +13,8 @@ struct ComponentEx : Red::IComponent
 }
 
 RTTI_EXPAND_CLASS(Red::IComponent, App::ComponentEx, {
+    RTTI_PROPERTY(appearanceName);
+    RTTI_PROPERTY(appearancePath);
     RTTI_METHOD(ChangeResource);
     RTTI_METHOD(LoadResource);
     RTTI_METHOD(ChangeAppearance);
