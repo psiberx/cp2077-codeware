@@ -37,9 +37,9 @@ protected:
 
     inline static void OnAttach(Red::Entity* aEntity, uintptr_t a2)
     {
-        CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
+        CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
         Raw::Entity::Attach(aEntity, a2);
-        CallbackSystem::PassEvent<EntityLifecycleEvent>(PostEventName, Red::AsWeakHandle(aEntity));
+        CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(PostEventName, Red::AsWeakHandle(aEntity));
     }
 };
 }

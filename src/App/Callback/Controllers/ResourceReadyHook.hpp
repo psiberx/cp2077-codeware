@@ -41,7 +41,7 @@ protected:
             {
                 if (const auto& resource = Red::Cast<Red::CResource>(serializable))
                 {
-                    CallbackSystem::PassEvent<ResourceEvent>(EventName, resource);
+                    CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource);
                 }
             }
         }

@@ -41,7 +41,7 @@ void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
         Red::CallVirtual(handler.instance, "IsPreGame", m_pregame);
     }
 
-    TriggerEvent<GameSessionEvent>("Session/BeforeStart", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/BeforeStart", m_pregame, m_restored);
 }
 
 // void App::CallbackSystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup& aJobGroup)
@@ -51,12 +51,12 @@ void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
 
 void App::CallbackSystem::OnBeforeWorldDetach(Red::world::RuntimeScene* aScene)
 {
-    TriggerEvent<GameSessionEvent>("Session/BeforeEnd", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/BeforeEnd", m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnWorldDetached(Red::world::RuntimeScene* aScene)
 {
-    TriggerEvent<GameSessionEvent>("Session/End", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/End", m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnAfterWorldDetach()
@@ -83,7 +83,7 @@ void App::CallbackSystem::OnAfterWorldDetach()
 
 uint32_t App::CallbackSystem::OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2)
 {
-    TriggerEvent<GameSessionEvent>("Session/BeforeSave", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/BeforeSave", m_pregame, m_restored);
 
     return 0;
 }
@@ -95,7 +95,7 @@ uint32_t App::CallbackSystem::OnBeforeGameSave(const Red::JobGroup& aJobGroup, v
 
 void App::CallbackSystem::OnAfterGameSave()
 {
-    TriggerEvent<GameSessionEvent>("Session/AfterSave", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/AfterSave", m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnGameLoad(const Red::JobGroup& aJobGroup, bool& aSuccess, void* aStream)
@@ -105,24 +105,24 @@ void App::CallbackSystem::OnGameLoad(const Red::JobGroup& aJobGroup, bool& aSucc
 
 bool App::CallbackSystem::OnGameRestored()
 {
-    TriggerEvent<GameSessionEvent>("Session/Ready", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/Ready", m_pregame, m_restored);
 
     return true;
 }
 
 void App::CallbackSystem::OnGamePrepared()
 {
-    TriggerEvent<GameSessionEvent>("Session/Start", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/Start", m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnGamePaused()
 {
-    TriggerEvent<GameSessionEvent>("Session/Pause", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/Pause", m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnGameResumed()
 {
-    TriggerEvent<GameSessionEvent>("Session/Resume", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>("Session/Resume", m_pregame, m_restored);
 }
 
 Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(

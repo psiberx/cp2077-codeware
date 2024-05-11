@@ -36,7 +36,7 @@ protected:
         auto system = CallbackSystem::Get();
         if (!system->IsRestored())
         {
-            system->TriggerEvent<GameSessionEvent>(EventName, system->IsPreGame(), system->IsRestored());
+            system->DispatchNativeEvent<GameSessionEvent>(EventName, system->IsPreGame(), system->IsRestored());
         }
     }
 };

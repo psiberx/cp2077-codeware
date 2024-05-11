@@ -35,7 +35,7 @@ protected:
 
     inline static void OnUninitialize(Red::Entity* aEntity)
     {
-        CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
+        CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
     }
 
     inline static void OnDispose(Red::Entity* aEntity)
@@ -45,7 +45,7 @@ protected:
 
         if (status < Red::EntityStatus::Uninitializing && !scene)
         {
-            CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
+            CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
         }
     }
 };

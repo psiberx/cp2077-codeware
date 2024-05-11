@@ -38,7 +38,7 @@ protected:
         auto storage = Raw::Entity::ComponentsStorage(aEntity);
         auto compCount = storage->components.size;
 
-        CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
+        CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
 
         if (compCount != storage->components.size)
         {

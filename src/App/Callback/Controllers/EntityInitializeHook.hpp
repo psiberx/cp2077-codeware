@@ -38,7 +38,7 @@ protected:
             Raw::Entity::EntityID{aEntity} = aRequest->entityID;
         }
 
-        CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
+        CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
     }
 };
 }

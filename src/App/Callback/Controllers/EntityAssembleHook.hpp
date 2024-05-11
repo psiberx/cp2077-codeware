@@ -33,7 +33,7 @@ protected:
 
     inline static void OnAssemble(Red::Entity* aEntity, uintptr_t)
     {
-        CallbackSystem::PassEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
+        CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
     }
 };
 }

@@ -32,7 +32,7 @@ public:
     [[nodiscard]] bool IsPreGame() const;
 
     template<typename Event, typename... Args>
-    inline void TriggerEvent(Red::CName aEventName, Args&&... aArgs)
+    inline bool DispatchNativeEvent(Red::CName aEventName, Args&&... aArgs)
     {
         Core::Vector<Red::Handle<CallbackSystemHandler>> callbacks;
         {
@@ -40,7 +40,7 @@ public:
             const auto& callbacksIt = m_callbacksByEvent.find(aEventName);
 
             if (callbacksIt == m_callbacksByEvent.end())
-                return;
+                return false;
 
             callbacks = callbacksIt.value();
         }
@@ -51,15 +51,8 @@ public:
         {
             (*callback)(event);
         }
-    }
 
-    template<typename Event, typename... Args>
-    inline static void PassEvent(Red::CName aEventName, Args&&... aArgs)
-    {
-        if (s_self)
-        {
-            s_self->TriggerEvent<Event>(aEventName, std::forward<Args>(aArgs)...);
-        }
+        return true;
     }
 
     static Red::Handle<CallbackSystem>& Get();

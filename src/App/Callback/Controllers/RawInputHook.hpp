@@ -89,7 +89,7 @@ protected:
                         if (!s_pressedKeys.contains(aInput.key))
                         {
                             s_pressedKeys.insert(aInput.key);
-                            CallbackSystem::PassEvent<KeyInputEvent>(KeyEventName, aState,
+                            CallbackSystem::Get()->DispatchNativeEvent<KeyInputEvent>(KeyEventName, aState,
                                                                      Red::EInputAction::IACT_Press,
                                                                      aInput.key);
                         }
@@ -99,7 +99,7 @@ protected:
                         if (s_pressedKeys.contains(aInput.key))
                         {
                             s_pressedKeys.erase(aInput.key);
-                            CallbackSystem::PassEvent<KeyInputEvent>(KeyEventName, aState,
+                            CallbackSystem::Get()->DispatchNativeEvent<KeyInputEvent>(KeyEventName, aState,
                                                                      Red::EInputAction::IACT_Release,
                                                                      aInput.key);
                         }
@@ -109,14 +109,14 @@ protected:
 
             if (s_isAxisInputActive)
             {
-                CallbackSystem::PassEvent<AxisInputEvent>(AxisEventName, aState, aInput);
+                CallbackSystem::Get()->DispatchNativeEvent<AxisInputEvent>(AxisEventName, aState, aInput);
             }
         }
         else
         {
             if (s_isKeyInputActive)
             {
-                CallbackSystem::PassEvent<KeyInputEvent>(KeyEventName, aState, aInput);
+                CallbackSystem::Get()->DispatchNativeEvent<KeyInputEvent>(KeyEventName, aState, aInput);
             }
         }
     }
