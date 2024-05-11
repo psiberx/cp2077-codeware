@@ -23,6 +23,7 @@
 #include "App/Physics/TraceResultEx.hpp"
 #include "App/Player/VehicleSystemEx.hpp"
 #include "App/Player/WardrobeSystemEx.hpp"
+#include "App/Quest/GraphSocketDefinitionEx.hpp"
 #include "App/Reflection/Reflection.hpp"
 #include "App/Scripting/IScriptableEx.hpp"
 #include "App/Scripting/ISerializableEx.hpp"
