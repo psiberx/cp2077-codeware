@@ -15,5 +15,6 @@ uint64_t CRUIDToHash(Red::CRUID aValue)
 
 RTTI_DEFINE_GLOBALS({
     RTTI_FUNCTION(App::CreateCRUID);
+    RTTI_FUNCTION(App::CreateCRUID, "ToCRUID");
     RTTI_FUNCTION(App::CRUIDToHash);
 });

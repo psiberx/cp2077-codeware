@@ -21,5 +21,6 @@ uint64_t NodeRefToHash(Red::NodeRef aRef)
 
 RTTI_DEFINE_GLOBALS({
     RTTI_FUNCTION(App::CreateNodeRef);
+    RTTI_FUNCTION(App::CreateNodeRef, "ToNodeRef");
     RTTI_FUNCTION(App::NodeRefToHash);
 });
