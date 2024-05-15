@@ -12,7 +12,9 @@ constexpr auto ResourceScriptReferenceAlias = Red::CName(Red::redResourceReferen
 constexpr auto ResourceReferencePrefix = Red::GetTypePrefixStr<Red::ResourceReference>();
 constexpr auto ResourceAsyncReferencePrefix = Red::GetTypePrefixStr<Red::ResourceAsyncReference>();
 
-constexpr auto KnowNameConflict = Red::CName("inkWidgetLibraryResource");
+constexpr auto inkWidgetLibraryResourceTypeName = Red::CName("inkWidgetLibraryResource");
+constexpr auto gameuiBaseUIDataTypeName = Red::CName("gameuiBaseUIData");
+constexpr auto scnChatterTypeName = Red::CName("scnChatter");
 }
 
 App::ScriptingService::ScriptingService(const std::filesystem::path& aStateDir)
@@ -54,6 +56,9 @@ void App::ScriptingService::OnInitializeGameInstance()
 
 void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundle* aBundle, void* aReport)
 {
+    Red::GetClass<gameuiBaseUIDataTypeName>()->parent = Red::GetClass<ISerializableTypeName>();
+    Red::GetClass<scnChatterTypeName>()->parent = Red::GetClass<ISerializableTypeName>();
+
     for (auto& classDef : aBundle->classes)
     {
         if (classDef->flags.isNative)
@@ -81,7 +86,7 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
                 }
             }
 
-            if (classDef->flags.isStruct && classDef->name != KnowNameConflict)
+            if (classDef->flags.isStruct && classDef->name != inkWidgetLibraryResourceTypeName)
             {
                 if (auto nativeClass = Red::GetScriptClass(classDef->name))
                 {

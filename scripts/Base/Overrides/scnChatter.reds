@@ -1,4 +1,4 @@
-public native struct scnChatter {
+public native class scnChatter extends ISerializable {
   native let id: Uint16;
   native let voicesetComponent: wref<VoicesetComponent>;
 }
