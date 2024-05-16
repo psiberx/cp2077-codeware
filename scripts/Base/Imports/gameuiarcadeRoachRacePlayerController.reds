@@ -1,5 +1,4 @@
 public native class gameuiarcadeRoachRacePlayerController extends inkLogicController {
-  native let collider: gameuiarcadeBoundingRect;
   native let singleJumpBoost: Vector2;
   native let doubleJumpBoost: Vector2;
   native let gravity: Vector2;
