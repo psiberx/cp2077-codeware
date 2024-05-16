@@ -20,6 +20,15 @@ constexpr auto scnChatterTypeName = Red::CName("scnChatter");
 App::ScriptingService::ScriptingService(const std::filesystem::path& aStateDir)
 {
     s_stateDir = aStateDir;
+
+    std::error_code error;
+    if (!std::filesystem::exists(s_stateDir, error))
+    {
+        if (!std::filesystem::create_directories(s_stateDir, error))
+        {
+            LogError("Cannot create directory \"{}\" for persistent data: {}.", s_stateDir.string(), error.message());
+        }
+    }
 }
 
 void App::ScriptingService::OnBootstrap()
