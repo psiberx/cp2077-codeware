@@ -27,6 +27,11 @@ struct ISerializableEx : Red::ISerializable
         Raw::ISerializable::Clone(clone, Red::ToHandle(this));
         return clone;
     }
+
+    void RefreshResource(Red::Optional<bool> aDisablePreInitialization)
+    {
+        PostLoad({aDisablePreInitialization});
+    }
 };
 }
 
@@ -35,4 +40,5 @@ RTTI_EXPAND_CLASS(Red::ISerializable, App::ISerializableEx, {
     RTTI_METHOD(IsA);
     RTTI_METHOD(IsExactlyA);
     RTTI_METHOD(Clone);
+    RTTI_METHOD(RefreshResource);
 });
