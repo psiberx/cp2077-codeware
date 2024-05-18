@@ -18,6 +18,7 @@
 #include "App/Device/ResetSecuritySystemNetwork.hpp"
 #include "App/Entity/ComponentEx.hpp"
 #include "App/Entity/EntityEx.hpp"
+#include "App/Entity/EntityIDEx.hpp"
 #include "App/Entity/GameObjectEx.hpp"
 #include "App/Entity/TagListEx.hpp"
 #include "App/Physics/TraceResultEx.hpp"
