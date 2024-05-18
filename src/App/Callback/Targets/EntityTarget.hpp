@@ -2,7 +2,6 @@
 
 #include "App/Callback/CallbackSystemTarget.hpp"
 #include "App/Callback/Events/EntityLifecycleEvent.hpp"
-#include "Red/Entity.hpp"
 
 namespace App
 {
@@ -14,16 +13,16 @@ struct EntityTarget : CallbackSystemTarget
     {
         auto* entity = aEvent.GetPtr<EntityLifecycleEvent>()->entity.instance;
 
-        if (entityID && entityID != Raw::Entity::EntityID::Ref(entity))
+        if (entityID && entityID != entity->entityID)
             return false;
 
         if (entityType && !entity->GetType()->IsA(entityType))
             return false;
 
-        if (templatePath && templatePath != Raw::Entity::TemplatePath::Ref(entity))
+        if (templatePath && templatePath != entity->templatePath)
             return false;
 
-        if (appearanceName && appearanceName != Raw::Entity::AppearanceName::Ref(entity))
+        if (appearanceName && appearanceName != entity->appearanceName)
             return false;
 
         if (recordID)
