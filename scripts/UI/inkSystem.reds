@@ -11,6 +11,14 @@ public native class inkSystem extends IGameSystem {
     public func SetClipboard(data: String) {
         this.m_clipboard = data;
     }
+
+    public func SetFocus(widget: ref<inkWidget>) {
+        GameInstance.GetInkSystem().GetLayer(n"inkGameNotificationsLayer").GetGameController().RequestSetFocus(widget);
+    }
+
+    public func ResetFocus() {
+        this.SetFocus(null);
+    }
 }
 
 @addMethod(GameInstance)
