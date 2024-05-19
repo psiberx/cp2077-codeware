@@ -18,7 +18,6 @@ public class ButtonHintsManager extends ScriptableService {
     private let m_inputHint: wref<inkInputDisplayController>;
 
     private cb func OnUninitialize() {
-        ModLog(n"Codeware", "ButtonHintsManager::OnUninitialize");
         this.m_buttonHints = null;
         this.m_inputHint = null;
     }
