@@ -14,6 +14,10 @@ public native struct scnLookAtEventData {
   native let useBodyWeightCurve: Bool;
   native let useHeadWeightCurve: Bool;
   native let useEyesWeightCurve: Bool;
+  native let singleWeightCurve: CurveDataFloat;
+  native let bodyWeightCurve: CurveDataFloat;
+  native let headWeightCurve: CurveDataFloat;
+  native let eyesWeightCurve: CurveDataFloat;
   native let singleLimits: LookAtLimits;
   native let bodyLimits: LookAtLimits;
   native let headLimits: LookAtLimits;

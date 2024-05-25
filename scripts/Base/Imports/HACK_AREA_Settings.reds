@@ -5,6 +5,7 @@ public native class HACK_AREA_Settings extends IAreaSettings {
   native let surfAlbedoOverrideRatio: Float;
   native let surfAlbedoOverride: HDRColor;
   native let skyScale: Float;
+  native let bottomHemisphereTint: CurveDataHDRColor;
   native let bottomHemisphereStrength: Float;
   native let emissiveScale: Float;
   native let albedoMetalness: Float;

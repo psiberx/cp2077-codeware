@@ -1,4 +1,5 @@
 #include "ScriptingService.hpp"
+#include "App/Depot/CurveData.hpp"
 #include "App/Depot/ResourceReference.hpp"
 
 namespace
@@ -11,6 +12,13 @@ constexpr auto ResourceAsyncWrapperName = Red::GetTypeName<App::ResourceAsyncWra
 constexpr auto ResourceScriptReferenceAlias = Red::CName(Red::redResourceReferenceScriptToken::ALIAS);
 constexpr auto ResourceReferencePrefix = Red::GetTypePrefixStr<Red::ResourceReference>();
 constexpr auto ResourceAsyncReferencePrefix = Red::GetTypePrefixStr<Red::ResourceAsyncReference>();
+
+constexpr auto CurveDataWrapperFloatName = Red::GetTypeName<App::CurveDataWrapper<float>>();
+constexpr auto CurveDataWrapperVector2Name = Red::GetTypeName<App::CurveDataWrapper<Red::Vector2>>();
+constexpr auto CurveDataWrapperVector3Name = Red::GetTypeName<App::CurveDataWrapper<Red::Vector3>>();
+constexpr auto CurveDataWrapperVector4Name = Red::GetTypeName<App::CurveDataWrapper<Red::Vector4>>();
+constexpr auto CurveDataWrapperHDRColorName = Red::GetTypeName<App::CurveDataWrapper<Red::HDRColor>>();
+constexpr auto CurveDataPrefix = Red::GetTypePrefixStr<Red::CurveData>();
 
 constexpr auto inkWidgetLibraryResourceTypeName = Red::CName("inkWidgetLibraryResource");
 constexpr auto gameuiBaseUIDataTypeName = Red::CName("gameuiBaseUIData");
@@ -167,6 +175,12 @@ void App::ScriptingService::OnValidateTypeName(bool& aValid, Red::CName aScriptT
         {
             aValid = strncmp(ResourceAsyncReferencePrefix.data(), aNativeTypeName.ToString(),
                              ResourceAsyncReferencePrefix.size() - 1) == 0;
+        }
+        else if (aScriptTypeName == CurveDataWrapperFloatName || aScriptTypeName == CurveDataWrapperVector2Name ||
+                 aScriptTypeName == CurveDataWrapperVector3Name || aScriptTypeName == CurveDataWrapperVector4Name ||
+                 aScriptTypeName == CurveDataWrapperHDRColorName)
+        {
+            aValid = strncmp(CurveDataPrefix.data(), aNativeTypeName.ToString(), CurveDataPrefix.size() - 1) == 0;
         }
     }
 }

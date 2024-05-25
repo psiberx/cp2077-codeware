@@ -4,6 +4,7 @@ public native struct LookAtStateMachineSettings {
   native let sphereAttachmentBone: CName;
   native let sphereRadius: Float;
   native let followingSpeedFactor: Float;
+  native let followingSpeedByAngleCurve: CurveDataFloat;
   native let enableFloatTrack: CName;
   native let eyesOverrideFloatTrack: CName;
   native let transitionSpeedMultiplier: Float;
