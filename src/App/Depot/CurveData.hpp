@@ -47,18 +47,17 @@ struct CurveDataWrapper
 }
 
 #define RTTI_DEFINE_CURVEDATA(_type, _name) \
-RTTI_DEFINE_CLASS(App::CurvePointWrapper<_type>, "CurvePoint" #_name, {\
-    RTTI_PROPERTY(point);\
-    RTTI_PROPERTY(value);\
-    })\
-\
-RTTI_DEFINE_CLASS(App::CurveDataWrapper<_type>, "CurveData" #_name, {\
-    RTTI_METHOD(GetSize);\
-    RTTI_METHOD(GetPoint);\
-    RTTI_METHOD(GetPointValue);\
-    RTTI_METHOD(SetPoint);\
-    RTTI_METHOD(SetPointValue);\
-})
+    RTTI_DEFINE_CLASS(App::CurvePointWrapper<_type>, "CurvePoint" #_name, { \
+        RTTI_PROPERTY(point); \
+        RTTI_PROPERTY(value); \
+    }) \
+    RTTI_DEFINE_CLASS(App::CurveDataWrapper<_type>, "CurveData" #_name, { \
+        RTTI_METHOD(GetSize); \
+        RTTI_METHOD(GetPoint); \
+        RTTI_METHOD(GetPointValue); \
+        RTTI_METHOD(SetPoint); \
+        RTTI_METHOD(SetPointValue); \
+    })
 
 RTTI_DEFINE_CURVEDATA(float, Float)
 RTTI_DEFINE_CURVEDATA(Red::Vector2, Vector2)
