@@ -12,6 +12,7 @@
 #include "App/Callback/Targets/ResourceTarget.hpp"
 #include "App/Callback/Targets/StaticEntityTarget.hpp"
 #include "App/Depot/CResourceEx.hpp"
+#include "App/Depot/CurveData.hpp"
 #include "App/Depot/ResourceDepot.hpp"
 #include "App/Depot/ResourceReference.hpp"
 #include "App/Depot/ResourceToken.hpp"

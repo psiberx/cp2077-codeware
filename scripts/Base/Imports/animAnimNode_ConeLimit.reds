@@ -5,6 +5,7 @@ public native class animAnimNode_ConeLimit extends animAnimNode_OnePoseInput {
   native let coneAxisNormalizedLs: Vector3;
   native let coneOffsetMs: Vector3;
   native let coneOffsetMsLink: animVectorLink;
+  native let marginEaseOutCurve: CurveDataFloat;
   native let limit1: Float;
   native let limit1Link: animFloatLink;
   native let limit1FloatTrack: animNamedTrackIndex;
