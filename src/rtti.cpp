@@ -14,6 +14,7 @@
 #include "App/Depot/CResourceEx.hpp"
 #include "App/Depot/CurveData.hpp"
 #include "App/Depot/ResourceDepot.hpp"
+#include "App/Depot/ResourceHelper.hpp"
 #include "App/Depot/ResourceReference.hpp"
 #include "App/Depot/ResourceToken.hpp"
 #include "App/Device/ResetSecuritySystemNetwork.hpp"
