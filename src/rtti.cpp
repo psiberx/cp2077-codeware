@@ -11,6 +11,7 @@
 #include "App/Callback/Targets/InputTarget.hpp"
 #include "App/Callback/Targets/ResourceTarget.hpp"
 #include "App/Callback/Targets/StaticEntityTarget.hpp"
+#include "App/Depot/CMaterialInstanceEx.hpp"
 #include "App/Depot/CResourceEx.hpp"
 #include "App/Depot/CurveData.hpp"
 #include "App/Depot/ResourceDepot.hpp"
