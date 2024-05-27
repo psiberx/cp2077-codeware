@@ -108,6 +108,11 @@ struct ReflectionClass : ReflectionType
         return m_class->flags.isAbstract;
     }
 
+    [[nodiscard]] bool IsA(Red::CName aBase) const
+    {
+        return Red::IsInstanceOf(m_class, aBase);
+    }
+
     [[nodiscard]] Red::Handle<Red::ISerializable> MakeHandle() const
     {
         if (!Red::IsInstanceOf<Red::ISerializable>(m_class))
@@ -135,5 +140,6 @@ RTTI_DEFINE_CLASS(App::ReflectionClass, {
     RTTI_METHOD(GetStaticFunctions);
     RTTI_METHOD(IsNative);
     RTTI_METHOD(IsAbstract);
+    RTTI_METHOD(IsA);
     RTTI_METHOD(MakeHandle);
 });

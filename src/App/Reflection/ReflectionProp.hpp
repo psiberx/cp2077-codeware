@@ -40,9 +40,12 @@ struct ReflectionProp : Red::IScriptable
 
     void SetValue(const Red::Variant& aInstance, const Red::Variant& aValue)
     {
+        if (m_prop->type != aValue.GetType())
+            return;
+
         auto instance = ResolveInstance(aInstance);
 
-        if (!instance || m_prop->type != aValue.GetType())
+        if (!instance)
             return;
 
         m_prop->SetValue(instance, aValue.GetDataPtr());

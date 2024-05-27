@@ -63,6 +63,11 @@ struct ReflectionType : Red::IScriptable
         return Red::MakeHandle<ReflectionType>(innerType);
     }
 
+    [[nodiscard]] Red::Variant MakeInstance() const
+    {
+        return {m_type};
+    }
+
     Red::CBaseRTTIType* m_type;
 
     RTTI_IMPL_TYPEINFO(App::ReflectionType);
@@ -74,4 +79,5 @@ RTTI_DEFINE_CLASS(App::ReflectionType, {
     RTTI_METHOD(GetName);
     RTTI_METHOD(GetMetaType);
     RTTI_METHOD(GetInnerType);
+    RTTI_METHOD(MakeInstance);
 });
