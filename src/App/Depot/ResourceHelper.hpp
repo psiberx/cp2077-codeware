@@ -5,7 +5,8 @@ namespace App
 struct ResourceHelper
 {
     static bool LoadReferenceResource(const Red::Handle<Red::ISerializable>& aOwner, Red::CName aReferencePropName,
-                                      const Red::ResourceAsyncReference<>& aResourceAsyncReference)
+                                      const Red::ResourceAsyncReference<>& aResourceAsyncReference,
+                                      Red::Optional<bool> aWaitForResource)
     {
         if (!aOwner || !aReferencePropName || !aResourceAsyncReference.path)
             return false;
@@ -15,7 +16,14 @@ struct ResourceHelper
         if (!prop || prop->type->GetType() != Red::ERTTIType::ResourceReference)
             return false;
 
-        *prop->GetValuePtr<Red::ResourceReference<>>(aOwner) = aResourceAsyncReference.Resolve();
+        auto ref = prop->GetValuePtr<Red::ResourceReference<>>(aOwner);
+        *ref = aResourceAsyncReference.Resolve();
+
+        if (aWaitForResource)
+        {
+            Red::WaitForResource(*ref, std::chrono::milliseconds(2000));
+        }
+
         return true;
     }
 
