@@ -54,6 +54,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ent/SlotComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/EntityStubComponentPS.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/GameTagSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ICommunitySystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IContainerManager.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/IDynamicEntityIDSystem.hpp>
@@ -153,6 +154,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/VarComparison_ConditionType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/WorldDataManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
+#include <RED4ext/Scripting/Natives/Generated/red/TagSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CommunityRegistryItem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/EnvironmentAreaParameters.hpp>

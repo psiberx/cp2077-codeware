@@ -100,6 +100,8 @@ protected:
     Red::IEntityStubSystem* m_entityStubSystem;
     Red::IPopulationSystem* m_populationSystem;
     Red::IEntitySpawnerEventsBroadcaster* m_spawnEventBroadcaster;
+    Red::worldRuntimeEntityRegistry* m_entityRegistry;
+    Red::redTagSystem* m_entityTagSystem;
 
     RTTI_IMPL_TYPEINFO(App::DynamicEntitySystem);
     RTTI_IMPL_ALLOCATOR();

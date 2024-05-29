@@ -118,5 +118,8 @@ constexpr uint32_t ScriptValidator_ValidateProperty = 560604283;
 constexpr uint32_t ResourceSerializer_OnDependenciesReady = 1185093671;
 constexpr uint32_t ResourceSerializer_OnResourceReady = 1147149338;
 
+constexpr uint32_t TagSystem_AssignTag = 1239092911;
+constexpr uint32_t TagSystem_UnassignTag = 1875775378;
+
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
 }

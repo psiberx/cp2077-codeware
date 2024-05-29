@@ -1,5 +1,6 @@
 #include "DynamicEntitySystem.hpp"
 #include "Red/RuntimeScene.hpp"
+#include "Red/TagSystem.hpp"
 #include "Red/TweakDB.hpp"
 
 namespace
@@ -12,6 +13,8 @@ void App::DynamicEntitySystem::OnWorldAttached(Red::world::RuntimeScene*)
     m_persistencySystem = Red::GetGameSystem<Red::IPersistencySystem>();
     m_entityIDSystem = Red::GetGameSystem<Red::IDynamicEntityIDSystem>();
     m_entityStubSystem = Red::GetGameSystem<Red::IEntityStubSystem>();
+    m_entityTagSystem = Raw::GameTagSystem::TagSystem::Ptr(Red::GetGameSystem<Red::GameTagSystem>());
+    m_entityRegistry = Red::GetRuntimeSystem<Red::worldRuntimeEntityRegistry>();
     m_populationSystem = Red::GetGameSystem<Red::IPopulationSystem>();
     m_spawnEventBroadcaster = Red::GetGameSystem<Red::IEntitySpawnerEventsBroadcaster>();
     m_persistentStateType = Red::GetClass<DynamicEntitySystemPS>();
@@ -118,8 +121,7 @@ void App::DynamicEntitySystem::OnEntitySpawnerEvent(Red::game::EntitySpawnerEven
             }
             else
             {
-                auto registry = Red::GetRuntimeSystem<Red::worldRuntimeEntityRegistry>();
-                Raw::RuntimeEntityRegistry::RegisterEntity(registry, entity);
+                Raw::RuntimeEntityRegistry::RegisterEntity(m_entityRegistry, entity);
             }
         }
     }
@@ -513,6 +515,15 @@ bool App::DynamicEntitySystem::AssignTag(Red::EntityID aEntityID, Red::CName aTa
     {
         m_entityStatesByTag[aTag].insert(aEntityID);
         entityState->entitySpec->tags.PushBack(aTag);
+
+        if (auto entity = GetEntity(aEntityID))
+        {
+            if (const auto& gameObject = Red::Cast<Red::GameObject>(entity))
+            {
+                gameObject->tags.Add(aTag);
+                Raw::TagSystem::AssignTag(m_entityTagSystem, aEntityID, aTag);
+            }
+        }
     }
 
     return true;
@@ -535,6 +546,15 @@ bool App::DynamicEntitySystem::UnassignTag(Red::EntityID aEntityID, Red::CName a
     {
         m_entityStatesByTag[aTag].erase(aEntityID);
         entityState->entitySpec->tags.Remove(aTag);
+
+        if (auto entity = GetEntity(aEntityID))
+        {
+            if (const auto& gameObject = Red::Cast<Red::GameObject>(entity))
+            {
+                gameObject->tags.Remove(aTag);
+                Raw::TagSystem::UnassignTag(m_entityTagSystem, aEntityID, aTag);
+            }
+        }
     }
 
     return true;
