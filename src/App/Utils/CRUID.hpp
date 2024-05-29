@@ -2,7 +2,7 @@
 
 namespace App
 {
-Red::CRUID CreateCRUID(uint64_t aValue)
+Red::CRUID HashToCRUID(uint64_t aValue)
 {
     return *reinterpret_cast<Red::CRUID*>(&aValue);
 }
@@ -14,7 +14,6 @@ uint64_t CRUIDToHash(Red::CRUID aValue)
 }
 
 RTTI_DEFINE_GLOBALS({
-    RTTI_FUNCTION(App::CreateCRUID);
-    RTTI_FUNCTION(App::CreateCRUID, "ToCRUID");
+    RTTI_FUNCTION(App::HashToCRUID);
     RTTI_FUNCTION(App::CRUIDToHash);
 });

@@ -13,14 +13,19 @@ Red::NodeRef CreateNodeRef(Red::ScriptRef<Red::CString>& aReference)
     return nodeRef;
 }
 
+Red::NodeRef HashToNodeRef(uint64_t aRef)
+{
+    return aRef;
+}
+
 uint64_t NodeRefToHash(Red::NodeRef aRef)
 {
-    return aRef.hash;
+    return aRef;
 }
 }
 
 RTTI_DEFINE_GLOBALS({
     RTTI_FUNCTION(App::CreateNodeRef);
-    RTTI_FUNCTION(App::CreateNodeRef, "ToNodeRef");
+    RTTI_FUNCTION(App::HashToNodeRef);
     RTTI_FUNCTION(App::NodeRefToHash);
 });

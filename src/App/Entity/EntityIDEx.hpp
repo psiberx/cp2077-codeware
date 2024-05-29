@@ -8,13 +8,15 @@ struct EntityIDEx : Red::EntityID
     {
         return {aHash};
     }
+
+    Red::EntityID ToHash()
+    {
+        return this->hash;
+    }
 };
 }
 
 RTTI_EXPAND_CLASS(Red::EntityID, App::EntityIDEx, {
     RTTI_METHOD(FromHash);
-});
-
-RTTI_DEFINE_GLOBALS({
-    RTTI_FUNCTION(App::EntityIDEx::FromHash, "ToEntityID");
+    RTTI_METHOD(ToHash);
 });
