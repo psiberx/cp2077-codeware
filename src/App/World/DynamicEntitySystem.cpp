@@ -112,7 +112,11 @@ void App::DynamicEntitySystem::OnEntitySpawnerEvent(Red::game::EntitySpawnerEven
     {
         if (auto entity = GetEntity(aEntityID))
         {
-            if (!Red::IsInstanceOf<Red::GameObject>(entity))
+            if (const auto& gameObject = Red::Cast<Red::GameObject>(entity))
+            {
+                gameObject->tags.Add(GetTags(aEntityID));
+            }
+            else
             {
                 auto registry = Red::GetRuntimeSystem<Red::worldRuntimeEntityRegistry>();
                 Raw::RuntimeEntityRegistry::RegisterEntity(registry, entity);

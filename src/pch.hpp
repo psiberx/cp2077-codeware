@@ -33,6 +33,7 @@
 #include <RED4ext/Scripting/Natives/Generated/CMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
+#include <RED4ext/Scripting/Natives/Generated/IAreaSettings.hpp>
 #include <RED4ext/Scripting/Natives/Generated/MorphTargetMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Quaternion.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Transform.hpp>
@@ -45,10 +46,12 @@
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityParametersStorage.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/GarmentSkinnedMeshComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/IComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/ITransformBinding.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/MeshComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/MorphTargetManagerComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/MorphTargetSkinnedMeshComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/SkinnedMeshComponent.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/SlotComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/EntityStubComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ICommunitySystem.hpp>
@@ -157,7 +160,6 @@
 #include <RED4ext/Scripting/Natives/Generated/world/GlobalNodeID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/INodeInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/Node.hpp>
-#include <RED4ext/Scripting/Natives/Generated/IAreaSettings.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeEntityRegistry.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemEntity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemWeather.hpp>
