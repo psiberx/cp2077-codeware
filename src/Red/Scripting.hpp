@@ -29,6 +29,10 @@ constexpr auto Validate = Core::RawFunc<
     /* addr = */ Red::AddressLib::ScriptValidator_Validate,
     /* type = */ bool (*)(void* aValidator, Red::ScriptBundle* aBundle, void* aReport)>();
 
+constexpr auto ValidateProperty = Core::RawFunc<
+    /* addr = */ Red::AddressLib::ScriptValidator_ValidateProperty,
+    /* type = */ bool (*)(void* aValidator, Red::ScriptProperty* aScriptProp, Red::CProperty* aNativeProp)>();
+
 constexpr auto CompareType = Core::RawFunc<
     /* addr = */ Red::AddressLib::ScriptValidator_CompareType,
     /* type = */ bool (*)(Red::CBaseRTTIType* aNativeType, Red::ScriptType* aScriptType)>();

@@ -147,9 +147,12 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
 
 bool App::ScriptingService::OnValidateScriptType(Red::CBaseRTTIType* aNativeType, Red::ScriptType* aScriptType)
 {
-    if (aScriptType->metaType == Red::EScriptType::DynArray)
+    if (aScriptType->metaType == Red::EScriptType::DynArray ||
+        aScriptType->metaType == Red::EScriptType::StaticArray)
     {
-        if (aNativeType->GetType() == Red::ERTTIType::Array)
+        if (aNativeType->GetType() == Red::ERTTIType::Array ||
+            aNativeType->GetType() == Red::ERTTIType::NativeArray ||
+            aNativeType->GetType() == Red::ERTTIType::StaticArray)
         {
             auto nativeInnerType = reinterpret_cast<Red::CRTTIBaseArrayType*>(aNativeType)->innerType;
             auto scriptInnerType = reinterpret_cast<Red::ScriptType*>(aScriptType->innerType);
