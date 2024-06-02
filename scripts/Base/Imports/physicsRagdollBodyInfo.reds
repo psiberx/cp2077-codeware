@@ -8,6 +8,9 @@ public native struct physicsRagdollBodyInfo {
   native let ShapeLocalTranslation: Vector3;
   native let ShapeLocalRotation: Quaternion;
   native let IsRootDisplacementPart: Bool;
+  native let SwingAnglesY: [Float; 2];
+  native let SwingAnglesZ: [Float; 2];
+  native let TwistAngles: [Float; 2];
   native let IsStiff: Bool;
   native let ExcludeFromEarlyCollision: Bool;
   native let FilterDataOverride: CName;

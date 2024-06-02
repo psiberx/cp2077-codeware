@@ -1,4 +1,5 @@
 public native struct vehicleDestructionPSData {
+  native persistent let gridValues: [Float; 30];
   native persistent let brokenGlass: Uint32;
   native persistent let brokenLights: Uint32;
   native persistent let flatTire: Uint8;

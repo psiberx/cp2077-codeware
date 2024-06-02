@@ -1,4 +1,5 @@
 public native class audioAudioSceneData extends audioAudioMetadata {
+  native let anyStateArray: [audioAudioStateData; 1];
   native let states: array<audioAudioStateData>;
   native let anyStateTransitionsTable: array<audioAnyStateTransitionEntry>;
   native let voLineSignals: array<audioVoLineSignal>;

@@ -2,6 +2,8 @@ public native struct gameStatPoolData {
   native let ownerID: StatsObjectID;
   native let recordID: TweakDBID;
   native let type: gamedataStatPoolType;
+  native let modifiers: [StatPoolModifier; 2];
+  native let alternativeModifierRecords: [TweakDBID; 2];
   native let stat: gamedataStatType;
   native let maxValue: Float;
   native let customLimitValue: Float;

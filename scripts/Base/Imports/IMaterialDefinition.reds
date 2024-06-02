@@ -1,4 +1,5 @@
 public abstract native class IMaterialDefinition extends IMaterial {
+  native let paramBlockSize: [Uint32; 3];
   native let canHaveTangentUpdate: Bool;
   native let canHaveDismemberment: Bool;
   native let hasDPL: Bool;

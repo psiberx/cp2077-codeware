@@ -6,4 +6,6 @@ public native class Multilayer_LayerTemplate extends CResource {
   native let roughnessTexture: ResourceRef; // rRef<CBitmapTexture>
   native let metalnessTexture: ResourceRef; // rRef<CBitmapTexture>
   native let tilingMultiplier: Float;
+  native let colorMaskLevelsIn: [Float; 2];
+  native let colorMaskLevelsOut: [Float; 2];
 }
