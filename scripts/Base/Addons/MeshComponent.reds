@@ -2,6 +2,9 @@
 native let mesh: ResourceAsyncRef;
 
 @addField(MeshComponent)
+native let meshResource: ref<CMesh>;
+
+@addField(MeshComponent)
 native let meshAppearance: CName;
 
 @addField(MeshComponent)
