@@ -42,7 +42,7 @@ struct ReflectionClass : ReflectionType
 
     [[nodiscard]] Red::Handle<ReflectionMemberFunc> GetFunction(Red::CName aName) const
     {
-        auto func = Red::Detail::GetFunction(m_class, aName);
+        auto func = Red::GetMemberFunction(m_class, aName);
 
         if (!func)
             return {};
@@ -52,7 +52,7 @@ struct ReflectionClass : ReflectionType
 
     [[nodiscard]] Red::Handle<ReflectionStaticFunc> GetStaticFunction(Red::CName aName) const
     {
-        auto func = Red::Detail::GetStaticFunction(m_class, aName);
+        auto func = Red::GetStaticFunction(m_class, aName);
 
         if (!func)
             return {};

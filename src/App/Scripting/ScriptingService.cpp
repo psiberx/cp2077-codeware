@@ -53,7 +53,7 @@ void App::ScriptingService::OnBootstrap()
 
 void App::ScriptingService::OnInitializeScripts()
 {
-    if (Red::Detail::GetGlobalFunction("InitializeScripts;"))
+    if (Red::GetGlobalFunction("InitializeScripts;"))
     {
         if (!Red::CGameEngine::Get()->scriptsLoaded)
         {

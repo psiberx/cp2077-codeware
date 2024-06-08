@@ -114,7 +114,7 @@ struct ReflectionFunc : Red::IScriptable
             stack.result->value = ret.GetDataPtr();
         }
 
-        const auto success = Red::Detail::CallFunctionWithStack(aFrame, m_func, stack);
+        const auto success = Red::CallFunction(aFrame, m_func, stack);
 
         if (aStatus)
         {
