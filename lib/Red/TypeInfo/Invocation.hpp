@@ -167,7 +167,7 @@ inline CBaseFunction* GetFunction(CClass* aType, CName aName, bool aMember = tru
 {
     if (aType)
     {
-        if (aMember)
+        if (aMember || Detail::IsFakeStatic(aType->name))
         {
             for (auto func : aType->funcs)
             {
@@ -186,11 +186,6 @@ inline CBaseFunction* GetFunction(CClass* aType, CName aName, bool aMember = tru
                 {
                     return func;
                 }
-            }
-
-            if (Detail::IsFakeStatic(aType->name))
-            {
-                return GetFunction(aType, aName);
             }
         }
 
