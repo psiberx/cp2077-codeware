@@ -5,6 +5,8 @@
 /build
 /dev
 /src/App/Staging
+/src/App/Project.hpp
+/src/App/Version.rc
 ~$*
 *.log
 CMakeLists.txt
