@@ -2,7 +2,7 @@
 
 #include "App/Callback/CallbackSystemTarget.hpp"
 #include "App/Callback/Events/ResourceEvent.hpp"
-#include "App/Depot/ResourcePathRegistry.hpp"
+#include "App/Shared/ResourcePathRegistry.hpp"
 #include "Core/Facades/Container.hpp"
 
 namespace App
@@ -29,7 +29,7 @@ struct ResourceTarget : CallbackSystemTarget
         {
             if (regex.has_value())
             {
-                auto pathStr = Core::Resolve<ResourcePathRegistry>()->GetPath(event->resource->path);
+                auto pathStr = ResourcePathRegistry::Get()->ResolvePath(event->resource->path);
                 if (pathStr.empty())
                     return false;
 
@@ -66,7 +66,7 @@ struct ResourceTarget : CallbackSystemTarget
         auto target = Red::MakeHandle<ResourceTarget>();
         target->path = aResourceRef.path;
 
-        auto pathStr = Core::Resolve<ResourcePathRegistry>()->GetPath(target->path);
+        auto pathStr = ResourcePathRegistry::Get()->ResolvePath(target->path);
         if (!pathStr.empty())
         {
             if (pathStr.starts_with("regex:"))

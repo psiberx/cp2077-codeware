@@ -1,7 +1,7 @@
 #pragma once
 
-#include "App/Depot/ResourcePathRegistry.hpp"
 #include "App/Depot/ResourceToken.hpp"
+#include "App/Shared/ResourcePathRegistry.hpp"
 #include "Core/Facades/Container.hpp"
 
 namespace App
@@ -89,7 +89,7 @@ struct ResourceScriptReferenceEx
 
     inline static Red::CString ToString(const Red::redResourceReferenceScriptToken& aReference)
     {
-        return Core::Resolve<ResourcePathRegistry>()->GetPath(aReference.resource.path);
+        return ResourcePathRegistry::Get()->ResolvePath(aReference.resource.path);
     }
 };
 }
