@@ -31,7 +31,7 @@ class MyService extends ScriptableService {
 Service instance can be accessed using service container:
 
 ```swift
-let myService = Game.GetScriptableServiceContainer().GetService(n"MyService") as MyService;
+let myService = GameInstance.GetScriptableServiceContainer().GetService(n"MyService") as MyService;
 ```
 
 Service properties marked as `persistent` will keep their state forever. 
