@@ -34,6 +34,18 @@ Service instance can be accessed using service container:
 let myService = GameInstance.GetScriptableServiceContainer().GetService(n"MyService") as MyService;
 ```
 
+**Note:** if you declare `MyService` in a module, you must include the full path of the module to get the service:
+
+```swift
+module MyModule.Services
+
+class MyService extends ScriptableService {
+  // ...
+}
+
+let myService = GameInstance.GetScriptableServiceContainer().GetService(n"MyModule.Services.MyService") as MyService;
+```
+
 Service properties marked as `persistent` will keep their state forever. 
 Unlike scriptable systems, service state storage is not tied to save files.
 
