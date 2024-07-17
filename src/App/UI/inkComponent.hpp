@@ -8,12 +8,14 @@ struct inkComponent : Red::inkLogicController
 {
     void OnConstruct()
     {
+        auto self = Red::ToHandle(this);
+
         Red::Handle<Red::inkWidget> root;
         Red::CallVirtual(this, "OnCreate", root);
 
         if (root)
         {
-            root->logicController = Red::ToHandle(this);
+            root->logicController = self;
             detached = root;
             widget = root;
         }
