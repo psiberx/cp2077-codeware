@@ -63,9 +63,9 @@ struct Reflection
         if (!resolvedClass)
             return {};
 
-        if (aActualType && resolvedClass->IsA(s_scriptableType))
+        if (aActualType && resolvedClass->IsA(s_serializableType))
         {
-            resolvedClass = reinterpret_cast<Red::IScriptable*>(resolvedInstance)->GetType();
+            resolvedClass = reinterpret_cast<Red::ISerializable*>(resolvedInstance)->GetType();
         }
 
         return Red::MakeHandle<ReflectionClass>(resolvedClass);
