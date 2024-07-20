@@ -122,4 +122,6 @@ constexpr uint32_t TagSystem_AssignTag = 1239092911;
 constexpr uint32_t TagSystem_UnassignTag = 1875775378;
 
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
+
+constexpr uint32_t WorkspotSystem_GetWorkspotInstance = 2234523611;
 }

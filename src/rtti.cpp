@@ -58,3 +58,4 @@
 #include "App/World/NodeSetupWrapper.hpp"
 #include "App/World/StreamingSectorEx.hpp"
 #include "App/World/WeatherSystemEx.hpp"
+#include "App/World/WorkspotSystemEx.hpp"

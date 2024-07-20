@@ -76,6 +76,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/ScriptableSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/WardrobeSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/WorkspotGameSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/data/District.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/data/MappinPhase.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/data/MappinVariant.hpp>
@@ -156,6 +157,11 @@
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/TagSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
+#include <RED4ext/Scripting/Natives/Generated/work/WorkEntryId.hpp>
+#include <RED4ext/Scripting/Natives/Generated/work/WorkspotInstance.hpp>
+#include <RED4ext/Scripting/Natives/Generated/work/WorkspotResource.hpp>
+#include <RED4ext/Scripting/Natives/Generated/work/WorkspotSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/work/WorkspotTree.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CommunityRegistryItem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/EnvironmentAreaParameters.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/EnvironmentDefinition.hpp>
