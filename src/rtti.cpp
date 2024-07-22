@@ -23,6 +23,7 @@
 #include "App/Entity/EntityEx.hpp"
 #include "App/Entity/EntityIDEx.hpp"
 #include "App/Entity/GameObjectEx.hpp"
+#include "App/Entity/PlacedComponentEx.hpp"
 #include "App/Entity/TagListEx.hpp"
 #include "App/Physics/TraceResultEx.hpp"
 #include "App/Player/VehicleSystemEx.hpp"
