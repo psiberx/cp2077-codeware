@@ -24,6 +24,7 @@
 #include "App/Entity/EntityIDEx.hpp"
 #include "App/Entity/GameObjectEx.hpp"
 #include "App/Entity/TagListEx.hpp"
+#include "App/Entity/VehicleObjectEx.hpp"
 #include "App/Physics/TraceResultEx.hpp"
 #include "App/Player/VehicleSystemEx.hpp"
 #include "App/Player/WardrobeSystemEx.hpp"
