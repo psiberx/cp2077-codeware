@@ -41,11 +41,14 @@ public:
     {
         std::unique_lock _(stateLock);
 
-        if (!valid)
+        if (!registered || !valid)
             return;
 
-        if (!targets.empty())
+        if (targeted)
         {
+            if (targets.empty())
+                return;
+
             const auto it =
                 std::ranges::find_if(targets, [&aEvent](Red::Handle<CallbackSystemTarget>& aTarget) -> bool {
                     return aTarget->Matches(aEvent);
@@ -61,26 +64,15 @@ public:
 
             if (runMode == CallbackRunMode::Once)
             {
-                valid = false;
+                targets.clear();
             }
             else if (runMode == CallbackRunMode::OncePerTarget)
             {
                 targets.erase(it);
-
-                if (targets.empty())
-                {
-                    valid = false;
-                }
             }
         }
         else
         {
-            if (targeted)
-            {
-                valid = false;
-                return;
-            }
-
             valid = ExecuteCallback(aEvent);
 
             if (!valid)
@@ -88,7 +80,7 @@ public:
 
             if (runMode == CallbackRunMode::Once || runMode == CallbackRunMode::OncePerTarget)
             {
-                valid = false;
+                registered = false;
             }
         }
     }
@@ -129,10 +121,9 @@ public:
         return lifetime == CallbackLifetime::Forever;
     }
 
-    [[nodiscard]] bool IsRegistered()
+    [[nodiscard]] bool IsRegistered() const
     {
-        std::shared_lock _(stateLock);
-        return valid;
+        return registered;
     }
 
     Red::Handle<CallbackSystemHandler> AddTarget(const Red::Handle<CallbackSystemTarget>& aTarget)
@@ -182,8 +173,7 @@ public:
 
     void Unregister()
     {
-        std::unique_lock _(stateLock);
-        valid = false;
+        registered = false;
     }
 
 private:
@@ -213,6 +203,7 @@ private:
     Core::Vector<Red::Handle<CallbackSystemTarget>> targets;
     bool targeted{false};
     bool valid{true};
+    bool registered{true};
 
     RTTI_IMPL_TYPEINFO(App::CallbackSystemHandler);
     RTTI_IMPL_ALLOCATOR();
