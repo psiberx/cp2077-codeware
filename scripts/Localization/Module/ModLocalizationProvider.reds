@@ -51,4 +51,36 @@ public abstract class ModLocalizationProvider extends ScriptableSystem {
     public func OnLocaleChange()
 
     public func OnGenderChange()
+
+    public func GetOnScreenEntries(language: CName, out entries: array<localizationPersistenceOnScreenEntry>) {
+        let packages: array<ref<ModLocalizationPackage>>;
+
+        let fallback = this.GetFallback();
+        if NotEquals(language, fallback) {
+            let fallbackPackage = this.GetPackage(fallback);
+            if IsDefined(fallbackPackage) {
+                ArrayPush(packages, fallbackPackage);
+            }
+        }
+
+        let mainPackage = this.GetPackage(language);
+        if IsDefined(mainPackage) {
+            ArrayPush(packages, mainPackage);
+        }
+
+        for package in packages {
+            let values: array<wref<IScriptable>>;
+            package.GetEntries(EntryType.Interface).GetValues(values);
+
+            for value in values {
+                let entry = value as LocalizationEntry;
+                ArrayPush(entries, new localizationPersistenceOnScreenEntry(
+                    0ul,
+                    entry.GetKey(),
+                    entry.GetVariant(PlayerGender.Female),
+                    entry.GetVariant(PlayerGender.Male)
+                ));
+            }
+        }
+    }
 }

@@ -61,6 +61,11 @@ constexpr uint32_t ISerializable_Clone = 2601784524;
 constexpr uint32_t IScriptable_CheckClass = 2487884020;
 constexpr uint32_t IScriptable_CheckExactClass = 1797004238;
 
+constexpr uint32_t Localization_LoadOnScreens = 3550098299;
+constexpr uint32_t Localization_LoadSubtitles = 772484645;
+constexpr uint32_t Localization_LoadVoiceOvers = 4259845555;
+constexpr uint32_t Localization_LoadLipsyncs = 1488657506;
+
 constexpr uint32_t MeshAppearance_LoadMaterialSetupAsync = 1419388740;
 
 constexpr uint32_t MorphTargetManager_ApplyMorphTarget = 633871992;

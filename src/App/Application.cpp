@@ -1,6 +1,7 @@
 #include "Application.hpp"
 #include "App/Entity/PersistencyService.hpp"
 #include "App/Environment.hpp"
+#include "App/Localization/LocalizationService.hpp"
 #include "App/Migration.hpp"
 #include "App/Project.hpp"
 #include "App/Quest/QuestPhaseRegistry.hpp"
@@ -33,6 +34,7 @@ App::Application::Application(HMODULE aHandle, const RED4ext::Sdk* aSdk)
     Register<Support::RedLibProvider>();
 
     Register<App::ScriptingService>(Env::PersistentDir());
+    Register<App::LocalizationService>();
     Register<App::PersistencyService>();
     Register<App::ResourcePathRegistry>(Env::KnownHashesPath());
     Register<App::QuestPhaseRegistry>();
