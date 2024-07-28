@@ -23,4 +23,9 @@ inline std::filesystem::path LegacyScriptsDir()
 {
     return Core::Runtime::GetRootDir() / L"r6" / L"scripts" / L"Codeware";
 }
+
+inline std::filesystem::path GameDir()
+{
+    return Core::Runtime::GetRootDir();
+}
 }
