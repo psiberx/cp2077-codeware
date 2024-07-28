@@ -1,4 +1,4 @@
-Version: 1.9.2
+Version: 1.12.0
 
 ## Lifecycle
 
@@ -962,6 +962,11 @@ public class LocalizationPackage extends ModLocalizationPackage {
   }
 }
 ```
+
+### Native localization keys
+
+Texts from localization providers are registered in native localization system as well,
+so they can be used in TweakDB and with `GetLocalizedTextByKey`/`GetLocalizedText` functions.
 
 ### Reference
 
