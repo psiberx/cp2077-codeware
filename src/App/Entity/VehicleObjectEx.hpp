@@ -1,5 +1,5 @@
 #pragma once
 
-RTTI_EXPAND_CLASS(Red::VehicleObject, {
+RTTI_EXPAND_CLASS(Red::vehicleBaseObject, {
     RTTI_PROPERTY(isOnGround);
 });
