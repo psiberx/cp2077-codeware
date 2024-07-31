@@ -26,9 +26,24 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         return setup->transform;
     }
 
+    [[nodiscard]] Red::Vector4 GetPosition() const
+    {
+        return setup->transform.position;
+    }
+
+    [[nodiscard]] Red::Quaternion GetOrientation() const
+    {
+        return setup->transform.orientation;
+    }
+
     [[nodiscard]] Red::Vector3 GetScale() const
     {
         return setup->scale;
+    }
+
+    [[nodiscard]] Red::NodeRef GetNodeRef() const
+    {
+        return {setup->globalNodeID};
     }
 
     [[nodiscard]] Red::GlobalNodeID GetGlobalNodeID() const
@@ -51,9 +66,24 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->transform = aTransform;
     }
 
+    void SetPosition(const Red::Vector4& aPosition) const
+    {
+        setup->transform.position = aPosition;
+    }
+
+    void SetOrientation(const Red::Quaternion& aOrientation) const
+    {
+        setup->transform.orientation = aOrientation;
+    }
+
     void SetScale(const Red::Vector3& aScale) const
     {
         setup->scale = aScale;
+    }
+
+    void SetNodeRef(Red::NodeRef aNodeRef) const
+    {
+        setup->globalNodeID = aNodeRef.hash;
     }
 
     void SetGlobalNodeID(Red::GlobalNodeID aNodeID) const
@@ -81,12 +111,18 @@ struct WorldNodeSetupWrapper : Red::IScriptable
 RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
     RTTI_METHOD(GetNode);
     RTTI_METHOD(GetTransform);
+    RTTI_METHOD(GetPosition);
+    RTTI_METHOD(GetOrientation);
     RTTI_METHOD(GetScale);
+    RTTI_METHOD(GetNodeRef);
     RTTI_METHOD(GetGlobalNodeID);
     RTTI_METHOD(GetProxyNodeID);
     RTTI_METHOD(GetStreamingDistance);
     RTTI_METHOD(SetTransform);
+    RTTI_METHOD(SetPosition);
+    RTTI_METHOD(SetOrientation);
     RTTI_METHOD(SetScale);
+    RTTI_METHOD(SetNodeRef);
     RTTI_METHOD(SetGlobalNodeID);
     RTTI_METHOD(SetProxyNodeID);
     RTTI_METHOD(SetStreamingDistance);
