@@ -15,8 +15,13 @@ void App::LocalizationService::OnLoadTexts(Red::Handle<Red::localizationPersiste
     if (language.IsNone())
         return;
 
+    auto providerBaseType = Red::GetClass<"Codeware.Localization.ModLocalizationProvider">();
+
+    if (!providerBaseType)
+        return;
+
     Red::DynArray<Red::CClass*> providerTypes;
-    Red::CRTTISystem::Get()->GetClasses(Red::GetClass<"Codeware.Localization.ModLocalizationProvider">(), providerTypes);
+    Red::CRTTISystem::Get()->GetClasses(providerBaseType, providerTypes);
 
     if (providerTypes.size == 0)
         return;
