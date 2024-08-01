@@ -8,76 +8,96 @@ namespace App
 {
 struct ResourceWrapper
 {
-    void LoadPath(const Red::redResourceReferenceScriptToken& aScriptToken)
+    inline void LoadPath(const Red::redResourceReferenceScriptToken& aScriptToken)
     {
-        resource = aScriptToken.resource.Resolve();
-        resource.LoadAsync();
+        reference = aScriptToken.resource.Resolve();
+        reference.LoadAsync();
     }
 
-    [[nodiscard]] Red::redResourceReferenceScriptToken GetPath() const
+    [[nodiscard]] inline Red::redResourceReferenceScriptToken GetPath() const
     {
-        return {resource.path};
+        return {reference.path};
     }
 
-    [[nodiscard]] uint64_t GetHash() const
+    [[nodiscard]] inline uint64_t GetHash() const
     {
-        return resource.path;
+        return reference.path;
     }
 
-    [[nodiscard]] Red::Handle<ResourceTokenWrapper> GetToken() const
+    [[nodiscard]] inline Red::Handle<ResourceTokenWrapper> GetToken() const
     {
-        return ResourceTokenWrapper::FromResRef(resource);
+        return ResourceTokenWrapper::FromResRef(reference);
     }
 
-    [[nodiscard]] Red::Handle<Red::CResource> GetResource() const
+    [[nodiscard]] inline Red::Handle<Red::CResource> GetResource() const
     {
-        if (!resource.token || !resource.token->IsFinished() || resource.token->IsFailed())
+        if (!reference.token || !reference.token->IsFinished() || reference.token->IsFailed())
             return {};
 
-        return resource.token->resource;
+        return reference.token->resource;
     }
 
-    [[nodiscard]] bool IsEmpty() const
+    [[nodiscard]] inline bool IsEmpty() const
     {
-        return !resource.path;
+        return !reference.path;
     }
 
-    [[nodiscard]] bool IsLoaded() const
+    [[nodiscard]] inline bool IsLoaded() const
     {
-        return resource.token && resource.token->IsLoaded();
+        return reference.token && reference.token->IsLoaded();
     }
 
-    [[nodiscard]] bool IsFailed() const
+    [[nodiscard]] inline bool IsFailed() const
     {
-        return resource.token && resource.token->IsFailed();
+        return reference.token && reference.token->IsFailed();
     }
 
-    Red::ResourceReference<> resource;
+    inline Red::Variant ToVariant(Red::CName aTypeName)
+    {
+        auto type = Red::CRTTISystem::Get()->GetType(aTypeName);
+        
+        if (!type || type->GetType() != Red::ERTTIType::ResourceReference)
+            return {};
+        
+        return {type, &reference};
+    }
+
+    inline static ResourceWrapper FromVariant(const Red::Variant& aVariant)
+    {
+        auto type = aVariant.GetType();
+
+        if (!type || type->GetType() != Red::ERTTIType::ResourceReference)
+            return {};
+
+        return {*reinterpret_cast<Red::ResourceReference<>*>(aVariant.GetDataPtr())};
+    }
+
+    Red::ResourceReference<> reference;
 };
 
 struct ResourceAsyncWrapper
 {
-    void SetPath(const Red::redResourceReferenceScriptToken& aScriptToken)
+    inline void SetPath(const Red::redResourceReferenceScriptToken& aScriptToken)
     {
-        resource = aScriptToken.resource;
+        reference = aScriptToken.resource;
     }
 
-    [[nodiscard]] Red::redResourceReferenceScriptToken GetPath() const
+    [[nodiscard]] inline Red::redResourceReferenceScriptToken GetPath() const
     {
-        return {resource};
+        return {reference};
     }
 
-    [[nodiscard]] uint64_t GetHash() const
+    [[nodiscard]] inline uint64_t GetHash() const
     {
-        return resource.path;
+        return reference.path;
     }
 
-    [[nodiscard]] bool IsEmpty() const
+    [[nodiscard]] inline bool IsEmpty() const
     {
-        return !resource.path;
+        return !reference.path;
     }
 
-    Red::ResourceAsyncReference<> resource;
+    Red::ResourceAsyncReference<> reference;
 };
 
 struct ResourceScriptReferenceEx
@@ -103,6 +123,8 @@ RTTI_DEFINE_CLASS(App::ResourceWrapper, "ResourceRef", {
     RTTI_METHOD(IsEmpty);
     RTTI_METHOD(IsLoaded);
     RTTI_METHOD(IsFailed);
+    RTTI_METHOD(ToVariant);
+    RTTI_METHOD(FromVariant);
 });
 
 RTTI_DEFINE_CLASS(App::ResourceAsyncWrapper, "ResourceAsyncRef", {

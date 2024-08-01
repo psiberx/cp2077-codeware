@@ -8,6 +8,14 @@ public native struct ResourceRef {
     public static native func IsLoaded(self: script_ref<ResourceRef>) -> Bool
     public static native func IsFailed(self: script_ref<ResourceRef>) -> Bool
     //public static native func ToString(self: script_ref<ResourceRef>) -> String
+    public static native func ToVariant(self: script_ref<ResourceRef>, type: CName) -> Variant
+    public static native func FromVariant(variant: Variant) -> ResourceRef
+
+    public static func FromPath(path: ResRef) -> ResourceRef {
+        let reference: ResourceRef;
+        ResourceRef.LoadPath(reference, path);
+        return reference;
+    }
 }
 
 public native struct ResourceAsyncRef {
