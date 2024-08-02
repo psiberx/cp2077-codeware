@@ -23,53 +23,59 @@ struct CallbackSystemHandler : Red::IScriptable
 public:
     CallbackSystemHandler() = default;
 
-    CallbackSystemHandler(Red::CName aEventType, Red::WeakHandle<Red::IScriptable> aContext, Red::CName aFunction)
+    CallbackSystemHandler(Red::CName aEventType, Red::WeakHandle<Red::IScriptable> aContext, Red::CName aFunctionName)
         : eventType(aEventType)
         , contextWeak(std::move(aContext))
-        , function(aFunction)
+        , functionName(aFunctionName)
+        , function(Red::GetMemberFunction(contextWeak.Lock(), aFunctionName))
+        , valid(function != nullptr)
     {
     }
 
-    CallbackSystemHandler(Red::CName aEventType, Red::CName aContext, Red::CName aFunction)
+    CallbackSystemHandler(Red::CName aEventType, Red::CName aContext, Red::CName aFunctionName)
         : eventType(aEventType)
         , contextType(aContext)
-        , function(aFunction)
+        , functionName(aFunctionName)
+        , function(Red::GetStaticFunction(contextType, aFunctionName))
+        , valid(function != nullptr)
     {
     }
 
     void operator()(const Red::Handle<CallbackSystemEvent>& aEvent)
     {
-        std::unique_lock _(stateLock);
-
         if (!registered || !valid)
             return;
 
         if (targeted)
         {
-            if (targets.empty())
-                return;
+            {
+                std::unique_lock _(stateLock);
 
-            const auto it =
-                std::ranges::find_if(targets, [&aEvent](Red::Handle<CallbackSystemTarget>& aTarget) -> bool {
-                    return aTarget->Matches(aEvent);
-                });
+                if (targets.empty())
+                    return;
 
-            if (it == targets.end())
-                return;
+                const auto it =
+                    std::ranges::find_if(targets, [&aEvent](Red::Handle<CallbackSystemTarget>& aTarget) -> bool {
+                        return aTarget->Matches(aEvent);
+                    });
+
+                if (it == targets.end())
+                    return;
+
+                if (runMode == CallbackRunMode::Once)
+                {
+                    targets.clear();
+                }
+                else if (runMode == CallbackRunMode::OncePerTarget)
+                {
+                    targets.erase(it);
+                }
+            }
 
             valid = ExecuteCallback(aEvent);
 
             if (!valid)
                 return;
-
-            if (runMode == CallbackRunMode::Once)
-            {
-                targets.clear();
-            }
-            else if (runMode == CallbackRunMode::OncePerTarget)
-            {
-                targets.erase(it);
-            }
         }
         else
         {
@@ -78,9 +84,13 @@ public:
             if (!valid)
                 return;
 
-            if (runMode == CallbackRunMode::Once || runMode == CallbackRunMode::OncePerTarget)
             {
-                registered = false;
+                std::shared_lock _(stateLock);
+
+                if (runMode == CallbackRunMode::Once || runMode == CallbackRunMode::OncePerTarget)
+                {
+                    registered = false;
+                }
             }
         }
     }
@@ -95,14 +105,14 @@ public:
         return contextType = aType;
     }
 
-    [[nodiscard]] bool IsSameCallback(const Red::WeakHandle<Red::IScriptable>& aObject, Red::CName aFunction)
+    [[nodiscard]] bool IsSameCallback(const Red::WeakHandle<Red::IScriptable>& aObject, Red::CName aFunctionName)
     {
-        return contextWeak.instance == aObject.instance && function == aFunction;
+        return contextWeak.instance == aObject.instance && functionName == aFunctionName;
     }
 
-    [[nodiscard]] bool IsSameCallback(Red::CName aType, Red::CName aFunction)
+    [[nodiscard]] bool IsSameCallback(Red::CName aType, Red::CName aFunctionName)
     {
-        return contextType = aType && function == aFunction;
+        return contextType = aType && functionName == aFunctionName;
     }
 
     [[nodiscard]] bool IsObject() const noexcept
@@ -179,14 +189,14 @@ public:
 private:
     [[nodiscard]] inline bool ExecuteCallback(const Red::Handle<CallbackSystemEvent>& aEvent) const
     {
-        if (IsStatic())
+        if (contextType)
         {
-            return Red::CallStatic(contextType, function, aEvent);
+            return Red::CallFunction(function, aEvent);
         }
 
         if (auto context = contextWeak.Lock())
         {
-            return Red::CallVirtual(context, function, aEvent);
+            return Red::CallFunction(context, function, aEvent);
         }
 
         return false;
@@ -195,9 +205,10 @@ private:
     Red::CName eventType;
     Red::WeakHandle<Red::IScriptable> contextWeak;
     Red::CName contextType;
-    Red::CName function;
+    Red::CName functionName;
+    Red::CBaseFunction* function{nullptr};
 
-    std::shared_mutex stateLock;
+    Red::SharedSpinLock stateLock;
     CallbackRunMode runMode{CallbackRunMode::Default};
     CallbackLifetime lifetime{CallbackLifetime::Session};
     Core::Vector<Red::Handle<CallbackSystemTarget>> targets;
