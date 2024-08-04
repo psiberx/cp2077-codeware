@@ -43,6 +43,8 @@ public:
 
     void operator()(const Red::Handle<CallbackSystemEvent>& aEvent)
     {
+        std::unique_lock sync(callbackLock);
+
         if (!registered || !valid)
             return;
 
@@ -213,8 +215,10 @@ private:
     CallbackLifetime lifetime{CallbackLifetime::Session};
     Core::Vector<Red::Handle<CallbackSystemTarget>> targets;
     bool targeted{false};
-    bool valid{true};
+
+    Red::SharedSpinLock callbackLock;
     bool registered{true};
+    bool valid{true};
 
     RTTI_IMPL_TYPEINFO(App::CallbackSystemHandler);
     RTTI_IMPL_ALLOCATOR();
