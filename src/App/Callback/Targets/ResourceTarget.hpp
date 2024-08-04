@@ -66,19 +66,17 @@ struct ResourceTarget : CallbackSystemTarget
         auto target = Red::MakeHandle<ResourceTarget>();
         target->path = aResourceRef.path;
 
-        auto pathStr = ResourcePathRegistry::Get()->ResolvePath(target->path);
-        if (!pathStr.empty())
+        auto pattern = ResourcePathRegistry::Get()->ResolvePath(target->path);
+        if (!pattern.empty())
         {
-            if (pathStr.starts_with("regex:"))
+            if (pattern.starts_with("regex:"))
             {
-                pathStr.remove_prefix(6);
-                target->regex = {pathStr.data(), pathStr.size()};
+                target->regex = {pattern.data() + 6, pattern.size() - 6};
             }
-            else if (pathStr.find('*') != std::string_view::npos)
+            else if (pattern.find('*') != std::string_view::npos)
             {
                 static const std::regex regexWildcardMeta(R"([\.\^\$\-\+\(\)\[\]\{\}\|\?\\])");
                 static const std::regex regexWildcardStar("\\*");
-                std::string pattern{pathStr};
                 pattern = std::regex_replace(pattern, regexWildcardMeta, "\\$&");
                 pattern = std::regex_replace(pattern, regexWildcardStar, ".*");
                 target->regex = "^" + pattern + "$";
