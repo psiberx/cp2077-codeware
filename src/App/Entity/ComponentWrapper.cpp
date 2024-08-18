@@ -191,7 +191,7 @@ bool App::ComponentWrapper::LoadResource(bool aRefresh, bool aWait) const
 
     if (aWait)
     {
-        Red::WaitForQueue(jobQueue, std::chrono::milliseconds(1000));
+        Red::WaitForQueue(jobQueue, std::chrono::milliseconds(5000));
     }
 
     if (aRefresh)
