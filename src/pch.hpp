@@ -158,6 +158,8 @@
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/TagSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/BaseObject.hpp>
+#include <RED4ext/Scripting/Natives/Generated/vehicle/Controller.hpp>
+#include <RED4ext/Scripting/Natives/Generated/vehicle/ELightType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/GarageVehicleID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/work/WorkEntryId.hpp>
 #include <RED4ext/Scripting/Natives/Generated/work/WorkspotInstance.hpp>

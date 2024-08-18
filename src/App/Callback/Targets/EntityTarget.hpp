@@ -50,7 +50,7 @@ struct EntityTarget : CallbackSystemTarget
 
     bool Supports(Red::CName aEventType) override
     {
-        return aEventType == Red::GetTypeName<EntityLifecycleEvent>();
+        return Red::GetClass(aEventType)->IsA(Red::GetClass<EntityLifecycleEvent>());
     }
 
     static Red::Handle<EntityTarget> ID(Red::EntityID aEntityID)

@@ -6,9 +6,10 @@
 #include "App/Callback/Controllers/EntityReassembleHook.hpp"
 #include "App/Callback/Controllers/EntityUninitializeHook.hpp"
 #include "App/Callback/Controllers/PlayerSpawnedHook.hpp"
+#include "App/Callback/Controllers/RawInputHook.hpp"
 #include "App/Callback/Controllers/ResourceLoadHook.hpp"
 #include "App/Callback/Controllers/ResourceReadyHook.hpp"
-#include "App/Callback/Controllers/RawInputHook.hpp"
+#include "App/Callback/Controllers/VehicleLightControlHook.hpp"
 #include "App/Callback/Events/GameSessionEvent.hpp"
 #include "App/Scripting/ScriptableService.hpp"
 #include "Red/InkSystem.hpp"
@@ -23,6 +24,7 @@ App::CallbackSystem::CallbackSystem()
     RegisterController<EntityInitializeHook>();
     RegisterController<EntityReassembleHook>();
     RegisterController<EntityUninitializeHook>();
+    RegisterController<VehicleLightControlHook>();
     RegisterController<PlayerSpawnedHook>();
     RegisterController<ResourceLoadHook>();
     RegisterController<ResourceReadyHook>();
