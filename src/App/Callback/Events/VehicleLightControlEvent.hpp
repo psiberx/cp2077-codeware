@@ -34,5 +34,4 @@ RTTI_DEFINE_CLASS(App::VehicleLightControlEvent, {
     RTTI_PARENT(App::EntityLifecycleEvent);
     RTTI_METHOD(IsLightType);
     RTTI_GETTER(enabled);
-    RTTI_GETTER(lightType);
 });

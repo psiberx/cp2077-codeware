@@ -13,7 +13,7 @@ class VehicleLightControlHook
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto EventName = Red::CName("Vehicle/ToggleLights");
+    constexpr static auto EventName = Red::CName("Vehicle/ToggleAuxLights");
 
     Core::Map<Red::CName, Red::CName> GetEvents() override
     {
@@ -23,12 +23,12 @@ public:
 protected:
     bool OnActivateHook() override
     {
-        return IsHooked<Raw::VehicleController::ToggleLights>() || HookAfter<Raw::VehicleController::ToggleLights>(&OnToggleLights);
+        return IsHooked<Raw::VehicleController::ToggleAuxLights>() || HookAfter<Raw::VehicleController::ToggleAuxLights>(&OnToggleLights);
     }
 
     bool OnDeactivateHook() override
     {
-        return !IsHooked<Raw::VehicleController::ToggleLights>() || Unhook<Raw::VehicleController::ToggleLights>();
+        return !IsHooked<Raw::VehicleController::ToggleAuxLights>() || Unhook<Raw::VehicleController::ToggleAuxLights>();
     }
 
     inline static void OnToggleLights(Red::vehicleController* aController, bool aEnable, Red::vehicleELightType aLightType)

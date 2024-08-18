@@ -2,7 +2,7 @@
 
 namespace Raw::VehicleController
 {
-constexpr auto ToggleLights = Core::RawFunc<
-    /* addr = */ Red::AddressLib::VehicleController_ToggleLights,
+constexpr auto ToggleAuxLights = Core::RawFunc<
+    /* addr = */ Red::AddressLib::VehicleController_ToggleAuxLights,
     /* type = */ void (*)(Red::vehicleController* aController, bool aEnable, Red::vehicleELightType aLightType)>();
 }

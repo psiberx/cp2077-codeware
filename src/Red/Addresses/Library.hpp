@@ -126,7 +126,7 @@ constexpr uint32_t ResourceSerializer_OnResourceReady = 1147149338;
 constexpr uint32_t TagSystem_AssignTag = 1239092911;
 constexpr uint32_t TagSystem_UnassignTag = 1875775378;
 
-constexpr uint32_t VehicleController_ToggleLights = 3642563117;
+constexpr uint32_t VehicleController_ToggleAuxLights = 1883248814;
 
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
 
