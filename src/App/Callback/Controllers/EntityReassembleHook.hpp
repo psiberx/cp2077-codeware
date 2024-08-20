@@ -31,20 +31,21 @@ protected:
         return !IsHooked<Raw::Entity::Reassemble>() || Unhook<Raw::Entity::Reassemble>();
     }
 
-    inline static void OnReassemble(Red::Entity* aEntity, uintptr_t, uint64_t, uint64_t,
+    inline static void OnReassemble(Red::Entity* aEntity, uintptr_t a2, Red::CName aNewAppearance, uint64_t a4,
                                     Red::DynArray<Red::Handle<Red::IComponent>>& aNewComponents,
                                     Red::Handle<Red::ent::EntityParametersStorage>& aEntityParams)
     {
-        auto storage = Raw::Entity::ComponentsStorage(aEntity);
-        auto compCount = storage->components.size;
+        aEntity->appearanceName = aNewAppearance;
+
+        auto compCount = aEntity->components.size;
 
         CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
 
-        if (compCount != storage->components.size)
+        if (compCount != aEntity->components.size)
         {
-            while (compCount < storage->components.size)
+            while (compCount < aEntity->components.size)
             {
-                aNewComponents.PushBack(storage->components[compCount]);
+                aNewComponents.PushBack(aEntity->components[compCount]);
                 ++compCount;
             }
         }

@@ -63,7 +63,7 @@ constexpr auto OnAssemble = Core::RawFunc<
 
 constexpr auto Reassemble = Core::RawFunc<
     /* addr = */ Red::AddressLib::Entity_Reassemble,
-    /* type = */ void (*)(Red::Entity* aEntity, uintptr_t, uint64_t, uint64_t,
+    /* type = */ void (*)(Red::Entity* aEntity, uintptr_t a2, Red::CName aNewAppearance, uint64_t a4,
                           Red::DynArray<Red::Handle<Red::IComponent>>& aNewComponents,
                           Red::Handle<Red::ent::EntityParametersStorage>& aEntityParams)>();
 
