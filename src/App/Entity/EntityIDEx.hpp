@@ -9,7 +9,7 @@ struct EntityIDEx : Red::EntityID
         return {aHash};
     }
 
-    Red::EntityID ToHash()
+    uint64_t ToHash()
     {
         return this->hash;
     }
