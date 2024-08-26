@@ -56,9 +56,24 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         return {setup->proxyNodeID};
     }
 
+    [[nodiscard]] Red::Vector3 GetStreamingPosition() const
+    {
+        return setup->streamingRefPoint;
+    }
+
     [[nodiscard]] float GetStreamingDistance() const
     {
         return setup->streamingDistance;
+    }
+
+    [[nodiscard]] Red::Vector3 GetSecondaryRefPointPosition() const
+    {
+        return setup->secondaryRefPointPosition;
+    }
+
+    [[nodiscard]] float GetSecondaryRefPointDistance() const
+    {
+        return setup->secondaryRefPointDistance;
     }
 
     void SetTransform(const Red::Transform& aTransform) const
@@ -96,9 +111,24 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->proxyNodeID = aProxyID.hash;
     }
 
+    void SetStreamingPosition(const Red::Vector3& aPosition) const
+    {
+        setup->streamingRefPoint = aPosition;
+    }
+
     void SetStreamingDistance(float aDistance) const
     {
         setup->streamingDistance = aDistance;
+    }
+
+    void SetSecondaryRefPointPosition(const Red::Vector3& aPosition) const
+    {
+        setup->secondaryRefPointPosition = aPosition;
+    }
+
+    void SetSecondaryRefPointDistance(float aDistance) const
+    {
+        setup->secondaryRefPointDistance = aDistance;
     }
 
     Red::CompiledNodeInstanceSetupInfo* setup{};
@@ -117,7 +147,10 @@ RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
     RTTI_METHOD(GetNodeRef);
     RTTI_METHOD(GetGlobalNodeID);
     RTTI_METHOD(GetProxyNodeID);
+    RTTI_METHOD(GetStreamingPosition);
     RTTI_METHOD(GetStreamingDistance);
+    RTTI_METHOD(GetSecondaryRefPointPosition);
+    RTTI_METHOD(GetSecondaryRefPointDistance);
     RTTI_METHOD(SetTransform);
     RTTI_METHOD(SetPosition);
     RTTI_METHOD(SetOrientation);
@@ -125,5 +158,8 @@ RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
     RTTI_METHOD(SetNodeRef);
     RTTI_METHOD(SetGlobalNodeID);
     RTTI_METHOD(SetProxyNodeID);
+    RTTI_METHOD(SetStreamingPosition);
     RTTI_METHOD(SetStreamingDistance);
+    RTTI_METHOD(SetSecondaryRefPointPosition);
+    RTTI_METHOD(SetSecondaryRefPointDistance);
 });
