@@ -52,7 +52,7 @@ public abstract class ModLocalizationProvider extends ScriptableSystem {
 
     public func OnGenderChange()
 
-    public func GetOnScreenEntries(language: CName, out entries: array<localizationPersistenceOnScreenEntry>) {
+    public func GetOnScreenEntries(language: CName, out nativeEntries: array<localizationPersistenceOnScreenEntry>) {
         let packages: array<ref<ModLocalizationPackage>>;
 
         let fallback = this.GetFallback();
@@ -73,13 +73,15 @@ public abstract class ModLocalizationProvider extends ScriptableSystem {
             package.GetEntries(EntryType.Interface).GetValues(values);
 
             for value in values {
-                let entry = value as LocalizationEntry;
-                ArrayPush(entries, new localizationPersistenceOnScreenEntry(
-                    0ul,
-                    entry.GetKey(),
-                    entry.GetVariant(PlayerGender.Female),
-                    entry.GetVariant(PlayerGender.Male)
-                ));
+                let scriptEntry = value as LocalizationEntry;
+
+                let nativeEntry: localizationPersistenceOnScreenEntry;
+                nativeEntry.primaryKey = 0ul;
+                nativeEntry.secondaryKey = scriptEntry.GetKey();
+                nativeEntry.femaleVariant = scriptEntry.GetVariant(PlayerGender.Female);
+                nativeEntry.maleVariant = scriptEntry.GetVariant(PlayerGender.Male);
+
+                ArrayPush(nativeEntries, nativeEntry);
             }
         }
     }
