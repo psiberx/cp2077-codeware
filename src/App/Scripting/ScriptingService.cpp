@@ -123,21 +123,6 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
                         }
 
                         classDef->parent = reinterpret_cast<Red::ScriptClass*>(*parentDef);
-
-                        if (classDef->properties.size > 0)
-                        {
-                            while (nativeParent)
-                            {
-                                for (auto i = static_cast<int32_t>(classDef->properties.size) - 1; i >= 0; --i)
-                                {
-                                    if (nativeParent->GetProperty(classDef->properties[i]->name))
-                                    {
-                                        classDef->properties.RemoveAt(i);
-                                    }
-                                }
-                                nativeParent = nativeParent->parent;
-                            }
-                        }
                     }
                 }
             }
