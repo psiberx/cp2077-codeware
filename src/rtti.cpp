@@ -49,6 +49,7 @@
 #include "App/Utils/CRUID.hpp"
 #include "App/Utils/Compatibility.hpp"
 #include "App/Utils/Hashing.hpp"
+#include "App/Utils/LocalizationString.hpp"
 #include "App/Utils/Logging.hpp"
 #include "App/Utils/NodeRef.hpp"
 #include "App/Utils/String.hpp"
