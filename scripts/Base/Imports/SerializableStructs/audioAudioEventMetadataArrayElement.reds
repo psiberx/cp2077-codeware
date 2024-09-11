@@ -1,4 +1,4 @@
-public native class audioAudioEventMetadataArrayElement extends ISerializable {
+public native struct audioAudioEventMetadataArrayElement {
   native let redId: CName;
   native let wwiseId: Uint32;
   native let maxAttenuation: Float;

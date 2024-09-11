@@ -23,6 +23,7 @@ constexpr auto CurveDataPrefix = Red::GetTypePrefixStr<Red::CurveData>();
 constexpr auto inkWidgetLibraryResourceTypeName = Red::CName("inkWidgetLibraryResource");
 constexpr auto gameuiBaseUIDataTypeName = Red::CName("gameuiBaseUIData");
 constexpr auto scnChatterTypeName = Red::CName("scnChatter");
+constexpr auto audioEventElementTypeName = Red::CName("audioAudioEventMetadataArrayElement");
 }
 
 App::ScriptingService::ScriptingService(const std::filesystem::path& aStateDir)
@@ -84,6 +85,11 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
             {
                 classDef->flags.isStruct = true;
                 classDef->parent = nullptr;
+            }
+            else if (classDef->name == audioEventElementTypeName)
+            {
+                classDef->flags.isStruct = true;
+                classDef->parent = reinterpret_cast<Red::ScriptClass*>(*aBundle->definitionsByName.Get(ISerializableTypeName));
             }
             else if (!classDef->flags.isStruct)
             {
