@@ -24,6 +24,7 @@ constexpr auto inkWidgetLibraryResourceTypeName = Red::CName("inkWidgetLibraryRe
 constexpr auto gameuiBaseUIDataTypeName = Red::CName("gameuiBaseUIData");
 constexpr auto scnChatterTypeName = Red::CName("scnChatter");
 constexpr auto audioEventElementTypeName = Red::CName("audioAudioEventMetadataArrayElement");
+constexpr auto entLODDefinitionTypeName = Red::CName("entLODDefinition");
 }
 
 App::ScriptingService::ScriptingService(const std::filesystem::path& aStateDir)
@@ -86,7 +87,7 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
                 classDef->flags.isStruct = true;
                 classDef->parent = nullptr;
             }
-            else if (classDef->name == audioEventElementTypeName)
+            else if (classDef->name == audioEventElementTypeName || classDef->name == entLODDefinitionTypeName)
             {
                 classDef->flags.isStruct = true;
                 classDef->parent = reinterpret_cast<Red::ScriptClass*>(*aBundle->definitionsByName.Get(ISerializableTypeName));
