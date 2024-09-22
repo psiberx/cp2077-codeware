@@ -49,7 +49,8 @@ public class InMenuPopupContent extends inkCustomController {
         sidePartFg.SetAnchor(inkEAnchor.Fill);
         sidePartFg.SetAnchorPoint(new Vector2(1.0, 0.5));
         sidePartFg.SetOpacity(0.5);
-        sidePartFg.SetTintColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
+        sidePartFg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        sidePartFg.BindProperty(n"tintColor", n"MainColors.Red");
         sidePartFg.SetSize(new Vector2(40.0, 32.0));
         sidePartFg.Reparent(left);
 
@@ -64,7 +65,8 @@ public class InMenuPopupContent extends inkCustomController {
         sidePartBg.SetAnchor(inkEAnchor.Fill);
         sidePartBg.SetAnchorPoint(new Vector2(1.0, 0.5));
         sidePartBg.SetOpacity(0.5);
-        sidePartBg.SetTintColor(new HDRColor(0.682353, 0.231373, 0.211765, 1.0));
+        sidePartBg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        sidePartBg.BindProperty(n"tintColor", n"MainColors.MildRed");
         sidePartBg.SetSize(new Vector2(40.0, 30.0));
         sidePartBg.Reparent(left);
 
@@ -78,7 +80,8 @@ public class InMenuPopupContent extends inkCustomController {
         sidePartAccent.SetAnchor(inkEAnchor.CenterLeft);
         sidePartAccent.SetAnchorPoint(new Vector2(0.0, 0.5));
         sidePartAccent.SetOpacity(0.2);
-        sidePartAccent.SetTintColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
+        sidePartAccent.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        sidePartAccent.BindProperty(n"tintColor", n"MainColors.Red");
         sidePartAccent.SetSize(new Vector2(28.0, 8.0));
         sidePartAccent.SetRotation(180.0);
         sidePartAccent.Reparent(left);
@@ -100,7 +103,8 @@ public class InMenuPopupContent extends inkCustomController {
         accentBg.SetVAlign(inkEVerticalAlign.Center);
         accentBg.SetAnchorPoint(new Vector2(0.5, 0.5));
         accentBg.SetOpacity(0.05);
-        accentBg.SetTintColor(new HDRColor(0.682353, 0.231373, 0.211765, 1.0));
+        accentBg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        accentBg.BindProperty(n"tintColor", n"MainColors.MildRed");
         accentBg.SetSize(new Vector2(10.0, 160.0));
         accentBg.SetRenderTransformPivot(new Vector2(0.0, 0.0));
         accentBg.Reparent(right);
@@ -114,7 +118,8 @@ public class InMenuPopupContent extends inkCustomController {
         accentFg.SetHAlign(inkEHorizontalAlign.Right);
         accentFg.SetVAlign(inkEVerticalAlign.Center);
         accentFg.SetAnchorPoint(new Vector2(0.5, 0.5));
-        accentFg.SetTintColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
+        accentFg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        accentFg.BindProperty(n"tintColor", n"MainColors.Red");
         accentFg.SetSize(new Vector2(10.0, 160.0));
         accentFg.SetRenderTransformPivot(new Vector2(0.0, 0.0));
         accentFg.Reparent(right);
@@ -131,7 +136,8 @@ public class InMenuPopupContent extends inkCustomController {
         protocol.SetVAlign(inkEVerticalAlign.Top);
         protocol.SetAnchorPoint(new Vector2(0.5, 0.5));
         protocol.SetOpacity(0.3);
-        protocol.SetTintColor(new HDRColor(0.682353, 0.231373, 0.211765, 1.0));
+        protocol.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        protocol.BindProperty(n"tintColor", n"MainColors.MildRed");
         protocol.SetSize(new Vector2(32.0, 32.0));
         protocol.SetRenderTransformPivot(new Vector2(0.0, 0.5));
         protocol.SetScale(new Vector2(0.3, 0.3));
@@ -146,7 +152,8 @@ public class InMenuPopupContent extends inkCustomController {
         bg.SetFitToContent(true);
         bg.SetAnchor(inkEAnchor.Fill);
         bg.SetAnchorPoint(new Vector2(0.5, 0.5));
-        bg.SetTintColor(new HDRColor(0.054902, 0.054902, 0.090196, 1.0));
+        bg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        bg.BindProperty(n"tintColor", n"MainColors.Fullscreen_PrimaryBackgroundDarkest");
         bg.SetSize(new Vector2(32.0, 32.0));
         bg.SetRenderTransformPivot(new Vector2(0.0, 0.5));
         bg.Reparent(right);
@@ -162,7 +169,8 @@ public class InMenuPopupContent extends inkCustomController {
         fg.SetAnchor(inkEAnchor.Fill);
         fg.SetAnchorPoint(new Vector2(0.5, 0.5));
         fg.SetOpacity(0.1);
-        fg.SetTintColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
+        fg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        fg.BindProperty(n"tintColor", n"MainColors.Red");
         fg.SetSize(new Vector2(32.0, 32.0));
         fg.SetRenderTransformPivot(new Vector2(0.0, 0.5));
         fg.Reparent(right);
@@ -178,7 +186,8 @@ public class InMenuPopupContent extends inkCustomController {
         fluffText1.SetAnchor(inkEAnchor.BottomLeft);
         fluffText1.SetAnchorPoint(new Vector2(0.5, 0.5));
         fluffText1.SetOpacity(0.3);
-        fluffText1.SetTintColor(new HDRColor(0.682353, 0.231373, 0.211765, 1.0));
+        fluffText1.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        fluffText1.BindProperty(n"tintColor", n"MainColors.MildRed");
         fluffText1.SetSize(new Vector2(30.0, 30.0));
         fluffText1.Reparent(right);
 
@@ -201,7 +210,8 @@ public class InMenuPopupContent extends inkCustomController {
         icon.SetMargin(new inkMargin(0.0, 10.0, 0.0, 0.0));
         icon.SetHAlign(inkEHorizontalAlign.Center);
         icon.SetVAlign(inkEVerticalAlign.Center);
-        icon.SetTintColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
+        icon.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        icon.BindProperty(n"tintColor", n"MainColors.Red");
         icon.SetSize(new Vector2(74.0, 64.0));
         icon.SetRenderTransformPivot(new Vector2(0.0, 0.0));
         icon.SetScale(new Vector2(0.5, 0.5));
@@ -222,7 +232,8 @@ public class InMenuPopupContent extends inkCustomController {
         line.SetVAlign(inkEVerticalAlign.Top);
         line.SetAnchor(inkEAnchor.TopFillHorizontaly);
         line.SetOpacity(0.1);
-        line.SetTintColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
+        line.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        line.BindProperty(n"tintColor", n"MainColors.Red");
         line.SetSize(new Vector2(3.0, 84.0));
         line.SetRenderTransformPivot(new Vector2(0.0, 0.5));
         line.Reparent(inkVerticalPanelWidget18);
@@ -239,7 +250,8 @@ public class InMenuPopupContent extends inkCustomController {
         title.SetMargin(new inkMargin(66.0, 20.0, 0.0, -30.0));
         title.SetVAlign(inkEVerticalAlign.Top);
         title.SetOpacity(1.0);
-        title.SetTintColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
+        title.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        title.BindProperty(n"tintColor", n"MainColors.Red");
         title.SetSize(new Vector2(100.0, 32.0));
         title.Reparent(inkVerticalPanelWidget18);
 

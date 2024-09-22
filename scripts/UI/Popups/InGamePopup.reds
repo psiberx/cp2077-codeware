@@ -30,7 +30,8 @@ public abstract class InGamePopup extends CustomPopup {
         vignette.SetAtlasResource(r"base\\gameplay\\gui\\widgets\\notifications\\vignette.inkatlas");
         vignette.SetTexturePart(n"vignette_1");
         vignette.SetNineSliceScale(true);
-        vignette.SetTintColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
+        vignette.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        vignette.BindProperty(n"tintColor", n"MainColors.Red");
         vignette.SetSize(32.0, 32.0);
         vignette.SetAnchor(inkEAnchor.CenterFillHorizontaly);
         vignette.SetAnchorPoint(new Vector2(0.5, 0.5));

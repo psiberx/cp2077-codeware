@@ -31,7 +31,8 @@ public class InGamePopupHeader extends inkCustomController {
         bg.SetAnchor(inkEAnchor.BottomFillHorizontaly);
         bg.SetAnchorPoint(new Vector2(1.0, 1.0));
         bg.SetOpacity(0.61);
-        bg.SetTintColor(ThemeColors.BlackPearl());
+        bg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        bg.BindProperty(n"tintColor", n"MainColors.Fullscreen_PrimaryBackgroundDarkest");
         bg.Reparent(bar);
 
         let bgr: ref<inkImage> = new inkImage();
@@ -42,7 +43,8 @@ public class InGamePopupHeader extends inkCustomController {
         bgr.SetAnchor(inkEAnchor.BottomFillHorizontaly);
         bgr.SetAnchorPoint(new Vector2(1.0, 1.0));
         bgr.SetOpacity(0.07);
-        bgr.SetTintColor(ThemeColors.Bordeaux());
+        bgr.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        bgr.BindProperty(n"tintColor", n"MainColors.PanelDarkRed");
         bgr.SetRenderTransformPivot(new Vector2(1.0, 1.0));
         bgr.Reparent(bar);
 
@@ -54,7 +56,8 @@ public class InGamePopupHeader extends inkCustomController {
         frame.SetAnchor(inkEAnchor.BottomFillHorizontaly);
         frame.SetAnchorPoint(new Vector2(1.0, 1.0));
         frame.SetOpacity(0.217);
-        frame.SetTintColor(ThemeColors.Bittersweet());
+        frame.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        frame.BindProperty(n"tintColor", n"MainColors.Red");
         frame.SetRenderTransformPivot(new Vector2(1.0, 1.0));
         frame.Reparent(bar);
 
@@ -68,7 +71,8 @@ public class InGamePopupHeader extends inkCustomController {
         bracketBg.SetAnchor(inkEAnchor.BottomFillHorizontaly);
         bracketBg.SetAnchorPoint(new Vector2(1.0, 1.0));
         bracketBg.SetOpacity(0.61);
-        bracketBg.SetTintColor(ThemeColors.BlackPearl());
+        bracketBg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        bracketBg.BindProperty(n"tintColor", n"MainColors.Fullscreen_PrimaryBackgroundDarkest");
         bracketBg.SetRenderTransformPivot(new Vector2(1.0, 1.0));
         bracketBg.Reparent(header);
 
@@ -82,7 +86,8 @@ public class InGamePopupHeader extends inkCustomController {
         bracketBgr.SetAnchor(inkEAnchor.BottomFillHorizontaly);
         bracketBgr.SetAnchorPoint(new Vector2(1.0, 1.0));
         bracketBgr.SetOpacity(0.217);
-        bracketBgr.SetTintColor(ThemeColors.Bittersweet());
+        bracketBgr.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        bracketBgr.BindProperty(n"tintColor", n"MainColors.Red");
         bracketBgr.Reparent(header);
 
         let bracketFg: ref<inkImage> = new inkImage();
@@ -95,7 +100,8 @@ public class InGamePopupHeader extends inkCustomController {
         bracketFg.SetAnchor(inkEAnchor.BottomFillHorizontaly);
         bracketFg.SetAnchorPoint(new Vector2(1.0, 1.0));
         bracketFg.SetOpacity(0.217);
-        bracketFg.SetTintColor(ThemeColors.Bittersweet());
+        bracketFg.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        bracketFg.BindProperty(n"tintColor", n"MainColors.Red");
         bracketFg.Reparent(header);
 
         let title: ref<inkText> = new inkText();
@@ -108,7 +114,8 @@ public class InGamePopupHeader extends inkCustomController {
         title.SetMargin(new inkMargin(48.0, 8.0, 200.0, 6.0));
         title.SetHAlign(inkEHorizontalAlign.Left);
         title.SetVAlign(inkEVerticalAlign.Center);
-        title.SetTintColor(ThemeColors.ElectricBlue());
+        title.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        title.BindProperty(n"tintColor", n"MainColors.Blue");
         title.Reparent(header);
 
         let fluffTextR: ref<inkText> = new inkText();
@@ -122,7 +129,8 @@ public class InGamePopupHeader extends inkCustomController {
         fluffTextR.SetMargin(new inkMargin(0.0, -30.0, 0.0, 0.0));
         fluffTextR.SetHAlign(inkEHorizontalAlign.Right);
         fluffTextR.SetAnchor(inkEAnchor.TopRight);
-        fluffTextR.SetTintColor(ThemeColors.Bittersweet());
+        fluffTextR.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        fluffTextR.BindProperty(n"tintColor", n"MainColors.Red");
         fluffTextR.SetRenderTransformPivot(new Vector2(1.0, 0.5));
         fluffTextR.Reparent(header);
 
@@ -137,7 +145,8 @@ public class InGamePopupHeader extends inkCustomController {
         fluffTextL.SetMargin(new inkMargin(0.0, -30.0, 0.0, 0.0));
         fluffTextL.SetHAlign(inkEHorizontalAlign.Left);
         fluffTextL.SetAnchor(inkEAnchor.TopRight);
-        fluffTextL.SetTintColor(ThemeColors.Bittersweet());
+        fluffTextL.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        fluffTextL.BindProperty(n"tintColor", n"MainColors.Red");
         fluffTextL.SetRenderTransformPivot(new Vector2(0.0, 0.5));
         fluffTextL.Reparent(header);
 
