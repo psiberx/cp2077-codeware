@@ -22,7 +22,8 @@ public abstract class InMenuPopup extends CustomPopup {
         fader.SetName(n"fader");
         fader.SetAnchor(inkEAnchor.Fill);
         fader.SetOpacity(0.7);
-        fader.SetTintColor(new HDRColor(0.027451, 0.031373, 0.039216, 1.0));
+        fader.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
+        fader.BindProperty(n"tintColor", n"Popup.faderColor");
         fader.SetSize(new Vector2(64.0, 64.0));
         fader.Reparent(this.GetRootCompoundWidget());
 
@@ -35,7 +36,8 @@ public abstract class InMenuPopup extends CustomPopup {
         bg1.SetVAlign(inkEVerticalAlign.Center);
         bg1.SetAnchor(inkEAnchor.Fill);
         bg1.SetAnchorPoint(new Vector2(0.5, 0.0));
-        bg1.SetTintColor(new HDRColor(0.262745, 0.086275, 0.094118, 1.0));
+        bg1.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
+        bg1.BindProperty(n"tintColor", n"MainColors.PanelDarkRed");
         bg1.SetSize(new Vector2(32.0, 32.0));
         bg1.Reparent(this.GetRootCompoundWidget());
 
@@ -48,7 +50,8 @@ public abstract class InMenuPopup extends CustomPopup {
         shadow.SetVAlign(inkEVerticalAlign.Center);
         shadow.SetAnchor(inkEAnchor.TopCenter);
         shadow.SetAnchorPoint(new Vector2(0.5, 0.5));
-        shadow.SetTintColor(new HDRColor(0.027451, 0.031373, 0.039216, 1.0));
+        shadow.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
+        shadow.BindProperty(n"tintColor", n"Popup.shadowColor");
         shadow.SetSize(new Vector2(2500.0, 1200.0));
         shadow.Reparent(this.GetRootCompoundWidget());
     }

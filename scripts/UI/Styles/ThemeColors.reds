@@ -2,7 +2,9 @@
 // Codeware.UI.ThemeColors
 // -----------------------------------------------------------------------------
 //
-// - Reference for base colors (should be replaced by ThemePicker)
+// NOTE: reference for base colors (should be replaced by ThemePicker /
+// StylePicker). You should use BindProperty and main_colors.inkstyle to use
+// game's engine colors when possible.
 //
 
 module Codeware.UI
