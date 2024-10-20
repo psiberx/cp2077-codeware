@@ -1,4 +1,4 @@
-Version: 1.12.0
+Version: 1.12.9
 
 ## Lifecycle
 
@@ -474,6 +474,12 @@ worldStateSystem.ActivateCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com")
 worldStateSystem.DeactivateCommunity(CreateNodeRef("#de_pac_cvi_03_com"));
 ```
 
+### Accessing mappins
+
+```swift
+let mappins: array<ref<IMappin>> = GameInstance.GetMappinSystem(GetGameInstance()).GetAllMappins();
+```
+
 ### Spatial queries
 
 You can now extract world node or entity from `TraceResult` you get from ray casting.
@@ -843,36 +849,26 @@ class MySystem extends ScriptableSystem {
 
 ### Localization system
 
-The localization system doesn't interact with native localization 
-and provides a pure script approach so you can:
+The localization system provides a script approach to add translations and allows you to:
 
-- Translate your mod with scripts and no other dependencies
 - Automatically apply translations based on the game language settings
 - Use different language packages for interface and subtitles 
 - Vary translations based on player gender
 
-To access translations you need an instance of the system:
+Texts from localization providers are registered in native localization system as well,
+so they can be used with `GetLocalizedTextByKey`/`GetLocalizedText` functions and in TweakDB.
 
 ```swift
 module MyMod.UI
 import Codeware.UI.*
-import Codeware.Localization.*
 
 public class MyModWidget extends inkCustomController {
   private let m_title: ref<inkText>;
   private let m_action: ref<inkText>;
-  private let m_translator: ref<LocalizationSystem>;
 
   private cb func OnInitialize() -> Void {
-    this.m_title.SetText(this.GetLocalizedText("MyMod-Title"));
-    this.m_action.SetText(this.GetLocalizedText("MyMod-Action-Use"));
-  }
-
-  private func GetLocalizedText(key: String) -> String {
-    if !IsDefined(this.m_translator) {
-      this.m_translator = LocalizationSystem.GetInstance(this.GetGame());
-    }
-    return this.m_translator.GetText(key);
+    this.m_title.SetText(GetLocalizedTextByKey(n"MyMod-Title"));
+    this.m_action.SetText(GetLocalizedTextByKey(n"MyMod-Action-Use"));
   }
 }
 ```
@@ -902,7 +898,7 @@ public class LocalizationProvider extends ModLocalizationProvider {
 }
 ```
 
-Provider can also track locale changes and notify other components:
+Provider can also track language changes and notify other components:
 
 ```swift
 public class LocalizationProvider extends ModLocalizationProvider {
@@ -962,11 +958,6 @@ public class LocalizationPackage extends ModLocalizationPackage {
   }
 }
 ```
-
-### Native localization keys
-
-Texts from localization providers are registered in native localization system as well,
-so they can be used in TweakDB and with `GetLocalizedTextByKey`/`GetLocalizedText` functions.
 
 ### Reference
 
