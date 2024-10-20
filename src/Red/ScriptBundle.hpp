@@ -227,7 +227,7 @@ struct ScriptBundle
     DynArray<ScriptType*> types;                         // E0
     DynArray<CString> strings;                           // F0
     HashMap<CName, void*> unk100;                        // 100
-    SharedMutex typesLock;                               // 130
+    SharedSpinLock typesLock;                            // 130
     CRITICAL_SECTION unk138;                             // 138
 };
 RED4EXT_ASSERT_SIZE(ScriptBundle, 0x160);

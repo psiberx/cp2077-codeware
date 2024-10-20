@@ -217,7 +217,7 @@ struct AreaTypeTransition
 
 namespace Raw::QuestsSystem
 {
-using Mutex = Core::OffsetPtr<0x60, Red::SharedMutex>;
+using Mutex = Core::OffsetPtr<0x60, Red::SharedSpinLock>;
 using RootPhase = Core::OffsetPtr<0x68, Red::Handle<Red::questPhaseInstance>>;
 using NodePathHashMap = Core::OffsetPtr<0x78, Red::HashMap<Red::QuestNodePathHash, Red::QuestNodePath>>;
 using FactManager = Core::OffsetPtr<0xF8, Red::FactManager*>;

@@ -46,7 +46,7 @@ inline void AppendToFlat(TweakDBID aRecordID, const char* aProp, const Core::Vec
     flatID.SetTDBOffset(offset);
 
     {
-        std::lock_guard<SharedMutex> _(tweakDB->mutex00);
+        std::lock_guard _(tweakDB->mutex00);
         tweakDB->flats.InsertOrAssign(flatID);
     }
 }

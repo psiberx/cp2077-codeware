@@ -120,7 +120,7 @@ public:
 private:
     Core::SharedPtr<QuestPhaseRegistry> m_questPhaseRegistry;
     Red::questIQuestsSystem* m_questsSystem;
-    Red::SharedMutex& m_questsSystemMutex;
+    Red::SharedSpinLock& m_questsSystemMutex;
     Red::Handle<Red::questPhaseInstance>& m_rootPhaseInstance;
 };
 }
