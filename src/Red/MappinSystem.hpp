@@ -1,7 +1,19 @@
 #pragma once
 
+namespace Red
+{
+struct MappinData
+{
+    uint64_t id;
+    Handle<IMappin> instance;
+};
+}
+
 namespace Raw::MappinSystem
 {
+using MappinsLock = Core::OffsetPtr<0x198, Red::SharedSpinLock>;
+using MappinsData = Core::OffsetPtr<0x1A0, Red::SortedArray<Red::MappinData>>;
+
 constexpr auto SetPoiMappinPhase = Core::RawVFunc<
     /* addr = */ 0x1D0,
     /* type = */ void (Red::gamemappinsIMappinSystem::*)(const uint32_t aJournalPath,
