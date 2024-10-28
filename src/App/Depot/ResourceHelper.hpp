@@ -55,6 +55,20 @@ struct ResourceHelper
 
         return prop->GetValuePtr<Red::ResourceReference<>>(aOwner)->token->resource;
     }
+
+    static Red::redResourceReferenceScriptToken GetReferencePath(const Red::Handle<Red::ISerializable>& aOwner,
+                                                                 Red::CName aReferencePropName)
+    {
+        if (!aOwner || !aReferencePropName)
+            return {};
+
+        auto prop = aOwner->GetType()->GetProperty(aReferencePropName);
+
+        if (!prop || prop->type->GetType() != Red::ERTTIType::ResourceReference)
+            return {};
+
+        return {prop->GetValuePtr<Red::ResourceReference<>>(aOwner)->path};
+    }
 };
 }
 
@@ -62,4 +76,5 @@ RTTI_DEFINE_CLASS(App::ResourceHelper, {
     RTTI_METHOD(LoadReferenceResource);
     RTTI_METHOD(IsReferenceLoaded);
     RTTI_METHOD(GetReferenceResource);
+    RTTI_METHOD(GetReferencePath);
 });
