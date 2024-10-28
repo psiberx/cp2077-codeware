@@ -53,7 +53,12 @@ struct ResourceHelper
         if (!prop || prop->type->GetType() != Red::ERTTIType::ResourceReference)
             return {};
 
-        return prop->GetValuePtr<Red::ResourceReference<>>(aOwner)->token->resource;
+        const auto& token = prop->GetValuePtr<Red::ResourceReference<>>(aOwner)->token;
+
+        if (!token)
+            return {};
+
+        return token->resource;
     }
 
     static Red::redResourceReferenceScriptToken GetReferencePath(const Red::Handle<Red::ISerializable>& aOwner,
