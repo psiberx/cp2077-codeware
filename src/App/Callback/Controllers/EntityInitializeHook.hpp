@@ -35,7 +35,7 @@ protected:
     {
         if (aRequest->entityID)
         {
-            Raw::Entity::EntityID{aEntity} = aRequest->entityID;
+            Raw::Entity::EntityID::Set(aEntity, aRequest->entityID);
         }
 
         CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));

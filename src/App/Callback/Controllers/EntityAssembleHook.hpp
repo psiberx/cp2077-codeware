@@ -23,12 +23,12 @@ public:
 protected:
     bool OnActivateHook() override
     {
-        return IsHooked<Raw::Entity::OnAssemble>() || HookAfter<Raw::Entity::OnAssemble>(&OnAssemble);
+        return IsHooked<Raw::Entity::Assemble>() || HookAfter<Raw::Entity::Assemble>(&OnAssemble);
     }
 
     bool OnDeactivateHook() override
     {
-        return !IsHooked<Raw::Entity::OnAssemble>() || Unhook<Raw::Entity::OnAssemble>();
+        return !IsHooked<Raw::Entity::Assemble>() || Unhook<Raw::Entity::Assemble>();
     }
 
     inline static void OnAssemble(Red::Entity* aEntity, uintptr_t)
