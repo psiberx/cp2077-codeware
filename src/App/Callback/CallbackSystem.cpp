@@ -2,8 +2,7 @@
 #include "App/Callback/Controllers/EntityAssembleHook.hpp"
 #include "App/Callback/Controllers/EntityAttachHook.hpp"
 #include "App/Callback/Controllers/EntityDetachHook.hpp"
-#include "App/Callback/Controllers/EntityInitializeHook.hpp"
-#include "App/Callback/Controllers/EntityReassembleHook.hpp"
+#include "App/Callback/Controllers/EntityRequestComponentsHook.hpp"
 #include "App/Callback/Controllers/EntityUninitializeHook.hpp"
 #include "App/Callback/Controllers/PlayerSpawnedHook.hpp"
 #include "App/Callback/Controllers/RawInputHook.hpp"
@@ -21,8 +20,7 @@ App::CallbackSystem::CallbackSystem()
     RegisterController<EntityAssembleHook>();
     RegisterController<EntityAttachHook>();
     RegisterController<EntityDetachHook>();
-    RegisterController<EntityInitializeHook>();
-    RegisterController<EntityReassembleHook>();
+    RegisterController<EntityRequestComponentsHook>();
     RegisterController<EntityUninitializeHook>();
     RegisterController<VehicleLightControlHook>();
     RegisterController<PlayerSpawnedHook>();

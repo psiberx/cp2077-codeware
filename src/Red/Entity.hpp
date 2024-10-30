@@ -57,7 +57,7 @@ using Scene = Core::OffsetPtr<0xB8, Red::world::RuntimeScene>;
 using Status = Core::OffsetPtr<0x156, Red::EntityStatus>;
 // using Tags = Core::OffsetPtr<0x230, Red::TagList>;
 
-constexpr auto OnAssemble = Core::RawFunc<
+constexpr auto Assemble = Core::RawFunc<
     /* addr = */ Red::AddressLib::Entity_OnAssemble,
     /* type = */ bool (*)(Red::Entity* aEntity, uintptr_t)>();
 
@@ -70,6 +70,11 @@ constexpr auto Reassemble = Core::RawFunc<
 constexpr auto Initialize = Core::RawFunc<
     /* addr = */ Red::AddressLib::Entity_Initialize,
     /* type = */ void (*)(Red::Entity* aEntity, uintptr_t, Red::EntityInitializeRequest* aRequest)>();
+
+constexpr auto RequestComponents = Core::RawFunc<
+    /* addr = */ Red::AddressLib::Entity_RequestComponents,
+    /* type = */ void (*)(Red::Entity* aEntity, uintptr_t a2,
+                          Red::DynArray<Red::Handle<Red::IComponent>>* aComponents)>();
 
 constexpr auto Uninitialize = Core::RawFunc<
     /* addr = */ Red::AddressLib::Entity_Uninitialize,

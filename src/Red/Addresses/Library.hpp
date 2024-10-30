@@ -24,6 +24,7 @@ constexpr uint32_t Entity_Initialize = 3490519617;
 constexpr uint32_t Entity_OnAssemble = 2182550867;
 constexpr uint32_t Entity_Reassemble = 1560690857;
 constexpr uint32_t Entity_Uninitialize = 3596356635;
+constexpr uint32_t Entity_RequestComponents = 2296260874;
 
 constexpr uint32_t EntitySpawner_SpawnEntity = 3068279668;
 
@@ -94,6 +95,9 @@ constexpr uint32_t QuestsSystem_CreateContext = 3144298192;
 
 constexpr uint32_t ResourcePath_Create = 3998356057;
 
+constexpr uint32_t ResourceSerializer_OnDependenciesReady = 1185093671;
+constexpr uint32_t ResourceSerializer_OnResourceReady = 1147149338;
+
 constexpr uint32_t RuntimeEntityRegistry_RegisterEntity = 2840271332; // world::RuntimeEntityRegistry::RegisterEntity
 constexpr uint32_t RuntimeEntityRegistry_UnregisterEntity = 3878623943;
 
@@ -119,9 +123,6 @@ constexpr uint32_t ScriptValidator_CompareType = 4224523662;
 constexpr uint32_t ScriptValidator_CompareTypeName = 1156189659;
 constexpr uint32_t ScriptValidator_Validate = 898639042;
 constexpr uint32_t ScriptValidator_ValidateProperty = 560604283;
-
-constexpr uint32_t ResourceSerializer_OnDependenciesReady = 1185093671;
-constexpr uint32_t ResourceSerializer_OnResourceReady = 1147149338;
 
 constexpr uint32_t TagSystem_AssignTag = 1239092911;
 constexpr uint32_t TagSystem_UnassignTag = 1875775378;
