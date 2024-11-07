@@ -61,6 +61,18 @@ struct ReflectionEnum : ReflectionType
         return !m_enum->flags.isScripted;
     }
 
+    void AddConstant(Red::CName aName, int64_t aValue) const
+    {
+        for (uint32_t i = 0; i != m_enum->valueList.size; ++i)
+        {
+            if (aValue == m_enum->valueList.entries[i] || aName == m_enum->hashList.entries[i])
+                return;
+        }
+
+        m_enum->valueList.PushBack(aValue);
+        m_enum->hashList.PushBack(aName);
+    }
+
     Red::CEnum* m_enum;
 
     RTTI_IMPL_TYPEINFO(App::ReflectionEnum);
@@ -77,4 +89,5 @@ RTTI_DEFINE_CLASS(App::ReflectionEnum, {
     RTTI_PARENT(App::ReflectionType);
     RTTI_METHOD(GetConstants);
     RTTI_METHOD(IsNative);
+    RTTI_METHOD(AddConstant);
 });
