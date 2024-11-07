@@ -346,8 +346,8 @@ bool App::ComponentWrapper::SetChunkMask(uint64_t aChunkMask) const
 
 bool App::ComponentWrapper::RefreshAppearance() const
 {
-    if (!IsMeshComponent())
-        return false;
+    // if (!IsMeshComponent())
+    //     return false;
 
     Raw::MeshComponent::RefreshAppearance(m_component);
     return true;
