@@ -251,12 +251,10 @@ void App::ScriptingService::OnCreateInstance(Red::IScriptable*& aInstance, Red::
 void App::ScriptingService::GetScriptGameInstance(Red::IScriptable*, Red::CStackFrame* aFrame,
                                                   Red::ScriptGameInstance* aRet, Red::CBaseRTTIType*)
 {
-    static const Red::ScriptGameInstance game{};
-
     ++aFrame->code;
 
     if (aRet)
     {
-        *aRet = game;
+        *aRet = Red::ScriptGameInstance{};
     }
 }
