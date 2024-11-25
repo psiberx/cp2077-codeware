@@ -2,6 +2,7 @@
 #include "App/Callback/Controllers/EntityAssembleHook.hpp"
 #include "App/Callback/Controllers/EntityAttachHook.hpp"
 #include "App/Callback/Controllers/EntityDetachHook.hpp"
+#include "App/Callback/Controllers/EntityExtractHook.hpp"
 #include "App/Callback/Controllers/EntityRequestComponentsHook.hpp"
 #include "App/Callback/Controllers/EntityUninitializeHook.hpp"
 #include "App/Callback/Controllers/PlayerSpawnedHook.hpp"
@@ -17,6 +18,7 @@ App::CallbackSystem::CallbackSystem()
     : m_restored(false)
     , m_pregame(false)
 {
+    RegisterController<EntityExtractHook>();
     RegisterController<EntityAssembleHook>();
     RegisterController<EntityAttachHook>();
     RegisterController<EntityDetachHook>();

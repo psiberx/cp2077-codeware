@@ -1,7 +1,9 @@
 #pragma once
 
 #include "App/Callback/CallbackSystemTarget.hpp"
+#include "App/Callback/Events/EntityBuilderEvent.hpp"
 #include "App/Callback/Events/EntityLifecycleEvent.hpp"
+#include "App/Callback/Events/VehicleLightControlEvent.hpp"
 
 namespace App
 {
@@ -11,30 +13,109 @@ struct EntityTarget : CallbackSystemTarget
 
     bool Matches(const Red::Handle<CallbackSystemEvent>& aEvent) override
     {
-        auto* entity = aEvent.GetPtr<EntityLifecycleEvent>()->entity.instance;
-
-        if (entityID && entityID != entity->entityID)
-            return false;
-
-        if (entityType && !entity->GetType()->IsA(entityType))
-            return false;
-
-        if (templatePath && templatePath != entity->templatePath)
-            return false;
-
-        if (appearanceName && appearanceName != entity->appearanceName)
-            return false;
-
-        if (recordID)
+        switch (aEvent->GetType()->GetName())
         {
-            auto gameObject = Red::Cast<Red::GameObject>(entity);
-            if (!gameObject)
+        case Red::GetTypeName<EntityBuilderEvent>():
+        {
+            auto* builder = aEvent.GetPtr<EntityBuilderEvent>()->entityBuilder->builder.instance;
+
+            if (entityID && builder->request && entityID != builder->request->entityID)
                 return false;
 
-            Red::TweakDBID objectID;
-            Red::CallGlobal("gameObject::GetTDBID;GameObject", objectID, Red::AsWeakHandle(gameObject));
-            if (recordID != objectID)
+            if (entityType)
+            {
+                if (!builder->entityExtractor)
+                    return false;
+
+                auto rootIndex = builder->entityTemplate->compiledDataHeader.rootIndex;
+
+                if (rootIndex < 0)
+                    return false;
+
+                if (!builder->entityExtractor->results[rootIndex]->GetType()->IsA(entityType))
+                    return false;
+            }
+
+            if (templatePath && templatePath != builder->entityTemplate->path)
                 return false;
+
+            if (appearanceName && builder->request && appearanceName != builder->request->appearanceName)
+                return false;
+
+            if (recordID && builder->request && recordID != builder->request->recordID)
+                return false;
+
+            if (appearancePath)
+            {
+                if (builder->appearance.resource)
+                {
+                    if (appearancePath != builder->appearance.resource->path)
+                        return false;
+
+                    if (definitionName && definitionName != builder->appearance.definition->name)
+                        return false;
+                }
+                else if (builder->appearances.size != 0)
+                {
+                    auto match = false;
+
+                    for (const auto& appearance : builder->appearances)
+                    {
+                        if (appearancePath != appearance.resource->path)
+                            continue;
+
+                        if (definitionName && definitionName != appearance.definition->name)
+                            continue;
+
+                        match = true;
+                        break;
+                    }
+
+                    if (!match)
+                        return false;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+            break;
+        }
+        case Red::GetTypeName<EntityLifecycleEvent>():
+        case Red::GetTypeName<VehicleLightControlEvent>():
+        {
+            auto* entity = aEvent.GetPtr<EntityLifecycleEvent>()->entity.instance;
+
+            if (appearancePath || definitionName)
+                return false;
+
+            if (entityID && entityID != entity->entityID)
+                return false;
+
+            if (entityType && !entity->GetType()->IsA(entityType))
+                return false;
+
+            if (templatePath && templatePath != entity->templatePath)
+                return false;
+
+            if (appearanceName && appearanceName != entity->appearanceName)
+                return false;
+
+            if (recordID)
+            {
+                auto gameObject = Red::Cast<Red::GameObject>(entity);
+                if (!gameObject)
+                    return false;
+
+                Red::TweakDBID objectID;
+                Red::CallGlobal("gameObject::GetTDBID;GameObject", objectID, Red::AsWeakHandle(gameObject));
+                if (recordID != objectID)
+                    return false;
+            }
+
+            break;
+        }
         }
 
         return true;
@@ -50,7 +131,9 @@ struct EntityTarget : CallbackSystemTarget
 
     bool Supports(Red::CName aEventType) override
     {
-        return Red::GetClass(aEventType)->IsA(Red::GetClass<EntityLifecycleEvent>());
+        return aEventType == Red::GetTypeName<EntityBuilderEvent>()
+            || aEventType == Red::GetTypeName<EntityLifecycleEvent>()
+            || aEventType == Red::GetTypeName<VehicleLightControlEvent>();
     }
 
     static Red::Handle<EntityTarget> ID(Red::EntityID aEntityID)
@@ -93,11 +176,22 @@ struct EntityTarget : CallbackSystemTarget
         return target;
     }
 
+    static Red::Handle<EntityTarget> Definition(const Red::RaRef<>& aResource, Red::Optional<Red::CName> aName)
+    {
+        auto target = Red::MakeHandle<EntityTarget>();
+        target->appearancePath = aResource.path;
+        target->definitionName = aName;
+
+        return target;
+    }
+
     Red::EntityID entityID{};
     Red::CClass* entityType{};
     Red::TweakDBID recordID{};
     Red::ResourcePath templatePath{};
     Red::CName appearanceName{};
+    Red::ResourcePath appearancePath{};
+    Red::CName definitionName{};
 
     RTTI_IMPL_TYPEINFO(App::EntityTarget);
     RTTI_IMPL_ALLOCATOR();
@@ -111,4 +205,5 @@ RTTI_DEFINE_CLASS(App::EntityTarget, {
     RTTI_METHOD(RecordID);
     RTTI_METHOD(Template);
     RTTI_METHOD(Appearance);
+    RTTI_METHOD(Definition);
 });

@@ -78,7 +78,7 @@ It's safe to change persistent data structure at any time.
 Callback system allows you to listen to various game events 
 and in some cases alter game behavior and/or modify related game objects:
 
-| Event Name            | Event Object Type      | Description                                                                                        |
+| Event Name            | Event Type             | Description                                                                                        |
 |:----------------------|:-----------------------|:---------------------------------------------------------------------------------------------------|
 | `Resource/Loaded`     | `ResourceEvent`        | Fired when resource and its dependencies have been loaded, but no post-processing is done yet.     |
 | `Resource/Ready`      | `ResourceEvent`        | Fired when all post-processing is complete and resource is ready to be passed to the requester.    |
@@ -91,8 +91,9 @@ and in some cases alter game behavior and/or modify related game objects:
 | `Session/AfterSave`   | `GameSessionEvent`     | Fired right after saving.                                                                          |
 | `Session/Pause`       | `GameSessionEvent`     | Fired when game is paused.                                                                         |
 | `Session/Resume`      | `GameSessionEvent`     | Fired when game is resumed.                                                                        |
-| `Entity/Assemble`     | `EntityLifecycleEvent` | The earliest phase of entity creation process. Entity ID is not assigned yet.                      |
-| `Entity/Initialize`   | `EntityLifecycleEvent` | Fired when entity is assembled and ready for use. Entity ID is assigned at this stage.             |
+| `Entity/Extract`      | `EntityBuilderEvent`   | Fired when all entity parts are extracted from `.ent` and `.app` to assemble the entity object.    |
+| `Entity/Assemble`     | `EntityLifecycleEvent` | Fired when entity is assembled from extracted parts. Entity ID is not assigned yet.                |
+| `Entity/Initialize`   | `EntityLifecycleEvent` | Fired when entity and its components are intializing. Entity ID is assigned at this stage.         |
 | `Entity/Reassemble`   | `EntityLifecycleEvent` | Fired when components dynamically added or removed from entity. For example, when you equip items. |
 | `Entity/Attach`       | `EntityLifecycleEvent` | Fired when entity is added to the world. Can be fired multiple times during entity lifetime.       |
 | `Entity/Attached`     | `EntityLifecycleEvent` | Fired when attachment process is finished for entity.                                              |
@@ -101,22 +102,24 @@ and in some cases alter game behavior and/or modify related game objects:
 | `Input/Key`           | `KeyInputEvent`        | Catches keyboard, mouse and controller button inputs.                                              |
 | `Input/Axis`          | `AxisInputEvent`       | Catches mouse movements and controller axis inputs.                                                |
 
-When defining a callback, you can specify the event target only for which the callback should be fired:
+When defining a callback, you can specify event targets for which the callback should be fired:
 
-| Target Definition                          | Compatible Event       | Description                                                 |
-|:-------------------------------------------|:-----------------------|:------------------------------------------------------------|
-| `ResourceTarget.Path(ResRef)`              | `ResourceEvent`        | Selects resource by path.                                   |
-| `ResourceTarget.Type(CName)`               | `ResourceEvent`        | Selects resource by type name, e.g. `n"entEntityTemplate"`. |
-| `EntityTarget.ID(EntityID)`                | `EntityLifecycleEvent` | Selects entity by entity ID.                                |
-| `EntityTarget.Type(CName)`                 | `EntityLifecycleEvent` | Selects entity by type name, e.g. `n"PlayerPuppet"`.        |
-| `EntityTarget.RecordID(TweakDBID)`         | `EntityLifecycleEvent` | Selects entity by record ID, e.g. `t"Character.Panam"`.     |
-| `EntityTarget.Template(ResRef)`            | `EntityLifecycleEvent` | Selects entity by template path.                            |
-| `EntityTarget.Appearance(CName)`           | `EntityLifecycleEvent` | Selects entity by appearance name.                          |
-| `DynamicEntityTarget.Tag(CName)`           | `EntityLifecycleEvent` | Selects entity created using dynamic entity system by tag.  |
-| `StaticEntityTarget.Tag(CName)`            | `EntityLifecycleEvent` | Selects entity spawned using static entity system by tag.   |
-| `InputTarget.Key(EInputKey)`               | `KeyInputEvent`        | Selects input event by key.                                 |
-| `InputTarget.Key(EInputKey, EInputAction)` | `KeyInputEvent`        | Selects input event by key in combination with action.      |
-| `InputTarget.Axis(EInputKey)`              | `AxisInputEvent`       | Selects input event by axis.                                |
+| Target Definition                          | Compatible Event Types                       | Description                                                 |
+|:-------------------------------------------|:---------------------------------------------|:------------------------------------------------------------|
+| `ResourceTarget.Path(ResRef)`              | `ResourceEvent`                              | Selects resource by path.                                   |
+| `ResourceTarget.Type(CName)`               | `ResourceEvent`                              | Selects resource by type name, e.g. `n"entEntityTemplate"`. |
+| `EntityTarget.ID(EntityID)`                | `EntityBuilderEvent`, `EntityLifecycleEvent` | Selects entity by entity ID.                                |
+| `EntityTarget.Type(CName)`                 | `EntityBuilderEvent`, `EntityLifecycleEvent` | Selects entity by type name, e.g. `n"PlayerPuppet"`.        |
+| `EntityTarget.RecordID(TweakDBID)`         | `EntityBuilderEvent`, `EntityLifecycleEvent` | Selects entity by record ID, e.g. `t"Character.Panam"`.     |
+| `EntityTarget.Template(ResRef)`            | `EntityBuilderEvent`, `EntityLifecycleEvent` | Selects entity by template path.                            |
+| `EntityTarget.Appearance(CName)`           | `EntityBuilderEvent`, `EntityLifecycleEvent` | Selects entity by appearance name.                          |
+| `EntityTarget.Definition(ResRef)`          | `EntityBuilderEvent`                         | Selects entity by appearance resource.                      |
+| `EntityTarget.Definition(ResRef, CName)`   | `EntityBuilderEvent`                         | Selects entity by appearance resource and definition name.  |
+| `DynamicEntityTarget.Tag(CName)`           | `EntityLifecycleEvent`                       | Selects entity created using dynamic entity system by tag.  |
+| `StaticEntityTarget.Tag(CName)`            | `EntityLifecycleEvent`                       | Selects entity created using static entity system by tag.   |
+| `InputTarget.Key(EInputKey)`               | `KeyInputEvent`                              | Selects input event by key.                                 |
+| `InputTarget.Key(EInputKey, EInputAction)` | `KeyInputEvent`                              | Selects input event by key in combination with action.      |
+| `InputTarget.Axis(EInputKey)`              | `AxisInputEvent`                             | Selects input event by axis.                                |
 
 This example injects custom menu scenario when `pregame_menu.inkmenu` is accessed by the game:
 
