@@ -33,7 +33,11 @@ protected:
 
     inline static void OnToggleLights(Red::vehicleController* aController, bool aEnable, Red::vehicleELightType aLightType)
     {
-        CallbackSystem::Get()->DispatchNativeEvent<VehicleLightControlEvent>(EventName, Red::AsWeakHandle(aController->owner), aEnable, aLightType);
+        auto vehicleEntity = Red::AsWeakHandle(aController->owner);
+        if (vehicleEntity)
+        {
+            CallbackSystem::Get()->DispatchNativeEvent<VehicleLightControlEvent>(EventName, vehicleEntity, aEnable, aLightType);
+        }
     }
 };
 }
