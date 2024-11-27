@@ -35,6 +35,7 @@
 #include <RED4ext/Scripting/Natives/Generated/CResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
 #include <RED4ext/Scripting/Natives/Generated/IAreaSettings.hpp>
+#include <RED4ext/Scripting/Natives/Generated/IRenderResourceBlob.hpp>
 #include <RED4ext/Scripting/Natives/Generated/MorphTargetMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Quaternion.hpp>
 #include <RED4ext/Scripting/Natives/Generated/Transform.hpp>
@@ -47,6 +48,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ent/Entity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityInstanceData.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/EntityParameter.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityParametersStorage.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityTemplate.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/GarmentSkinnedMeshComponent.hpp>
@@ -57,7 +59,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ent/MorphTargetSkinnedMeshComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/SkinnedMeshComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/SlotComponent.hpp>
-#include <RED4ext/Scripting/Natives/Generated/ent/EntityParameter.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ent/VisualControllerComponent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/VisualTagsSchema.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/dismemberment/EffectResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/dismemberment/WoundConfigContainer.hpp>
@@ -128,6 +130,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
 #include <RED4ext/Scripting/Natives/Generated/localization/PersistenceOnScreenEntries.hpp>
 #include <RED4ext/Scripting/Natives/Generated/mesh/MeshAppearance.hpp>
+#include <RED4ext/Scripting/Natives/Generated/mesh/MeshParameter.hpp>
 #include <RED4ext/Scripting/Natives/Generated/net/PeerID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/physics/TraceResult.hpp>
 #include <RED4ext/Scripting/Natives/Generated/population/PopulationSpawnParameter.hpp>

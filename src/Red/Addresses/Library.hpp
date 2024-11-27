@@ -134,5 +134,7 @@ constexpr uint32_t VehicleController_ToggleAuxLights = 1883248814;
 
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
 
+constexpr uint32_t VisualController_LoadDependencies = 2912168594;
+
 constexpr uint32_t WorkspotSystem_GetWorkspotInstance = 2234523611;
 }
