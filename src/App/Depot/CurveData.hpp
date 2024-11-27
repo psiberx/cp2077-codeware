@@ -42,6 +42,11 @@ struct CurveDataWrapper
         curveData.SetPoint(aIndex, aPoint, acValue);
     }
 
+    void Resize(uint32_t aNewSize)
+    {
+        curveData.Resize(aNewSize);
+    }
+
     Red::CurveData<T> curveData;
 };
 }
@@ -57,6 +62,7 @@ struct CurveDataWrapper
         RTTI_METHOD(GetPointValue); \
         RTTI_METHOD(SetPoint); \
         RTTI_METHOD(SetPointValue); \
+        RTTI_METHOD(Resize); \
     })
 
 RTTI_DEFINE_CURVEDATA(float, Float)
