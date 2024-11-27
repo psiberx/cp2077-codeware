@@ -81,9 +81,11 @@
 #include <RED4ext/Scripting/Natives/Generated/game/IPopulationSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/JournalEntry.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/JournalEntryState.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/JournalManager.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/JournalNotifyOption.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/JournalPath.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/JournalPointOfInterestMappin.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/JournalRequestContext.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/Object.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentState.hpp>

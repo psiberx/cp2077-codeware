@@ -30,6 +30,7 @@
 #include "App/Entity/TagListEx.hpp"
 #include "App/Entity/VehicleObjectEx.hpp"
 #include "App/Entity/VisualControllerComponentEx.hpp"
+#include "App/Journal/JournalManagerEx.hpp"
 #include "App/Physics/TraceResultEx.hpp"
 #include "App/Player/VehicleSystemEx.hpp"
 #include "App/Player/WardrobeSystemEx.hpp"

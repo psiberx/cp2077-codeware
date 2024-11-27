@@ -7,6 +7,11 @@ using JournalEntryHash = uint32_t;
 
 namespace Raw::JournalManager
 {
+constexpr auto GetEntries = Core::RawVFunc<
+    /* addr = */ 0x210,
+    /* type = */ void* (Red::gameIJournalManager::*)(const Red::gameJournalRequestContext& aRequest,
+                                                     Red::DynArray<Red::WeakHandle<Red::gameJournalEntry>>& aOut)>();
+
 constexpr auto GetEntryByHash = Core::RawVFunc<
     /* addr = */ 0x220,
     /* type = */ void* (Red::gameIJournalManager::*)(Red::Handle<Red::gameJournalEntry>& aOut,
