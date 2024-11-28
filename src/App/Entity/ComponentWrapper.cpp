@@ -189,14 +189,19 @@ bool App::ComponentWrapper::LoadResource(bool aRefresh, bool aWait) const
     Red::JobQueue jobQueue;
     Raw::MeshComponent::LoadResource(m_component, jobQueue);
 
+    if (aRefresh)
+    {
+        jobQueue.Dispatch([componentWeak = Red::AsWeakHandle(m_component)] {
+            if (auto component = componentWeak.Lock())
+            {
+                Raw::MeshComponent::RefreshAppearance(component);
+            }
+        });
+    }
+
     if (aWait)
     {
         Red::WaitForQueue(jobQueue, std::chrono::milliseconds(5000));
-    }
-
-    if (aRefresh)
-    {
-        jobQueue.Dispatch([component = m_component] { Raw::MeshComponent::RefreshAppearance(component); });
     }
 
     return true;
