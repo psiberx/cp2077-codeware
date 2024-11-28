@@ -220,7 +220,6 @@ Red::SharedPtr<Red::ResourceToken<Red::CMesh>> App::ComponentWrapper::LoadResour
     case ComponentType::GarmentSkinnedMeshComponent:
         meshRef = GetComponentMeshReference(reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component));
         break;
-        break;
     case ComponentType::MorphTargetSkinnedMeshComponent:
         meshRef = GetComponentMeshReference(reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component));
         break;
@@ -234,7 +233,7 @@ Red::SharedPtr<Red::ResourceToken<Red::CMesh>> App::ComponentWrapper::LoadResour
 
         if (aWait)
         {
-            Red::WaitForResource(meshRef, std::chrono::milliseconds(1000));
+            Red::WaitForResource(meshRef, std::chrono::milliseconds(5000));
         }
     }
 
@@ -351,8 +350,8 @@ bool App::ComponentWrapper::SetChunkMask(uint64_t aChunkMask) const
 
 bool App::ComponentWrapper::RefreshAppearance() const
 {
-    // if (!IsMeshComponent())
-    //     return false;
+    if (!IsMeshComponent())
+        return false;
 
     Raw::MeshComponent::RefreshAppearance(m_component);
     return true;
