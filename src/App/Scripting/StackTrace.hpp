@@ -39,9 +39,13 @@ inline Red::DynArray<StackTraceEntry> GetStackTrace(Red::Optional<int32_t> aDept
     auto depth = std::max(1, std::min(128, aDepth.value));
     while (depth > 0 && frame && frame->func)
     {
-        trace.EmplaceBack(frame->context ? frame->context->GetType()->name : Red::CName(),
-                          frame->func->fullName,
-                          Red::ToWeakHandle(frame->context));
+        Red::CName className;
+        if (!frame->func->flags.isStatic && frame->context && frame->context->ref.instance)
+        {
+            className = frame->context->GetType()->name;
+        }
+
+        trace.EmplaceBack(className, frame->func->fullName, Red::AsWeakHandle(frame->context));
 
         frame = frame->parent;
         --depth;
