@@ -43,7 +43,7 @@ constexpr uint32_t InkLogicController_OnArrangeChildrenComplete = 3589084925;
 
 constexpr uint32_t InkSpawner_FinishAsyncSpawn = 2698985195;
 
-constexpr uint32_t InkSystem_Instance = 2635337807;
+constexpr uint32_t InkSystem_Instance = 2755465343;
 constexpr uint32_t InkSystem_ProcessCharacterEvent = 4284882427;
 constexpr uint32_t InkSystem_ProcessInputEvents = 673454961;
 
@@ -122,8 +122,8 @@ constexpr uint32_t ScriptOpCodes_Handlers_New = 2669615409;
 constexpr uint32_t ScriptOpCodes_Handlers_Cast = 2439126103;
 constexpr uint32_t ScriptOpCodes_Register = 2070546748;
 
-constexpr uint32_t ScriptValidator_CompareType = 4224523662;
-constexpr uint32_t ScriptValidator_CompareTypeName = 1156189659;
+constexpr uint32_t ScriptValidator_CompareType = 376118797;
+constexpr uint32_t ScriptValidator_CompareTypeName = 1327107674;
 constexpr uint32_t ScriptValidator_Validate = 898639042;
 constexpr uint32_t ScriptValidator_ValidateProperty = 560604283;
 
