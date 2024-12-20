@@ -89,6 +89,7 @@
 #include <RED4ext/Scripting/Natives/Generated/game/Object.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/PersistentState.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/PuppetBase.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ResetContainerEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ScriptableSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/VehicleSystem.hpp>

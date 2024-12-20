@@ -25,6 +25,7 @@ constexpr uint32_t Entity_Assemble = 2182550867;
 constexpr uint32_t Entity_Reassemble = 1560690857;
 constexpr uint32_t Entity_Uninitialize = 3596356635;
 constexpr uint32_t Entity_RequestComponents = 2296260874;
+constexpr uint32_t Entity_ResolveRecordID = 525805301;
 
 constexpr uint32_t EntityBuilder_ExtractComponentsJob = 489494088;
 constexpr uint32_t EntityBuilder_ScheduleExtractComponentsJob = 437791594;

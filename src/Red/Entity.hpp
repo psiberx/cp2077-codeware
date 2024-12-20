@@ -69,7 +69,7 @@ constexpr auto Reassemble = Core::RawFunc<
 
 constexpr auto Initialize = Core::RawFunc<
     /* addr = */ Red::AddressLib::Entity_Initialize,
-    /* type = */ void (*)(Red::Entity* aEntity, uintptr_t, Red::EntityInitializeRequest* aRequest)>();
+    /* type = */ void (*)(Red::Entity* aEntity, Red::JobQueue& aJobQueue, Red::EntityInitializeRequest* aRequest)>();
 
 constexpr auto RequestComponents = Core::RawFunc<
     /* addr = */ Red::AddressLib::Entity_RequestComponents,
@@ -91,6 +91,11 @@ constexpr auto Attach = Core::RawFunc<
 constexpr auto Detach = Core::RawFunc<
     /* addr = */ Red::AddressLib::Entity_Detach,
     /* type = */ void (*)(Red::Entity* aEntity)>();
+
+constexpr auto ResolveRecordID = Core::RawFunc<
+    /* addr = */ Red::AddressLib::Entity_ResolveRecordID,
+    /* type = */ void (*)(Red::Entity* aEntity, Red::TweakDBID& aOut,
+                          Red::populationPopulationSpawnParameter* aParam)>();
 
 // constexpr auto GetComponents = Core::RawFunc<
 //     /* addr = */ Red::AddressLib::Entity_GetComponents,

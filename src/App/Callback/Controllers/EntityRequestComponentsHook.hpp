@@ -5,6 +5,8 @@
 #include "App/Callback/Events/EntityLifecycleEvent.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Red/Entity.hpp"
+#include "Red/Puppet.hpp"
+#include "Red/Vehicle.hpp"
 
 namespace App
 {
@@ -27,12 +29,27 @@ public:
 protected:
     bool OnActivateHook() override
     {
-        return IsHooked<Raw::Entity::Reassemble>() || HookBefore<Raw::Entity::RequestComponents>(&OnRequestComponents);
+        return (IsHooked<Raw::Entity::Initialize>() || HookBefore<Raw::Entity::Initialize>(&OnInitialize))
+            && (IsHooked<Raw::Entity::RequestComponents>() || HookBefore<Raw::Entity::RequestComponents>(&OnRequestComponents));
     }
 
     bool OnDeactivateHook() override
     {
-        return !IsHooked<Raw::Entity::Reassemble>() || Unhook<Raw::Entity::RequestComponents>();
+        return (!IsHooked<Raw::Entity::Initialize>() || Unhook<Raw::Entity::Initialize>())
+            && (!IsHooked<Raw::Entity::RequestComponents>() || Unhook<Raw::Entity::RequestComponents>());
+    }
+
+    inline static void OnInitialize(Red::Entity* aEntity, Red::JobQueue& aJobQueue,
+                                    Red::EntityInitializeRequest* aRequest)
+    {
+        if (auto puppet = Red::Cast<Red::gamePuppetBase>(aEntity))
+        {
+            Raw::Entity::ResolveRecordID(aEntity, Raw::Puppet::RecordID::Ref(aEntity), aRequest->populationParam);
+        }
+        else if (auto vehicle = Red::Cast<Red::vehicleBaseObject>(aEntity))
+        {
+            Raw::Entity::ResolveRecordID(aEntity, Raw::Vehicle::RecordID::Ref(aEntity), aRequest->populationParam);
+        }
     }
 
     inline static void OnRequestComponents(Red::Entity* aEntity, uintptr_t a2,
