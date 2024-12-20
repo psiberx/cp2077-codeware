@@ -3,6 +3,7 @@ public native class inkSystem extends IGameSystem {
 
     public native func GetLayers() -> array<ref<inkLayerWrapper>>
     public native func GetLayer(layer: CName) -> ref<inkLayerWrapper>
+    public native func GetWorldWidgets() -> array<wref<inkIGameController>>
 
     public func GetClipboard() -> String {
         return this.m_clipboard;

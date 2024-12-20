@@ -49,6 +49,7 @@
 #include "App/UI/inkWidgetEx.hpp"
 #include "App/UI/inkWidgetLibraryEx.hpp"
 #include "App/UI/inkWidgetReferenceEx.hpp"
+#include "App/UI/inkWorldWidgetInfosEx.hpp"
 #include "App/Utils/Bits.hpp"
 #include "App/Utils/CName.hpp"
 #include "App/Utils/CRUID.hpp"

@@ -33,6 +33,7 @@
 #include <RED4ext/Scripting/Natives/Generated/CMaterialInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CResource.hpp>
+#include <RED4ext/Scripting/Natives/Generated/DynamicTexture.hpp>
 #include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
 #include <RED4ext/Scripting/Natives/Generated/IAreaSettings.hpp>
 #include <RED4ext/Scripting/Natives/Generated/IRenderResourceBlob.hpp>
@@ -113,9 +114,13 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/CharacterEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ControllerProcessor.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/HUDLayer.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/HudWidgetSpawnEntry.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IEffect.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ISystemRequestsHandler.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/IWidgetComponentWrapper.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/IWidgetController.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/ImageWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/InputEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/Layer.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/LayerProxy.hpp>
@@ -131,7 +136,14 @@
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLibraryResourceWrapper.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetLogicController.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/WidgetReference.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/WorldLayer.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/WorldWidgetInfos.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/anim/Definition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/anim/Event.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/anim/Interpolator.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/anim/Processor.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/anim/Sequence.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/anim/SequenceTargetInfo.hpp>
 #include <RED4ext/Scripting/Natives/Generated/localization/PersistenceOnScreenEntries.hpp>
 #include <RED4ext/Scripting/Natives/Generated/mesh/MeshAppearance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/mesh/MeshParameter.hpp>
@@ -202,6 +214,7 @@
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherScriptInterface.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherState.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherStateTransition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/ui/WorldLayerWidget.hpp>
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 
 #include <nameof.hpp>

@@ -38,6 +38,33 @@ struct inkSystem : Red::IGameSystem
         return {};
     }
 
+    Red::DynArray<Red::WeakHandle<Red::inkIGameController>> GetWorldWidgets()
+    {
+        if (auto system = Red::InkSystem::Get())
+        {
+            for (const auto& layer : system->GetLayers())
+            {
+                if (const auto& worldLayer = Red::Cast<Red::inkWorldLayer>(layer))
+                {
+                    Red::DynArray<Red::WeakHandle<Red::inkIGameController>> controllers;
+
+                    for (const auto& component : worldLayer->components)
+                    {
+                        auto window = component->GetWindow();
+                        if (window)
+                        {
+                            controllers.PushBack(component->GetGameController());
+                        }
+                    }
+
+                    return controllers;
+                }
+            }
+        }
+
+        return {};
+    }
+
     RTTI_IMPL_TYPEINFO(App::inkSystem);
     RTTI_IMPL_ALLOCATOR();
 };
@@ -46,4 +73,5 @@ struct inkSystem : Red::IGameSystem
 RTTI_DEFINE_CLASS(App::inkSystem, {
     RTTI_METHOD(GetLayers);
     RTTI_METHOD(GetLayer);
+    RTTI_METHOD(GetWorldWidgets);
 });
