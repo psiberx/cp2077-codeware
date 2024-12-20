@@ -4,6 +4,8 @@
 #include "App/Callback/Events/EntityBuilderEvent.hpp"
 #include "App/Callback/Events/EntityLifecycleEvent.hpp"
 #include "App/Callback/Events/VehicleLightControlEvent.hpp"
+#include "Red/Puppet.hpp"
+#include "Red/Vehicle.hpp"
 
 namespace App
 {
@@ -104,14 +106,31 @@ struct EntityTarget : CallbackSystemTarget
 
             if (recordID)
             {
-                auto gameObject = Red::Cast<Red::GameObject>(entity);
-                if (!gameObject)
-                    return false;
+                if (auto puppet = Red::Cast<Red::gamePuppetBase>(entity))
+                {
+                    if (recordID != Raw::Puppet::RecordID::Ref(entity))
+                        return false;
+                }
+                else if (auto vehicle = Red::Cast<Red::vehicleBaseObject>(entity))
+                {
+                    if (recordID != Raw::Vehicle::RecordID::Ref(entity))
+                        return false;
+                }
+                else if (auto device = Red::Cast<Red::gameDeviceBase>(entity))
+                {
+                    auto& controller = Red::GetProperty<Red::Handle<Red::gameComponent>>(device, "controller");
+                    if (!controller || !controller->persistentState)
+                        return false;
 
-                Red::TweakDBID objectID;
-                Red::CallGlobal("gameObject::GetTDBID;GameObject", objectID, Red::AsWeakHandle(gameObject));
-                if (recordID != objectID)
+                    auto& ps = controller->persistentState;
+                    auto deviceID = Red::GetPropertyPtr<Red::TweakDBID>(ps, "tweakDBRecord");
+                    if (!deviceID || recordID != *deviceID)
+                        return false;
+                }
+                else
+                {
                     return false;
+                }
             }
 
             break;

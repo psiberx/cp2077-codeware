@@ -65,6 +65,7 @@
 #include <RED4ext/Scripting/Natives/Generated/ent/dismemberment/WoundConfigContainer.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/dismemberment/WoundResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/ComponentPS.hpp>
+#include <RED4ext/Scripting/Natives/Generated/game/DeviceBase.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/EntityStubComponentPS.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/GameTagSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/game/HitRepresentationOverride.hpp>
