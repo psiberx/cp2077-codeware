@@ -18,6 +18,7 @@ App::CallbackSystem::CallbackSystem()
     : m_restored(false)
     , m_pregame(false)
 {
+    RegisterController<GameSessionController>();
     RegisterController<EntityExtractHook>();
     RegisterController<EntityAssembleHook>();
     RegisterController<EntityAttachHook>();

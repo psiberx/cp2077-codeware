@@ -14,7 +14,7 @@ class EntityAttachHook
 {
 public:
     constexpr static auto EventName = Red::CName("Entity/Attach");
-    constexpr static auto PostEventName = Red::CName("Entity/Attached");
+    constexpr static auto PostEventName = Red::CName("Entity/AfterAttach");
 
     Core::Map<Red::CName, Red::CName> GetEvents() override
     {
@@ -38,7 +38,9 @@ protected:
     inline static void OnAttach(Red::Entity* aEntity, uintptr_t a2)
     {
         CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(EventName, Red::AsWeakHandle(aEntity));
+
         Raw::Entity::Attach(aEntity, a2);
+
         CallbackSystem::Get()->DispatchNativeEvent<EntityLifecycleEvent>(PostEventName, Red::AsWeakHandle(aEntity));
     }
 };

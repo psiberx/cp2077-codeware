@@ -29,8 +29,8 @@ void App::WidgetSpawningService::OnShutdown()
 }
 
 uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                                Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                                Red::CName aItemName)
+                                                   Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+                                                   Red::CName aItemName)
 {
     auto result = Raw::InkWidgetLibrary::SpawnFromLocal(aLibrary, aInstance, aItemName);
 
@@ -41,8 +41,8 @@ uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::ink::WidgetLibraryResour
 
         if (controllerSep)
         {
-            Red::CName itemName(Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr), controllerSep - itemNameStr));
-            Raw::InkWidgetLibrary::SpawnFromLocal(aLibrary, aInstance, itemName);
+            aItemName = Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr), controllerSep - itemNameStr);
+            Raw::InkWidgetLibrary::SpawnFromLocal(aLibrary, aInstance, aItemName);
 
             if (aInstance)
             {
@@ -55,38 +55,38 @@ uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::ink::WidgetLibraryResour
 }
 
 uintptr_t App::WidgetSpawningService::OnSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
-                                                   Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                                   Red::ResourcePath aExternalPath,
-                                                   Red::CName aItemName)
+                                                      Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+                                                      Red::ResourcePath aExternalPath,
+                                                      Red::CName aItemName)
 {
     InjectDependency(aLibrary, aExternalPath);
 
     auto result = Raw::InkWidgetLibrary::SpawnFromExternal(aLibrary, aInstance, aExternalPath, aItemName);
 
-    if (!aInstance)
-    {
-        auto* itemNameStr = aItemName.ToString();
-        auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
-
-        if (controllerSep)
-        {
-            Red::CName itemName(Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr), controllerSep - itemNameStr));
-            Raw::InkWidgetLibrary::SpawnFromExternal(aLibrary, aInstance, aExternalPath, itemName);
-
-            if (aInstance)
-            {
-                InjectController(aInstance, controllerSep + 1);
-            }
-        }
-    }
+    // if (!aInstance)
+    // {
+    //     auto* itemNameStr = aItemName.ToString();
+    //     auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
+    //
+    //     if (controllerSep)
+    //     {
+    //         Red::CName itemName(Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr), controllerSep - itemNameStr));
+    //         Raw::InkWidgetLibrary::SpawnFromExternal(aLibrary, aInstance, aExternalPath, itemName);
+    //
+    //         if (aInstance)
+    //         {
+    //             InjectController(aInstance, controllerSep + 1);
+    //         }
+    //     }
+    // }
 
     return result;
 }
 
 bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                                Red::InkSpawningInfo& aSpawningInfo,
-                                                Red::CName aItemName,
-                                                uint8_t aParam)
+                                                   Red::InkSpawningInfo& aSpawningInfo,
+                                                   Red::CName aItemName,
+                                                   uint8_t aParam)
 {
     auto* itemNameStr = aItemName.ToString();
     auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -100,20 +100,20 @@ bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResour
 }
 
 bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
-                                                   Red::InkSpawningInfo& aSpawningInfo,
-                                                   Red::ResourcePath aExternalPath,
-                                                   Red::CName aItemName,
-                                                   uint8_t aParam)
+                                                      Red::InkSpawningInfo& aSpawningInfo,
+                                                      Red::ResourcePath aExternalPath,
+                                                      Red::CName aItemName,
+                                                      uint8_t aParam)
 {
     InjectDependency(aLibrary, aExternalPath);
 
-    auto* itemNameStr = aItemName.ToString();
-    auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
-
-    if (controllerSep)
-    {
-        aItemName = Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr), controllerSep - itemNameStr);
-    }
+    // auto* itemNameStr = aItemName.ToString();
+    // auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
+    //
+    // if (controllerSep)
+    // {
+    //     aItemName = Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr), controllerSep - itemNameStr);
+    // }
 
     return Raw::InkWidgetLibrary::AsyncSpawnFromExternal(aLibrary, aSpawningInfo, aExternalPath, aItemName, aParam);
 }
@@ -127,10 +127,14 @@ void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aCo
     if (controllerSep)
     {
         InjectController(aInstance, controllerSep + 1);
+
+        aContext.request->itemName = Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr),
+                                                  controllerSep - itemNameStr);
     }
 }
 
-void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResource& aLibrary, Red::ResourcePath aExternalPath)
+void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResource& aLibrary,
+                                                  Red::ResourcePath aExternalPath)
 {
     bool libraryExists = false;
 
@@ -162,7 +166,7 @@ void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResourc
 }
 
 void App::WidgetSpawningService::InjectController(Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                               Red::CName aControllerName)
+                                                  Red::CName aControllerName)
 {
     static const Red::ClassLocator<Red::ink::IWidgetController> s_gameControllerType;
     static const Red::ClassLocator<Red::ink::WidgetLogicController> s_logicControllerType;

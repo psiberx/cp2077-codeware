@@ -9,6 +9,16 @@ namespace App
 class CallbackSystem : public Red::IGameSystem
 {
 public:
+    static constexpr auto SessionBeforeStartEventName = Red::CName("Session/BeforeStart");
+    static constexpr auto SessionBeforeEndEventName = Red::CName("Session/BeforeEnd");
+    static constexpr auto SessionEndEventName = Red::CName("Session/End");
+    static constexpr auto SessionBeforeSaveEventName = Red::CName("Session/BeforeSave");
+    static constexpr auto SessionAfterSaveEventName = Red::CName("Session/AfterSave");
+    static constexpr auto SessionReadyEventName = Red::CName("Session/Ready");
+    static constexpr auto SessionStartEventName = Red::CName("Session/Start");
+    static constexpr auto SessionPauseEventName = Red::CName("Session/Pause");
+    static constexpr auto SessionResumeEventName = Red::CName("Session/Resume");
+
     CallbackSystem();
     ~CallbackSystem() override;
 
