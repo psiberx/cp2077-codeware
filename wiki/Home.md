@@ -96,11 +96,12 @@ and in some cases alter game behavior and/or modify related game objects:
 | `Entity/Initialize`   | `EntityLifecycleEvent` | Fired when entity and its components are intializing. Entity ID is assigned at this stage.         |
 | `Entity/Reassemble`   | `EntityLifecycleEvent` | Fired when components dynamically added or removed from entity. For example, when you equip items. |
 | `Entity/Attach`       | `EntityLifecycleEvent` | Fired when entity is added to the world. Can be fired multiple times during entity lifetime.       |
-| `Entity/Attached`     | `EntityLifecycleEvent` | Fired when attachment process is finished for entity.                                              |
+| `Entity/AfterAttach`  | `EntityLifecycleEvent` | Fired when attachment process is finished for entity.                                              |
 | `Entity/Detach`       | `EntityLifecycleEvent` | Fired when entity is removed from the world. Can be fired multiple times during entity lifetime.   |
 | `Entity/Uninitialize` | `EntityLifecycleEvent` | The last stage of entity lifecycle before disposal.                                                |
 | `Input/Key`           | `KeyInputEvent`        | Catches keyboard, mouse and controller button inputs.                                              |
 | `Input/Axis`          | `AxisInputEvent`       | Catches mouse movements and controller axis inputs.                                                |
+| `InkWidget/Spawn`     | `inkWidgetSpawnEvent`  | Fired when widget is spawned from widget library and before it's added to parent widget.           |
 
 When defining a callback, you can specify event targets for which the callback should be fired:
 
@@ -120,6 +121,8 @@ When defining a callback, you can specify event targets for which the callback s
 | `InputTarget.Key(EInputKey)`               | `KeyInputEvent`                              | Selects input event by key.                                 |
 | `InputTarget.Key(EInputKey, EInputAction)` | `KeyInputEvent`                              | Selects input event by key in combination with action.      |
 | `InputTarget.Axis(EInputKey)`              | `AxisInputEvent`                             | Selects input event by axis.                                |
+| `InkWidgetTarget.Library(ResRef, CName)`   | `inkWidgetSpawnEvent`                        | Selects widget library path and library item name.          |
+| `InkWidgetTarget.Controller(CName)`        | `inkWidgetSpawnEvent`                        | Selects widget by game controller type.                     |
 
 This example injects custom menu scenario when `pregame_menu.inkmenu` is accessed by the game:
 
@@ -237,6 +240,7 @@ GameInstance.GetCallbackSystem().DispatchEvent(CustomEvent.Create(123));
 - [EntityLifecycleEvent](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Callback/Events/EntityLifecycleEvent.reds)
 - [KeyInputEvent](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Callback/Events/KeyInputEvent.reds)
 - [AxisInputEvent](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Callback/Events/AxisInputEvent.reds)
+- [inkWidgetSpawnEvent](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Callback/Events/InkWidgetSpawnEvent.reds)
 
 ## World
 

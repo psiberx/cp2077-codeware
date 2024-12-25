@@ -1,4 +1,6 @@
 #include "WidgetSpawningService.hpp"
+#include "App/Callback/CallbackSystem.hpp"
+#include "App/Callback/Events/InkWidgetSpawnEvent.hpp"
 
 namespace
 {
@@ -7,16 +9,11 @@ constexpr auto ControllerSeparator = ':';
 
 void App::WidgetSpawningService::OnBootstrap()
 {
-    HookOnceAfter<Raw::CBaseEngine::InitEngine>(+[]() {
-        if (Red::GetType<"ArchiveXL">())
-            return;
-
-        Hook<Raw::InkWidgetLibrary::SpawnFromLocal>(&OnSpawnLocal).OrThrow();
-        Hook<Raw::InkWidgetLibrary::SpawnFromExternal>(&OnSpawnExternal).OrThrow();
-        Hook<Raw::InkWidgetLibrary::AsyncSpawnFromLocal>(&OnAsyncSpawnLocal).OrThrow();
-        Hook<Raw::InkWidgetLibrary::AsyncSpawnFromExternal>(&OnAsyncSpawnExternal).OrThrow();
-        HookBefore<Raw::InkSpawner::FinishAsyncSpawn>(&OnFinishAsyncSpawn).OrThrow();
-    });
+    Hook<Raw::InkWidgetLibrary::SpawnFromLocal>(&OnSpawnLocal).OrThrow();
+    Hook<Raw::InkWidgetLibrary::SpawnFromExternal>(&OnSpawnExternal).OrThrow();
+    Hook<Raw::InkWidgetLibrary::AsyncSpawnFromLocal>(&OnAsyncSpawnLocal).OrThrow();
+    Hook<Raw::InkWidgetLibrary::AsyncSpawnFromExternal>(&OnAsyncSpawnExternal).OrThrow();
+    HookBefore<Raw::InkSpawner::FinishAsyncSpawn>(&OnFinishAsyncSpawn).OrThrow();
 }
 
 void App::WidgetSpawningService::OnShutdown()
@@ -49,6 +46,12 @@ uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::ink::WidgetLibraryResour
                 InjectController(aInstance, controllerSep + 1);
             }
         }
+    }
+
+    if (aInstance)
+    {
+        CallbackSystem::Get()->DispatchNativeEvent<inkWidgetSpawnEvent>(WidgetSpawnEventName, aLibrary.path, aItemName,
+                                                                        aInstance);
     }
 
     return result;
@@ -119,7 +122,7 @@ bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::ink::WidgetLibraryRes
 }
 
 void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,
-                                         Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)
+                                                    Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)
 {
     auto* itemNameStr = aContext.request->itemName.ToString();
     auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -130,6 +133,16 @@ void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aCo
 
         aContext.request->itemName = Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr),
                                                   controllerSep - itemNameStr);
+    }
+
+    {
+        auto libraryPath = aContext.request->externalLibrary
+                               ? aContext.request->externalLibrary
+                               : aContext.request->library->path;
+        auto itemName = aContext.request->itemName;
+
+        CallbackSystem::Get()->DispatchNativeEvent<inkWidgetSpawnEvent>(WidgetSpawnEventName, libraryPath, itemName,
+                                                                        aInstance);
     }
 }
 

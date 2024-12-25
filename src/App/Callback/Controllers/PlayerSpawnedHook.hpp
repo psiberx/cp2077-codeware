@@ -13,11 +13,9 @@ class PlayerSpawnedHook
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto EventName = Red::CName("Session/Ready");
-
     Core::Map<Red::CName, Red::CName> GetEvents() override
     {
-        return {{EventName, Red::GetTypeName<EntityLifecycleEvent>()}};
+        return {{CallbackSystem::SessionReadyEventName, Red::GetTypeName<EntityLifecycleEvent>()}};
     }
 
 protected:
@@ -33,10 +31,12 @@ protected:
 
     inline static void OnPlayerSpawned()
     {
-        auto system = CallbackSystem::Get();
-        if (!system->IsRestored())
+        auto callbackSystem = CallbackSystem::Get();
+        if (!callbackSystem->IsRestored())
         {
-            system->DispatchNativeEvent<GameSessionEvent>(EventName, system->IsPreGame(), system->IsRestored());
+            callbackSystem->DispatchNativeEvent<GameSessionEvent>(CallbackSystem::SessionReadyEventName,
+                                                                  callbackSystem->IsPreGame(),
+                                                                  callbackSystem->IsRestored());
         }
     }
 };

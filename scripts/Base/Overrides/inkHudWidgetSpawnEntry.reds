@@ -16,4 +16,11 @@ public native struct inkHudWidgetSpawnEntry {
   native let ignoreHudScaleOverride: Bool;
   native let hudScalingInterpolationValue: Float;
   native let hudScalingMarginCorrection: inkMargin;
+  // native let contextVisibility: worlduiContextVisibility;
+  // native let gameContextVisibility: gameuiContext;
+  // native let slotTexture: ref<DynamicTexture>;
+  // native let window: ref<inkVirtualWindow>;
+  // native let slotWidget: ref<inkImage>;
+  // native let rootWidget: ref<inkWidget>;
+  // native let gameController: ref<inkIGameController>;
 }

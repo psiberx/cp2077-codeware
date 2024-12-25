@@ -3,9 +3,7 @@
 #include "Core/Foundation/Feature.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Core/Logging/LoggingAgent.hpp"
-#include "Red/GameEngine.hpp"
 #include "Red/InkLibrary.hpp"
-#include "Red/InkSpawner.hpp"
 
 namespace App
 {
@@ -14,6 +12,9 @@ class WidgetSpawningService
     , public Core::HookingAgent
     , public Core::LoggingAgent
 {
+public:
+    static constexpr auto WidgetSpawnEventName = "InkWidget/Spawn";
+
 protected:
     void OnBootstrap() override;
     void OnShutdown() override;

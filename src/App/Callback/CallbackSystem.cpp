@@ -5,6 +5,8 @@
 #include "App/Callback/Controllers/EntityExtractHook.hpp"
 #include "App/Callback/Controllers/EntityRequestComponentsHook.hpp"
 #include "App/Callback/Controllers/EntityUninitializeHook.hpp"
+#include "App/Callback/Controllers/GameSessionController.hpp"
+#include "App/Callback/Controllers/InkSpawningController.hpp"
 #include "App/Callback/Controllers/PlayerSpawnedHook.hpp"
 #include "App/Callback/Controllers/RawInputHook.hpp"
 #include "App/Callback/Controllers/ResourceLoadHook.hpp"
@@ -19,6 +21,7 @@ App::CallbackSystem::CallbackSystem()
     , m_pregame(false)
 {
     RegisterController<GameSessionController>();
+    RegisterController<InkSpawningController>();
     RegisterController<EntityExtractHook>();
     RegisterController<EntityAssembleHook>();
     RegisterController<EntityAttachHook>();
@@ -44,7 +47,7 @@ void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
         Red::CallVirtual(handler.instance, "IsPreGame", m_pregame);
     }
 
-    DispatchNativeEvent<GameSessionEvent>("Session/BeforeStart", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionBeforeStartEventName, m_pregame, m_restored);
 }
 
 // void App::CallbackSystem::OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup& aJobGroup)
@@ -54,12 +57,12 @@ void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
 
 void App::CallbackSystem::OnBeforeWorldDetach(Red::world::RuntimeScene* aScene)
 {
-    DispatchNativeEvent<GameSessionEvent>("Session/BeforeEnd", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionBeforeEndEventName, m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnWorldDetached(Red::world::RuntimeScene* aScene)
 {
-    DispatchNativeEvent<GameSessionEvent>("Session/End", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionEndEventName, m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnAfterWorldDetach()
@@ -86,7 +89,7 @@ void App::CallbackSystem::OnAfterWorldDetach()
 
 uint32_t App::CallbackSystem::OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2)
 {
-    DispatchNativeEvent<GameSessionEvent>("Session/BeforeSave", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionBeforeSaveEventName, m_pregame, m_restored);
 
     return 0;
 }
@@ -98,7 +101,7 @@ uint32_t App::CallbackSystem::OnBeforeGameSave(const Red::JobGroup& aJobGroup, v
 
 void App::CallbackSystem::OnAfterGameSave()
 {
-    DispatchNativeEvent<GameSessionEvent>("Session/AfterSave", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionAfterSaveEventName, m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnGameLoad(const Red::JobGroup& aJobGroup, bool& aSuccess, void* aStream)
@@ -108,24 +111,24 @@ void App::CallbackSystem::OnGameLoad(const Red::JobGroup& aJobGroup, bool& aSucc
 
 bool App::CallbackSystem::OnGameRestored()
 {
-    DispatchNativeEvent<GameSessionEvent>("Session/Ready", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionReadyEventName, m_pregame, m_restored);
 
     return true;
 }
 
 void App::CallbackSystem::OnGamePrepared()
 {
-    DispatchNativeEvent<GameSessionEvent>("Session/Start", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionStartEventName, m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnGamePaused()
 {
-    DispatchNativeEvent<GameSessionEvent>("Session/Pause", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionPauseEventName, m_pregame, m_restored);
 }
 
 void App::CallbackSystem::OnGameResumed()
 {
-    DispatchNativeEvent<GameSessionEvent>("Session/Resume", m_pregame, m_restored);
+    DispatchNativeEvent<GameSessionEvent>(SessionResumeEventName, m_pregame, m_restored);
 }
 
 Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
