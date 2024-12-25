@@ -217,6 +217,7 @@
 #include <RED4ext/Scripting/Natives/Generated/world/ui/WorldLayerWidget.hpp>
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 
+#include <clip.h>
 #include <nameof.hpp>
 #include <semver.hpp>
 

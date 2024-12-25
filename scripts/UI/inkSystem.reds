@@ -5,13 +5,8 @@ public native class inkSystem extends IGameSystem {
     public native func GetLayer(layer: CName) -> ref<inkLayerWrapper>
     public native func GetWorldWidgets() -> array<wref<inkIGameController>>
 
-    public func GetClipboard() -> String {
-        return this.m_clipboard;
-    }
-
-    public func SetClipboard(data: String) {
-        this.m_clipboard = data;
-    }
+    public native func GetClipboardText() -> String
+    public native func SetClipboardText(data: String)
 
     public func SetFocus(widget: ref<inkWidget>) {
         GameInstance.GetInkSystem().GetLayer(n"inkGameNotificationsLayer").GetGameController().RequestSetFocus(widget);

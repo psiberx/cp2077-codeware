@@ -65,6 +65,19 @@ struct inkSystem : Red::IGameSystem
         return {};
     }
 
+    Red::CString GetClipboardText()
+    {
+        std::string text;
+        clip::get_text(text);
+
+        return text;
+    }
+
+    void SetClipboardText(const Red::CString& aText)
+    {
+        clip::set_text(aText.c_str());
+    }
+
     RTTI_IMPL_TYPEINFO(App::inkSystem);
     RTTI_IMPL_ALLOCATOR();
 };
@@ -74,4 +87,6 @@ RTTI_DEFINE_CLASS(App::inkSystem, {
     RTTI_METHOD(GetLayers);
     RTTI_METHOD(GetLayer);
     RTTI_METHOD(GetWorldWidgets);
+    RTTI_METHOD(GetClipboardText);
+    RTTI_METHOD(SetClipboardText);
 });

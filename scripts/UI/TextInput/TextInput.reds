@@ -363,7 +363,7 @@ public class TextInput extends inkCustomController {
 
             case EInputKey.IK_C:
                 if event.IsControlDown() && !this.m_selection.IsEmpty() {
-                    GameInstance.GetInkSystem().SetClipboard(
+                    GameInstance.GetInkSystem().SetClipboardText(
                         UTF8StrMid(
                             this.m_text.GetText(),
                             this.m_selection.GetLeftPosition(),
@@ -375,7 +375,7 @@ public class TextInput extends inkCustomController {
 
             case EInputKey.IK_X:
                 if event.IsControlDown() && !this.m_selection.IsEmpty() {
-                    GameInstance.GetInkSystem().SetClipboard(
+                    GameInstance.GetInkSystem().SetClipboardText(
                         UTF8StrMid(
                             this.m_text.GetText(),
                             this.m_selection.GetLeftPosition(),
@@ -402,7 +402,7 @@ public class TextInput extends inkCustomController {
                 break;
 
             case EInputKey.IK_V:
-                let clipboard = GameInstance.GetInkSystem().GetClipboard();
+                let clipboard = GameInstance.GetInkSystem().GetClipboardText();
                 let length = UTF8StrLen(clipboard);
 
                 if event.IsControlDown() && length > 0 {
