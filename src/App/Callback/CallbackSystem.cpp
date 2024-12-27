@@ -135,6 +135,8 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
     Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext, Red::CName aFunction,
     Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
 {
+    EntityAttachHook::FixEventName(aEventName);
+
     ActivateEvent(aEventName);
 
     auto eventType = m_supportedEvents[aEventName];
@@ -156,6 +158,8 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallb
     Red::CName aEventName, Red::CName aContext, Red::CName aFunction,
     Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
 {
+    EntityAttachHook::FixEventName(aEventName);
+
     ActivateEvent(aEventName);
 
     auto eventType = m_supportedEvents[aEventName];
@@ -173,11 +177,13 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallb
     return handler;
 }
 
-void App::CallbackSystem::UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aContext,
+void App::CallbackSystem::UnregisterCallback(Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext,
                                              Red::Optional<Red::CName> aFunction)
 {
+    EntityAttachHook::FixEventName(aEventName);
+
     std::unique_lock _(m_callbacksLock);
-    const auto& callbackListIt = m_callbacksByEvent.find(aEvent);
+    const auto& callbackListIt = m_callbacksByEvent.find(aEventName);
 
     if (callbackListIt == m_callbacksByEvent.end())
         return;
@@ -199,15 +205,17 @@ void App::CallbackSystem::UnregisterCallback(Red::CName aEvent, const Red::Handl
 
     if (callbackList.empty())
     {
-        DeactivateEvent(aEvent);
+        DeactivateEvent(aEventName);
     }
 }
 
-void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEvent, Red::CName aContext,
+void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEventName, Red::CName aContext,
                                                    Red::Optional<Red::CName> aFunction)
 {
+    EntityAttachHook::FixEventName(aEventName);
+
     std::unique_lock _(m_callbacksLock);
-    const auto& callbackListIt = m_callbacksByEvent.find(aEvent);
+    const auto& callbackListIt = m_callbacksByEvent.find(aEventName);
 
     if (callbackListIt == m_callbacksByEvent.end())
         return;
@@ -229,7 +237,7 @@ void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEvent, Red::CName
 
     if (callbackList.empty())
     {
-        DeactivateEvent(aEvent);
+        DeactivateEvent(aEventName);
     }
 }
 

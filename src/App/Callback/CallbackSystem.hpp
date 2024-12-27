@@ -30,9 +30,9 @@ public:
                                                               Red::CName aFunction, Red::Optional<bool> aSticky,
                                                               Red::CStackFrame* aFrame = nullptr);
 
-    void UnregisterCallback(Red::CName aEvent, const Red::Handle<Red::IScriptable>& aContext,
+    void UnregisterCallback(Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext,
                             Red::Optional<Red::CName> aFunction);
-    void UnregisterStaticCallback(Red::CName aEvent, Red::CName aContext, Red::Optional<Red::CName> aFunction);
+    void UnregisterStaticCallback(Red::CName aEventName, Red::CName aContext, Red::Optional<Red::CName> aFunction);
 
     bool RegisterEvent(Red::CName aEventName, Red::Optional<Red::CName> aEventType);
     void DispatchEvent(const Red::Handle<CallbackSystemEvent>& aEvent);
@@ -82,6 +82,10 @@ protected:
     void OnGamePaused() override;
     void OnGameResumed() override;
 
+    void ActivateEvent(Red::CName aEvent);
+    void DeactivateEvent(Red::CName aEvent);
+    void FireCallbacks(const Red::Handle<CallbackSystemEvent>& aEvent);
+
     template<typename TController>
     inline void RegisterController()
     {
@@ -93,10 +97,6 @@ protected:
             m_supportedEvents.emplace(eventName, eventObjectType);
         }
     }
-
-    inline void ActivateEvent(Red::CName aEvent);
-    inline void DeactivateEvent(Red::CName aEvent);
-    inline void FireCallbacks(const Red::Handle<CallbackSystemEvent>& aEvent);
 
     bool m_restored;
     bool m_pregame;

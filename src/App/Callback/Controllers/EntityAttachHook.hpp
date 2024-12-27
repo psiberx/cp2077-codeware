@@ -15,6 +15,7 @@ class EntityAttachHook
 public:
     constexpr static auto EventName = Red::CName("Entity/Attach");
     constexpr static auto PostEventName = Red::CName("Entity/AfterAttach");
+    constexpr static auto DeprecatedPostEventName = Red::CName("Entity/Attached");
 
     Core::Map<Red::CName, Red::CName> GetEvents() override
     {
@@ -22,6 +23,14 @@ public:
             {EventName, Red::GetTypeName<EntityLifecycleEvent>()},
             {PostEventName, Red::GetTypeName<EntityLifecycleEvent>()},
         };
+    }
+
+    static void FixEventName(Red::CName& aEventName)
+    {
+        if (aEventName == DeprecatedPostEventName)
+        {
+            aEventName = PostEventName;
+        }
     }
 
 protected:
