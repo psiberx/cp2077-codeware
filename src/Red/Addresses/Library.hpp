@@ -6,6 +6,7 @@ constexpr uint32_t Main = 3545369307;
 constexpr uint32_t GetScriptGameInstance = 1559305924;
 
 constexpr uint32_t CBaseEngine_InitEngine = 3273923080;
+constexpr uint32_t CBaseEngine_LoadGatheredResources = 3729789488;
 
 constexpr uint32_t CBaseFunction_InternalExecute = 2744524784; // rtti::Function::InternalCallNative
 
