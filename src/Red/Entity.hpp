@@ -102,6 +102,13 @@ constexpr auto ResolveRecordID = Core::RawFunc<
 //     /* type = */ Red::DynArray<Red::Handle<Red::IComponent>>& (*)(Red::Entity* aEntity)>();
 }
 
+namespace Raw::IComponent
+{
+constexpr auto Toggle = Core::RawFunc<
+    /* addr = */ Red::AddressLib::IComponent_Toggle,
+    /* type = */ void (*)(Red::IComponent* aComponent, bool aEnabled)>();
+}
+
 namespace Raw::IPlacedComponent
 {
 constexpr auto SetTransform = Core::RawFunc<

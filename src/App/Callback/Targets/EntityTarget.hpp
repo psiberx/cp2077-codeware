@@ -2,6 +2,7 @@
 
 #include "App/Callback/CallbackSystemTarget.hpp"
 #include "App/Callback/Events/EntityBuilderEvent.hpp"
+#include "App/Callback/Events/EntityComponentEvent.hpp"
 #include "App/Callback/Events/EntityLifecycleEvent.hpp"
 #include "App/Callback/Events/VehicleLightControlEvent.hpp"
 #include "Red/Puppet.hpp"
@@ -85,6 +86,7 @@ struct EntityTarget : CallbackSystemTarget
             break;
         }
         case Red::GetTypeName<EntityLifecycleEvent>():
+        case Red::GetTypeName<EntityComponentEvent>():
         case Red::GetTypeName<VehicleLightControlEvent>():
         {
             auto* entity = aEvent.GetPtr<EntityLifecycleEvent>()->entity.instance;
@@ -150,9 +152,10 @@ struct EntityTarget : CallbackSystemTarget
 
     bool Supports(Red::CName aEventType) override
     {
-        return aEventType == Red::GetTypeName<EntityBuilderEvent>()
-            || aEventType == Red::GetTypeName<EntityLifecycleEvent>()
-            || aEventType == Red::GetTypeName<VehicleLightControlEvent>();
+        return aEventType == Red::GetTypeName<EntityBuilderEvent>() ||
+               aEventType == Red::GetTypeName<EntityLifecycleEvent>() ||
+               aEventType == Red::GetTypeName<EntityComponentEvent>() ||
+               aEventType == Red::GetTypeName<VehicleLightControlEvent>();
     }
 
     static Red::Handle<EntityTarget> ID(Red::EntityID aEntityID)

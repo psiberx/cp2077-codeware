@@ -1,4 +1,5 @@
 #include "CallbackSystem.hpp"
+#include "App/Callback/Controllers/ComponentToggleHook.hpp"
 #include "App/Callback/Controllers/EntityAssembleHook.hpp"
 #include "App/Callback/Controllers/EntityAttachHook.hpp"
 #include "App/Callback/Controllers/EntityDetachHook.hpp"
@@ -28,6 +29,7 @@ App::CallbackSystem::CallbackSystem()
     RegisterController<EntityDetachHook>();
     RegisterController<EntityRequestComponentsHook>();
     RegisterController<EntityUninitializeHook>();
+    RegisterController<ComponentToggleHook>();
     RegisterController<VehicleLightControlHook>();
     RegisterController<PlayerSpawnedHook>();
     RegisterController<ResourceLoadHook>();

@@ -99,6 +99,7 @@ and in some cases alter game behavior and/or modify related game objects:
 | `Entity/AfterAttach`  | `EntityLifecycleEvent` | Fired when attachment process is finished for entity.                                              |
 | `Entity/Detach`       | `EntityLifecycleEvent` | Fired when entity is removed from the world. Can be fired multiple times during entity lifetime.   |
 | `Entity/Uninitialize` | `EntityLifecycleEvent` | The last stage of entity lifecycle before disposal.                                                |
+| `Component/Toggle`    | `EntityComponentEvent` | Fired after component is enabled or disabled.                                                      |
 | `Input/Key`           | `KeyInputEvent`        | Catches keyboard, mouse and controller button inputs.                                              |
 | `Input/Axis`          | `AxisInputEvent`       | Catches mouse movements and controller axis inputs.                                                |
 | `InkWidget/Spawn`     | `inkWidgetSpawnEvent`  | Fired when widget is spawned from widget library and before it's added to parent widget.           |
@@ -118,6 +119,8 @@ When defining a callback, you can specify event targets for which the callback s
 | `EntityTarget.Definition(ResRef, CName)`   | `EntityBuilderEvent`                         | Selects entity by appearance resource and definition name.  |
 | `DynamicEntityTarget.Tag(CName)`           | `EntityLifecycleEvent`                       | Selects entity created using dynamic entity system by tag.  |
 | `StaticEntityTarget.Tag(CName)`            | `EntityLifecycleEvent`                       | Selects entity created using static entity system by tag.   |
+| `ComponentTarget.ID(CRUID)`                | `EntityComponentEvent`                       | Selects component by ID.                                    |
+| `ComponentTarget.Name(CName)`              | `EntityComponentEvent`                       | Selects component by name.                                  |
 | `InputTarget.Key(EInputKey)`               | `KeyInputEvent`                              | Selects input event by key.                                 |
 | `InputTarget.Key(EInputKey, EInputAction)` | `KeyInputEvent`                              | Selects input event by key in combination with action.      |
 | `InputTarget.Axis(EInputKey)`              | `AxisInputEvent`                             | Selects input event by axis.                                |

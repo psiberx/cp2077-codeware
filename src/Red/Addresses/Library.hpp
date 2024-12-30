@@ -60,6 +60,8 @@ constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromLocal = 118698863;
 constexpr uint32_t InkWidgetLibrary_SpawnFromExternal = 506278179;
 constexpr uint32_t InkWidgetLibrary_SpawnFromLocal = 1158555307;
 
+constexpr uint32_t IComponent_Toggle = 3370191745;
+
 constexpr uint32_t IPlacedComponent_SetTransform = 1828854026;
 
 constexpr uint32_t ISerializable_Clone = 2601784524;
