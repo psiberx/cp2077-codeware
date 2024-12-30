@@ -1,5 +1,10 @@
 #include "CallbackSystemController.hpp"
 
+Core::Map<Red::CName, Red::CName> App::CallbackSystemController::GetMappings()
+{
+    return {};
+}
+
 bool App::CallbackSystemController::ActivateEvent(Red::CName aEvent)
 {
     if (!m_activeEvents.contains(aEvent))

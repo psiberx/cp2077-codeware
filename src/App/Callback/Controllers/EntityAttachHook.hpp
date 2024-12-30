@@ -25,12 +25,11 @@ public:
         };
     }
 
-    static void FixEventName(Red::CName& aEventName)
+    Core::Map<Red::CName, Red::CName> GetMappings() override
     {
-        if (aEventName == DeprecatedPostEventName)
-        {
-            aEventName = PostEventName;
-        }
+        return {
+            {DeprecatedPostEventName, PostEventName},
+        };
     }
 
 protected:

@@ -6,6 +6,7 @@ class CallbackSystemController
 {
 public:
     virtual Core::Map<Red::CName, Red::CName> GetEvents() = 0;
+    virtual Core::Map<Red::CName, Red::CName> GetMappings();
     virtual bool ActivateEvent(Red::CName aEvent);
     virtual bool DeactivateEvent(Red::CName aEvent);
 

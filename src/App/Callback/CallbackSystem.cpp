@@ -10,7 +10,7 @@
 #include "App/Callback/Controllers/PlayerSpawnedHook.hpp"
 #include "App/Callback/Controllers/RawInputHook.hpp"
 #include "App/Callback/Controllers/ResourceLoadHook.hpp"
-#include "App/Callback/Controllers/ResourceReadyHook.hpp"
+#include "App/Callback/Controllers/ResourcePostLoadHook.hpp"
 #include "App/Callback/Controllers/VehicleLightControlHook.hpp"
 #include "App/Callback/Events/GameSessionEvent.hpp"
 #include "App/Scripting/ScriptableService.hpp"
@@ -31,7 +31,7 @@ App::CallbackSystem::CallbackSystem()
     RegisterController<VehicleLightControlHook>();
     RegisterController<PlayerSpawnedHook>();
     RegisterController<ResourceLoadHook>();
-    RegisterController<ResourceReadyHook>();
+    RegisterController<ResourcePostLoadHook>();
     RegisterController<RawInputHook>();
 }
 
@@ -135,7 +135,7 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
     Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext, Red::CName aFunction,
     Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
 {
-    EntityAttachHook::FixEventName(aEventName);
+    MapEventName(aEventName);
 
     ActivateEvent(aEventName);
 
@@ -158,7 +158,7 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallb
     Red::CName aEventName, Red::CName aContext, Red::CName aFunction,
     Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
 {
-    EntityAttachHook::FixEventName(aEventName);
+    MapEventName(aEventName);
 
     ActivateEvent(aEventName);
 
@@ -180,7 +180,7 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallb
 void App::CallbackSystem::UnregisterCallback(Red::CName aEventName, const Red::Handle<Red::IScriptable>& aContext,
                                              Red::Optional<Red::CName> aFunction)
 {
-    EntityAttachHook::FixEventName(aEventName);
+    MapEventName(aEventName);
 
     std::unique_lock _(m_callbacksLock);
     const auto& callbackListIt = m_callbacksByEvent.find(aEventName);
@@ -212,7 +212,7 @@ void App::CallbackSystem::UnregisterCallback(Red::CName aEventName, const Red::H
 void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEventName, Red::CName aContext,
                                                    Red::Optional<Red::CName> aFunction)
 {
-    EntityAttachHook::FixEventName(aEventName);
+    MapEventName(aEventName);
 
     std::unique_lock _(m_callbacksLock);
     const auto& callbackListIt = m_callbacksByEvent.find(aEventName);
@@ -241,21 +241,30 @@ void App::CallbackSystem::UnregisterStaticCallback(Red::CName aEventName, Red::C
     }
 }
 
-void App::CallbackSystem::ActivateEvent(Red::CName aEvent)
+void App::CallbackSystem::MapEventName(Red::CName& aEventName)
 {
-    const auto& controllerIt = m_eventControllers.find(aEvent);
-    if (controllerIt != m_eventControllers.end())
+    const auto& mappingIt = m_eventMappings.find(aEventName);
+    if (mappingIt != m_eventMappings.end())
     {
-        controllerIt.value()->ActivateEvent(aEvent);
+        aEventName = mappingIt.value();
     }
 }
 
-void App::CallbackSystem::DeactivateEvent(Red::CName aEvent)
+void App::CallbackSystem::ActivateEvent(Red::CName aEventName)
 {
-    const auto& controllerIt = m_eventControllers.find(aEvent);
+    const auto& controllerIt = m_eventControllers.find(aEventName);
     if (controllerIt != m_eventControllers.end())
     {
-        controllerIt.value()->DeactivateEvent(aEvent);
+        controllerIt.value()->ActivateEvent(aEventName);
+    }
+}
+
+void App::CallbackSystem::DeactivateEvent(Red::CName aEventName)
+{
+    const auto& controllerIt = m_eventControllers.find(aEventName);
+    if (controllerIt != m_eventControllers.end())
+    {
+        controllerIt.value()->DeactivateEvent(aEventName);
     }
 }
 

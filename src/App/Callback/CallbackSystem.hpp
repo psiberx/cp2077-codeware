@@ -82,8 +82,9 @@ protected:
     void OnGamePaused() override;
     void OnGameResumed() override;
 
-    void ActivateEvent(Red::CName aEvent);
-    void DeactivateEvent(Red::CName aEvent);
+    void MapEventName(Red::CName& aEventName);
+    void ActivateEvent(Red::CName aEventName);
+    void DeactivateEvent(Red::CName aEventName);
     void FireCallbacks(const Red::Handle<CallbackSystemEvent>& aEvent);
 
     template<typename TController>
@@ -96,6 +97,11 @@ protected:
             m_eventControllers.emplace(eventName, controller);
             m_supportedEvents.emplace(eventName, eventObjectType);
         }
+
+        for (const auto& [oldEventName, newEventName] : controller->GetMappings())
+        {
+            m_eventMappings.emplace(oldEventName, newEventName);
+        }
     }
 
     bool m_restored;
@@ -105,6 +111,7 @@ protected:
     Core::Map<Red::CName, Core::Vector<Red::Handle<CallbackSystemHandler>>> m_callbacksByEvent;
     Core::Map<Red::CName, Core::SharedPtr<CallbackSystemController>> m_eventControllers;
     Core::Map<Red::CName, Red::CName> m_supportedEvents;
+    Core::Map<Red::CName, Red::CName> m_eventMappings;
 
     inline static Red::Handle<CallbackSystem> s_self;
 

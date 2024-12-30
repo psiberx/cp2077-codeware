@@ -8,16 +8,22 @@
 
 namespace App
 {
-class ResourceReadyHook
+class ResourcePostLoadHook
     : public CallbackSystemController
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto EventName = Red::CName("Resource/Ready");
+    constexpr static auto EventName = Red::CName("Resource/PostLoad");
+    constexpr static auto DeprecatedEventName = Red::CName("Resource/Ready");
 
     Core::Map<Red::CName, Red::CName> GetEvents() override
     {
         return {{EventName, Red::GetTypeName<ResourceEvent>()}};
+    }
+
+    Core::Map<Red::CName, Red::CName> GetMappings() override
+    {
+        return {{DeprecatedEventName, EventName}};
     }
 
 protected:

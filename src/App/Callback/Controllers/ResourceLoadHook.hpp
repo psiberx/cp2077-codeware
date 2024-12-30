@@ -13,11 +13,17 @@ class ResourceLoadHook
     , public Core::HookingAgent
 {
 public:
-    constexpr static auto EventName = Red::CName("Resource/Loaded");
+    constexpr static auto EventName = Red::CName("Resource/Load");
+    constexpr static auto DeprecatedEventName = Red::CName("Resource/Loaded");
 
     Core::Map<Red::CName, Red::CName> GetEvents() override
     {
         return {{EventName, Red::GetTypeName<ResourceEvent>()}};
+    }
+
+    Core::Map<Red::CName, Red::CName> GetMappings() override
+    {
+        return {{DeprecatedEventName, EventName}};
     }
 
 protected:

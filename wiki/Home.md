@@ -1,4 +1,4 @@
-Version: 1.12.9
+Version: 1.14.0
 
 ## Lifecycle
 
@@ -80,8 +80,8 @@ and in some cases alter game behavior and/or modify related game objects:
 
 | Event Name            | Event Type             | Description                                                                                        |
 |:----------------------|:-----------------------|:---------------------------------------------------------------------------------------------------|
-| `Resource/Loaded`     | `ResourceEvent`        | Fired when resource and its dependencies have been loaded, but no post-processing is done yet.     |
-| `Resource/Ready`      | `ResourceEvent`        | Fired when all post-processing is complete and resource is ready to be passed to the requester.    |
+| `Resource/Load`       | `ResourceEvent`        | Fired when resource and its dependencies have been loaded, but no post-processing is done yet.     |
+| `Resource/PostLoad`   | `ResourceEvent`        | Fired when all post-processing is complete and resource is ready to be passed to the requester.    |
 | `Session/BeforeStart` | `GameSessionEvent`     | Fired when a new session starts and game systems begin initialization.                             |
 | `Session/Start`       | `GameSessionEvent`     | Fired when game systems are initialized, including scriptable systems.                             |
 | `Session/Ready`       | `GameSessionEvent`     | Fired when session data is loaded and all entities are initialized and spawned.                    |
