@@ -12,9 +12,34 @@ struct CurvePointWrapper
 template<typename T>
 struct CurveDataWrapper
 {
+    [[nodiscard]] Red::curveEInterpolationType GetInterpolationType() const
+    {
+        return curveData.interpolationType;
+    }
+
+    void SetInterpolationType(Red::curveEInterpolationType aValue)
+    {
+        curveData.interpolationType = aValue;
+    }
+
+    [[nodiscard]] Red::curveESegmentsLinkType GetLinkType() const
+    {
+        return curveData.linkType;
+    }
+
+    void SetLinkType(Red::curveESegmentsLinkType aValue)
+    {
+        curveData.linkType = aValue;
+    }
+
     [[nodiscard]] uint32_t GetSize() const
     {
         return curveData.GetSize();
+    }
+
+    void SetSize(uint32_t aNewSize)
+    {
+        curveData.Resize(aNewSize);
     }
 
     [[nodiscard]] CurvePointWrapper<T> GetPoint(uint32_t aIndex) const
@@ -42,11 +67,6 @@ struct CurveDataWrapper
         curveData.SetPoint(aIndex, aPoint, acValue);
     }
 
-    void Resize(uint32_t aNewSize)
-    {
-        curveData.Resize(aNewSize);
-    }
-
     Red::CurveData<T> curveData;
 };
 }
@@ -57,12 +77,16 @@ struct CurveDataWrapper
         RTTI_PROPERTY(value); \
     }) \
     RTTI_DEFINE_CLASS(App::CurveDataWrapper<_type>, "CurveData" #_name, { \
+        RTTI_METHOD(GetInterpolationType); \
+        RTTI_METHOD(SetInterpolationType); \
+        RTTI_METHOD(GetLinkType); \
+        RTTI_METHOD(SetLinkType); \
         RTTI_METHOD(GetSize); \
+        RTTI_METHOD(SetSize); \
         RTTI_METHOD(GetPoint); \
         RTTI_METHOD(GetPointValue); \
         RTTI_METHOD(SetPoint); \
         RTTI_METHOD(SetPointValue); \
-        RTTI_METHOD(Resize); \
     })
 
 RTTI_DEFINE_CURVEDATA(float, Float)
