@@ -18,6 +18,8 @@ constexpr uint32_t CMesh_GetAppearance = 773462733;
 
 constexpr uint32_t CommunitySystem_Update = 1559565515;
 
+constexpr uint32_t EngineTime_Frequency = 3151104823;
+
 constexpr uint32_t Entity_Attach = 4248638169;
 constexpr uint32_t Entity_Detach = 2263681375;
 constexpr uint32_t Entity_Dispose = 2515274237;

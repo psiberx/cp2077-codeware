@@ -35,6 +35,7 @@
 #include <RED4ext/Scripting/Natives/Generated/CResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/DynamicTexture.hpp>
 #include <RED4ext/Scripting/Natives/Generated/EInputKey.hpp>
+#include <RED4ext/Scripting/Natives/Generated/EngineTime.hpp>
 #include <RED4ext/Scripting/Natives/Generated/IAreaSettings.hpp>
 #include <RED4ext/Scripting/Natives/Generated/IRenderResourceBlob.hpp>
 #include <RED4ext/Scripting/Natives/Generated/MorphTargetMesh.hpp>
