@@ -16,9 +16,9 @@ struct EngineTimeEx : Red::EngineTime
         return {aTicks};
     }
 
-    uint64_t ToTicks()
+    static uint64_t ToTicks(Red::EngineTime aTime)
     {
-        return ticks;
+        return aTime.ticks;
     }
 };
 }
