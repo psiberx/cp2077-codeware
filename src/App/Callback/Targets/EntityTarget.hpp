@@ -120,11 +120,14 @@ struct EntityTarget : CallbackSystemTarget
                 }
                 else if (auto device = Red::Cast<Red::gameDeviceBase>(entity))
                 {
-                    auto& controller = Red::GetProperty<Red::Handle<Red::gameComponent>>(device, "controller");
-                    if (!controller || !controller->persistentState)
+                    auto controller = Red::GetPropertyPtr<Red::Handle<Red::gameComponent>>(device, "controller");
+                    if (!controller || !*controller)
                         return false;
 
-                    auto& ps = controller->persistentState;
+                    auto& ps = (*controller)->persistentState;
+                    if (!ps)
+                        return false;
+
                     auto deviceID = Red::GetPropertyPtr<Red::TweakDBID>(ps, "tweakDBRecord");
                     if (!deviceID || recordID != *deviceID)
                         return false;
