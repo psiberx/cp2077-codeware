@@ -31,6 +31,7 @@
 #include "App/Entity/GameObjectEx.hpp"
 #include "App/Entity/InventoryManagerEx.hpp"
 #include "App/Entity/MeshComponentEx.hpp"
+#include "App/Entity/PersistentIDEx.hpp"
 #include "App/Entity/PlacedComponentEx.hpp"
 #include "App/Entity/TagListEx.hpp"
 #include "App/Entity/VehicleObjectEx.hpp"

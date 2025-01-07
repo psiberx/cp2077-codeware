@@ -11,7 +11,7 @@ struct EntityIDEx : Red::EntityID
 
     uint64_t ToHash()
     {
-        return this->hash;
+        return hash;
     }
 };
 }
