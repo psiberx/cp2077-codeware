@@ -130,9 +130,6 @@ void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aCo
     if (controllerSep)
     {
         InjectController(aInstance, controllerSep + 1);
-
-        aContext.request->itemName = Red::FNV1a64(reinterpret_cast<const uint8_t*>(itemNameStr),
-                                                  controllerSep - itemNameStr);
     }
 
     {
