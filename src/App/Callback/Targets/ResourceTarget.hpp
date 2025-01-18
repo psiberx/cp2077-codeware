@@ -29,7 +29,7 @@ struct ResourceTarget : CallbackSystemTarget
         {
             if (regex.has_value())
             {
-                auto pathStr = ResourcePathRegistry::Get()->ResolvePath(event->resource->path);
+                auto pathStr = Core::Resolve<ResourcePathRegistry>()->ResolvePath(event->resource->path);
                 if (pathStr.empty())
                     return false;
 
@@ -66,7 +66,7 @@ struct ResourceTarget : CallbackSystemTarget
         auto target = Red::MakeHandle<ResourceTarget>();
         target->path = aResourceRef.path;
 
-        auto pattern = ResourcePathRegistry::Get()->ResolvePath(target->path);
+        auto pattern = Core::Resolve<ResourcePathRegistry>()->ResolvePath(target->path);
         if (!pattern.empty())
         {
             if (pattern.starts_with("regex:"))

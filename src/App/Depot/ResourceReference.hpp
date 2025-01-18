@@ -109,7 +109,7 @@ struct ResourceScriptReferenceEx
 
     inline static Red::CString ToString(const Red::redResourceReferenceScriptToken& aReference)
     {
-        return ResourcePathRegistry::Get()->ResolvePath(aReference.resource.path);
+        return Core::Resolve<ResourcePathRegistry>()->ResolvePath(aReference.resource.path);
     }
 };
 }
