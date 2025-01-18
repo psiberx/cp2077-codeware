@@ -27,5 +27,21 @@ protected:
     {
         return true;
     }
+
+    void OnActivateEvent(Red::CName aEvent) override
+    {
+        if (aEvent == WidgetSpawningService::WidgetSpawnEventName)
+        {
+            WidgetSpawningService::ToggleWidgetSpawnEvent(true);
+        }
+    }
+
+    void OnDeactivateEvent(Red::CName aEvent) override
+    {
+        if (aEvent == WidgetSpawningService::WidgetSpawnEventName)
+        {
+            WidgetSpawningService::ToggleWidgetSpawnEvent(false);
+        }
+    }
 };
 }

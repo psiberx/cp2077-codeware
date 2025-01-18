@@ -44,7 +44,8 @@ public:
     template<typename Event, typename... Args>
     inline bool DispatchNativeEvent(Red::CName aEventName, Args&&... aArgs)
     {
-        Core::Vector<Red::Handle<CallbackSystemHandler>> callbacks;
+        Core::Vector<Red::Handle<CallbackSystemHandler>> callbacks(0);
+
         {
             std::shared_lock _(m_callbacksLock);
             const auto& callbacksIt = m_callbacksByEvent.find(aEventName);
