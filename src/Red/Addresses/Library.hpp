@@ -2,7 +2,7 @@
 
 namespace Red::AddressLib
 {
-constexpr uint32_t Main = 3545369307;
+constexpr uint32_t Main = 240386859;
 constexpr uint32_t GetScriptGameInstance = 1559305924;
 
 constexpr uint32_t CBaseEngine_InitEngine = 3273923080;
@@ -47,7 +47,7 @@ constexpr uint32_t InkLogicController_OnArrangeChildrenComplete = 3589084925;
 
 constexpr uint32_t InkSpawner_FinishAsyncSpawn = 2698985195;
 
-constexpr uint32_t InkSystem_Instance = 2755465343;
+constexpr uint32_t InkSystem_Instance = 2635337807;
 constexpr uint32_t InkSystem_ProcessCharacterEvent = 4284882427;
 constexpr uint32_t InkSystem_ProcessInputEvents = 673454961;
 
@@ -72,9 +72,6 @@ constexpr uint32_t IScriptable_CheckClass = 2487884020;
 constexpr uint32_t IScriptable_CheckExactClass = 1797004238;
 
 constexpr uint32_t Localization_LoadOnScreens = 3550098299;
-constexpr uint32_t Localization_LoadSubtitles = 772484645;
-constexpr uint32_t Localization_LoadVoiceOvers = 4259845555;
-constexpr uint32_t Localization_LoadLipsyncs = 1488657506;
 
 constexpr uint32_t MeshAppearance_LoadMaterialSetupAsync = 1419388740;
 
@@ -128,8 +125,8 @@ constexpr uint32_t ScriptOpCodes_Handlers_New = 2669615409;
 constexpr uint32_t ScriptOpCodes_Handlers_Cast = 2439126103;
 constexpr uint32_t ScriptOpCodes_Register = 2070546748;
 
-constexpr uint32_t ScriptValidator_CompareType = 376118797;
-constexpr uint32_t ScriptValidator_CompareTypeName = 1327107674;
+constexpr uint32_t ScriptValidator_CompareType = 4224523662;
+constexpr uint32_t ScriptValidator_CompareTypeName = 1156189659;
 constexpr uint32_t ScriptValidator_Validate = 898639042;
 constexpr uint32_t ScriptValidator_ValidateProperty = 560604283;
 
