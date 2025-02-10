@@ -281,4 +281,7 @@ public class InMenuPopupContent extends inkCustomController {
 
         return self;
     }
+
+    func OnInitialize() {}
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

@@ -1,4 +1,4 @@
-public native class gameAppearanceNameVisualTagsPreset_Entity extends ISerializable {
+@neverRef() public native class gameAppearanceNameVisualTagsPreset_Entity extends ISerializable {
   native let entityPathHash: Uint64;
   native let debugEntityPath: CName;
   native let entityRigPathHash: Uint64;
@@ -6,3 +6,4 @@ public native class gameAppearanceNameVisualTagsPreset_Entity extends ISerializa
   native let commonVisualTags: redTagList;
   native let appearancesToTags: array<gameAppearanceNameVisualTagsPreset_AppearanceTags>;
 }
+

@@ -1,3 +1,4 @@
-public native class animGenericAnimDatabase extends CResource {
+@neverRef() public native class animGenericAnimDatabase extends CResource {
   native let rows: array<animGenericAnimDatabase_DatabaseRow>;
 }
+

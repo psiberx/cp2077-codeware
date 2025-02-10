@@ -61,7 +61,7 @@ public class PopupButton extends CustomButton {
         content.SetMargin(new inkMargin(15.0, 0.0, 0.0, 0.0));
         content.SetHAlign(inkEHorizontalAlign.Left);
         content.Reparent(root);
-        
+
         let inputDisplay = new inkHorizontalPanel();
         inputDisplay.SetName(n"inputDisplay");
         inputDisplay.SetFitToContent(true);
@@ -192,4 +192,9 @@ public class PopupButton extends CustomButton {
 
         return self;
     }
+
+    func ApplyPressedState() {}
+    func CreateAnimations() {}
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
+    func ApplyDisabledState() {}
 }

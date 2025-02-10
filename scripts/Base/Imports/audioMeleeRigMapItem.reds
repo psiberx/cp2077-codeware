@@ -1,3 +1,4 @@
-public native class audioMeleeRigMapItem extends audioAudioMetadata {
+@neverRef() public native class audioMeleeRigMapItem extends audioAudioMetadata {
   native let matchingRigs: array<CName>;
 }
+

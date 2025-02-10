@@ -1,4 +1,4 @@
-public native class Multilayer_LayerTemplate extends CResource {
+@neverRef() public native class Multilayer_LayerTemplate extends CResource {
   native let overrides: Multilayer_LayerTemplateOverrides;
   native let defaultOverrides: Multilayer_LayerOverrideSelection;
   native let colorTexture: ResourceRef; // rRef<CBitmapTexture>
@@ -9,3 +9,4 @@ public native class Multilayer_LayerTemplate extends CResource {
   native let colorMaskLevelsIn: [Float; 2];
   native let colorMaskLevelsOut: [Float; 2];
 }
+

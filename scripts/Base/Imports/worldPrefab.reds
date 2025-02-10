@@ -1,4 +1,4 @@
-public native class worldPrefab extends resStreamedResource {
+@neverRef() public native class worldPrefab extends resStreamedResource {
   native let mainGroup: ref<worldNodesGroup>;
   native let type: worldPrefabType;
   native let teamOwnership: worldPrefabOwnership;
@@ -33,3 +33,4 @@ public native class worldPrefab extends resStreamedResource {
   native let proxyLimiterHelper: ResourceAsyncRef; // raRef<worldPrefab>
   native let customProxyMeshHelper: ResourceAsyncRef; // raRef<CMesh>
 }
+

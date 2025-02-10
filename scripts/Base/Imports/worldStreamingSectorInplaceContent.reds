@@ -1,3 +1,4 @@
-public native class worldStreamingSectorInplaceContent extends CResource {
+@neverRef() public native class worldStreamingSectorInplaceContent extends CResource {
   native let inplaceResources: array<ResourceRef>;
 }
+

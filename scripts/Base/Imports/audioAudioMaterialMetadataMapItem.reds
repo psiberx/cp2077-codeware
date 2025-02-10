@@ -1,4 +1,4 @@
-public native class audioAudioMaterialMetadataMapItem extends audioAudioMetadata {
+@neverRef() public native class audioAudioMaterialMetadataMapItem extends audioAudioMetadata {
   native let footstepsMetadata: CName;
   native let npcFootstepsMetadata: CName;
   native let ragdollMetadata: CName;
@@ -11,3 +11,4 @@ public native class audioAudioMaterialMetadataMapItem extends audioAudioMetadata
   native let foliagePaletteTag: CName;
   native let meleeMaterialType: audioMeleeMaterialType;
 }
+

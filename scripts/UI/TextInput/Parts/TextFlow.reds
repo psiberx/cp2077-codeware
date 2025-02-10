@@ -54,7 +54,7 @@ public class TextFlow extends inkCustomController {
     protected func InitializeOffsets() {
         ArrayResize(this.m_charOffsets, this.m_length + 1);
 
-        this.m_charOffsets[0] = 0;
+        this.m_charOffsets[0] = 0.;
 
         if this.m_length > 0 {
             let position: Int32 = 1;
@@ -168,8 +168,8 @@ public class TextFlow extends inkCustomController {
         return this.m_text.GetLetterCase();
     }
 
-    public func SetLetterCase(case: textLetterCase) {
-        this.m_text.SetLetterCase(case);
+    public func SetLetterCase(case_: textLetterCase) {
+        this.m_text.SetLetterCase(case_);
     }
 
     public func GetFontSize() -> Int32 {
@@ -259,12 +259,13 @@ public class TextFlow extends inkCustomController {
             case 0:
                 this.m_value = char + this.m_value;
                 break;
-            case this.m_length:
-                this.m_value += char;
-                break;
             default:
-                this.m_value = UTF8StrLeft(this.m_value, position)
-                    + char + UTF8StrRight(this.m_value, this.m_length - position);
+                if position == this.m_length {
+                    this.m_value += char;
+                } else {
+                    this.m_value = UTF8StrLeft(this.m_value, position) +
+                        char + UTF8StrRight(this.m_value, this.m_length - position);
+                }
         }
 
         this.m_length += 1;
@@ -288,12 +289,13 @@ public class TextFlow extends inkCustomController {
             case 0:
                 this.m_value = text + this.m_value;
                 break;
-            case this.m_length:
-                this.m_value += text;
-                break;
             default:
-                this.m_value = UTF8StrLeft(this.m_value, position)
-                    + text + UTF8StrRight(this.m_value, this.m_length - position);
+                if position == this.m_length {
+                    this.m_value += text;
+                } else {
+                    this.m_value = UTF8StrLeft(this.m_value, position) +
+                        text + UTF8StrRight(this.m_value, this.m_length - position);
+                }
         }
 
         this.m_length += length;
@@ -316,12 +318,13 @@ public class TextFlow extends inkCustomController {
             case 0:
                 this.m_value = UTF8StrRight(this.m_value, this.m_length - 1);
                 break;
-            case this.m_length - 1:
-                this.m_value = UTF8StrLeft(this.m_value, this.m_length - 1);
-                break;
             default:
-                this.m_value = UTF8StrLeft(this.m_value, position)
-                    + UTF8StrRight(this.m_value, this.m_length - position - 1);
+                if position == this.m_length - 1 {
+                    this.m_value = UTF8StrLeft(this.m_value, this.m_length - 1);
+                } else {
+                    this.m_value = UTF8StrLeft(this.m_value, position) +
+                        UTF8StrRight(this.m_value, this.m_length - position - 1);
+                }
         }
 
         this.m_length -= 1;
@@ -364,4 +367,6 @@ public class TextFlow extends inkCustomController {
 
         return self;
     }
+
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

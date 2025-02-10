@@ -1,1 +1,2 @@
-public native class rendFont extends CResource {}
+@neverRef() public native class rendFont extends CResource {}
+

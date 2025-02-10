@@ -1,1 +1,2 @@
-public native class gameuiarcadeBoundingRect extends gameuiarcadeBoundingShape {}
+@neverRef() public native class gameuiarcadeBoundingRect extends gameuiarcadeBoundingShape {}
+

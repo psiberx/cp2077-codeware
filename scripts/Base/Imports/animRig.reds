@@ -1,4 +1,4 @@
-public native class animRig extends CResource {
+@neverRef() public native class animRig extends CResource {
   native let boneNames: array<CName>;
   native let trackNames: array<CName>;
   native let rigExtraTracks: array<animFloatTrackInfo>;
@@ -17,3 +17,4 @@ public native class animRig extends CResource {
   native let ragdollDesc: array<physicsRagdollBodyInfo>;
   native let ragdollNames: array<physicsRagdollBodyNames>;
 }
+

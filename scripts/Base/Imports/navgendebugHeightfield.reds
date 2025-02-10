@@ -1,4 +1,4 @@
-public native class navgendebugHeightfield extends ISerializable {
+@neverRef() public native class navgendebugHeightfield extends ISerializable {
   native let bounds: Box;
   native let cellSize: Float;
   native let cellHeight: Float;
@@ -11,3 +11,4 @@ public native class navgendebugHeightfield extends ISerializable {
   native let distancefield: array<Uint16>;
   native let maxDistancefieldValue: Uint16;
 }
+

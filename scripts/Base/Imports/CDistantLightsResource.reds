@@ -1,1 +1,2 @@
-public native class CDistantLightsResource extends resStreamedResource {}
+@neverRef() public native class CDistantLightsResource extends resStreamedResource {}
+

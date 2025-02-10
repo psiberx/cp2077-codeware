@@ -1,4 +1,4 @@
-public native class DynamicTexture extends ITexture {
+@neverRef() public native class DynamicTexture extends ITexture {
   native let width: Uint32;
   native let height: Uint32;
   native let scaleToViewport: Bool;
@@ -7,3 +7,4 @@ public native class DynamicTexture extends ITexture {
   native let dataFormat: DynamicTextureDataFormat;
   native let generator: ref<IDynamicTextureGenerator>;
 }
+

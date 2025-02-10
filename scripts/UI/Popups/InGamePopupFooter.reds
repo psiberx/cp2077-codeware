@@ -109,4 +109,6 @@ public class InGamePopupFooter extends inkCustomController {
 
         return self;
     }
+
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

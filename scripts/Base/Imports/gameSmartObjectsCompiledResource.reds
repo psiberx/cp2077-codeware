@@ -1,4 +1,4 @@
-public native class gameSmartObjectsCompiledResource extends resStreamedResource {
+@neverRef() public native class gameSmartObjectsCompiledResource extends resStreamedResource {
   native let animationDatabase: ref<gameSmartObjectAnimationDatabase>;
   native let compiledNodesData: ref<gameCompiledNodes>;
   native let transformDictionary: ref<gameSmartObjectTransformDictionary>;
@@ -7,3 +7,4 @@ public native class gameSmartObjectsCompiledResource extends resStreamedResource
   native let soMembership: ref<gameSmartObjectMembership>;
   native let localBoundingBox: Box;
 }
+

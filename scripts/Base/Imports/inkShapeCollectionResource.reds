@@ -1,3 +1,4 @@
-public native class inkShapeCollectionResource extends CResource {
+@neverRef() public native class inkShapeCollectionResource extends CResource {
   native let presets: array<inkShapePreset>;
 }
+

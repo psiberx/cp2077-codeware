@@ -1,1 +1,2 @@
-public native class Bink extends CResource {}
+@neverRef() public native class Bink extends CResource {}
+

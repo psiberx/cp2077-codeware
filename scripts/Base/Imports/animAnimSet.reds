@@ -1,4 +1,4 @@
-public native class animAnimSet extends CResource {
+@neverRef() public native class animAnimSet extends CResource {
   native let animations: array<ref<animAnimSetEntry>>;
   native let animationDataChunks: array<animAnimDataChunk>;
   native let fallbackDataAddresses: array<Uint16>;
@@ -12,3 +12,4 @@ public native class animAnimSet extends CResource {
   native let tags: redTagList;
   native let version: Uint32;
 }
+

@@ -1,4 +1,4 @@
-public native class inkTextureAtlas extends CResource {
+@neverRef() public native class inkTextureAtlas extends CResource {
   native let activeTexture: inkTextureType;
   native let textureResolution: inkETextureResolution;
   native let texture: ResourceAsyncRef; // raRef<CBitmapTexture>
@@ -8,3 +8,4 @@ public native class inkTextureAtlas extends CResource {
   native let dynamicTextureSlot: inkDynamicTextureSlot;
   native let isSingleTextureMode: Bool;
 }
+

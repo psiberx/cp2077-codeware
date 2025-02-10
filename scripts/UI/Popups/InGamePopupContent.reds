@@ -38,4 +38,6 @@ public class InGamePopupContent extends inkCustomController {
 
         return self;
     }
+
+    func OnInitialize() {}
 }

@@ -180,4 +180,6 @@ public class Caret extends inkCustomController {
 
         return self;
     }
+
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

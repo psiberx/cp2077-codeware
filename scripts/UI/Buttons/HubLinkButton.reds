@@ -281,4 +281,6 @@ public class HubLinkButton extends CustomButton {
 
         return self;
     }
+
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

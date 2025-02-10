@@ -1,4 +1,4 @@
-public native class appearanceAppearanceResource extends resStreamedResource {
+@neverRef() public native class appearanceAppearanceResource extends resStreamedResource {
   native let alternateAppearanceSettingName: CName;
   native let alternateAppearanceSuffixes: array<CName>;
   native let alternateAppearanceMapping: array<appearanceAlternateAppearanceEntry>;
@@ -17,3 +17,4 @@ public native class appearanceAppearanceResource extends resStreamedResource {
   native let forceCompileProxy: Bool;
   native let generatePlayerBlockingCollisionForProxy: Bool;
 }
+

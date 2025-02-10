@@ -1,4 +1,4 @@
-public native class CSkinProfile extends CResource {
+@neverRef() public native class CSkinProfile extends CResource {
   native let blurSize: Float;
   native let diffuse: Color;
   native let falloff: Color;
@@ -6,3 +6,4 @@ public native class CSkinProfile extends CResource {
   native let roughness1: Float;
   native let lobeMix: Float;
 }
+

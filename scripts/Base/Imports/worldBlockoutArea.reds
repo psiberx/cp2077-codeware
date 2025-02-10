@@ -1,4 +1,4 @@
-public native class worldBlockoutArea extends ISerializable {
+@neverRef() public native class worldBlockoutArea extends ISerializable {
   native let name: String;
   native let color: Color;
   native let parent: Uint32;
@@ -7,3 +7,4 @@ public native class worldBlockoutArea extends ISerializable {
   native let isFree: Bool;
   native let increaseTerrainStreamingDistance: Bool;
 }
+
