@@ -1,4 +1,4 @@
-public native class minimapEncodedShapes extends CResource {
+@neverRef() public native class minimapEncodedShapes extends CResource {
   native let QuantizationScale: Vector2;
   native let QuantizationBias: Vector2;
   native let BoxQuantizationScale: Vector3;
@@ -12,3 +12,4 @@ public native class minimapEncodedShapes extends CResource {
   native let NumOwners: Uint32;
   native let Version: Uint32;
 }
+

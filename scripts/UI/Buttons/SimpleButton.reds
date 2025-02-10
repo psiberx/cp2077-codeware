@@ -165,4 +165,6 @@ public class SimpleButton extends CustomButton {
 
         return self;
     }
+
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

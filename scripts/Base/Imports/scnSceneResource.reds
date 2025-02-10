@@ -1,4 +1,4 @@
-public native class scnSceneResource extends CResource {
+@neverRef() public native class scnSceneResource extends CResource {
   native let entryPoints: array<scnEntryPoint>;
   native let exitPoints: array<scnExitPoint>;
   native let notablePoints: array<scnNotablePoint>;
@@ -25,3 +25,4 @@ public native class scnSceneResource extends CResource {
   native let sceneCategoryTag: scnSceneCategoryTag;
   native let debugSymbols: scnDebugSymbols;
 }
+

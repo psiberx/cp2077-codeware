@@ -1,4 +1,4 @@
-public native class CBitmapTexture extends ITexture {
+@neverRef() public native class CBitmapTexture extends ITexture {
   native let width: Uint32;
   native let height: Uint32;
   native let depth: Uint32;
@@ -8,3 +8,4 @@ public native class CBitmapTexture extends ITexture {
   native let renderResourceBlob: ref<IRenderResourceBlob>;
   native let renderTextureResource: rendRenderTextureResource;
 }
+

@@ -567,8 +567,8 @@ public class TextInput extends inkCustomController {
         return this.m_text.GetLetterCase();
     }
 
-    public func SetLetterCase(case: textLetterCase) {
-        this.m_text.SetLetterCase(case);
+    public func SetLetterCase(case_: textLetterCase) {
+        this.m_text.SetLetterCase(case_);
     }
 
     public func GetWidth() -> Float {
@@ -621,4 +621,6 @@ public class TextInput extends inkCustomController {
 
         return self;
     }
+
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

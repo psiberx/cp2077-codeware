@@ -1,4 +1,4 @@
-public native class worldEffect extends resStreamedResource {
+@neverRef() public native class worldEffect extends resStreamedResource {
   native let name: CName;
   native let length: Float;
   native let inputParameterNames: array<CName>;
@@ -6,3 +6,4 @@ public native class worldEffect extends resStreamedResource {
   native let events: array<ref<effectTrackItem>>;
   native let effectLoops: array<effectLoopData>;
 }
+

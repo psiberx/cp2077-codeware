@@ -1,1 +1,2 @@
-public native class locVoResource extends CResource {}
+@neverRef() public native class locVoResource extends CResource {}
+

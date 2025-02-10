@@ -22,4 +22,7 @@ public class InMenuPopupFooter extends inkCustomController {
 
         return self;
     }
+
+    func OnInitialize() {}
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

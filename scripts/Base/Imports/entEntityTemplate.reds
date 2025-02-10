@@ -1,4 +1,4 @@
-public native class entEntityTemplate extends resStreamedResource {
+@neverRef() public native class entEntityTemplate extends resStreamedResource {
   native let includes: array<entTemplateInclude>;
   native let appearances: array<entTemplateAppearance>;
   native let defaultAppearance: CName;
@@ -10,3 +10,4 @@ public native class entEntityTemplate extends resStreamedResource {
   native let inplaceResources: array<ResourceRef>;
   native let compiledEntityLODFlags: Uint16;
 }
+

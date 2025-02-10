@@ -1,1 +1,2 @@
-public native class vehicleAudioVehicleCurveSet extends CurveSet {}
+@neverRef() public native class vehicleAudioVehicleCurveSet extends CurveSet {}
+

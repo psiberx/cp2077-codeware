@@ -1,4 +1,4 @@
-public native class CMaterialTemplate extends IMaterialDefinition {
+@neverRef() public native class CMaterialTemplate extends IMaterialDefinition {
   native let name: CName;
   native let parameters: [array<ref<CMaterialParameter>>; 3];
   native let techniques: array<MaterialTechnique>;
@@ -9,3 +9,4 @@ public native class CMaterialTemplate extends IMaterialDefinition {
   native let audioTag: CName;
   native let resourceVersion: Uint8;
 }
+

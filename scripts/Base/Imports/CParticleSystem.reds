@@ -1,4 +1,4 @@
-public native class CParticleSystem extends resStreamedResource {
+@neverRef() public native class CParticleSystem extends resStreamedResource {
   native let visibleThroughWalls: Bool;
   native let prewarmingTime: Float;
   native let emitters: array<ref<CParticleEmitter>>;
@@ -9,3 +9,4 @@ public native class CParticleSystem extends resStreamedResource {
   native let renderingPlane: ERenderingPlane;
   native let particleDamage: ref<ParticleDamage>;
 }
+

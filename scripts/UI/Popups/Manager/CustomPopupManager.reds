@@ -13,7 +13,6 @@
 //
 
 module Codeware.UI
-import Codeware.*
 
 public class CustomPopupManager extends ScriptableService {
     private let m_gameController: wref<inkGameController>;

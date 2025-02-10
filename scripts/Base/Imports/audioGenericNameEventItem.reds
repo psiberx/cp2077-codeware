@@ -1,4 +1,5 @@
-public native class audioGenericNameEventItem extends audioInlinedAudioMetadata {
+@neverRef() public native class audioGenericNameEventItem extends audioInlinedAudioMetadata {
   native let key: CName;
   native let value: CName;
 }
+

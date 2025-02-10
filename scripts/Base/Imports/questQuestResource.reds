@@ -1,1 +1,2 @@
-public native class questQuestResource extends questQuestPhaseResource {}
+@neverRef() public native class questQuestResource extends questQuestPhaseResource {}
+

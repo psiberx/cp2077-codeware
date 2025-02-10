@@ -1,4 +1,5 @@
-public native class audioAnimationOverrideDictionaryItem extends audioInlinedAudioMetadata {
+@neverRef() public native class audioAnimationOverrideDictionaryItem extends audioInlinedAudioMetadata {
   native let key: CName;
   native let value: CName;
 }
+

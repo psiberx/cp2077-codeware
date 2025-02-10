@@ -99,7 +99,7 @@ public class ButtonHintsEx extends inkCustomController {
     }
 
     private func ApplyListStyle() {
-        let holder: ref<inkCompoundWidget> = inkCompoundRef.Get(this.m_buttonHints.m_horizontalHolder) as inkCompoundWidget;
+        let holder: ref<inkCompoundWidget> = inkWidgetRef.Get(this.m_buttonHints.m_horizontalHolder) as inkCompoundWidget;
 
         if Equals(this.m_style, n"popup") {
             holder.SetChildMargin(new inkMargin(30.0, 0.0, 0.0, 0.0));
@@ -123,7 +123,7 @@ public class ButtonHintsEx extends inkCustomController {
     }
 
     private func ApplyLastItemStyle() {
-        let holder: ref<inkCompoundWidget> = inkCompoundRef.Get(this.m_buttonHints.m_horizontalHolder) as inkCompoundWidget;
+        let holder: ref<inkCompoundWidget> = inkWidgetRef.Get(this.m_buttonHints.m_horizontalHolder) as inkCompoundWidget;
 
         this.ApplyItemStyle(holder.GetWidgetByIndex(holder.GetNumChildren() - 1).GetController() as ButtonHintListItem);
     }
@@ -141,4 +141,8 @@ public class ButtonHintsEx extends inkCustomController {
 
         return self;
     }
+
+    func OnInitialize() {}
+    func OnCreate() {}
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

@@ -1,4 +1,4 @@
-public native class CFoliageProfile extends CResource {
+@neverRef() public native class CFoliageProfile extends CResource {
   native let cutoffAlphaMinMip: Float;
   native let cutoffAlphaMaxMip: Float;
   native let billboardCutoffAlpha: Float;
@@ -12,3 +12,4 @@ public native class CFoliageProfile extends CResource {
   native let colorGradientDarkenWeight: Float;
   native let preserveOriginalColor: Float;
 }
+

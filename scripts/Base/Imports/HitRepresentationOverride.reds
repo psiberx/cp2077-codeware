@@ -1,3 +1,3 @@
-public importonly native class HitRepresentationOverride extends ISerializable {
+@neverRef() public importonly native class HitRepresentationOverride extends ISerializable {
   native let represenationOverride: HitShapeContainer;
 }

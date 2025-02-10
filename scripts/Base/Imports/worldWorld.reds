@@ -1,1 +1,2 @@
-public native class worldWorld extends worldPrefab {}
+@neverRef() public native class worldWorld extends worldPrefab {}
+

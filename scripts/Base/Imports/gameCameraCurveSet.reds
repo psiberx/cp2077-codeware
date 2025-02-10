@@ -1,1 +1,2 @@
-public native class gameCameraCurveSet extends CurveSet {}
+@neverRef() public native class gameCameraCurveSet extends CurveSet {}
+

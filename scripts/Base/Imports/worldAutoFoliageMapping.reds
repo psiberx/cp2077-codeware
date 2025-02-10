@@ -1,3 +1,4 @@
-public native class worldAutoFoliageMapping extends CResource {
+@neverRef() public native class worldAutoFoliageMapping extends CResource {
   native let Items: array<worldAutoFoliageMappingItem>;
 }
+

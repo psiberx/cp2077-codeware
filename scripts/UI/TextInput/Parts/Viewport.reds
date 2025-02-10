@@ -85,4 +85,7 @@ public class Viewport extends inkCustomController {
 
         return self;
     }
+
+    func OnInitialize() {}
+    func OnReparent(parent: ref<inkCompoundWidget>) {}
 }

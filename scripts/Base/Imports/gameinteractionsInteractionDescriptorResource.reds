@@ -1,3 +1,4 @@
-public native class gameinteractionsInteractionDescriptorResource extends CResource {
+@neverRef() public native class gameinteractionsInteractionDescriptorResource extends CResource {
   native let definition: gameinteractionsCHotSpotDefinition;
 }
+

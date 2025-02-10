@@ -1,4 +1,4 @@
-public native class animAnimGraph extends CResource {
+@neverRef() public native class animAnimGraph extends CResource {
   native let rootNode: ref<animAnimNode_Root>;
   native let variables: ref<animAnimVariableContainer>;
   native let animFeatures: array<animAnimFeatureEntry>;
@@ -15,3 +15,4 @@ public native class animAnimGraph extends CResource {
   native let staticCommandsRig: ResourceRef; // rRef<animRig>
   native let hackAlwaysSample: Bool;
 }
+
