@@ -28,6 +28,8 @@ struct ReflectionType : Red::IScriptable
         switch (m_type->GetType())
         {
         case Red::ERTTIType::Array:
+        case Red::ERTTIType::NativeArray:
+        case Red::ERTTIType::StaticArray:
         {
             innerType = reinterpret_cast<Red::CRTTIBaseArrayType*>(m_type)->innerType;
             break;
