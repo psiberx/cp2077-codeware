@@ -11,19 +11,19 @@ To create your own service, you have to define a class derived from `ScriptableS
 ```swift
 class MyService extends ScriptableService {
   private cb func OnLoad() {
-    LogChannel(n"DEBUG", "Scripts loaded");
+    FTLog("Scripts loaded");
   }
 
   private cb func OnReload() {
-    LogChannel(n"DEBUG", "Scripts reloaded");
+    FTLog("Scripts reloaded");
   }
 
   private cb func OnInitialize() {
-    LogChannel(n"DEBUG", "Game instance initialized, can access game systems");
+    FTLog("Game instance initialized, can access game systems");
   }
 
   private cb func OnUninitialize() {
-    LogChannel(n"DEBUG", "Game is shutting down");
+    FTLog("Game is shutting down");
   }
 }
 ```
@@ -59,7 +59,7 @@ class MyService extends ScriptableService {
 
   private cb func OnLoad() {
     this.stats.counter += 1;
-    LogChannel(n"DEBUG", s"The game launched \(this.stats.counter) time(s) since installing the mod");
+    FTLog(s"The game launched \(this.stats.counter) time(s) since installing the mod");
   }
 }
 ```
@@ -155,7 +155,7 @@ class MySystem extends ScriptableSystem {
   }
 
   private cb func OnPanamFirstSpawn(event: ref<EntityLifecycleEvent>) {
-    LogChannel(n"DEBUG", "Panam spawned");
+    FTLog("Panam spawned");
   }
 }
 ```
@@ -176,7 +176,7 @@ class MySystem extends ScriptableSystem {
   }
 
   private cb func OnKeyInput(evt: ref<KeyInputEvent>) {
-    LogChannel(n"DEBUG", s"Pressed \(evt.GetKey())");
+    FTLog(s"Pressed \(evt.GetKey())");
   }
 }
 ```
@@ -223,7 +223,7 @@ class CustomEventListener extends ScriptableService {
     }
 
     private cb func OnCustomEvent(event: ref<CustomEvent>) {
-        LogChannel(n"DEBUG", s"\(event.GetEventName()) \(event.GetData())");
+        FTLog(s"\(event.GetEventName()) \(event.GetData())");
     }
 }
 ```
@@ -316,11 +316,11 @@ class MySpawnHandler extends ScriptableSystem {
   }
 
   private cb func OnEntityAttached(event: ref<EntityLifecycleEvent>) {
-    LogChannel(n"DEBUG", s"Entity Attached \(EntityID.GetHash(event.GetEntity().GetEntityID()))");
+    FTLog(s"Entity Attached \(EntityID.GetHash(event.GetEntity().GetEntityID()))");
   }
 
   private cb func OnEntityDetached(event: ref<EntityLifecycleEvent>) {
-    LogChannel(n"DEBUG", s"Entity Detached \(EntityID.GetHash(event.GetEntity().GetEntityID()))");
+    FTLog(s"Entity Detached \(EntityID.GetHash(event.GetEntity().GetEntityID()))");
   }
 
   private func HandleSpawning() {
@@ -329,7 +329,7 @@ class MySpawnHandler extends ScriptableSystem {
 
     // Simple check if we're in the main menu world.
     if GameInstance.GetSystemRequestsHandler().IsPreGame() {
-      LogChannel(n"DEBUG", "We're in main menu");
+      FTLog("We're in main menu");
       return;
     }
 
@@ -337,13 +337,13 @@ class MySpawnHandler extends ScriptableSystem {
     // Since we spawn persistent entities, they will be restored for a playthrough,
     // in which we already spawned our entities once.
     if this.m_entitySystem.IsPopulated(n"MyMod") {
-      LogChannel(n"DEBUG", "Entities restored");
+      FTLog("Entities restored");
       return;
     }
 
     // Extra check if there's enough space in front of the player to spawn our entities.
     if !this.HasSpaceForSpawning() {
-      LogChannel(n"DEBUG", "Can't create entities, there's no space");
+      FTLog("Can't create entities, there's no space");
       return;
     }
 
@@ -377,7 +377,7 @@ class MySpawnHandler extends ScriptableSystem {
     this.m_entitySystem.CreateEntity(carSpec);
     this.m_entitySystem.CreateEntity(deviceSpec);
 
-    LogChannel(n"DEBUG", "Entities created");
+    FTLog("Entities created");
   }
 
   private func HasSpaceForSpawning() -> Bool {
@@ -529,7 +529,7 @@ You can get path to entity template used to create entity:
 let player = GetPlayer(GetGameInstance());
 let template = entity.GetTemplatePath();
 
-LogChannel(n"DEBUG", s"Entity Template: \(ResRef.GetHash(template))");
+FTLog(s"Entity Template: \(ResRef.GetHash(template))");
 ```
 
 ### Components
@@ -541,7 +541,7 @@ let player = GetPlayer(GetGameInstance());
 let components = player.GetComponents();
 
 for component in components {
-  LogChannel(n"DEBUG", s"Component: \(component.GetName()) \(component.GetClassName())");
+  FTLog(s"Component: \(component.GetName()) \(component.GetClassName())");
 }
 ```
 
@@ -659,7 +659,7 @@ let inkSystem = GameInstance.GetInkSystem();
 let layers = inkSystem.GetLayers();
 
 for layer in layers {
-  LogChannel(n"DEBUG", s"UI Layer: \(layer.GetLayerName()) \(layer.GetGameController().GetClassName())");
+  FTLog(s"UI Layer: \(layer.GetLayerName()) \(layer.GetGameController().GetClassName())");
 }
 ```
 
@@ -671,7 +671,7 @@ let layers = inkSystem.GetLayers();
 
 for layer in layers {
   for controller in layer.GetGameControllers() {
-    LogChannel(n"DEBUG", s"Game Controller: \(controller.GetClassName())");
+    FTLog(s"Game Controller: \(controller.GetClassName())");
   }
 }
 ```
@@ -801,8 +801,8 @@ Reference can be initialized by assigning a resource path using `*=` operator:
 let weapon = new WeaponObject();
 weapon.effect *= r"base\\gameplay\\game_effects\\strongmelee.es";
 
-LogChannel(n"DEBUG", s"Hash: \(ResourceRef.GetHash(weapon.effect))");
-LogChannel(n"DEBUG", s"Loaded: \(ResourceRef.IsLoaded(weapon.effect))");
+FTLog(s"Hash: \(ResourceRef.GetHash(weapon.effect))");
+FTLog(s"Loaded: \(ResourceRef.IsLoaded(weapon.effect))");
 ```
 
 ### Checking resource existence
@@ -814,7 +814,7 @@ For example, you can use to check if mod is intalled correctly:
 ```swift
 let depot = GameInstance.GetResourceDepot();
 if !depot.ArchiveExists("MyMod.archive") {
-  LogChannel(n"DEBUG", "MyMod.archive not found. Did you enable mods?");
+  FTLog("MyMod.archive not found. Did you enable mods?");
 }
 ```
 
@@ -823,7 +823,7 @@ Or to handle compatibility with another mod:
 ```swift
 let depot = GameInstance.GetResourceDepot();
 if depot.ResourceExists(r"mod\\entities\\vehicle.ent") {
-  LogChannel(n"DEBUG", "Another mod detected");
+  FTLog("Another mod detected");
 }
 ```
 
@@ -840,10 +840,10 @@ class MySystem extends ScriptableSystem {
   private cb func OnResourceReady(token: ref<ResourceToken>) {
     let template = token.GetResource() as entEntityTemplate;
 
-    LogChannel(n"DEBUG", "Available appearances:");
+    FTLog("Available appearances:");
 
     for appearance in template.appearances {
-      LogChannel(n"DEBUG", s"- \(appearance.name)");
+      FTLog(s"- \(appearance.name)");
     }
   }
 }
@@ -985,11 +985,11 @@ You can get various type information using type name or variable:
 let cls = Reflection.GetClass(n"inkWidget");
 
 if cls.IsNative() {
-  LogChannel(n"DEBUG", s"\(cls.GetName()) is native class");
+  FTLog(s"\(cls.GetName()) is native class");
 }
 
 for prop in cls.GetProperties() {
-  LogChannel(n"DEBUG", s"\(prop.GetName()): \(prop.GetType().GetName())");
+  FTLog(s"\(prop.GetName()): \(prop.GetType().GetName())");
 }
 ```
 
@@ -1009,13 +1009,13 @@ let setter = imageClass.GetFunction(n"SetTexturePart");
 let val1 = prop.GetValue(image); // Read property from instance
 let val2 = getter.Call(image); // Call getter on instance
 
-LogChannel(n"DEBUG", s"Expected type: \(prop.GetType().GetName())");
-LogChannel(n"DEBUG", s"Value from property: \(FromVariant<CName>(val1))");
-LogChannel(n"DEBUG", s"Value from getter: \(FromVariant<CName>(val2))");
+FTLog(s"Expected type: \(prop.GetType().GetName())");
+FTLog(s"Value from property: \(FromVariant<CName>(val1))");
+FTLog(s"Value from getter: \(FromVariant<CName>(val2))");
 
 setter.Call(image, [n"bar"]); // Change the value using setter 
 
-LogChannel(n"DEBUG", s"New value: \(image.GetTexturePart())");
+FTLog(s"New value: \(image.GetTexturePart())");
 ```
 
 ### Custom callbacks
@@ -1060,12 +1060,12 @@ class MyService {
       let result = callable.Call(target, [data], status);
       
       if status {
-        LogChannel(n"DEBUG", s"Result: \(VariantTypeName(result))");
+        FTLog(s"Result: \(VariantTypeName(result))");
       } else {
-        LogChannel(n"DEBUG", s"Method \(type.GetName()).\(function) must accept one parameter");
+        FTLog(s"Method \(type.GetName()).\(function) must accept one parameter");
       }
     } else {
-      LogChannel(n"DEBUG", s"Method \(type.GetName()).\(function) not found");
+      FTLog(s"Method \(type.GetName()).\(function) not found");
     }
   }
 }
@@ -1076,7 +1076,7 @@ Don't forget to use `cb` modifier for callbacks to be able to use functions shor
 ```swift
 class MyHandler {
   protected cb func Callback(data: ref<IScriptable>) {
-    LogChannel(n"DEBUG", s"It's working! Received \(data.GetClassName()).");
+    FTLog(s"It's working! Received \(data.GetClassName()).");
   }
 }
 
@@ -1110,7 +1110,7 @@ apply different logic and access it safely.
 let name = n"test";
 let hash = NameToHash(name);
 
-LogChannel(n"DEBUG", s"Name: \(name) -> Hash: \(hash)");
+FTLog(s"Name: \(name) -> Hash: \(hash)");
 ```
 
 ### NodeRef
@@ -1118,7 +1118,7 @@ LogChannel(n"DEBUG", s"Name: \(name) -> Hash: \(hash)");
 ```swift
 let nodeRef = CreateNodeRef("$/my/new/#node");
 
-LogChannel(n"DEBUG", s"NodeRef: \(NodeRefToHash(nodeRef))");
+FTLog(s"NodeRef: \(NodeRefToHash(nodeRef))");
 ```
 
 ### CRUID
@@ -1126,7 +1126,7 @@ LogChannel(n"DEBUG", s"NodeRef: \(NodeRefToHash(nodeRef))");
 ```swift
 let id = CreateCRUID(1337ul);
 
-LogChannel(n"DEBUG", s"CRUID: \(CRUIDToHash(id))");
+FTLog(s"CRUID: \(CRUIDToHash(id))");
 ```
 
 ### Hash functions
