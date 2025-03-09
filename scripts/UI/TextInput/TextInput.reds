@@ -567,8 +567,8 @@ public class TextInput extends inkCustomController {
         return this.m_text.GetLetterCase();
     }
 
-    public func SetLetterCase(case: textLetterCase) {
-        this.m_text.SetLetterCase(case);
+    public func SetLetterCase(value: textLetterCase) {
+        this.m_text.SetLetterCase(value);
     }
 
     public func GetWidth() -> Float {

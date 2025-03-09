@@ -54,7 +54,7 @@ public abstract class CustomButton extends inkCustomController {
 
     protected func CreateWidgets()
 
-    protected func CreateAnimations()
+    protected func CreateAnimations() {}
 
     protected func RegisterListeners() {
         this.RegisterToCallback(n"OnEnter", this, n"OnHoverOver");
@@ -63,11 +63,11 @@ public abstract class CustomButton extends inkCustomController {
         this.RegisterToCallback(n"OnRelease", this, n"OnRelease");
     }
 
-    protected func ApplyDisabledState()
+    protected func ApplyDisabledState() {}
 
-    protected func ApplyHoveredState()
+    protected func ApplyHoveredState() {}
 
-    protected func ApplyPressedState()
+    protected func ApplyPressedState() {}
 
     protected func SetDisabledState(isDisabled: Bool) {
         if !Equals(this.m_isDisabled, isDisabled) {

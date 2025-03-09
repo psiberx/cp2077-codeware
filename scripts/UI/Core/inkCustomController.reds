@@ -149,15 +149,15 @@ public abstract class inkCustomController extends inkLogicController {
 
     protected cb func OnCreate()
 
-    protected cb func OnInitialize()
+    protected cb func OnInitialize() {}
 
-    protected cb func OnUninitialize() ->  Void {
+    protected cb func OnUninitialize() {
         //this.m_isCreated = false;
         //this.m_isInitialized = false;
         this.m_detachedWidget = null;
     }
 
-    protected cb func OnReparent(parent: ref<inkCompoundWidget>) ->  Void
+    protected cb func OnReparent(parent: ref<inkCompoundWidget>) {}
 
     public func GetRootWidget() -> wref<inkWidget> {
         return this.m_rootWidget;
