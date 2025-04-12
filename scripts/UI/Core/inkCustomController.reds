@@ -147,7 +147,7 @@ public abstract class inkCustomController extends inkLogicController {
         }
     }
 
-    protected cb func OnCreate()
+    protected cb func OnCreate() {}
 
     protected cb func OnInitialize() {}
 
