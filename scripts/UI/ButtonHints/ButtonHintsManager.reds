@@ -11,7 +11,6 @@
 //
 
 module Codeware.UI
-import Codeware.*
 
 public class ButtonHintsManager extends ScriptableService {
     private let m_buttonHints: ref<inkWidget>;
