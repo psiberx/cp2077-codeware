@@ -1,4 +1,5 @@
 public native class WorldNodeSetupWrapper {
+    public native func GetNodeIndex() -> Uint16
     public native func GetNode() -> ref<worldNode>
     public native func GetTransform() -> Transform
     public native func GetPosition() -> Vector4
@@ -12,6 +13,7 @@ public native class WorldNodeSetupWrapper {
     public native func GetSecondaryRefPointPosition() -> Vector3
     public native func GetSecondaryRefPointDistance() -> Float
 
+    public native func SetNodeIndex(value: Uint16)
     public native func SetTransform(value: Transform)
     public native func SetPosition(value: Vector4)
     public native func SetOrientation(value: Quaternion)

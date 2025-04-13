@@ -8,13 +8,19 @@ struct WorldNodeSetupWrapper : Red::IScriptable
 {
     WorldNodeSetupWrapper() = default;
 
-    WorldNodeSetupWrapper(Red::CompiledNodeInstanceSetupInfo* aSetup)
-        : setup(aSetup)
+    WorldNodeSetupWrapper(Red::StreamingSectorNodeBuffer* aBuffer, Red::CompiledNodeInstanceSetupInfo* aSetup)
+        : buffer(aBuffer)
+        , setup(aSetup)
     {
     }
 
     WorldNodeSetupWrapper(const WorldNodeSetupWrapper&) = default;
     WorldNodeSetupWrapper(WorldNodeSetupWrapper&&) = default;
+
+    [[nodiscard]] uint16_t GetNodeIndex() const
+    {
+        return setup->nodeIndex;
+    }
 
     [[nodiscard]] Red::Handle<Red::worldNode> GetNode() const
     {
@@ -76,6 +82,15 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         return setup->secondaryRefPointDistance;
     }
 
+    void SetNodeIndex(const uint16_t aIndex) const
+    {
+        if (aIndex >= 0 && aIndex < buffer->nodeSetups.GetInstanceCount())
+        {
+            setup->nodeIndex = aIndex;
+            setup->node = buffer->nodes[setup->nodeIndex].instance;
+        }
+    }
+
     void SetTransform(const Red::Transform& aTransform) const
     {
         setup->transform = aTransform;
@@ -131,6 +146,7 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->secondaryRefPointDistance = aDistance;
     }
 
+    Red::StreamingSectorNodeBuffer* buffer{};
     Red::CompiledNodeInstanceSetupInfo* setup{};
 
     RTTI_IMPL_TYPEINFO(App::WorldNodeSetupWrapper);
@@ -139,6 +155,7 @@ struct WorldNodeSetupWrapper : Red::IScriptable
 }
 
 RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
+    RTTI_METHOD(GetNodeIndex);
     RTTI_METHOD(GetNode);
     RTTI_METHOD(GetTransform);
     RTTI_METHOD(GetPosition);
@@ -151,6 +168,7 @@ RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
     RTTI_METHOD(GetStreamingDistance);
     RTTI_METHOD(GetSecondaryRefPointPosition);
     RTTI_METHOD(GetSecondaryRefPointDistance);
+    RTTI_METHOD(SetNodeIndex);
     RTTI_METHOD(SetTransform);
     RTTI_METHOD(SetPosition);
     RTTI_METHOD(SetOrientation);
