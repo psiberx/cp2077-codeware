@@ -47,7 +47,7 @@ void App::WorldStateSystem::DeactivateCommunity(Red::NodeRef aNodeRef, Red::Opti
     Raw::CommunitySystem::Update(m_communitySystem, true);
 }
 
-void App::WorldStateSystem::TogglePrefab(Red::NodeRef aNodeRef, bool aState)
+void App::WorldStateSystem::ToggleNode(Red::NodeRef aNodeRef, bool aState)
 {
     auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
     resetNodeType->objectRef = aNodeRef;
@@ -60,7 +60,7 @@ void App::WorldStateSystem::TogglePrefab(Red::NodeRef aNodeRef, bool aState)
     m_questPhaseExecutor->ExecuteNode(resetNode);
 }
 
-void App::WorldStateSystem::TogglePrefabVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState)
+void App::WorldStateSystem::ToggleVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState)
 {
     Red::questVariantState variantState;
     variantState.name = aVariant;

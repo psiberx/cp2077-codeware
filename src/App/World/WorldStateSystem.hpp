@@ -13,8 +13,8 @@ public:
     void ActivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName);
     void DeactivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName);
 
-    void TogglePrefab(Red::NodeRef aNodeRef, bool aState);
-    void TogglePrefabVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState);
+    void ToggleNode(Red::NodeRef aNodeRef, bool aState);
+    void ToggleVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState);
 
 private:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
@@ -38,6 +38,6 @@ RTTI_DEFINE_CLASS(App::WorldStateSystem, {
     RTTI_METHOD(IsReady);
     RTTI_METHOD(ActivateCommunity);
     RTTI_METHOD(DeactivateCommunity);
-    RTTI_METHOD(TogglePrefab);
-    RTTI_METHOD(TogglePrefabVariant);
+    RTTI_METHOD(ToggleNode);
+    RTTI_METHOD(ToggleVariant);
 });
