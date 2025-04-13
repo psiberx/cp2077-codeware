@@ -179,6 +179,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/PhaseInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/PhaseNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/QuestPhaseResource.hpp>
+#include <RED4ext/Scripting/Natives/Generated/quest/QuestsSystem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SetVar_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/ShowWorldNode_NodeType.hpp>
 #include <RED4ext/Scripting/Natives/Generated/quest/SocketDefinition.hpp>
