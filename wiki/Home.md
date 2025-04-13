@@ -463,7 +463,7 @@ set parameter `forceRestore` to `true`:
 weatherSystem.ResetWeather(true);
 ```
 
-### Controlling prefabs and variants
+### Controlling nodes and variants
 
 You can control world state like quest and scene nodes do.
 With custom streaming sectors and variants, you can quickly activate and deactive group of nodes. 
@@ -471,8 +471,8 @@ With custom streaming sectors and variants, you can quickly activate and deactiv
 ```swift
 let worldStateSystem = GameInstance.GetWorldStateSystem();
 
-worldStateSystem.TogglePrefab(CreateNodeRef("$/03_night_city/se1/loc_ma_bls_ina_se1_13_prefab3CX3BZA/loc_ma_bls_ina_se1_13_openworld_prefabA6C6LTI"), true);
-worldStateSystem.TogglePrefabVariant(CreateNodeRef("#loc_ma_bls_gas_station_small_v2_interior_v1_deco_v1"), "robbery", true)
+worldStateSystem.ToggleNode(CreateNodeRef("$/03_night_city/se1/loc_ma_bls_ina_se1_13_prefab3CX3BZA/loc_ma_bls_ina_se1_13_openworld_prefabA6C6LTI"), true);
+worldStateSystem.ToggleVariant(CreateNodeRef("#loc_ma_bls_gas_station_small_v2_interior_v1_deco_v1"), "robbery", true)
 ```
 
 ### Controlling communities
