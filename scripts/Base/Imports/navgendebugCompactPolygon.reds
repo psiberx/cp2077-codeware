@@ -1,3 +1,4 @@
+@neverRef()
 public native class navgendebugCompactPolygon extends ISerializable {
   native let index: Uint16;
   native let indices: array<Uint16>;

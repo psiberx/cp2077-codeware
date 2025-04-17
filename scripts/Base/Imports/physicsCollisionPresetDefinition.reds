@@ -1,3 +1,4 @@
+@neverRef()
 public native class physicsCollisionPresetDefinition extends ISerializable {
   native let Name: CName;
   native let Description: String;

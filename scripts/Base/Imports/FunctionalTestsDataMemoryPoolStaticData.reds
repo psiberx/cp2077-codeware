@@ -1,3 +1,4 @@
+@neverRef()
 public native class FunctionalTestsDataMemoryPoolStaticData extends ISerializable {
   native let poolName: String;
   native let budget: Int64;

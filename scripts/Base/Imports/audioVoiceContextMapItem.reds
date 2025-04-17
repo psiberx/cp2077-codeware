@@ -1,3 +1,4 @@
+@neverRef()
 public native class audioVoiceContextMapItem extends audioAudioMetadata {
   native let voTrigger: CName;
   native let bark: audioVoBarkType;

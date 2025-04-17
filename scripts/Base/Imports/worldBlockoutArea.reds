@@ -1,3 +1,4 @@
+@neverRef()
 public native class worldBlockoutArea extends ISerializable {
   native let name: String;
   native let color: Color;

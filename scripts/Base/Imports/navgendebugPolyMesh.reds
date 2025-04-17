@@ -1,3 +1,4 @@
+@neverRef()
 public native class navgendebugPolyMesh extends ISerializable {
   native let vertices: array<Vector3>;
   native let polygons: array<navgendebugCompactPolygon>;

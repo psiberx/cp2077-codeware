@@ -1,3 +1,4 @@
+@neverRef()
 public native class navgendebugHeightfield extends ISerializable {
   native let bounds: Box;
   native let cellSize: Float;

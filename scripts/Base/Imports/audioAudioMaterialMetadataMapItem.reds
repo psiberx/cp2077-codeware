@@ -1,3 +1,4 @@
+@neverRef()
 public native class audioAudioMaterialMetadataMapItem extends audioAudioMetadata {
   native let footstepsMetadata: CName;
   native let npcFootstepsMetadata: CName;
