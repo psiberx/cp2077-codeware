@@ -6,7 +6,7 @@ namespace App
 {
 struct QuestsSystemEx : Red::questQuestsSystem
 {
-    void ExecuteNode(const Red::Handle<Red::questNodeDefinition>& aNode)
+    void ExecuteNode(const Red::Handle<Red::questNodeDefinition>& aNode, Red::Optional<Red::CName> aInputSocket)
     {
         std::unique_lock _(Raw::QuestsSystem::Mutex::Ref(this));
 
@@ -17,7 +17,7 @@ struct QuestsSystemEx : Red::questQuestsSystem
 
         context.phaseStack.PushBack(rootPhaseInstance);
 
-        Red::QuestNodeSocket inputSocket;
+        Red::QuestNodeSocket inputSocket{aInputSocket.value};
         Red::DynArray<Red::QuestNodeSocket> outputSockets;
 
         Raw::QuestPhaseInstance::ExecuteNode(rootPhaseInstance, aNode, context, inputSocket, outputSockets);
