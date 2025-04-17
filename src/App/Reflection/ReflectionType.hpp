@@ -28,6 +28,7 @@ struct ReflectionType : Red::IScriptable
         switch (m_type->GetType())
         {
         case Red::ERTTIType::Array:
+        case Red::ERTTIType::FixedArray:
         case Red::ERTTIType::NativeArray:
         case Red::ERTTIType::StaticArray:
         {
