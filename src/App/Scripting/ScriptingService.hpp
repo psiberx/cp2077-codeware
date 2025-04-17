@@ -25,6 +25,7 @@ protected:
     static void OnInitializeGameInstance();
     static void OnCreateInstance(Red::IScriptable*& aInstance, Red::CClass* aClass, uint32_t, bool);
     static void OnValidateScripts(void* aValidator, Red::ScriptBundle* aBundle, void* aReport);
+    static bool OnValidateProperty(void* aValidator, Red::ScriptProperty* aScriptProp, Red::CProperty* aNativeProp);
     static bool OnValidateScriptType(Red::CBaseRTTIType* aNativeType, Red::ScriptType* aScriptType);
     static void OnValidateTypeName(bool& aValid, Red::CName aScriptTypeName, Red::CName aNativeTypeName);
     static void OnRegisterScriptOpCodes();

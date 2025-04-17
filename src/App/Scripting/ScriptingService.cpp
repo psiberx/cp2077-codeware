@@ -46,7 +46,7 @@ void App::ScriptingService::OnBootstrap()
     HookAfter<Raw::ScriptBundle::Destruct>(&OnInitializeScripts).OrThrow();
     HookAfter<Raw::CGameFramework::InitializeGameInstance>(&OnInitializeGameInstance).OrThrow();
     HookBefore<Raw::ScriptValidator::Validate>(&OnValidateScripts).OrThrow();
-    Hook<Raw::ScriptValidator::CompareType>(&OnValidateScriptType).OrThrow();
+    Hook<Raw::ScriptValidator::ValidateProperty>(&OnValidateProperty).OrThrow();
     HookAfter<Raw::ScriptValidator::CompareTypeName>(&OnValidateTypeName).OrThrow();
     HookAfter<Raw::ScriptOpCodes::Register>(&OnRegisterScriptOpCodes).OrThrow();
     HookAfter<Raw::CClass::CreateInstance>(&OnCreateInstance).OrThrow();
@@ -137,6 +137,21 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
     }
 }
 
+bool App::ScriptingService::OnValidateProperty(void* aValidator, Red::ScriptProperty* aScriptProp,
+                                               Red::CProperty* aNativeProp)
+{
+    auto* scriptType = aScriptProp->type;
+    auto* nativeType = aNativeProp->type;
+
+    if (scriptType->metaType == Red::EScriptType::DynArray ||
+        scriptType->metaType == Red::EScriptType::StaticArray)
+    {
+        return OnValidateScriptType(nativeType, scriptType);
+    }
+
+    return Raw::ScriptValidator::ValidateProperty(aValidator, aScriptProp, aNativeProp);
+}
+
 bool App::ScriptingService::OnValidateScriptType(Red::CBaseRTTIType* aNativeType, Red::ScriptType* aScriptType)
 {
     if (aScriptType->metaType == Red::EScriptType::DynArray)
@@ -153,9 +168,9 @@ bool App::ScriptingService::OnValidateScriptType(Red::CBaseRTTIType* aNativeType
 
     if (aScriptType->metaType == Red::EScriptType::StaticArray)
     {
-        if (aNativeType->GetType() == Red::ERTTIType::FixedArray ||
+        if (aNativeType->GetType() == Red::ERTTIType::StaticArray ||
             aNativeType->GetType() == Red::ERTTIType::NativeArray ||
-            aNativeType->GetType() == Red::ERTTIType::StaticArray)
+            aNativeType->GetType() == Red::ERTTIType::FixedArray)
         {
             auto nativeInnerType = reinterpret_cast<Red::CRTTIBaseArrayType*>(aNativeType)->innerType;
             auto scriptInnerType = reinterpret_cast<Red::ScriptType*>(aScriptType->innerType);
