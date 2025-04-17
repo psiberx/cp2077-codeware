@@ -89,7 +89,7 @@ public abstract class CustomPopup extends inkCustomController {
         this.CallCustomCallback(n"OnShown");
     }
 
-    protected cb func OnShown()
+    protected cb func OnShown() {}
 
     protected cb func OnHide() {
         let alphaAnim: ref<inkAnimTransparency> = new inkAnimTransparency();

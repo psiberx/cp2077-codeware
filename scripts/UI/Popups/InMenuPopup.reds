@@ -75,8 +75,8 @@ public abstract class InMenuPopup extends CustomPopup {
         this.SetContainerWidget(container);
     }
 
-    protected cb func OnCancel()
-    protected cb func OnConfirm()
+    protected cb func OnCancel() {}
+    protected cb func OnConfirm() {}
 
     protected cb func OnInitialize() {
         super.OnInitialize();

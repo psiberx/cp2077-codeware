@@ -48,9 +48,9 @@ public abstract class ModLocalizationProvider extends ScriptableSystem {
 
     public func GetFallback() -> CName
 
-    public func OnLocaleChange()
+    public func OnLocaleChange() {}
 
-    public func OnGenderChange()
+    public func OnGenderChange() {}
 
     public func GetOnScreenEntries(language: CName, out nativeEntries: array<localizationPersistenceOnScreenEntry>) {
         let packages: array<ref<ModLocalizationPackage>>;

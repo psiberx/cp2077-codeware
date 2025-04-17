@@ -25,7 +25,6 @@ module Codeware.Localization
 
 public abstract class ModLocalizationPackage {
     private let m_interfaceEntries: ref<inkHashMap>;
-
     private let m_subtitleEntries: ref<inkHashMap>;
 
     public func GetEntries(type: EntryType) -> wref<inkHashMap> {
@@ -56,9 +55,9 @@ public abstract class ModLocalizationPackage {
         return values;
     }
 
-    protected func DefineTexts()
+    protected func DefineTexts() {}
 
-    protected func DefineSubtitles()
+    protected func DefineSubtitles() {}
 
     protected func Text(key: String, value: String) {
         let hash: Uint64 = LocalizationEntry.Hash(key);
