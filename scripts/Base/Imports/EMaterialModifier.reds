@@ -29,5 +29,7 @@ enum EMaterialModifier {
   EMATMOD_WaterSim = 27,
   EMATMOD_TransparencyClipParams = 28,
   EMATMOD_FlatTireParams = 29,
-  EMATMOD_MAX = 30,
+  EMATMOD_SecondMultilayerParams = 30,
+  EMATMOD_CrystalCoat = 31,
+  EMATMOD_MAX = 32,
 }
