@@ -9,4 +9,3 @@ native let videoResource: ResourceAsyncRef; // raRef<Bink>
 
 @addField(JournalFile)
 native let pictureTweak: TweakDBID;
-

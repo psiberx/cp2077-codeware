@@ -12,4 +12,3 @@ native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
 
 @addField(JournalInternetSite)
 native let texturePart: CName;
-

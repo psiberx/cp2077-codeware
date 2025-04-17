@@ -150,4 +150,3 @@ native let rtxdiShadowStartingDistance: Float;
 
 @addField(LightComponent)
 native let isEnabled: Bool;
-

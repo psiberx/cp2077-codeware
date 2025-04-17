@@ -26,19 +26,19 @@ native let direction: inkEScrollDirection;
 native let useGlobalInput: Bool;
 
 @addField(inkScrollController)
+native let position: Float;
+
+@addField(inkScrollController)
 native let desiredSetupPosition: Float;
 
 @addField(inkScrollController)
 native let contentSmallerThanViewport: Bool;
 
 @addField(inkScrollController)
-native let position: Float;
-
-@addField(inkScrollController)
-native let contentSize: Vector2;
+native let scrollDelta: Float;
 
 @addField(inkScrollController)
 native let viewportSize: Vector2;
 
 @addField(inkScrollController)
-native let scrollDelta: Float;
+native let contentSize: Vector2;

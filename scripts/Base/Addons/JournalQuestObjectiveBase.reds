@@ -15,4 +15,3 @@ native let itemID: TweakDBID;
 
 @addField(JournalQuestObjectiveBase)
 native let districtID: String;
-

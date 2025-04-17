@@ -1,0 +1,2 @@
+@addField(EffectOutputParameter_CName)
+native let blackboardProperty: gameBlackboardPropertyBindingDefinition;

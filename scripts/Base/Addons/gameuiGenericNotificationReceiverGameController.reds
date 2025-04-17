@@ -1,0 +1,8 @@
+@addField(gameuiGenericNotificationReceiverGameController)
+native let ItemChanged: inkEmptyCallback;
+
+@addField(gameuiGenericNotificationReceiverGameController)
+native let NotificationPaused: inkEmptyCallback;
+
+@addField(gameuiGenericNotificationReceiverGameController)
+native let NotificationResumed: inkEmptyCallback;

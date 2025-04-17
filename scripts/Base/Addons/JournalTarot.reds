@@ -9,4 +9,3 @@ native let description: LocalizationString;
 
 @addField(JournalTarot)
 native let imagePart: CName;
-

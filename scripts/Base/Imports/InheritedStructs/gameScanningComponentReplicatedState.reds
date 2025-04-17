@@ -3,4 +3,5 @@ public native struct gameScanningComponentReplicatedState {
   native let enabled: Bool;
   native let scanningState: gameScanningState;
   native let pctScanned: Float;
+  native let controllingPeerIDs: [netPeerID; 8];
 }

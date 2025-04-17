@@ -6,4 +6,3 @@ native let progressPercent: Uint32;
 
 @addField(JournalMetaQuestObjective)
 native let iconID: TweakDBID;
-

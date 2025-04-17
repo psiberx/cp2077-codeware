@@ -9,4 +9,3 @@ native let minVocalizationRepeatTime: Float;
 
 @addField(soundComponent)
 native let streamingDistance: Float;
-

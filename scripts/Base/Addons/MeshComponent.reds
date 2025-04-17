@@ -1,8 +1,5 @@
 @addField(MeshComponent)
-native let mesh: ResourceAsyncRef;
-
-@addField(MeshComponent)
-native let meshResource: ref<CMesh>;
+native let mesh: ResourceAsyncRef; // raRef<CMesh>
 
 @addField(MeshComponent)
 native let meshAppearance: CName;
@@ -54,3 +51,6 @@ native let overrideMeshNavigationImpact: Bool;
 
 @addField(MeshComponent)
 native let navigationImpact: NavGenNavigationSetting;
+
+@addField(MeshComponent)
+native let version: Uint8;

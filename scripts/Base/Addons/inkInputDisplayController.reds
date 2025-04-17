@@ -2,6 +2,9 @@
 native let iconRef: inkWidgetRef;
 
 @addField(inkInputDisplayController)
+native let iconAND: inkTextRef;
+
+@addField(inkInputDisplayController)
 native let nameRef: inkWidgetRef;
 
 @addField(inkInputDisplayController)

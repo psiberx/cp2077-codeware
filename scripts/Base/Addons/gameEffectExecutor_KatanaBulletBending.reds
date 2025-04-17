@@ -1,0 +1,2 @@
+@addField(gameEffectExecutor_KatanaBulletBending)
+native let effects: array<gameEffectExecutor_KatanaBulletBendingEffectEntry>;

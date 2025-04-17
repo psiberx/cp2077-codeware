@@ -48,4 +48,3 @@ native let destructionEffect: ResourceAsyncRef; // raRef<worldEffect>
 
 @addField(gameLightComponent)
 native let genericCurveSetOverride: ResourceRef; // rRef<CurveSet>
-

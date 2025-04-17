@@ -9,4 +9,3 @@ native let description: LocalizationString;
 
 @addField(JournalOnscreen)
 native let iconID: TweakDBID;
-

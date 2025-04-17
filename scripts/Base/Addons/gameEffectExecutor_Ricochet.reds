@@ -1,0 +1,2 @@
+@addField(gameEffectExecutor_Ricochet)
+native let outputRicochetVector: EffectOutputParameter_Vector;

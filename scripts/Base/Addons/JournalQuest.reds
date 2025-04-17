@@ -9,4 +9,3 @@ native let recommendedLevelID: TweakDBID;
 
 @addField(JournalQuest)
 native let districtID: String;
-

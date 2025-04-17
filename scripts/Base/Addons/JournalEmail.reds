@@ -15,4 +15,3 @@ native let videoResource: ResourceAsyncRef; // raRef<Bink>
 
 @addField(JournalEmail)
 native let pictureTweak: TweakDBID;
-

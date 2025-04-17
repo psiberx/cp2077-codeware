@@ -9,4 +9,3 @@ native let tintColor: Color;
 
 @addField(JournalInternetBase)
 native let hoverTintColor: Color;
-

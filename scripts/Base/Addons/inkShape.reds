@@ -1,11 +1,11 @@
 @addField(inkShape)
-native let shapeResource: ResourceRef;
+native let shapeResource: ResourceRef; // rRef<inkShapeCollectionResource>
 
 @addField(inkShape)
-native let shapeName:  CName;
+native let shapeName: CName;
 
 @addField(inkShape)
-native let shapeVariant:inkEShapeVariant;
+native let shapeVariant: inkEShapeVariant;
 
 @addField(inkShape)
 native let keepInBounds: Bool;

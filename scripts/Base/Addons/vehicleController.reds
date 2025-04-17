@@ -6,4 +6,3 @@ native let alarmTime: Float;
 
 @addField(vehicleController)
 native let overrideHeadlightsSettingsForPlayer: Bool;
-

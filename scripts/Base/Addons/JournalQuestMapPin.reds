@@ -12,4 +12,3 @@ native let offset: Vector3;
 
 @addField(JournalQuestMapPin)
 native let uiAnimation: TweakDBID;
-

@@ -15,4 +15,3 @@ native let obstructionChangeTime: Float;
 
 @addField(SoundComponentBase)
 native let maxPlayDistance: Float;
-

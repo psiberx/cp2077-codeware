@@ -12,4 +12,3 @@ native let useFlatMessageLayout: Bool;
 
 @addField(JournalContact)
 native let isCallableDefault: Bool;
-

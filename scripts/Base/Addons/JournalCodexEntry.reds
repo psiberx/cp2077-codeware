@@ -6,4 +6,3 @@ native let imageId: TweakDBID;
 
 @addField(JournalCodexEntry)
 native let linkImageId: TweakDBID;
-

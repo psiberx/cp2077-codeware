@@ -30,4 +30,3 @@ native let videos: array<ref<JournalInternetVideo>>;
 
 @addField(JournalInternetPage)
 native let canvases: array<ref<JournalInternetCanvas>>;
-

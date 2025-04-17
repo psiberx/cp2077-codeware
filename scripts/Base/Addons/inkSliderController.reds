@@ -36,3 +36,12 @@ native let maximumValue: Float;
 
 @addField(inkSliderController)
 native let step: Float;
+
+@addField(inkSliderController)
+native let SliderInput: inkSliderControllerInputCallback;
+
+@addField(inkSliderController)
+native let SliderValueChanged: inkSliderControllerValueChangeCallback;
+
+@addField(inkSliderController)
+native let SliderHandleReleased: inkSliderControllerHandleReleasedCallback;

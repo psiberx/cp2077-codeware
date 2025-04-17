@@ -1,0 +1,5 @@
+@addField(gameuiInGameMenuGameController)
+native let itemSceneInfos: array<gameuiInGameMenuGameControllerItemSceneInfo>;
+
+@addField(gameuiInGameMenuGameController)
+native let garmentSwitchEffectControllers: array<gameuiGarmentSwitchEffectController>;

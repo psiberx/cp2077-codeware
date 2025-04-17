@@ -6,4 +6,3 @@ native let pathfindingType: gameQuestGuidanceMarkerPathfindingType;
 
 @addField(JournalQuestGuidanceMarker)
 native let isPortal: Bool;
-

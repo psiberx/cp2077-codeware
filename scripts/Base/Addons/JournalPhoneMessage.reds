@@ -15,4 +15,3 @@ native let attachment: ref<gameJournalPath>;
 
 @addField(JournalPhoneMessage)
 native let isQuestImportant: Bool;
-

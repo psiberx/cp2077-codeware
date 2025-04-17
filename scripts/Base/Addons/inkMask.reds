@@ -1,5 +1,5 @@
 @addField(inkMask)
-native let textureAtlas: ResourceAsyncRef;
+native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
 
 @addField(inkMask)
 native let texturePart: CName;
