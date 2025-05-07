@@ -1,6 +1,7 @@
 #pragma once
 
-#include "ResourceToken.hpp"
+#include "App/Depot/ResourceToken.hpp"
+#include "Red/ResourceBank.hpp"
 
 namespace App
 {
@@ -29,7 +30,7 @@ struct ResourceDepot : Red::IScriptable
         return false;
     }
 
-    bool ResourceExists(const Red::RaRef<>& aRef)
+    bool ResourceExists(const Red::ResourceAsyncReference<>& aRef)
     {
         const auto depot = Red::ResourceDepot::Get();
 
@@ -48,6 +49,16 @@ struct ResourceDepot : Red::IScriptable
         return Red::MakeHandle<ResourceTokenWrapper>(aRef.token);
     }
 
+    void RemoveResourceFromCache(const Red::ResourceAsyncReference<>& aRef)
+    {
+        auto loader = Red::ResourceLoader::Get();
+
+        std::unique_lock lock(loader->tokenLock);
+
+        Red::Handle<Red::CResource> resource;
+        Raw::ResourceBank::ForgetResource(loader->unk48, resource, aRef.path);
+    }
+
     static Red::Handle<ResourceDepot> Get()
     {
         return Red::MakeHandle<ResourceDepot>();
@@ -63,6 +74,7 @@ RTTI_DEFINE_CLASS(App::ResourceDepot, {
     RTTI_METHOD(ResourceExists);
     RTTI_METHOD(LoadResource);
     RTTI_METHOD(LoadReference);
+    RTTI_METHOD(RemoveResourceFromCache);
 });
 
 RTTI_EXPAND_CLASS(Red::ScriptGameInstance, {

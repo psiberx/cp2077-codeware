@@ -99,6 +99,8 @@ constexpr uint32_t QuestPhaseInstance_ExecuteNode = 3227858325;
 
 constexpr uint32_t QuestsSystem_CreateContext = 3144298192;
 
+constexpr uint32_t ResourceBank_ForgetResource = 2288918343;
+
 constexpr uint32_t ResourcePath_Create = 3998356057;
 
 constexpr uint32_t ResourceSerializer_OnDependenciesReady = 1185093671;
