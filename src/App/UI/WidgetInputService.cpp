@@ -43,7 +43,7 @@ std::string App::WidgetInputService::ToCharacter(Red::EInputKey aKey)
     //     return {};
 
     WCHAR buffer[5]{};
-    const auto size = ToUnicode(static_cast<UINT>(aKey), 0, keyboardState, buffer, 4, 0);
+    const auto size = ToUnicode(static_cast<UINT>(aKey), 0, keyboardState, buffer, 4, 0x4);
 
     if (size <= 0)
         return {};
