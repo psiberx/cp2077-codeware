@@ -193,6 +193,7 @@
 #include <RED4ext/Scripting/Natives/Generated/quest/WorldDataManagerNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/ResourceReferenceScriptToken.hpp>
 #include <RED4ext/Scripting/Natives/Generated/red/TagSystem.hpp>
+#include <RED4ext/Scripting/Natives/Generated/rend/PostFx_ScanningState.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/BaseObject.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/Controller.hpp>
 #include <RED4ext/Scripting/Natives/Generated/vehicle/ELightMode.hpp>

@@ -71,9 +71,12 @@ constexpr uint32_t ISerializable_Clone = 2601784524;
 constexpr uint32_t IScriptable_CheckClass = 2487884020;
 constexpr uint32_t IScriptable_CheckExactClass = 1797004238;
 
+constexpr uint32_t JobHandle_Wait = 1576079097;
+
 constexpr uint32_t Localization_LoadOnScreens = 3550098299;
 
 constexpr uint32_t MeshAppearance_LoadMaterialSetupAsync = 1419388740;
+constexpr uint32_t MeshAppearance_ReleaseReference = 1679234269;
 
 constexpr uint32_t MorphTargetManager_ApplyMorphTarget = 633871992;
 
@@ -98,6 +101,14 @@ constexpr uint32_t QuestPhaseInstance_ExecuteGraph = 779107884;
 constexpr uint32_t QuestPhaseInstance_ExecuteNode = 3227858325;
 
 constexpr uint32_t QuestsSystem_CreateContext = 3144298192;
+
+constexpr uint32_t RenderDataPtr_Release = 2996308699;
+
+constexpr uint32_t RenderProxy_SetMaterialOverride = 429336746;
+constexpr uint32_t RenderProxy_SetHighlightParams = 1093803822;
+constexpr uint32_t RenderProxy_SetScanningState = 2838044016;
+constexpr uint32_t RenderProxy_SetVisibility = 1790971865;
+constexpr uint32_t RenderProxy_UpdateVisibility = 2124419179;
 
 constexpr uint32_t ResourceBank_ForgetResource = 2288918343;
 
@@ -138,6 +149,8 @@ constexpr uint32_t TagSystem_UnassignTag = 1875775378;
 constexpr uint32_t VehicleController_ToggleAuxLights = 1883248814;
 
 constexpr uint32_t VehicleSystem_ToggleGarageVehicle = 3027836941;
+
+constexpr uint32_t VisionModeSystem_SetBraindanceMode = 1070077985;
 
 constexpr uint32_t VisualController_LoadDependencies = 2912168594;
 
