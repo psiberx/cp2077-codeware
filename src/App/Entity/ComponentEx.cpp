@@ -7,12 +7,6 @@ bool App::ComponentEx::ChangeResource(const Red::ResourceAsyncReference<>& aRefe
     return wrapper.SetResourcePath(aReference.path) && wrapper.LoadResource(true, aWait);
 }
 
-bool App::ComponentEx::LoadResource(Red::Optional<bool> aWait)
-{
-    ComponentWrapper wrapper(this);
-    return wrapper.LoadResource(true, aWait);
-}
-
 bool App::ComponentEx::ChangeAppearance(Red::CName aName, Red::Optional<bool> aWait)
 {
     ComponentWrapper wrapper(this);
