@@ -31,7 +31,6 @@ public abstract class InMenuPopup extends CustomPopup {
         bg1.SetName(n"bg1");
         bg1.SetAtlasResource(r"base\\gameplay\\gui\\common\\masks.inkatlas");
         bg1.SetTexturePart(n"frame_gradient1");
-        bg1.SetInteractive(true);
         bg1.SetHAlign(inkEHorizontalAlign.Center);
         bg1.SetVAlign(inkEVerticalAlign.Center);
         bg1.SetAnchor(inkEAnchor.Fill);
