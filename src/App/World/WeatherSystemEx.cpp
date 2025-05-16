@@ -3,7 +3,7 @@
 
 bool App::WeatherSystemEx::SetWeather(Red::CName aWeather, Red::Optional<float> aBlendTime, Red::Optional<uint32_t> aPriority)
 {
-    auto* system = Raw::WeatherScriptInterface::System::Ptr(this);
+    auto* system = Raw::WeatherScriptInterface::System::Ref(this);
 
     if (!system)
         return false;
@@ -17,7 +17,7 @@ bool App::WeatherSystemEx::SetWeather(Red::CName aWeather, Red::Optional<float> 
 
 bool App::WeatherSystemEx::ResetWeather(Red::Optional<bool> aForceRestore, Red::Optional<float> aBlendTime)
 {
-    auto* system = Raw::WeatherScriptInterface::System::Ptr(this);
+    auto* system = Raw::WeatherScriptInterface::System::Ref(this);
 
     if (!system)
         return false;
@@ -35,7 +35,7 @@ bool App::WeatherSystemEx::ResetWeather(Red::Optional<bool> aForceRestore, Red::
 
 Red::Handle<Red::worldEnvironmentDefinition> App::WeatherSystemEx::GetEnvironmentDefinition()
 {
-    auto* system = Raw::WeatherScriptInterface::System::Ptr(this);
+    auto* system = Raw::WeatherScriptInterface::System::Ref(this);
 
     if (!system)
         return {};
@@ -48,7 +48,7 @@ Red::Handle<Red::worldEnvironmentDefinition> App::WeatherSystemEx::GetEnvironmen
 
 Red::Handle<Red::worldWeatherState> App::WeatherSystemEx::GetWeatherState()
 {
-    auto* system = Raw::WeatherScriptInterface::System::Ptr(this);
+    auto* system = Raw::WeatherScriptInterface::System::Ref(this);
 
     if (!system)
         return {};

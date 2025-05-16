@@ -38,7 +38,7 @@ struct EntityEx : Red::Entity
 
     void SetWorldTransform(const Red::WorldTransform& aTransform)
     {
-        Raw::IPlacedComponent::SetTransform(Raw::Entity::TransformComponent::Ptr(this), aTransform);
+        Raw::IPlacedComponent::SetTransform(Raw::Entity::TransformComponent::Ref(this), aTransform);
     }
 
     bool ApplyMorphTarget(Red::CName aTarget, Red::CName aRegion, float aValue);

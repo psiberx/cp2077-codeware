@@ -7,7 +7,7 @@ void App::WorldStateSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
     m_communitySystem = Red::GetGameSystem<Red::gameICommunitySystem>();
     m_questsSystem = Red::GetGameSystem<Red::questIQuestsSystem>();
-    m_factManager = Raw::QuestsSystem::FactManager::Ptr(m_questsSystem);
+    m_factManager = Raw::QuestsSystem::FactManager::Ref(m_questsSystem);
 
     m_questPhaseRegistry = Core::Resolve<QuestPhaseRegistry>();
     m_questPhaseExecutor = Core::MakeUnique<QuestPhaseExecutor>(m_questPhaseRegistry, m_questsSystem);

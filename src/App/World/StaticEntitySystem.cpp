@@ -6,7 +6,7 @@ void App::StaticEntitySystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
     m_entityIDSystem = Red::GetGameSystem<Red::IDynamicEntityIDSystem>();
     m_entityRuntimeSystem = Red::GetRuntimeSystem<Red::worldRuntimeSystemEntity>();
-    m_entitySpawner = Raw::RuntimeSystemEntity::Spawner::Ptr(m_entityRuntimeSystem);
+    m_entitySpawner = Raw::RuntimeSystemEntity::Spawner::Ref(m_entityRuntimeSystem);
     m_entityRegistry = Red::GetRuntimeSystem<Red::worldRuntimeEntityRegistry>();
     m_ready = true;
 }

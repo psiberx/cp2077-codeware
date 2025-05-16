@@ -28,13 +28,13 @@ struct NodeInstanceEx : Red::worldINodeInstance
 
     [[nodiscard]] Red::GlobalNodeID GetProxyNodeID() const
     {
-        auto setup = Raw::WorldNodeInstance::SetupInfo::Ptr(this);
+        auto setup = Raw::WorldNodeInstance::SetupInfo::Ref(this);
         return {setup ? (*setup)->proxyNodeID : 0};
     }
 
     [[nodiscard]] float GetStreamingDistance() const
     {
-        auto setup = Raw::WorldNodeInstance::SetupInfo::Ptr(this);
+        auto setup = Raw::WorldNodeInstance::SetupInfo::Ref(this);
         return setup ? (*setup)->streamingDistance : 0.0f;
     }
 };

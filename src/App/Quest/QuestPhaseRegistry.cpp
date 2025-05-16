@@ -47,7 +47,7 @@ void App::QuestPhaseRegistry::OnPhasePreloadCheck(bool& aPreload, void* aLoader,
             if (Red::IsRelatedQuestNodePath(openWorldPhaseNodePathIt.value(), aPhaseNodePath))
             {
                 auto& preloadList = Raw::QuestLoader::PreloadList::Ref(aLoader);
-                preloadList.PushBack(aPhaseNodePath);
+                preloadList->PushBack(aPhaseNodePath);
 
                 aPreload = true;
                 break;
