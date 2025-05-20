@@ -1,1 +1,1 @@
-public importonly native class MoveEquip extends AttachmentSlotEvent {}
+public importonly class MoveEquip extends AttachmentSlotEvent {}

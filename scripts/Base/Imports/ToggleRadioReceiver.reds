@@ -1,1 +1,1 @@
-public importonly native class ToggleRadioReceiver extends Event {}
+public importonly class ToggleRadioReceiver extends Event {}

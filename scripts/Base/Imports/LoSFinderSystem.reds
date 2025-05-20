@@ -1,1 +1,1 @@
-public importonly native class LoSFinderSystem extends ILoSFinderSystem {}
+public importonly class LoSFinderSystem extends ILoSFinderSystem {}

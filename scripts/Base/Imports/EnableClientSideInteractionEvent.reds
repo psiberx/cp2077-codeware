@@ -1,1 +1,1 @@
-public importonly native class EnableClientSideInteractionEvent extends Event {}
+public importonly class EnableClientSideInteractionEvent extends Event {}

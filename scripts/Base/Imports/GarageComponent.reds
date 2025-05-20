@@ -1,1 +1,1 @@
-public importonly native class GarageComponent extends GameComponent {}
+public importonly class GarageComponent extends GameComponent {}

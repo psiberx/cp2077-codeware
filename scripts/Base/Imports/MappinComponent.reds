@@ -1,3 +1,3 @@
-public importonly native class MappinComponent extends IPlacedComponent {
+public importonly class MappinComponent extends IPlacedComponent {
   native let data: MappinData;
 }

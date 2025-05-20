@@ -1,1 +1,1 @@
-public abstract importonly native struct gameOnExecutionContext {}
+public abstract importonly struct gameOnExecutionContext {}

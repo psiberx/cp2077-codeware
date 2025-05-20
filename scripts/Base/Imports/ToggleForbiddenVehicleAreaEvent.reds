@@ -1,1 +1,1 @@
-public importonly native class ToggleForbiddenVehicleAreaEvent extends Event {}
+public importonly class ToggleForbiddenVehicleAreaEvent extends Event {}

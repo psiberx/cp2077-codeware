@@ -1,1 +1,1 @@
-public importonly native class ToggleQuestCustomFPPLockOffEvent extends Event {}
+public importonly class ToggleQuestCustomFPPLockOffEvent extends Event {}

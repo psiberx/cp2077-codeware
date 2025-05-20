@@ -1,4 +1,4 @@
-public importonly native class PhysicalSkinnedMeshComponent extends entSkinnedMeshComponent {
+public importonly class PhysicalSkinnedMeshComponent extends entSkinnedMeshComponent {
   native let simulationType: physicsSimulationType;
   native let useResourceSimulationType: Bool;
   native let startInactive: Bool;

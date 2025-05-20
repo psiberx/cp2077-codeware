@@ -1,1 +1,1 @@
-public importonly native class DoneActionEvent extends Event {}
+public importonly class DoneActionEvent extends Event {}

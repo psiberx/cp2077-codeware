@@ -1,1 +1,1 @@
-public importonly native class ChangeRadioTierEvent extends Event {}
+public importonly class ChangeRadioTierEvent extends Event {}

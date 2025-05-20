@@ -1,1 +1,1 @@
-public importonly native class WorkspotManager extends IWorkspotManager {}
+public importonly class WorkspotManager extends IWorkspotManager {}

@@ -1,1 +1,1 @@
-public abstract importonly native class entIMoverComponent extends IComponent {}
+public abstract importonly class entIMoverComponent extends IComponent {}

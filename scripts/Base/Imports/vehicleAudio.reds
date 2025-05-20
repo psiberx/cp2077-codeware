@@ -1,1 +1,1 @@
-public importonly native struct vehicleAudio {}
+public importonly struct vehicleAudio {}

@@ -1,1 +1,1 @@
-public importonly native class ObjectSelectionManager extends AIObjectSelectionManagerInterface {}
+public importonly class ObjectSelectionManager extends AIObjectSelectionManagerInterface {}

@@ -1,1 +1,1 @@
-public importonly native class CommandsManager extends ICommandsManager {}
+public importonly class CommandsManager extends ICommandsManager {}

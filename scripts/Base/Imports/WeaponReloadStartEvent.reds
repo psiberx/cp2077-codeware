@@ -1,1 +1,1 @@
-public importonly native class WeaponReloadStartEvent extends Event {}
+public importonly class WeaponReloadStartEvent extends Event {}

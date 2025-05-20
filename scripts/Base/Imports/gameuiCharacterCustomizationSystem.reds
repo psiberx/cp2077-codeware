@@ -1,1 +1,1 @@
-public importonly native class gameuiCharacterCustomizationSystem extends gameuiICharacterCustomizationSystem {}
+public importonly class gameuiCharacterCustomizationSystem extends gameuiICharacterCustomizationSystem {}

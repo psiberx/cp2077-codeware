@@ -1,1 +1,1 @@
-public importonly native class VehicleToggleQuestForceBrakingEvent extends Event {}
+public importonly class VehicleToggleQuestForceBrakingEvent extends Event {}

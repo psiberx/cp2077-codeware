@@ -1,4 +1,4 @@
-public importonly native struct gameStatModifierSave {
+public importonly struct gameStatModifierSave {
   native let statModifierUnions: array<ref<gameStatModifierData>>;
   native let statsObjectID: StatsObjectID;
   native let recordID: TweakDBID;

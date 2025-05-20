@@ -1,1 +1,1 @@
-public abstract importonly native class entEntityParameter extends ISerializable {}
+public abstract importonly class entEntityParameter extends ISerializable {}

@@ -1,3 +1,3 @@
-public importonly native class NetrunnerPrototypeNodeSetupEvent extends Event {
+public importonly class NetrunnerPrototypeNodeSetupEvent extends Event {
   native let scale: Vector3;
 }

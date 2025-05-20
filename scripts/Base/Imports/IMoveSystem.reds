@@ -1,1 +1,1 @@
-public abstract importonly native class IMoveSystem extends IGameSystem {}
+public abstract importonly class IMoveSystem extends IGameSystem {}

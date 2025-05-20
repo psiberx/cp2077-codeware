@@ -1,1 +1,1 @@
-public importonly native class VehicleStartConvoyEvent extends Event {}
+public importonly class VehicleStartConvoyEvent extends Event {}

@@ -1,1 +1,1 @@
-public importonly native struct SummonLogic {}
+public importonly struct SummonLogic {}

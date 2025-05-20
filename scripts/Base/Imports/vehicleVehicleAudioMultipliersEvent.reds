@@ -1,3 +1,3 @@
-public importonly native class vehicleVehicleAudioMultipliersEvent extends Event {
+public importonly class vehicleVehicleAudioMultipliersEvent extends Event {
   native let multipliers: audioVehicleMultipliers;
 }

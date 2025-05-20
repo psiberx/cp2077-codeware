@@ -1,4 +1,4 @@
-public importonly native class entSkinnedClothComponent extends entISkinTargetComponent {
+public importonly class entSkinnedClothComponent extends entISkinTargetComponent {
   native let graphicsMesh: ResourceAsyncRef; // raRef<CMesh>
   native let physicalMesh: ResourceAsyncRef; // raRef<CMesh>
   native let isEnabled: Bool;

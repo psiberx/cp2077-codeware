@@ -1,1 +1,1 @@
-public abstract importonly native class gameIEffectSpawnerSaveSystem extends IGameSystem {}
+public abstract importonly class gameIEffectSpawnerSaveSystem extends IGameSystem {}

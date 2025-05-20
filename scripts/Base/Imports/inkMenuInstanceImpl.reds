@@ -1,1 +1,1 @@
-public importonly native class inkMenuInstanceImpl extends inkMenuInstance {}
+public importonly class inkMenuInstanceImpl extends inkMenuInstance {}

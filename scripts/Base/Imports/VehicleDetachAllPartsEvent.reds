@@ -1,1 +1,1 @@
-public importonly native class VehicleDetachAllPartsEvent extends Event {}
+public importonly class VehicleDetachAllPartsEvent extends Event {}

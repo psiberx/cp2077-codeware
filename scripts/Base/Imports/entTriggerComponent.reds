@@ -1,1 +1,1 @@
-public importonly native class entTriggerComponent extends PhysicalTriggerComponent {}
+public importonly class entTriggerComponent extends PhysicalTriggerComponent {}

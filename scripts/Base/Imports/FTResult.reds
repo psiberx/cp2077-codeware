@@ -1,4 +1,4 @@
-public importonly native struct FTResult {
+public importonly struct FTResult {
   native let code: FunctionalTestsResultCode;
   native let msg: String;
 

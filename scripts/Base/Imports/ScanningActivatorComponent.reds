@@ -1,1 +1,1 @@
-public importonly native class ScanningActivatorComponent extends IComponent {}
+public importonly class ScanningActivatorComponent extends IComponent {}

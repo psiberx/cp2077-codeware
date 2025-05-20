@@ -1,3 +1,3 @@
-public importonly native struct RoachRaceChunk {
+public importonly struct RoachRaceChunk {
   native let obstacles: array<RoachRaceObstacle>;
 }

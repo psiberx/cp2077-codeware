@@ -1,1 +1,1 @@
-public importonly native class VehicleToggleQuestWeaponEnabledEvent extends Event {}
+public importonly class VehicleToggleQuestWeaponEnabledEvent extends Event {}

@@ -1,4 +1,4 @@
-public importonly native struct gameOccupantSlotData {
+public importonly struct gameOccupantSlotData {
   native let slotName: CName;
   native let syncAnimationTag: CName;
   native let workSpotResource: ResourceRef; // rRef<workWorkspotResource>

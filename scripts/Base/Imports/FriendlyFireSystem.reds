@@ -1,1 +1,1 @@
-public importonly native class FriendlyFireSystem extends IFriendlyFireSystem {}
+public importonly class FriendlyFireSystem extends IFriendlyFireSystem {}

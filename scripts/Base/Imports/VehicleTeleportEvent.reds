@@ -1,1 +1,1 @@
-public importonly native class VehicleTeleportEvent extends Event {}
+public importonly class VehicleTeleportEvent extends Event {}

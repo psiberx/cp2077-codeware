@@ -1,1 +1,1 @@
-public abstract importonly native class gameStatPoolDataModifierStatListener extends IStatsListener {}
+public abstract importonly class gameStatPoolDataModifierStatListener extends IStatsListener {}

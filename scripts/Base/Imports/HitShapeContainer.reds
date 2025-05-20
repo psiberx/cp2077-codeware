@@ -1,4 +1,4 @@
-public importonly native struct HitShapeContainer {
+public importonly struct HitShapeContainer {
   native let name: CName;
   native let slotName: CName;
   native let color: Color;

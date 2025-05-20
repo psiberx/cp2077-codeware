@@ -1,1 +1,1 @@
-public importonly native class RecycleEventAdvanced extends Event {}
+public importonly class RecycleEventAdvanced extends Event {}

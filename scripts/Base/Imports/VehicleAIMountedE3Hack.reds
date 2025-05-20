@@ -1,1 +1,1 @@
-public importonly native class VehicleAIMountedE3Hack extends Event {}
+public importonly class VehicleAIMountedE3Hack extends Event {}

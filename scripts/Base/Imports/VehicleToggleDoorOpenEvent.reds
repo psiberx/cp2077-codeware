@@ -1,1 +1,1 @@
-public importonly native class VehicleToggleDoorOpenEvent extends Event {}
+public importonly class VehicleToggleDoorOpenEvent extends Event {}

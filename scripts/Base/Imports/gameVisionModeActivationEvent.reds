@@ -1,3 +1,3 @@
-public importonly native class gameVisionModeActivationEvent extends Event {
+public importonly class gameVisionModeActivationEvent extends Event {
   native let activate: Bool;
 }

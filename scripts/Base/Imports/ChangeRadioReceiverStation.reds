@@ -1,1 +1,1 @@
-public importonly native class ChangeRadioReceiverStation extends Event {}
+public importonly class ChangeRadioReceiverStation extends Event {}

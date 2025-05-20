@@ -1,1 +1,1 @@
-public importonly native class gameItemEventsEquippedToObject extends Event {}
+public importonly class gameItemEventsEquippedToObject extends Event {}

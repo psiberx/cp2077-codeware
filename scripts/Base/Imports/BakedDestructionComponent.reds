@@ -1,4 +1,4 @@
-public importonly native class BakedDestructionComponent extends PhysicalMeshComponent {
+public importonly class BakedDestructionComponent extends PhysicalMeshComponent {
   native let meshFractured: ResourceAsyncRef; // raRef<CMesh>
   native let meshFracturedAppearance: CName;
   native let numFrames: Float;

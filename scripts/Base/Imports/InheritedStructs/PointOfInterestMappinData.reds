@@ -1,4 +1,4 @@
-public importonly native struct PointOfInterestMappinData {
+public importonly struct PointOfInterestMappinData {
   native let typedVariant: ref<gamemappinsIPointOfInterestVariant>;
   native let active: Bool;
   native let slotName: CName;

@@ -1,1 +1,1 @@
-public abstract importonly native class IHitShape extends ISerializable {}
+public abstract importonly class IHitShape extends ISerializable {}

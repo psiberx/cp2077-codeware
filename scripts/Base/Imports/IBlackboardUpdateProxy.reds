@@ -1,1 +1,1 @@
-public abstract importonly native class IBlackboardUpdateProxy extends IGameSystem {}
+public abstract importonly class IBlackboardUpdateProxy extends IGameSystem {}

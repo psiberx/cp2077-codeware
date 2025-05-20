@@ -1,1 +1,1 @@
-public importonly native class DeviceCameraControlComponent extends GameComponent {}
+public importonly class DeviceCameraControlComponent extends GameComponent {}

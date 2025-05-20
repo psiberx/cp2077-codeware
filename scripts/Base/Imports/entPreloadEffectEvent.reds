@@ -1,3 +1,3 @@
-public importonly native class entPreloadEffectEvent extends Event {
+public importonly class entPreloadEffectEvent extends Event {
   native let effectName: CName;
 }

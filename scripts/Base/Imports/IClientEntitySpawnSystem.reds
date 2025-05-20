@@ -1,1 +1,1 @@
-public abstract importonly native class IClientEntitySpawnSystem extends IGameSystem {}
+public abstract importonly class IClientEntitySpawnSystem extends IGameSystem {}

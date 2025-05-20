@@ -1,1 +1,1 @@
-public importonly native class entPreloadAllEffectsEvent extends Event {}
+public importonly class entPreloadAllEffectsEvent extends Event {}

@@ -1,1 +1,1 @@
-public importonly native class SmartObjectManager extends ISmartObjectManager {}
+public importonly class SmartObjectManager extends ISmartObjectManager {}

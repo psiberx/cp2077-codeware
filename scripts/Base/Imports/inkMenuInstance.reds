@@ -1,1 +1,1 @@
-public abstract importonly native class inkMenuInstance extends IScriptable {}
+public abstract importonly class inkMenuInstance extends IScriptable {}

@@ -1,1 +1,1 @@
-public importonly native class gameuiarcadeArcadeSystem extends IGameSystem {}
+public importonly class gameuiarcadeArcadeSystem extends IGameSystem {}

@@ -1,3 +1,3 @@
-public importonly native class entRenderScanEvent extends Event {
+public importonly class entRenderScanEvent extends Event {
   native let scanState: rendPostFx_ScanningState;
 }
