@@ -1,4 +1,4 @@
-Version: 1.15.0
+Version: 1.16.0
 
 ## Lifecycle
 
@@ -1116,7 +1116,7 @@ FTLog(s"Name: \(name) -> Hash: \(hash)");
 ### NodeRef
 
 ```swift
-let nodeRef = CreateNodeRef("$/my/new/#node");
+let nodeRef = ToNodeRef("$/my/new/#node");
 
 FTLog(s"NodeRef: \(NodeRefToHash(nodeRef))");
 ```
@@ -1124,7 +1124,7 @@ FTLog(s"NodeRef: \(NodeRefToHash(nodeRef))");
 ### CRUID
 
 ```swift
-let id = CreateCRUID(1337ul);
+let id = ToCRUID(1337ul);
 
 FTLog(s"CRUID: \(CRUIDToHash(id))");
 ```
