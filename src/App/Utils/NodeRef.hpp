@@ -7,7 +7,7 @@ namespace App
 Red::NodeRef CreateNodeRef(Red::ScriptRef<Red::CString>& aReference)
 {
     Red::NodeRef nodeRef{};
-    Red::StringView nodeRefStr{aReference.ref->c_str(), aReference.ref->Length()};
+    Red::StringView nodeRefStr{*aReference.ref};
     Raw::NodeRef::Create(nodeRef, nodeRefStr);
 
     return nodeRef;

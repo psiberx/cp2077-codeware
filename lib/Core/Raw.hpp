@@ -258,7 +258,7 @@ template<uintptr_t A, typename T>
 class OffsetPtr
 {
 public:
-    using OffsetType = T;
+    using Type = T;
     using ValueType = std::conditional_t<std::is_void_v<std::remove_pointer_t<T>>, void*, std::remove_pointer_t<T>>;
 
     static constexpr uintptr_t offset = A;
@@ -301,21 +301,21 @@ public:
         return GetValuePtr();
     }
 
-    OffsetPtr& operator=(OffsetType&& aRhs) const noexcept
+    OffsetPtr& operator=(Type&& aRhs) const noexcept
     {
         *GetPtr() = aRhs;
         return *this;
     }
 
-    OffsetPtr& operator=(const OffsetType& aRhs) const noexcept
+    OffsetPtr& operator=(const Type& aRhs) const noexcept
     {
         *GetPtr() = aRhs;
         return *this;
     }
 
-    [[nodiscard]] inline OffsetType* GetPtr() const noexcept
+    [[nodiscard]] inline Type* GetPtr() const noexcept
     {
-        return reinterpret_cast<OffsetType*>(GetAddress());
+        return reinterpret_cast<Type*>(GetAddress());
     }
 
     [[nodiscard]] inline ValueType* GetValuePtr() const noexcept
@@ -335,12 +335,12 @@ public:
         return address;
     }
 
-    inline static OffsetType* Ptr(const void* aBase)
+    inline static Type* Ptr(const void* aBase)
     {
         return OffsetPtr(aBase).GetPtr();
     }
 
-    inline static OffsetType& Ref(const void* aBase)
+    inline static Type& Ref(const void* aBase)
     {
         return *OffsetPtr(aBase).GetPtr();
     }
@@ -350,7 +350,7 @@ public:
         return reinterpret_cast<uintptr_t>(OffsetPtr(aBase).GetPtr());
     }
 
-    inline static void Set(const void* aBase, const OffsetType& aValue)
+    inline static void Set(const void* aBase, const Type& aValue)
     {
         *OffsetPtr(aBase).GetPtr() = aValue;
     }

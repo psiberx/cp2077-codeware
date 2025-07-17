@@ -262,6 +262,7 @@ using Resource = Core::OffsetPtr<0x30, Red::Handle<Red::questQuestPhaseResource>
 using Graph = Core::OffsetPtr<0x40, Red::Handle<Red::questGraphDefinition>>;
 using NodePath = Core::OffsetPtr<0x70, Red::QuestNodePath>;
 using NodePathHash = Core::OffsetPtr<0x80, Red::QuestNodePathHash>;
+using Children = Core::OffsetPtr<0x88, Red::DynArray<Red::Handle<Red::questPhaseInstance>>>;
 using Handlers = Core::OffsetPtr<0x98, Red::HashMap<Red::QuestNodePathHash, Red::SharedPtr<Red::QuestPhaseHandler>>>;
 
 constexpr auto Initialize = Core::RawFunc<

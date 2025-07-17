@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/Strings.hpp"
-
 namespace Red
 {
 inline NodeRef ResolveNodeRef(NodeRef aNodeRef, GlobalNodeRef aContext = GlobalNodeRef::GlobalRoot)

@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/Strings.hpp"
-
 namespace Raw::ResourcePath
 {
 constexpr auto Create = Core::RawFunc<

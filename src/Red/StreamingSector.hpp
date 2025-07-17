@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/Common.hpp"
-
 namespace Red
 {
 struct __declspec(align(0x10)) CompiledNodeInstanceSetupInfo

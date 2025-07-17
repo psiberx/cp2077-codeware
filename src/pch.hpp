@@ -219,6 +219,7 @@
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherStateTransition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/ui/WorldLayerWidget.hpp>
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
+#include <RED4ext/StringView.hpp>
 
 #include <clip.h>
 #include <nameof.hpp>
