@@ -47,7 +47,7 @@ constexpr uint32_t InkLogicController_OnArrangeChildrenComplete = 3589084925;
 
 constexpr uint32_t InkSpawner_FinishAsyncSpawn = 2698985195;
 
-constexpr uint32_t InkSystem_Instance = 2529235765;
+constexpr uint32_t InkSystem_Instance = 2569408547;
 constexpr uint32_t InkSystem_ProcessCharacterEvent = 4284882427;
 constexpr uint32_t InkSystem_ProcessInputEvents = 673454961;
 
