@@ -1,5 +1,6 @@
 public importonly class GarageComponentPS extends GameComponentPS {
   native persistent let spawnedVehiclesData: array<vehicleGarageComponentVehicleData>;
+  native persistent let unregisteredVehiclesData: array<vehicleGarageComponentVehicleData>;
   native persistent let unlockedVehicles: array<GarageVehicleID>;
   native persistent let unlockedVehicleArray: array<vehicleUnlockedVehicle>;
   native persistent let uiFavoritedVehicles: array<GarageVehicleID>;

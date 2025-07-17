@@ -12,3 +12,6 @@ native persistent let isAlarmOn: Bool;
 
 @addField(vehicleControllerPS)
 native persistent let lightTypeMask: Int32;
+
+@addField(vehicleControllerPS)
+native persistent let allowPassengerCameraSwitch: Bool;

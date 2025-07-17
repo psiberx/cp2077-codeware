@@ -14,4 +14,5 @@ enum worldTrafficLanePersistentFlags {
   Yield = 4096,
   NoAIDriving = 8192,
   Highway = 16384,
+  NoAutodrive = -32768,
 }

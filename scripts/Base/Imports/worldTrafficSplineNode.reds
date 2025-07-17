@@ -12,4 +12,5 @@ public native class worldTrafficSplineNode extends worldTrafficSourceNode {
   native let trafficDisabled: Bool;
   native let laneSamplingAngle: Float;
   native let noAIDriving: Bool;
+  native let noAutodrive: Bool;
 }

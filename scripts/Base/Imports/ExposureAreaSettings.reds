@@ -9,4 +9,5 @@ public native class ExposureAreaSettings extends IAreaSettings {
   native let exposureMax: CurveDataFloat;
   native let exposureCenterImportance: CurveDataFloat;
   native let cameraVelocityFaloff: Float;
+  native let exposureCompensationOffset: Float;
 }

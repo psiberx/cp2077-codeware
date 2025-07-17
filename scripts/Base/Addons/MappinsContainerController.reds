@@ -9,3 +9,9 @@ native let gpsQuestPathWidget: inkLinePatternRef;
 
 @addField(MappinsContainerController)
 native let gpsPlayerTrackedPathWidget: inkLinePatternRef;
+
+@addField(MappinsContainerController)
+native let gpsDelamainPathWidget: inkLinePatternRef;
+
+@addField(MappinsContainerController)
+native let autodrivePathWidget: inkLinePatternRef;
