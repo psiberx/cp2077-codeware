@@ -767,6 +767,10 @@ comp.Reparent(parent);
 > **Backwards compatibility**  
 > Existing mods can keep using `inkCustomController` without changes.   
 
+> [!NOTE]
+> A widget is bound to the layer it was created in. If you move a widget to 
+> another layer, event propagation will not work.
+
 ### UI Framework
 
 Codeware includes ready-to-use components for buttons, action hints, text inputs, popups.
