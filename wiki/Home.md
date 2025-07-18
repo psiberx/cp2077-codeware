@@ -124,8 +124,8 @@ When defining a callback, you can specify event targets for which the callback s
 | `InputTarget.Key(EInputKey)`               | `KeyInputEvent`                              | Selects input event by key.                                 |
 | `InputTarget.Key(EInputKey, EInputAction)` | `KeyInputEvent`                              | Selects input event by key in combination with action.      |
 | `InputTarget.Axis(EInputKey)`              | `AxisInputEvent`                             | Selects input event by axis.                                |
-| `InkWidgetTarget.Library(ResRef, CName)`   | `inkWidgetSpawnEvent`                        | Selects widget library path and library item name.          |
-| `InkWidgetTarget.Controller(CName)`        | `inkWidgetSpawnEvent`                        | Selects widget by game controller type.                     |
+| `inkWidgetTarget.Library(ResRef, CName)`   | `inkWidgetSpawnEvent`                        | Selects widget library path and library item name.          |
+| `inkWidgetTarget.Controller(CName)`        | `inkWidgetSpawnEvent`                        | Selects widget by game controller type.                     |
 
 This example injects custom menu scenario when `pregame_menu.inkmenu` is accessed by the game:
 
