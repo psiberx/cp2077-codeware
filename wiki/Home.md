@@ -603,7 +603,7 @@ entity.SetWorldTransform(transform);
 ### Reference
 
 - [Entity](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Entity/Entity.reds)
-- [IComponent](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Entity/Component.reds)
+- [IComponent](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Entity/IComponent.reds)
 
 ## Player
 
