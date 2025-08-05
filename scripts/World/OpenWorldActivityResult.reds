@@ -1,4 +1,4 @@
-enum OpenWorldActivityResult {
+public enum OpenWorldActivityResult {
     OK = 0,
     Invalid = 1,
     NotFound = 2,

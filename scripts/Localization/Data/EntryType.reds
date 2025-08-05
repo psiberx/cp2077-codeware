@@ -4,7 +4,7 @@
 
 module Codeware.Localization
 
-enum EntryType {
+public enum EntryType {
     Interface = 0,
     Subtitle = 1,
 }
