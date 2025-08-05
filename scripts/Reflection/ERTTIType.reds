@@ -1,4 +1,4 @@
-enum ERTTIType
+public enum ERTTIType
 {
     Name = 0,
     Fundamental = 1,

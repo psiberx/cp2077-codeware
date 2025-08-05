@@ -1,4 +1,4 @@
-enum DynamicEntityEventType
+public enum DynamicEntityEventType
 {
     Created = 0,
     Deleted = 1,

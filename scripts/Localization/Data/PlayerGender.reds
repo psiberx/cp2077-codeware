@@ -4,7 +4,7 @@
 
 module Codeware.Localization
 
-enum PlayerGender {
+public enum PlayerGender {
     Female = 0,
     Male = 1,
     Default = 0,
