@@ -18,13 +18,28 @@ public func GetCustomizationPuppet() -> wref<gamePuppet> {
 }
 
 @addMethod(PlayerSystem)
+public func SetCustomizationPuppet(value: wref<gamePuppet>) -> Void {
+    this.m_customizationPuppet = value;
+}
+
+@addMethod(PlayerSystem)
 public func GetInventoryPuppet() -> wref<gamePuppet> {
     return this.m_inventoryPuppet;
 }
 
 @addMethod(PlayerSystem)
+public func SetInventoryPuppet(value: wref<gamePuppet>) -> Void {
+    this.m_inventoryPuppet = value;
+}
+
+@addMethod(PlayerSystem)
 public func GetPhotoPuppet() -> wref<gamePuppet> {
     return this.m_photoPuppet;
+}
+
+@addMethod(PlayerSystem)
+public func SetPhotoPuppet(value: wref<gamePuppet>) -> Void {
+    this.m_photoPuppet = value;
 }
 
 @wrapMethod(inkPuppetPreviewGameController)
@@ -33,10 +48,10 @@ protected cb func OnPreviewInitialized() -> Bool {
 
     switch this.GetClassName() {
         case n"gameuiInventoryPuppetPreviewGameController":
-            GameInstance.GetPlayerSystem(this.GetPlayerControlledObject().GetGame()).m_inventoryPuppet = this.GetGamePuppet();
+            GameInstance.GetPlayerSystem(this.GetPlayerControlledObject().GetGame()).SetInventoryPuppet(this.GetGamePuppet());
             break;
         case n"gameuiCharacterCreationPuppetPreviewGameController":
-            GameInstance.GetPlayerSystem(this.GetPlayerControlledObject().GetGame()).m_customizationPuppet = this.GetGamePuppet();
+            GameInstance.GetPlayerSystem(this.GetPlayerControlledObject().GetGame()).SetCustomizationPuppet(this.GetGamePuppet());
             break;
     }
 }
@@ -45,5 +60,5 @@ protected cb func OnPreviewInitialized() -> Bool {
 private final func SetupInventory(isCurrentPlayerObjectCustomizable: Bool) {
     wrappedMethod(isCurrentPlayerObjectCustomizable);
 
-    GameInstance.GetPlayerSystem(this.GetOwner().GetGame()).m_photoPuppet = this.fakePuppet;
+    GameInstance.GetPlayerSystem(this.GetOwner().GetGame()).SetPhotoPuppet(this.fakePuppet);
 }
