@@ -1,14 +1,14 @@
 @addField(VehicleObject)
-native let isOnGround: Bool;
+public native let isOnGround: Bool;
 
 @addField(VehicleObject)
-native let acceleration: Float;
+public native let acceleration: Float;
 
 @addField(VehicleObject)
-native let deceleration: Float;
+public native let deceleration: Float;
 
 @addField(VehicleObject)
-native let isReversing: Bool;
+public native let isReversing: Bool;
 
 @addField(VehicleObject)
-native let burnout: Float;
+public native let burnout: Float;
