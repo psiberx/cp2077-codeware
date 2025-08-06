@@ -26,11 +26,11 @@ public native struct ResourceAsyncRef {
     //public static native func ToString(self: script_ref<ResourceAsyncRef>) -> String
 }
 
-public static func OperatorAssignMultiply(out res: ResourceRef, path: ResRef) {
+public func OperatorAssignMultiply(out res: ResourceRef, path: ResRef) {
     ResourceRef.LoadPath(res, path);
 }
 
-public static func OperatorAssignMultiply(out res: ResourceAsyncRef, path: ResRef) {
+public func OperatorAssignMultiply(out res: ResourceAsyncRef, path: ResRef) {
     ResourceAsyncRef.SetPath(res, path);
 }
 
@@ -40,18 +40,18 @@ public static native func GetHash(self: ResRef) -> Uint64
 @addMethod(ResRef)
 public static native func ToString(self: ResRef) -> String
 
-public static func OperatorEqual(lhs: ResourceAsyncRef, rhs: ResRef) -> Bool {
+public func OperatorEqual(lhs: ResourceAsyncRef, rhs: ResRef) -> Bool {
     return Equals(ResourceAsyncRef.GetPath(lhs), rhs);
 }
 
-public static func OperatorNotEqual(lhs: ResourceAsyncRef, rhs: ResRef) -> Bool {
+public func OperatorNotEqual(lhs: ResourceAsyncRef, rhs: ResRef) -> Bool {
     return NotEquals(ResourceAsyncRef.GetPath(lhs), rhs);
 }
 
-public static func OperatorEqual(lhs: ResRef, rhs: ResRef) -> Bool {
+public func OperatorEqual(lhs: ResRef, rhs: ResRef) -> Bool {
     return Equals(lhs, rhs);
 }
 
-public static func OperatorNotEqual(lhs: ResRef, rhs: ResRef) -> Bool {
+public func OperatorNotEqual(lhs: ResRef, rhs: ResRef) -> Bool {
     return NotEquals(lhs, rhs);
 }
