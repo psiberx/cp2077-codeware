@@ -789,10 +789,10 @@ Resource references (`rRef` and `raRef`) can now be imported and manipulated fro
 
 ```swift
 @addField(WeaponObject)
-native let effect: ResourceRef;
+public native let effect: ResourceRef;
 
 @addField(inkMask)
-native let textureAtlas: ResourceAsyncRef;
+public native let textureAtlas: ResourceAsyncRef;
 ```
 
 Reference can be initialized by assigning a resource path using `*=` operator:
