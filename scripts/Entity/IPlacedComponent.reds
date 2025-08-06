@@ -1,2 +1,2 @@
 @addField(IPlacedComponent)
-native let worldTransform: WorldTransform;
+public native let worldTransform: WorldTransform;

@@ -1,8 +1,8 @@
 @addField(IComponent)
-native let appearanceName: CName;
+public native let appearanceName: CName;
 
 @addField(IComponent)
-native let appearancePath: ResRef;
+public native let appearancePath: ResRef;
 
 @addMethod(IComponent)
 public native func ChangeResource(path: ResRef, opt wait: Bool) -> Bool

@@ -1,2 +1,2 @@
 @addField(MeshComponent)
-native let meshResource: ref<CMesh>;
+public native let meshResource: ref<CMesh>;

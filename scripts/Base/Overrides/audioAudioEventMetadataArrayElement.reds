@@ -1,10 +1,10 @@
 public native struct audioAudioEventMetadataArrayElement {
-  native let redId: CName;
-  native let wwiseId: Uint32;
-  native let maxAttenuation: Float;
-  native let minDuration: Float;
-  native let maxDuration: Float;
-  native let isLooping: Bool;
-  native let stopActionEvents: array<CName>;
-  native let tags: array<CName>;
+  public native let redId: CName;
+  public native let wwiseId: Uint32;
+  public native let maxAttenuation: Float;
+  public native let minDuration: Float;
+  public native let maxDuration: Float;
+  public native let isLooping: Bool;
+  public native let stopActionEvents: array<CName>;
+  public native let tags: array<CName>;
 }

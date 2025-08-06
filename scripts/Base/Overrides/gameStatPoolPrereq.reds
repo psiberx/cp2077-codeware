@@ -1,4 +1,4 @@
 public native class gameStatPoolPrereq extends IComparisonPrereq {
-    native let statPoolType: gamedataStatPoolType;
-    native let valueToCheck: Float;
+    public native let statPoolType: gamedataStatPoolType;
+    public native let valueToCheck: Float;
 }
