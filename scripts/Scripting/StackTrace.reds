@@ -4,4 +4,4 @@ public native struct StackTraceEntry {
     public native let object: wref<IScriptable>;
 }
 
-public static native func GetStackTrace(opt depth: Int32, opt current: Bool) -> array<StackTraceEntry>
+public native func GetStackTrace(opt depth: Int32, opt current: Bool) -> array<StackTraceEntry>
