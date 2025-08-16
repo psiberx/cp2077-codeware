@@ -2,6 +2,7 @@
 #include "Core/Facades/Container.hpp"
 #include "Red/CommunitySystem.hpp"
 #include "Red/NodeRef.hpp"
+#include "Red/StreamingWorld.hpp"
 
 void App::WorldStateSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
@@ -23,6 +24,12 @@ void App::WorldStateSystem::OnAfterWorldDetach()
 bool App::WorldStateSystem::IsReady()
 {
     return m_ready && m_questPhaseRegistry->PhasesInitialized();
+}
+
+Red::Handle<Red::worldStreamingWorld> App::WorldStateSystem::GetStreamingWorld()
+{
+    auto streamingSystem = Red::GetRuntimeSystem<Red::worldRuntimeSystemWorldStreaming>();
+    return Raw::RuntimeSystemWorldStreaming::StreamingWorld::Ref(streamingSystem);
 }
 
 void App::WorldStateSystem::ActivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName)

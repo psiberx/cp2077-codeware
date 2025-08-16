@@ -1,6 +1,8 @@
 public native class WorldStateSystem extends IGameSystem {
     public native func IsReady() -> Bool
 
+    public native func GetStreamingWorld() -> ref<worldStreamingWorld>
+
     public native func ActivateCommunity(community: NodeRef, opt entry: CName)
     public native func DeactivateCommunity(community: NodeRef, opt entry: CName)
 

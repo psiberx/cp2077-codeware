@@ -10,6 +10,8 @@ class WorldStateSystem : public Red::IGameSystem
 public:
     bool IsReady();
 
+    Red::Handle<Red::worldStreamingWorld> GetStreamingWorld();
+
     void ActivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName);
     void DeactivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName);
 
@@ -36,6 +38,7 @@ private:
 
 RTTI_DEFINE_CLASS(App::WorldStateSystem, {
     RTTI_METHOD(IsReady);
+    RTTI_METHOD(GetStreamingWorld);
     RTTI_METHOD(ActivateCommunity);
     RTTI_METHOD(DeactivateCommunity);
     RTTI_METHOD(ToggleNode);
