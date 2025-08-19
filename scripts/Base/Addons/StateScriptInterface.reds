@@ -1,2 +1,2 @@
 @addField(StateScriptInterface)
-native let stateMachineBBDef: ref<BlackboardDefinition>;
+public native let stateMachineBBDef: ref<BlackboardDefinition>;

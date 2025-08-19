@@ -1,5 +1,5 @@
 public native struct gameCoveringArc {
-  native let leftAngle: Float;
-  native let rightAngle: Float;
-  native let verticalAngle: Float;
+  public native let leftAngle: Float;
+  public native let rightAngle: Float;
+  public native let verticalAngle: Float;
 }

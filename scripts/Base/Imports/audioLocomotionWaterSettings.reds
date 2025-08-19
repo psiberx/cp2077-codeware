@@ -1,19 +1,19 @@
 public native class audioLocomotionWaterSettings extends audioAudioMetadata {
-  native let defaultLegVfx: ResourceAsyncRef; // raRef<CResource>
-  native let locomotionStatesLegVfx: ref<audioLocomotionStateVfxDictionary>;
-  native let customActionLegVfx: ref<audioLocomotionCustomActionVfxDictionary>;
-  native let minSpeedToApplyImpulses: Float;
-  native let minHeelDepthToApplyImpulses: Float;
-  native let shallowWaterDepth: Float;
-  native let intermediateWaterDepth: Float;
-  native let shallowSettings: audioLocomotionWaterContextSettings;
-  native let intermediateSettings: audioLocomotionWaterContextSettings;
-  native let deepSettings: audioLocomotionWaterContextSettings;
-  native let minHeelDepthToSpawnFallFx: Float;
-  native let minDownwardSpeedForRegularFall: Float;
-  native let minDownwardSpeedForFastFall: Float;
-  native let regularFallVfx: ResourceAsyncRef; // raRef<CResource>
-  native let regularFallEvent: CName;
-  native let fastFallVfx: ResourceAsyncRef; // raRef<CResource>
-  native let fastFallEvent: CName;
+  public native let defaultLegVfx: ResourceAsyncRef; // raRef<CResource>
+  public native let locomotionStatesLegVfx: ref<audioLocomotionStateVfxDictionary>;
+  public native let customActionLegVfx: ref<audioLocomotionCustomActionVfxDictionary>;
+  public native let minSpeedToApplyImpulses: Float;
+  public native let minHeelDepthToApplyImpulses: Float;
+  public native let shallowWaterDepth: Float;
+  public native let intermediateWaterDepth: Float;
+  public native let shallowSettings: audioLocomotionWaterContextSettings;
+  public native let intermediateSettings: audioLocomotionWaterContextSettings;
+  public native let deepSettings: audioLocomotionWaterContextSettings;
+  public native let minHeelDepthToSpawnFallFx: Float;
+  public native let minDownwardSpeedForRegularFall: Float;
+  public native let minDownwardSpeedForFastFall: Float;
+  public native let regularFallVfx: ResourceAsyncRef; // raRef<CResource>
+  public native let regularFallEvent: CName;
+  public native let fastFallVfx: ResourceAsyncRef; // raRef<CResource>
+  public native let fastFallEvent: CName;
 }

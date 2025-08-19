@@ -1,4 +1,4 @@
 public native class scnInterestingConversationsGroup extends ISerializable {
-  native let condition: ref<questIBaseCondition>;
-  native let conversations: array<ref<scnInterestingConversationData>>;
+  public native let condition: ref<questIBaseCondition>;
+  public native let conversations: array<ref<scnInterestingConversationData>>;
 }

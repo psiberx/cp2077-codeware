@@ -1,3 +1,3 @@
 public native struct inkGalleryData {
-  native let favorites: array<Uint32>;
+  public native let favorites: array<Uint32>;
 }

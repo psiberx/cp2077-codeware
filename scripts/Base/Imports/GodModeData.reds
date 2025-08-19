@@ -1,4 +1,4 @@
 public native struct GodModeData {
-  native let type: gameGodModeType;
-  native let source: CName;
+  public native let type: gameGodModeType;
+  public native let source: CName;
 }

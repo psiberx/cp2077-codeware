@@ -1,9 +1,9 @@
 public native struct questPlayFX_NodeTypeParams {
-  native let play: Bool;
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let effectName: CName;
-  native let effectInstanceName: CName;
-  native let sequenceShift: Uint32;
-  native let save: Bool;
+  public native let play: Bool;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let effectName: CName;
+  public native let effectInstanceName: CName;
+  public native let sequenceShift: Uint32;
+  public native let save: Bool;
 }

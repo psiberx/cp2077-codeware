@@ -1,3 +1,3 @@
 public native class worldLightChannelVolumeNode extends worldAreaShapeNode {
-  native let streamingDistanceFactor: Float;
+  public native let streamingDistanceFactor: Float;
 }

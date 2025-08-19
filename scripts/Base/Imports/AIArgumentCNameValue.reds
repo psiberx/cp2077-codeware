@@ -1,4 +1,4 @@
 public native class AIArgumentCNameValue extends AIArgumentDefinition {
-  native let type: AIArgumentType;
-  native let defaultValue: CName;
+  public native let type: AIArgumentType;
+  public native let defaultValue: CName;
 }

@@ -1,6 +1,6 @@
 public native class questVehicleQuickHack_ConditionType extends questIVehicleConditionType {
-  native let vehicleRef: EntityReference;
-  native let checkAccelerate: Bool;
-  native let checkForceBrakes: Bool;
-  native let checkRemoteControl: Bool;
+  public native let vehicleRef: EntityReference;
+  public native let checkAccelerate: Bool;
+  public native let checkForceBrakes: Bool;
+  public native let checkRemoteControl: Bool;
 }

@@ -1,5 +1,5 @@
 public native struct rendSLightFlickering {
-  native let positionOffset: Float;
-  native let flickerStrength: Float;
-  native let flickerPeriod: Float;
+  public native let positionOffset: Float;
+  public native let flickerStrength: Float;
+  public native let flickerPeriod: Float;
 }

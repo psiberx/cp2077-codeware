@@ -1,4 +1,4 @@
 public native struct gameCompiledSmartObjectNode {
-  native let compiledData: ref<gameCompiledSmartObjectData>;
-  native let worldTransform: WorldTransform;
+  public native let compiledData: ref<gameCompiledSmartObjectData>;
+  public native let worldTransform: WorldTransform;
 }

@@ -1,4 +1,4 @@
 public native struct scnCameraRid {
-  native let tag: scnRidTag;
-  native let animations: array<scnCameraAnimationRid>;
+  public native let tag: scnRidTag;
+  public native let animations: array<scnCameraAnimationRid>;
 }

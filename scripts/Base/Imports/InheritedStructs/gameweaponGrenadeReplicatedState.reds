@@ -1,9 +1,9 @@
 public native struct gameweaponGrenadeReplicatedState {
-  native let recordID: TweakDBID;
-  native let persistentID: Uint64;
-  native let instigator: wref<GameObject>;
-  native let itemID: ItemID;
-  native let currentTransform: WorldTransform;
-  native let exploded: Bool;
-  native let launched: Bool;
+  public native let recordID: TweakDBID;
+  public native let persistentID: Uint64;
+  public native let instigator: wref<GameObject>;
+  public native let itemID: ItemID;
+  public native let currentTransform: WorldTransform;
+  public native let exploded: Bool;
+  public native let launched: Bool;
 }

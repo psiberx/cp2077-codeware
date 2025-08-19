@@ -1,3 +1,3 @@
 public native class CEvaluatorVectorConst extends IEvaluatorVector {
-  native let value: Vector4;
+  public native let value: Vector4;
 }

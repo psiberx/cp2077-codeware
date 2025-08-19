@@ -1,3 +1,3 @@
 public native struct AIAIBlackboardSerializableID {
-  native let id: BlackboardSerializableID;
+  public native let id: BlackboardSerializableID;
 }

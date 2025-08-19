@@ -1,4 +1,4 @@
 public native struct Multilayer_LayerTemplateOverridesNormalStrength {
-  native let n: CName;
-  native let v: Float;
+  public native let n: CName;
+  public native let v: Float;
 }

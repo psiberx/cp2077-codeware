@@ -1,9 +1,9 @@
 public native class animAnimNode_FloatTrackDirectConnConstraint extends animAnimNode_OnePoseInput {
-  native let floatTrackIndex: animNamedTrackIndex;
-  native let transformIndex: animTransformIndex;
-  native let channel: animTransformChannel;
-  native let mulFactor: Float;
-  native let weight: Float;
-  native let weightNode: animFloatLink;
-  native let mulFactorNode: animFloatLink;
+  public native let floatTrackIndex: animNamedTrackIndex;
+  public native let transformIndex: animTransformIndex;
+  public native let channel: animTransformChannel;
+  public native let mulFactor: Float;
+  public native let weight: Float;
+  public native let weightNode: animFloatLink;
+  public native let mulFactorNode: animFloatLink;
 }

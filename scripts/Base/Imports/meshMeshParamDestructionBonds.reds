@@ -1,3 +1,3 @@
 public native class meshMeshParamDestructionBonds extends meshMeshParameter {
-  native let bonds: array<meshDestructionBond>;
+  public native let bonds: array<meshDestructionBond>;
 }

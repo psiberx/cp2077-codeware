@@ -1,4 +1,4 @@
 public native class gameinteractionsCSphereDefinition extends gameinteractionsIShapeDefinition {
-  native let position: Vector4;
-  native let radius: Float;
+  public native let position: Vector4;
+  public native let radius: Float;
 }

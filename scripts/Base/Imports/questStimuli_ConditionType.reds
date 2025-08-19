@@ -1,6 +1,6 @@
 public native class questStimuli_ConditionType extends questISensesConditionType {
-  native let instigatorRef: EntityReference;
-  native let isPlayerInstigator: Bool;
-  native let targetRef: EntityReference;
-  native let type: gamedataStimType;
+  public native let instigatorRef: EntityReference;
+  public native let isPlayerInstigator: Bool;
+  public native let targetRef: EntityReference;
+  public native let type: gamedataStimType;
 }

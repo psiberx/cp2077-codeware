@@ -1,4 +1,4 @@
 public native struct gameAnimationOverrideDefinition {
-  native let animset: ResourceAsyncRef; // raRef<animAnimSet>
-  native let variables: array<CName>;
+  public native let animset: ResourceAsyncRef; // raRef<animAnimSet>
+  public native let variables: array<CName>;
 }

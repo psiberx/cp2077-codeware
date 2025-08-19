@@ -1,2 +1,2 @@
 @addField(MiniGameStateUpdateEventAdvanced)
-native let propertyNames: array<CName>;
+public native let propertyNames: array<CName>;

@@ -1,3 +1,3 @@
 public native class vehicleDriveToGameObjectEvent extends Event {
-  native let targetObjToReach: wref<GameObject>;
+  public native let targetObjToReach: wref<GameObject>;
 }

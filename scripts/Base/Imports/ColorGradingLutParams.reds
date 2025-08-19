@@ -1,5 +1,5 @@
 public native struct ColorGradingLutParams {
-  native let LUT: ResourceRef; // rRef<CBitmapTexture>
-  native let inputMapping: EColorMappingFunction;
-  native let outputMapping: EColorMappingFunction;
+  public native let LUT: ResourceRef; // rRef<CBitmapTexture>
+  public native let inputMapping: EColorMappingFunction;
+  public native let outputMapping: EColorMappingFunction;
 }

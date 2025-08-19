@@ -1,4 +1,4 @@
 public native struct worldRelativeNodePathElement {
-  native let prefab: String;
-  native let nodeID: Uint64;
+  public native let prefab: String;
+  public native let nodeID: Uint64;
 }

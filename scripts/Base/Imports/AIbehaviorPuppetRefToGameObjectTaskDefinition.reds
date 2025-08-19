@@ -1,4 +1,4 @@
 public native class AIbehaviorPuppetRefToGameObjectTaskDefinition extends AIbehaviorTaskDefinition {
-  native let puppetRef: ref<AIArgumentMapping>;
-  native let result: ref<AIArgumentMapping>;
+  public native let puppetRef: ref<AIArgumentMapping>;
+  public native let result: ref<AIArgumentMapping>;
 }

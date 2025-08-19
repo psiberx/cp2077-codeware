@@ -1,4 +1,4 @@
 public native class audioPhysicalObstructionSettings extends audioAudioMetadata {
-  native let initialAbsorbtion: Float;
-  native let absorptionPerMeter: Float;
+  public native let initialAbsorbtion: Float;
+  public native let absorptionPerMeter: Float;
 }

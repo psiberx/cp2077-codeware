@@ -1,8 +1,8 @@
 public native class questShowOverlay_NodeSubType extends questITutorial_NodeSubType {
-  native let overlayLibrary: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
-  native let libraryItemName: CName;
-  native let visible: Bool;
-  native let pauseGame: Bool;
-  native let lockPlayerMovement: Bool;
-  native let hideOnInput: Bool;
+  public native let overlayLibrary: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+  public native let libraryItemName: CName;
+  public native let visible: Bool;
+  public native let pauseGame: Bool;
+  public native let lockPlayerMovement: Bool;
+  public native let hideOnInput: Bool;
 }

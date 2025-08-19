@@ -1,11 +1,11 @@
 @addField(JournalTarot)
-native let index: Int32;
+public native let index: Int32;
 
 @addField(JournalTarot)
-native let name: LocalizationString;
+public native let name: LocalizationString;
 
 @addField(JournalTarot)
-native let description: LocalizationString;
+public native let description: LocalizationString;
 
 @addField(JournalTarot)
-native let imagePart: CName;
+public native let imagePart: CName;

@@ -1,4 +1,4 @@
 public native class meshMeshParamTopologyMetadata extends meshMeshParameter {
-  native let offsets: array<Uint32>;
-  native let sizes: array<Uint32>;
+  public native let offsets: array<Uint32>;
+  public native let sizes: array<Uint32>;
 }

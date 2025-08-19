@@ -1,2 +1,2 @@
 @addField(inkIGameController)
-native let audioMetadataName: CName;
+public native let audioMetadataName: CName;

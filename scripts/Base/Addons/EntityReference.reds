@@ -1,14 +1,14 @@
 @addField(EntityReference)
-native persistent let type: gameEntityReferenceType;
+public native persistent let type: gameEntityReferenceType;
 
 @addField(EntityReference)
-native persistent let names: array<CName>;
+public native persistent let names: array<CName>;
 
 @addField(EntityReference)
-native persistent let slotName: CName;
+public native persistent let slotName: CName;
 
 @addField(EntityReference)
-native persistent let sceneActorContextName: CName;
+public native persistent let sceneActorContextName: CName;
 
 @addField(EntityReference)
-native persistent let dynamicEntityUniqueName: CName;
+public native persistent let dynamicEntityUniqueName: CName;

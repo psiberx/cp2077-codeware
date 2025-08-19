@@ -1,3 +1,3 @@
 public native struct gameMuppetInputActionSelectWeapon {
-  native let wantedWeapon: ItemID;
+  public native let wantedWeapon: ItemID;
 }

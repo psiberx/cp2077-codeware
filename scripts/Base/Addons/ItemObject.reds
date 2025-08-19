@@ -1,2 +1,2 @@
 @addField(ItemObject)
-native let updateBucket: UpdateBucketEnum;
+public native let updateBucket: UpdateBucketEnum;

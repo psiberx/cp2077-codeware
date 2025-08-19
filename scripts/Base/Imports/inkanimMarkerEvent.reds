@@ -1,3 +1,3 @@
 public native class inkanimMarkerEvent extends inkAnimEvent {
-  native let markerName: CName;
+  public native let markerName: CName;
 }

@@ -1,4 +1,4 @@
 public native class animAnimNode_MaskReset extends animAnimNode_OnePoseInput {
-  native let weightNode: animFloatLink;
-  native let transforms: array<animTransformIndex>;
+  public native let weightNode: animFloatLink;
+  public native let transforms: array<animTransformIndex>;
 }

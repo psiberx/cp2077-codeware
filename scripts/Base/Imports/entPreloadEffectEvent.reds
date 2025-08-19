@@ -1,3 +1,3 @@
 public importonly class entPreloadEffectEvent extends Event {
-  native let effectName: CName;
+  public native let effectName: CName;
 }

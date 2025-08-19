@@ -1,5 +1,5 @@
 public native class CParticleModificatorSizeOverLife extends IParticleModificator {
-  native let size: ref<IEvaluatorVector>;
-  native let scale: Float;
-  native let modulate: Bool;
+  public native let size: ref<IEvaluatorVector>;
+  public native let scale: Float;
+  public native let modulate: Bool;
 }

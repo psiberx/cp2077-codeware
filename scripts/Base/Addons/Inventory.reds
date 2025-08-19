@@ -1,8 +1,8 @@
 @addField(Inventory)
-native let saveInventory: Bool;
+public native let saveInventory: Bool;
 
 @addField(Inventory)
-native let inventoryTag: gameSharedInventoryTag;
+public native let inventoryTag: gameSharedInventoryTag;
 
 @addField(Inventory)
-native let noInitialization: Bool;
+public native let noInitialization: Bool;

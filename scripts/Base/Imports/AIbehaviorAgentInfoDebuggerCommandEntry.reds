@@ -1,4 +1,4 @@
 public native struct AIbehaviorAgentInfoDebuggerCommandEntry {
-  native let callStack: AIbehaviorBehaviorInstanceCallStack;
-  native let behaviorResourcePath: String;
+  public native let callStack: AIbehaviorBehaviorInstanceCallStack;
+  public native let behaviorResourcePath: String;
 }

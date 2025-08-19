@@ -1,4 +1,4 @@
 public native struct ActionParameterIScriptable {
-  native let name: CName;
-  native let value: ref<IScriptable>;
+  public native let name: CName;
+  public native let value: ref<IScriptable>;
 }

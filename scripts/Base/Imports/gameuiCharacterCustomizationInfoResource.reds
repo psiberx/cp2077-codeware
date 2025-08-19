@@ -1,13 +1,13 @@
 public native class gameuiCharacterCustomizationInfoResource extends CResource {
-  native let version: Uint32;
-  native let headCustomizationOptions: array<ref<gameuiCharacterCustomizationInfo>>;
-  native let bodyCustomizationOptions: array<ref<gameuiCharacterCustomizationInfo>>;
-  native let armsCustomizationOptions: array<ref<gameuiCharacterCustomizationInfo>>;
-  native let armsGroups: array<gameuiOptionsGroup>;
-  native let headGroups: array<gameuiOptionsGroup>;
-  native let bodyGroups: array<gameuiOptionsGroup>;
-  native let perspectiveInfo: array<gameuiPerspectiveInfo>;
-  native let uiPresets: array<gameuiCharacterCustomizationUiPresetInfo>;
-  native let excludedFromRandomize: array<CName>;
-  native let versionUpdateInfo: array<gameuiCharacterCustomizationVersionUpdateInfo>;
+  public native let version: Uint32;
+  public native let headCustomizationOptions: array<ref<gameuiCharacterCustomizationInfo>>;
+  public native let bodyCustomizationOptions: array<ref<gameuiCharacterCustomizationInfo>>;
+  public native let armsCustomizationOptions: array<ref<gameuiCharacterCustomizationInfo>>;
+  public native let armsGroups: array<gameuiOptionsGroup>;
+  public native let headGroups: array<gameuiOptionsGroup>;
+  public native let bodyGroups: array<gameuiOptionsGroup>;
+  public native let perspectiveInfo: array<gameuiPerspectiveInfo>;
+  public native let uiPresets: array<gameuiCharacterCustomizationUiPresetInfo>;
+  public native let excludedFromRandomize: array<CName>;
+  public native let versionUpdateInfo: array<gameuiCharacterCustomizationVersionUpdateInfo>;
 }

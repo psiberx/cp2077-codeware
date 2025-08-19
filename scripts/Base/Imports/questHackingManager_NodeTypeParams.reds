@@ -1,4 +1,4 @@
 public native struct questHackingManager_NodeTypeParams {
-  native let objectRef: NodeRef;
-  native let actions: array<ref<questHackingManager_ActionType>>;
+  public native let objectRef: NodeRef;
+  public native let actions: array<ref<questHackingManager_ActionType>>;
 }

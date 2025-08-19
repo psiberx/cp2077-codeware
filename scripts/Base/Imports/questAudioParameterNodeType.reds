@@ -1,6 +1,6 @@
 public native class questAudioParameterNodeType extends questIAudioNodeType {
-  native let param: audioAudParameter;
-  native let isMusic: Bool;
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
+  public native let param: audioAudParameter;
+  public native let isMusic: Bool;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
 }

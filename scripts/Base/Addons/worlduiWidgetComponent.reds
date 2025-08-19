@@ -1,20 +1,20 @@
 @addField(worlduiWidgetComponent)
-native let cursorResource: ResourceRef; // rRef<inkWidgetLibraryResource>
+public native let cursorResource: ResourceRef; // rRef<inkWidgetLibraryResource>
 
 @addField(worlduiWidgetComponent)
-native let widgetResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+public native let widgetResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
 
 @addField(worlduiWidgetComponent)
-native let itemNameToSpawn: CName;
+public native let itemNameToSpawn: CName;
 
 @addField(worlduiWidgetComponent)
-native let staticTextureResource: ResourceAsyncRef; // raRef<CBitmapTexture>
+public native let staticTextureResource: ResourceAsyncRef; // raRef<CBitmapTexture>
 
 @addField(worlduiWidgetComponent)
-native let sceneWidgetProperties: worlduiSceneWidgetProperties;
+public native let sceneWidgetProperties: worlduiSceneWidgetProperties;
 
 @addField(worlduiWidgetComponent)
-native let spawnDistanceOverride: Float;
+public native let spawnDistanceOverride: Float;
 
 @addField(worlduiWidgetComponent)
-native let limitedSpawnDistanceFromVehicle: Bool;
+public native let limitedSpawnDistanceFromVehicle: Bool;

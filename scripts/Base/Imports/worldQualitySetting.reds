@@ -1,4 +1,4 @@
 public native struct worldQualitySetting {
-  native let QualityLevel: ConfigGraphicsQualityLevel;
-  native let xEntitiesBudget: Uint32;
+  public native let QualityLevel: ConfigGraphicsQualityLevel;
+  public native let xEntitiesBudget: Uint32;
 }

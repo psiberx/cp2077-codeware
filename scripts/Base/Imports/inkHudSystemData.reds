@@ -1,4 +1,4 @@
 public native class inkHudSystemData extends inkILayerSystemData {
-  native let rootLibrary: ResourceRef; // rRef<inkWidgetLibraryResource>
-  native let entriesResource: ResourceRef; // rRef<inkHudEntriesResource>
+  public native let rootLibrary: ResourceRef; // rRef<inkWidgetLibraryResource>
+  public native let entriesResource: ResourceRef; // rRef<inkHudEntriesResource>
 }

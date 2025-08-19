@@ -1,4 +1,4 @@
 public native class animAnimStateTransitionCondition_WrapperValue extends animIAnimStateTransitionCondition {
-  native let wrapperName: CName;
-  native let checkIfWrapperIsSet: Bool;
+  public native let wrapperName: CName;
+  public native let checkIfWrapperIsSet: Bool;
 }

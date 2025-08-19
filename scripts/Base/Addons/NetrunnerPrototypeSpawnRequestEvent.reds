@@ -1,11 +1,11 @@
 @addField(NetrunnerPrototypeSpawnRequestEvent)
-native let whatToSpawn: CName;
+public native let whatToSpawn: CName;
 
 @addField(NetrunnerPrototypeSpawnRequestEvent)
-native let whereToSpawn: Vector3;
+public native let whereToSpawn: Vector3;
 
 @addField(NetrunnerPrototypeSpawnRequestEvent)
-native let scale: Vector3;
+public native let scale: Vector3;
 
 @addField(NetrunnerPrototypeSpawnRequestEvent)
-native let colorIndex: Uint8;
+public native let colorIndex: Uint8;

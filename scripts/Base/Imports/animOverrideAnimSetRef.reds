@@ -1,4 +1,4 @@
 public native struct animOverrideAnimSetRef {
-  native let animSet: ResourceAsyncRef; // raRef<animAnimSet>
-  native let variableName: CName;
+  public native let animSet: ResourceAsyncRef; // raRef<animAnimSet>
+  public native let variableName: CName;
 }

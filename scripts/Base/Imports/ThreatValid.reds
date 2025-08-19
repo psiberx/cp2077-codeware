@@ -1,6 +1,6 @@
 public native class ThreatValid extends AIEvent {
-  native let owner: wref<Entity>;
-  native let threat: wref<Entity>;
-  native let isEnemy: Bool;
-  native let isHostile: Bool;
+  public native let owner: wref<Entity>;
+  public native let threat: wref<Entity>;
+  public native let isEnemy: Bool;
+  public native let isHostile: Bool;
 }

@@ -1,6 +1,6 @@
 @neverRef()
 public native class gameEntityToAppearancesAndColorVariantsMapEntry extends ISerializable {
-  native let entityPathHash: Uint64;
-  native let debugEntityPath: String;
-  native let appearancesAndTheirColorVariants: array<gameEntityAppearanceColorVariantsArray>;
+  public native let entityPathHash: Uint64;
+  public native let debugEntityPath: String;
+  public native let appearancesAndTheirColorVariants: array<gameEntityAppearanceColorVariantsArray>;
 }

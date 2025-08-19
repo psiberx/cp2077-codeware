@@ -1,10 +1,10 @@
 public native class cpMeatBag extends GameObject {
-  native let rotationLerpFactor: Float;
-  native let kinematicBodyBoneName: CName;
-  native let bagBodyBoneName: CName;
-  native let physicalComponentName: CName;
-  native let bagHitComponentName: CName;
-  native let bagDestroyComponentName: CName;
-  native let destructionEffectName: CName;
-  native let jiggleEffectName: CName;
+  public native let rotationLerpFactor: Float;
+  public native let kinematicBodyBoneName: CName;
+  public native let bagBodyBoneName: CName;
+  public native let physicalComponentName: CName;
+  public native let bagHitComponentName: CName;
+  public native let bagDestroyComponentName: CName;
+  public native let destructionEffectName: CName;
+  public native let jiggleEffectName: CName;
 }

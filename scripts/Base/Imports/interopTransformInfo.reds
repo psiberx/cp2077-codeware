@@ -1,4 +1,4 @@
 public native struct interopTransformInfo {
-  native let translation: Vector3;
-  native let rotation: EulerAngles;
+  public native let translation: Vector3;
+  public native let rotation: EulerAngles;
 }

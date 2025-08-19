@@ -1,5 +1,5 @@
 public native class questOverrideSplineSpeed_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let speed: Float;
-  native let adjustTime: Float;
+  public native let vehicleRef: EntityReference;
+  public native let speed: Float;
+  public native let adjustTime: Float;
 }

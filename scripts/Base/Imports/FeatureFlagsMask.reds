@@ -1,3 +1,3 @@
 public native struct FeatureFlagsMask {
-  native let flags: Uint64;
+  public native let flags: Uint64;
 }

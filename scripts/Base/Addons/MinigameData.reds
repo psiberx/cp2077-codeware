@@ -1,2 +1,2 @@
 @addField(MinigameData)
-native let trapSpawnProbability: Float;
+public native let trapSpawnProbability: Float;

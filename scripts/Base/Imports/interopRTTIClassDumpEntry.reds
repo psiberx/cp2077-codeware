@@ -1,6 +1,6 @@
 public native struct interopRTTIClassDumpEntry {
-  native let i: Int32;
-  native let b: Int32;
-  native let r: Int32;
-  native let a: Int32;
+  public native let i: Int32;
+  public native let b: Int32;
+  public native let r: Int32;
+  public native let a: Int32;
 }

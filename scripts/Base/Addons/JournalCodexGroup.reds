@@ -1,5 +1,5 @@
 @addField(JournalCodexGroup)
-native let groupName: LocalizationString;
+public native let groupName: LocalizationString;
 
 @addField(JournalCodexGroup)
-native let isSorted: Bool;
+public native let isSorted: Bool;

@@ -1,6 +1,6 @@
 public native struct AISpotPersistentData {
-  native let worldPosition: WorldPosition;
-  native let globalNodeId: GlobalNodeID;
-  native let yaw: Float;
-  native let isEnabled: Bool;
+  public native let worldPosition: WorldPosition;
+  public native let globalNodeId: GlobalNodeID;
+  public native let yaw: Float;
+  public native let isEnabled: Bool;
 }

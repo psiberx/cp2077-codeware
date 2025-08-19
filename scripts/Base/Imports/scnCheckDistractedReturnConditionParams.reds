@@ -1,4 +1,4 @@
 public native struct scnCheckDistractedReturnConditionParams {
-  native let distracted: Bool;
-  native let target: scnDistractedConditionTarget;
+  public native let distracted: Bool;
+  public native let target: scnDistractedConditionTarget;
 }

@@ -1,12 +1,12 @@
 public native class EmissiveColorSettings extends IAreaSettings {
-  native let tint: CurveDataHDRColor;
-  native let saturation: CurveDataFloat;
-  native let brigtness: CurveDataFloat;
-  native let exposure: CurveDataVector2;
-  native let cameraLuminance: CurveDataVector2;
-  native let evBlend: CurveDataFloat;
-  native let exposureIBL: CurveDataFloat;
-  native let luminanceIBL: CurveDataFloat;
-  native let curveRampIBL: Float;
-  native let exposureScale: CurveDataFloat;
+  public native let tint: CurveDataHDRColor;
+  public native let saturation: CurveDataFloat;
+  public native let brigtness: CurveDataFloat;
+  public native let exposure: CurveDataVector2;
+  public native let cameraLuminance: CurveDataVector2;
+  public native let evBlend: CurveDataFloat;
+  public native let exposureIBL: CurveDataFloat;
+  public native let luminanceIBL: CurveDataFloat;
+  public native let curveRampIBL: Float;
+  public native let exposureScale: CurveDataFloat;
 }

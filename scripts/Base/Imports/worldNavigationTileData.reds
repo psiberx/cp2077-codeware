@@ -1,11 +1,11 @@
 public native struct worldNavigationTileData {
-  native let tileX: Int32;
-  native let tileY: Int32;
-  native let tileIndex: Uint32;
-  native let bufferIndex: Uint32;
-  native let agentSize: NavGenAgentSize;
-  native let offMeshConnections: worldOffMeshConnectionsData;
-  native let tileRef: Uint64;
-  native let activeVariantIDs: array<Uint32>;
-  native let allVariantIDs: array<Uint32>;
+  public native let tileX: Int32;
+  public native let tileY: Int32;
+  public native let tileIndex: Uint32;
+  public native let bufferIndex: Uint32;
+  public native let agentSize: NavGenAgentSize;
+  public native let offMeshConnections: worldOffMeshConnectionsData;
+  public native let tileRef: Uint64;
+  public native let activeVariantIDs: array<Uint32>;
+  public native let allVariantIDs: array<Uint32>;
 }

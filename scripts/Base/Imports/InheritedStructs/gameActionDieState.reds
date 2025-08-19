@@ -1,11 +1,11 @@
 public native struct gameActionDieState {
-  native let replicationId: Uint32;
-  native let type: Uint16;
-  native let startTimeStamp: netTime;
-  native let stopTimeStamp: netTime;
-  native let updateBucket: Uint8;
-  native let owner: wref<GameObject>;
-  native let movingAgent: wref<moveComponent>;
-  native let ragdollComponent: wref<RagdollComponent>;
-  native let slotComponent: wref<SlotComponent>;
+  public native let replicationId: Uint32;
+  public native let type: Uint16;
+  public native let startTimeStamp: netTime;
+  public native let stopTimeStamp: netTime;
+  public native let updateBucket: Uint8;
+  public native let owner: wref<GameObject>;
+  public native let movingAgent: wref<moveComponent>;
+  public native let ragdollComponent: wref<RagdollComponent>;
+  public native let slotComponent: wref<SlotComponent>;
 }

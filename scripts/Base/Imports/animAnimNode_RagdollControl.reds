@@ -1,5 +1,5 @@
 public native class animAnimNode_RagdollControl extends animAnimNode_Base {
-  native let blendInDuration: Float;
-  native let blendOutDuration: Float;
-  native let inputPoseNode: animPoseLink;
+  public native let blendInDuration: Float;
+  public native let blendOutDuration: Float;
+  public native let inputPoseNode: animPoseLink;
 }

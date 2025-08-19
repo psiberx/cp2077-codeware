@@ -1,7 +1,7 @@
 public native class questvehiclePanicParams extends questVehicleSpecificCommandParams {
-  native let allowSimplifiedMovement: Bool;
-  native let ignoreTickets: Bool;
-  native let disableStuckDetection: Bool;
-  native let useSpeedBasedLookupRange: Bool;
-  native let tryDriveAwayFromPlayer: Bool;
+  public native let allowSimplifiedMovement: Bool;
+  public native let ignoreTickets: Bool;
+  public native let disableStuckDetection: Bool;
+  public native let useSpeedBasedLookupRange: Bool;
+  public native let tryDriveAwayFromPlayer: Bool;
 }

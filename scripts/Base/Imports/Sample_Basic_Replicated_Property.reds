@@ -1,3 +1,3 @@
 public native struct Sample_Basic_Replicated_Property {
-  native let property: Bool;
+  public native let property: Bool;
 }

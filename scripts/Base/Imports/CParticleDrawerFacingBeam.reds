@@ -1,10 +1,10 @@
 public native class CParticleDrawerFacingBeam extends IParticleDrawer {
-  native let texturesPerUnit: Float;
-  native let dynamicTexCoords: Bool;
-  native let transparencyOffset: Float;
-  native let transparencyLength: Float;
-  native let numSegments: Uint32;
-  native let sourceTangent: Vector4;
-  native let targetTangent: Vector4;
-  native let debugTargetTranslation: Vector3;
+  public native let texturesPerUnit: Float;
+  public native let dynamicTexCoords: Bool;
+  public native let transparencyOffset: Float;
+  public native let transparencyLength: Float;
+  public native let numSegments: Uint32;
+  public native let sourceTangent: Vector4;
+  public native let targetTangent: Vector4;
+  public native let debugTargetTranslation: Vector3;
 }

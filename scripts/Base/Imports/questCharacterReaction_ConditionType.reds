@@ -1,5 +1,5 @@
 public native class questCharacterReaction_ConditionType extends questICharacterConditionType {
-  native let puppetRef: EntityReference;
-  native let isAnyReaction: Bool;
-  native let reactionBehaviorID: TweakDBID;
+  public native let puppetRef: EntityReference;
+  public native let isAnyReaction: Bool;
+  public native let reactionBehaviorID: TweakDBID;
 }

@@ -1,2 +1,2 @@
 @addField(ResRef)
-native let resource: ResourceAsyncRef; // raRef<CResource>
+public native let resource: ResourceAsyncRef; // raRef<CResource>

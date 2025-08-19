@@ -1,3 +1,3 @@
 public native class questSaveLock_ConditionType extends questISystemConditionType {
-  native let inverted: Bool;
+  public native let inverted: Bool;
 }

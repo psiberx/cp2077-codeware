@@ -1,13 +1,13 @@
 public native class workExitAnim extends workIEntry {
-  native let animName: CName;
-  native let disableAutoTransition: Bool;
-  native let idleAnim: CName;
-  native let movementType: moveMovementType;
-  native let isSynchronized: Bool;
-  native let stayOnNavmesh: Bool;
-  native let snapZToNavmesh: Bool;
-  native let forceNoZSnap: Bool;
-  native let slotName: CName;
-  native let syncOffset: Transform;
-  native let disableRandomExit: Bool;
+  public native let animName: CName;
+  public native let disableAutoTransition: Bool;
+  public native let idleAnim: CName;
+  public native let movementType: moveMovementType;
+  public native let isSynchronized: Bool;
+  public native let stayOnNavmesh: Bool;
+  public native let snapZToNavmesh: Bool;
+  public native let forceNoZSnap: Bool;
+  public native let slotName: CName;
+  public native let syncOffset: Transform;
+  public native let disableRandomExit: Bool;
 }

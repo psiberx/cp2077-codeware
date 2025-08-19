@@ -1,5 +1,5 @@
 public native struct navgendebugInputGeometry {
-  native let triangles: array<navgendebugInputGeometryTriangle>;
-  native let tileBoundingBox: Box;
-  native let extrudedBoundingBox: Box;
+  public native let triangles: array<navgendebugInputGeometryTriangle>;
+  public native let tileBoundingBox: Box;
+  public native let extrudedBoundingBox: Box;
 }

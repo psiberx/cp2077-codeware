@@ -1,4 +1,4 @@
 public native class questTeleport_NodeType extends questIVehicleManagerNodeType {
-  native let entityReference: EntityReference;
-  native let params: questTeleportPuppetParams;
+  public native let entityReference: EntityReference;
+  public native let params: questTeleportPuppetParams;
 }

@@ -1,6 +1,6 @@
 public native class questDynamicVehicleSpawn_NodeType extends questIDynamicSpawnSystemType {
-  native let VehicleData: array<TweakDBID>;
-  native let waveTag: CName;
-  native let spawnDirectionPreference: questSpawnDirectionPreference;
-  native let distanceRange: Vector2;
+  public native let VehicleData: array<TweakDBID>;
+  public native let waveTag: CName;
+  public native let spawnDirectionPreference: questSpawnDirectionPreference;
+  public native let distanceRange: Vector2;
 }

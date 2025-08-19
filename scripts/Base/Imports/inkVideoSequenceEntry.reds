@@ -1,7 +1,7 @@
 public native struct inkVideoSequenceEntry {
-  native let videoResource: ResourceAsyncRef; // raRef<Bink>
-  native let audioEvent: CName;
-  native let syncToAudio: Bool;
-  native let retriggerAudioOnLoop: Bool;
-  native let loop: Bool;
+  public native let videoResource: ResourceAsyncRef; // raRef<Bink>
+  public native let audioEvent: CName;
+  public native let syncToAudio: Bool;
+  public native let retriggerAudioOnLoop: Bool;
+  public native let loop: Bool;
 }

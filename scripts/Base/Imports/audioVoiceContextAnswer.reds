@@ -1,4 +1,4 @@
 public native struct audioVoiceContextAnswer {
-  native let answerContext: CName;
-  native let radius: Float;
+  public native let answerContext: CName;
+  public native let radius: Float;
 }

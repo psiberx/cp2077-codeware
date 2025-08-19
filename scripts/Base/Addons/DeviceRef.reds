@@ -1,2 +1,2 @@
 @addField(DeviceRef)
-native let componentName: CName;
+public native let componentName: CName;

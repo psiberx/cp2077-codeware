@@ -1,3 +1,3 @@
 public native class cpBumpEvent extends Event {
-  native let amount: Uint32;
+  public native let amount: Uint32;
 }

@@ -1,4 +1,4 @@
 public native struct scnEntryPoint {
-  native let name: CName;
-  native let nodeId: scnNodeId;
+  public native let name: CName;
+  public native let nodeId: scnNodeId;
 }

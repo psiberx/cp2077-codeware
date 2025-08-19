@@ -1,5 +1,5 @@
 public native struct audioPerfectChargePerkSounds {
-  native let perfectChargeChargingSound: CName;
-  native let perfectChargeChargedSound: CName;
-  native let perfectChargeShootingSound: CName;
+  public native let perfectChargeChargingSound: CName;
+  public native let perfectChargeChargedSound: CName;
+  public native let perfectChargeShootingSound: CName;
 }

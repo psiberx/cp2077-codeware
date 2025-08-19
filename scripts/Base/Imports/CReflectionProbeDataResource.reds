@@ -1,6 +1,6 @@
 public native class CReflectionProbeDataResource extends resStreamedResource {
-  native let textureData: rendRenderTextureResource;
-  native let dataHash: Uint64;
-  native let haveSkyData: Bool;
-  native let faceDepth: [Float; 6];
+  public native let textureData: rendRenderTextureResource;
+  public native let dataHash: Uint64;
+  public native let haveSkyData: Bool;
+  public native let faceDepth: [Float; 6];
 }

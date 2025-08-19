@@ -1,4 +1,4 @@
 public native struct questPuppetAIManagerNodeDefinitionEntry {
-  native let entityReference: EntityReference;
-  native let aiTier: gameStoryTier;
+  public native let entityReference: EntityReference;
+  public native let aiTier: gameStoryTier;
 }

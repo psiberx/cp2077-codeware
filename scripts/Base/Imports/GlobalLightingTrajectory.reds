@@ -1,6 +1,6 @@
 public native struct GlobalLightingTrajectory {
-  native let latitude: Float;
-  native let sunRotationOffset: Float;
-  native let moonRotationOffset: Float;
-  native let timeOfYearSeason: ETimeOfYearSeason;
+  public native let latitude: Float;
+  public native let sunRotationOffset: Float;
+  public native let moonRotationOffset: Float;
+  public native let timeOfYearSeason: ETimeOfYearSeason;
 }

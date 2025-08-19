@@ -1,5 +1,5 @@
 public native class gameuiCharacterCustomizationGenitalsController extends gameuiCharacterCustomizationBodyPartsController {
-  native let upperBodyGroupName: CName;
-  native let bottomBodyGroupName: CName;
-  native let forceHideGenitals: Bool;
+  public native let upperBodyGroupName: CName;
+  public native let bottomBodyGroupName: CName;
+  public native let forceHideGenitals: Bool;
 }

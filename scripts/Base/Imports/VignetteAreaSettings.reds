@@ -1,6 +1,6 @@
 public native class VignetteAreaSettings extends IAreaSettings {
-  native let vignetteEnabled: Bool;
-  native let vignetteRadius: Float;
-  native let vignetteExp: Float;
-  native let vignetteColor: Color;
+  public native let vignetteEnabled: Bool;
+  public native let vignetteRadius: Float;
+  public native let vignetteExp: Float;
+  public native let vignetteColor: Color;
 }

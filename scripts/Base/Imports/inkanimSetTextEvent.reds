@@ -1,3 +1,3 @@
 public native class inkanimSetTextEvent extends inkAnimEvent {
-  native let localizationString: String;
+  public native let localizationString: String;
 }

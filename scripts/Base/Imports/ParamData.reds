@@ -1,5 +1,5 @@
 public native struct ParamData {
-  native let name: String;
-  native let type: String;
-  native let defaultValue: Variant;
+  public native let name: String;
+  public native let type: String;
+  public native let defaultValue: Variant;
 }

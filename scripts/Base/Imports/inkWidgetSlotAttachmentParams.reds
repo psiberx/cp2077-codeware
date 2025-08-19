@@ -1,5 +1,5 @@
 public native struct inkWidgetSlotAttachmentParams {
-  native let slotID: CName;
-  native let useSlotLayout: Bool;
-  native let layoutOverride: inkWidgetLayout;
+  public native let slotID: CName;
+  public native let useSlotLayout: Bool;
+  public native let layoutOverride: inkWidgetLayout;
 }

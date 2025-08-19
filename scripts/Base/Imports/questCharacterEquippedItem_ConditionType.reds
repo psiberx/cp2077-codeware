@@ -1,9 +1,9 @@
 public native class questCharacterEquippedItem_ConditionType extends questICharacterConditionType {
-  native let isPlayer: Bool;
-  native let puppetRef: EntityReference;
-  native let itemID: TweakDBID;
-  native let itemTag: CName;
-  native let excludedTweakDBIDs: array<TweakDBID>;
-  native let excludedTags: array<CName>;
-  native let inverted: Bool;
+  public native let isPlayer: Bool;
+  public native let puppetRef: EntityReference;
+  public native let itemID: TweakDBID;
+  public native let itemTag: CName;
+  public native let excludedTweakDBIDs: array<TweakDBID>;
+  public native let excludedTags: array<CName>;
+  public native let inverted: Bool;
 }

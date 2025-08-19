@@ -1,4 +1,4 @@
 public native struct AIThreatSaveData {
-  native persistent let entityId: EntityID;
-  native persistent let persistenceSourceBitMask: Uint32;
+  public native persistent let entityId: EntityID;
+  public native persistent let persistenceSourceBitMask: Uint32;
 }

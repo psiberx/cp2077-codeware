@@ -1,5 +1,5 @@
 public native class animAnimStateTransitionCondition_IntVariable extends animIAnimStateTransitionCondition {
-  native let variableName: CName;
-  native let compareValue: Int32;
-  native let compareFunc: animCompareFunc;
+  public native let variableName: CName;
+  public native let compareValue: Int32;
+  public native let compareFunc: animCompareFunc;
 }

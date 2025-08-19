@@ -1,5 +1,5 @@
 public abstract native class questVehicleSpecificCommandParams extends ISerializable {
-  native let pushOtherVehiclesAside: Bool;
-  native let needDriver: Bool;
-  native let secureTimeOut: Float;
+  public native let pushOtherVehiclesAside: Bool;
+  public native let needDriver: Bool;
+  public native let secureTimeOut: Float;
 }

@@ -1,4 +1,4 @@
 public native class effectSlotEntries extends effectIPlacementEntries {
-  native let inheritRotation: Bool;
-  native let slots: array<effectSlotEntry>;
+  public native let inheritRotation: Bool;
+  public native let slots: array<effectSlotEntry>;
 }

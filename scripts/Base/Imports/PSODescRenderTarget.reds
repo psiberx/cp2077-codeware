@@ -1,10 +1,10 @@
 public native struct PSODescRenderTarget {
-  native let blendEnable: Bool;
-  native let writeMask: PSODescBlendModeWriteMask;
-  native let colorOp: PSODescBlendModeOp;
-  native let alphaOp: PSODescBlendModeOp;
-  native let destFactor: PSODescBlendModeFactor;
-  native let destAlphaFactor: PSODescBlendModeFactor;
-  native let srcFactor: PSODescBlendModeFactor;
-  native let srcAlphaFactor: PSODescBlendModeFactor;
+  public native let blendEnable: Bool;
+  public native let writeMask: PSODescBlendModeWriteMask;
+  public native let colorOp: PSODescBlendModeOp;
+  public native let alphaOp: PSODescBlendModeOp;
+  public native let destFactor: PSODescBlendModeFactor;
+  public native let destAlphaFactor: PSODescBlendModeFactor;
+  public native let srcFactor: PSODescBlendModeFactor;
+  public native let srcAlphaFactor: PSODescBlendModeFactor;
 }

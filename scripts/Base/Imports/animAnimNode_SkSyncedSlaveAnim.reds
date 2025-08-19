@@ -1,3 +1,3 @@
 public native class animAnimNode_SkSyncedSlaveAnim extends animAnimNode_SkAnim {
-  native let syncTag: CName;
+  public native let syncTag: CName;
 }

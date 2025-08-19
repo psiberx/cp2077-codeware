@@ -1,5 +1,5 @@
 public native struct audioAudioSceneVariableReadActionData {
-  native let name: CName;
-  native let comparer: audioNumberComparer;
-  native let value: Int32;
+  public native let name: CName;
+  public native let comparer: audioNumberComparer;
+  public native let value: Int32;
 }

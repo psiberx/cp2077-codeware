@@ -1,8 +1,8 @@
 public native struct questRadioStationAnnouncementEventStruct {
-  native let announcementScene: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let sceneInput: CName;
-  native let queueAnnouncement: Bool;
-  native let radioStationName: CName;
-  native let blockSignal: Bool;
-  native let speaker: audioRadioSpeakerType;
+  public native let announcementScene: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let sceneInput: CName;
+  public native let queueAnnouncement: Bool;
+  public native let radioStationName: CName;
+  public native let blockSignal: Bool;
+  public native let speaker: audioRadioSpeakerType;
 }

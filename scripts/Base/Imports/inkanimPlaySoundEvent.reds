@@ -1,3 +1,3 @@
 public native class inkanimPlaySoundEvent extends inkAnimEvent {
-  native let soundEventName: CName;
+  public native let soundEventName: CName;
 }

@@ -1,9 +1,9 @@
 public native class AIbehaviorPickSearchDestinationTaskDefinition extends AIbehaviorTaskDefinition {
-  native let destinationPosition: ref<AIArgumentMapping>;
-  native let desiredDistance: ref<AIArgumentMapping>;
-  native let maxDistance: ref<AIArgumentMapping>;
-  native let clearedAreaRadius: ref<AIArgumentMapping>;
-  native let clearedAreaDistance: ref<AIArgumentMapping>;
-  native let clearedAreaAngle: ref<AIArgumentMapping>;
-  native let ignoreRestrictMovementArea: ref<AIArgumentMapping>;
+  public native let destinationPosition: ref<AIArgumentMapping>;
+  public native let desiredDistance: ref<AIArgumentMapping>;
+  public native let maxDistance: ref<AIArgumentMapping>;
+  public native let clearedAreaRadius: ref<AIArgumentMapping>;
+  public native let clearedAreaDistance: ref<AIArgumentMapping>;
+  public native let clearedAreaAngle: ref<AIArgumentMapping>;
+  public native let ignoreRestrictMovementArea: ref<AIArgumentMapping>;
 }

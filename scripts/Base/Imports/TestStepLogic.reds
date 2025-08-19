@@ -1,7 +1,7 @@
 public native class TestStepLogic extends IScriptable {
-  native let maxExecutionTimeSec: Float;
-  native let executionTimeSec: Float;
-  native let paramsData: array<ParamData>;
+  public native let maxExecutionTimeSec: Float;
+  public native let executionTimeSec: Float;
+  public native let paramsData: array<ParamData>;
 
   public final native func GetATUI()
   public final native func GetAudioFunctionalTests()

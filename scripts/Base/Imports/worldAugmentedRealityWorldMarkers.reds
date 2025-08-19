@@ -1,3 +1,3 @@
 public native class worldAugmentedRealityWorldMarkers extends ISerializable {
-  native let transforms: array<Transform>;
+  public native let transforms: array<Transform>;
 }

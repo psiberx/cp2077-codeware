@@ -1,5 +1,5 @@
 public native class gameuiGameVersionTextController extends inkLogicController {
-  native let gameVersionText: inkTextRef;
-  native let expansionWrapper: inkCompoundRef;
-  native let fluffWrapper: inkCompoundRef;
+  public native let gameVersionText: inkTextRef;
+  public native let expansionWrapper: inkCompoundRef;
+  public native let fluffWrapper: inkCompoundRef;
 }

@@ -1,3 +1,3 @@
 public native class meshMeshParamGpuBuffer extends meshMeshParameter {
-  native let stride: Uint32;
+  public native let stride: Uint32;
 }

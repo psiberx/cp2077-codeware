@@ -1,5 +1,5 @@
 @neverRef()
 public native class audioEventOverrideDictionaryItem extends audioInlinedAudioMetadata {
-  native let key: CName;
-  native let value: CName;
+  public native let key: CName;
+  public native let value: CName;
 }

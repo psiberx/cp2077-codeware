@@ -1,3 +1,3 @@
 public native struct animIntLink {
-  native let node: wref<animAnimNode_IntValue>;
+  public native let node: wref<animAnimNode_IntValue>;
 }

@@ -1,3 +1,3 @@
 public native struct WorldRenderAreaSettings {
-  native let areaParameters: array<ref<IAreaSettings>>;
+  public native let areaParameters: array<ref<IAreaSettings>>;
 }

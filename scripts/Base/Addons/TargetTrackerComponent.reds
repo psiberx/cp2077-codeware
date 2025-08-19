@@ -1,2 +1,2 @@
 @addField(TargetTrackerComponent)
-native let TriggersCombat: Bool;
+public native let TriggersCombat: Bool;

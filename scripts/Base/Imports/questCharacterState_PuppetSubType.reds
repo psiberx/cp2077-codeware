@@ -1,9 +1,9 @@
 public native class questCharacterState_PuppetSubType extends questICharacterConditionSubType {
-  native let puppetRef: EntityReference;
-  native let upperBodyComparisonType: questEComparisonTypeEquality;
-  native let upperBodyState: Int32;
-  native let highLevelComparisonType: questEComparisonTypeEquality;
-  native let highLevelState: Int32;
-  native let stanceComparisonType: questEComparisonTypeEquality;
-  native let stanceState: Int32;
+  public native let puppetRef: EntityReference;
+  public native let upperBodyComparisonType: questEComparisonTypeEquality;
+  public native let upperBodyState: Int32;
+  public native let highLevelComparisonType: questEComparisonTypeEquality;
+  public native let highLevelState: Int32;
+  public native let stanceComparisonType: questEComparisonTypeEquality;
+  public native let stanceState: Int32;
 }

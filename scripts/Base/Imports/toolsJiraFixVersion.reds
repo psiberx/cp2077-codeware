@@ -1,3 +1,3 @@
 public native struct toolsJiraFixVersion {
-  native let id: String;
+  public native let id: String;
 }

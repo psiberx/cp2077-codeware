@@ -1,5 +1,5 @@
 public abstract native class workIContainerEntry extends workIEntry {
-  native let list: array<ref<workIEntry>>;
-  native let disableAutoTransition: Bool;
-  native let idleAnim: CName;
+  public native let list: array<ref<workIEntry>>;
+  public native let disableAutoTransition: Bool;
+  public native let idleAnim: CName;
 }

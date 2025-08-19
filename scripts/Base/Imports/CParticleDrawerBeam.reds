@@ -1,3 +1,3 @@
 public native class CParticleDrawerBeam extends CParticleDrawerFacingBeam {
-  native let rotation: Float;
+  public native let rotation: Float;
 }

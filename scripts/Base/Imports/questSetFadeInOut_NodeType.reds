@@ -1,5 +1,5 @@
 public native class questSetFadeInOut_NodeType extends questIRenderFxManagerNodeType {
-  native let fadeColor: Color;
-  native let fadeIn: Bool;
-  native let duration: Float;
+  public native let fadeColor: Color;
+  public native let fadeIn: Bool;
+  public native let duration: Float;
 }

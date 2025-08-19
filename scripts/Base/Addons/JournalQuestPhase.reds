@@ -1,2 +1,2 @@
 @addField(JournalQuestPhase)
-native let locationPrefabRef: NodeRef;
+public native let locationPrefabRef: NodeRef;

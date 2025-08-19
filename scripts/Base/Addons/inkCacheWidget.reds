@@ -1,8 +1,8 @@
 @addField(inkCacheWidget)
-native let innerScale: Vector2;
+public native let innerScale: Vector2;
 
 @addField(inkCacheWidget)
-native let mode: inkCacheMode;
+public native let mode: inkCacheMode;
 
 @addField(inkCacheWidget)
-native let externalDynamicTexture: CName;
+public native let externalDynamicTexture: CName;

@@ -1,4 +1,4 @@
 public native class workSyncAnimClip extends workAnimClip {
-  native let slotName: CName;
-  native let syncOffset: Transform;
+  public native let slotName: CName;
+  public native let syncOffset: Transform;
 }

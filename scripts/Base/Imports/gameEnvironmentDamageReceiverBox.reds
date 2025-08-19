@@ -1,3 +1,3 @@
 public native class gameEnvironmentDamageReceiverBox extends gameEnvironmentDamageReceiverShape {
-  native let dimensions: Vector3;
+  public native let dimensions: Vector3;
 }

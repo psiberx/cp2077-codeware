@@ -1,12 +1,12 @@
 public native class FunctionalTestsDataTimeStatsData extends ISerializable {
-  native let engineTick: Uint64;
-  native let lastFps: Float;
-  native let minFps: Float;
-  native let lastTimeDelta: Float;
-  native let engineTime: Double;
-  native let cpuTime: Float;
-  native let gpuTime: Float;
-  native let rawLocalTime: Uint64;
-  native let playerPosition: String;
-  native let playerOrientation: String;
+  public native let engineTick: Uint64;
+  public native let lastFps: Float;
+  public native let minFps: Float;
+  public native let lastTimeDelta: Float;
+  public native let engineTime: Double;
+  public native let cpuTime: Float;
+  public native let gpuTime: Float;
+  public native let rawLocalTime: Uint64;
+  public native let playerPosition: String;
+  public native let playerOrientation: String;
 }

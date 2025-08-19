@@ -1,4 +1,4 @@
 public native struct gameMuppetControllerSnapshot {
-  native let controllerId: CName;
-  native let isActive: Bool;
+  public native let controllerId: CName;
+  public native let isActive: Bool;
 }

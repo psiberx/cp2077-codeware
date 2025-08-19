@@ -1,4 +1,4 @@
 public native struct audioFootstepDecalMaterialEntry {
-  native let materialTag: CName;
-  native let eventsByLocomotionState: ref<audioLocomotionStateEventDictionary>;
+  public native let materialTag: CName;
+  public native let eventsByLocomotionState: ref<audioLocomotionStateEventDictionary>;
 }

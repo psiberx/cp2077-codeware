@@ -1,6 +1,6 @@
 public native struct toolsJiraIssue {
-  native let id: String;
-  native let self: String;
-  native let key: String;
-  native let fields: toolsJiraIssueFields;
+  public native let id: String;
+  public native let self: String;
+  public native let key: String;
+  public native let fields: toolsJiraIssueFields;
 }

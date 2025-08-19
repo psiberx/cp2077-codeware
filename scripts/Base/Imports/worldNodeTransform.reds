@@ -1,5 +1,5 @@
 public native struct worldNodeTransform {
-  native let translation: Vector3;
-  native let rotation: Quaternion;
-  native let scale: Vector3;
+  public native let translation: Vector3;
+  public native let rotation: Quaternion;
+  public native let scale: Vector3;
 }

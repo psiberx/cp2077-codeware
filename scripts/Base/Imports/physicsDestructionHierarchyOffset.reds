@@ -1,3 +1,3 @@
 public native struct physicsDestructionHierarchyOffset {
-  native let combined: Uint32;
+  public native let combined: Uint32;
 }

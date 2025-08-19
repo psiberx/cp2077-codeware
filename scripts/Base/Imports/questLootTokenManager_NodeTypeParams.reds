@@ -1,4 +1,4 @@
 public native struct questLootTokenManager_NodeTypeParams {
-  native let tokenNodeRef: NodeRef;
-  native let lootTokenState: questLootTokenState;
+  public native let tokenNodeRef: NodeRef;
+  public native let lootTokenState: questLootTokenState;
 }

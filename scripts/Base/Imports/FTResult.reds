@@ -1,6 +1,6 @@
 public importonly struct FTResult {
-  native let code: FunctionalTestsResultCode;
-  native let msg: String;
+  public native let code: FunctionalTestsResultCode;
+  public native let msg: String;
 
   public final static native func IsValid()
   public final static native func Make()

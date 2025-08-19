@@ -1,4 +1,4 @@
 public native class AIbehaviorGetFollowTrailPointTaskDefinition extends AIbehaviorTaskDefinition {
-  native let inTrailDelay: ref<AIArgumentMapping>;
-  native let outFollowTrailPoint: ref<AIArgumentMapping>;
+  public native let inTrailDelay: ref<AIArgumentMapping>;
+  public native let outFollowTrailPoint: ref<AIArgumentMapping>;
 }

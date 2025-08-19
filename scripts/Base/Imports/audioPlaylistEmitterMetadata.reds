@@ -1,4 +1,4 @@
 public native class audioPlaylistEmitterMetadata extends audioEmitterMetadata {
-  native let receiverType: CName;
-  native let playlistMetadataName: CName;
+  public native let receiverType: CName;
+  public native let playlistMetadataName: CName;
 }

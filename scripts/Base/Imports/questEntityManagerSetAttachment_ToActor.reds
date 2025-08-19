@@ -1,9 +1,9 @@
 public native class questEntityManagerSetAttachment_ToActor extends questIEntityManagerSetAttachment_NodeSubType {
-  native let attachmentRef: NodeRef;
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let slot: CName;
-  native let offsetMode: questAttachmentOffsetMode;
-  native let customOffsetPos: Vector3;
-  native let customOffsetRot: Quaternion;
+  public native let attachmentRef: NodeRef;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let slot: CName;
+  public native let offsetMode: questAttachmentOffsetMode;
+  public native let customOffsetPos: Vector3;
+  public native let customOffsetRot: Quaternion;
 }

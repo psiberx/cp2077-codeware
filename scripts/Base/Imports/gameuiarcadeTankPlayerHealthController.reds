@@ -1,3 +1,3 @@
 public native class gameuiarcadeTankPlayerHealthController extends inkLogicController {
-  native let health: inkWidgetRef;
+  public native let health: inkWidgetRef;
 }

@@ -1,6 +1,6 @@
 public native struct audioAnyStateTransitionEntry {
-  native let isDisabled: Bool;
-  native let sourceStateId: Uint8;
-  native let targetStateId: Uint8;
-  native let transitionTime: Float;
+  public native let isDisabled: Bool;
+  public native let sourceStateId: Uint8;
+  public native let targetStateId: Uint8;
+  public native let transitionTime: Float;
 }

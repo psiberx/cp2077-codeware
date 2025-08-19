@@ -1,8 +1,8 @@
 public native class questVendorPanel_NodeType extends questIUIManagerNodeType {
-  native let scenarioName: CName;
-  native let openVendorPanel: Bool;
-  native let vendorId: String;
-  native let objectRef: EntityReference;
-  native let assetsLibrary: String;
-  native let rootItemName: CName;
+  public native let scenarioName: CName;
+  public native let openVendorPanel: Bool;
+  public native let vendorId: String;
+  public native let objectRef: EntityReference;
+  public native let assetsLibrary: String;
+  public native let rootItemName: CName;
 }

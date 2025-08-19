@@ -1,4 +1,4 @@
 public native struct questShowDialogIndicator_NodeTypeParams {
-  native let objectRef: EntityReference;
-  native let show: Bool;
+  public native let objectRef: EntityReference;
+  public native let show: Bool;
 }

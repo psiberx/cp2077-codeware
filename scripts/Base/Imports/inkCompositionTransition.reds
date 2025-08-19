@@ -1,4 +1,4 @@
 public native struct inkCompositionTransition {
-  native let targetState: CName;
-  native let interpolators: array<inkCompositionInterpolator>;
+  public native let targetState: CName;
+  public native let interpolators: array<inkCompositionInterpolator>;
 }

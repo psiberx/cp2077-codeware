@@ -1,4 +1,4 @@
 public native class gamePhysicalDestructionListenerComponent extends IComponent {
-  native let physicalDestructionComponentName: CName;
-  native let thresholdLevels: array<Float>;
+  public native let physicalDestructionComponentName: CName;
+  public native let thresholdLevels: array<Float>;
 }

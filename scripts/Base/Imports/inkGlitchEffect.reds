@@ -1,7 +1,7 @@
 public native class inkGlitchEffect extends inkIEffect {
-  native let intensity: Float;
-  native let offsetX: Float;
-  native let offsetY: Float;
-  native let sizeX: Float;
-  native let sizeY: Float;
+  public native let intensity: Float;
+  public native let offsetX: Float;
+  public native let offsetY: Float;
+  public native let sizeX: Float;
+  public native let sizeY: Float;
 }

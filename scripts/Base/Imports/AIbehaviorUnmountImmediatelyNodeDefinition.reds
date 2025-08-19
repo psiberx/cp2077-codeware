@@ -1,3 +1,3 @@
 public native class AIbehaviorUnmountImmediatelyNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
-  native let mountData: ref<AIArgumentMapping>;
+  public native let mountData: ref<AIArgumentMapping>;
 }

@@ -1,5 +1,5 @@
 public abstract native class audioMeleeWeaponSettings extends audioAudioMetadata {
-  native let quickAttackSettings: audioMeleeAttackSettings;
-  native let strongAttackSettings: audioMeleeAttackSettings;
-  native let weaponHandlingSettings: audioWeaponHandlingSettings;
+  public native let quickAttackSettings: audioMeleeAttackSettings;
+  public native let strongAttackSettings: audioMeleeAttackSettings;
+  public native let weaponHandlingSettings: audioWeaponHandlingSettings;
 }

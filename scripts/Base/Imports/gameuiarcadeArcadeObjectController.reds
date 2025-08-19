@@ -1,4 +1,4 @@
 public native class gameuiarcadeArcadeObjectController extends inkLogicController {
-  native let image: inkWidgetRef;
-  native let colliderList: array<gameuiarcadeArcadeColliderData>;
+  public native let image: inkWidgetRef;
+  public native let colliderList: array<gameuiarcadeArcadeColliderData>;
 }

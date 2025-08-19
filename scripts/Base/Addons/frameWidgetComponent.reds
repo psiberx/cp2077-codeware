@@ -1,2 +1,2 @@
 @addField(frameWidgetComponent)
-native let dimensions: Vector2;
+public native let dimensions: Vector2;

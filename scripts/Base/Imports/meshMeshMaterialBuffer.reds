@@ -1,3 +1,3 @@
 public native struct meshMeshMaterialBuffer {
-  native let rawDataHeaders: array<meshLocalMaterialHeader>;
+  public native let rawDataHeaders: array<meshLocalMaterialHeader>;
 }

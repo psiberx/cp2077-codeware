@@ -1,10 +1,10 @@
 public native class CBitmapTexture extends ITexture {
-  native let width: Uint32;
-  native let height: Uint32;
-  native let depth: Uint32;
-  native let setup: STextureGroupSetup;
-  native let histBiasMulCoef: Vector3;
-  native let histBiasAddCoef: Vector3;
-  native let renderResourceBlob: ref<IRenderResourceBlob>;
-  native let renderTextureResource: rendRenderTextureResource;
+  public native let width: Uint32;
+  public native let height: Uint32;
+  public native let depth: Uint32;
+  public native let setup: STextureGroupSetup;
+  public native let histBiasMulCoef: Vector3;
+  public native let histBiasAddCoef: Vector3;
+  public native let renderResourceBlob: ref<IRenderResourceBlob>;
+  public native let renderTextureResource: rendRenderTextureResource;
 }

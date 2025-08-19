@@ -1,4 +1,4 @@
 public native struct audioVoLineSignal {
-  native let ruid: CRUID;
-  native let signal: CName;
+  public native let ruid: CRUID;
+  public native let signal: CName;
 }

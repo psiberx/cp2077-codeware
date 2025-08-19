@@ -1,8 +1,8 @@
 public native class questChoiceSection_ConditionType extends questISceneConditionType {
-  native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let SceneVersion: scnSceneVersionCheck;
-  native let choiceSectionId: scnNodeId;
-  native let choiceSectionName: CName;
-  native let optionName: CName;
-  native let mode: questChoiceSection_ConditionTypeMode;
+  public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let SceneVersion: scnSceneVersionCheck;
+  public native let choiceSectionId: scnNodeId;
+  public native let choiceSectionName: CName;
+  public native let optionName: CName;
+  public native let mode: questChoiceSection_ConditionTypeMode;
 }

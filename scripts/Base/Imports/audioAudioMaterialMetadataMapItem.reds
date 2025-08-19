@@ -1,14 +1,14 @@
 @neverRef()
 public native class audioAudioMaterialMetadataMapItem extends audioAudioMetadata {
-  native let footstepsMetadata: CName;
-  native let npcFootstepsMetadata: CName;
-  native let ragdollMetadata: CName;
-  native let physicalMaterial: CName;
-  native let obstructionData: CName;
-  native let reflectionParams: CName;
-  native let meleeMaterialName: CName;
-  native let vehicleMaterialName: CName;
-  native let foliageMaterialName: CName;
-  native let foliagePaletteTag: CName;
-  native let meleeMaterialType: audioMeleeMaterialType;
+  public native let footstepsMetadata: CName;
+  public native let npcFootstepsMetadata: CName;
+  public native let ragdollMetadata: CName;
+  public native let physicalMaterial: CName;
+  public native let obstructionData: CName;
+  public native let reflectionParams: CName;
+  public native let meleeMaterialName: CName;
+  public native let vehicleMaterialName: CName;
+  public native let foliageMaterialName: CName;
+  public native let foliagePaletteTag: CName;
+  public native let meleeMaterialType: audioMeleeMaterialType;
 }

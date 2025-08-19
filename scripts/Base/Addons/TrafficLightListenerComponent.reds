@@ -1,5 +1,5 @@
 @addField(TrafficLightListenerComponent)
-native let intersectionRef: NodeRef;
+public native let intersectionRef: NodeRef;
 
 @addField(TrafficLightListenerComponent)
-native let groupIdx: Uint32;
+public native let groupIdx: Uint32;

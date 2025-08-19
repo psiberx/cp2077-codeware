@@ -1,4 +1,4 @@
 public native struct gameuiResolutionSensitiveWidget {
-  native let widget: inkWidgetRef;
-  native let marginToScalecorrectOverride: inkMargin;
+  public native let widget: inkWidgetRef;
+  public native let marginToScalecorrectOverride: inkMargin;
 }

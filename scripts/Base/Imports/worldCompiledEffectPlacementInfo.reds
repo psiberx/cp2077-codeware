@@ -1,6 +1,6 @@
 public native struct worldCompiledEffectPlacementInfo {
-  native let placementTagIndex: Uint8;
-  native let relativePositionIndex: Uint8;
-  native let relativeRotationIndex: Uint8;
-  native let flags: Uint8;
+  public native let placementTagIndex: Uint8;
+  public native let relativePositionIndex: Uint8;
+  public native let relativeRotationIndex: Uint8;
+  public native let flags: Uint8;
 }

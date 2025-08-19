@@ -1,5 +1,5 @@
 @addField(VehicleObject)
-native let archetype: ResourceRef; // rRef<AIArchetype>
+public native let archetype: ResourceRef; // rRef<AIArchetype>
 
 @addField(VehicleObject)
-native persistent let isVehicleOnStateLocked: Bool;
+public native persistent let isVehicleOnStateLocked: Bool;

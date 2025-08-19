@@ -1,5 +1,5 @@
 public native class vehicleDriveToPointEvent extends Event {
-  native let targetPos: Vector3;
-  native let useTraffic: Bool;
-  native let speedInTraffic: Float;
+  public native let targetPos: Vector3;
+  public native let useTraffic: Bool;
+  public native let speedInTraffic: Float;
 }

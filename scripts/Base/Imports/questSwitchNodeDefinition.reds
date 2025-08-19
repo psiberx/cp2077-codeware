@@ -1,4 +1,4 @@
 public native class questSwitchNodeDefinition extends questDisableableNodeDefinition {
-  native let behaviour: questESwitchBehaviourType;
-  native let conditions: array<questConditionItem>;
+  public native let behaviour: questESwitchBehaviourType;
+  public native let conditions: array<questConditionItem>;
 }

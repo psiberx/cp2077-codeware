@@ -1,9 +1,9 @@
 public native struct gameDeviceBaseReplicationProxy {
-  native let recordID: TweakDBID;
-  native let persistentID: Uint64;
-  native let scriptState: ref<DeviceReplicatedState>;
-  native let versionId: Uint32;
-  native let versionTimestamp: netTime;
-  native let initialOrientation: EulerAngles;
-  native let initialLocation: Vector3;
+  public native let recordID: TweakDBID;
+  public native let persistentID: Uint64;
+  public native let scriptState: ref<DeviceReplicatedState>;
+  public native let versionId: Uint32;
+  public native let versionTimestamp: netTime;
+  public native let initialOrientation: EulerAngles;
+  public native let initialLocation: Vector3;
 }

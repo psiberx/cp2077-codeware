@@ -1,5 +1,5 @@
 @addField(IMovingPlatformMovement)
-native let initData: gameIMovingPlatformMovementInitData;
+public native let initData: gameIMovingPlatformMovementInitData;
 
 @addField(IMovingPlatformMovement)
-native let endNode: NodeRef;
+public native let endNode: NodeRef;

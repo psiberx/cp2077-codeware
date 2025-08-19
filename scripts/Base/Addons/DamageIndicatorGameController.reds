@@ -1,2 +1,2 @@
 @addField(DamageIndicatorGameController)
-native let maxVisibleParts: Uint8;
+public native let maxVisibleParts: Uint8;

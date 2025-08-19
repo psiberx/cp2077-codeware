@@ -1,7 +1,7 @@
 public native struct garmentCollarAreaParams {
-  native let enable: Bool;
-  native let radiusInCM: Float;
-  native let radiusForTriangleRemovalInCM: Float;
-  native let offsetFromSkinInCM: Float;
-  native let offset: Vector3;
+  public native let enable: Bool;
+  public native let radiusInCM: Float;
+  public native let radiusForTriangleRemovalInCM: Float;
+  public native let offsetFromSkinInCM: Float;
+  public native let offset: Vector3;
 }

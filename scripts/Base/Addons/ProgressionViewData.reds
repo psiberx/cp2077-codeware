@@ -1,2 +1,2 @@
 @addField(ProgressionViewData)
-native let canBeMerged: Bool;
+public native let canBeMerged: Bool;

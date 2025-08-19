@@ -1,17 +1,17 @@
 @addField(gameuiTooltipsManager)
-native let tooltipsContainer: inkWidgetRef;
+public native let tooltipsContainer: inkWidgetRef;
 
 @addField(gameuiTooltipsManager)
-native let flipX: Bool;
+public native let flipX: Bool;
 
 @addField(gameuiTooltipsManager)
-native let flipY: Bool;
+public native let flipY: Bool;
 
 @addField(gameuiTooltipsManager)
-native let flipVerticalAttachment: Bool;
+public native let flipVerticalAttachment: Bool;
 
 @addField(gameuiTooltipsManager)
-native let rootMargin: inkMargin;
+public native let rootMargin: inkMargin;
 
 @addField(gameuiTooltipsManager)
-native let screenMargin: inkMargin;
+public native let screenMargin: inkMargin;

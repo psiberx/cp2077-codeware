@@ -1,3 +1,3 @@
 public native struct questSceneLocation {
-  native let sceneWorldMarkerTag: CName;
+  public native let sceneWorldMarkerTag: CName;
 }

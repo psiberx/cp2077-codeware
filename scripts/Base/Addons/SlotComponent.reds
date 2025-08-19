@@ -1,5 +1,5 @@
 @addField(SlotComponent)
-native let slots: array<entSlot>;
+public native let slots: array<entSlot>;
 
 @addField(SlotComponent)
-native let fallbackSlots: array<entFallbackSlot>;
+public native let fallbackSlots: array<entFallbackSlot>;

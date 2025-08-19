@@ -1,14 +1,14 @@
 public native struct animSTwoBonesIKSolverData {
-  native let upperBone: animTransformIndex;
-  native let jointBone: animTransformIndex;
-  native let subLowerBone: animTransformIndex;
-  native let lowerBone: animTransformIndex;
-  native let ikBone: animTransformIndex;
-  native let limitToLengthPercentage: Float;
-  native let reverseBend: Bool;
-  native let allowToLock: Bool;
-  native let autoSetupDirs: Bool;
-  native let jointSideWeightUpper: Float;
-  native let jointSideWeightJoint: Float;
-  native let jointSideWeightLower: Float;
+  public native let upperBone: animTransformIndex;
+  public native let jointBone: animTransformIndex;
+  public native let subLowerBone: animTransformIndex;
+  public native let lowerBone: animTransformIndex;
+  public native let ikBone: animTransformIndex;
+  public native let limitToLengthPercentage: Float;
+  public native let reverseBend: Bool;
+  public native let allowToLock: Bool;
+  public native let autoSetupDirs: Bool;
+  public native let jointSideWeightUpper: Float;
+  public native let jointSideWeightJoint: Float;
+  public native let jointSideWeightLower: Float;
 }

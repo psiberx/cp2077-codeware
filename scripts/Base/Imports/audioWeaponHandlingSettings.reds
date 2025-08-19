@@ -1,5 +1,5 @@
 public native struct audioWeaponHandlingSettings {
-  native let equipEvent: CName;
-  native let unequipStartedEvent: CName;
-  native let unequippedEvent: CName;
+  public native let equipEvent: CName;
+  public native let unequipStartedEvent: CName;
+  public native let unequippedEvent: CName;
 }

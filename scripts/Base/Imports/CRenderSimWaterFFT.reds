@@ -1,7 +1,7 @@
 public native class CRenderSimWaterFFT extends IDynamicTextureGenerator {
-  native let windDir: Float;
-  native let windSpeed: Float;
-  native let windScale: Float;
-  native let amplitude: Float;
-  native let lambda: Float;
+  public native let windDir: Float;
+  public native let windSpeed: Float;
+  public native let windScale: Float;
+  public native let amplitude: Float;
+  public native let lambda: Float;
 }

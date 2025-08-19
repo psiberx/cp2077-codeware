@@ -1,8 +1,8 @@
 @addField(inkAnimSequence)
-native let name: CName;
+public native let name: CName;
 
 @addField(inkAnimSequence)
-native let definitions: array<ref<inkAnimDef>>;
+public native let definitions: array<ref<inkAnimDef>>;
 
 @addField(inkAnimSequence)
-native let targets: array<ref<inkanimSequenceTargetInfo>>;
+public native let targets: array<ref<inkanimSequenceTargetInfo>>;

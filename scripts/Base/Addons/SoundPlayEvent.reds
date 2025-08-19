@@ -1,11 +1,11 @@
 @addField(SoundPlayEvent)
-native let emitterName: CName;
+public native let emitterName: CName;
 
 @addField(SoundPlayEvent)
-native let audioTag: CName;
+public native let audioTag: CName;
 
 @addField(SoundPlayEvent)
-native let seekTime: Float;
+public native let seekTime: Float;
 
 @addField(SoundPlayEvent)
-native let playUnique: Bool;
+public native let playUnique: Bool;

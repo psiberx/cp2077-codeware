@@ -1,7 +1,7 @@
 public native class audioElevatorSettings extends audioEntitySettings {
-  native let musicEvents: audioMusicController;
-  native let movementEvents: audioLoopingSoundController;
-  native let callingEvent: CName;
-  native let destinationReachedEvent: CName;
-  native let panelSelectionEvent: CName;
+  public native let musicEvents: audioMusicController;
+  public native let movementEvents: audioLoopingSoundController;
+  public native let callingEvent: CName;
+  public native let destinationReachedEvent: CName;
+  public native let panelSelectionEvent: CName;
 }

@@ -1,17 +1,17 @@
 @addField(vehicleControllerPS)
-native persistent let vehicleDoors: [VehicleSlotsState; 6];
+public native persistent let vehicleDoors: [VehicleSlotsState; 6];
 
 @addField(vehicleControllerPS)
-native persistent let state: vehicleEState;
+public native persistent let state: vehicleEState;
 
 @addField(vehicleControllerPS)
-native persistent let lightMode: vehicleELightMode;
+public native persistent let lightMode: vehicleELightMode;
 
 @addField(vehicleControllerPS)
-native persistent let isAlarmOn: Bool;
+public native persistent let isAlarmOn: Bool;
 
 @addField(vehicleControllerPS)
-native persistent let lightTypeMask: Int32;
+public native persistent let lightTypeMask: Int32;
 
 @addField(vehicleControllerPS)
-native persistent let allowPassengerCameraSwitch: Bool;
+public native persistent let allowPassengerCameraSwitch: Bool;

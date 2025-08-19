@@ -1,6 +1,6 @@
 public native class worldStaticQuestMarkerNode extends worldNode {
-  native let questType: worldQuestType;
-  native let questLabel: String;
-  native let mapFilteringTag: CName;
-  native let questMarkerHeight: Float;
+  public native let questType: worldQuestType;
+  public native let questLabel: String;
+  public native let mapFilteringTag: CName;
+  public native let questMarkerHeight: Float;
 }

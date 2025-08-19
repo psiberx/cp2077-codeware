@@ -1,4 +1,4 @@
 public native struct scnChoiceNodeNsAdaptiveLookAtReferencePoint {
-  native let referencePoint: scnReferencePointId;
-  native let constantWeight: Float;
+  public native let referencePoint: scnReferencePointId;
+  public native let constantWeight: Float;
 }

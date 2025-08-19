@@ -1,2 +1,2 @@
 @addField(TutorialOverlayLogicController)
-native let hideInMenu: Bool;
+public native let hideInMenu: Bool;

@@ -1,6 +1,6 @@
 public native class questForbiddenTrigger_NodeType extends questIVehicleManagerNodeType {
-  native let triggerNodeRef: NodeRef;
-  native let activate: Bool;
-  native let dismount: Bool;
-  native let blockCombat: Bool;
+  public native let triggerNodeRef: NodeRef;
+  public native let activate: Bool;
+  public native let dismount: Bool;
+  public native let blockCombat: Bool;
 }

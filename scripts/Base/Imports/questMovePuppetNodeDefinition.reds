@@ -1,5 +1,5 @@
 public native class questMovePuppetNodeDefinition extends questConfigurableAICommandNode {
-  native let entityReference: EntityReference;
-  native let moveType: CName;
-  native let nodeParams: ref<AICommandParams>;
+  public native let entityReference: EntityReference;
+  public native let moveType: CName;
+  public native let nodeParams: ref<AICommandParams>;
 }

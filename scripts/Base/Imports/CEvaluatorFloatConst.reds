@@ -1,3 +1,3 @@
 public native class CEvaluatorFloatConst extends IEvaluatorFloat {
-  native let value: Float;
+  public native let value: Float;
 }

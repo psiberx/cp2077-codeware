@@ -1,6 +1,6 @@
 @neverRef()
 public native class toolsVisualTagsSchema extends ISerializable {
-  native let name: CName;
-  native let categories: array<toolsVisualTagsGroup>;
-  native let presets: array<toolsVisualTagsGroup>;
+  public native let name: CName;
+  public native let categories: array<toolsVisualTagsGroup>;
+  public native let presets: array<toolsVisualTagsGroup>;
 }

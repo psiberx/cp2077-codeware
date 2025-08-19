@@ -1,3 +1,3 @@
 public native class gameCrowdCreationDataRegistry extends ISerializable {
-  native let creationData: array<gameCrowdCreationData>;
+  public native let creationData: array<gameCrowdCreationData>;
 }

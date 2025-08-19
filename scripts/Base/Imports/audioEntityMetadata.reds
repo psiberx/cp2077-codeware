@@ -1,11 +1,11 @@
 public native class audioEntityMetadata extends audioAudioMetadata {
-  native let fallbackDecorators: array<CName>;
-  native let defaultPositionName: CName;
-  native let defaultEmitterName: CName;
-  native let isDefaultForEntityType: CName;
-  native let preferSoundComponentPosition: Bool;
-  native let priority: Int32;
-  native let rigMetadata: CName;
-  native let emitterDescriptions: array<audioEntityEmitterSettings>;
-  native let alwaysCreateDefaultEmitter: Bool;
+  public native let fallbackDecorators: array<CName>;
+  public native let defaultPositionName: CName;
+  public native let defaultEmitterName: CName;
+  public native let isDefaultForEntityType: CName;
+  public native let preferSoundComponentPosition: Bool;
+  public native let priority: Int32;
+  public native let rigMetadata: CName;
+  public native let emitterDescriptions: array<audioEntityEmitterSettings>;
+  public native let alwaysCreateDefaultEmitter: Bool;
 }

@@ -1,6 +1,6 @@
 public native class worldWeatherStateTransition extends ISerializable {
-  native let probability: CurveDataFloat;
-  native let transitionDuration: CurveDataFloat;
-  native let sourceWeatherState: ref<worldWeatherState>;
-  native let targetWeatherState: ref<worldWeatherState>;
+  public native let probability: CurveDataFloat;
+  public native let transitionDuration: CurveDataFloat;
+  public native let sourceWeatherState: ref<worldWeatherState>;
+  public native let targetWeatherState: ref<worldWeatherState>;
 }

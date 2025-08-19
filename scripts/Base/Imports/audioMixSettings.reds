@@ -1,8 +1,8 @@
 public native class audioMixSettings extends audioAudioMetadata {
-  native let masterVolume: Float;
-  native let sfxVolume: Float;
-  native let musicVolume: Float;
-  native let voVolume: Float;
-  native let uiMenuVolume: Float;
-  native let onStartupEvent: CName;
+  public native let masterVolume: Float;
+  public native let sfxVolume: Float;
+  public native let musicVolume: Float;
+  public native let voVolume: Float;
+  public native let uiMenuVolume: Float;
+  public native let onStartupEvent: CName;
 }

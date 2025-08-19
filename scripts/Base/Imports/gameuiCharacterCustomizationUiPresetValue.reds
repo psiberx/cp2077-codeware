@@ -1,5 +1,5 @@
 public native struct gameuiCharacterCustomizationUiPresetValue {
-  native let optionName: CName;
-  native let isActive: Bool;
-  native let value: Uint32;
+  public native let optionName: CName;
+  public native let isActive: Bool;
+  public native let value: Uint32;
 }

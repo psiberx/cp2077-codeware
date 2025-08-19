@@ -1,3 +1,3 @@
 public native class populationSpawnModifier extends populationModifier {
-  native let spawnParameter: ref<gameObjectSpawnParameter>;
+  public native let spawnParameter: ref<gameObjectSpawnParameter>;
 }

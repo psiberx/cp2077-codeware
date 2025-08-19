@@ -1,12 +1,12 @@
 public native class gameuiarcadeShooterHUDController extends inkLogicController {
-  native let selectedWeaponSlot: inkImageRef;
-  native let secondWeaponSlot: inkImageRef;
-  native let thirdWeaponSlot: inkImageRef;
-  native let healthContainer: inkWidgetRef;
-  native let continueText: inkWidgetRef;
-  native let continueCountdownWidget: inkImageRef;
-  native let levelName: inkImageRef;
-  native let levelNumber1: inkImageRef;
-  native let levelNumber2: inkImageRef;
-  native let levelFinishCard: inkWidgetRef;
+  public native let selectedWeaponSlot: inkImageRef;
+  public native let secondWeaponSlot: inkImageRef;
+  public native let thirdWeaponSlot: inkImageRef;
+  public native let healthContainer: inkWidgetRef;
+  public native let continueText: inkWidgetRef;
+  public native let continueCountdownWidget: inkImageRef;
+  public native let levelName: inkImageRef;
+  public native let levelNumber1: inkImageRef;
+  public native let levelNumber2: inkImageRef;
+  public native let levelFinishCard: inkWidgetRef;
 }

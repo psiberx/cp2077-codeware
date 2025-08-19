@@ -1,5 +1,5 @@
 public native class questComparisonParam extends ISerializable {
-  native let entireCommunity: Bool;
-  native let count: Uint32;
-  native let comparisonType: EComparisonType;
+  public native let entireCommunity: Bool;
+  public native let count: Uint32;
+  public native let comparisonType: EComparisonType;
 }

@@ -1,5 +1,5 @@
 @addField(BlackboardChangedEvent)
-native let definition: ref<BlackboardDefinition>;
+public native let definition: ref<BlackboardDefinition>;
 
 @addField(BlackboardChangedEvent)
-native let id: BlackboardID;
+public native let id: BlackboardID;

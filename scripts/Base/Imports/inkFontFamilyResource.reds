@@ -1,4 +1,4 @@
 public native class inkFontFamilyResource extends CResource {
-  native let familyName: CName;
-  native let fontStyles: array<inkFontStyle>;
+  public native let familyName: CName;
+  public native let fontStyles: array<inkFontStyle>;
 }

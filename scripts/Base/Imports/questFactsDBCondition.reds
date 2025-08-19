@@ -1,3 +1,3 @@
 public native class questFactsDBCondition extends questTypedCondition {
-  native let type: ref<questIFactsDBConditionType>;
+  public native let type: ref<questIFactsDBConditionType>;
 }

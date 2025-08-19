@@ -1,4 +1,4 @@
 public native struct questConditionItem {
-  native let condition: ref<questIBaseCondition>;
-  native let socketId: Uint32;
+  public native let condition: ref<questIBaseCondition>;
+  public native let socketId: Uint32;
 }

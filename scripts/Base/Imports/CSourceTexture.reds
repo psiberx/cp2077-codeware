@@ -1,7 +1,7 @@
 public native class CSourceTexture extends ISerializable {
-  native let width: Uint32;
-  native let height: Uint32;
-  native let depth: Uint32;
-  native let pitch: Uint32;
-  native let format: ETextureRawFormat;
+  public native let width: Uint32;
+  public native let height: Uint32;
+  public native let depth: Uint32;
+  public native let pitch: Uint32;
+  public native let format: ETextureRawFormat;
 }

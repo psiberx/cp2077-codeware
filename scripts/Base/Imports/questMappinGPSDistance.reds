@@ -1,3 +1,3 @@
 public native class questMappinGPSDistance extends questIDistance {
-  native let mappinPath: ref<gameJournalPath>;
+  public native let mappinPath: ref<gameJournalPath>;
 }

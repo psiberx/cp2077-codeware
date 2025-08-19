@@ -1,8 +1,8 @@
 @addField(PopupsManager)
-native let bracketsContainer: inkCompoundRef;
+public native let bracketsContainer: inkCompoundRef;
 
 @addField(PopupsManager)
-native let tutorialOverlayContainer: inkCompoundRef;
+public native let tutorialOverlayContainer: inkCompoundRef;
 
 @addField(PopupsManager)
-native let bracketLibraryID: CName;
+public native let bracketLibraryID: CName;

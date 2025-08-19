@@ -1,4 +1,4 @@
 public native struct gameuiCharacterCustomizationOptionVersionPrereq {
-  native let optionName: CName;
-  native let definitionName: CName;
+  public native let optionName: CName;
+  public native let definitionName: CName;
 }

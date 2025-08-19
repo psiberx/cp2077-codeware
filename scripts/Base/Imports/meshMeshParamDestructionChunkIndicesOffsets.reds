@@ -1,4 +1,4 @@
 public native class meshMeshParamDestructionChunkIndicesOffsets extends meshMeshParameter {
-  native let offsets: array<meshChunkIndicesOffset>;
-  native let chunkOffsets: array<Uint32>;
+  public native let offsets: array<meshChunkIndicesOffset>;
+  public native let chunkOffsets: array<Uint32>;
 }

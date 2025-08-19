@@ -1,4 +1,4 @@
 public native struct physicsGeometryKey {
-  native let pe: Uint8;
-  native let ta: [Uint8; 12];
+  public native let pe: Uint8;
+  public native let ta: [Uint8; 12];
 }

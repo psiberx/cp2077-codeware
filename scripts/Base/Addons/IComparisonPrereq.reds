@@ -1,2 +1,2 @@
 @addField(IComparisonPrereq)
-native let comparisonType: gameComparisonType;
+public native let comparisonType: gameComparisonType;

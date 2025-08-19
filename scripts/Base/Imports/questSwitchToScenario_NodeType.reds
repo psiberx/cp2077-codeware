@@ -1,6 +1,6 @@
 public native class questSwitchToScenario_NodeType extends questIUIManagerNodeType {
-  native let startScenarioName: CName;
-  native let endScenarioName: CName;
-  native let userData: ref<inkUserData>;
-  native let forceOpenDuringFadeout: Bool;
+  public native let startScenarioName: CName;
+  public native let endScenarioName: CName;
+  public native let userData: ref<inkUserData>;
+  public native let forceOpenDuringFadeout: Bool;
 }

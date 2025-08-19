@@ -1,5 +1,5 @@
 @addField(StatsObjectID)
-native let entityHash: Uint64;
+public native let entityHash: Uint64;
 
 @addField(StatsObjectID)
-native let idType: gameStatIDType;
+public native let idType: gameStatIDType;

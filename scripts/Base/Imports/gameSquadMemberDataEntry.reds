@@ -1,4 +1,4 @@
 public native struct gameSquadMemberDataEntry {
-  native persistent let squadName: CName;
-  native persistent let squadType: AISquadType;
+  public native persistent let squadName: CName;
+  public native persistent let squadType: AISquadType;
 }

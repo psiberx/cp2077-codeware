@@ -1,2 +1,2 @@
 @addField(JournalQuestMapPinLink)
-native let path: ref<gameJournalPath>;
+public native let path: ref<gameJournalPath>;

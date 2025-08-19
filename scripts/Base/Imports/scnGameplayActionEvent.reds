@@ -1,4 +1,4 @@
 public native class scnGameplayActionEvent extends scnSceneEvent {
-  native let performer: scnPerformerId;
-  native let gameplayActionData: ref<scnIGameplayActionData>;
+  public native let performer: scnPerformerId;
+  public native let gameplayActionData: ref<scnIGameplayActionData>;
 }

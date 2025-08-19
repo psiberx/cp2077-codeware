@@ -1,3 +1,3 @@
 public native struct appearanceAppearancePart {
-  native let resource: ResourceAsyncRef; // raRef<entEntityTemplate>
+  public native let resource: ResourceAsyncRef; // raRef<entEntityTemplate>
 }

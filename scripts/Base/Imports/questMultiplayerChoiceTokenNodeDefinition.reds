@@ -1,3 +1,3 @@
 public native class questMultiplayerChoiceTokenNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let params: questMultiplayerChoiceTokenParams;
+  public native let params: questMultiplayerChoiceTokenParams;
 }

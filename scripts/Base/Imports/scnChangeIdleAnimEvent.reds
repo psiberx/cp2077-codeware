@@ -1,8 +1,8 @@
 public native class scnChangeIdleAnimEvent extends scnPlayAnimEvent {
-  native let idleAnimName: CName;
-  native let addIdleAnimName: CName;
-  native let isEnabled: Bool;
-  native let animName: CName;
-  native let bakedFacialTransition: animFacialEmotionTransitionBaked;
-  native let facialInstantTransition: Bool;
+  public native let idleAnimName: CName;
+  public native let addIdleAnimName: CName;
+  public native let isEnabled: Bool;
+  public native let animName: CName;
+  public native let bakedFacialTransition: animFacialEmotionTransitionBaked;
+  public native let facialInstantTransition: Bool;
 }

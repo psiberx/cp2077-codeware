@@ -1,11 +1,11 @@
 @addField(MinigameStateAdvanced)
-native let opertyMaxScore: CName;
+public native let opertyMaxScore: CName;
 
 @addField(MinigameStateAdvanced)
-native let opertyCurrentLives: CName;
+public native let opertyCurrentLives: CName;
 
 @addField(MinigameStateAdvanced)
-native let opertyCurrentScore: CName;
+public native let opertyCurrentScore: CName;
 
 @addField(MinigameStateAdvanced)
-native let PropertyChanged: gameuiGameStatePropertyChangedCallback;
+public native let PropertyChanged: gameuiGameStatePropertyChangedCallback;

@@ -1,3 +1,3 @@
 public native class gameeventsSquadStartedCombatEvent extends Event {
-  native let started: Bool;
+  public native let started: Bool;
 }

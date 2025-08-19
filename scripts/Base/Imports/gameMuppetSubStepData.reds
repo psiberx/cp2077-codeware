@@ -1,8 +1,8 @@
 public native struct gameMuppetSubStepData {
-  native let frameId: Uint32;
-  native let parentFrameId: Uint32;
-  native let parentFramePrimaryColor: Bool;
-  native let inputState: gameMuppetInputState;
-  native let state: gameMuppetState;
-  native let resimulationSubsteps: array<gameMuppetSubStepData>;
+  public native let frameId: Uint32;
+  public native let parentFrameId: Uint32;
+  public native let parentFramePrimaryColor: Bool;
+  public native let inputState: gameMuppetInputState;
+  public native let state: gameMuppetState;
+  public native let resimulationSubsteps: array<gameMuppetSubStepData>;
 }

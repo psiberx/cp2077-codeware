@@ -1,4 +1,4 @@
 public native struct inkLayerDefinitionsSet {
-  native let layersDefinitions: array<inkLayerDefinition_NEW>;
-  native let layersSystemConnections: array<inkLayerSystemConnection>;
+  public native let layersDefinitions: array<inkLayerDefinition_NEW>;
+  public native let layersSystemConnections: array<inkLayerSystemConnection>;
 }

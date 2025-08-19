@@ -1,3 +1,3 @@
 public native class AICTreeNodeTimeoutDefinition extends AICTreeExtendableNodeDefinition {
-  native let timeout: Float;
+  public native let timeout: Float;
 }

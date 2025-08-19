@@ -1,3 +1,3 @@
 public native struct LibTreeParametersForwarder {
-  native let overrides: array<Uint32>;
+  public native let overrides: array<Uint32>;
 }

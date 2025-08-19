@@ -1,8 +1,8 @@
 @addField(InteractionMultipleSetEnableEvent)
-native let enable: [Bool; 4];
+public native let enable: [Bool; 4];
 
 @addField(InteractionMultipleSetEnableEvent)
-native let layer: [CName; 4];
+public native let layer: [CName; 4];
 
 @addField(InteractionMultipleSetEnableEvent)
-native let linkedLayers: [CName; 4];
+public native let linkedLayers: [CName; 4];

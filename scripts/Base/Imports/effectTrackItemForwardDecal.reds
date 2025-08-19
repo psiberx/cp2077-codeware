@@ -1,15 +1,15 @@
 public native class effectTrackItemForwardDecal extends effectTrackItem {
-  native let mesh: ResourceRef; // rRef<CMesh>
-  native let appearance: CName;
-  native let scale: ref<IEvaluatorVector>;
-  native let additionalRotation: Float;
-  native let sizeThreshold: Float;
-  native let randomRotation: Bool;
-  native let randomAppearance: Bool;
-  native let isAttached: Bool;
-  native let subUVx: Uint32;
-  native let subUVy: Uint32;
-  native let frame: Uint32;
-  native let fadeOutTime: Float;
-  native let fadeInTime: Float;
+  public native let mesh: ResourceRef; // rRef<CMesh>
+  public native let appearance: CName;
+  public native let scale: ref<IEvaluatorVector>;
+  public native let additionalRotation: Float;
+  public native let sizeThreshold: Float;
+  public native let randomRotation: Bool;
+  public native let randomAppearance: Bool;
+  public native let isAttached: Bool;
+  public native let subUVx: Uint32;
+  public native let subUVy: Uint32;
+  public native let frame: Uint32;
+  public native let fadeOutTime: Float;
+  public native let fadeInTime: Float;
 }

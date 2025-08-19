@@ -1,6 +1,6 @@
 public native class audioDistanceSoundDecoratorMetadata extends audioEmitterMetadata {
-  native let onEnter: CName;
-  native let onLeave: CName;
-  native let triggerDistance: Float;
-  native let stopOnlyVirtualSounds: Bool;
+  public native let onEnter: CName;
+  public native let onLeave: CName;
+  public native let triggerDistance: Float;
+  public native let stopOnlyVirtualSounds: Bool;
 }

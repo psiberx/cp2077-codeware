@@ -1,6 +1,6 @@
 public native struct ColorBalance {
-  native let Red: Float;
-  native let Green: Float;
-  native let Blue: Float;
-  native let Luminance: Float;
+  public native let Red: Float;
+  public native let Green: Float;
+  public native let Blue: Float;
+  public native let Luminance: Float;
 }

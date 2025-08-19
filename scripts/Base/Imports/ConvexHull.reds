@@ -1,3 +1,3 @@
 public native struct ConvexHull {
-  native let planes: array<Vector4>;
+  public native let planes: array<Vector4>;
 }

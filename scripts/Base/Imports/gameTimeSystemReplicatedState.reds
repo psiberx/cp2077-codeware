@@ -1,4 +1,4 @@
 public native class gameTimeSystemReplicatedState extends gameIGameSystemReplicatedState {
-  native let paused: Bool;
-  native let gameTime: GameTime;
+  public native let paused: Bool;
+  public native let gameTime: GameTime;
 }

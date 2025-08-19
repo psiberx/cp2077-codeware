@@ -1,3 +1,3 @@
 public native class physicsCollisionPresetsResource extends ISerializable {
-  native let presets: array<physicsCollisionPresetDefinition>;
+  public native let presets: array<physicsCollisionPresetDefinition>;
 }

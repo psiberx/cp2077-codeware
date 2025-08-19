@@ -1,9 +1,9 @@
 public native struct scnscreenplayDialogLine {
-  native let itemId: scnscreenplayItemId;
-  native let speaker: scnActorId;
-  native let addressee: scnActorId;
-  native let usage: scnscreenplayLineUsage;
-  native let locstringId: scnlocLocstringId;
-  native let maleLipsyncAnimationName: CName;
-  native let femaleLipsyncAnimationName: CName;
+  public native let itemId: scnscreenplayItemId;
+  public native let speaker: scnActorId;
+  public native let addressee: scnActorId;
+  public native let usage: scnscreenplayLineUsage;
+  public native let locstringId: scnlocLocstringId;
+  public native let maleLipsyncAnimationName: CName;
+  public native let femaleLipsyncAnimationName: CName;
 }

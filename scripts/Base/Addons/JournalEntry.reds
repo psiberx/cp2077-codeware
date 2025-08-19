@@ -1,5 +1,5 @@
 @addField(JournalEntry)
-native let id: String;
+public native let id: String;
 
 @addField(JournalEntry)
-native let journalEntryOverrideDataList: array<JournalEntryOverrideData>;
+public native let journalEntryOverrideDataList: array<JournalEntryOverrideData>;

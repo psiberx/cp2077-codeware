@@ -1,5 +1,5 @@
 public native struct animAnimationSetup {
-  native let cinematics: animAnimSetCollection;
-  native let gameplay: animAnimSetCollection;
-  native let finalAnimSetCollection: animAnimSetCollection;
+  public native let cinematics: animAnimSetCollection;
+  public native let gameplay: animAnimSetCollection;
+  public native let finalAnimSetCollection: animAnimSetCollection;
 }

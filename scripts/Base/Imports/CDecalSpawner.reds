@@ -1,32 +1,32 @@
 public native class CDecalSpawner extends ISerializable {
-  native let materialStatic: ResourceRef; // rRef<IMaterial>
-  native let materialSkinned: ResourceRef; // rRef<IMaterial>
-  native let specularColor: Color;
-  native let specularScale: Float;
-  native let specularBase: Float;
-  native let roughnessScale: Float;
-  native let normalThreshold: Float;
-  native let additiveNormals: Bool;
-  native let diffuseRandomColor0: Color;
-  native let diffuseRandomColor1: Color;
-  native let subUVType: ERenderDynamicDecalAtlas;
-  native let specularity: Float;
-  native let farZ: Float;
-  native let nearZ: Float;
-  native let size: ref<IEvaluatorFloat>;
-  native let depthFadePower: Float;
-  native let normalFadeBias: Float;
-  native let normalFadeScale: Float;
-  native let doubleSided: Bool;
-  native let projectionMode: ERenderDynamicDecalProjection;
-  native let decalLifetime: ref<IEvaluatorFloat>;
-  native let decalFadeTime: Float;
-  native let decalFadeInTime: Float;
-  native let projectOnStatic: Bool;
-  native let projectOnSkinned: Bool;
-  native let startScale: Float;
-  native let scaleTime: Float;
-  native let useVerticalProjection: Bool;
-  native let spawnPriority: EDynamicDecalSpawnPriority;
-  native let autoHideDistance: Float;
+  public native let materialStatic: ResourceRef; // rRef<IMaterial>
+  public native let materialSkinned: ResourceRef; // rRef<IMaterial>
+  public native let specularColor: Color;
+  public native let specularScale: Float;
+  public native let specularBase: Float;
+  public native let roughnessScale: Float;
+  public native let normalThreshold: Float;
+  public native let additiveNormals: Bool;
+  public native let diffuseRandomColor0: Color;
+  public native let diffuseRandomColor1: Color;
+  public native let subUVType: ERenderDynamicDecalAtlas;
+  public native let specularity: Float;
+  public native let farZ: Float;
+  public native let nearZ: Float;
+  public native let size: ref<IEvaluatorFloat>;
+  public native let depthFadePower: Float;
+  public native let normalFadeBias: Float;
+  public native let normalFadeScale: Float;
+  public native let doubleSided: Bool;
+  public native let projectionMode: ERenderDynamicDecalProjection;
+  public native let decalLifetime: ref<IEvaluatorFloat>;
+  public native let decalFadeTime: Float;
+  public native let decalFadeInTime: Float;
+  public native let projectOnStatic: Bool;
+  public native let projectOnSkinned: Bool;
+  public native let startScale: Float;
+  public native let scaleTime: Float;
+  public native let useVerticalProjection: Bool;
+  public native let spawnPriority: EDynamicDecalSpawnPriority;
+  public native let autoHideDistance: Float;
 }

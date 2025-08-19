@@ -1,7 +1,7 @@
 public native class questJournalQuestEntry_NodeType extends questIJournal_NodeType {
-  native let path: ref<gameJournalPath>;
-  native let sendNotification: Bool;
-  native let trackQuest: Bool;
-  native let optional: Bool;
-  native let version: questJournalQuestEntry_NodeTypeNodeVersion;
+  public native let path: ref<gameJournalPath>;
+  public native let sendNotification: Bool;
+  public native let trackQuest: Bool;
+  public native let optional: Bool;
+  public native let version: questJournalQuestEntry_NodeTypeNodeVersion;
 }

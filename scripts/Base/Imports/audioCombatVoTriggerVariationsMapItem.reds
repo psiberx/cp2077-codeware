@@ -1,5 +1,5 @@
 public native struct audioCombatVoTriggerVariationsMapItem {
-  native let name: CName;
-  native let numberOfVariations: Int32;
-  native let shuffle: Bool;
+  public native let name: CName;
+  public native let numberOfVariations: Int32;
+  public native let shuffle: Bool;
 }

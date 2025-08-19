@@ -1,4 +1,4 @@
 public native struct FunctionalTestQueryOverlapResult {
-  native let entityID: EntityID;
-  native let position: Vector3;
+  public native let entityID: EntityID;
+  public native let position: Vector3;
 }

@@ -1,6 +1,6 @@
 public native struct gameuiCustomizationAppearance {
-  native let censorFlagAction: gameuiCharacterCustomizationActionType;
-  native let name: CName;
-  native let resource: ResourceAsyncRef; // raRef<appearanceAppearanceResource>
-  native let definition: CName;
+  public native let censorFlagAction: gameuiCharacterCustomizationActionType;
+  public native let name: CName;
+  public native let resource: ResourceAsyncRef; // raRef<appearanceAppearanceResource>
+  public native let definition: CName;
 }

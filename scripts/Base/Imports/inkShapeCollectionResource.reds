@@ -1,3 +1,3 @@
 public native class inkShapeCollectionResource extends CResource {
-  native let presets: array<inkShapePreset>;
+  public native let presets: array<inkShapePreset>;
 }

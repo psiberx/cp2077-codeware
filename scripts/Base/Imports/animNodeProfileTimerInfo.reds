@@ -1,4 +1,4 @@
 public native struct animNodeProfileTimerInfo {
-  native let name: CName;
-  native let mode: animNodeProfileTimerMode;
+  public native let name: CName;
+  public native let mode: animNodeProfileTimerMode;
 }

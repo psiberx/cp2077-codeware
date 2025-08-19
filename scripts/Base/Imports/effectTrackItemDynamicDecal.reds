@@ -1,9 +1,9 @@
 public native class effectTrackItemDynamicDecal extends effectTrackItem {
-  native let material: ResourceRef; // rRef<IMaterial>
-  native let width: Float;
-  native let height: Float;
-  native let fadeInTime: Float;
-  native let fadeOutTime: Float;
-  native let additionalRotation: Float;
-  native let randomRotation: Bool;
+  public native let material: ResourceRef; // rRef<IMaterial>
+  public native let width: Float;
+  public native let height: Float;
+  public native let fadeInTime: Float;
+  public native let fadeOutTime: Float;
+  public native let additionalRotation: Float;
+  public native let randomRotation: Bool;
 }

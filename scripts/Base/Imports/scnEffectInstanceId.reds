@@ -1,4 +1,4 @@
 public native struct scnEffectInstanceId {
-  native let effectId: scnEffectId;
-  native let id: Uint32;
+  public native let effectId: scnEffectId;
+  public native let id: Uint32;
 }

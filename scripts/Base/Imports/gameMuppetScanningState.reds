@@ -1,3 +1,3 @@
 public native struct gameMuppetScanningState {
-  native let isScanning: Bool;
+  public native let isScanning: Bool;
 }

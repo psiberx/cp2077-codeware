@@ -1,5 +1,5 @@
 public native struct questEntityManagerManageBinkComponent_NodeTypeParams {
-  native let objectRef: EntityReference;
-  native let videoPath: String;
-  native let action: gameBinkVideoAction;
+  public native let objectRef: EntityReference;
+  public native let videoPath: String;
+  public native let action: gameBinkVideoAction;
 }

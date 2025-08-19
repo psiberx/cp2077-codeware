@@ -1,6 +1,6 @@
 public native struct animFloatClamp {
-  native let useMin: Bool;
-  native let min: Float;
-  native let useMax: Bool;
-  native let max: Float;
+  public native let useMin: Bool;
+  public native let min: Float;
+  public native let useMax: Bool;
+  public native let max: Float;
 }

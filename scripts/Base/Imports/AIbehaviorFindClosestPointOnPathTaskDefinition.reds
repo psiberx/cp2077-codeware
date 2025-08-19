@@ -1,7 +1,7 @@
 public native class AIbehaviorFindClosestPointOnPathTaskDefinition extends AIbehaviorTaskDefinition {
-  native let path: ref<AIArgumentMapping>;
-  native let forceStartFromClosest: ref<AIArgumentMapping>;
-  native let patrolProgress: ref<AIArgumentMapping>;
-  native let positionOnPath: ref<AIArgumentMapping>;
-  native let entryTangent: ref<AIArgumentMapping>;
+  public native let path: ref<AIArgumentMapping>;
+  public native let forceStartFromClosest: ref<AIArgumentMapping>;
+  public native let patrolProgress: ref<AIArgumentMapping>;
+  public native let positionOnPath: ref<AIArgumentMapping>;
+  public native let entryTangent: ref<AIArgumentMapping>;
 }

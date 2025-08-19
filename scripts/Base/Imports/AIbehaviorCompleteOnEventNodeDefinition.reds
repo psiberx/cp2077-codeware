@@ -1,4 +1,4 @@
 public native class AIbehaviorCompleteOnEventNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
-  native let eventName: CName;
-  native let resultOnEvent: AIbehaviorCompletionStatus;
+  public native let eventName: CName;
+  public native let resultOnEvent: AIbehaviorCompletionStatus;
 }

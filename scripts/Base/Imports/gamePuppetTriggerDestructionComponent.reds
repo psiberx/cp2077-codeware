@@ -1,3 +1,3 @@
 public native class gamePuppetTriggerDestructionComponent extends gameITriggerDestructionComponent {
-  native let projectionDist: Float;
+  public native let projectionDist: Float;
 }

@@ -1,5 +1,5 @@
 public native struct sharedResourceCommandOutcome {
-  native let result: sharedCommandResult;
-  native let modifiedFiles: array<String>;
-  native let message: String;
+  public native let result: sharedCommandResult;
+  public native let modifiedFiles: array<String>;
+  public native let message: String;
 }

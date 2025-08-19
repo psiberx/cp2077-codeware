@@ -1,5 +1,5 @@
 @addField(AICommand)
-native persistent let questBlockId: Uint64;
+public native persistent let questBlockId: Uint64;
 
 @addField(AICommand)
-native persistent let category: CName;
+public native persistent let category: CName;

@@ -1,5 +1,5 @@
 public native struct EmitterGroupAreaParams {
-  native let group: EEmitterGroup;
-  native let emissionScale: CurveDataFloat;
-  native let opacityScale: CurveDataFloat;
+  public native let group: EEmitterGroup;
+  public native let emissionScale: CurveDataFloat;
+  public native let opacityScale: CurveDataFloat;
 }

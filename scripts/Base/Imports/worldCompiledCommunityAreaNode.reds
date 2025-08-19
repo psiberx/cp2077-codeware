@@ -1,4 +1,4 @@
 public native class worldCompiledCommunityAreaNode extends worldNode {
-  native let area: ref<communityArea>;
-  native let sourceObjectId: EntityID;
+  public native let area: ref<communityArea>;
+  public native let sourceObjectId: EntityID;
 }

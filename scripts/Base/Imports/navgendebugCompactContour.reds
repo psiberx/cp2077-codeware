@@ -1,8 +1,8 @@
 public native struct navgendebugCompactContour {
-  native let rawVertices: array<Int32>;
-  native let simplifiedVertices: array<Int32>;
-  native let innerPoints: array<Int32>;
-  native let region: Uint16;
-  native let area: Uint8;
-  native let box: Box;
+  public native let rawVertices: array<Int32>;
+  public native let simplifiedVertices: array<Int32>;
+  public native let innerPoints: array<Int32>;
+  public native let region: Uint16;
+  public native let area: Uint8;
+  public native let box: Box;
 }

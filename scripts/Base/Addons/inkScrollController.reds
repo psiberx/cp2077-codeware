@@ -1,44 +1,44 @@
 @addField(inkScrollController)
-native let ScrollArea: inkScrollAreaRef;
+public native let ScrollArea: inkScrollAreaRef;
 
 @addField(inkScrollController)
-native let VerticalScrollBarRef: inkWidgetRef;
+public native let VerticalScrollBarRef: inkWidgetRef;
 
 @addField(inkScrollController)
-native let navigableCompoundWidget: inkWidgetRef;
+public native let navigableCompoundWidget: inkWidgetRef;
 
 @addField(inkScrollController)
-native let CompoundWidgetRef: inkCompoundRef;
+public native let CompoundWidgetRef: inkCompoundRef;
 
 @addField(inkScrollController)
-native let autoHideVertical: Bool;
+public native let autoHideVertical: Bool;
 
 @addField(inkScrollController)
-native let scrollSpeedGamepad: Float;
+public native let scrollSpeedGamepad: Float;
 
 @addField(inkScrollController)
-native let scrollSpeedMouse: Float;
+public native let scrollSpeedMouse: Float;
 
 @addField(inkScrollController)
-native let direction: inkEScrollDirection;
+public native let direction: inkEScrollDirection;
 
 @addField(inkScrollController)
-native let useGlobalInput: Bool;
+public native let useGlobalInput: Bool;
 
 @addField(inkScrollController)
-native let position: Float;
+public native let position: Float;
 
 @addField(inkScrollController)
-native let desiredSetupPosition: Float;
+public native let desiredSetupPosition: Float;
 
 @addField(inkScrollController)
-native let contentSmallerThanViewport: Bool;
+public native let contentSmallerThanViewport: Bool;
 
 @addField(inkScrollController)
-native let scrollDelta: Float;
+public native let scrollDelta: Float;
 
 @addField(inkScrollController)
-native let viewportSize: Vector2;
+public native let viewportSize: Vector2;
 
 @addField(inkScrollController)
-native let contentSize: Vector2;
+public native let contentSize: Vector2;

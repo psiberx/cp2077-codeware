@@ -1,2 +1,2 @@
 @addField(AIUseCoverCommand)
-native let exposureMethods: array<AICoverExposureMethod>;
+public native let exposureMethods: array<AICoverExposureMethod>;

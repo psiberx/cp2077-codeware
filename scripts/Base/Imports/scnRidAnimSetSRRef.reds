@@ -1,3 +1,3 @@
 public native struct scnRidAnimSetSRRef {
-  native let animations: array<scnSRRefId>;
+  public native let animations: array<scnSRRefId>;
 }

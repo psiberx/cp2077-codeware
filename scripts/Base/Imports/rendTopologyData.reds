@@ -1,6 +1,6 @@
 public native struct rendTopologyData {
-  native let data: array<Uint8>;
-  native let metadata: array<Uint8>;
-  native let dataStride: Uint32;
-  native let metadataStride: Uint32;
+  public native let data: array<Uint8>;
+  public native let metadata: array<Uint8>;
+  public native let dataStride: Uint32;
+  public native let metadataStride: Uint32;
 }

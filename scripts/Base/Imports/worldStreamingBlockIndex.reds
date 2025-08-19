@@ -1,4 +1,4 @@
 public native struct worldStreamingBlockIndex {
-  native let rldGridCell: Uint32;
-  native let oup: worldStreamingDataGroup;
+  public native let rldGridCell: Uint32;
+  public native let oup: worldStreamingDataGroup;
 }

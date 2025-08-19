@@ -1,3 +1,3 @@
 public native class toolsJiraAddAttachmentsResult extends ISerializable {
-  native let array: array<toolsJiraAttachment>;
+  public native let array: array<toolsJiraAttachment>;
 }

@@ -1,8 +1,8 @@
 public native struct gamePhantomEntityParameters {
-  native let teleportStartEffect: CName;
-  native let teleportEndEffect: CName;
-  native let spawnEffect: CName;
-  native let glitchEffect: CName;
-  native let phantomVisibleStates: array<gamePhantomEntityState>;
-  native let blendableAppearanceMatches: array<gamePhantomEntityParametersBlendableAppearanceMatch>;
+  public native let teleportStartEffect: CName;
+  public native let teleportEndEffect: CName;
+  public native let spawnEffect: CName;
+  public native let glitchEffect: CName;
+  public native let phantomVisibleStates: array<gamePhantomEntityState>;
+  public native let blendableAppearanceMatches: array<gamePhantomEntityParametersBlendableAppearanceMatch>;
 }

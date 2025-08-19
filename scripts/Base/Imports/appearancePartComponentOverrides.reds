@@ -1,9 +1,9 @@
 public native struct appearancePartComponentOverrides {
-  native let componentName: CName;
-  native let meshAppearance: CName;
-  native let chunkMask: Uint64;
-  native let useCustomTransform: Bool;
-  native let initialTransform: Transform;
-  native let visualScale: Vector3;
-  native let acceptDismemberment: Bool;
+  public native let componentName: CName;
+  public native let meshAppearance: CName;
+  public native let chunkMask: Uint64;
+  public native let useCustomTransform: Bool;
+  public native let initialTransform: Transform;
+  public native let visualScale: Vector3;
+  public native let acceptDismemberment: Bool;
 }

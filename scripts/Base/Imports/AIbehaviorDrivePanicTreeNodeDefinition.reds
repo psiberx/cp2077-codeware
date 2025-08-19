@@ -1,8 +1,8 @@
 public native class AIbehaviorDrivePanicTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
-  native let allowSimplifiedMovement: ref<AIArgumentMapping>;
-  native let ignoreTickets: ref<AIArgumentMapping>;
-  native let disableStuckDetection: ref<AIArgumentMapping>;
-  native let useSpeedBasedLookupRange: ref<AIArgumentMapping>;
-  native let tryDriveAwayFromPlayer: ref<AIArgumentMapping>;
-  native let needDriver: ref<AIArgumentMapping>;
+  public native let allowSimplifiedMovement: ref<AIArgumentMapping>;
+  public native let ignoreTickets: ref<AIArgumentMapping>;
+  public native let disableStuckDetection: ref<AIArgumentMapping>;
+  public native let useSpeedBasedLookupRange: ref<AIArgumentMapping>;
+  public native let tryDriveAwayFromPlayer: ref<AIArgumentMapping>;
+  public native let needDriver: ref<AIArgumentMapping>;
 }

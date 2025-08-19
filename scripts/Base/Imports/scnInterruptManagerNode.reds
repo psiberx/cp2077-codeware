@@ -1,3 +1,3 @@
 public native class scnInterruptManagerNode extends scnSceneGraphNode {
-  native let interruptionOperations: array<ref<scnIInterruptionOperation>>;
+  public native let interruptionOperations: array<ref<scnIInterruptionOperation>>;
 }

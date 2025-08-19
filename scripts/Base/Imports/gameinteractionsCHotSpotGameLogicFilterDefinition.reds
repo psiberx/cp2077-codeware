@@ -1,5 +1,5 @@
 public native class gameinteractionsCHotSpotGameLogicFilterDefinition extends ISerializable {
-  native let hotSpotPrereq: ref<IPrereq>;
-  native let activatorPrereq: ref<IPrereq>;
-  native let scriptedConditionClass: ref<InteractionScriptedCondition>;
+  public native let hotSpotPrereq: ref<IPrereq>;
+  public native let activatorPrereq: ref<IPrereq>;
+  public native let scriptedConditionClass: ref<InteractionScriptedCondition>;
 }

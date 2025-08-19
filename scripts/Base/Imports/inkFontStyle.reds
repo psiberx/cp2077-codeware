@@ -1,4 +1,4 @@
 public native struct inkFontStyle {
-  native let styleName: CName;
-  native let font: ResourceRef; // rRef<rendFont>
+  public native let styleName: CName;
+  public native let font: ResourceRef; // rRef<rendFont>
 }

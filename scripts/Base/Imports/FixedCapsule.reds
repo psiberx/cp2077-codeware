@@ -1,4 +1,4 @@
 public native struct FixedCapsule {
-  native let PointRadius: Vector4;
-  native let Height: Float;
+  public native let PointRadius: Vector4;
+  public native let Height: Float;
 }

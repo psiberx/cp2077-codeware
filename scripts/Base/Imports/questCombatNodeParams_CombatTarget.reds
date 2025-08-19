@@ -1,6 +1,6 @@
 public native class questCombatNodeParams_CombatTarget extends questCombatNodeParams {
-  native let targetNode: NodeRef;
-  native let targetPuppet: EntityReference;
-  native let duration: Float;
-  native let immediately: Bool;
+  public native let targetNode: NodeRef;
+  public native let targetPuppet: EntityReference;
+  public native let duration: Float;
+  public native let immediately: Bool;
 }

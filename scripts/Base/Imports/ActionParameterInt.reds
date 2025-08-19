@@ -1,4 +1,4 @@
 public native struct ActionParameterInt {
-  native let name: CName;
-  native let value: Int32;
+  public native let name: CName;
+  public native let value: Int32;
 }

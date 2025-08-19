@@ -1,4 +1,4 @@
 public native class inkContainerNavigationController extends inkDiscreteNavigationController {
-  native let overrideEntries: array<inkNavigationOverrideEntry>;
-  native let useGlobalInput: Bool;
+  public native let overrideEntries: array<inkNavigationOverrideEntry>;
+  public native let useGlobalInput: Bool;
 }

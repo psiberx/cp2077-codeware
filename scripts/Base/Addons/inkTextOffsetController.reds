@@ -1,2 +1,2 @@
 @addField(inkTextOffsetController)
-native let timeToSkip: Float;
+public native let timeToSkip: Float;

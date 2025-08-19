@@ -1,6 +1,6 @@
 public native struct worldSceneRecordingNodeFilter {
-  native let streamInNodesWithStreamingDistanceMoreThan: Float;
-  native let streamOutPrefabProxyMeshesWithStreamingDistanceMoreThan: Float;
-  native let meshNodesOnly: Bool;
-  native let meshResourceFilter: worldSceneRecordingNodeMeshResourceFilter;
+  public native let streamInNodesWithStreamingDistanceMoreThan: Float;
+  public native let streamOutPrefabProxyMeshesWithStreamingDistanceMoreThan: Float;
+  public native let meshNodesOnly: Bool;
+  public native let meshResourceFilter: worldSceneRecordingNodeMeshResourceFilter;
 }

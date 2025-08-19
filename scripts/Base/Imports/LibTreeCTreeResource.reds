@@ -1,3 +1,3 @@
 public abstract native class LibTreeCTreeResource extends CResource {
-  native let variables: LibTreeDefTreeVariablesList;
+  public native let variables: LibTreeDefTreeVariablesList;
 }

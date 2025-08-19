@@ -1,12 +1,12 @@
 public native struct worldOffMeshConnectionsData {
-  native let verts: array<Float>;
-  native let radii: array<Float>;
-  native let flags: array<Uint16>;
-  native let areas: array<Uint8>;
-  native let directions: array<Uint8>;
-  native let ids: array<Uint64>;
-  native let tagIntervals: array<Uint16>;
-  native let tagsX: array<CName>;
-  native let globalNodeIDs: array<GlobalNodeID>;
-  native let userData: array<ref<worldOffMeshUserData>>;
+  public native let verts: array<Float>;
+  public native let radii: array<Float>;
+  public native let flags: array<Uint16>;
+  public native let areas: array<Uint8>;
+  public native let directions: array<Uint8>;
+  public native let ids: array<Uint64>;
+  public native let tagIntervals: array<Uint16>;
+  public native let tagsX: array<CName>;
+  public native let globalNodeIDs: array<GlobalNodeID>;
+  public native let userData: array<ref<worldOffMeshUserData>>;
 }

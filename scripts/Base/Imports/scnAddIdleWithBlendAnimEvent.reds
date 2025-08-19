@@ -1,5 +1,5 @@
 public native class scnAddIdleWithBlendAnimEvent extends scnSceneEvent {
-  native let performerId: scnPerformerId;
-  native let actorComponent: CName;
-  native let targetWeight: Float;
+  public native let performerId: scnPerformerId;
+  public native let actorComponent: CName;
+  public native let targetWeight: Float;
 }

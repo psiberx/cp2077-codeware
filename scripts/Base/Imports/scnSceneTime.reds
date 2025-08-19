@@ -1,3 +1,3 @@
 public native struct scnSceneTime {
-  native let stu: Uint32;
+  public native let stu: Uint32;
 }

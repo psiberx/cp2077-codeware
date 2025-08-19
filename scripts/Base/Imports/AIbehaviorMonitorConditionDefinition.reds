@@ -1,4 +1,4 @@
 public native class AIbehaviorMonitorConditionDefinition extends ISerializable {
-  native let condition: ref<AIbehaviorConditionDefinition>;
-  native let timeout: Float;
+  public native let condition: ref<AIbehaviorConditionDefinition>;
+  public native let timeout: Float;
 }

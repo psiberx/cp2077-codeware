@@ -1,4 +1,4 @@
 public native struct gameuiarcadeShooterExplodingPlatformSpawnDetail {
-  native let spawnPlatformName: CName;
-  native let explodingPlatformsNames: array<CName>;
+  public native let spawnPlatformName: CName;
+  public native let explodingPlatformsNames: array<CName>;
 }

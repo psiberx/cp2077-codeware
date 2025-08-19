@@ -1,4 +1,4 @@
 public native class EnvironmentColorGroupsSettings extends IAreaSettings {
-  native let skyTint: CurveDataHDRColor;
-  native let colorGroup: [CurveDataHDRColor; 16];
+  public native let skyTint: CurveDataHDRColor;
+  public native let colorGroup: [CurveDataHDRColor; 16];
 }

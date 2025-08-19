@@ -1,4 +1,4 @@
 public native struct questPlayRazerAnimation_NodeTypeParams {
-  native let animationName: CName;
-  native let loop: Bool;
+  public native let animationName: CName;
+  public native let loop: Bool;
 }

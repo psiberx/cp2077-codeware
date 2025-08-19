@@ -1,6 +1,6 @@
 public native class audioSoundsLimiterMetadata extends audioAudioMetadata {
-  native let tooManyPlayingGruntsAndVOsLimitation: array<audioLimitedSound>;
-  native let gunsAreLoudAndMusicIsActiveLimitation: array<audioLimitedSound>;
-  native let gunsAreLoudLimitation: array<audioLimitedSound>;
-  native let tooManyPlayingSoundsLimitation: array<audioLimitedSound>;
+  public native let tooManyPlayingGruntsAndVOsLimitation: array<audioLimitedSound>;
+  public native let gunsAreLoudAndMusicIsActiveLimitation: array<audioLimitedSound>;
+  public native let gunsAreLoudLimitation: array<audioLimitedSound>;
+  public native let tooManyPlayingSoundsLimitation: array<audioLimitedSound>;
 }

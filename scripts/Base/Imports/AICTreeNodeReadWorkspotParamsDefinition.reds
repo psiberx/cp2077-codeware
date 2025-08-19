@@ -1,10 +1,10 @@
 public native class AICTreeNodeReadWorkspotParamsDefinition extends AICTreeNodeDecoratorDefinition {
-  native let workspotNodeVarName: CName;
-  native let prevWorkspotNodeVarName: CName;
-  native let splineNodeVarName: CName;
-  native let workspotEntryAnimVar: CName;
-  native let animControllerVarName: CName;
-  native let splineStartAnimVarName: CName;
-  native let splineStopAnimVarName: CName;
-  native let moveTargetVarName: CName;
+  public native let workspotNodeVarName: CName;
+  public native let prevWorkspotNodeVarName: CName;
+  public native let splineNodeVarName: CName;
+  public native let workspotEntryAnimVar: CName;
+  public native let animControllerVarName: CName;
+  public native let splineStartAnimVarName: CName;
+  public native let splineStopAnimVarName: CName;
+  public native let moveTargetVarName: CName;
 }

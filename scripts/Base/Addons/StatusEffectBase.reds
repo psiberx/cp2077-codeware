@@ -1,2 +1,2 @@
 @addField(StatusEffectBase)
-native persistent let statusEffectRecordID: TweakDBID;
+public native persistent let statusEffectRecordID: TweakDBID;

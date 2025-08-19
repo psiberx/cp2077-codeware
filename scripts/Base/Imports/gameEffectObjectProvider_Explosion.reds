@@ -1,5 +1,5 @@
 public native class gameEffectObjectProvider_Explosion extends EffectObjectProvider {
-  native let puppets: Bool;
-  native let gameObjects: Bool;
-  native let destructibleAndDynamic: Bool;
+  public native let puppets: Bool;
+  public native let gameObjects: Bool;
+  public native let destructibleAndDynamic: Bool;
 }

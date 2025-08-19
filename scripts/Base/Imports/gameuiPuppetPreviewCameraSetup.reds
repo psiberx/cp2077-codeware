@@ -1,5 +1,5 @@
 public native struct gameuiPuppetPreviewCameraSetup {
-  native let slotName: CName;
-  native let cameraZoom: Float;
-  native let interpolationTime: Float;
+  public native let slotName: CName;
+  public native let cameraZoom: Float;
+  public native let interpolationTime: Float;
 }

@@ -1,4 +1,4 @@
 @neverRef()
 public abstract native class audioAudioMetadataBase extends ISerializable {
-  native let name: CName;
+  public native let name: CName;
 }

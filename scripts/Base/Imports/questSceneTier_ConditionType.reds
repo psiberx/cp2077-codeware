@@ -1,4 +1,4 @@
 public native class questSceneTier_ConditionType extends questISceneConditionType {
-  native let tier: GameplayTier;
-  native let isInverted: Bool;
+  public native let tier: GameplayTier;
+  public native let isInverted: Bool;
 }

@@ -1,8 +1,8 @@
 public native class questVehicleSpawned_ConditionType extends questIVehicleConditionType {
-  native let vehicleType: questSpawnedVehicleType;
-  native let vehicleRef: EntityReference;
-  native let count: Uint32;
-  native let comparisonType: EComparisonType;
-  native let vehicleName: String;
-  native let vehicleGlobalName: CName;
+  public native let vehicleType: questSpawnedVehicleType;
+  public native let vehicleRef: EntityReference;
+  public native let count: Uint32;
+  public native let comparisonType: EComparisonType;
+  public native let vehicleName: String;
+  public native let vehicleGlobalName: CName;
 }

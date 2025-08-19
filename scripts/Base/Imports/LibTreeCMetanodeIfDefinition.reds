@@ -1,5 +1,5 @@
 public native class LibTreeCMetanodeIfDefinition extends LibTreeCMetanodeDefinition {
-  native let ifCondition: LibTreeDefBool;
-  native let ifBranch: ref<LibTreeINodeDefinition>;
-  native let elseBranch: ref<LibTreeINodeDefinition>;
+  public native let ifCondition: LibTreeDefBool;
+  public native let ifBranch: ref<LibTreeINodeDefinition>;
+  public native let elseBranch: ref<LibTreeINodeDefinition>;
 }

@@ -1,3 +1,3 @@
 public native class questSocketDefinition extends graphGraphSocketDefinition {
-  native let type: questSocketType;
+  public native let type: questSocketType;
 }

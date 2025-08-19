@@ -1,4 +1,4 @@
 public native struct communitySquadInitializerEntry {
-  native let type: communityESquadType;
-  native let value: CName;
+  public native let type: communityESquadType;
+  public native let value: CName;
 }

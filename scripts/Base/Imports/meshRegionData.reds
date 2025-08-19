@@ -1,7 +1,7 @@
 public native struct meshRegionData {
-  native let chunkDataIntact: array<meshChunkOffset>;
-  native let chunkDataFractured: array<meshChunkOffset>;
-  native let chunkMaskIntact: Uint64;
-  native let chunkMaskFractured: Uint64;
-  native let isStaticRemains: Bool;
+  public native let chunkDataIntact: array<meshChunkOffset>;
+  public native let chunkDataFractured: array<meshChunkOffset>;
+  public native let chunkMaskIntact: Uint64;
+  public native let chunkMaskFractured: Uint64;
+  public native let isStaticRemains: Bool;
 }

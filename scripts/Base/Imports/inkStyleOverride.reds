@@ -1,4 +1,4 @@
 public native struct inkStyleOverride {
-  native let overrideType: inkStyleOverrideType;
-  native let styleResource: ResourceRef; // rRef<inkStyleResource>
+  public native let overrideType: inkStyleOverrideType;
+  public native let styleResource: ResourceRef; // rRef<inkStyleResource>
 }

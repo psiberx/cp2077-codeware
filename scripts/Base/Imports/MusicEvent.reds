@@ -1,3 +1,3 @@
 public native class MusicEvent extends Event {
-  native let eventName: CName;
+  public native let eventName: CName;
 }

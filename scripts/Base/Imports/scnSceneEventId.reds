@@ -1,3 +1,3 @@
 public native struct scnSceneEventId {
-  native let id: Uint64;
+  public native let id: Uint64;
 }

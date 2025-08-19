@@ -1,4 +1,4 @@
 public native struct audioRadioStationSongEventStruct {
-  native let radioStationName: CName;
-  native let radioSongName: CName;
+  public native let radioStationName: CName;
+  public native let radioSongName: CName;
 }

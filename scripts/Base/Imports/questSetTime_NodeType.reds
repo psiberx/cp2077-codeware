@@ -1,6 +1,6 @@
 public native class questSetTime_NodeType extends questITimeManagerNodeType {
-  native let hours: Int32;
-  native let minutes: Int32;
-  native let seconds: Int32;
-  native let source: CName;
+  public native let hours: Int32;
+  public native let minutes: Int32;
+  public native let seconds: Int32;
+  public native let source: CName;
 }

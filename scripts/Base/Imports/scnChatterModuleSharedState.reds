@@ -1,3 +1,3 @@
 public native class scnChatterModuleSharedState extends ISerializable {
-  native let chatterHistory: array<ref<scnChatter>>;
+  public native let chatterHistory: array<ref<scnChatter>>;
 }

@@ -1,3 +1,3 @@
 public native class questGameManagerNodeDefinition extends questTypedSignalStoppingNodeDefinition {
-  native let type: ref<questIGameManagerNodeType>;
+  public native let type: ref<questIGameManagerNodeType>;
 }

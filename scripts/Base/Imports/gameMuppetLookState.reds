@@ -1,3 +1,3 @@
 public native struct gameMuppetLookState {
-  native let lookDir: EulerAngles;
+  public native let lookDir: EulerAngles;
 }

@@ -1,3 +1,3 @@
 public native struct worldTrafficPersistentLaneSpots {
-  native let spots: array<ref<worldTrafficSpotCompiled>>;
+  public native let spots: array<ref<worldTrafficSpotCompiled>>;
 }

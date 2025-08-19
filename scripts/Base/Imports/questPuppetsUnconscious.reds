@@ -1,3 +1,3 @@
 public native class questPuppetsUnconscious extends questPuppetsEffector {
-  native let setUnconscious: Bool;
+  public native let setUnconscious: Bool;
 }

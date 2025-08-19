@@ -1,4 +1,4 @@
 public native struct audioContextualVoiceGruntSettings {
-  native let painShort: audioContextualVoiceGrunt;
-  native let effort: audioContextualVoiceGrunt;
+  public native let painShort: audioContextualVoiceGrunt;
+  public native let effort: audioContextualVoiceGrunt;
 }

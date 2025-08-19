@@ -1,15 +1,15 @@
 public native struct questAnimMoveOnSplineParams {
-  native let controllersSetupName: CName;
-  native let blendTime: Float;
-  native let globalInBlendTime: Float;
-  native let globalOutBlendTime: Float;
-  native let turnCharacterToMatchVelocity: Bool;
-  native let customStartAnimationName: CName;
-  native let customMainAnimationName: CName;
-  native let customStopAnimationName: CName;
-  native let startSnapToTerrain: Bool;
-  native let mainSnapToTerrain: Bool;
-  native let stopSnapToTerrain: Bool;
-  native let startSnapToTerrainBlendTime: Float;
-  native let stopSnapToTerrainBlendTime: Float;
+  public native let controllersSetupName: CName;
+  public native let blendTime: Float;
+  public native let globalInBlendTime: Float;
+  public native let globalOutBlendTime: Float;
+  public native let turnCharacterToMatchVelocity: Bool;
+  public native let customStartAnimationName: CName;
+  public native let customMainAnimationName: CName;
+  public native let customStopAnimationName: CName;
+  public native let startSnapToTerrain: Bool;
+  public native let mainSnapToTerrain: Bool;
+  public native let stopSnapToTerrain: Bool;
+  public native let startSnapToTerrainBlendTime: Float;
+  public native let stopSnapToTerrainBlendTime: Float;
 }

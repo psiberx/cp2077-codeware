@@ -1,7 +1,7 @@
 public native class AnimFeature_DroneLocomotion extends AnimFeature {
-  native let speed: Float;
-  native let angularSpeed: Float;
-  native let lookAtAngle: Float;
-  native let desiredSpeed: Float;
-  native let pathCurvative: Float;
+  public native let speed: Float;
+  public native let angularSpeed: Float;
+  public native let lookAtAngle: Float;
+  public native let desiredSpeed: Float;
+  public native let pathCurvative: Float;
 }

@@ -1,4 +1,4 @@
 public native class gameTargetingLocalizedEffectComponent extends IComponent {
-  native let streamingDistance: Float;
-  native let visibleTargetRange: Float;
+  public native let streamingDistance: Float;
+  public native let visibleTargetRange: Float;
 }

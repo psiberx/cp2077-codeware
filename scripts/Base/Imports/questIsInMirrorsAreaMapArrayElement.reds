@@ -1,4 +1,4 @@
 public native struct questIsInMirrorsAreaMapArrayElement {
-  native let objectRef: NodeRef;
-  native let isInMirrorsArea: Bool;
+  public native let objectRef: NodeRef;
+  public native let isInMirrorsArea: Bool;
 }

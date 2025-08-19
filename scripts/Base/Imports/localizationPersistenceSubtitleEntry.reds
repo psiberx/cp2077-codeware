@@ -1,5 +1,5 @@
 public native struct localizationPersistenceSubtitleEntry {
-  native let stringId: CRUID;
-  native let femaleVariant: String;
-  native let maleVariant: String;
+  public native let stringId: CRUID;
+  public native let femaleVariant: String;
+  public native let maleVariant: String;
 }

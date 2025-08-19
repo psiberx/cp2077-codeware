@@ -1,6 +1,6 @@
 public native struct entGarmentParameterChunkData {
-  native let morphOffsetScales: array<Uint8>;
-  native let morphOffsetScalesHash: Uint64;
-  native let visibleTriangleInds: array<Uint16>;
-  native let vertexTbn: array<Uint32>;
+  public native let morphOffsetScales: array<Uint8>;
+  public native let morphOffsetScalesHash: Uint64;
+  public native let visibleTriangleInds: array<Uint16>;
+  public native let vertexTbn: array<Uint32>;
 }

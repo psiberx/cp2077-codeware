@@ -1,16 +1,16 @@
 public native struct gameStatPoolData {
-  native let ownerID: StatsObjectID;
-  native let recordID: TweakDBID;
-  native let type: gamedataStatPoolType;
-  native let modifiers: [StatPoolModifier; 2];
-  native let alternativeModifierRecords: [TweakDBID; 2];
-  native let stat: gamedataStatType;
-  native let maxValue: Float;
-  native let customLimitValue: Float;
-  native let changeMode: gameStatPoolDataValueChangeMode;
-  native let bonus: Float;
-  native let bonusType: gameStatPoolDataBonusType;
-  native let currentValue: Float;
-  native let modificationDelay: Float;
-  native let modificationStatus: gameStatPoolDataStatPoolModificationStatus;
+  public native let ownerID: StatsObjectID;
+  public native let recordID: TweakDBID;
+  public native let type: gamedataStatPoolType;
+  public native let modifiers: [StatPoolModifier; 2];
+  public native let alternativeModifierRecords: [TweakDBID; 2];
+  public native let stat: gamedataStatType;
+  public native let maxValue: Float;
+  public native let customLimitValue: Float;
+  public native let changeMode: gameStatPoolDataValueChangeMode;
+  public native let bonus: Float;
+  public native let bonusType: gameStatPoolDataBonusType;
+  public native let currentValue: Float;
+  public native let modificationDelay: Float;
+  public native let modificationStatus: gameStatPoolDataStatPoolModificationStatus;
 }

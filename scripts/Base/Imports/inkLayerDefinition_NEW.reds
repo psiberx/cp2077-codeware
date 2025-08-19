@@ -1,12 +1,12 @@
 public native struct inkLayerDefinition_NEW {
-  native let name: CName;
-  native let layerType: inkELayerType;
-  native let drawingPolicy: inkLayerDrawingPolicy;
-  native let loadPriority: inkELayerLoadPriority;
-  native let enabled: Bool;
-  native let isPermanent: Bool;
-  native let useGlobalStyleTheme: Bool;
-  native let isAffectedByFadeout: Bool;
-  native let useGameInput: Bool;
-  native let inputContext: CName;
+  public native let name: CName;
+  public native let layerType: inkELayerType;
+  public native let drawingPolicy: inkLayerDrawingPolicy;
+  public native let loadPriority: inkELayerLoadPriority;
+  public native let enabled: Bool;
+  public native let isPermanent: Bool;
+  public native let useGlobalStyleTheme: Bool;
+  public native let isAffectedByFadeout: Bool;
+  public native let useGameInput: Bool;
+  public native let inputContext: CName;
 }

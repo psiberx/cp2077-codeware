@@ -1,8 +1,8 @@
 public native class animAnimNode_LookAtController extends animAnimNode_OnePoseInput {
-  native let E3_HACK_offset: animVectorLink;
-  native let orderedBodyParts: array<LookAtPartInfo>;
-  native let stateMachinesSettings: array<LookAtStateMachineSettings>;
-  native let bodyPartsDependencies: array<LookAtPartsDependency>;
-  native let substepTime: Float;
-  native let isFacial: Bool;
+  public native let E3_HACK_offset: animVectorLink;
+  public native let orderedBodyParts: array<LookAtPartInfo>;
+  public native let stateMachinesSettings: array<LookAtStateMachineSettings>;
+  public native let bodyPartsDependencies: array<LookAtPartsDependency>;
+  public native let substepTime: Float;
+  public native let isFacial: Bool;
 }

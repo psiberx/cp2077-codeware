@@ -1,3 +1,3 @@
 public native class animLookAtPreset_Eyes extends animLookAtPreset {
-  native let softLimitAngle: Float;
+  public native let softLimitAngle: Float;
 }

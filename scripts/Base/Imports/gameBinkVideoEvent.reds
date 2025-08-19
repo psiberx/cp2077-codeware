@@ -1,4 +1,4 @@
 public native class gameBinkVideoEvent extends Event {
-  native let videoPath: String;
-  native let action: gameBinkVideoAction;
+  public native let videoPath: String;
+  public native let action: gameBinkVideoAction;
 }

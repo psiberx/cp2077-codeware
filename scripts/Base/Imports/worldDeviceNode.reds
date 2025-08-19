@@ -1,5 +1,5 @@
 public native class worldDeviceNode extends worldEntityNode {
-  native let deviceClassName: CName;
-  native let alphaHackStreamingDistanceOverride: Float;
-  native let deviceConnections: array<worldDeviceConnections>;
+  public native let deviceClassName: CName;
+  public native let alphaHackStreamingDistanceOverride: Float;
+  public native let deviceConnections: array<worldDeviceConnections>;
 }

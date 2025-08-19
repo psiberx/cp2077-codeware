@@ -1,2 +1,2 @@
 @addField(MinimapPingSystemMappinController)
-native let rootWidget: inkWidgetRef;
+public native let rootWidget: inkWidgetRef;

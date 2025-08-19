@@ -1,4 +1,4 @@
 public native class LibTreeDefTreeVariableFloat extends LibTreeDefTreeVariable {
-  native let exportAsProperty: Bool;
-  native let defaultValue: Float;
+  public native let exportAsProperty: Bool;
+  public native let defaultValue: Float;
 }

@@ -1,3 +1,3 @@
 public native class attrSlider extends attrAttribute {
-  native let ep: Float;
+  public native let ep: Float;
 }

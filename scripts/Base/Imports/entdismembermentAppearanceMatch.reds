@@ -1,5 +1,5 @@
 public native struct entdismembermentAppearanceMatch {
-  native let Character: CName;
-  native let Mesh: CName;
-  native let SetByUser: Bool;
+  public native let Character: CName;
+  public native let Mesh: CName;
+  public native let SetByUser: Bool;
 }

@@ -1,11 +1,11 @@
 public native class audioWeaponAmmoSettingsMap extends audioAudioMetadata {
-  native let standardFlyby: audioFlybySettings;
-  native let sniperFlyby: audioFlybySettings;
-  native let shotFlyby: audioFlybySettings;
-  native let railFlyby: audioFlybySettings;
-  native let automaticFlyby: audioFlybySettings;
-  native let smartFlyby: audioFlybySettings;
-  native let smartSniperFlyby: audioFlybySettings;
-  native let hmgFlyby: audioFlybySettings;
-  native let flybyMinDistance: Float;
+  public native let standardFlyby: audioFlybySettings;
+  public native let sniperFlyby: audioFlybySettings;
+  public native let shotFlyby: audioFlybySettings;
+  public native let railFlyby: audioFlybySettings;
+  public native let automaticFlyby: audioFlybySettings;
+  public native let smartFlyby: audioFlybySettings;
+  public native let smartSniperFlyby: audioFlybySettings;
+  public native let hmgFlyby: audioFlybySettings;
+  public native let flybyMinDistance: Float;
 }

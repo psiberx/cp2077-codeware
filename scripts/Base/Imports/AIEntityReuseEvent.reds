@@ -1,3 +1,3 @@
 public importonly class AIEntityReuseEvent extends AIEvent {
-  native let destination: GlobalNodeID;
+  public native let destination: GlobalNodeID;
 }

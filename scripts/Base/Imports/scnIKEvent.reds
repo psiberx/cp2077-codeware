@@ -1,3 +1,3 @@
 public native class scnIKEvent extends scnSceneEvent {
-  native let ikData: scnIKEventData;
+  public native let ikData: scnIKEventData;
 }

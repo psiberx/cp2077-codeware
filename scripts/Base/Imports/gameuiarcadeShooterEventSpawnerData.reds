@@ -1,7 +1,7 @@
 public native struct gameuiarcadeShooterEventSpawnerData {
-  native let dataName: CName;
-  native let targetSpawner: inkWidgetRef;
-  native let tiedSpawner: inkWidgetRef;
-  native let triggerCondition: gameuiarcadeShooterTriggerType;
-  native let delayDuration: Float;
+  public native let dataName: CName;
+  public native let targetSpawner: inkWidgetRef;
+  public native let tiedSpawner: inkWidgetRef;
+  public native let triggerCondition: gameuiarcadeShooterTriggerType;
+  public native let delayDuration: Float;
 }

@@ -1,9 +1,9 @@
 public native struct animMultipleParentConstraint_JsonEntry {
-  native let parentTransform: CName;
-  native let parentWeightMode: animConstraintWeightMode;
-  native let parentStaticWeight: Float;
-  native let parentTrackWeight: CName;
-  native let useComplementWeight: Bool;
-  native let useOffset: Bool;
-  native let offset: QsTransform;
+  public native let parentTransform: CName;
+  public native let parentWeightMode: animConstraintWeightMode;
+  public native let parentStaticWeight: Float;
+  public native let parentTrackWeight: CName;
+  public native let useComplementWeight: Bool;
+  public native let useOffset: Bool;
+  public native let offset: QsTransform;
 }

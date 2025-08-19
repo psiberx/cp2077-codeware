@@ -1,5 +1,5 @@
 public native struct worldDesiredSlotsCountInfo {
-  native let siredSlotsCount: Float;
-  native let nCoeff: Float;
-  native let nCoeffWhenMounted: Float;
+  public native let siredSlotsCount: Float;
+  public native let nCoeff: Float;
+  public native let nCoeffWhenMounted: Float;
 }

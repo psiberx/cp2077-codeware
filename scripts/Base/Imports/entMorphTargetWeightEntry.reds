@@ -1,5 +1,5 @@
 public native struct entMorphTargetWeightEntry {
-  native let targetName: CName;
-  native let regionName: CName;
-  native let weight: Float;
+  public native let targetName: CName;
+  public native let regionName: CName;
+  public native let weight: Float;
 }

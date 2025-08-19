@@ -1,5 +1,5 @@
 public native struct entVoicesetInputToBlock {
-  native let input: CName;
-  native let blockSpecificVariation: Bool;
-  native let variationNumber: Uint32;
+  public native let input: CName;
+  public native let blockSpecificVariation: Bool;
+  public native let variationNumber: Uint32;
 }

@@ -1,5 +1,5 @@
 @addField(inkGenderSelectionPuppetPreviewGameController)
-native let sceneName: CName;
+public native let sceneName: CName;
 
 @addField(inkGenderSelectionPuppetPreviewGameController)
-native let cameraRef: NodeRef;
+public native let cameraRef: NodeRef;

@@ -1,3 +1,3 @@
 public native class EntityResizeEvent extends Event {
-  native let extents: Vector3;
+  public native let extents: Vector3;
 }

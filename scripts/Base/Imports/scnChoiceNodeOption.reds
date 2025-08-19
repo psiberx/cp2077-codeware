@@ -1,19 +1,19 @@
 public native struct scnChoiceNodeOption {
-  native let screenplayOptionId: scnscreenplayItemId;
-  native let caption: CName;
-  native let blueline: Bool;
-  native let isFixedAsRead: Bool;
-  native let isSingleChoice: Bool;
-  native let type: ChoiceTypeWrapper;
-  native let timedParams: ref<scnChoiceNodeNsTimedParams>;
-  native let questCondition: ref<questIBaseCondition>;
-  native let triggerCondition: ref<questIBaseCondition>;
-  native let bluelineCondition: ref<questIBaseCondition>;
-  native let emphasisCondition: ref<questIBaseCondition>;
-  native let iconCondition: ref<questIBaseCondition>;
-  native let gameplayAction: TweakDBID;
-  native let iconTagIds: array<TweakDBID>;
-  native let exDataFlags: Uint32;
-  native let mappinReferencePointId: scnReferencePointId;
-  native let timedCondition: ref<scnTimedCondition>;
+  public native let screenplayOptionId: scnscreenplayItemId;
+  public native let caption: CName;
+  public native let blueline: Bool;
+  public native let isFixedAsRead: Bool;
+  public native let isSingleChoice: Bool;
+  public native let type: ChoiceTypeWrapper;
+  public native let timedParams: ref<scnChoiceNodeNsTimedParams>;
+  public native let questCondition: ref<questIBaseCondition>;
+  public native let triggerCondition: ref<questIBaseCondition>;
+  public native let bluelineCondition: ref<questIBaseCondition>;
+  public native let emphasisCondition: ref<questIBaseCondition>;
+  public native let iconCondition: ref<questIBaseCondition>;
+  public native let gameplayAction: TweakDBID;
+  public native let iconTagIds: array<TweakDBID>;
+  public native let exDataFlags: Uint32;
+  public native let mappinReferencePointId: scnReferencePointId;
+  public native let timedCondition: ref<scnTimedCondition>;
 }

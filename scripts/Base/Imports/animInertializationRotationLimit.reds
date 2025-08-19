@@ -1,6 +1,6 @@
 public native struct animInertializationRotationLimit {
-  native let constrainedTransform: animTransformIndex;
-  native let limitOnX: animInertializationFloatClamp;
-  native let limitOnY: animInertializationFloatClamp;
-  native let limitOnZ: animInertializationFloatClamp;
+  public native let constrainedTransform: animTransformIndex;
+  public native let limitOnX: animInertializationFloatClamp;
+  public native let limitOnY: animInertializationFloatClamp;
+  public native let limitOnZ: animInertializationFloatClamp;
 }

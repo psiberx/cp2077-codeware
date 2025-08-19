@@ -1,6 +1,6 @@
 public native class questPrefetchStreaming_NodeTypeV2 extends questIWorldDataManagerNodeType {
-  native let prefetchPositionRef: NodeRef;
-  native let useStreamingOcclusion: Bool;
-  native let maxDistance: Float;
-  native let forceEnable: Bool;
+  public native let prefetchPositionRef: NodeRef;
+  public native let useStreamingOcclusion: Bool;
+  public native let maxDistance: Float;
+  public native let forceEnable: Bool;
 }

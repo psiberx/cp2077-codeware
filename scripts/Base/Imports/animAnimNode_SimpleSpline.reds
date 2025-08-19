@@ -1,10 +1,10 @@
 public native class animAnimNode_SimpleSpline extends animAnimNode_OnePoseInput {
-  native let areSourceChannelsResaved: Bool;
-  native let startTransform: animTransformIndex;
-  native let middleTransform: animTransformIndex;
-  native let endTransform: animTransformIndex;
-  native let constrainedTransform: animTransformIndex;
-  native let progressMode: animConstraintWeightMode;
-  native let defaultProgress: Float;
-  native let progressTrack: animNamedTrackIndex;
+  public native let areSourceChannelsResaved: Bool;
+  public native let startTransform: animTransformIndex;
+  public native let middleTransform: animTransformIndex;
+  public native let endTransform: animTransformIndex;
+  public native let constrainedTransform: animTransformIndex;
+  public native let progressMode: animConstraintWeightMode;
+  public native let defaultProgress: Float;
+  public native let progressTrack: animNamedTrackIndex;
 }

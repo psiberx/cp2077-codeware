@@ -1,4 +1,4 @@
 public native struct ActionParameterWeakIScriptable {
-  native let name: CName;
-  native let value: wref<IScriptable>;
+  public native let name: CName;
+  public native let value: wref<IScriptable>;
 }

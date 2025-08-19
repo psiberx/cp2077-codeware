@@ -1,3 +1,3 @@
 public native class animAnimNode_TrajectoryFromMetaPose extends animAnimNode_OnePoseInput {
-  native let metaPoseTrajectoryLs: animTransformIndex;
+  public native let metaPoseTrajectoryLs: animTransformIndex;
 }

@@ -1,3 +1,3 @@
 public abstract native class rendRenderMultilayerMaskBlob extends IRenderResourceBlob {
-  native let header: rendRenderMultilayerMaskBlobHeader;
+  public native let header: rendRenderMultilayerMaskBlobHeader;
 }

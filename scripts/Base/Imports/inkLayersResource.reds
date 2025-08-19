@@ -1,6 +1,6 @@
 public native class inkLayersResource extends CResource {
-  native let layerDefinitions: inkLayerDefinitionCollection;
-  native let preGameLayerDefinitions: inkLayerDefinitionCollection;
-  native let permanentLayerDefinitions: inkPermanentLayerDefinitionCollection;
-  native let layerDefinitionsSet: inkLayerDefinitionsSet;
+  public native let layerDefinitions: inkLayerDefinitionCollection;
+  public native let preGameLayerDefinitions: inkLayerDefinitionCollection;
+  public native let permanentLayerDefinitions: inkPermanentLayerDefinitionCollection;
+  public native let layerDefinitionsSet: inkLayerDefinitionsSet;
 }

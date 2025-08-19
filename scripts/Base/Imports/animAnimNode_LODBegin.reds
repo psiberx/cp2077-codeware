@@ -1,3 +1,3 @@
 public native class animAnimNode_LODBegin extends animAnimNode_OnePoseInput {
-  native let levelOfDetail: Uint32;
+  public native let levelOfDetail: Uint32;
 }

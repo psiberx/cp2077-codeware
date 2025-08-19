@@ -1,3 +1,3 @@
 public native class scnAnimationRidAudioData extends ISerializable {
-  native let events: array<ref<animAnimEvent>>;
+  public native let events: array<ref<animAnimEvent>>;
 }

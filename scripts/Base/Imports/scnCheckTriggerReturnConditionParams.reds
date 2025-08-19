@@ -1,4 +1,4 @@
 public native struct scnCheckTriggerReturnConditionParams {
-  native let inside: Bool;
-  native let triggerArea: NodeRef;
+  public native let inside: Bool;
+  public native let triggerArea: NodeRef;
 }

@@ -1,9 +1,9 @@
 public native class questCharacterManagerParameters_HealPlayer extends questICharacterManagerParameters_NodeSubType {
-  native let puppetRef: EntityReference;
-  native let isPlayer: Bool;
-  native let heal: Bool;
-  native let removeStatusEffects: Bool;
-  native let removeBuffs: Bool;
-  native let removeDebuffs: Bool;
-  native let resetCyberdeckRAM: Bool;
+  public native let puppetRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let heal: Bool;
+  public native let removeStatusEffects: Bool;
+  public native let removeBuffs: Bool;
+  public native let removeDebuffs: Bool;
+  public native let resetCyberdeckRAM: Bool;
 }

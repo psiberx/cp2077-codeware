@@ -1,5 +1,5 @@
 @neverRef()
 public native class gameBinkVideoRecord extends ISerializable {
-  native let resourceHash: Uint64;
-  native let binkDuration: Float;
+  public native let resourceHash: Uint64;
+  public native let binkDuration: Float;
 }

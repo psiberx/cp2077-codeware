@@ -1,3 +1,3 @@
 public native class XmlResource extends CResource {
-  native let data: String;
+  public native let data: String;
 }

@@ -1,3 +1,3 @@
 public native class scnUnmountEvent extends scnSceneEvent {
-  native let performer: scnPerformerId;
+  public native let performer: scnPerformerId;
 }

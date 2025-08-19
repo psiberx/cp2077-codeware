@@ -1,3 +1,3 @@
 public native class worldNavigationNode extends worldNode {
-  native let navigationTileResource: ResourceAsyncRef; // raRef<worldNavigationTileResource>
+  public native let navigationTileResource: ResourceAsyncRef; // raRef<worldNavigationTileResource>
 }

@@ -1,3 +1,3 @@
 public abstract native class IParticleDrawer extends ISerializable {
-  native let pivotOffset: Float;
+  public native let pivotOffset: Float;
 }

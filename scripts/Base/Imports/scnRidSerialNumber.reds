@@ -1,3 +1,3 @@
 public native struct scnRidSerialNumber {
-  native let serialNumber: Uint32;
+  public native let serialNumber: Uint32;
 }

@@ -1,4 +1,4 @@
 public native class AIbehaviorScriptTaskDefinition extends AIbehaviorTaskDefinition {
-  native let script: ref<AIbehaviortaskScript>;
-  native let disableLazyInitialization: Bool;
+  public native let script: ref<AIbehaviortaskScript>;
+  public native let disableLazyInitialization: Bool;
 }

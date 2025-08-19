@@ -1,3 +1,3 @@
 public abstract native class questIPhoneConditionType extends questIUIConditionType {
-  native let inverted: Bool;
+  public native let inverted: Bool;
 }

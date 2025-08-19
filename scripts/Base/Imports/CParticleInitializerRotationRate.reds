@@ -1,3 +1,3 @@
 public native class CParticleInitializerRotationRate extends IParticleInitializer {
-  native let rotationRate: ref<IEvaluatorFloat>;
+  public native let rotationRate: ref<IEvaluatorFloat>;
 }

@@ -1,6 +1,6 @@
 public native class AIbehaviorAgentInfoDebuggerCommand extends AIbehaviorIDebuggerCommand {
-  native let entityId: EntityID;
-  native let agentName: String;
-  native let isSelected: Bool;
-  native let entries: array<AIbehaviorAgentInfoDebuggerCommandEntry>;
+  public native let entityId: EntityID;
+  public native let agentName: String;
+  public native let isSelected: Bool;
+  public native let entries: array<AIbehaviorAgentInfoDebuggerCommandEntry>;
 }

@@ -1,6 +1,6 @@
 public native struct scnSceneVOInfo {
-  native let inVoTrigger: CName;
-  native let outVoTrigger: CName;
-  native let duration: Float;
-  native let id: Uint16;
+  public native let inVoTrigger: CName;
+  public native let outVoTrigger: CName;
+  public native let duration: Float;
+  public native let id: Uint16;
 }

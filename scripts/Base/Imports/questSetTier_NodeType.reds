@@ -1,8 +1,8 @@
 public native class questSetTier_NodeType extends questISceneManagerNodeType {
-  native let tier: GameplayTier;
-  native let usePlayerWorkspot: Bool;
-  native let useEnterAnim: Bool;
-  native let useExitAnim: Bool;
-  native let forceEmptyHands: Bool;
-  native let motionConstrainedTierDataParams: MotionConstrainedTierDataParams;
+  public native let tier: GameplayTier;
+  public native let usePlayerWorkspot: Bool;
+  public native let useEnterAnim: Bool;
+  public native let useExitAnim: Bool;
+  public native let forceEmptyHands: Bool;
+  public native let motionConstrainedTierDataParams: MotionConstrainedTierDataParams;
 }

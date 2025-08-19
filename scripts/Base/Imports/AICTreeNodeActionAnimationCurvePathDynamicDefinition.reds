@@ -1,15 +1,15 @@
 public native class AICTreeNodeActionAnimationCurvePathDynamicDefinition extends AICTreeNodeActionDefinition {
-  native let targetSplineVarName: CName;
-  native let controlerVarName: CName;
-  native let startAnimVarName: CName;
-  native let stopAnimVarName: CName;
-  native let blendTime: Float;
-  native let globalInBlendTime: Float;
-  native let globalOutBlendTime: Float;
-  native let turnCharacterToMatchVelocity: Bool;
-  native let startSnapToTerrain: Bool;
-  native let mainSnapToTerrain: Bool;
-  native let stopSnapToTerrain: Bool;
-  native let startSnapToTerrainBlendTime: Float;
-  native let stopSnapToTerrainBlendTime: Float;
+  public native let targetSplineVarName: CName;
+  public native let controlerVarName: CName;
+  public native let startAnimVarName: CName;
+  public native let stopAnimVarName: CName;
+  public native let blendTime: Float;
+  public native let globalInBlendTime: Float;
+  public native let globalOutBlendTime: Float;
+  public native let turnCharacterToMatchVelocity: Bool;
+  public native let startSnapToTerrain: Bool;
+  public native let mainSnapToTerrain: Bool;
+  public native let stopSnapToTerrain: Bool;
+  public native let startSnapToTerrainBlendTime: Float;
+  public native let stopSnapToTerrainBlendTime: Float;
 }

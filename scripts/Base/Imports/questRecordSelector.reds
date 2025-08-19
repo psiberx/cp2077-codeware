@@ -1,8 +1,8 @@
 public native class questRecordSelector extends ISerializable {
-  native let isCharacter: Bool;
-  native let characterRecordID: TweakDBID;
-  native let isDevice: Bool;
-  native let deviceRecordID: TweakDBID;
-  native let isItem: Bool;
-  native let itemRecordID: TweakDBID;
+  public native let isCharacter: Bool;
+  public native let characterRecordID: TweakDBID;
+  public native let isDevice: Bool;
+  public native let deviceRecordID: TweakDBID;
+  public native let isItem: Bool;
+  public native let itemRecordID: TweakDBID;
 }

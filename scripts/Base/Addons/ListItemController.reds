@@ -1,14 +1,14 @@
 @addField(ListItemController)
-native let ToggledOff: inkListItemControllerCallback;
+public native let ToggledOff: inkListItemControllerCallback;
 
 @addField(ListItemController)
-native let ToggledOn: inkListItemControllerCallback;
+public native let ToggledOn: inkListItemControllerCallback;
 
 @addField(ListItemController)
-native let Selected: inkListItemControllerCallback;
+public native let Selected: inkListItemControllerCallback;
 
 @addField(ListItemController)
-native let Deselected: inkListItemControllerCallback;
+public native let Deselected: inkListItemControllerCallback;
 
 @addField(ListItemController)
-native let AddedToList: inkListItemControllerCallback;
+public native let AddedToList: inkListItemControllerCallback;

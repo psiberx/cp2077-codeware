@@ -1,5 +1,5 @@
 public native struct worldFoliageBrushParams {
-  native let Proximity: Float;
-  native let Scale: Float;
-  native let ScaleVariation: Float;
+  public native let Proximity: Float;
+  public native let Scale: Float;
+  public native let ScaleVariation: Float;
 }

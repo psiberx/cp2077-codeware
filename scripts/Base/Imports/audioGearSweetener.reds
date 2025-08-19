@@ -1,7 +1,7 @@
 public native class audioGearSweetener extends audioAudioMetadata {
-  native let gear: Uint32;
-  native let rpmThreshold: Float;
-  native let cooldown: Float;
-  native let soundEvent: CName;
-  native let burnoutFactor: Float;
+  public native let gear: Uint32;
+  public native let rpmThreshold: Float;
+  public native let cooldown: Float;
+  public native let soundEvent: CName;
+  public native let burnoutFactor: Float;
 }

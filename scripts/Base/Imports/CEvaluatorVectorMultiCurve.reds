@@ -1,3 +1,3 @@
 public native class CEvaluatorVectorMultiCurve extends IEvaluatorVector {
-  native let numberOfCurveSamples: Uint32;
+  public native let numberOfCurveSamples: Uint32;
 }

@@ -1,8 +1,8 @@
 @addField(JournalPhoneChoiceEntry)
-native let text: LocalizationString;
+public native let text: LocalizationString;
 
 @addField(JournalPhoneChoiceEntry)
-native let isQuestImportant: Bool;
+public native let isQuestImportant: Bool;
 
 @addField(JournalPhoneChoiceEntry)
-native let questCondition: ref<questIBaseCondition>;
+public native let questCondition: ref<questIBaseCondition>;

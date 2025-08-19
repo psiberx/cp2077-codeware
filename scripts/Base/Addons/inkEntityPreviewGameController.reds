@@ -1,2 +1,2 @@
 @addField(inkEntityPreviewGameController)
-native let entityToPreview: ResourceAsyncRef; // raRef<entEntityTemplate>
+public native let entityToPreview: ResourceAsyncRef; // raRef<entEntityTemplate>

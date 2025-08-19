@@ -1,3 +1,3 @@
 public native class gameOccupantSlotComponent extends SlotComponent {
-  native let slotData: array<gameOccupantSlotData>;
+  public native let slotData: array<gameOccupantSlotData>;
 }

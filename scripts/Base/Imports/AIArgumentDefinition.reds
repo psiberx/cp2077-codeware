@@ -1,5 +1,5 @@
 public abstract native class AIArgumentDefinition extends ISerializable {
-  native let name: CName;
-  native let isPersistent: Bool;
-  native let behaviorCallbackName: CName;
+  public native let name: CName;
+  public native let isPersistent: Bool;
+  public native let behaviorCallbackName: CName;
 }

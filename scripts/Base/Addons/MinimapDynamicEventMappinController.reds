@@ -1,5 +1,5 @@
 @addField(MinimapDynamicEventMappinController)
-native let hideAtDistance: Float;
+public native let hideAtDistance: Float;
 
 @addField(MinimapDynamicEventMappinController)
-native let hideInCombat: Bool;
+public native let hideInCombat: Bool;

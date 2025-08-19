@@ -1,5 +1,5 @@
 public native struct inkStyle {
-  native let styleID: CName;
-  native let state: CName;
-  native let properties: array<inkStyleProperty>;
+  public native let styleID: CName;
+  public native let state: CName;
+  public native let properties: array<inkStyleProperty>;
 }

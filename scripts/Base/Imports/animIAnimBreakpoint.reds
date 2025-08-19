@@ -1,3 +1,3 @@
 public abstract native struct animIAnimBreakpoint {
-  native let enabled: Bool;
+  public native let enabled: Bool;
 }

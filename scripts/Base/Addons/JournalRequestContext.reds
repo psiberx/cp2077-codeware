@@ -1,2 +1,2 @@
 @addField(JournalRequestContext)
-native let classFilter: JournalRequestClassFilter;
+public native let classFilter: JournalRequestClassFilter;

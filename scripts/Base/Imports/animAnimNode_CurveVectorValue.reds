@@ -1,4 +1,4 @@
 public native class animAnimNode_CurveVectorValue extends animAnimNode_VectorValue {
-  native let curveData: CurveDataVector4;
-  native let argument: animFloatLink;
+  public native let curveData: CurveDataVector4;
+  public native let argument: animFloatLink;
 }

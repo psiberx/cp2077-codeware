@@ -1,5 +1,5 @@
 public native struct inkTextureAtlasMapper {
-  native let partName: CName;
-  native let clippingRectInPixels: Rect;
-  native let clippingRectInUVCoords: RectF;
+  public native let partName: CName;
+  public native let clippingRectInPixels: Rect;
+  public native let clippingRectInUVCoords: RectF;
 }

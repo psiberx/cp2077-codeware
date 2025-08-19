@@ -1,3 +1,3 @@
 public abstract native class gameaudioeventsEmitterEvent extends Event {
-  native let emitterName: CName;
+  public native let emitterName: CName;
 }

@@ -1,19 +1,19 @@
 public native struct gameActionMoveToDynamicNodeState {
-  native let targetPos: Vector3;
-  native let toleranceRadius: Float;
-  native let rotateEntity: Bool;
-  native let moveStyle: Uint32;
-  native let replicationId: Uint32;
-  native let type: Uint16;
-  native let startTimeStamp: netTime;
-  native let stopTimeStamp: netTime;
-  native let updateBucket: Uint8;
-  native let target: wref<GameObject>;
-  native let strafingTarget: wref<GameObject>;
-  native let desiredDistanceFromTarget: Float;
-  native let stopWhenDestinationReached: Bool;
-  native let pathfindingUpdateInterval: Float;
-  native let usePathfinding: Bool;
-  native let useStart: Bool;
-  native let useStop: Bool;
+  public native let targetPos: Vector3;
+  public native let toleranceRadius: Float;
+  public native let rotateEntity: Bool;
+  public native let moveStyle: Uint32;
+  public native let replicationId: Uint32;
+  public native let type: Uint16;
+  public native let startTimeStamp: netTime;
+  public native let stopTimeStamp: netTime;
+  public native let updateBucket: Uint8;
+  public native let target: wref<GameObject>;
+  public native let strafingTarget: wref<GameObject>;
+  public native let desiredDistanceFromTarget: Float;
+  public native let stopWhenDestinationReached: Bool;
+  public native let pathfindingUpdateInterval: Float;
+  public native let usePathfinding: Bool;
+  public native let useStart: Bool;
+  public native let useStop: Bool;
 }

@@ -1,3 +1,3 @@
 public importonly class NetrunnerPrototypeNodeSetupEvent extends Event {
-  native let scale: Vector3;
+  public native let scale: Vector3;
 }

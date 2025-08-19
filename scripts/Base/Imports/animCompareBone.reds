@@ -1,4 +1,4 @@
 public native struct animCompareBone {
-  native let boneName: CName;
-  native let boneRotationLs: Quaternion;
+  public native let boneName: CName;
+  public native let boneRotationLs: Quaternion;
 }

@@ -1,5 +1,5 @@
 public native class gameuiarcadeShooterGameplayController extends gameuiarcadeArcadeGameplayController {
-  native let player: inkWidgetRef;
-  native let hud: inkWidgetRef;
-  native let levelContainer: inkWidgetRef;
+  public native let player: inkWidgetRef;
+  public native let hud: inkWidgetRef;
+  public native let levelContainer: inkWidgetRef;
 }

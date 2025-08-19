@@ -1,3 +1,3 @@
 public native class workScriptedCondition extends workIWorkspotCondition {
-  native let script: ref<WorkspotCondition>;
+  public native let script: ref<WorkspotCondition>;
 }

@@ -1,5 +1,5 @@
 public native struct workWorkspotGlobalProp {
-  native let id: CName;
-  native let boneName: CName;
-  native let prop: ResourceAsyncRef; // raRef<entEntityTemplate>
+  public native let id: CName;
+  public native let boneName: CName;
+  public native let prop: ResourceAsyncRef; // raRef<entEntityTemplate>
 }

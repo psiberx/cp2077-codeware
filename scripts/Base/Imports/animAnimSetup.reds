@@ -1,5 +1,5 @@
 public native struct animAnimSetup {
-  native let cinematics: array<animAnimSetupEntry>;
-  native let gameplay: array<animAnimSetupEntry>;
-  native let hash: Uint64;
+  public native let cinematics: array<animAnimSetupEntry>;
+  public native let gameplay: array<animAnimSetupEntry>;
+  public native let hash: Uint64;
 }

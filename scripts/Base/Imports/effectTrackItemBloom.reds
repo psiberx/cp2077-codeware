@@ -1,5 +1,5 @@
 public native class effectTrackItemBloom extends effectTrackItem {
-  native let override: Bool;
-  native let sceneColorScale: effectEffectParameterEvaluatorFloat;
-  native let bloomColorScale: effectEffectParameterEvaluatorFloat;
+  public native let override: Bool;
+  public native let sceneColorScale: effectEffectParameterEvaluatorFloat;
+  public native let bloomColorScale: effectEffectParameterEvaluatorFloat;
 }

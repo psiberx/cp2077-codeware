@@ -1,3 +1,3 @@
 public native class questCombatNodeParams_SwitchWeapon extends questCombatNodeParams {
-  native let mode: questSwitchWeaponModes;
+  public native let mode: questSwitchWeaponModes;
 }

@@ -1,3 +1,3 @@
 public native class AnimDurationFeature extends AnimFeature {
-  native let duration: Float;
+  public native let duration: Float;
 }

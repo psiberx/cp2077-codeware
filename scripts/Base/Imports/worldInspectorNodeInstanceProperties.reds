@@ -1,8 +1,8 @@
 public native class worldInspectorNodeInstanceProperties extends ISerializable {
-  native let setupInfo: worldCompiledNodeInstanceSetupInfo;
-  native let meshNode: ref<worldMeshNode>;
-  native let instancedMeshNode: ref<worldInstancedMeshNode>;
-  native let lastObserverDistanceToStreamingPoint: Float;
-  native let lastObserverDistanceToSecondaryReferencePoint: Float;
-  native let renderProxyAddressForDebug: Uint64;
+  public native let setupInfo: worldCompiledNodeInstanceSetupInfo;
+  public native let meshNode: ref<worldMeshNode>;
+  public native let instancedMeshNode: ref<worldInstancedMeshNode>;
+  public native let lastObserverDistanceToStreamingPoint: Float;
+  public native let lastObserverDistanceToSecondaryReferencePoint: Float;
+  public native let renderProxyAddressForDebug: Uint64;
 }

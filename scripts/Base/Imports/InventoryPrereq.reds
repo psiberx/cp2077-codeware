@@ -1,4 +1,4 @@
 public native class InventoryPrereq extends IComparisonPrereq {
-  native let itemID: ItemID;
-  native let amount: Uint32;
+  public native let itemID: ItemID;
+  public native let amount: Uint32;
 }

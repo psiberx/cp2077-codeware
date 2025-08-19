@@ -1,4 +1,4 @@
 public native class questWeather_ConditionType extends questISystemConditionType {
-  native let weather: CName;
-  native let inverted: Bool;
+  public native let weather: CName;
+  public native let inverted: Bool;
 }

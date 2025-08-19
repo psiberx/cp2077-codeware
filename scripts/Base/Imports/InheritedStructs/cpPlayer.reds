@@ -1,4 +1,4 @@
 public native struct cpPlayer {
-  native let peerID: netPeerID;
-  native let nickname: String;
+  public native let peerID: netPeerID;
+  public native let nickname: String;
 }

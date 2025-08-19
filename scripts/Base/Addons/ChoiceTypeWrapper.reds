@@ -1,2 +1,2 @@
 @addField(ChoiceTypeWrapper)
-native let properties: Uint32;
+public native let properties: Uint32;

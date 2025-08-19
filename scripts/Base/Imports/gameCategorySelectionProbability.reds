@@ -1,3 +1,3 @@
 public native struct gameCategorySelectionProbability {
-  native let probabilities: array<gameSpotSequenceCategory>;
+  public native let probabilities: array<gameSpotSequenceCategory>;
 }

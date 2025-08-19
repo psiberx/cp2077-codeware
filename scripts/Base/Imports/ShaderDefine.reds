@@ -1,4 +1,4 @@
 public native struct ShaderDefine {
-  native let name: String;
-  native let value: String;
+  public native let name: String;
+  public native let value: String;
 }

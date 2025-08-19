@@ -1,3 +1,3 @@
 public native struct navgendebugCompactSpan {
-  native let spanData: Uint32;
+  public native let spanData: Uint32;
 }

@@ -1,3 +1,3 @@
 public native struct NavGenNavigationSetting {
-  native let navmeshImpact: NavGenNavmeshImpact;
+  public native let navmeshImpact: NavGenNavmeshImpact;
 }

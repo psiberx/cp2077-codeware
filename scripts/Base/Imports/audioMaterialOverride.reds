@@ -1,4 +1,4 @@
 public native struct audioMaterialOverride {
-  native let base: CName;
-  native let override: CName;
+  public native let base: CName;
+  public native let override: CName;
 }

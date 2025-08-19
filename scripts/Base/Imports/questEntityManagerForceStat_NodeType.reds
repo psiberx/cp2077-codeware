@@ -1,8 +1,8 @@
 public native class questEntityManagerForceStat_NodeType extends questIEntityManager_NodeType {
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let statType: gamedataStatType;
-  native let value: Float;
-  native let unforce: Bool;
-  native let debugSource: CName;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let statType: gamedataStatType;
+  public native let value: Float;
+  public native let unforce: Bool;
+  public native let debugSource: CName;
 }

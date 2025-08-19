@@ -1,8 +1,8 @@
 public native class gameEffectTriggerEffectDesc extends ISerializable {
-  native let effect: ResourceAsyncRef; // raRef<worldEffect>
-  native let positionType: gameEffectTriggerPositioningType;
-  native let rotationType: gameEffectTriggerRotationType;
-  native let offset: Vector3;
-  native let playFromHour: Uint32;
-  native let playTillHour: Uint32;
+  public native let effect: ResourceAsyncRef; // raRef<worldEffect>
+  public native let positionType: gameEffectTriggerPositioningType;
+  public native let rotationType: gameEffectTriggerRotationType;
+  public native let offset: Vector3;
+  public native let playFromHour: Uint32;
+  public native let playTillHour: Uint32;
 }

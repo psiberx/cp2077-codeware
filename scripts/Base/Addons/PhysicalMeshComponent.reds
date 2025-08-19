@@ -1,17 +1,17 @@
 @addField(PhysicalMeshComponent)
-native let visibilityAnimationParam: CName;
+public native let visibilityAnimationParam: CName;
 
 @addField(PhysicalMeshComponent)
-native let simulationType: physicsSimulationType;
+public native let simulationType: physicsSimulationType;
 
 @addField(PhysicalMeshComponent)
-native let useResourceSimulationType: Bool;
+public native let useResourceSimulationType: Bool;
 
 @addField(PhysicalMeshComponent)
-native let startInactive: Bool;
+public native let startInactive: Bool;
 
 @addField(PhysicalMeshComponent)
-native let filterDataSource: physicsFilterDataSource;
+public native let filterDataSource: physicsFilterDataSource;
 
 @addField(PhysicalMeshComponent)
-native let filterData: ref<physicsFilterData>;
+public native let filterData: ref<physicsFilterData>;

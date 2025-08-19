@@ -1,7 +1,7 @@
 public native struct ContactShadowsConfig {
-  native let range: Float;
-  native let rangeLimit: Float;
-  native let screenEdgeFadeRange: Float;
-  native let distanceFadeLimit: Float;
-  native let distanceFadeRange: Float;
+  public native let range: Float;
+  public native let rangeLimit: Float;
+  public native let screenEdgeFadeRange: Float;
+  public native let distanceFadeLimit: Float;
+  public native let distanceFadeRange: Float;
 }

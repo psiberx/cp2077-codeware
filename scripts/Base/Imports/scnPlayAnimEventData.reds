@@ -1,8 +1,8 @@
 public native struct scnPlayAnimEventData {
-  native let blendIn: Float;
-  native let blendOut: Float;
-  native let clipFront: Float;
-  native let stretch: Float;
-  native let weight: Float;
-  native let bodyPartMask: CName;
+  public native let blendIn: Float;
+  public native let blendOut: Float;
+  public native let clipFront: Float;
+  public native let stretch: Float;
+  public native let weight: Float;
+  public native let bodyPartMask: CName;
 }

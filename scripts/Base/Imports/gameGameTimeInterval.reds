@@ -1,5 +1,5 @@
 public native struct gameGameTimeInterval {
-  native let begin: GameTime;
-  native let end: GameTime;
-  native let ignoreDays: Bool;
+  public native let begin: GameTime;
+  public native let end: GameTime;
+  public native let ignoreDays: Bool;
 }

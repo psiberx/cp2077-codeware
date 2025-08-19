@@ -1,4 +1,4 @@
 public native struct gameReplicatedEntityEventsState {
-  native let items: array<gameReplicatedEntityEvent>;
-  native let lastAppliedActionsTime: netTime;
+  public native let items: array<gameReplicatedEntityEvent>;
+  public native let lastAppliedActionsTime: netTime;
 }

@@ -1,3 +1,3 @@
 public native class questAudioNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let type: ref<questIAudioNodeType>;
+  public native let type: ref<questIAudioNodeType>;
 }

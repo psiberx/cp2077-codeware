@@ -1,5 +1,5 @@
 public native struct gameuiPuppetPreviewCameraController {
-  native let cameraSetup: array<gameuiPuppetPreviewCameraSetup>;
-  native let activeSetup: Uint32;
-  native let transitionDelay: Float;
+  public native let cameraSetup: array<gameuiPuppetPreviewCameraSetup>;
+  public native let activeSetup: Uint32;
+  public native let transitionDelay: Float;
 }

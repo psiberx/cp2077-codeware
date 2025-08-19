@@ -1,6 +1,6 @@
 public native class inkAnimShapeBorderTransparency extends inkAnimInterpolator {
-  native let startValue: Float;
-  native let endValue: Float;
+  public native let startValue: Float;
+  public native let endValue: Float;
 
   public final native func GetEndTransparency()
   public final native func GetStartTransparency()

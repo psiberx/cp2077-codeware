@@ -1,3 +1,3 @@
 public native class PhotoModeUIVisibilityEvent extends Event {
-  native let visible: Bool;
+  public native let visible: Bool;
 }

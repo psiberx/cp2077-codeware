@@ -1,8 +1,8 @@
 public native struct animPoseLimitWeights {
-  native let min: Float;
-  native let mid: Float;
-  native let max: Float;
-  native let poseTrackIndex: Int16;
-  native let type: Uint8;
-  native let isCachable: Bool;
+  public native let min: Float;
+  public native let mid: Float;
+  public native let max: Float;
+  public native let poseTrackIndex: Int16;
+  public native let type: Uint8;
+  public native let isCachable: Bool;
 }

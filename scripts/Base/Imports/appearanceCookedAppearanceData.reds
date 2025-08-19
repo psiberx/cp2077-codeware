@@ -1,4 +1,4 @@
 public native class appearanceCookedAppearanceData extends CResource {
-  native let dependencies: array<ResourceRef>;
-  native let totalSizeOnDisk: Uint32;
+  public native let dependencies: array<ResourceRef>;
+  public native let totalSizeOnDisk: Uint32;
 }

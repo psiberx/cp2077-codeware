@@ -1,5 +1,5 @@
 public native struct entdismembermentWoundMeshes {
-  native let ResourceSet: entdismembermentResourceSetE;
-  native let Meshes: array<entdismembermentMeshInfo>;
-  native let FillMeshes: array<entdismembermentFillMeshInfo>;
+  public native let ResourceSet: entdismembermentResourceSetE;
+  public native let Meshes: array<entdismembermentMeshInfo>;
+  public native let FillMeshes: array<entdismembermentFillMeshInfo>;
 }

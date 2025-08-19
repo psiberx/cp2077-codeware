@@ -1,2 +1,2 @@
 @addField(VehicleCustomizationComponent)
-native let defaultDecalsPerAppearance: array<vehicleVehicleAppearanceToDecalsName>;
+public native let defaultDecalsPerAppearance: array<vehicleVehicleAppearanceToDecalsName>;

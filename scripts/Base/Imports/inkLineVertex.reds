@@ -1,4 +1,4 @@
 public native struct inkLineVertex {
-  native let int: Vector2;
-  native let neType: inkLineType;
+  public native let int: Vector2;
+  public native let neType: inkLineType;
 }

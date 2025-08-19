@@ -1,7 +1,7 @@
 public native class inkStyleResource extends CResource {
-  native let styles: array<inkStyle>;
-  native let styleImports: array<ResourceRef>;
-  native let themes: array<inkStyleTheme>;
-  native let overrides: array<inkStyleOverride>;
-  native let hideInInheritingStyles: Bool;
+  public native let styles: array<inkStyle>;
+  public native let styleImports: array<ResourceRef>;
+  public native let themes: array<inkStyleTheme>;
+  public native let overrides: array<inkStyleOverride>;
+  public native let hideInInheritingStyles: Bool;
 }

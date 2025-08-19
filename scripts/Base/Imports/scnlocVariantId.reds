@@ -1,3 +1,3 @@
 public native struct scnlocVariantId {
-  native let ruid: CRUID;
+  public native let ruid: CRUID;
 }

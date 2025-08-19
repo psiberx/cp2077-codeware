@@ -1,3 +1,3 @@
 public native class AIbehaviorMonitorTaskNodeDefinition extends AIbehaviorTaskNodeDefinition {
-  native let timeout: Float;
+  public native let timeout: Float;
 }

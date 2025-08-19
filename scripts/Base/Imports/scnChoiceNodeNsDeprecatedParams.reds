@@ -1,4 +1,4 @@
 public native struct scnChoiceNodeNsDeprecatedParams {
-  native let actorId: scnActorId;
-  native let propId: scnPropId;
+  public native let actorId: scnActorId;
+  public native let propId: scnPropId;
 }

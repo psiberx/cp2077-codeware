@@ -1,4 +1,4 @@
 public native class AICTreeNodeBrainDefinition extends AICTreeNodeCompositeDefinition {
-  native let children: array<ref<LibTreeINodeDefinition>>;
-  native let useScoring: Bool;
+  public native let children: array<ref<LibTreeINodeDefinition>>;
+  public native let useScoring: Bool;
 }

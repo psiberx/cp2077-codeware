@@ -1,4 +1,4 @@
 public native struct audioMeleeRigTypeMeleeWeaponConfigurationMapItem {
-  native let name: CName;
-  native let meleeWeaponConfiguration: CName;
+  public native let name: CName;
+  public native let meleeWeaponConfiguration: CName;
 }

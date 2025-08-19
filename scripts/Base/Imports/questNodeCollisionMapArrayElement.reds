@@ -1,4 +1,4 @@
 public native struct questNodeCollisionMapArrayElement {
-  native let objectRef: NodeRef;
-  native let componentsCollisionMapArray: array<questComponentCollisionMapArrayElement>;
+  public native let objectRef: NodeRef;
+  public native let componentsCollisionMapArray: array<questComponentCollisionMapArrayElement>;
 }

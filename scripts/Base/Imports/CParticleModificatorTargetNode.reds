@@ -1,5 +1,5 @@
 public native class CParticleModificatorTargetNode extends IParticleModificator {
-  native let forceScale: ref<IEvaluatorFloat>;
-  native let killRadius: ref<IEvaluatorFloat>;
-  native let maxForce: Float;
+  public native let forceScale: ref<IEvaluatorFloat>;
+  public native let killRadius: ref<IEvaluatorFloat>;
+  public native let maxForce: Float;
 }

@@ -1,11 +1,11 @@
 public native class questProximityProgressBar_NodeType extends questIUIManagerNodeType {
-  native let show: Bool;
-  native let duration: Float;
-  native let reset: Bool;
-  native let distance: Float;
-  native let distanceComparisonType: EComparisonType;
-  native let target: EntityReference;
-  native let isPlayerActivator: Bool;
-  native let activator: EntityReference;
-  native let appearance: CName;
+  public native let show: Bool;
+  public native let duration: Float;
+  public native let reset: Bool;
+  public native let distance: Float;
+  public native let distanceComparisonType: EComparisonType;
+  public native let target: EntityReference;
+  public native let isPlayerActivator: Bool;
+  public native let activator: EntityReference;
+  public native let appearance: CName;
 }

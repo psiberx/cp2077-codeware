@@ -1,7 +1,7 @@
 public native struct worldPersistentSnapData {
-  native let targetObjectPath: worldRelativeNodePath;
-  native let targetSocketName: CName;
-  native let snapTangent: Bool;
-  native let reverseTangent: Bool;
-  native let preserveLength: Bool;
+  public native let targetObjectPath: worldRelativeNodePath;
+  public native let targetSocketName: CName;
+  public native let snapTangent: Bool;
+  public native let reverseTangent: Bool;
+  public native let preserveLength: Bool;
 }

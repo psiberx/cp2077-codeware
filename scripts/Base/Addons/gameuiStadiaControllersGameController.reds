@@ -1,14 +1,14 @@
 @addField(gameuiStadiaControllersGameController)
-native let stadiaControllerPage: inkWidgetRef;
+public native let stadiaControllerPage: inkWidgetRef;
 
 @addField(gameuiStadiaControllersGameController)
-native let nintendoControllerPage: inkWidgetRef;
+public native let nintendoControllerPage: inkWidgetRef;
 
 @addField(gameuiStadiaControllersGameController)
-native let durangoControllerPage: inkWidgetRef;
+public native let durangoControllerPage: inkWidgetRef;
 
 @addField(gameuiStadiaControllersGameController)
-native let orbisControllerPage: inkWidgetRef;
+public native let orbisControllerPage: inkWidgetRef;
 
 @addField(gameuiStadiaControllersGameController)
-native let disclaimerText: inkWidgetRef;
+public native let disclaimerText: inkWidgetRef;

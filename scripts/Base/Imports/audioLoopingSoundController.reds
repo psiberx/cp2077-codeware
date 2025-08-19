@@ -1,5 +1,5 @@
 public native struct audioLoopingSoundController {
-  native let playEvent: CName;
-  native let preStopEvent: CName;
-  native let stopEvent: CName;
+  public native let playEvent: CName;
+  public native let preStopEvent: CName;
+  public native let stopEvent: CName;
 }

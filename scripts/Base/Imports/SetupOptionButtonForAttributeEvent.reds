@@ -1,4 +1,4 @@
 public native class SetupOptionButtonForAttributeEvent extends Event {
-  native let attribute: Uint32;
-  native let value: String;
+  public native let attribute: Uint32;
+  public native let value: String;
 }

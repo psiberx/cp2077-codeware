@@ -1,5 +1,5 @@
 public native struct inkGridItemTemplate {
-  native let sizeX: Uint32;
-  native let sizeY: Uint32;
-  native let widget: inkWidgetLibraryReference;
+  public native let sizeX: Uint32;
+  public native let sizeY: Uint32;
+  public native let widget: inkWidgetLibraryReference;
 }

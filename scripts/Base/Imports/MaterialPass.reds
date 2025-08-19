@@ -1,12 +1,12 @@
 public native struct MaterialPass {
-  native let stagePassNameRegular: CName;
-  native let stagePassNameDiscarded: CName;
-  native let depthStencilMode: PSODescDepthStencilModeDesc;
-  native let rasterizerMode: PSODescRasterizerModeDesc;
-  native let blendMode: PSODescBlendModeDesc;
-  native let stencilReadMask: Uint8;
-  native let stencilWriteMask: Uint8;
-  native let stencilRef: Uint8;
-  native let orderIndex: Uint8;
-  native let enablePixelShader: Bool;
+  public native let stagePassNameRegular: CName;
+  public native let stagePassNameDiscarded: CName;
+  public native let depthStencilMode: PSODescDepthStencilModeDesc;
+  public native let rasterizerMode: PSODescRasterizerModeDesc;
+  public native let blendMode: PSODescBlendModeDesc;
+  public native let stencilReadMask: Uint8;
+  public native let stencilWriteMask: Uint8;
+  public native let stencilRef: Uint8;
+  public native let orderIndex: Uint8;
+  public native let enablePixelShader: Bool;
 }

@@ -1,5 +1,5 @@
 public native class CParticleInitializerSpawnBox extends IParticleInitializer {
-  native let extents: ref<IEvaluatorVector>;
-  native let worldSpace: Bool;
-  native let surfaceOnly: Bool;
+  public native let extents: ref<IEvaluatorVector>;
+  public native let worldSpace: Bool;
+  public native let surfaceOnly: Bool;
 }

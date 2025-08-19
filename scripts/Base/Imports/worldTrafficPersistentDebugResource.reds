@@ -1,4 +1,4 @@
 public native class worldTrafficPersistentDebugResource extends resStreamedResource {
-  native let brokenUIDs: array<worldTrafficLaneUID>;
-  native let brokenUIDsDeadEnds: array<worldTrafficLaneUID>;
+  public native let brokenUIDs: array<worldTrafficLaneUID>;
+  public native let brokenUIDsDeadEnds: array<worldTrafficLaneUID>;
 }

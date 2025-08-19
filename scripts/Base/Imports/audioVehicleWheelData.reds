@@ -1,12 +1,12 @@
 public native struct audioVehicleWheelData {
-  native let wheelStartEvents: array<CName>;
-  native let wheelStopEvents: array<CName>;
-  native let wheelRegularSuspensionImpacts: array<CName>;
-  native let wheelLandingSuspensionImpacts: array<CName>;
-  native let suspensionPressureMultiplier: Float;
-  native let landingSuspensionPressureMultiplier: Float;
-  native let suspensionPressureLimit: Float;
-  native let minSuspensionPressureThreshold: Float;
-  native let suspensionImpactCooldown: Float;
-  native let minWheelTimeInAirBeforeLanding: Float;
+  public native let wheelStartEvents: array<CName>;
+  public native let wheelStopEvents: array<CName>;
+  public native let wheelRegularSuspensionImpacts: array<CName>;
+  public native let wheelLandingSuspensionImpacts: array<CName>;
+  public native let suspensionPressureMultiplier: Float;
+  public native let landingSuspensionPressureMultiplier: Float;
+  public native let suspensionPressureLimit: Float;
+  public native let minSuspensionPressureThreshold: Float;
+  public native let suspensionImpactCooldown: Float;
+  public native let minWheelTimeInAirBeforeLanding: Float;
 }

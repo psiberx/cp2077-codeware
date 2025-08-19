@@ -1,6 +1,6 @@
 public native struct worldCommunityRegistryItem {
-  native let entriesInitialState: array<worldCommunityEntryInitialState>;
-  native let template: ref<communityCommunityTemplateData>;
-  native let communityId: gameCommunityID;
-  native let communityAreaType: worldCommunityRegistryItemAreaNodeType;
+  public native let entriesInitialState: array<worldCommunityEntryInitialState>;
+  public native let template: ref<communityCommunityTemplateData>;
+  public native let communityId: gameCommunityID;
+  public native let communityAreaType: worldCommunityRegistryItemAreaNodeType;
 }

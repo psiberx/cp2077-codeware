@@ -1,4 +1,4 @@
 public native class gameuiCreditsPositionController extends inkLogicController {
-  native let titleText: inkTextRef;
-  native let namesText: inkTextRef;
+  public native let titleText: inkTextRef;
+  public native let namesText: inkTextRef;
 }

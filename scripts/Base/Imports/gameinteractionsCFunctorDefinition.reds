@@ -1,4 +1,4 @@
 public native class gameinteractionsCFunctorDefinition extends gameinteractionsIFunctorDefinition {
-  native let predicate: gameinteractionsCPredicateDefinition;
-  native let unaryOperator: gameinteractionsEUnaryOperator;
+  public native let predicate: gameinteractionsCPredicateDefinition;
+  public native let unaryOperator: gameinteractionsEUnaryOperator;
 }

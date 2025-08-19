@@ -1,4 +1,4 @@
 public native class AIbehaviorActionRotateByAngleTreeNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let angle: ref<AIArgumentMapping>;
-  native let angleTolerance: ref<AIArgumentMapping>;
+  public native let angle: ref<AIArgumentMapping>;
+  public native let angleTolerance: ref<AIArgumentMapping>;
 }

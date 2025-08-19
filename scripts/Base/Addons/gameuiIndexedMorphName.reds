@@ -1,8 +1,8 @@
 @addField(gameuiIndexedMorphName)
-native let index: Int32;
+public native let index: Int32;
 
 @addField(gameuiIndexedMorphName)
-native let tags: redTagList;
+public native let tags: redTagList;
 
 @addField(gameuiIndexedMorphName)
-native let randomizationInfo: gameuiCharacterRandomizationInfo;
+public native let randomizationInfo: gameuiCharacterRandomizationInfo;

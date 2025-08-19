@@ -1,5 +1,5 @@
 public native class questCombatNodeDefinition extends questConfigurableAICommandNode {
-  native let entityReference: EntityReference;
-  native let function: CName;
-  native let params: ref<AICommandParams>;
+  public native let entityReference: EntityReference;
+  public native let function: CName;
+  public native let params: ref<AICommandParams>;
 }

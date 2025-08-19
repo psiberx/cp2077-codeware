@@ -1,4 +1,4 @@
 public native class physicsColliderBox extends physicsICollider {
-  native let halfExtents: Vector3;
-  native let isObstacle: Bool;
+  public native let halfExtents: Vector3;
+  public native let isObstacle: Bool;
 }

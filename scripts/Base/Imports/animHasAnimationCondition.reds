@@ -1,3 +1,3 @@
 public native class animHasAnimationCondition extends animIStaticCondition {
-  native let animationName: CName;
+  public native let animationName: CName;
 }

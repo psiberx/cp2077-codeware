@@ -1,3 +1,3 @@
 public native class ContextualLookAtRemoveEvent extends LookAtRemoveEvent {
-  native let contextName: CName;
+  public native let contextName: CName;
 }

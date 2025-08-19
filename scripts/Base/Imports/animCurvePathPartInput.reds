@@ -1,8 +1,8 @@
 public native struct animCurvePathPartInput {
-  native let curveLengthStart: Float;
-  native let curveLengthEnd: Float;
-  native let controllerName: CName;
-  native let eventNameStart: CName;
-  native let eventNameEnd: CName;
-  native let startBlendTime: Float;
+  public native let curveLengthStart: Float;
+  public native let curveLengthEnd: Float;
+  public native let controllerName: CName;
+  public native let eventNameStart: CName;
+  public native let eventNameEnd: CName;
+  public native let startBlendTime: Float;
 }

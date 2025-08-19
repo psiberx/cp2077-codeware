@@ -1,5 +1,5 @@
 public native struct scnVarVsVarComparison_FactConditionTypeParams {
-  native let factName1: CName;
-  native let factName2: CName;
-  native let comparisonType: EComparisonType;
+  public native let factName1: CName;
+  public native let factName2: CName;
+  public native let comparisonType: EComparisonType;
 }

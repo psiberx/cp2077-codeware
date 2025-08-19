@@ -1,4 +1,4 @@
 public native struct gameGodModeSaveEntityData {
-  native let entityId: EntityID;
-  native let data: GodModeEntityData;
+  public native let entityId: EntityID;
+  public native let data: GodModeEntityData;
 }

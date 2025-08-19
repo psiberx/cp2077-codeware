@@ -1,5 +1,5 @@
 public native struct gameBodyTypeData {
-  native let rigHash: Uint64;
-  native let animsetHashes: array<Uint64>;
-  native let overrides: array<gameAnimsetOverrideData>;
+  public native let rigHash: Uint64;
+  public native let animsetHashes: array<Uint64>;
+  public native let overrides: array<gameAnimsetOverrideData>;
 }

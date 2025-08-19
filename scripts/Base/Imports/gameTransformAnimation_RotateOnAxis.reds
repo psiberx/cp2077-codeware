@@ -1,7 +1,7 @@
 public native class gameTransformAnimation_RotateOnAxis extends gameTransformAnimationTrackItemImpl {
-  native let axis: gameTransformAnimation_RotateOnAxisAxis;
-  native let numberOfFullRotations: Float;
-  native let startAngle: Float;
-  native let reverseDirection: Bool;
-  native let movement: ref<gameTransformAnimation_Movement>;
+  public native let axis: gameTransformAnimation_RotateOnAxisAxis;
+  public native let numberOfFullRotations: Float;
+  public native let startAngle: Float;
+  public native let reverseDirection: Bool;
+  public native let movement: ref<gameTransformAnimation_Movement>;
 }

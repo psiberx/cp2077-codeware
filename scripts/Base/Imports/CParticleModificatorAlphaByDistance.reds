@@ -1,4 +1,4 @@
 public native class CParticleModificatorAlphaByDistance extends IParticleModificator {
-  native let nearBlendDistance: Vector2;
-  native let farBlendDistance: Vector2;
+  public native let nearBlendDistance: Vector2;
+  public native let farBlendDistance: Vector2;
 }

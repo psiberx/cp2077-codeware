@@ -1,6 +1,6 @@
 public native struct rendEmitterDelaySettings {
-  native let emitterDelay: Float;
-  native let emitterDelayLow: Float;
-  native let useEmitterDelayRange: Bool;
-  native let useEmitterDelayOnce: Bool;
+  public native let emitterDelay: Float;
+  public native let emitterDelayLow: Float;
+  public native let useEmitterDelayRange: Bool;
+  public native let useEmitterDelayOnce: Bool;
 }

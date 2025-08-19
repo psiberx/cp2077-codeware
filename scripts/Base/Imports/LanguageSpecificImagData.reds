@@ -1,5 +1,5 @@
 public native struct LanguageSpecificImagData {
-  native let languageID: inkLanguageId;
-  native let textureAtlasForLanguage: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let partNameForLanguage: CName;
+  public native let languageID: inkLanguageId;
+  public native let textureAtlasForLanguage: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let partNameForLanguage: CName;
 }

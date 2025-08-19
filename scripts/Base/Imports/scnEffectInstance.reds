@@ -1,4 +1,4 @@
 public native struct scnEffectInstance {
-  native let effectInstanceId: scnEffectInstanceId;
-  native let compiledEffect: worldCompiledEffectInfo;
+  public native let effectInstanceId: scnEffectInstanceId;
+  public native let compiledEffect: worldCompiledEffectInfo;
 }

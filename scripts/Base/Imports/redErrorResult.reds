@@ -1,4 +1,4 @@
 public native struct redErrorResult {
-  native let message: String;
-  native let userData: Variant;
+  public native let message: String;
+  public native let userData: Variant;
 }

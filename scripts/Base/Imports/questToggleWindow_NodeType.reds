@@ -1,5 +1,5 @@
 public native class questToggleWindow_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let windowState: EQuestVehicleWindowState;
-  native let door: EVehicleDoor;
+  public native let vehicleRef: EntityReference;
+  public native let windowState: EQuestVehicleWindowState;
+  public native let door: EVehicleDoor;
 }

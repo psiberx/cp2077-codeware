@@ -1,5 +1,5 @@
 public native struct gameuiPerspectiveInfo {
-  native let name: CName;
-  native let fpp: CName;
-  native let tpp: CName;
+  public native let name: CName;
+  public native let fpp: CName;
+  public native let tpp: CName;
 }

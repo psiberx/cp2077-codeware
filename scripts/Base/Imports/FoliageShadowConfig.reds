@@ -1,5 +1,5 @@
 public native struct FoliageShadowConfig {
-  native let foliageShadowCascadeGradient: Float;
-  native let foliageShadowCascadeFilterScale: Float;
-  native let foliageShadowCascadeGradientDistanceRange: Float;
+  public native let foliageShadowCascadeGradient: Float;
+  public native let foliageShadowCascadeFilterScale: Float;
+  public native let foliageShadowCascadeGradientDistanceRange: Float;
 }

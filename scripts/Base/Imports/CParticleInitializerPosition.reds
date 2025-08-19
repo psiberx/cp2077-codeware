@@ -1,5 +1,5 @@
 public native class CParticleInitializerPosition extends IParticleInitializer {
-  native let offset: Float;
-  native let position: ref<IEvaluatorVector>;
-  native let worldSpace: Bool;
+  public native let offset: Float;
+  public native let position: ref<IEvaluatorVector>;
+  public native let worldSpace: Bool;
 }

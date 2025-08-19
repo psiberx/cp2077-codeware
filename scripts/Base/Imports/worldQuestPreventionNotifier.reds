@@ -1,4 +1,4 @@
 public native class worldQuestPreventionNotifier extends worldITriggerAreaNotifer {
-  native let type: worldQuestPreventionNotifierType;
-  native let activation: worldQuestPreventionNotifierActivation;
+  public native let type: worldQuestPreventionNotifierType;
+  public native let activation: worldQuestPreventionNotifierActivation;
 }

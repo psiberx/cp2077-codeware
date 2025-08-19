@@ -1,4 +1,4 @@
 public native struct scnChoiceNodeNsAttachToPropParams {
-  native let propId: scnPropId;
-  native let visualizerStyle: scnChoiceNodeNsVisualizerStyle;
+  public native let propId: scnPropId;
+  public native let visualizerStyle: scnChoiceNodeNsVisualizerStyle;
 }

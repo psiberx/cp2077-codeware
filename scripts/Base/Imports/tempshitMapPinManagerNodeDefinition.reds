@@ -1,7 +1,7 @@
 public native class tempshitMapPinManagerNodeDefinition extends questDisableableNodeDefinition {
-  native let mapPinName: CName;
-  native let operation: tempshitMapPinOperation;
-  native let nodeRef: EntityReference;
-  native let position: Vector3;
-  native let forceCaption: LocalizationString;
+  public native let mapPinName: CName;
+  public native let operation: tempshitMapPinOperation;
+  public native let nodeRef: EntityReference;
+  public native let position: Vector3;
+  public native let forceCaption: LocalizationString;
 }

@@ -1,4 +1,4 @@
 public native struct questQuestPrefabsEntry {
-  native let nodeRef: GlobalNodeRef;
-  native let loadingMode: worldQuestPrefabLoadingMode;
+  public native let nodeRef: GlobalNodeRef;
+  public native let loadingMode: worldQuestPrefabLoadingMode;
 }

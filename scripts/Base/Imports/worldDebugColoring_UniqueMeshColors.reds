@@ -1,3 +1,3 @@
 public native class worldDebugColoring_UniqueMeshColors extends worldEditorDebugColoringSettings {
-  native let alpha: Uint8;
+  public native let alpha: Uint8;
 }

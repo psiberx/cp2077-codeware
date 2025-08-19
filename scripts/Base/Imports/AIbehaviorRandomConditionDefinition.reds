@@ -1,3 +1,3 @@
 public native class AIbehaviorRandomConditionDefinition extends AIbehaviorConditionDefinition {
-  native let chance: Float;
+  public native let chance: Float;
 }

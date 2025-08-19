@@ -1,3 +1,3 @@
 public native class gameLootSlotSingleQuery extends gameLootSlot {
-  native let queryTDBID: TweakDBID;
+  public native let queryTDBID: TweakDBID;
 }

@@ -1,4 +1,4 @@
 public native class AIbehaviorEventHandlerNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
-  native let eventName: CName;
-  native let resolver: ref<AIbehaviorEventResolverDefinition>;
+  public native let eventName: CName;
+  public native let resolver: ref<AIbehaviorEventResolverDefinition>;
 }

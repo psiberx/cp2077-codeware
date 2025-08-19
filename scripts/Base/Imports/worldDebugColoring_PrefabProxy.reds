@@ -1,6 +1,6 @@
 public native class worldDebugColoring_PrefabProxy extends worldEditorDebugColoringSettings {
-  native let regularMeshColor: Color;
-  native let instancedMeshColor: Color;
-  native let prefabProxyMeshColor: Color;
-  native let distinguishInstancedMesh: Bool;
+  public native let regularMeshColor: Color;
+  public native let instancedMeshColor: Color;
+  public native let prefabProxyMeshColor: Color;
+  public native let distinguishInstancedMesh: Bool;
 }

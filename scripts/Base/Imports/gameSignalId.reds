@@ -1,3 +1,3 @@
 public native struct gameSignalId {
-  native let value: Uint16;
+  public native let value: Uint16;
 }

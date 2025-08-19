@@ -1,14 +1,14 @@
 @addField(inkScrollArea)
-native let horizontalScrolling: Float;
+public native let horizontalScrolling: Float;
 
 @addField(inkScrollArea)
-native let verticalScrolling: Float;
+public native let verticalScrolling: Float;
 
 @addField(inkScrollArea)
-native let constrainContentPosition: Bool;
+public native let constrainContentPosition: Bool;
 
 @addField(inkScrollArea)
-native let fitToContentDirection: inkFitToContentDirection;
+public native let fitToContentDirection: inkFitToContentDirection;
 
 @addField(inkScrollArea)
-native let useInternalMask: Bool;
+public native let useInternalMask: Bool;

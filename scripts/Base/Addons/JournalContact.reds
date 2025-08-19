@@ -1,14 +1,14 @@
 @addField(JournalContact)
-native let name: LocalizationString;
+public native let name: LocalizationString;
 
 @addField(JournalContact)
-native let avatarID: TweakDBID;
+public native let avatarID: TweakDBID;
 
 @addField(JournalContact)
-native let type: gameContactType;
+public native let type: gameContactType;
 
 @addField(JournalContact)
-native let useFlatMessageLayout: Bool;
+public native let useFlatMessageLayout: Bool;
 
 @addField(JournalContact)
-native let isCallableDefault: Bool;
+public native let isCallableDefault: Bool;

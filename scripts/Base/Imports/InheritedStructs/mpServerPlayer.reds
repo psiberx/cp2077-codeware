@@ -1,4 +1,4 @@
 public native struct mpServerPlayer {
-  native let peerID: netPeerID;
-  native let nickname: String;
+  public native let peerID: netPeerID;
+  public native let nickname: String;
 }

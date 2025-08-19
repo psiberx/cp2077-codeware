@@ -1,9 +1,9 @@
 public native struct AIFSMStateDefinition {
-  native let onUpdateTransition: AIFSMTransitionListDefinition;
-  native let onCompleteTransition: AIFSMTransitionListDefinition;
-  native let onSuccessTransition: AIFSMTransitionListDefinition;
-  native let onFailureTransition: AIFSMTransitionListDefinition;
-  native let onInterruptionTransition: AIFSMTransitionListDefinition;
-  native let onEventTransitions: AIFSMTransitionListDefinition;
-  native let childNode: ref<AICTreeNodeDefinition>;
+  public native let onUpdateTransition: AIFSMTransitionListDefinition;
+  public native let onCompleteTransition: AIFSMTransitionListDefinition;
+  public native let onSuccessTransition: AIFSMTransitionListDefinition;
+  public native let onFailureTransition: AIFSMTransitionListDefinition;
+  public native let onInterruptionTransition: AIFSMTransitionListDefinition;
+  public native let onEventTransitions: AIFSMTransitionListDefinition;
+  public native let childNode: ref<AICTreeNodeDefinition>;
 }

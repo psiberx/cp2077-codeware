@@ -1,5 +1,5 @@
 public native struct entTagMask {
-  native let hardTags: redTagList;
-  native let softTags: redTagList;
-  native let excludedTags: redTagList;
+  public native let hardTags: redTagList;
+  public native let softTags: redTagList;
+  public native let excludedTags: redTagList;
 }

@@ -1,5 +1,5 @@
 public native struct gameuiarcadeShooterTransporterSpawnData {
-  native let aiType: gameuiarcadeShooterAIType;
-  native let parameter: CName;
-  native let count: Int32;
+  public native let aiType: gameuiarcadeShooterAIType;
+  public native let parameter: CName;
+  public native let count: Int32;
 }

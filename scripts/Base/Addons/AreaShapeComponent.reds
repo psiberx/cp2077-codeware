@@ -1,8 +1,8 @@
 @addField(AreaShapeComponent)
-native let outline: ref<AreaShapeOutline>;
+public native let outline: ref<AreaShapeOutline>;
 
 @addField(AreaShapeComponent)
-native let color: Color;
+public native let color: Color;
 
 @addField(AreaShapeComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

@@ -1,3 +1,3 @@
 public native class scneventsSocket extends scnSceneEvent {
-  native let osockStamp: scnOutputSocketStamp;
+  public native let osockStamp: scnOutputSocketStamp;
 }

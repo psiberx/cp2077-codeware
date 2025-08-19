@@ -1,4 +1,4 @@
 public native struct animAnimMultiBoolToFloatEntry {
-  native let group: CName;
-  native let name: CName;
+  public native let group: CName;
+  public native let name: CName;
 }

@@ -1,6 +1,6 @@
 public native class audioShockwaveMetadata extends audioEmitterMetadata {
-  native let explosionMetadataName: CName;
-  native let thumpMetadataName: CName;
-  native let electroshockMetadataName: CName;
-  native let revealMetadataName: CName;
+  public native let explosionMetadataName: CName;
+  public native let thumpMetadataName: CName;
+  public native let electroshockMetadataName: CName;
+  public native let revealMetadataName: CName;
 }

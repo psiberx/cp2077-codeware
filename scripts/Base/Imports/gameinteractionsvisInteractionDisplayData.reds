@@ -1,8 +1,8 @@
 public native struct gameinteractionsvisInteractionDisplayData {
-  native let putAction: CName;
-  native let wInputKey: EInputKey;
-  native let HoldAction: Bool;
-  native let calizedName: String;
-  native let pe: ChoiceTypeWrapper;
-  native let oice: InteractionChoice;
+  public native let putAction: CName;
+  public native let wInputKey: EInputKey;
+  public native let HoldAction: Bool;
+  public native let calizedName: String;
+  public native let pe: ChoiceTypeWrapper;
+  public native let oice: InteractionChoice;
 }

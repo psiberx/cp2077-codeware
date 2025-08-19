@@ -1,6 +1,6 @@
 public native class questEnablePlayerVehicle_NodeType extends questIVehicleManagerNodeType {
-  native let vehicle: String;
-  native let enable: Bool;
-  native let despawn: Bool;
-  native let makePlayerActiveVehicle: Bool;
+  public native let vehicle: String;
+  public native let enable: Bool;
+  public native let despawn: Bool;
+  public native let makePlayerActiveVehicle: Bool;
 }

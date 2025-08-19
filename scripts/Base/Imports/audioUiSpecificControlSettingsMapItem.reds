@@ -1,4 +1,4 @@
 @neverRef()
 public native class audioUiSpecificControlSettingsMapItem extends audioAudioMetadata {
-  native let uiEventSettingsMatrix: array<audioUiControlEventsSettingsMapItem>;
+  public native let uiEventSettingsMatrix: array<audioUiControlEventsSettingsMapItem>;
 }

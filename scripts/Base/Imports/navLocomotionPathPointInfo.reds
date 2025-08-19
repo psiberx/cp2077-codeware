@@ -1,4 +1,4 @@
 public native struct navLocomotionPathPointInfo {
-  native let point: navSerializableSplineProgression;
-  native let userDataIndex: Uint32;
+  public native let point: navSerializableSplineProgression;
+  public native let userDataIndex: Uint32;
 }

@@ -1,3 +1,3 @@
 public native struct scnLookAtBodyPartPropertiesAdvanced {
-  native let bodyPartName: CName;
+  public native let bodyPartName: CName;
 }

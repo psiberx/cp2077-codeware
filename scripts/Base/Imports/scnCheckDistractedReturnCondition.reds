@@ -1,3 +1,3 @@
 public native class scnCheckDistractedReturnCondition extends scnIReturnCondition {
-  native let params: scnCheckDistractedReturnConditionParams;
+  public native let params: scnCheckDistractedReturnConditionParams;
 }

@@ -1,4 +1,4 @@
 public native class CTerrainSetup extends CResource {
-  native let tiling: array<Float>;
-  native let physicalMaterial: array<CName>;
+  public native let tiling: array<Float>;
+  public native let physicalMaterial: array<CName>;
 }

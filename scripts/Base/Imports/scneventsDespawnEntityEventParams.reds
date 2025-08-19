@@ -1,3 +1,3 @@
 public native struct scneventsDespawnEntityEventParams {
-  native let performer: scnPerformerId;
+  public native let performer: scnPerformerId;
 }

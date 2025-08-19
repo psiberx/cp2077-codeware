@@ -1,2 +1,2 @@
 @addField(Entity)
-native let customCameraTarget: ECustomCameraTarget;
+public native let customCameraTarget: ECustomCameraTarget;

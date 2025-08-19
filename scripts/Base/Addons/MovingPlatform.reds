@@ -1,11 +1,11 @@
 @addField(MovingPlatform)
-native let loopType: gameMovingPlatformLoopType;
+public native let loopType: gameMovingPlatformLoopType;
 
 @addField(MovingPlatform)
-native let supportLegacyUnalignedMarkers: Bool;
+public native let supportLegacyUnalignedMarkers: Bool;
 
 @addField(MovingPlatform)
-native let enableWaterInteractions: Bool;
+public native let enableWaterInteractions: Bool;
 
 @addField(MovingPlatform)
-native let soundPositionName: CName;
+public native let soundPositionName: CName;

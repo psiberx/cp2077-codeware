@@ -1,3 +1,3 @@
 public importonly class entEffectSpawnerComponent extends IVisualComponent {
-  native let effectDescs: array<ref<entEffectDesc>>;
+  public native let effectDescs: array<ref<entEffectDesc>>;
 }

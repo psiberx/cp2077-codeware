@@ -1,4 +1,4 @@
 public native struct entLocalizationStringMapEntry {
-  native let key: CName;
-  native let string: LocalizationString;
+  public native let key: CName;
+  public native let string: LocalizationString;
 }

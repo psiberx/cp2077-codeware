@@ -1,4 +1,4 @@
 public native class questPatrolParams extends AICommandParams {
-  native let pathParams: ref<AIPatrolPathParameters>;
-  native let repeatCommandOnInterrupt: Bool;
+  public native let pathParams: ref<AIPatrolPathParameters>;
+  public native let repeatCommandOnInterrupt: Bool;
 }

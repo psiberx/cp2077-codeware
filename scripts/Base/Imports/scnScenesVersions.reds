@@ -1,4 +1,4 @@
 public native class scnScenesVersions extends CResource {
-  native let currentVersion: Uint32;
-  native let scenes: array<scnScenesVersionsSceneChanges>;
+  public native let currentVersion: Uint32;
+  public native let scenes: array<scnScenesVersionsSceneChanges>;
 }

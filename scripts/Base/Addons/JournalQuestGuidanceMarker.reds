@@ -1,8 +1,8 @@
 @addField(JournalQuestGuidanceMarker)
-native let nodeRef: NodeRef;
+public native let nodeRef: NodeRef;
 
 @addField(JournalQuestGuidanceMarker)
-native let pathfindingType: gameQuestGuidanceMarkerPathfindingType;
+public native let pathfindingType: gameQuestGuidanceMarkerPathfindingType;
 
 @addField(JournalQuestGuidanceMarker)
-native let isPortal: Bool;
+public native let isPortal: Bool;

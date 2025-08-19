@@ -1,6 +1,6 @@
 public native class gameImpostorComponent extends IComponent {
-  native let isCharacterReplica: Bool;
-  native let addHead: Bool;
-  native let ignorePlayerHeadSlot: Bool;
-  native let slotIDsToOmit: array<TweakDBID>;
+  public native let isCharacterReplica: Bool;
+  public native let addHead: Bool;
+  public native let ignorePlayerHeadSlot: Bool;
+  public native let slotIDsToOmit: array<TweakDBID>;
 }

@@ -1,9 +1,9 @@
 @neverRef()
 public native class audioVoiceContextMapItem extends audioAudioMetadata {
-  native let voTrigger: CName;
-  native let bark: audioVoBarkType;
-  native let grunt: audioVoGruntType;
-  native let answer: audioVoiceContextAnswer;
-  native let overridingVoContext: locVoiceoverContext;
-  native let gruntInterruptMode: audioVoGruntInterruptMode;
+  public native let voTrigger: CName;
+  public native let bark: audioVoBarkType;
+  public native let grunt: audioVoGruntType;
+  public native let answer: audioVoiceContextAnswer;
+  public native let overridingVoContext: locVoiceoverContext;
+  public native let gruntInterruptMode: audioVoGruntInterruptMode;
 }

@@ -1,4 +1,4 @@
 public native class audioAudioScenesMap extends audioAudioMetadata {
-  native let defaultScene: CName;
-  native let scenesToActivateByQuestEvent: ref<audioAudioSceneDictionary>;
+  public native let defaultScene: CName;
+  public native let scenesToActivateByQuestEvent: ref<audioAudioSceneDictionary>;
 }

@@ -1,7 +1,7 @@
 public native struct inkCompositionInterpolator {
-  native let parameter: CName;
-  native let interpolationMode: inkanimInterpolationMode;
-  native let interpolationType: inkanimInterpolationType;
-  native let duration: Float;
-  native let startDelay: Float;
+  public native let parameter: CName;
+  public native let interpolationMode: inkanimInterpolationMode;
+  public native let interpolationType: inkanimInterpolationType;
+  public native let duration: Float;
+  public native let startDelay: Float;
 }

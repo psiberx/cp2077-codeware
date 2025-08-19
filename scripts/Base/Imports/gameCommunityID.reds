@@ -1,3 +1,3 @@
 public native struct gameCommunityID {
-  native persistent let entityId: EntityID;
+  public native persistent let entityId: EntityID;
 }

@@ -1,9 +1,9 @@
 public native struct gameCyberspacePixelsortEffectParams {
-  native let fullscreen: Bool;
-  native let vfx: Bool;
-  native let initialDatamosh: Float;
-  native let targetDatamosh: Float;
-  native let initialIntensity: Float;
-  native let targetIntensity: Float;
-  native let timeBlend: Float;
+  public native let fullscreen: Bool;
+  public native let vfx: Bool;
+  public native let initialDatamosh: Float;
+  public native let targetDatamosh: Float;
+  public native let initialIntensity: Float;
+  public native let targetIntensity: Float;
+  public native let timeBlend: Float;
 }

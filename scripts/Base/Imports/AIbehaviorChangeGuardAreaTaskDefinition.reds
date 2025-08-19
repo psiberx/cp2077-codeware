@@ -1,3 +1,3 @@
 public native class AIbehaviorChangeGuardAreaTaskDefinition extends AIbehaviorTaskDefinition {
-  native let guardAreaNodeRef: ref<AIArgumentMapping>;
+  public native let guardAreaNodeRef: ref<AIArgumentMapping>;
 }

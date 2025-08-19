@@ -1,4 +1,4 @@
 public native struct rendRenderTextureBlobMipMapInfo {
-  native let layout: rendRenderTextureBlobMemoryLayout;
-  native let placement: rendRenderTextureBlobPlacement;
+  public native let layout: rendRenderTextureBlobMemoryLayout;
+  public native let placement: rendRenderTextureBlobPlacement;
 }

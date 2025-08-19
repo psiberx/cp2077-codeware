@@ -1,5 +1,5 @@
 @addField(inkAnimTextInterpolator)
-native let startValue: Float;
+public native let startValue: Float;
 
 @addField(inkAnimTextInterpolator)
-native let endValue: Float;
+public native let endValue: Float;

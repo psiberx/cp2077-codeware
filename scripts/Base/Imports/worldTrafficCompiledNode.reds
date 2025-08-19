@@ -1,3 +1,3 @@
 public native class worldTrafficCompiledNode extends worldNode {
-  native let aabb: Box;
+  public native let aabb: Box;
 }

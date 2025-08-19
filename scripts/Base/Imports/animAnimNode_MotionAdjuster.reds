@@ -1,7 +1,7 @@
 public native class animAnimNode_MotionAdjuster extends animAnimNode_Base {
-  native let inputNode: animPoseLink;
-  native let targetPosition: animVectorLink;
-  native let targetDirection: animVectorLink;
-  native let totalTimeToAdjust: animFloatLink;
-  native let forwardVector: Vector4;
+  public native let inputNode: animPoseLink;
+  public native let targetPosition: animVectorLink;
+  public native let targetDirection: animVectorLink;
+  public native let totalTimeToAdjust: animFloatLink;
+  public native let forwardVector: Vector4;
 }

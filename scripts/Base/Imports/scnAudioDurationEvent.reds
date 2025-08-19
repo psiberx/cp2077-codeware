@@ -1,5 +1,5 @@
 public native class scnAudioDurationEvent extends scnSceneEvent {
-  native let performer: scnPerformerId;
-  native let audioEventName: CName;
-  native let playbackDirectionSupport: scnAudioPlaybackDirectionSupportFlag;
+  public native let performer: scnPerformerId;
+  public native let audioEventName: CName;
+  public native let playbackDirectionSupport: scnAudioPlaybackDirectionSupportFlag;
 }

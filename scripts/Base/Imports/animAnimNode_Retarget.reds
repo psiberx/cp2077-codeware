@@ -1,4 +1,4 @@
 public native class animAnimNode_Retarget extends animAnimNode_OnePoseInput {
-  native let refRig: ResourceRef; // rRef<animRig>
-  native let postProcess: ref<animIAnimNode_PostProcess>;
+  public native let refRig: ResourceRef; // rRef<animRig>
+  public native let postProcess: ref<animIAnimNode_PostProcess>;
 }

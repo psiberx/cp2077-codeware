@@ -1,35 +1,35 @@
 public native class CloudAreaSettings extends IAreaSettings {
-  native let cloudSunShadowFaloff: CurveDataFloat;
-  native let cloudSunScattering: CurveDataFloat;
-  native let cloudMoonScattering: CurveDataFloat;
-  native let cloudLightColor: CurveDataHDRColor;
-  native let cloudAmbientIntensity: CurveDataFloat;
-  native let cloudCirrusOpacity: CurveDataFloat;
-  native let cloudCirrusScale: CurveDataFloat;
-  native let cloudCirrusAltitude: CurveDataFloat;
-  native let cloudCirrusTexture: ResourceRef; // rRef<CBitmapTexture>
-  native let volWeatherTexture: ResourceRef; // rRef<CBitmapTexture>
-  native let volNoiseTexture: ResourceRef; // rRef<CBitmapTexture>
-  native let volHorizonCoverage: Float;
-  native let volCoverage: CurveDataFloat;
-  native let volDensity: CurveDataFloat;
-  native let cloudsBottom: Float;
-  native let cloudsTop: Float;
-  native let rayStartOffset: Float;
-  native let rayStartFalloff: Float;
-  native let lightIntensity: CurveDataFloat;
-  native let reflectionProbeLightIntensity: CurveDataFloat;
-  native let shadowIntensity: CurveDataFloat;
-  native let worldShadowIntensity: CurveDataFloat;
-  native let ambientIntensity: CurveDataFloat;
-  native let ambientOutscatter: CurveDataFloat;
-  native let inScatter: Float;
-  native let outScatter: Float;
-  native let inVsOutScatter: Float;
-  native let silverLining: Float;
-  native let volCoverageWindInfluence: Float;
-  native let volNoiseWindInfluence: Float;
-  native let volDetailWindInfluence: Float;
-  native let volDistantFogOpacity: Float;
-  native let volCoverageOffset: Vector2;
+  public native let cloudSunShadowFaloff: CurveDataFloat;
+  public native let cloudSunScattering: CurveDataFloat;
+  public native let cloudMoonScattering: CurveDataFloat;
+  public native let cloudLightColor: CurveDataHDRColor;
+  public native let cloudAmbientIntensity: CurveDataFloat;
+  public native let cloudCirrusOpacity: CurveDataFloat;
+  public native let cloudCirrusScale: CurveDataFloat;
+  public native let cloudCirrusAltitude: CurveDataFloat;
+  public native let cloudCirrusTexture: ResourceRef; // rRef<CBitmapTexture>
+  public native let volWeatherTexture: ResourceRef; // rRef<CBitmapTexture>
+  public native let volNoiseTexture: ResourceRef; // rRef<CBitmapTexture>
+  public native let volHorizonCoverage: Float;
+  public native let volCoverage: CurveDataFloat;
+  public native let volDensity: CurveDataFloat;
+  public native let cloudsBottom: Float;
+  public native let cloudsTop: Float;
+  public native let rayStartOffset: Float;
+  public native let rayStartFalloff: Float;
+  public native let lightIntensity: CurveDataFloat;
+  public native let reflectionProbeLightIntensity: CurveDataFloat;
+  public native let shadowIntensity: CurveDataFloat;
+  public native let worldShadowIntensity: CurveDataFloat;
+  public native let ambientIntensity: CurveDataFloat;
+  public native let ambientOutscatter: CurveDataFloat;
+  public native let inScatter: Float;
+  public native let outScatter: Float;
+  public native let inVsOutScatter: Float;
+  public native let silverLining: Float;
+  public native let volCoverageWindInfluence: Float;
+  public native let volNoiseWindInfluence: Float;
+  public native let volDetailWindInfluence: Float;
+  public native let volDistantFogOpacity: Float;
+  public native let volCoverageOffset: Vector2;
 }

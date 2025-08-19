@@ -1,10 +1,10 @@
 public native struct entdismembermentCullObject {
-  native let Plane: Plane;
-  native let Plane1: Plane;
-  native let CapsulePointA: Vector3;
-  native let CapsulePointB: Vector3;
-  native let CapsuleRadius: Float;
-  native let NearestAnimBoneName: CName;
-  native let NearestAnimIndex: Int16;
-  native let RagdollBodyIndex: Uint16;
+  public native let Plane: Plane;
+  public native let Plane1: Plane;
+  public native let CapsulePointA: Vector3;
+  public native let CapsulePointB: Vector3;
+  public native let CapsuleRadius: Float;
+  public native let NearestAnimBoneName: CName;
+  public native let NearestAnimIndex: Int16;
+  public native let RagdollBodyIndex: Uint16;
 }

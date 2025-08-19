@@ -1,6 +1,6 @@
 public native class worldGuardAreaNode extends worldAreaShapeNode {
-  native let communityEntries: array<AIGuardAreaConnectedCommunity>;
-  native let combatCommunityEntries: array<AICombatGuardAreaConnectedCommunity>;
-  native let pursuitArea: NodeRef;
-  native let pursuitRange: Float;
+  public native let communityEntries: array<AIGuardAreaConnectedCommunity>;
+  public native let combatCommunityEntries: array<AICombatGuardAreaConnectedCommunity>;
+  public native let pursuitArea: NodeRef;
+  public native let pursuitRange: Float;
 }

@@ -1,2 +1,2 @@
 @addField(inkVirtualUniformListController)
-native let itemTemplate: inkWidgetLibraryReference;
+public native let itemTemplate: inkWidgetLibraryReference;

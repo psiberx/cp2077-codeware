@@ -1,3 +1,3 @@
 public native struct AIObjectId {
-  native let value: Uint64;
+  public native let value: Uint64;
 }

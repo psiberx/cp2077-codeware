@@ -1,2 +1,2 @@
 @addField(gameContainerObjectBase)
-native let giveHandicapAmmo: Bool;
+public native let giveHandicapAmmo: Bool;

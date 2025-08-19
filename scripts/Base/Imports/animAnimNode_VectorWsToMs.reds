@@ -1,4 +1,4 @@
 public native class animAnimNode_VectorWsToMs extends animAnimNode_VectorValue {
-  native let type: animEVectorWsToMsType;
-  native let vectorWs: animVectorLink;
+  public native let type: animEVectorWsToMsType;
+  public native let vectorWs: animVectorLink;
 }

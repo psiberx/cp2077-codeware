@@ -1,7 +1,7 @@
 public native class questRewindableSectionTimeJump_NodeType extends questISceneManagerNodeType {
-  native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let jumpTargetTime: Uint32;
-  native let jumpSpeed: Float;
-  native let postJumpPlayDirection: scnPlayDirection;
-  native let postJumpPlaySpeed: scnPlaySpeed;
+  public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let jumpTargetTime: Uint32;
+  public native let jumpSpeed: Float;
+  public native let postJumpPlayDirection: scnPlayDirection;
+  public native let postJumpPlaySpeed: scnPlaySpeed;
 }

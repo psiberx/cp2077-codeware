@@ -1,3 +1,3 @@
 public native class inkWidgetLibraryItemClipboardData extends ISerializable {
-  native let libraryItem: ref<inkWidgetLibraryItemUnpackedView>;
+  public native let libraryItem: ref<inkWidgetLibraryItemUnpackedView>;
 }

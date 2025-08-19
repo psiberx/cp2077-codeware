@@ -1,7 +1,7 @@
 public native struct audioWeaponFireModeSounds {
-  native let burst: CName;
-  native let charge: CName;
-  native let fullAuto: CName;
-  native let semiAuto: CName;
-  native let windup: CName;
+  public native let burst: CName;
+  public native let charge: CName;
+  public native let fullAuto: CName;
+  public native let semiAuto: CName;
+  public native let windup: CName;
 }

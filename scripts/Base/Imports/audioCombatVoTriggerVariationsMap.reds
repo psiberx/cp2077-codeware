@@ -1,3 +1,3 @@
 public native class audioCombatVoTriggerVariationsMap extends audioAudioMetadata {
-  native let voTriggerVariations: array<audioCombatVoTriggerVariationsMapItem>;
+  public native let voTriggerVariations: array<audioCombatVoTriggerVariationsMapItem>;
 }

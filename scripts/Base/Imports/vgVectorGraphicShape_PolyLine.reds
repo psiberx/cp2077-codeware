@@ -1,4 +1,4 @@
 public native class vgVectorGraphicShape_PolyLine extends vgBaseVectorGraphicShape {
-  native let ints: array<Vector2>;
-  native let roke: Float;
+  public native let ints: array<Vector2>;
+  public native let roke: Float;
 }

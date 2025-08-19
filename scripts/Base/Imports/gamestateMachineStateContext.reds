@@ -1,4 +1,4 @@
 public native struct gamestateMachineStateContext {
-  native let snapshot: StateSnapshotsContainer;
-  native let permanentParameters: gamestateMachineStateContextParameters;
+  public native let snapshot: StateSnapshotsContainer;
+  public native let permanentParameters: gamestateMachineStateContextParameters;
 }

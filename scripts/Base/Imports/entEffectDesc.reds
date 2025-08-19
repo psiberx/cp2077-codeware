@@ -1,9 +1,9 @@
 public native class entEffectDesc extends ISerializable {
-  native let id: CRUID;
-  native let effectName: CName;
-  native let effect: ResourceAsyncRef; // raRef<worldEffect>
-  native let compiledEffectInfo: worldCompiledEffectInfo;
-  native let autoSpawnTag: CName;
-  native let isAutoSpawn: Bool;
-  native let randomWeight: Uint8;
+  public native let id: CRUID;
+  public native let effectName: CName;
+  public native let effect: ResourceAsyncRef; // raRef<worldEffect>
+  public native let compiledEffectInfo: worldCompiledEffectInfo;
+  public native let autoSpawnTag: CName;
+  public native let isAutoSpawn: Bool;
+  public native let randomWeight: Uint8;
 }

@@ -1,3 +1,3 @@
 public native class meshMeshParamCompiledPhysics extends meshMeshParameter {
-  native let collection: ref<physicsDeferredCollection>;
+  public native let collection: ref<physicsDeferredCollection>;
 }

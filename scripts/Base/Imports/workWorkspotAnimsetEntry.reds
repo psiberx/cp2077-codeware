@@ -1,5 +1,5 @@
 public native struct workWorkspotAnimsetEntry {
-  native let rig: ResourceAsyncRef; // raRef<animRig>
-  native let animations: animAnimSetup;
-  native let loadingHandles: array<ResourceRef>;
+  public native let rig: ResourceAsyncRef; // raRef<animRig>
+  public native let animations: animAnimSetup;
+  public native let loadingHandles: array<ResourceRef>;
 }

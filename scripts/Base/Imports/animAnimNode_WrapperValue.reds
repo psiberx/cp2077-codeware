@@ -1,5 +1,5 @@
 public native class animAnimNode_WrapperValue extends animAnimNode_FloatValue {
-  native let wrapperNames: array<CName>;
-  native let logicOp: animEAnimGraphLogicOp;
-  native let oneMinus: Bool;
+  public native let wrapperNames: array<CName>;
+  public native let logicOp: animEAnimGraphLogicOp;
+  public native let oneMinus: Bool;
 }

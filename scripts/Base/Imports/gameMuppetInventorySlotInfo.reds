@@ -1,5 +1,5 @@
 public native struct gameMuppetInventorySlotInfo {
-  native let itemCategory: TweakDBID;
-  native let itemId: ItemID;
-  native let quantity: Uint32;
+  public native let itemCategory: TweakDBID;
+  public native let itemId: ItemID;
+  public native let quantity: Uint32;
 }

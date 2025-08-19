@@ -1,5 +1,5 @@
 public native class questSetVar_NodeType extends questIFactsDBManagerNodeType {
-  native let factName: String;
-  native let value: Int32;
-  native let setExactValue: Bool;
+  public native let factName: String;
+  public native let value: Int32;
+  public native let setExactValue: Bool;
 }

@@ -1,5 +1,5 @@
 public native struct gameAnimParamSlotsOption {
-  native let slotID: TweakDBID;
-  native let paramName: CName;
-  native let function: entAnimParamSlotFunction;
+  public native let slotID: TweakDBID;
+  public native let paramName: CName;
+  public native let function: entAnimParamSlotFunction;
 }

@@ -1,8 +1,8 @@
 public native struct communityPhaseTimePeriod {
-  native let hour: communityECommunitySpawnTime;
-  native let quantity: Uint16;
-  native let markings: array<CName>;
-  native let spotNodeRefs: array<NodeRef>;
-  native let categories: array<gameSpotSequenceCategory>;
-  native let isSequence: Bool;
+  public native let hour: communityECommunitySpawnTime;
+  public native let quantity: Uint16;
+  public native let markings: array<CName>;
+  public native let spotNodeRefs: array<NodeRef>;
+  public native let categories: array<gameSpotSequenceCategory>;
+  public native let isSequence: Bool;
 }

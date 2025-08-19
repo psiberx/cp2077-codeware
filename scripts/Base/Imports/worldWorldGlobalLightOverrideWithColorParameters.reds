@@ -1,4 +1,4 @@
 public native struct worldWorldGlobalLightOverrideWithColorParameters {
-  native let lightDirOverride: GlobalLightingTrajectoryOverride;
-  native let lightColorOverride: HDRColor;
+  public native let lightDirOverride: GlobalLightingTrajectoryOverride;
+  public native let lightColorOverride: HDRColor;
 }

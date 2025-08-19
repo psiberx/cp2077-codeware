@@ -1,7 +1,7 @@
 public native class gameuiarcadeTankPlayerController extends gameuiarcadeArcadePlayerController {
-  native let avatarRef: inkWidgetRef;
-  native let health: inkWidgetRef;
-  native let lives: inkWidgetRef;
-  native let aeams: inkWidgetRef;
-  native let projectileSpawner: inkWidgetRef;
+  public native let avatarRef: inkWidgetRef;
+  public native let health: inkWidgetRef;
+  public native let lives: inkWidgetRef;
+  public native let aeams: inkWidgetRef;
+  public native let projectileSpawner: inkWidgetRef;
 }

@@ -1,4 +1,4 @@
 public native class CParticleDrawerMesh extends IParticleDrawer {
-  native let meshes: array<ResourceRef>;
-  native let orientationMode: EMeshParticleOrientationMode;
+  public native let meshes: array<ResourceRef>;
+  public native let orientationMode: EMeshParticleOrientationMode;
 }

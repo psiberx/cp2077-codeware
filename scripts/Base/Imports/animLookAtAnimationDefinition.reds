@@ -1,6 +1,6 @@
 public native struct animLookAtAnimationDefinition {
-  native let minTransitionDuration: Float;
-  native let playAnimProbability: Float;
-  native let animDelay: Float;
-  native let animations: array<CName>;
+  public native let minTransitionDuration: Float;
+  public native let playAnimProbability: Float;
+  public native let animDelay: Float;
+  public native let animations: array<CName>;
 }

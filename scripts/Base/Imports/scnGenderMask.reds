@@ -1,3 +1,3 @@
 public native struct scnGenderMask {
-  native let mask: Uint8;
+  public native let mask: Uint8;
 }

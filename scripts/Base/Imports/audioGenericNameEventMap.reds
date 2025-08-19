@@ -1,3 +1,3 @@
 public native class audioGenericNameEventMap extends audioAudioMetadata {
-  native let eventOverrides: ref<audioGenericNameEventDictionary>;
+  public native let eventOverrides: ref<audioGenericNameEventDictionary>;
 }

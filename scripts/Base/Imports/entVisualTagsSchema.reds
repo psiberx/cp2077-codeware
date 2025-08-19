@@ -1,4 +1,4 @@
 public native class entVisualTagsSchema extends ISerializable {
-  native let visualTags: redTagList;
-  native let schema: CName;
+  public native let visualTags: redTagList;
+  public native let schema: CName;
 }

@@ -1,13 +1,13 @@
 public native class scnReminderCondition extends ISerializable {
-  native let useCustomReminder: Bool;
-  native let reminderActor: scnActorId;
-  native let waitTimeForReminderA: scnSceneTime;
-  native let waitTimeForReminderB: scnSceneTime;
-  native let waitTimeForReminderC: scnSceneTime;
-  native let waitTimeForLooping: scnSceneTime;
-  native let startTime: scnSceneTime;
-  native let processStep: scnReminderConditionProcessStep;
-  native let playing: Bool;
-  native let running: Bool;
-  native let reminderParams: scnChoiceNodeNsReminderParams;
+  public native let useCustomReminder: Bool;
+  public native let reminderActor: scnActorId;
+  public native let waitTimeForReminderA: scnSceneTime;
+  public native let waitTimeForReminderB: scnSceneTime;
+  public native let waitTimeForReminderC: scnSceneTime;
+  public native let waitTimeForLooping: scnSceneTime;
+  public native let startTime: scnSceneTime;
+  public native let processStep: scnReminderConditionProcessStep;
+  public native let playing: Bool;
+  public native let running: Bool;
+  public native let reminderParams: scnChoiceNodeNsReminderParams;
 }

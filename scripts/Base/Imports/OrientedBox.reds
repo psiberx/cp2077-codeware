@@ -1,3 +1,3 @@
 public native struct OrientedBox {
-  native let position: Vector4;
+  public native let position: Vector4;
 }

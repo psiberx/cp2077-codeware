@@ -1,16 +1,16 @@
 public native class audioMeleeWeaponConfiguration extends audioAudioMetadata {
-  native let fastWhoosh: audioMeleeSound;
-  native let normalWhoosh: audioMeleeSound;
-  native let slowWhoosh: audioMeleeSound;
-  native let detailSound: audioMeleeSound;
-  native let handlingSound: audioMeleeSound;
-  native let equipSound: audioMeleeSound;
-  native let unequipSound: audioMeleeSound;
-  native let blockSound: audioMeleeSound;
-  native let parrySound: audioMeleeSound;
-  native let attackChargedThreshold: Float;
-  native let attackChargedSound: audioMeleeSound;
-  native let attackDischargedSound: audioMeleeSound;
-  native let meleeSoundsByHitPerMaterialType: ref<audioMeleeHitTypeMeleeSoundDictionary>;
-  native let meleeWeaponConfigurationsByRigTypeMap: audioMeleeRigTypeMeleeWeaponConfigurationMap;
+  public native let fastWhoosh: audioMeleeSound;
+  public native let normalWhoosh: audioMeleeSound;
+  public native let slowWhoosh: audioMeleeSound;
+  public native let detailSound: audioMeleeSound;
+  public native let handlingSound: audioMeleeSound;
+  public native let equipSound: audioMeleeSound;
+  public native let unequipSound: audioMeleeSound;
+  public native let blockSound: audioMeleeSound;
+  public native let parrySound: audioMeleeSound;
+  public native let attackChargedThreshold: Float;
+  public native let attackChargedSound: audioMeleeSound;
+  public native let attackDischargedSound: audioMeleeSound;
+  public native let meleeSoundsByHitPerMaterialType: ref<audioMeleeHitTypeMeleeSoundDictionary>;
+  public native let meleeWeaponConfigurationsByRigTypeMap: audioMeleeRigTypeMeleeWeaponConfigurationMap;
 }

@@ -1,4 +1,4 @@
 public native class NotifyFootstepMaterialContextChangedEvent extends Event {
-  native let footwareType: CName;
-  native let surfaceFlavourName: CName;
+  public native let footwareType: CName;
+  public native let surfaceFlavourName: CName;
 }

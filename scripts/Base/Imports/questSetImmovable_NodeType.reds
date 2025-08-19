@@ -1,4 +1,4 @@
 public native class questSetImmovable_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let enable: Bool;
+  public native let vehicleRef: EntityReference;
+  public native let enable: Bool;
 }

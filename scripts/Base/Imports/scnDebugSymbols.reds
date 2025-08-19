@@ -1,6 +1,6 @@
 public native struct scnDebugSymbols {
-  native let performersDebugSymbols: array<scnPerformerSymbol>;
-  native let workspotsDebugSymbols: array<scnWorkspotSymbol>;
-  native let sceneEventsDebugSymbols: array<scnSceneEventSymbol>;
-  native let sceneNodesDebugSymbols: array<scnNodeSymbol>;
+  public native let performersDebugSymbols: array<scnPerformerSymbol>;
+  public native let workspotsDebugSymbols: array<scnWorkspotSymbol>;
+  public native let sceneEventsDebugSymbols: array<scnSceneEventSymbol>;
+  public native let sceneNodesDebugSymbols: array<scnNodeSymbol>;
 }

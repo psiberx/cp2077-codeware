@@ -1,20 +1,20 @@
 @addField(IWorldWidgetComponent)
-native let glitchValue: Float;
+public native let glitchValue: Float;
 
 @addField(IWorldWidgetComponent)
-native let tintColor: Color;
+public native let tintColor: Color;
 
 @addField(IWorldWidgetComponent)
-native let screenAreaMultiplier: Float;
+public native let screenAreaMultiplier: Float;
 
 @addField(IWorldWidgetComponent)
-native let textureMinMipBias: Uint32;
+public native let textureMinMipBias: Uint32;
 
 @addField(IWorldWidgetComponent)
-native let textureMaxMipBias: Uint32;
+public native let textureMaxMipBias: Uint32;
 
 @addField(IWorldWidgetComponent)
-native let meshTargetBinding: ref<worlduiMeshTargetBinding>;
+public native let meshTargetBinding: ref<worlduiMeshTargetBinding>;
 
 @addField(IWorldWidgetComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

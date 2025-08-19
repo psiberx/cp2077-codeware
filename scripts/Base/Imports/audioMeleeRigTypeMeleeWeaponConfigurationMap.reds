@@ -1,3 +1,3 @@
 public native struct audioMeleeRigTypeMeleeWeaponConfigurationMap {
-  native let mapItems: array<audioMeleeRigTypeMeleeWeaponConfigurationMapItem>;
+  public native let mapItems: array<audioMeleeRigTypeMeleeWeaponConfigurationMapItem>;
 }

@@ -1,4 +1,4 @@
 public native struct PSODescStencilFuncDesc {
-  native let stencilPassOp: PSODescDepthStencilModeStencilOpMode;
-  native let stencilFunc: PSODescDepthStencilModeComparisonMode;
+  public native let stencilPassOp: PSODescDepthStencilModeStencilOpMode;
+  public native let stencilFunc: PSODescDepthStencilModeComparisonMode;
 }

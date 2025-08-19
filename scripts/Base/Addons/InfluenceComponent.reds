@@ -1,2 +1,2 @@
 @addField(InfluenceComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

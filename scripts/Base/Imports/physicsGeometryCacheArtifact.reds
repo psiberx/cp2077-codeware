@@ -1,4 +1,4 @@
 public native class physicsGeometryCacheArtifact extends CResource {
-  native let entryKeys: array<physicsCacheKey>;
-  native let entryTable: array<physicsCacheEntry>;
+  public native let entryKeys: array<physicsCacheKey>;
+  public native let entryTable: array<physicsCacheEntry>;
 }

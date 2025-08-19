@@ -1,8 +1,8 @@
 public native struct animCollisionRoundedShape {
-  native let bone: animTransformIndex;
-  native let transformLS: QsTransform;
-  native let roundedCornerRadius: Float;
-  native let xBoxExtent: Float;
-  native let yBoxExtent: Float;
-  native let zBoxExtent: Float;
+  public native let bone: animTransformIndex;
+  public native let transformLS: QsTransform;
+  public native let roundedCornerRadius: Float;
+  public native let xBoxExtent: Float;
+  public native let yBoxExtent: Float;
+  public native let zBoxExtent: Float;
 }

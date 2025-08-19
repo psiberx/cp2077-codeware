@@ -1,5 +1,5 @@
 public native class audioDismembermentSoundSettings extends audioAudioMetadata {
-  native let headEvent: CName;
-  native let armEvent: CName;
-  native let legEvent: CName;
+  public native let headEvent: CName;
+  public native let armEvent: CName;
+  public native let legEvent: CName;
 }

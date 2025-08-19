@@ -1,4 +1,4 @@
 public native class audioEditorSelectedData extends audioAudioMetadata {
-  native let selectedWeaponConfigurationName: CName;
-  native let selectedFootstepsEventName: CName;
+  public native let selectedWeaponConfigurationName: CName;
+  public native let selectedFootstepsEventName: CName;
 }

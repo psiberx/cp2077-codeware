@@ -1,4 +1,4 @@
 public native class cpConveyorObject extends GameObject {
-  native let rotationLerpFactor: Float;
-  native let ignoreZAxis: Bool;
+  public native let rotationLerpFactor: Float;
+  public native let ignoreZAxis: Bool;
 }

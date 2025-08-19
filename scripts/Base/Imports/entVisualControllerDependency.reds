@@ -1,5 +1,5 @@
 public native struct entVisualControllerDependency {
-  native let mesh: ResourceAsyncRef; // raRef<CMesh>
-  native let appearanceName: CName;
-  native let componentName: CName;
+  public native let mesh: ResourceAsyncRef; // raRef<CMesh>
+  public native let appearanceName: CName;
+  public native let componentName: CName;
 }

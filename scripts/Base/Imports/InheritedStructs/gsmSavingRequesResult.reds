@@ -1,4 +1,4 @@
 public native struct gsmSavingRequesResult {
-  native let callbackName: CName;
-  native let listeners: array<inkCallbackListener>;
+  public native let callbackName: CName;
+  public native let listeners: array<inkCallbackListener>;
 }

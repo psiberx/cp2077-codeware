@@ -1,4 +1,4 @@
 public native struct scnAdditionalSpeaker {
-  native let actorId: scnActorId;
-  native let type: scnAdditionalSpeakerType;
+  public native let actorId: scnActorId;
+  public native let type: scnAdditionalSpeakerType;
 }

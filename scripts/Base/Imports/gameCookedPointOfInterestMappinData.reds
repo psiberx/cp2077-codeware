@@ -1,5 +1,5 @@
 public native struct gameCookedPointOfInterestMappinData {
-  native let journalPathHash: Uint32;
-  native let entityID: EntityID;
-  native let position: Vector3;
+  public native let journalPathHash: Uint32;
+  public native let entityID: EntityID;
+  public native let position: Vector3;
 }

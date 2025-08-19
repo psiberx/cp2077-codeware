@@ -1,3 +1,3 @@
 public native struct gameCompressedSmartObjectPointProperties {
-  native let propertyId: Uint16;
+  public native let propertyId: Uint16;
 }

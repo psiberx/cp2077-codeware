@@ -1,4 +1,4 @@
 public native class DistantLightsAreaSettings extends IAreaSettings {
-  native let distantLightStartDistance: Float;
-  native let distantLightFadeDistance: Float;
+  public native let distantLightStartDistance: Float;
+  public native let distantLightFadeDistance: Float;
 }

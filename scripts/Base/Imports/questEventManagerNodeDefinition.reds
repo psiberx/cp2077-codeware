@@ -1,9 +1,9 @@
 public native class questEventManagerNodeDefinition extends questDisableableNodeDefinition {
-  native let isUiEvent: Bool;
-  native let isObjectPlayer: Bool;
-  native let objectRef: EntityReference;
-  native let managerName: String;
-  native let event: ref<IScriptable>;
-  native let PSClassName: CName;
-  native let componentName: CName;
+  public native let isUiEvent: Bool;
+  public native let isObjectPlayer: Bool;
+  public native let objectRef: EntityReference;
+  public native let managerName: String;
+  public native let event: ref<IScriptable>;
+  public native let PSClassName: CName;
+  public native let componentName: CName;
 }

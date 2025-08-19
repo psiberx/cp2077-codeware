@@ -1,4 +1,4 @@
 public native struct animFloatTrackInfo {
-  native let name: CName;
-  native let referenceValue: Float;
+  public native let name: CName;
+  public native let referenceValue: Float;
 }

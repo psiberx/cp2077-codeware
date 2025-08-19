@@ -1,2 +1,2 @@
 @addField(BaseMappinBaseController)
-native let scaleWidget: inkWidgetRef;
+public native let scaleWidget: inkWidgetRef;

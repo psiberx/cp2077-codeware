@@ -1,9 +1,9 @@
 public native struct gameJournalEntryStateChangeDelayData {
-  native let entryPath: ref<gameJournalPath>;
-  native let entryType: CName;
-  native let oldState: gameJournalEntryState;
-  native let newState: gameJournalEntryState;
-  native let notifyOption: JournalNotifyOption;
-  native let changeType: JournalChangeType;
-  native let delay: Float;
+  public native let entryPath: ref<gameJournalPath>;
+  public native let entryType: CName;
+  public native let oldState: gameJournalEntryState;
+  public native let newState: gameJournalEntryState;
+  public native let notifyOption: JournalNotifyOption;
+  public native let changeType: JournalChangeType;
+  public native let delay: Float;
 }

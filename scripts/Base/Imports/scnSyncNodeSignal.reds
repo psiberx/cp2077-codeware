@@ -1,6 +1,6 @@
 public native struct scnSyncNodeSignal {
-  native let nodeId: Uint32;
-  native let name: Uint16;
-  native let ordinal: Uint16;
-  native let numRuns: Uint16;
+  public native let nodeId: Uint32;
+  public native let name: Uint16;
+  public native let ordinal: Uint16;
+  public native let numRuns: Uint16;
 }

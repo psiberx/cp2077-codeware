@@ -1,10 +1,10 @@
 public native class AIbehaviorDriveChaseTargetTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
-  native let target: ref<AIArgumentMapping>;
-  native let distanceMin: ref<AIArgumentMapping>;
-  native let distanceMax: ref<AIArgumentMapping>;
-  native let forcedStartSpeed: ref<AIArgumentMapping>;
-  native let needDriver: ref<AIArgumentMapping>;
-  native let aggressiveRammingEnabled: ref<AIArgumentMapping>;
-  native let ignoreChaseVehiclesLimit: ref<AIArgumentMapping>;
-  native let boostDrivingStats: ref<AIArgumentMapping>;
+  public native let target: ref<AIArgumentMapping>;
+  public native let distanceMin: ref<AIArgumentMapping>;
+  public native let distanceMax: ref<AIArgumentMapping>;
+  public native let forcedStartSpeed: ref<AIArgumentMapping>;
+  public native let needDriver: ref<AIArgumentMapping>;
+  public native let aggressiveRammingEnabled: ref<AIArgumentMapping>;
+  public native let ignoreChaseVehiclesLimit: ref<AIArgumentMapping>;
+  public native let boostDrivingStats: ref<AIArgumentMapping>;
 }

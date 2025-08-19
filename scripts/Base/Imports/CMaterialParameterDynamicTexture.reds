@@ -1,3 +1,3 @@
 public native class CMaterialParameterDynamicTexture extends CMaterialParameter {
-  native let texture: ResourceRef; // rRef<ITexture>
+  public native let texture: ResourceRef; // rRef<ITexture>
 }

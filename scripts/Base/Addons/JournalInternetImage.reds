@@ -1,5 +1,5 @@
 @addField(JournalInternetImage)
-native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+public native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
 
 @addField(JournalInternetImage)
-native let texturePart: CName;
+public native let texturePart: CName;

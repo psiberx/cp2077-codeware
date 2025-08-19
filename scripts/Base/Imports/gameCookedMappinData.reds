@@ -1,5 +1,5 @@
 public native struct gameCookedMappinData {
-  native let journalPathHash: Uint32;
-  native let position: Vector3;
-  native let volume: ref<gamemappinsIMappinVolume>;
+  public native let journalPathHash: Uint32;
+  public native let position: Vector3;
+  public native let volume: ref<gamemappinsIMappinVolume>;
 }

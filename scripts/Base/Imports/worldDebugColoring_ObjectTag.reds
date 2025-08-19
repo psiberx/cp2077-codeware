@@ -1,4 +1,4 @@
 public native class worldDebugColoring_ObjectTag extends worldEditorDebugColoringSettings {
-  native let tag: worldObjectTag;
-  native let color: Color;
+  public native let tag: worldObjectTag;
+  public native let color: Color;
 }

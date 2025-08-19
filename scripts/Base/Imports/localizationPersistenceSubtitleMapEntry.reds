@@ -1,4 +1,4 @@
 public native struct localizationPersistenceSubtitleMapEntry {
-  native let subtitleGroup: CName;
-  native let subtitleFile: ResourceAsyncRef; // raRef<JsonResource>
+  public native let subtitleGroup: CName;
+  public native let subtitleFile: ResourceAsyncRef; // raRef<JsonResource>
 }

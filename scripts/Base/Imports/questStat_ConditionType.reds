@@ -1,5 +1,5 @@
 public native class questStat_ConditionType extends questIStatsConditionType {
-  native let statType: gamedataStatType;
-  native let value: Float;
-  native let comparisonType: EComparisonType;
+  public native let statType: gamedataStatType;
+  public native let value: Float;
+  public native let comparisonType: EComparisonType;
 }

@@ -1,6 +1,6 @@
 public native struct worldDbgOverlapBox {
-  native let box: Box;
-  native let transform: Transform;
-  native let level: Uint32;
-  native let isHit: Bool;
+  public native let box: Box;
+  public native let transform: Transform;
+  public native let level: Uint32;
+  public native let isHit: Bool;
 }

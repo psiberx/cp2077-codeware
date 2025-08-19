@@ -1,11 +1,11 @@
 @addField(SelectorController)
-native let index: Int32;
+public native let index: Int32;
 
 @addField(SelectorController)
-native let values: array<String>;
+public native let values: array<String>;
 
 @addField(SelectorController)
-native let cycledNavigation: Bool;
+public native let cycledNavigation: Bool;
 
 @addField(SelectorController)
-native let SelectionChanged: inkSelectionChangeCallback;
+public native let SelectionChanged: inkSelectionChangeCallback;

@@ -1,3 +1,3 @@
 public native struct worldTrafficLaneCrowdCreationInfo {
-  native let connectedFragments: array<worldTrafficLaneCrowdFragment>;
+  public native let connectedFragments: array<worldTrafficLaneCrowdFragment>;
 }

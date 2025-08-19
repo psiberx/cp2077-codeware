@@ -1,3 +1,3 @@
 public native struct meshGfxClothChunkData {
-  native let simulation: array<Uint16>;
+  public native let simulation: array<Uint16>;
 }

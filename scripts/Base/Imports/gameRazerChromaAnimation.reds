@@ -1,4 +1,4 @@
 public native struct gameRazerChromaAnimation {
-  native let id: Int32;
-  native let name: CName;
+  public native let id: Int32;
+  public native let name: CName;
 }

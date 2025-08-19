@@ -1,4 +1,4 @@
 public importonly class MultiPrereq extends IPrereq {
-  native let aggregationType: gameAggregationType;
-  native let nestedPrereqs: array<ref<IPrereq>>;
+  public native let aggregationType: gameAggregationType;
+  public native let nestedPrereqs: array<ref<IPrereq>>;
 }

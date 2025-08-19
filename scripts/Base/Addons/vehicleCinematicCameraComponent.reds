@@ -1,2 +1,2 @@
 @addField(vehicleCinematicCameraComponent)
-native let groups: array<vehicleCinematicCameraShotGroup>;
+public native let groups: array<vehicleCinematicCameraShotGroup>;

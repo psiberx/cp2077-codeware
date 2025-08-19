@@ -1,5 +1,5 @@
 public native class workLookAtDrivenTurn extends workIEntry {
-  native let turnAngle: Int32;
-  native let turnAnimName: CName;
-  native let blendTime: Float;
+  public native let turnAngle: Int32;
+  public native let turnAnimName: CName;
+  public native let blendTime: Float;
 }

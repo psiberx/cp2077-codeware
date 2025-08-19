@@ -1,5 +1,5 @@
 @addField(worldITriggerAreaNotifer)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;
 
 @addField(worldITriggerAreaNotifer)
-native let excludeChannels: Uint32;
+public native let excludeChannels: Uint32;

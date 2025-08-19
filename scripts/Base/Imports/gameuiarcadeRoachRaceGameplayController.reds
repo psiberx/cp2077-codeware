@@ -1,16 +1,16 @@
 public native class gameuiarcadeRoachRaceGameplayController extends gameuiarcadeArcadeGameplayController {
-  native let defaultWorldVelocity: Float;
-  native let cycleWorldVelocityMultiplier: Float;
-  native let carrotPowerupPointsPerSecond: Float;
-  native let carrotPowerupTime: Float;
-  native let carrotPowerupWorldVelocityMultiplier: Float;
-  native let collisionSFX: CName;
-  native let powerupPickupSFX: CName;
-  native let player: inkWidgetRef;
-  native let obstacleSpawner: inkWidgetRef;
-  native let background: inkWidgetRef;
-  native let currentLevelAndCycleText: inkTextRef;
-  native let pointsBoostPickupText: inkTextRef;
-  native let dummy: inkWidgetRef;
-  native let invincibilityCooldownIndicator: inkWidgetRef;
+  public native let defaultWorldVelocity: Float;
+  public native let cycleWorldVelocityMultiplier: Float;
+  public native let carrotPowerupPointsPerSecond: Float;
+  public native let carrotPowerupTime: Float;
+  public native let carrotPowerupWorldVelocityMultiplier: Float;
+  public native let collisionSFX: CName;
+  public native let powerupPickupSFX: CName;
+  public native let player: inkWidgetRef;
+  public native let obstacleSpawner: inkWidgetRef;
+  public native let background: inkWidgetRef;
+  public native let currentLevelAndCycleText: inkTextRef;
+  public native let pointsBoostPickupText: inkTextRef;
+  public native let dummy: inkWidgetRef;
+  public native let invincibilityCooldownIndicator: inkWidgetRef;
 }

@@ -1,4 +1,4 @@
 public native struct audioVehicleWheelMaterialsMapItem {
-  native let name: CName;
-  native let audioMaterialCoeff: Float;
+  public native let name: CName;
+  public native let audioMaterialCoeff: Float;
 }

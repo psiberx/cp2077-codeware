@@ -1,23 +1,23 @@
 @addField(BumpComponent)
-native let isPlayerControlled: Bool;
+public native let isPlayerControlled: Bool;
 
 @addField(BumpComponent)
-native let movementSpreadDistance: Float;
+public native let movementSpreadDistance: Float;
 
 @addField(BumpComponent)
-native let movementSpreadRadius: Float;
+public native let movementSpreadRadius: Float;
 
 @addField(BumpComponent)
-native let distanceToReactBack: Float;
+public native let distanceToReactBack: Float;
 
 @addField(BumpComponent)
-native let distanceToReactFront: Float;
+public native let distanceToReactFront: Float;
 
 @addField(BumpComponent)
-native let reactionSettings: array<BumpReactionSetting>;
+public native let reactionSettings: array<BumpReactionSetting>;
 
 @addField(BumpComponent)
-native let autoPlayBumpAnimation: Bool;
+public native let autoPlayBumpAnimation: Bool;
 
 @addField(BumpComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

@@ -1,8 +1,8 @@
 @addField(AIBaseUseWorkspotCommand)
-native persistent let workExcludedGestures: array<WorkEntryId>;
+public native persistent let workExcludedGestures: array<WorkEntryId>;
 
 @addField(AIBaseUseWorkspotCommand)
-native persistent let infiniteSequenceEntryId: WorkEntryId;
+public native persistent let infiniteSequenceEntryId: WorkEntryId;
 
 @addField(AIBaseUseWorkspotCommand)
-native persistent let idleOnlyMode: Bool;
+public native persistent let idleOnlyMode: Bool;

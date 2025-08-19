@@ -1,9 +1,9 @@
 public native struct gameMuppetReplicatedState {
-  native let recordID: TweakDBID;
-  native let persistentID: Uint64;
-  native let state: gameMuppetState;
-  native let initialOrientation: EulerAngles;
-  native let initialLocation: Vector3;
-  native let health: Float;
-  native let armor: Float;
+  public native let recordID: TweakDBID;
+  public native let persistentID: Uint64;
+  public native let state: gameMuppetState;
+  public native let initialOrientation: EulerAngles;
+  public native let initialLocation: Vector3;
+  public native let health: Float;
+  public native let armor: Float;
 }

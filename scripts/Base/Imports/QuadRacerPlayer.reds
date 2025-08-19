@@ -1,10 +1,10 @@
 public native class QuadRacerPlayer extends MinigamePlayerController {
-  native let playerImage: inkImageRef;
-  native let leftTireSmoke: inkImageRef;
-  native let rightTireSmoke: inkImageRef;
-  native let rightFlame: inkImageRef;
-  native let leftFlame: inkImageRef;
-  native let leftTurnAtlasRegion: CName;
-  native let rightTurnAtlasRegion: CName;
-  native let straightTurnAtlasRegion: CName;
+  public native let playerImage: inkImageRef;
+  public native let leftTireSmoke: inkImageRef;
+  public native let rightTireSmoke: inkImageRef;
+  public native let rightFlame: inkImageRef;
+  public native let leftFlame: inkImageRef;
+  public native let leftTurnAtlasRegion: CName;
+  public native let rightTurnAtlasRegion: CName;
+  public native let straightTurnAtlasRegion: CName;
 }

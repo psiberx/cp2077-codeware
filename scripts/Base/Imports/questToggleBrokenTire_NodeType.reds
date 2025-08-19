@@ -1,5 +1,5 @@
 public native class questToggleBrokenTire_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let val: Bool;
-  native let tire: Uint32;
+  public native let vehicleRef: EntityReference;
+  public native let val: Bool;
+  public native let tire: Uint32;
 }

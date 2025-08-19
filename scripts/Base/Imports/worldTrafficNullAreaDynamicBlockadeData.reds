@@ -1,3 +1,3 @@
 public native class worldTrafficNullAreaDynamicBlockadeData extends ISerializable {
-  native let nullAreasBlockades: array<worldTrafficNullAreaDynamicBlockade>;
+  public native let nullAreasBlockades: array<worldTrafficNullAreaDynamicBlockade>;
 }

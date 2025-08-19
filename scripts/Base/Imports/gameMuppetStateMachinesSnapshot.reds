@@ -1,3 +1,3 @@
 public native struct gameMuppetStateMachinesSnapshot {
-  native let stateMachines: array<gameMuppetStateMachineSnapshot>;
+  public native let stateMachines: array<gameMuppetStateMachineSnapshot>;
 }

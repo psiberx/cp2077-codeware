@@ -1,14 +1,14 @@
 public native class animAnimNode_Drag extends animAnimNode_OnePoseInput {
-  native let sourceBone: animTransformIndex;
-  native let outTargetBone: animTransformIndex;
-  native let simulationFps: Float;
-  native let sourceSpeedMultiplier: Float;
-  native let hasOvershoot: Bool;
-  native let overshootDuration: Float;
-  native let overshootDetectionMinSpeed: Float;
-  native let overshootDetectionMaxSpeed: Float;
-  native let useSteps: Bool;
-  native let stepsTargetSpeedMultiplier: Float;
-  native let timeBetweenSteps: Float;
-  native let timeInStep: Float;
+  public native let sourceBone: animTransformIndex;
+  public native let outTargetBone: animTransformIndex;
+  public native let simulationFps: Float;
+  public native let sourceSpeedMultiplier: Float;
+  public native let hasOvershoot: Bool;
+  public native let overshootDuration: Float;
+  public native let overshootDetectionMinSpeed: Float;
+  public native let overshootDetectionMaxSpeed: Float;
+  public native let useSteps: Bool;
+  public native let stepsTargetSpeedMultiplier: Float;
+  public native let timeBetweenSteps: Float;
+  public native let timeInStep: Float;
 }

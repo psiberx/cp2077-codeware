@@ -1,5 +1,5 @@
 public native class questSetPhoneRestriction_NodeType extends questIPhoneManagerNodeType {
-  native let applyPhoneRestriction: Bool;
-  native let forcedApply: Bool;
-  native let forcedApplySource: CName;
+  public native let applyPhoneRestriction: Bool;
+  public native let forcedApply: Bool;
+  public native let forcedApplySource: CName;
 }

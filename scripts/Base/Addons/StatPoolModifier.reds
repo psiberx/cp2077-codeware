@@ -1,2 +1,2 @@
 @addField(StatPoolModifier)
-native let usingPointValues: Bool;
+public native let usingPointValues: Bool;

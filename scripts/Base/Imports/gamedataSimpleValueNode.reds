@@ -1,4 +1,4 @@
 public native class gamedataSimpleValueNode extends gamedataValueDataNode {
-  native let type: gamedataSimpleValueNodeValueType;
-  native let data: String;
+  public native let type: gamedataSimpleValueNodeValueType;
+  public native let data: String;
 }

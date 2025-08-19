@@ -1,4 +1,4 @@
 public native struct entFallbackSlot {
-  native let slotName: CName;
-  native let boneName: CName;
+  public native let slotName: CName;
+  public native let boneName: CName;
 }

@@ -1,12 +1,12 @@
 public native struct questPlayVoiceset_NodeTypeParams {
-  native let puppetRef: EntityReference;
-  native let isPlayer: Bool;
-  native let voicesetName: CName;
-  native let useVoicesetSystem: Bool;
-  native let playOnlyGrunt: Bool;
-  native let overridingVoiceoverContext: locVoiceoverContext;
-  native let overrideVoiceoverExpression: Bool;
-  native let overridingVoiceoverExpression: locVoiceoverExpression;
-  native let overrideVisualStyle: Bool;
-  native let overridingVisualStyle: scnDialogLineVisualStyle;
+  public native let puppetRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let voicesetName: CName;
+  public native let useVoicesetSystem: Bool;
+  public native let playOnlyGrunt: Bool;
+  public native let overridingVoiceoverContext: locVoiceoverContext;
+  public native let overrideVoiceoverExpression: Bool;
+  public native let overridingVoiceoverExpression: locVoiceoverExpression;
+  public native let overrideVisualStyle: Bool;
+  public native let overridingVisualStyle: scnDialogLineVisualStyle;
 }

@@ -1,18 +1,18 @@
 public native struct interopTerrainNodeInfo {
-  native let width: Uint32;
-  native let height: Uint32;
-  native let externalDataSource: Bool;
-  native let isTerrainNode: Bool;
-  native let blendOrder: Uint8;
-  native let blendModeHeightIsIgnore: Bool;
-  native let blendModeHeightIsNormal: Bool;
-  native let blendModeColorIsIgnore: Bool;
-  native let blendModeHolesIsIgnore: Bool;
-  native let terrainSysID: Uint16;
-  native let nodeName: String;
-  native let nodeScale: Vector3;
-  native let nodeTransform: Transform;
-  native let nodeCellResScale: Float;
-  native let densityTexelSize: Float;
-  native let nodeIDPath: toolsEditorObjectIDPath;
+  public native let width: Uint32;
+  public native let height: Uint32;
+  public native let externalDataSource: Bool;
+  public native let isTerrainNode: Bool;
+  public native let blendOrder: Uint8;
+  public native let blendModeHeightIsIgnore: Bool;
+  public native let blendModeHeightIsNormal: Bool;
+  public native let blendModeColorIsIgnore: Bool;
+  public native let blendModeHolesIsIgnore: Bool;
+  public native let terrainSysID: Uint16;
+  public native let nodeName: String;
+  public native let nodeScale: Vector3;
+  public native let nodeTransform: Transform;
+  public native let nodeCellResScale: Float;
+  public native let densityTexelSize: Float;
+  public native let nodeIDPath: toolsEditorObjectIDPath;
 }

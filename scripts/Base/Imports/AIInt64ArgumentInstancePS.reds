@@ -1,3 +1,3 @@
 public native class AIInt64ArgumentInstancePS extends AIArgumentInstancePS {
-  native persistent let value: Int64;
+  public native persistent let value: Int64;
 }

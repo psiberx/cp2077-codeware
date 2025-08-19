@@ -1,5 +1,5 @@
 public native class FootstepComponent extends IComponent {
-  native let tweakDBID: TweakDBID;
-  native let leftFootSlot: CName;
-  native let rightFootSlot: CName;
+  public native let tweakDBID: TweakDBID;
+  public native let leftFootSlot: CName;
+  public native let rightFootSlot: CName;
 }

@@ -1,2 +1,2 @@
 @addField(VehicleCameraManagerComponent)
-native let cinematicCameraEntityTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
+public native let cinematicCameraEntityTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>

@@ -1,5 +1,5 @@
 @addField(BaseInteractionMappinController)
-native let canvasWidgetName: CName;
+public native let canvasWidgetName: CName;
 
 @addField(BaseInteractionMappinController)
-native let arrowWidgetName: CName;
+public native let arrowWidgetName: CName;

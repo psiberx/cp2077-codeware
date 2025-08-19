@@ -1,5 +1,5 @@
 public native struct scnWorkspotSymbol {
-  native let wsInstance: scnSceneWorkspotInstanceId;
-  native let wsNodeId: scnNodeId;
-  native let wsEditorEventId: Uint64;
+  public native let wsInstance: scnSceneWorkspotInstanceId;
+  public native let wsNodeId: scnNodeId;
+  public native let wsEditorEventId: Uint64;
 }

@@ -1,2 +1,2 @@
 @addField(WorkspotFinishedEvent)
-native let statusEffectID: TweakDBID;
+public native let statusEffectID: TweakDBID;

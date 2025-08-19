@@ -1,4 +1,4 @@
 public native class gameaudioeventsSetParameterOnEmitter extends gameaudioeventsEmitterEvent {
-  native let paramName: CName;
-  native let paramValue: Float;
+  public native let paramName: CName;
+  public native let paramValue: Float;
 }

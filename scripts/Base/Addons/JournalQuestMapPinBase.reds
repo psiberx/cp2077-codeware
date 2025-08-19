@@ -1,2 +1,2 @@
 @addField(JournalQuestMapPinBase)
-native let enableGPS: Bool;
+public native let enableGPS: Bool;

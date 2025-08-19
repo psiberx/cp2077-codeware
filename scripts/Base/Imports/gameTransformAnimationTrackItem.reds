@@ -1,6 +1,6 @@
 @neverRef()
 public native class gameTransformAnimationTrackItem extends ISerializable {
-  native let impl: ref<gameTransformAnimationTrackItemImpl>;
-  native let startTime: Float;
-  native let duration: Float;
+  public native let impl: ref<gameTransformAnimationTrackItemImpl>;
+  public native let startTime: Float;
+  public native let duration: Float;
 }

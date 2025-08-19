@@ -1,6 +1,6 @@
 public native struct rendParticleBurst {
-  native let burstTime: Float;
-  native let spawnCount: Uint32;
-  native let spawnTimeRange: Float;
-  native let repeatTime: Float;
+  public native let burstTime: Float;
+  public native let spawnCount: Uint32;
+  public native let spawnTimeRange: Float;
+  public native let repeatTime: Float;
 }

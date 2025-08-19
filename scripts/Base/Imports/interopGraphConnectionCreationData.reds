@@ -1,4 +1,4 @@
 public native struct interopGraphConnectionCreationData {
-  native let data: String;
-  native let extraData: array<String>;
+  public native let data: String;
+  public native let extraData: array<String>;
 }

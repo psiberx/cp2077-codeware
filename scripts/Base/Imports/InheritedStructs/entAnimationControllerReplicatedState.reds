@@ -1,7 +1,7 @@
 public native struct entAnimationControllerReplicatedState {
-  native let componentName: CName;
-  native let enabled: Bool;
-  native let animWrapperVarsState: entReplicatedAnimWrapperVars;
-  native let animFeaturesState: entReplicatedAnimFeaturesState;
-  native let inputSettersState: entReplicatedInputSetters;
+  public native let componentName: CName;
+  public native let enabled: Bool;
+  public native let animWrapperVarsState: entReplicatedAnimWrapperVars;
+  public native let animFeaturesState: entReplicatedAnimFeaturesState;
+  public native let inputSettersState: entReplicatedInputSetters;
 }

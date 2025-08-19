@@ -1,7 +1,7 @@
 public native struct animSimpleBounceTransformOutput {
-  native let targetTransform: animTransformIndex;
-  native let parentTransform: animTransformIndex;
-  native let targetTransformChannel: animTransformChannel;
-  native let multiplier: Float;
-  native let channelEntries: array<animSimpleBounceTransformOutput_ChannelEntry>;
+  public native let targetTransform: animTransformIndex;
+  public native let parentTransform: animTransformIndex;
+  public native let targetTransformChannel: animTransformChannel;
+  public native let multiplier: Float;
+  public native let channelEntries: array<animSimpleBounceTransformOutput_ChannelEntry>;
 }

@@ -1,4 +1,4 @@
 public native class rendHairProfileGradientEntry extends ISerializable {
-  native let value: Float;
-  native let color: Color;
+  public native let value: Float;
+  public native let color: Color;
 }

@@ -1,5 +1,5 @@
 public native class animAnimNode_FrozenFrame extends animAnimNode_OnePoseInput {
-  native let maxFramesFrozen: Int32;
-  native let triggerEventName: CName;
-  native let clearEventName: CName;
+  public native let maxFramesFrozen: Int32;
+  public native let triggerEventName: CName;
+  public native let clearEventName: CName;
 }

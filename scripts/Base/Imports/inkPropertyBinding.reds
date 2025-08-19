@@ -1,4 +1,4 @@
 public native struct inkPropertyBinding {
-  native let propertyName: CName;
-  native let stylePath: CName;
+  public native let propertyName: CName;
+  public native let stylePath: CName;
 }

@@ -1,7 +1,7 @@
 public native struct worldProxySurfaceFlattenParams {
-  native let flatten: Bool;
-  native let groupingStepAngle: worldProxyNormalAngleStepSize;
-  native let syncNormalSource: worldProxySyncNormalSource;
-  native let coreAxisRotationOffset: Float;
-  native let postFlattenReduce: Bool;
+  public native let flatten: Bool;
+  public native let groupingStepAngle: worldProxyNormalAngleStepSize;
+  public native let syncNormalSource: worldProxySyncNormalSource;
+  public native let coreAxisRotationOffset: Float;
+  public native let postFlattenReduce: Bool;
 }

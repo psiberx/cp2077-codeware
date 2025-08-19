@@ -1,68 +1,68 @@
 @addField(inkISystemRequestsHandler)
-native let SavesForSaveReady: inkSystemRequesResult;
+public native let SavesForSaveReady: inkSystemRequesResult;
 
 @addField(inkISystemRequestsHandler)
-native let SavesForLoadReady: inkSystemRequesResult;
+public native let SavesForLoadReady: inkSystemRequesResult;
 
 @addField(inkISystemRequestsHandler)
-native let SaveMetadataReady: inkSaveMetadataRequestResult;
+public native let SaveMetadataReady: inkSaveMetadataRequestResult;
 
 @addField(inkISystemRequestsHandler)
-native let GogLoginStatusChanged: inkOnGogLoginStatusChangedResult;
+public native let GogLoginStatusChanged: inkOnGogLoginStatusChangedResult;
 
 @addField(inkISystemRequestsHandler)
-native let SaveDeleted: inkDeleteRequestResult;
+public native let SaveDeleted: inkDeleteRequestResult;
 
 @addField(inkISystemRequestsHandler)
-native let SaveTransferUpdate: inkSaveTransferRequestUpdate;
+public native let SaveTransferUpdate: inkSaveTransferRequestUpdate;
 
 @addField(inkISystemRequestsHandler)
-native let ServersSearchResult: inkSystemServerRequesResult;
+public native let ServersSearchResult: inkSystemServerRequesResult;
 
 @addField(inkISystemRequestsHandler)
-native let AdditionalContentPurchaseResult: inkAdditionalContentPurchaseCallback;
+public native let AdditionalContentPurchaseResult: inkAdditionalContentPurchaseCallback;
 
 @addField(inkISystemRequestsHandler)
-native let AdditionalContentInstallationRequestResult: inkAdditionalContentInstallRequestedCallback;
+public native let AdditionalContentInstallationRequestResult: inkAdditionalContentInstallRequestedCallback;
 
 @addField(inkISystemRequestsHandler)
-native let AdditionalContentInstallationResult: inkAdditionalContentInstalledCallback;
+public native let AdditionalContentInstallationResult: inkAdditionalContentInstalledCallback;
 
 @addField(inkISystemRequestsHandler)
-native let AdditionalContentStatusUpdateResult: inkAdditionalContentStatusUpdateCallback;
+public native let AdditionalContentStatusUpdateResult: inkAdditionalContentStatusUpdateCallback;
 
 @addField(inkISystemRequestsHandler)
-native let AdditionalContentDataReloadProgressCallback: inkAdditionalContentDataReloadProgress;
+public native let AdditionalContentDataReloadProgressCallback: inkAdditionalContentDataReloadProgress;
 
 @addField(inkISystemRequestsHandler)
-native let ToggleBreachingCallback: inkToggleBreachingCallback;
+public native let ToggleBreachingCallback: inkToggleBreachingCallback;
 
 @addField(inkISystemRequestsHandler)
-native let UserChanged: inkUserIdResult;
+public native let UserChanged: inkUserIdResult;
 
 @addField(inkISystemRequestsHandler)
-native let UserIdResult: inkUserIdResult;
+public native let UserIdResult: inkUserIdResult;
 
 @addField(inkISystemRequestsHandler)
-native let TrialVersionRemainingTimeUpdated: inkTrialVersionRemainingTimeUpdate;
+public native let TrialVersionRemainingTimeUpdated: inkTrialVersionRemainingTimeUpdate;
 
 @addField(inkISystemRequestsHandler)
-native let BoughtFullGame: inkTrialOnBuyFullGame;
+public native let BoughtFullGame: inkTrialOnBuyFullGame;
 
 @addField(inkISystemRequestsHandler)
-native let CloudSavesQueryStatusChanged: inkCloudSavesQueryStatusChange;
+public native let CloudSavesQueryStatusChanged: inkCloudSavesQueryStatusChange;
 
 @addField(inkISystemRequestsHandler)
-native let CloudSaveUploadFinish: inkCloudSaveUploadFinish;
+public native let CloudSaveUploadFinish: inkCloudSaveUploadFinish;
 
 @addField(inkISystemRequestsHandler)
-native let ScreenshotsForLoadReady: inkGameScreenshotsRequestResult;
+public native let ScreenshotsForLoadReady: inkGameScreenshotsRequestResult;
 
 @addField(inkISystemRequestsHandler)
-native let FavoritesLoadedReady: inkFavoriteLoadResult;
+public native let FavoritesLoadedReady: inkFavoriteLoadResult;
 
 @addField(inkISystemRequestsHandler)
-native let DeleteSreenshotComplete: inkDeleteScreenshotResult;
+public native let DeleteSreenshotComplete: inkDeleteScreenshotResult;
 
 @addField(inkISystemRequestsHandler)
-native let MarketingConsentPopupTypeResult: inkMarketingConsentPopupTypeResult;
+public native let MarketingConsentPopupTypeResult: inkMarketingConsentPopupTypeResult;

@@ -1,26 +1,26 @@
 @addField(SceneAnimationMotionActionParams)
-native let motionType: gameSceneAnimationMotionActionParamsMotionType;
+public native let motionType: gameSceneAnimationMotionActionParamsMotionType;
 
 @addField(SceneAnimationMotionActionParams)
-native let motionBlendInTime: Float;
+public native let motionBlendInTime: Float;
 
 @addField(SceneAnimationMotionActionParams)
-native let blendInCurve: gameSceneAnimationMotionActionParamsEasingType;
+public native let blendInCurve: gameSceneAnimationMotionActionParamsEasingType;
 
 @addField(SceneAnimationMotionActionParams)
-native let initialDt: Float;
+public native let initialDt: Float;
 
 @addField(SceneAnimationMotionActionParams)
-native let globalTimeToAnimTime: Float;
+public native let globalTimeToAnimTime: Float;
 
 @addField(SceneAnimationMotionActionParams)
-native let mountDescriptor: gameMountDescriptor;
+public native let mountDescriptor: gameMountDescriptor;
 
 @addField(SceneAnimationMotionActionParams)
-native let playerParams: gameScenePlayerAnimationParams;
+public native let playerParams: gameScenePlayerAnimationParams;
 
 @addField(SceneAnimationMotionActionParams)
-native let trajectoryLOD: array<scnAnimationMotionSample>;
+public native let trajectoryLOD: array<scnAnimationMotionSample>;
 
 @addField(SceneAnimationMotionActionParams)
-native let dynamicAnimSetupHash: Uint64;
+public native let dynamicAnimSetupHash: Uint64;

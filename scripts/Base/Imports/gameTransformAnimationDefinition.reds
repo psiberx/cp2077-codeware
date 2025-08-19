@@ -1,10 +1,10 @@
 public native struct gameTransformAnimationDefinition {
-  native let name: CName;
-  native let autoStart: Bool;
-  native let autoStartDelay: Float;
-  native let timesToPlay: Uint32;
-  native let looping: Bool;
-  native let timeScale: Float;
-  native let reverse: Bool;
-  native let timeline: gameTransformAnimationTimeline;
+  public native let name: CName;
+  public native let autoStart: Bool;
+  public native let autoStartDelay: Float;
+  public native let timesToPlay: Uint32;
+  public native let looping: Bool;
+  public native let timeScale: Float;
+  public native let reverse: Bool;
+  public native let timeline: gameTransformAnimationTimeline;
 }

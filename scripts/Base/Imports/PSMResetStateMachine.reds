@@ -1,3 +1,3 @@
 public native class PSMResetStateMachine extends Event {
-  native let stateMachineIdentifier: StateMachineIdentifier;
+  public native let stateMachineIdentifier: StateMachineIdentifier;
 }

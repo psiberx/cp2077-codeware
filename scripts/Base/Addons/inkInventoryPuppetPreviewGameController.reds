@@ -1,5 +1,5 @@
 @addField(inkInventoryPuppetPreviewGameController)
-native let sceneName: CName;
+public native let sceneName: CName;
 
 @addField(inkInventoryPuppetPreviewGameController)
-native let cameraRef: NodeRef;
+public native let cameraRef: NodeRef;

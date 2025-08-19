@@ -1,4 +1,4 @@
 public native class animAnimVariableBool extends animAnimVariable {
-  native let value: Bool;
-  native let default: Bool;
+  public native let value: Bool;
+  public native let default: Bool;
 }

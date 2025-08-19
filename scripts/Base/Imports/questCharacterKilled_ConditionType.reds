@@ -1,8 +1,8 @@
 public native class questCharacterKilled_ConditionType extends questICharacterConditionType {
-  native let objectRef: EntityReference;
-  native let source: ref<questUniversalRef>;
-  native let comparisonParams: ref<questComparisonParam>;
-  native let killed: Bool;
-  native let unconscious: Bool;
-  native let defeated: Bool;
+  public native let objectRef: EntityReference;
+  public native let source: ref<questUniversalRef>;
+  public native let comparisonParams: ref<questComparisonParam>;
+  public native let killed: Bool;
+  public native let unconscious: Bool;
+  public native let defeated: Bool;
 }

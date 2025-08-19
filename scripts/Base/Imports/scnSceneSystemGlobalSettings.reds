@@ -1,3 +1,3 @@
 public abstract native struct scnSceneSystemGlobalSettings {
-  native let syncLipsyncToSceneTime: Bool;
+  public native let syncLipsyncToSceneTime: Bool;
 }

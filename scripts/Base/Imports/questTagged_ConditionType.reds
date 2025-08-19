@@ -1,4 +1,4 @@
 public native class questTagged_ConditionType extends questIObjectConditionType {
-  native let objectRef: EntityReference;
-  native let inverted: Bool;
+  public native let objectRef: EntityReference;
+  public native let inverted: Bool;
 }

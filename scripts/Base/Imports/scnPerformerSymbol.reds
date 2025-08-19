@@ -1,5 +1,5 @@
 public native struct scnPerformerSymbol {
-  native let performerId: scnPerformerId;
-  native let entityRef: EntityReference;
-  native let editorPerformerId: CRUID;
+  public native let performerId: scnPerformerId;
+  public native let entityRef: EntityReference;
+  public native let editorPerformerId: CRUID;
 }

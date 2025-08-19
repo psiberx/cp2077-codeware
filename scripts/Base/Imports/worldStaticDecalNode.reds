@@ -1,19 +1,19 @@
 public native class worldStaticDecalNode extends worldNode {
-  native let material: ResourceAsyncRef; // raRef<IMaterial>
-  native let autoHideDistance: Float;
-  native let verticalFlip: Bool;
-  native let horizontalFlip: Bool;
-  native let alpha: Float;
-  native let normalThreshold: Float;
-  native let roughnessScale: Float;
-  native let diffuseColorScale: HDRColor;
-  native let isStretchingEnabled: Bool;
-  native let enableNormalTreshold: Bool;
-  native let orderNo: Uint16;
-  native let surfaceType: ERenderObjectType;
-  native let normalsBlendingMode: RenderDecalNormalsBlendingMode;
-  native let decalRenderMode: EDecalRenderMode;
-  native let shouldCollectWithRayTracing: Bool;
-  native let forcedAutoHideDistance: Float;
-  native let decalNodeVersion: Uint8;
+  public native let material: ResourceAsyncRef; // raRef<IMaterial>
+  public native let autoHideDistance: Float;
+  public native let verticalFlip: Bool;
+  public native let horizontalFlip: Bool;
+  public native let alpha: Float;
+  public native let normalThreshold: Float;
+  public native let roughnessScale: Float;
+  public native let diffuseColorScale: HDRColor;
+  public native let isStretchingEnabled: Bool;
+  public native let enableNormalTreshold: Bool;
+  public native let orderNo: Uint16;
+  public native let surfaceType: ERenderObjectType;
+  public native let normalsBlendingMode: RenderDecalNormalsBlendingMode;
+  public native let decalRenderMode: EDecalRenderMode;
+  public native let shouldCollectWithRayTracing: Bool;
+  public native let forcedAutoHideDistance: Float;
+  public native let decalNodeVersion: Uint8;
 }

@@ -1,4 +1,4 @@
 public native class questDestruction_ConditionType extends questIObjectConditionType {
-  native let objectRef: EntityReference;
-  native let threshold: Float;
+  public native let objectRef: EntityReference;
+  public native let threshold: Float;
 }

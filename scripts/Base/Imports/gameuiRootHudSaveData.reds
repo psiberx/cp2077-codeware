@@ -1,3 +1,3 @@
 public native class gameuiRootHudSaveData extends ISerializable {
-  native let entriesVisibility: array<questHUDEntryVisibilityData>;
+  public native let entriesVisibility: array<questHUDEntryVisibilityData>;
 }

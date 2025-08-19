@@ -1,10 +1,10 @@
 public native struct audioVehicleDestructionGridLayer {
-  native let backLeft: audioVehicleDestructionGridCell;
-  native let backRight: audioVehicleDestructionGridCell;
-  native let centerBackLeft: audioVehicleDestructionGridCell;
-  native let centerBackRight: audioVehicleDestructionGridCell;
-  native let centerForwardLeft: audioVehicleDestructionGridCell;
-  native let centerForwardRight: audioVehicleDestructionGridCell;
-  native let frontLeft: audioVehicleDestructionGridCell;
-  native let frontRight: audioVehicleDestructionGridCell;
+  public native let backLeft: audioVehicleDestructionGridCell;
+  public native let backRight: audioVehicleDestructionGridCell;
+  public native let centerBackLeft: audioVehicleDestructionGridCell;
+  public native let centerBackRight: audioVehicleDestructionGridCell;
+  public native let centerForwardLeft: audioVehicleDestructionGridCell;
+  public native let centerForwardRight: audioVehicleDestructionGridCell;
+  public native let frontLeft: audioVehicleDestructionGridCell;
+  public native let frontRight: audioVehicleDestructionGridCell;
 }

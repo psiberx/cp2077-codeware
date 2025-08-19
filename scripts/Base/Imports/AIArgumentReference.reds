@@ -1,5 +1,5 @@
 public native class AIArgumentReference extends AIArgumentDefinition {
-  native let type: AIArgumentType;
-  native let defaultValue: Variant;
-  native let rttiClassName: CName;
+  public native let type: AIArgumentType;
+  public native let defaultValue: Variant;
+  public native let rttiClassName: CName;
 }

@@ -1,5 +1,5 @@
 public native class genRandomizerMarker extends worldIMarker {
-  native let id: String;
-  native let templateName: CName;
-  native let probability: Float;
+  public native let id: String;
+  public native let templateName: CName;
+  public native let probability: Float;
 }

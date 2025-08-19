@@ -1,3 +1,3 @@
 public native struct audioRadioBlip {
-  native let blipEventName: CName;
+  public native let blipEventName: CName;
 }

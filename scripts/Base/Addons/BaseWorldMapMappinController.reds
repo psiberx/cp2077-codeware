@@ -1,5 +1,5 @@
 @addField(BaseWorldMapMappinController)
-native let groupContainerWidget: inkWidgetRef;
+public native let groupContainerWidget: inkWidgetRef;
 
 @addField(BaseWorldMapMappinController)
-native let groupCountTextWidget: inkTextRef;
+public native let groupCountTextWidget: inkTextRef;

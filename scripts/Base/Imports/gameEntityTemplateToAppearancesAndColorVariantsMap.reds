@@ -1,3 +1,3 @@
 public native class gameEntityTemplateToAppearancesAndColorVariantsMap extends ISerializable {
-  native let entries: array<gameEntityToAppearancesAndColorVariantsMapEntry>;
+  public native let entries: array<gameEntityToAppearancesAndColorVariantsMapEntry>;
 }

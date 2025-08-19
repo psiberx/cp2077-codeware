@@ -1,4 +1,4 @@
 public native struct audioMixParamDescription {
-  native let parameter: CName;
-  native let defaultValue: Float;
+  public native let parameter: CName;
+  public native let defaultValue: Float;
 }

@@ -1,2 +1,2 @@
 @addField(NetrunnerPrototypeNetworkNode)
-native let colorIndex: Int8;
+public native let colorIndex: Int8;

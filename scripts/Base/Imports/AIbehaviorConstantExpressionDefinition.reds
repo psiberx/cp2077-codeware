@@ -1,4 +1,4 @@
 public native class AIbehaviorConstantExpressionDefinition extends AIbehaviorPassiveExpressionDefinition {
-  native let type: AIbehaviorTypeRef;
-  native let value: Variant;
+  public native let type: AIbehaviorTypeRef;
+  public native let value: Variant;
 }

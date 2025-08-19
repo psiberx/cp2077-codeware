@@ -1,10 +1,10 @@
 public native class questFollowParams extends AICommandParams {
-  native let companionRef: ref<questUniversalRef>;
-  native let companionDistance: Float;
-  native let destinationPointTolerance: Float;
-  native let stopWhenDestinationReached: Bool;
-  native let movementType: moveMovementType;
-  native let matchSpeed: Bool;
-  native let useTeleport: Bool;
-  native let repeatCommandOnInterrupt: Bool;
+  public native let companionRef: ref<questUniversalRef>;
+  public native let companionDistance: Float;
+  public native let destinationPointTolerance: Float;
+  public native let stopWhenDestinationReached: Bool;
+  public native let movementType: moveMovementType;
+  public native let matchSpeed: Bool;
+  public native let useTeleport: Bool;
+  public native let repeatCommandOnInterrupt: Bool;
 }

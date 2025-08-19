@@ -1,5 +1,5 @@
 public native struct inkSingleDrawMetric {
-  native let exeedsLimit: Bool;
-  native let hierarchySize: Vector2;
-  native let usedTextures: array<Uint32>;
+  public native let exeedsLimit: Bool;
+  public native let hierarchySize: Vector2;
+  public native let usedTextures: array<Uint32>;
 }

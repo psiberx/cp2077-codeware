@@ -1,4 +1,4 @@
 public native class AIbehaviorRepeatNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
-  native let limit: ref<AIArgumentMapping>;
-  native let repeatChildOnFailure: Bool;
+  public native let limit: ref<AIArgumentMapping>;
+  public native let repeatChildOnFailure: Bool;
 }

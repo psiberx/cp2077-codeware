@@ -1,5 +1,5 @@
 public native struct gameprojectileVelocityParams {
-  native let xFactor: Float;
-  native let yFactor: Float;
-  native let zFactor: Float;
+  public native let xFactor: Float;
+  public native let yFactor: Float;
+  public native let zFactor: Float;
 }

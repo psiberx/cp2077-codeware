@@ -1,3 +1,3 @@
 public native class questDynamicVehicleDespawnAll_NodeType extends questIDynamicSpawnSystemType {
-  native let ImmediateDespawn: Bool;
+  public native let ImmediateDespawn: Bool;
 }

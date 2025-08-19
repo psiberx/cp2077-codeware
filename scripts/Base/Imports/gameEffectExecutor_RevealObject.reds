@@ -1,3 +1,3 @@
 public native class gameEffectExecutor_RevealObject extends EffectExecutor {
-  native let reason: CName;
+  public native let reason: CName;
 }

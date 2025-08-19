@@ -1,4 +1,4 @@
 public native class worldRaceSplineNode extends worldSpeedSplineNode {
-  native let offsets: array<worldRaceSplineNodeOffset>;
-  native let offsetDefault: Float;
+  public native let offsets: array<worldRaceSplineNodeOffset>;
+  public native let offsetDefault: Float;
 }

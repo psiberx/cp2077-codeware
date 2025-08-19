@@ -1,6 +1,6 @@
 public native class gameExistingWorkspotFinisherScenario extends gameIFinisherScenario {
-  native let playerWorkspot: ResourceAsyncRef; // raRef<workWorkspotResource>
-  native let syncAnimSlotName: CName;
-  native let playbackDelay: Float;
-  native let blendTime: Float;
+  public native let playerWorkspot: ResourceAsyncRef; // raRef<workWorkspotResource>
+  public native let syncAnimSlotName: CName;
+  public native let playbackDelay: Float;
+  public native let blendTime: Float;
 }

@@ -1,12 +1,12 @@
 public native class animAnimNode_BlendMultiple extends animAnimNode_Base {
-  native let inputValues: array<Float>;
-  native let sortedInputValues: array<Float>;
-  native let minWeight: Float;
-  native let maxWeight: Float;
-  native let radialBlending: Bool;
-  native let timeWarpingEnabled: Bool;
-  native let syncMethod: ref<animISyncMethod>;
-  native let motionProvider: ref<animIMotionTableProvider>;
-  native let weightNode: animFloatLink;
-  native let inputNodes: array<animPoseLink>;
+  public native let inputValues: array<Float>;
+  public native let sortedInputValues: array<Float>;
+  public native let minWeight: Float;
+  public native let maxWeight: Float;
+  public native let radialBlending: Bool;
+  public native let timeWarpingEnabled: Bool;
+  public native let syncMethod: ref<animISyncMethod>;
+  public native let motionProvider: ref<animIMotionTableProvider>;
+  public native let weightNode: animFloatLink;
+  public native let inputNodes: array<animPoseLink>;
 }

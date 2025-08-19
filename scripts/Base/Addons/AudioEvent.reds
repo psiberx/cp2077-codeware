@@ -1,2 +1,2 @@
 @addField(AudioEvent)
-native let emitterName: CName;
+public native let emitterName: CName;

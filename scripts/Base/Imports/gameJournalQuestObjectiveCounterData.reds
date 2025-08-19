@@ -1,5 +1,5 @@
 public native struct gameJournalQuestObjectiveCounterData {
-  native let entryPath: ref<gameJournalPath>;
-  native let oldValue: Int32;
-  native let newValue: Int32;
+  public native let entryPath: ref<gameJournalPath>;
+  public native let oldValue: Int32;
+  public native let newValue: Int32;
 }

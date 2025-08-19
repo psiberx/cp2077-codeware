@@ -1,9 +1,9 @@
 public native struct scnDialogLineVoParams {
-  native let voContext: locVoiceoverContext;
-  native let voExpression: locVoiceoverExpression;
-  native let customVoEvent: CName;
-  native let disableHeadMovement: Bool;
-  native let isHolocallSpeaker: Bool;
-  native let ignoreSpeakerIncapacitation: Bool;
-  native let alwaysUseBrainGender: Bool;
+  public native let voContext: locVoiceoverContext;
+  public native let voExpression: locVoiceoverExpression;
+  public native let customVoEvent: CName;
+  public native let disableHeadMovement: Bool;
+  public native let isHolocallSpeaker: Bool;
+  public native let ignoreSpeakerIncapacitation: Bool;
+  public native let alwaysUseBrainGender: Bool;
 }

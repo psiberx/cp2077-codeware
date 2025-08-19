@@ -1,3 +1,3 @@
 public native class questEnableVehicleSummon_NodeType extends questIVehicleManagerNodeType {
-  native let enable: Bool;
+  public native let enable: Bool;
 }

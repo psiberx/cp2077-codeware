@@ -1,4 +1,4 @@
 public importonly class gameForceVisionModuleQuestEvent extends Event {
-  native let moduleName: CName;
-  native let meshComponentNames: array<CName>;
+  public native let moduleName: CName;
+  public native let meshComponentNames: array<CName>;
 }

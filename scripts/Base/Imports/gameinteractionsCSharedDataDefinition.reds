@@ -1,4 +1,4 @@
 public native struct gameinteractionsCSharedDataDefinition {
-  native let defaultChoices: array<String>;
-  native let visualizer: ref<gameuiIChoiceVisualizer>;
+  public native let defaultChoices: array<String>;
+  public native let visualizer: ref<gameuiIChoiceVisualizer>;
 }

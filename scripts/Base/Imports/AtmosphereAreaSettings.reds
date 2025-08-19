@@ -1,34 +1,34 @@
 public native class AtmosphereAreaSettings extends IAreaSettings {
-  native let skydomeColor: CurveDataHDRColor;
-  native let skylightColor: CurveDataHDRColor;
-  native let groundReflectance: CurveDataHDRColor;
-  native let sunMinZ: CurveDataFloat;
-  native let horizonMinZ: CurveDataFloat;
-  native let horizonFalloff: CurveDataFloat;
-  native let turbidity: CurveDataFloat;
-  native let lutTurbidity: CurveDataFloat;
-  native let artisticDarkeningColor: CurveDataHDRColor;
-  native let artisticDarkeningStartPoint: CurveDataFloat;
-  native let artisticDarkeningEndPoint: CurveDataFloat;
-  native let artisticDarkeningExponent: CurveDataFloat;
-  native let sunColor: CurveDataHDRColor;
-  native let sunFalloff: CurveDataFloat;
-  native let rayTracedSunShadowRange: CurveDataFloat;
-  native let moonColor: CurveDataHDRColor;
-  native let moonFalloff: CurveDataFloat;
-  native let moonGlowIntensity: CurveDataFloat;
-  native let moonGlowFalloff: CurveDataFloat;
-  native let moonTexture: ResourceRef; // rRef<CBitmapTexture>
-  native let galaxyIntensity: CurveDataFloat;
-  native let starMapIntensity: CurveDataFloat;
-  native let starMapBrightScale: CurveDataFloat;
-  native let starMapDimScale: CurveDataFloat;
-  native let starMapConstelationsScale: CurveDataFloat;
-  native let starCornerLuminanceFix: CurveDataFloat;
-  native let starMapTexture: ResourceRef; // rRef<CCubeTexture>
-  native let galaxyTexture: ResourceRef; // rRef<CBitmapTexture>
-  native let probeColorOverrideHorizon: CurveDataHDRColor;
-  native let probeAlphaOverrideHorizon: CurveDataFloat;
-  native let probeColorOverrideZenith: CurveDataHDRColor;
-  native let probeAlphaOverrideZenith: CurveDataFloat;
+  public native let skydomeColor: CurveDataHDRColor;
+  public native let skylightColor: CurveDataHDRColor;
+  public native let groundReflectance: CurveDataHDRColor;
+  public native let sunMinZ: CurveDataFloat;
+  public native let horizonMinZ: CurveDataFloat;
+  public native let horizonFalloff: CurveDataFloat;
+  public native let turbidity: CurveDataFloat;
+  public native let lutTurbidity: CurveDataFloat;
+  public native let artisticDarkeningColor: CurveDataHDRColor;
+  public native let artisticDarkeningStartPoint: CurveDataFloat;
+  public native let artisticDarkeningEndPoint: CurveDataFloat;
+  public native let artisticDarkeningExponent: CurveDataFloat;
+  public native let sunColor: CurveDataHDRColor;
+  public native let sunFalloff: CurveDataFloat;
+  public native let rayTracedSunShadowRange: CurveDataFloat;
+  public native let moonColor: CurveDataHDRColor;
+  public native let moonFalloff: CurveDataFloat;
+  public native let moonGlowIntensity: CurveDataFloat;
+  public native let moonGlowFalloff: CurveDataFloat;
+  public native let moonTexture: ResourceRef; // rRef<CBitmapTexture>
+  public native let galaxyIntensity: CurveDataFloat;
+  public native let starMapIntensity: CurveDataFloat;
+  public native let starMapBrightScale: CurveDataFloat;
+  public native let starMapDimScale: CurveDataFloat;
+  public native let starMapConstelationsScale: CurveDataFloat;
+  public native let starCornerLuminanceFix: CurveDataFloat;
+  public native let starMapTexture: ResourceRef; // rRef<CCubeTexture>
+  public native let galaxyTexture: ResourceRef; // rRef<CBitmapTexture>
+  public native let probeColorOverrideHorizon: CurveDataHDRColor;
+  public native let probeAlphaOverrideHorizon: CurveDataFloat;
+  public native let probeColorOverrideZenith: CurveDataHDRColor;
+  public native let probeAlphaOverrideZenith: CurveDataFloat;
 }

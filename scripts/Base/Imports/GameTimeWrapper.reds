@@ -1,3 +1,3 @@
 public native struct GameTimeWrapper {
-  native let gameTime: GameTime;
+  public native let gameTime: GameTime;
 }

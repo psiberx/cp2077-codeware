@@ -1,5 +1,5 @@
 @addField(inkAnimDef)
-native let interpolators: array<ref<inkAnimInterpolator>>;
+public native let interpolators: array<ref<inkAnimInterpolator>>;
 
 @addField(inkAnimDef)
-native let events: array<ref<inkAnimEvent>>;
+public native let events: array<ref<inkAnimEvent>>;

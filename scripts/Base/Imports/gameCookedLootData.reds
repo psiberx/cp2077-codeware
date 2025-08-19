@@ -1,4 +1,4 @@
 public native class gameCookedLootData extends ISerializable {
-  native let lootTables: array<TweakDBID>;
-  native let contentAssignment: TweakDBID;
+  public native let lootTables: array<TweakDBID>;
+  public native let contentAssignment: TweakDBID;
 }

@@ -1,3 +1,3 @@
 public native struct toolsJiraPriority {
-  native let name: String;
+  public native let name: String;
 }

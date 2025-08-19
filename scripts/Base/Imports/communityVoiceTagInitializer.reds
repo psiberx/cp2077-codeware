@@ -1,3 +1,3 @@
 public native class communityVoiceTagInitializer extends communitySpawnInitializer {
-  native let voiceTagName: CName;
+  public native let voiceTagName: CName;
 }

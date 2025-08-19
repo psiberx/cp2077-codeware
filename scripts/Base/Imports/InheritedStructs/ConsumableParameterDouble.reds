@@ -1,5 +1,5 @@
 public native struct ConsumableParameterDouble {
-  native let name: CName;
-  native let value: Double;
-  native let consumed: Bool;
+  public native let name: CName;
+  public native let value: Double;
+  public native let consumed: Bool;
 }

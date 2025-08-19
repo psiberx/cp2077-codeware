@@ -1,3 +1,3 @@
 public native struct gameDebugPath {
-  native let str: String;
+  public native let str: String;
 }

@@ -1,5 +1,5 @@
 public native class workSequence extends workIContainerEntry {
-  native let previousLoopInfinitely: Bool;
-  native let loopInfinitely: Bool;
-  native let category: gamedataWorkspotCategory;
+  public native let previousLoopInfinitely: Bool;
+  public native let loopInfinitely: Bool;
+  public native let category: gamedataWorkspotCategory;
 }

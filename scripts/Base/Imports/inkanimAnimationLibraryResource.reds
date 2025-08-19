@@ -1,3 +1,3 @@
 public native class inkanimAnimationLibraryResource extends CResource {
-  native let sequences: array<ref<inkAnimSequence>>;
+  public native let sequences: array<ref<inkAnimSequence>>;
 }

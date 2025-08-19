@@ -1,6 +1,6 @@
 public native class worldNavigationConfigAreaNode extends worldAreaShapeNode {
-  native let generateVariantsNavmesh: Bool;
-  native let detailSamplingDensity: NavGenSamplingDensity;
-  native let smoothWalkableAreas: Bool;
-  native let generateCrouchableAreas: Bool;
+  public native let generateVariantsNavmesh: Bool;
+  public native let detailSamplingDensity: NavGenSamplingDensity;
+  public native let smoothWalkableAreas: Bool;
+  public native let generateCrouchableAreas: Bool;
 }

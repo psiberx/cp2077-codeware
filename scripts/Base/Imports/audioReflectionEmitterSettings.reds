@@ -1,18 +1,18 @@
 public native class audioReflectionEmitterSettings extends audioAudioMetadata {
-  native let reflectionEvent: CName;
-  native let fadeout: Float;
-  native let reflectionDeltaThreshold: Float;
-  native let maxConcurrentReflections: Uint32;
-  native let broadcastChannel: Uint32;
-  native let listenerRelativePosition: Bool;
-  native let upReflectionEnabled: Bool;
-  native let shortReflectionIndoors: Bool;
-  native let reflectionVariant: audioReflectionVariant;
-  native let backReflectionCutoffSpread: Float;
-  native let backReflectionCutoffStrength: Float;
-  native let backReflectionCutoffSoftness: Float;
-  native let farReflectionDistance: Float;
-  native let nearReflectionDistance: Float;
-  native let minimumFaceAlignement: Float;
-  native let fixedRaycastPitch: Float;
+  public native let reflectionEvent: CName;
+  public native let fadeout: Float;
+  public native let reflectionDeltaThreshold: Float;
+  public native let maxConcurrentReflections: Uint32;
+  public native let broadcastChannel: Uint32;
+  public native let listenerRelativePosition: Bool;
+  public native let upReflectionEnabled: Bool;
+  public native let shortReflectionIndoors: Bool;
+  public native let reflectionVariant: audioReflectionVariant;
+  public native let backReflectionCutoffSpread: Float;
+  public native let backReflectionCutoffStrength: Float;
+  public native let backReflectionCutoffSoftness: Float;
+  public native let farReflectionDistance: Float;
+  public native let nearReflectionDistance: Float;
+  public native let minimumFaceAlignement: Float;
+  public native let fixedRaycastPitch: Float;
 }

@@ -1,6 +1,6 @@
 public native class gameEffectExecutor_Finisher extends EffectExecutor {
-  native let InfluencedByPlayerCostBlock: Bool;
-  native let finisherScenarios: array<ref<gameIFinisherScenario>>;
-  native let alwaysUseEntryAnims: Bool;
-  native let allowCameraMovement: Bool;
+  public native let InfluencedByPlayerCostBlock: Bool;
+  public native let finisherScenarios: array<ref<gameIFinisherScenario>>;
+  public native let alwaysUseEntryAnims: Bool;
+  public native let allowCameraMovement: Bool;
 }

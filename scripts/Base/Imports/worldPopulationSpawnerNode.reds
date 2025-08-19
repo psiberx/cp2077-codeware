@@ -1,9 +1,9 @@
 public native class worldPopulationSpawnerNode extends worldNode {
-  native let objectRecordId: TweakDBID;
-  native let appearanceName: CName;
-  native let spawnOnStart: Bool;
-  native let alwaysSpawned: gameAlwaysSpawnedState;
-  native let spawnInView: gameSpawnInViewState;
-  native let prefetchAppearance: Bool;
-  native let isVehicle: Bool;
+  public native let objectRecordId: TweakDBID;
+  public native let appearanceName: CName;
+  public native let spawnOnStart: Bool;
+  public native let alwaysSpawned: gameAlwaysSpawnedState;
+  public native let spawnInView: gameSpawnInViewState;
+  public native let prefetchAppearance: Bool;
+  public native let isVehicle: Bool;
 }

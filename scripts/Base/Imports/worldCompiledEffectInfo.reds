@@ -1,8 +1,8 @@
 public native struct worldCompiledEffectInfo {
-  native let placementTags: array<CName>;
-  native let componentNames: array<CName>;
-  native let relativePositions: array<Vector3>;
-  native let relativeRotations: array<Quaternion>;
-  native let placementInfos: array<worldCompiledEffectPlacementInfo>;
-  native let eventsSortedByRUID: array<worldCompiledEffectEventInfo>;
+  public native let placementTags: array<CName>;
+  public native let componentNames: array<CName>;
+  public native let relativePositions: array<Vector3>;
+  public native let relativeRotations: array<Quaternion>;
+  public native let placementInfos: array<worldCompiledEffectPlacementInfo>;
+  public native let eventsSortedByRUID: array<worldCompiledEffectEventInfo>;
 }

@@ -1,13 +1,13 @@
 public native class audioNpcWeaponSettings extends audioWeaponSettings {
-  native let gunChoir: CName;
-  native let tails: CName;
-  native let obstructionEnabled: Bool;
-  native let occlusionEnabled: Bool;
-  native let repositionEnabled: Bool;
-  native let obstructionChangeTime: Float;
-  native let disablePathfinding: Bool;
-  native let voiceSwitchCooldown: Float;
-  native let reloadSound: CName;
-  native let quickMeleeAttackSound: CName;
-  native let quickMeleeHitSound: CName;
+  public native let gunChoir: CName;
+  public native let tails: CName;
+  public native let obstructionEnabled: Bool;
+  public native let occlusionEnabled: Bool;
+  public native let repositionEnabled: Bool;
+  public native let obstructionChangeTime: Float;
+  public native let disablePathfinding: Bool;
+  public native let voiceSwitchCooldown: Float;
+  public native let reloadSound: CName;
+  public native let quickMeleeAttackSound: CName;
+  public native let quickMeleeHitSound: CName;
 }

@@ -1,3 +1,3 @@
 public native struct navgendebugCompactCell {
-  native let cellData: Uint64;
+  public native let cellData: Uint64;
 }

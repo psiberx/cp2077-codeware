@@ -1,11 +1,11 @@
 public abstract native class audioWeaponSettings extends audioAudioMetadata {
-  native let bulletType: audioWeaponBulletType;
-  native let shellCasingType: audioWeaponShellCasingType;
-  native let weaponHandlingSettings: audioWeaponHandlingSettings;
-  native let singleShotInSandevistan: Bool;
-  native let chargeStartSound: CName;
-  native let chargeReadySound: CName;
-  native let chargeOverchargeSound: CName;
-  native let chargeDischargeSound: CName;
-  native let fireModeSounds: audioWeaponFireModeSounds;
+  public native let bulletType: audioWeaponBulletType;
+  public native let shellCasingType: audioWeaponShellCasingType;
+  public native let weaponHandlingSettings: audioWeaponHandlingSettings;
+  public native let singleShotInSandevistan: Bool;
+  public native let chargeStartSound: CName;
+  public native let chargeReadySound: CName;
+  public native let chargeOverchargeSound: CName;
+  public native let chargeDischargeSound: CName;
+  public native let fireModeSounds: audioWeaponFireModeSounds;
 }

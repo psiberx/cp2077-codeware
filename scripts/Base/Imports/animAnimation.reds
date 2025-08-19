@@ -1,13 +1,13 @@
 public native class animAnimation extends ISerializable {
-  native let tags: redTagList;
-  native let name: CName;
-  native let duration: Float;
-  native let animationType: animAnimationType;
-  native let animBuffer: ref<animIAnimationBuffer>;
-  native let additionalTransforms: animAdditionalTransformContainer;
-  native let additionalTracks: animAdditionalFloatTrackContainer;
-  native let motionExtraction: ref<animIMotionExtraction>;
-  native let frameClamping: Bool;
-  native let frameClampingStartFrame: Int8;
-  native let frameClampingEndFrame: Int8;
+  public native let tags: redTagList;
+  public native let name: CName;
+  public native let duration: Float;
+  public native let animationType: animAnimationType;
+  public native let animBuffer: ref<animIAnimationBuffer>;
+  public native let additionalTransforms: animAdditionalTransformContainer;
+  public native let additionalTracks: animAdditionalFloatTrackContainer;
+  public native let motionExtraction: ref<animIMotionExtraction>;
+  public native let frameClamping: Bool;
+  public native let frameClampingStartFrame: Int8;
+  public native let frameClampingEndFrame: Int8;
 }

@@ -1,5 +1,5 @@
 public native class AIbehaviorDelegateTaskDefinition extends AIbehaviorTaskDefinition {
-  native let onActivate: AIDelegateTaskRef;
-  native let onUpdate: AIDelegateTaskRef;
-  native let onDeactivate: AIDelegateTaskRef;
+  public native let onActivate: AIDelegateTaskRef;
+  public native let onUpdate: AIDelegateTaskRef;
+  public native let onDeactivate: AIDelegateTaskRef;
 }

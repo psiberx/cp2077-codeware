@@ -1,6 +1,6 @@
 public native class questLookAtDrivenTurnsNode extends questSignalStoppingNodeDefinition {
-  native let mode: questLookAtDrivenTurnsMode;
-  native let puppetRef: EntityReference;
-  native let targetRef: EntityReference;
-  native let canLookAtDrivenTurnsInterruptGesture: Bool;
+  public native let mode: questLookAtDrivenTurnsMode;
+  public native let puppetRef: EntityReference;
+  public native let targetRef: EntityReference;
+  public native let canLookAtDrivenTurnsInterruptGesture: Bool;
 }

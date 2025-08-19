@@ -1,3 +1,3 @@
 public native class questPopulactionControllerNodeDefinition extends questBaseObjectNodeDefinition {
-  native let enable: Bool;
+  public native let enable: Bool;
 }

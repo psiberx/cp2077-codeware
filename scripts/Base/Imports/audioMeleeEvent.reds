@@ -1,4 +1,4 @@
 public native struct audioMeleeEvent {
-  native let event: CName;
-  native let params: array<audioAudSimpleParameter>;
+  public native let event: CName;
+  public native let params: array<audioAudSimpleParameter>;
 }

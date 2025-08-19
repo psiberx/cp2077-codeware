@@ -1,4 +1,4 @@
 public abstract native class AIInterruptionHandlerDefinition extends LibTreeINodeDefinition {
-  native let signal: AIInterruptionSignal;
-  native let supportLessImportantSignals: Bool;
+  public native let signal: AIInterruptionSignal;
+  public native let supportLessImportantSignals: Bool;
 }

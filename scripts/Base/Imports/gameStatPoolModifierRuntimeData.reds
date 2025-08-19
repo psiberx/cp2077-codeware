@@ -1,6 +1,6 @@
 public native struct gameStatPoolModifierRuntimeData {
-  native let modifier: StatPoolModifier;
-  native let modificationDelay: Float;
-  native let inRange: Bool;
-  native let recordID: TweakDBID;
+  public native let modifier: StatPoolModifier;
+  public native let modificationDelay: Float;
+  public native let inRange: Bool;
+  public native let recordID: TweakDBID;
 }

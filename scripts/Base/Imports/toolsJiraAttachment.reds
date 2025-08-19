@@ -1,6 +1,6 @@
 public native struct toolsJiraAttachment {
-  native let id: String;
-  native let filename: String;
-  native let content: String;
-  native let thumbnail: String;
+  public native let id: String;
+  public native let filename: String;
+  public native let content: String;
+  public native let thumbnail: String;
 }

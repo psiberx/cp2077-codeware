@@ -1,3 +1,3 @@
 public native struct gameReplAnimTransformSyncAnimRequest {
-  native let applyServerTime: netTime;
+  public native let applyServerTime: netTime;
 }

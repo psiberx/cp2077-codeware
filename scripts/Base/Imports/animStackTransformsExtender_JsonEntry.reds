@@ -1,11 +1,11 @@
 public native struct animStackTransformsExtender_JsonEntry {
-  native let name: CName;
-  native let parentName: CName;
-  native let referenceTransformLs: QsTransform;
-  native let snapMethod: animStackTransformsExtender_SnapToBoneMethod;
-  native let snapToReference: Bool;
-  native let snapTargetBone: CName;
-  native let offsetToReference: Bool;
-  native let offsetSpaceBone: CName;
-  native let offset: QsTransform;
+  public native let name: CName;
+  public native let parentName: CName;
+  public native let referenceTransformLs: QsTransform;
+  public native let snapMethod: animStackTransformsExtender_SnapToBoneMethod;
+  public native let snapToReference: Bool;
+  public native let snapTargetBone: CName;
+  public native let offsetToReference: Bool;
+  public native let offsetSpaceBone: CName;
+  public native let offset: QsTransform;
 }

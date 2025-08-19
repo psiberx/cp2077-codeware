@@ -1,2 +1,2 @@
 @addField(gameuiBaseMenuGameController)
-native let puppetSceneInfos: array<gameuiBaseMenuGameControllerPuppetSceneInfo>;
+public native let puppetSceneInfos: array<gameuiBaseMenuGameControllerPuppetSceneInfo>;

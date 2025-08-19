@@ -1,4 +1,4 @@
 public native class worldGeometryShapeNode extends worldNode {
-  native let color: Color;
-  native let shape: ref<GeometryShape>;
+  public native let color: Color;
+  public native let shape: ref<GeometryShape>;
 }

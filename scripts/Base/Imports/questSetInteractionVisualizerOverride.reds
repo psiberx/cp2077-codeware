@@ -1,5 +1,5 @@
 public native class questSetInteractionVisualizerOverride extends questIInteractiveObjectManagerNodeType {
-  native let objectRef: NodeRef;
-  native let applyOverride: Bool;
-  native let removeAfterSingleUse: Bool;
+  public native let objectRef: NodeRef;
+  public native let applyOverride: Bool;
+  public native let removeAfterSingleUse: Bool;
 }

@@ -1,5 +1,5 @@
 @neverRef()
 public native class audioLocomotionCustomActionVfxDictionaryItem extends audioInlinedAudioMetadata {
-  native let key: CName;
-  native let value: ResourceAsyncRef; // raRef<CResource>
+  public native let key: CName;
+  public native let value: ResourceAsyncRef; // raRef<CResource>
 }

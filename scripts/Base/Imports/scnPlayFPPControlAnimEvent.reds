@@ -1,20 +1,20 @@
 public native class scnPlayFPPControlAnimEvent extends scnPlayAnimEvent {
-  native let gameplayAnimName: ref<scnAnimName>;
-  native let FPPControlActive: Bool;
-  native let blendOverride: scnfppBlendOverride;
-  native let cameraUseTrajectorySpace: Bool;
-  native let cameraBlendInDuration: Float;
-  native let cameraBlendOutDuration: Float;
-  native let stayInScene: Bool;
-  native let idleIsMountedWorkspot: Bool;
-  native let enableWorldSpaceSmoothing: Bool;
-  native let isSceneCarrying: Bool;
-  native let cameraParallaxWeight: Float;
-  native let cameraParallaxSpace: scnfppParallaxSpace;
-  native let vehicleProceduralCameraWeight: Float;
-  native let yawLimitLeft: Float;
-  native let yawLimitRight: Float;
-  native let pitchLimitTop: Float;
-  native let pitchLimitBottom: Float;
-  native let genderSpecificParams: array<scnfppGenderSpecificParams>;
+  public native let gameplayAnimName: ref<scnAnimName>;
+  public native let FPPControlActive: Bool;
+  public native let blendOverride: scnfppBlendOverride;
+  public native let cameraUseTrajectorySpace: Bool;
+  public native let cameraBlendInDuration: Float;
+  public native let cameraBlendOutDuration: Float;
+  public native let stayInScene: Bool;
+  public native let idleIsMountedWorkspot: Bool;
+  public native let enableWorldSpaceSmoothing: Bool;
+  public native let isSceneCarrying: Bool;
+  public native let cameraParallaxWeight: Float;
+  public native let cameraParallaxSpace: scnfppParallaxSpace;
+  public native let vehicleProceduralCameraWeight: Float;
+  public native let yawLimitLeft: Float;
+  public native let yawLimitRight: Float;
+  public native let pitchLimitTop: Float;
+  public native let pitchLimitBottom: Float;
+  public native let genderSpecificParams: array<scnfppGenderSpecificParams>;
 }

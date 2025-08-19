@@ -1,6 +1,6 @@
 public native class animAnimNode_QuaternionInterpolation extends animAnimNode_QuaternionValue {
-  native let interpolationType: animQuaternionInterpolationType;
-  native let firstInput: animQuaternionLink;
-  native let secondInput: animQuaternionLink;
-  native let weight: animFloatLink;
+  public native let interpolationType: animQuaternionInterpolationType;
+  public native let firstInput: animQuaternionLink;
+  public native let secondInput: animQuaternionLink;
+  public native let weight: animFloatLink;
 }

@@ -1,2 +1,2 @@
 @addField(AIGateSignal)
-native let tags: [CName; 4];
+public native let tags: [CName; 4];

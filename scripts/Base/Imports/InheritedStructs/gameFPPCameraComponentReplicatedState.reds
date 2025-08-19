@@ -1,4 +1,4 @@
 public native struct gameFPPCameraComponentReplicatedState {
-  native let componentName: CName;
-  native let enabled: Bool;
+  public native let componentName: CName;
+  public native let enabled: Bool;
 }

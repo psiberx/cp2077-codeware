@@ -1,4 +1,4 @@
 public native struct rendRenderTextureBlobMemoryLayout {
-  native let rowPitch: Uint32;
-  native let slicePitch: Uint32;
+  public native let rowPitch: Uint32;
+  public native let slicePitch: Uint32;
 }

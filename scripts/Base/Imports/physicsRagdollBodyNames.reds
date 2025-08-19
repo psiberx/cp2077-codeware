@@ -1,4 +1,4 @@
 public native struct physicsRagdollBodyNames {
-  native let ParentAnimName: CName;
-  native let ChildAnimName: CName;
+  public native let ParentAnimName: CName;
+  public native let ChildAnimName: CName;
 }

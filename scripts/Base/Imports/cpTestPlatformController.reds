@@ -1,6 +1,6 @@
 public native class cpTestPlatformController extends GameObject {
-  native let platform: NodeRef;
-  native let pointA: NodeRef;
-  native let pointB: NodeRef;
-  native let speed: Float;
+  public native let platform: NodeRef;
+  public native let pointA: NodeRef;
+  public native let pointB: NodeRef;
+  public native let speed: Float;
 }

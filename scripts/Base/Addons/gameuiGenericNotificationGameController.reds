@@ -1,2 +1,2 @@
 @addField(gameuiGenericNotificationGameController)
-native let exclusiveProcessing: Bool;
+public native let exclusiveProcessing: Bool;

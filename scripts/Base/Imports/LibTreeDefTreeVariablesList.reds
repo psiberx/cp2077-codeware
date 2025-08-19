@@ -1,3 +1,3 @@
 public native struct LibTreeDefTreeVariablesList {
-  native let list: array<ref<LibTreeDefTreeVariable>>;
+  public native let list: array<ref<LibTreeDefTreeVariable>>;
 }

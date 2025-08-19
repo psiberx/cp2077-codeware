@@ -1,11 +1,11 @@
 public native class audioAudioFoliageMetadata extends audioAudioMetadata {
-  native let loopStartEvent: CName;
-  native let loopStopEvent: CName;
-  native let locomotionTotalVelocityParam: CName;
-  native let locomotionTotalVelocityThreshold: Float;
-  native let locomotionAngularVelocityMultiplier: Float;
-  native let minFoliageMeshVolumeThreshold: Float;
-  native let maxFoliageMeshHeight: Float;
-  native let playerInsideRequiredPercentage: Float;
-  native let foliageMaterials: ref<audioAudioFoliageMaterialDictionary>;
+  public native let loopStartEvent: CName;
+  public native let loopStopEvent: CName;
+  public native let locomotionTotalVelocityParam: CName;
+  public native let locomotionTotalVelocityThreshold: Float;
+  public native let locomotionAngularVelocityMultiplier: Float;
+  public native let minFoliageMeshVolumeThreshold: Float;
+  public native let maxFoliageMeshHeight: Float;
+  public native let playerInsideRequiredPercentage: Float;
+  public native let foliageMaterials: ref<audioAudioFoliageMaterialDictionary>;
 }

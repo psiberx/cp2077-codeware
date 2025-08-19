@@ -1,5 +1,5 @@
 public native struct gameuiCustomizationMorph {
-  native let censorFlagAction: gameuiCharacterCustomizationActionType;
-  native let regionName: CName;
-  native let targetName: CName;
+  public native let censorFlagAction: gameuiCharacterCustomizationActionType;
+  public native let regionName: CName;
+  public native let targetName: CName;
 }

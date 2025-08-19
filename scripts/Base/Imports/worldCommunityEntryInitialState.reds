@@ -1,5 +1,5 @@
 public native struct worldCommunityEntryInitialState {
-  native let entryName: CName;
-  native let initialPhaseName: CName;
-  native let entryActiveOnStart: Bool;
+  public native let entryName: CName;
+  public native let initialPhaseName: CName;
+  public native let entryActiveOnStart: Bool;
 }

@@ -1,16 +1,16 @@
 public native class questMoveToParams extends AICommandParams {
-  native let movementTargetRef: ref<questUniversalRef>;
-  native let facingTargetRef: ref<questUniversalRef>;
-  native let rotateEntityTowardsFacingTarget: Bool;
-  native let movementType: moveMovementType;
-  native let ignoreNavigation: Bool;
-  native let useStart: Bool;
-  native let useStop: Bool;
-  native let desiredDistanceFromTarget: Float;
-  native let finishWhenDestinationReached: Bool;
-  native let repeatCommandOnInterrupt: Bool;
-  native let executeWhileDespawned: Bool;
-  native let removeAfterCombat: Bool;
-  native let ignoreInCombat: Bool;
-  native let alwaysUseStealth: Bool;
+  public native let movementTargetRef: ref<questUniversalRef>;
+  public native let facingTargetRef: ref<questUniversalRef>;
+  public native let rotateEntityTowardsFacingTarget: Bool;
+  public native let movementType: moveMovementType;
+  public native let ignoreNavigation: Bool;
+  public native let useStart: Bool;
+  public native let useStop: Bool;
+  public native let desiredDistanceFromTarget: Float;
+  public native let finishWhenDestinationReached: Bool;
+  public native let repeatCommandOnInterrupt: Bool;
+  public native let executeWhileDespawned: Bool;
+  public native let removeAfterCombat: Bool;
+  public native let ignoreInCombat: Bool;
+  public native let alwaysUseStealth: Bool;
 }

@@ -1,4 +1,4 @@
 public native struct PSODescRenderTargetSetup {
-  native let rtFormats: [GpuWrapApieTextureFormat; 8];
-  native let dsFormat: GpuWrapApieTextureFormat;
+  public native let rtFormats: [GpuWrapApieTextureFormat; 8];
+  public native let dsFormat: GpuWrapApieTextureFormat;
 }

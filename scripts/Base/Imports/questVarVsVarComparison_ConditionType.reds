@@ -1,5 +1,5 @@
 public native class questVarVsVarComparison_ConditionType extends questIFactsDBConditionType {
-  native let factName1: String;
-  native let factName2: String;
-  native let comparisonType: EComparisonType;
+  public native let factName1: String;
+  public native let factName2: String;
+  public native let comparisonType: EComparisonType;
 }

@@ -1,4 +1,4 @@
 public native class ShowCustomTooltipEvent extends Event {
-  native let text: String;
-  native let inputAction: String;
+  public native let text: String;
+  public native let inputAction: String;
 }

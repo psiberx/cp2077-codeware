@@ -1,4 +1,4 @@
 public native class AIGuardAreasSavedState extends ISerializable {
-  native let data: array<AIGuardAreaSavedData>;
-  native let cleared: array<EntityID>;
+  public native let data: array<AIGuardAreaSavedData>;
+  public native let cleared: array<EntityID>;
 }

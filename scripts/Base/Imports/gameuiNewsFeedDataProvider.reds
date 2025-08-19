@@ -1,4 +1,4 @@
 public native class gameuiNewsFeedDataProvider extends IScriptable {
-  native let newsTitleTweak: TweakDBID;
-  native let randomNewsFeedPack: TweakDBID;
+  public native let newsTitleTweak: TweakDBID;
+  public native let randomNewsFeedPack: TweakDBID;
 }

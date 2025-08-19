@@ -1,5 +1,5 @@
 public native struct appearanceCensorshipEntry {
-  native let Original: CName;
-  native let Censored: CName;
-  native let CensorFlags: Uint32;
+  public native let Original: CName;
+  public native let Censored: CName;
+  public native let CensorFlags: Uint32;
 }

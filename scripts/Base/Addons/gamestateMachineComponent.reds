@@ -1,2 +1,2 @@
 @addField(gamestateMachineComponent)
-native let packageName: String;
+public native let packageName: String;

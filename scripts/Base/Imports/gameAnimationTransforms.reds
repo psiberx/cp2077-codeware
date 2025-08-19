@@ -1,6 +1,6 @@
 public native struct gameAnimationTransforms {
-  native let extractedMotion: array<Transform>;
-  native let gatePosition: Transform;
-  native let boneOffset: Transform;
-  native let animsetHash: Uint64;
+  public native let extractedMotion: array<Transform>;
+  public native let gatePosition: Transform;
+  public native let boneOffset: Transform;
+  public native let animsetHash: Uint64;
 }

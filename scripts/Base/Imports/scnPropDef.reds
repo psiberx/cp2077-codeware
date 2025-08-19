@@ -1,16 +1,16 @@
 public native struct scnPropDef {
-  native let propId: scnPropId;
-  native let propName: String;
-  native let specPropRecordId: TweakDBID;
-  native let animSets: array<scnRidAnimSetSRRefId>;
-  native let cinematicAnimSets: array<scnCinematicAnimSetSRRefId>;
-  native let dynamicAnimSets: array<scnDynamicAnimSetSRRefId>;
-  native let entityAcquisitionPlan: scnEntityAcquisitionPlan;
-  native let findEntityInEntityParams: scnFindEntityInEntityParams;
-  native let spawnDespawnParams: scnSpawnDespawnEntityParams;
-  native let spawnSetParams: scnSpawnSetParams;
-  native let communityParams: scnCommunityParams;
-  native let spawnerParams: scnSpawnerParams;
-  native let findEntityInNodeParams: scnFindEntityInNodeParams;
-  native let findEntityInWorldParams: scnFindEntityInWorldParams;
+  public native let propId: scnPropId;
+  public native let propName: String;
+  public native let specPropRecordId: TweakDBID;
+  public native let animSets: array<scnRidAnimSetSRRefId>;
+  public native let cinematicAnimSets: array<scnCinematicAnimSetSRRefId>;
+  public native let dynamicAnimSets: array<scnDynamicAnimSetSRRefId>;
+  public native let entityAcquisitionPlan: scnEntityAcquisitionPlan;
+  public native let findEntityInEntityParams: scnFindEntityInEntityParams;
+  public native let spawnDespawnParams: scnSpawnDespawnEntityParams;
+  public native let spawnSetParams: scnSpawnSetParams;
+  public native let communityParams: scnCommunityParams;
+  public native let spawnerParams: scnSpawnerParams;
+  public native let findEntityInNodeParams: scnFindEntityInNodeParams;
+  public native let findEntityInWorldParams: scnFindEntityInWorldParams;
 }

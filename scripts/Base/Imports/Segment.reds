@@ -1,4 +1,4 @@
 public native struct Segment {
-  native let origin: Vector4;
-  native let direction: Vector4;
+  public native let origin: Vector4;
+  public native let direction: Vector4;
 }

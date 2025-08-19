@@ -1,5 +1,5 @@
 public native struct worldSpeedSplineNodeOrientationChangeSection {
-  native let pos: Float;
-  native let type: worldSpeedSplineOrientationMarkerType;
-  native let targetOrientation: EulerAngles;
+  public native let pos: Float;
+  public native let type: worldSpeedSplineOrientationMarkerType;
+  public native let targetOrientation: EulerAngles;
 }

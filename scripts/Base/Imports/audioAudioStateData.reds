@@ -1,9 +1,9 @@
 public native struct audioAudioStateData {
-  native let stateName: CName;
-  native let enterEvent: CName;
-  native let exitEvent: CName;
-  native let exitTransitions: array<audioAudioStateTransitionData>;
-  native let mixingActions: array<audioMixingActionData>;
-  native let interruptionSources: array<CName>;
-  native let writeVariableActions: array<audioAudioSceneVariableWriteActionData>;
+  public native let stateName: CName;
+  public native let enterEvent: CName;
+  public native let exitEvent: CName;
+  public native let exitTransitions: array<audioAudioStateTransitionData>;
+  public native let mixingActions: array<audioMixingActionData>;
+  public native let interruptionSources: array<CName>;
+  public native let writeVariableActions: array<audioAudioSceneVariableWriteActionData>;
 }

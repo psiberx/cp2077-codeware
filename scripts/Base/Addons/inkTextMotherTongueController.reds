@@ -1,11 +1,11 @@
 @addField(inkTextMotherTongueController)
-native let preTranslatedTextWidget: inkTextRef;
+public native let preTranslatedTextWidget: inkTextRef;
 
 @addField(inkTextMotherTongueController)
-native let postTranslatedTextWidget: inkTextRef;
+public native let postTranslatedTextWidget: inkTextRef;
 
 @addField(inkTextMotherTongueController)
-native let nativeTextWidget: inkRichTextBoxRef;
+public native let nativeTextWidget: inkRichTextBoxRef;
 
 @addField(inkTextMotherTongueController)
-native let translatedTextWidget: inkTextRef;
+public native let translatedTextWidget: inkTextRef;

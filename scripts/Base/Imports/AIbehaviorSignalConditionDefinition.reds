@@ -1,5 +1,5 @@
 public native class AIbehaviorSignalConditionDefinition extends AIbehaviorConditionDefinition {
-  native let signalName: CName;
-  native let mode: AIbehaviorSignalConditionModes;
-  native let tagSignal: Bool;
+  public native let signalName: CName;
+  public native let mode: AIbehaviorSignalConditionModes;
+  public native let tagSignal: Bool;
 }

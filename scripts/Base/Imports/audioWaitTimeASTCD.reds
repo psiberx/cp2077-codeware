@@ -1,3 +1,3 @@
 public native class audioWaitTimeASTCD extends audioAudioStateTransitionConditionData {
-  native let timeToWait: Float;
+  public native let timeToWait: Float;
 }

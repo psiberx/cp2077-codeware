@@ -1,4 +1,4 @@
 public native class questVehicleAvailable_ConditionType extends questIVehicleConditionType {
-  native let vehicleType: questAvailableVehicleType;
-  native let vehicleName: String;
+  public native let vehicleType: questAvailableVehicleType;
+  public native let vehicleName: String;
 }

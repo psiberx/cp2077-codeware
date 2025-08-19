@@ -1,3 +1,3 @@
 public native struct gameJournalChoiceEntryData {
-  native let entryPath: ref<gameJournalPath>;
+  public native let entryPath: ref<gameJournalPath>;
 }

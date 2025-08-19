@@ -1,6 +1,6 @@
 public native struct worldCompiledEffectEventInfo {
-  native let eventRUID: CRUID;
-  native let placementIndexMask: Uint64;
-  native let componentIndexMask: Uint64;
-  native let flags: Uint8;
+  public native let eventRUID: CRUID;
+  public native let placementIndexMask: Uint64;
+  public native let componentIndexMask: Uint64;
+  public native let flags: Uint8;
 }

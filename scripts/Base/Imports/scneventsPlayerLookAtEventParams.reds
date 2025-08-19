@@ -1,15 +1,15 @@
 public native struct scneventsPlayerLookAtEventParams {
-  native let slotName: CName;
-  native let offsetPos: Vector3;
-  native let duration: Float;
-  native let adjustPitch: Bool;
-  native let adjustYaw: Bool;
-  native let endOnTargetReached: Bool;
-  native let endOnCameraInputApplied: Bool;
-  native let endOnTimeExceeded: Bool;
-  native let cameraInputMagToBreak: Float;
-  native let precision: Float;
-  native let maxDuration: Float;
-  native let easeIn: Bool;
-  native let easeOut: Bool;
+  public native let slotName: CName;
+  public native let offsetPos: Vector3;
+  public native let duration: Float;
+  public native let adjustPitch: Bool;
+  public native let adjustYaw: Bool;
+  public native let endOnTargetReached: Bool;
+  public native let endOnCameraInputApplied: Bool;
+  public native let endOnTimeExceeded: Bool;
+  public native let cameraInputMagToBreak: Float;
+  public native let precision: Float;
+  public native let maxDuration: Float;
+  public native let easeIn: Bool;
+  public native let easeOut: Bool;
 }

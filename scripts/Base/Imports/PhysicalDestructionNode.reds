@@ -1,12 +1,12 @@
 public native class PhysicalDestructionNode extends worldNode {
-  native let mesh: ResourceAsyncRef; // raRef<CMesh>
-  native let meshAppearance: CName;
-  native let forceLODLevel: Int32;
-  native let forceAutoHideDistance: Float;
-  native let destructionParams: physicsDestructionParams;
-  native let destructionLevelData: array<physicsDestructionLevelData>;
-  native let audioMetadata: CName;
-  native let navigationSetting: NavGenNavigationSetting;
-  native let useMeshNavmeshSettings: Bool;
-  native let systemsToNotifyFlags: Uint16;
+  public native let mesh: ResourceAsyncRef; // raRef<CMesh>
+  public native let meshAppearance: CName;
+  public native let forceLODLevel: Int32;
+  public native let forceAutoHideDistance: Float;
+  public native let destructionParams: physicsDestructionParams;
+  public native let destructionLevelData: array<physicsDestructionLevelData>;
+  public native let audioMetadata: CName;
+  public native let navigationSetting: NavGenNavigationSetting;
+  public native let useMeshNavmeshSettings: Bool;
+  public native let systemsToNotifyFlags: Uint16;
 }

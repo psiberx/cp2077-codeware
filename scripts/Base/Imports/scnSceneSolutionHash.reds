@@ -1,3 +1,3 @@
 public native struct scnSceneSolutionHash {
-  native let sceneSolutionHash: scnSceneSolutionHashHash;
+  public native let sceneSolutionHash: scnSceneSolutionHashHash;
 }

@@ -1,4 +1,4 @@
 public native struct scnChoiceNodeNsAttachToActorParams {
-  native let actorId: scnActorId;
-  native let visualizerStyle: scnChoiceNodeNsVisualizerStyle;
+  public native let actorId: scnActorId;
+  public native let visualizerStyle: scnChoiceNodeNsVisualizerStyle;
 }

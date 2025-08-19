@@ -1,4 +1,4 @@
 public abstract native class gameEffectObjectProvider_SweepOverTime extends EffectObjectProvider {
-  native let filterData: ref<physicsFilterData>;
-  native let queryPreset: QueryPreset;
+  public native let filterData: ref<physicsFilterData>;
+  public native let queryPreset: QueryPreset;
 }

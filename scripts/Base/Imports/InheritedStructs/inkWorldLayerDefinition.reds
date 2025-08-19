@@ -1,18 +1,18 @@
 public native struct inkWorldLayerDefinition {
-  native let enabled: Bool;
-  native let rootLibrary: ResourceRef; // rRef<inkWidgetLibraryResource>
-  native let activeByDefault: Bool;
-  native let isPermanent: Bool;
-  native let useGlobalStyleTheme: Bool;
-  native let isAffectedByFadeout: Bool;
-  native let useGameInput: Bool;
-  native let inputContext: CName;
-  native let projectionPlaneSize: Vector2;
-  native let renderingPlane: ERenderingPlane;
-  native let isAlwaysVisible: Bool;
-  native let isInteractableFromBehind: Bool;
-  native let maxInteractionDistance: Float;
-  native let overrideMaxInteractionDistance: Bool;
-  native let useCustomFaceVector: Bool;
-  native let faceVector: Vector3;
+  public native let enabled: Bool;
+  public native let rootLibrary: ResourceRef; // rRef<inkWidgetLibraryResource>
+  public native let activeByDefault: Bool;
+  public native let isPermanent: Bool;
+  public native let useGlobalStyleTheme: Bool;
+  public native let isAffectedByFadeout: Bool;
+  public native let useGameInput: Bool;
+  public native let inputContext: CName;
+  public native let projectionPlaneSize: Vector2;
+  public native let renderingPlane: ERenderingPlane;
+  public native let isAlwaysVisible: Bool;
+  public native let isInteractableFromBehind: Bool;
+  public native let maxInteractionDistance: Float;
+  public native let overrideMaxInteractionDistance: Bool;
+  public native let useCustomFaceVector: Bool;
+  public native let faceVector: Vector3;
 }

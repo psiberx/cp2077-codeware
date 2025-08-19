@@ -1,8 +1,8 @@
 public native class questInventory_ConditionType extends questIObjectConditionType {
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let itemID: TweakDBID;
-  native let itemTag: CName;
-  native let quantity: Uint32;
-  native let comparisonType: EComparisonType;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let itemID: TweakDBID;
+  public native let itemTag: CName;
+  public native let quantity: Uint32;
+  public native let comparisonType: EComparisonType;
 }

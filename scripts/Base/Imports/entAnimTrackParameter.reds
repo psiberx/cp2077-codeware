@@ -1,5 +1,5 @@
 public native struct entAnimTrackParameter {
-  native let animTrackName: CName;
-  native let parameterName: CName;
-  native let defaultValue: Float;
+  public native let animTrackName: CName;
+  public native let parameterName: CName;
+  public native let defaultValue: Float;
 }

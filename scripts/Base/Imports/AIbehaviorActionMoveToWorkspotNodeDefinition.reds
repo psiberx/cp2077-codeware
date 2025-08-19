@@ -1,14 +1,14 @@
 public native class AIbehaviorActionMoveToWorkspotNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let workspotSetup: ref<AIArgumentMapping>;
-  native let lookAtTarget: ref<AIArgumentMapping>;
-  native let movementType: ref<AIArgumentMapping>;
-  native let tolerance: ref<AIArgumentMapping>;
-  native let ignoreNavigation: ref<AIArgumentMapping>;
-  native let rotateEntity: ref<AIArgumentMapping>;
-  native let useStart: ref<AIArgumentMapping>;
-  native let spotReservation: ref<AIArgumentMapping>;
-  native let startTangent: ref<AIArgumentMapping>;
-  native let fastForwardAfterTeleport: ref<AIArgumentMapping>;
-  native let ignoreExploration: ref<AIArgumentMapping>;
-  native let failWhenStoppedByCollision: ref<AIArgumentMapping>;
+  public native let workspotSetup: ref<AIArgumentMapping>;
+  public native let lookAtTarget: ref<AIArgumentMapping>;
+  public native let movementType: ref<AIArgumentMapping>;
+  public native let tolerance: ref<AIArgumentMapping>;
+  public native let ignoreNavigation: ref<AIArgumentMapping>;
+  public native let rotateEntity: ref<AIArgumentMapping>;
+  public native let useStart: ref<AIArgumentMapping>;
+  public native let spotReservation: ref<AIArgumentMapping>;
+  public native let startTangent: ref<AIArgumentMapping>;
+  public native let fastForwardAfterTeleport: ref<AIArgumentMapping>;
+  public native let ignoreExploration: ref<AIArgumentMapping>;
+  public native let failWhenStoppedByCollision: ref<AIArgumentMapping>;
 }

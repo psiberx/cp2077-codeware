@@ -1,56 +1,56 @@
 @addField(CameraComponent)
-native let animParamFovOverrideWeight: CName;
+public native let animParamFovOverrideWeight: CName;
 
 @addField(CameraComponent)
-native let animParamFovOverrideValue: CName;
+public native let animParamFovOverrideValue: CName;
 
 @addField(CameraComponent)
-native let animParamZoomOverrideWeight: CName;
+public native let animParamZoomOverrideWeight: CName;
 
 @addField(CameraComponent)
-native let animParamZoomOverrideValue: CName;
+public native let animParamZoomOverrideValue: CName;
 
 @addField(CameraComponent)
-native let animParamZoomWeaponOverrideWeight: CName;
+public native let animParamZoomWeaponOverrideWeight: CName;
 
 @addField(CameraComponent)
-native let animParamZoomWeaponOverrideValue: CName;
+public native let animParamZoomWeaponOverrideValue: CName;
 
 @addField(CameraComponent)
-native let animParamdofIntensity: CName;
+public native let animParamdofIntensity: CName;
 
 @addField(CameraComponent)
-native let animParamdofNearBlur: CName;
+public native let animParamdofNearBlur: CName;
 
 @addField(CameraComponent)
-native let animParamdofNearFocus: CName;
+public native let animParamdofNearFocus: CName;
 
 @addField(CameraComponent)
-native let animParamdofFarBlur: CName;
+public native let animParamdofFarBlur: CName;
 
 @addField(CameraComponent)
-native let animParamdofFarFocus: CName;
+public native let animParamdofFarFocus: CName;
 
 @addField(CameraComponent)
-native let animParamWeaponNearPlaneCM: CName;
+public native let animParamWeaponNearPlaneCM: CName;
 
 @addField(CameraComponent)
-native let animParamWeaponFarPlaneCM: CName;
+public native let animParamWeaponFarPlaneCM: CName;
 
 @addField(CameraComponent)
-native let animParamWeaponEdgesSharpness: CName;
+public native let animParamWeaponEdgesSharpness: CName;
 
 @addField(CameraComponent)
-native let animParamWeaponVignetteIntensity: CName;
+public native let animParamWeaponVignetteIntensity: CName;
 
 @addField(CameraComponent)
-native let animParamWeaponVignetteRadius: CName;
+public native let animParamWeaponVignetteRadius: CName;
 
 @addField(CameraComponent)
-native let animParamWeaponVignetteCircular: CName;
+public native let animParamWeaponVignetteCircular: CName;
 
 @addField(CameraComponent)
-native let animParamWeaponBlurIntensity: CName;
+public native let animParamWeaponBlurIntensity: CName;
 
 @addField(CameraComponent)
-native let weaponPlane: SWeaponPlaneParams;
+public native let weaponPlane: SWeaponPlaneParams;

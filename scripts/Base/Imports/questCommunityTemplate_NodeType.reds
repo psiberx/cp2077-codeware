@@ -1,5 +1,5 @@
 public native class questCommunityTemplate_NodeType extends questSpawnManagerNodeType {
-  native let spawnerReference: NodeRef;
-  native let communityEntryName: CName;
-  native let communityEntryPhaseName: CName;
+  public native let spawnerReference: NodeRef;
+  public native let communityEntryName: CName;
+  public native let communityEntryPhaseName: CName;
 }

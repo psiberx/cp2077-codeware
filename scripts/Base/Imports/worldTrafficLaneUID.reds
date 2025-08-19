@@ -1,6 +1,6 @@
 public native struct worldTrafficLaneUID {
-  native let nodeRefHash: Uint64;
-  native let laneNumber: Uint16;
-  native let seqNumber: Uint16;
-  native let isReversed: Bool;
+  public native let nodeRefHash: Uint64;
+  public native let laneNumber: Uint16;
+  public native let seqNumber: Uint16;
+  public native let isReversed: Bool;
 }

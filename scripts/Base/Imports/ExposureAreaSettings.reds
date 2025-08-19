@@ -1,13 +1,13 @@
 public native class ExposureAreaSettings extends IAreaSettings {
-  native let exposureAdaptationSpeedUp: CurveDataFloat;
-  native let exposureAdaptationSpeedDown: CurveDataFloat;
-  native let exposurePercentageThresholdLow: CurveDataFloat;
-  native let exposurePercentageThresholdHigh: CurveDataFloat;
-  native let exposureCompensation: CurveDataFloat;
-  native let exposureSkyImpact: CurveDataFloat;
-  native let exposureMin: CurveDataFloat;
-  native let exposureMax: CurveDataFloat;
-  native let exposureCenterImportance: CurveDataFloat;
-  native let cameraVelocityFaloff: Float;
-  native let exposureCompensationOffset: Float;
+  public native let exposureAdaptationSpeedUp: CurveDataFloat;
+  public native let exposureAdaptationSpeedDown: CurveDataFloat;
+  public native let exposurePercentageThresholdLow: CurveDataFloat;
+  public native let exposurePercentageThresholdHigh: CurveDataFloat;
+  public native let exposureCompensation: CurveDataFloat;
+  public native let exposureSkyImpact: CurveDataFloat;
+  public native let exposureMin: CurveDataFloat;
+  public native let exposureMax: CurveDataFloat;
+  public native let exposureCenterImportance: CurveDataFloat;
+  public native let cameraVelocityFaloff: Float;
+  public native let exposureCompensationOffset: Float;
 }

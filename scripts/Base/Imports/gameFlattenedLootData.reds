@@ -1,3 +1,3 @@
 public native struct gameFlattenedLootData {
-  native let lootID: TweakDBID;
+  public native let lootID: TweakDBID;
 }

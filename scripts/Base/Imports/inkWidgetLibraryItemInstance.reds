@@ -1,5 +1,5 @@
 public native class inkWidgetLibraryItemInstance extends ISerializable {
-  native let rootWidget: ref<inkWidget>;
-  native let gameController: ref<inkIGameController>;
-  native let rootResolution: inkETextureResolution;
+  public native let rootWidget: ref<inkWidget>;
+  public native let gameController: ref<inkIGameController>;
+  public native let rootResolution: inkETextureResolution;
 }

@@ -1,7 +1,7 @@
 public native class CParticleModificatorDepthCollision extends IParticleModificator {
-  native let maxCollisions: Uint32;
-  native let restitution: Float;
-  native let friction: Float;
-  native let radius: Float;
-  native let collisionEffect: EDepthCollisionEffect;
+  public native let maxCollisions: Uint32;
+  public native let restitution: Float;
+  public native let friction: Float;
+  public native let radius: Float;
+  public native let collisionEffect: EDepthCollisionEffect;
 }

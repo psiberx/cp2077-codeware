@@ -1,4 +1,4 @@
 public native struct questDevice_ConditionFunctionParameter {
-  native let name: CName;
-  native let value: Variant;
+  public native let name: CName;
+  public native let value: Variant;
 }

@@ -1,3 +1,3 @@
 public native class scnSetupSyncWorkspotRelationshipsEvent extends scnSceneEvent {
-  native let syncedWorkspotIds: [scnSceneWorkspotInstanceId; 4];
+  public native let syncedWorkspotIds: [scnSceneWorkspotInstanceId; 4];
 }

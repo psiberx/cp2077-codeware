@@ -1,3 +1,3 @@
 public native class gamestateMachineTransitionDefinition extends graphGraphConnectionDefinition {
-  native let priority: Float;
+  public native let priority: Float;
 }

@@ -1,5 +1,5 @@
 public native class questCharacterAttack_ConditionType extends questICharacterConditionType {
-  native let attackerRef: EntityReference;
-  native let targetRef: EntityReference;
-  native let isTargetPlayer: Bool;
+  public native let attackerRef: EntityReference;
+  public native let targetRef: EntityReference;
+  public native let isTargetPlayer: Bool;
 }

@@ -1,6 +1,6 @@
 public native struct gameCookedAreaData {
-  native let entityID: EntityID;
-  native let position: Vector3;
-  native let radius: Float;
-  native let volume: ref<gamemappinsIMappinVolume>;
+  public native let entityID: EntityID;
+  public native let position: Vector3;
+  public native let radius: Float;
+  public native let volume: ref<gamemappinsIMappinVolume>;
 }

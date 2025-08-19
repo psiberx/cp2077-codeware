@@ -1,2 +1,2 @@
 @addField(MinigameDynObject)
-native let spawnPoolSize: Uint32;
+public native let spawnPoolSize: Uint32;

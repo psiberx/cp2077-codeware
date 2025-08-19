@@ -1,6 +1,6 @@
 public native class AIbehaviorFSMStateDefinition extends AIbehaviorTreeNodeDefinition {
-  native let behaviorRoot: ref<AIbehaviorTreeNodeDefinition>;
-  native let isInitial: Bool;
-  native let isExit: Bool;
-  native let completionStatus: AIbehaviorStateCompletionStatus;
+  public native let behaviorRoot: ref<AIbehaviorTreeNodeDefinition>;
+  public native let isInitial: Bool;
+  public native let isExit: Bool;
+  public native let completionStatus: AIbehaviorStateCompletionStatus;
 }

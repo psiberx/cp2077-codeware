@@ -1,5 +1,5 @@
 public native struct entReplicatedVariableValue {
-  native let name: CName;
-  native let value: Float;
-  native let applyServerTime: netTime;
+  public native let name: CName;
+  public native let value: Float;
+  public native let applyServerTime: netTime;
 }

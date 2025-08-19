@@ -1,4 +1,4 @@
 public native struct interopNodeTransformInfo {
-  native let id: interopStringWithID;
-  native let transformInfo: interopTransformInfo;
+  public native let id: interopStringWithID;
+  public native let transformInfo: interopTransformInfo;
 }

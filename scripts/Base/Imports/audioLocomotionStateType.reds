@@ -1,3 +1,3 @@
 public native class audioLocomotionStateType extends audioAudioMetadata {
-  native let void: Bool;
+  public native let void: Bool;
 }

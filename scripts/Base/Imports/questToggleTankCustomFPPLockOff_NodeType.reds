@@ -1,5 +1,5 @@
 public native class questToggleTankCustomFPPLockOff_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let playerVehicle: Bool;
-  native let val: Bool;
+  public native let vehicleRef: EntityReference;
+  public native let playerVehicle: Bool;
+  public native let val: Bool;
 }

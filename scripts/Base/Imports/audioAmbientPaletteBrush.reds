@@ -1,7 +1,7 @@
 public native struct audioAmbientPaletteBrush {
-  native let distributionBucketSize: Float;
-  native let virtualHearingRadius: Float;
-  native let hearingDistanceCooldown: Float;
-  native let eventsPool: array<CName>;
-  native let radioStationMetadata: CName;
+  public native let distributionBucketSize: Float;
+  public native let virtualHearingRadius: Float;
+  public native let hearingDistanceCooldown: Float;
+  public native let eventsPool: array<CName>;
+  public native let radioStationMetadata: CName;
 }

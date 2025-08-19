@@ -1,16 +1,16 @@
 public native class questCharacterState_PlayerSubType extends questICharacterConditionSubType {
-  native let locomotionComparisonType: questEComparisonTypeEquality;
-  native let locomotionState: gamePSMLocomotionStates;
-  native let upperBodyComparisonType: questEComparisonTypeEquality;
-  native let upperBodyState: gamePSMUpperBodyStates;
-  native let weaponComparisonType: questEComparisonTypeEquality;
-  native let weaponState: gamePSMRangedWeaponStates;
-  native let timeDilationComparisonType: questEComparisonTypeEquality;
-  native let timeDilationState: gamePSMTimeDilation;
-  native let vehicleComparisonType: questEComparisonTypeEquality;
-  native let vehicleState: gamePSMVehicle;
-  native let takedownStateComparisonType: questEComparisonTypeEquality;
-  native let takedownState: gamePSMTakedown;
-  native let swimmingStateComparisonType: questEComparisonTypeEquality;
-  native let swimmingState: gamePSMSwimming;
+  public native let locomotionComparisonType: questEComparisonTypeEquality;
+  public native let locomotionState: gamePSMLocomotionStates;
+  public native let upperBodyComparisonType: questEComparisonTypeEquality;
+  public native let upperBodyState: gamePSMUpperBodyStates;
+  public native let weaponComparisonType: questEComparisonTypeEquality;
+  public native let weaponState: gamePSMRangedWeaponStates;
+  public native let timeDilationComparisonType: questEComparisonTypeEquality;
+  public native let timeDilationState: gamePSMTimeDilation;
+  public native let vehicleComparisonType: questEComparisonTypeEquality;
+  public native let vehicleState: gamePSMVehicle;
+  public native let takedownStateComparisonType: questEComparisonTypeEquality;
+  public native let takedownState: gamePSMTakedown;
+  public native let swimmingStateComparisonType: questEComparisonTypeEquality;
+  public native let swimmingState: gamePSMSwimming;
 }

@@ -1,4 +1,4 @@
 public native struct questNodeVisibilityMapArrayElement {
-  native let globalNodeRef: GlobalNodeRef;
-  native let visible: Bool;
+  public native let globalNodeRef: GlobalNodeRef;
+  public native let visible: Bool;
 }

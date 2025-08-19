@@ -1,7 +1,7 @@
 public native class entStaticOccluderMeshComponent extends IPlacedComponent {
-  native let mesh: ResourceRef; // rRef<CMesh>
-  native let scale: Vector3;
-  native let color: Color;
-  native let occluderType: visWorldOccluderType;
-  native let occluderAutohideDistanceScale: Uint8;
+  public native let mesh: ResourceRef; // rRef<CMesh>
+  public native let scale: Vector3;
+  public native let color: Color;
+  public native let occluderType: visWorldOccluderType;
+  public native let occluderAutohideDistanceScale: Uint8;
 }

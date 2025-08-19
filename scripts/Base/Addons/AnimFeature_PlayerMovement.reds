@@ -1,14 +1,14 @@
 @addField(AnimFeature_PlayerMovement)
-native let facingDirection: Vector4;
+public native let facingDirection: Vector4;
 
 @addField(AnimFeature_PlayerMovement)
-native let verticalSpeed: Float;
+public native let verticalSpeed: Float;
 
 @addField(AnimFeature_PlayerMovement)
-native let movementDirectionHorizontalAngle: Float;
+public native let movementDirectionHorizontalAngle: Float;
 
 @addField(AnimFeature_PlayerMovement)
-native let inAir: Bool;
+public native let inAir: Bool;
 
 @addField(AnimFeature_PlayerMovement)
-native let standingTerrainAngle: Float;
+public native let standingTerrainAngle: Float;

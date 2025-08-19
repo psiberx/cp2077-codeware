@@ -1,3 +1,3 @@
 public native class entAppearanceStatusEvent extends Event {
-  native let status: entAppearanceStatus;
+  public native let status: entAppearanceStatus;
 }

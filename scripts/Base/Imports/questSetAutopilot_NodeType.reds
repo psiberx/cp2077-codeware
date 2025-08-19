@@ -1,4 +1,4 @@
 public native class questSetAutopilot_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let val: Bool;
+  public native let vehicleRef: EntityReference;
+  public native let val: Bool;
 }

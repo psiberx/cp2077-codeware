@@ -1,3 +1,3 @@
 public importonly struct RoachRaceChunkLayer {
-  native let chunks: array<RoachRaceChunk>;
+  public native let chunks: array<RoachRaceChunk>;
 }

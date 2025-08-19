@@ -1,5 +1,5 @@
 public native class AcousticPortalComponent extends IPlacedComponent {
-  native let radius: Uint8;
-  native let nominalRadius: Uint8;
-  native let initialyOpen: Bool;
+  public native let radius: Uint8;
+  public native let nominalRadius: Uint8;
+  public native let initialyOpen: Bool;
 }

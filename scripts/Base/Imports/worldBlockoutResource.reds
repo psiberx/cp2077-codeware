@@ -1,3 +1,3 @@
 public native class worldBlockoutResource extends CResource {
-  native let blockoutData: ref<worldBlockoutData>;
+  public native let blockoutData: ref<worldBlockoutData>;
 }

@@ -1,3 +1,3 @@
 public native class questHUDEntryVisibilityEvent extends Event {
-  native let dataEntries: array<questHUDEntryVisibilityData>;
+  public native let dataEntries: array<questHUDEntryVisibilityData>;
 }

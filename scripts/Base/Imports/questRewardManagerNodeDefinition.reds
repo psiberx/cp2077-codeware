@@ -1,3 +1,3 @@
 public native class questRewardManagerNodeDefinition extends questDisableableNodeDefinition {
-  native let type: ref<questIRewardManagerNodeType>;
+  public native let type: ref<questIRewardManagerNodeType>;
 }

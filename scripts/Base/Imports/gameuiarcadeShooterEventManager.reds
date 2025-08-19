@@ -1,7 +1,7 @@
 public native class gameuiarcadeShooterEventManager extends inkLogicController {
-  native let nextLevelThreshold: Vector2;
-  native let levelEndCheckDelay: Float;
-  native let eventFinishDelay: Float;
-  native let eventId: Int32;
-  native let eventList: array<gameuiarcadeShooterEventData>;
+  public native let nextLevelThreshold: Vector2;
+  public native let levelEndCheckDelay: Float;
+  public native let eventFinishDelay: Float;
+  public native let eventId: Int32;
+  public native let eventList: array<gameuiarcadeShooterEventData>;
 }

@@ -1,3 +1,3 @@
 public native class scnCheckFactReturnCondition extends scnIReturnCondition {
-  native let params: scnCheckFactReturnConditionParams;
+  public native let params: scnCheckFactReturnConditionParams;
 }

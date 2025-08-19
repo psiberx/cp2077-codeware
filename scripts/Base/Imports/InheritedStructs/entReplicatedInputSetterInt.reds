@@ -1,5 +1,5 @@
 public native struct entReplicatedInputSetterInt {
-  native let name: CName;
-  native let applyServerTime: netTime;
-  native let value: Int32;
+  public native let name: CName;
+  public native let applyServerTime: netTime;
+  public native let value: Int32;
 }

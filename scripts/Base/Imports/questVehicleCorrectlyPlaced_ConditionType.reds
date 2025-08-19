@@ -1,8 +1,8 @@
 public native class questVehicleCorrectlyPlaced_ConditionType extends questIVehicleConditionType {
-  native let vehicleRef: EntityReference;
-  native let timeInterval: Float;
-  native let checkIsUpsideDown: Bool;
-  native let checkIsOnTheSide: Bool;
-  native let checkAreAllWheelsOnGround: Bool;
-  native let inverted: Bool;
+  public native let vehicleRef: EntityReference;
+  public native let timeInterval: Float;
+  public native let checkIsUpsideDown: Bool;
+  public native let checkIsOnTheSide: Bool;
+  public native let checkAreAllWheelsOnGround: Bool;
+  public native let inverted: Bool;
 }

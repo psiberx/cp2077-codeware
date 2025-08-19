@@ -1,3 +1,3 @@
 public native class cpTimerTest extends GameObject {
-  native let counter: Int32;
+  public native let counter: Int32;
 }

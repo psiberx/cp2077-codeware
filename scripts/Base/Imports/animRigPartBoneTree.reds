@@ -1,5 +1,5 @@
 public native struct animRigPartBoneTree {
-  native let rootBone: CName;
-  native let weight: Float;
-  native let subtreesToChange: array<animRigPartBoneTree>;
+  public native let rootBone: CName;
+  public native let weight: Float;
+  public native let subtreesToChange: array<animRigPartBoneTree>;
 }

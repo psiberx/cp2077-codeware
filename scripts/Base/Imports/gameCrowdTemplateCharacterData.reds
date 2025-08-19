@@ -1,4 +1,4 @@
 public native struct gameCrowdTemplateCharacterData {
-  native let characterRecordId: TweakDBID;
-  native let weight: Float;
+  public native let characterRecordId: TweakDBID;
+  public native let weight: Float;
 }

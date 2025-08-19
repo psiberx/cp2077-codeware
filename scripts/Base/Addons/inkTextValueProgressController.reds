@@ -1,14 +1,14 @@
 @addField(inkTextValueProgressController)
-native let baseValue: Float;
+public native let baseValue: Float;
 
 @addField(inkTextValueProgressController)
-native let targetValue: Float;
+public native let targetValue: Float;
 
 @addField(inkTextValueProgressController)
-native let numbersAfterDot: Int32;
+public native let numbersAfterDot: Int32;
 
 @addField(inkTextValueProgressController)
-native let stepValue: Float;
+public native let stepValue: Float;
 
 @addField(inkTextValueProgressController)
-native let suffix: String;
+public native let suffix: String;

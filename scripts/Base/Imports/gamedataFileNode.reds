@@ -1,7 +1,7 @@
 public native class gamedataFileNode extends gamedataDataNode {
-  native let packageName: String;
-  native let packageDependencies: [wref<gamedataPackageNode>; 16];
-  native let package: wref<gamedataPackageNode>;
-  native let variables: array<ref<gamedataVariableNode>>;
-  native let groups: array<ref<gamedataGroupNode>>;
+  public native let packageName: String;
+  public native let packageDependencies: [wref<gamedataPackageNode>; 16];
+  public native let package: wref<gamedataPackageNode>;
+  public native let variables: array<ref<gamedataVariableNode>>;
+  public native let groups: array<ref<gamedataGroupNode>>;
 }

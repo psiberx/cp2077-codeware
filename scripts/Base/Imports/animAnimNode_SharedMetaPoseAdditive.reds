@@ -1,6 +1,6 @@
 public native class animAnimNode_SharedMetaPoseAdditive extends animAnimNode_OnePoseInput {
-  native let weightLink: animFloatLink;
-  native let additiveType: animEAnimGraphAdditiveType;
-  native let blendTracks: animEBlendTracksMode;
-  native let convertParentPoseToAdditive: Bool;
+  public native let weightLink: animFloatLink;
+  public native let additiveType: animEAnimGraphAdditiveType;
+  public native let blendTracks: animEBlendTracksMode;
+  public native let convertParentPoseToAdditive: Bool;
 }

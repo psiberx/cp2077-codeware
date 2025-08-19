@@ -1,2 +1,2 @@
 @addField(inkPuppetPreviewGameController)
-native let cameraController: gameuiPuppetPreviewCameraController;
+public native let cameraController: gameuiPuppetPreviewCameraController;

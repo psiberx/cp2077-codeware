@@ -1,7 +1,7 @@
 public native struct gamestateMachineComponentReplicatedState {
-  native let componentName: CName;
-  native let enabled: Bool;
-  native let stateContext: gamestateMachineStateContext;
-  native let enterLadderParameter: ref<LadderDescription>;
-  native let exitLadderParameter: Bool;
+  public native let componentName: CName;
+  public native let enabled: Bool;
+  public native let stateContext: gamestateMachineStateContext;
+  public native let enterLadderParameter: ref<LadderDescription>;
+  public native let exitLadderParameter: Bool;
 }

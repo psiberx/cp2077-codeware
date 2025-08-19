@@ -1,17 +1,17 @@
 @addField(inkTextKiroshiAnimController)
-native let timeToSkip: Float;
+public native let timeToSkip: Float;
 
 @addField(inkTextKiroshiAnimController)
-native let nativeText: String;
+public native let nativeText: String;
 
 @addField(inkTextKiroshiAnimController)
-native let preTranslatedTextWidget: inkTextRef;
+public native let preTranslatedTextWidget: inkTextRef;
 
 @addField(inkTextKiroshiAnimController)
-native let postTranslatedTextWidget: inkTextRef;
+public native let postTranslatedTextWidget: inkTextRef;
 
 @addField(inkTextKiroshiAnimController)
-native let nativeTextWidget: inkRichTextBoxRef;
+public native let nativeTextWidget: inkRichTextBoxRef;
 
 @addField(inkTextKiroshiAnimController)
-native let translatedTextWidget: inkTextRef;
+public native let translatedTextWidget: inkTextRef;

@@ -1,8 +1,8 @@
 public native struct gameEffectSettings {
-  native let advancedTargetHandling: Bool;
-  native let synchronousProcessingForPlayer: Bool;
-  native let forceSynchronousProcessing: Bool;
-  native let tempExecuteOnlyOnce: Bool;
-  native let tickRate: Float;
-  native let useSimTimeForTick: Bool;
+  public native let advancedTargetHandling: Bool;
+  public native let synchronousProcessingForPlayer: Bool;
+  public native let forceSynchronousProcessing: Bool;
+  public native let tempExecuteOnlyOnce: Bool;
+  public native let tickRate: Float;
+  public native let useSimTimeForTick: Bool;
 }

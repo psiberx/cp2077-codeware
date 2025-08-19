@@ -1,7 +1,7 @@
 public native class navLocomotionPath extends ISerializable {
-  native let splineNodeRef: NodeRef;
-  native let segments: array<navLocomotionPathSegmentInfo>;
-  native let backwardSegments: array<navLocomotionPathSegmentInfo>;
-  native let points: array<navLocomotionPathPointInfo>;
-  native let userData: array<navLocomotionPathPointUserDataEntry>;
+  public native let splineNodeRef: NodeRef;
+  public native let segments: array<navLocomotionPathSegmentInfo>;
+  public native let backwardSegments: array<navLocomotionPathSegmentInfo>;
+  public native let points: array<navLocomotionPathPointInfo>;
+  public native let userData: array<navLocomotionPathPointUserDataEntry>;
 }

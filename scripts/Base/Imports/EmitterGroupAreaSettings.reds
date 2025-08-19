@@ -1,4 +1,4 @@
 public native class EmitterGroupAreaSettings extends IAreaSettings {
-  native let emitterGroupParams: array<EmitterGroupParams>;
-  native let EmitterGroupParams: array<EmitterGroupAreaParams>;
+  public native let emitterGroupParams: array<EmitterGroupParams>;
+  public native let EmitterGroupParams: array<EmitterGroupAreaParams>;
 }

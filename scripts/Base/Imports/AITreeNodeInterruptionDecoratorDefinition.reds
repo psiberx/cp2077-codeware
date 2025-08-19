@@ -1,3 +1,3 @@
 public native class AITreeNodeInterruptionDecoratorDefinition extends AICTreeNodeDecoratorDefinition {
-  native let interruptions: array<ref<AIInterruptionHandlerDefinition>>;
+  public native let interruptions: array<ref<AIInterruptionHandlerDefinition>>;
 }

@@ -1,5 +1,5 @@
 public native struct audioAudioSceneVariableWriteActionData {
-  native let name: CName;
-  native let operation: audioNumberOperation;
-  native let value: Int32;
+  public native let name: CName;
+  public native let operation: audioNumberOperation;
+  public native let value: Int32;
 }

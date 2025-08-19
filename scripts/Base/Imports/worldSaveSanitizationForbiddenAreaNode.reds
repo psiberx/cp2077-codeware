@@ -1,3 +1,3 @@
 public native class worldSaveSanitizationForbiddenAreaNode extends worldTriggerAreaNode {
-  native let safeSpotOffset: Vector4;
+  public native let safeSpotOffset: Vector4;
 }

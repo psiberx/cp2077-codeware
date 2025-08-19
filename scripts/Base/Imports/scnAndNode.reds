@@ -1,3 +1,3 @@
 public native class scnAndNode extends scnSceneGraphNode {
-  native let numInSockets: Uint32;
+  public native let numInSockets: Uint32;
 }

@@ -1,3 +1,3 @@
 public native struct AIbehaviorBehaviorIncludedDebuggerCommandEntry {
-  native let includedBehaviorResourcePath: String;
+  public native let includedBehaviorResourcePath: String;
 }

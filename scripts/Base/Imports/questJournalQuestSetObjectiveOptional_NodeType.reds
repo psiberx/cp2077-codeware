@@ -1,4 +1,4 @@
 public native class questJournalQuestSetObjectiveOptional_NodeType extends questIJournal_NodeType {
-  native let path: ref<gameJournalPath>;
-  native let optional: Bool;
+  public native let path: ref<gameJournalPath>;
+  public native let optional: Bool;
 }

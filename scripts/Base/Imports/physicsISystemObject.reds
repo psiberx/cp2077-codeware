@@ -1,3 +1,3 @@
 public abstract native class physicsISystemObject extends ISerializable {
-  native let name: CName;
+  public native let name: CName;
 }

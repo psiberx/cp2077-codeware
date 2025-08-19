@@ -1,3 +1,3 @@
 public native class rendIRenderTextureBlob extends IRenderResourceBlob {
-  native let header: rendRenderTextureBlobHeader;
+  public native let header: rendRenderTextureBlobHeader;
 }

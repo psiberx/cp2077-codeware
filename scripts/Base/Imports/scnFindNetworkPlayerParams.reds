@@ -1,3 +1,3 @@
 public native struct scnFindNetworkPlayerParams {
-  native let networkId: Uint32;
+  public native let networkId: Uint32;
 }

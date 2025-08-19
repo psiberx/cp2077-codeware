@@ -1,3 +1,3 @@
 public native class gameuiTextureMaxMipBiasChangeEvent extends Event {
-  native let textureMaxMipBias: Uint32;
+  public native let textureMaxMipBias: Uint32;
 }

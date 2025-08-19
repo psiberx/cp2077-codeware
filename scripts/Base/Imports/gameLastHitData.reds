@@ -1,5 +1,5 @@
 public native struct gameLastHitData {
-  native let targetEntityId: EntityID;
-  native let hitType: Uint32;
-  native let hitShapes: array<CName>;
+  public native let targetEntityId: EntityID;
+  public native let hitType: Uint32;
+  public native let hitShapes: array<CName>;
 }

@@ -1,3 +1,3 @@
 public native class AIbehaviorActionMoveWithPolicyTreeNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let stopWhenDestinationReached: Bool;
+  public native let stopWhenDestinationReached: Bool;
 }

@@ -1,3 +1,3 @@
 public native class BlurAreaSettings extends IAreaSettings {
-  native let circularBlurRadius: Float;
+  public native let circularBlurRadius: Float;
 }

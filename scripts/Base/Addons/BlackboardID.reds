@@ -1,2 +1,2 @@
 @addField(BlackboardID)
-native let None: gamebbID;
+public native let None: gamebbID;

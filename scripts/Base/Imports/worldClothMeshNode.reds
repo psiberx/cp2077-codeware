@@ -1,3 +1,3 @@
 public native class worldClothMeshNode extends worldMeshNode {
-  native let affectedByWind: Bool;
+  public native let affectedByWind: Bool;
 }

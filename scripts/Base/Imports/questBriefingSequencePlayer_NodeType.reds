@@ -1,13 +1,13 @@
 public native class questBriefingSequencePlayer_NodeType extends questIUIManagerNodeType {
-  native let function: questBriefingSequencePlayerFunction;
-  native let briefingResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
-  native let userData: ref<inkUserData>;
-  native let audioEvent: CName;
-  native let animationName: CName;
-  native let startMarkerName: CName;
-  native let endMarkerName: CName;
-  native let loopType: inkanimLoopType;
-  native let briefingPlayerType: questBriefingPlayerType;
-  native let briefingType: questBriefingType;
-  native let enableScanner: Bool;
+  public native let function: questBriefingSequencePlayerFunction;
+  public native let briefingResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+  public native let userData: ref<inkUserData>;
+  public native let audioEvent: CName;
+  public native let animationName: CName;
+  public native let startMarkerName: CName;
+  public native let endMarkerName: CName;
+  public native let loopType: inkanimLoopType;
+  public native let briefingPlayerType: questBriefingPlayerType;
+  public native let briefingType: questBriefingType;
+  public native let enableScanner: Bool;
 }

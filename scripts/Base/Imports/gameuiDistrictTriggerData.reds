@@ -1,4 +1,4 @@
 public native struct gameuiDistrictTriggerData {
-  native let district: gamedataDistrict;
-  native let triggerName: CName;
+  public native let district: gamedataDistrict;
+  public native let triggerName: CName;
 }

@@ -1,11 +1,11 @@
 @addField(JournalQuest)
-native let title: LocalizationString;
+public native let title: LocalizationString;
 
 @addField(JournalQuest)
-native let type: gameJournalQuestType;
+public native let type: gameJournalQuestType;
 
 @addField(JournalQuest)
-native let recommendedLevelID: TweakDBID;
+public native let recommendedLevelID: TweakDBID;
 
 @addField(JournalQuest)
-native let districtID: String;
+public native let districtID: String;

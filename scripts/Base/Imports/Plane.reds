@@ -1,3 +1,3 @@
 public native struct Plane {
-  native let NormalDistance: Vector4;
+  public native let NormalDistance: Vector4;
 }

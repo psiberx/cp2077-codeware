@@ -1,4 +1,4 @@
 public native struct curveSingleChannelCurve {
-  native let interpolationType: curveEInterpolationType;
-  native let linkType: curveESegmentsLinkType;
+  public native let interpolationType: curveEInterpolationType;
+  public native let linkType: curveESegmentsLinkType;
 }

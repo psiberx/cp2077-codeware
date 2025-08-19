@@ -1,4 +1,4 @@
 public native class ChangeCameraControlHintVisibilityEvent extends Event {
-  native let movementVisible: Bool;
-  native let rotationVisible: Bool;
+  public native let movementVisible: Bool;
+  public native let rotationVisible: Bool;
 }

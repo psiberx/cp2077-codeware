@@ -1,5 +1,5 @@
 public native struct animTEMP_IKTargetsControllerBodyType {
-  native let genderTag: CName;
-  native let bodyTypeTag: CName;
-  native let ikChainSettings: array<IKChainSettings>;
+  public native let genderTag: CName;
+  public native let bodyTypeTag: CName;
+  public native let ikChainSettings: array<IKChainSettings>;
 }

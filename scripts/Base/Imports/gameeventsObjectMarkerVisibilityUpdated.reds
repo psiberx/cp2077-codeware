@@ -1,4 +1,4 @@
 public native class gameeventsObjectMarkerVisibilityUpdated extends Event {
-  native let canHaveObjectMarker: Bool;
-  native let isVisible: Bool;
+  public native let canHaveObjectMarker: Bool;
+  public native let isVisible: Bool;
 }

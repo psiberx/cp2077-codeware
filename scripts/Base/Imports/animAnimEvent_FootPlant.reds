@@ -1,4 +1,4 @@
 public native class animAnimEvent_FootPlant extends animAnimEvent {
-  native let side: animEventSide;
-  native let customEvent: CName;
+  public native let side: animEventSide;
+  public native let customEvent: CName;
 }

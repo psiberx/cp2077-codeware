@@ -1,3 +1,3 @@
 public native class AIbehaviorActionUnmountNodeDefinition extends AIbehaviorActionMountHandlingNodeDefinition {
-  native let mountData: ref<AIArgumentMapping>;
+  public native let mountData: ref<AIArgumentMapping>;
 }

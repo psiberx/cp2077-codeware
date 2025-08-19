@@ -1,6 +1,6 @@
 public native class worldStaticParticleNode extends worldNode {
-  native let emissionRate: Float;
-  native let particleSystem: ResourceAsyncRef; // raRef<CParticleSystem>
-  native let forcedAutoHideDistance: Float;
-  native let forcedAutoHideRange: Float;
+  public native let emissionRate: Float;
+  public native let particleSystem: ResourceAsyncRef; // raRef<CParticleSystem>
+  public native let forcedAutoHideDistance: Float;
+  public native let forcedAutoHideRange: Float;
 }

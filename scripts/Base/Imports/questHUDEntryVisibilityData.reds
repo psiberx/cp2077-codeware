@@ -1,4 +1,4 @@
 public native struct questHUDEntryVisibilityData {
-  native let hudEntryName: CName;
-  native let visibility: worlduiEntryVisibility;
+  public native let hudEntryName: CName;
+  public native let visibility: worlduiEntryVisibility;
 }

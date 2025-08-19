@@ -1,5 +1,5 @@
 public native struct EmitterGroupParams {
-  native let group: EEmitterGroup;
-  native let emissionScale: Float;
-  native let opacityScale: Float;
+  public native let group: EEmitterGroup;
+  public native let emissionScale: Float;
+  public native let opacityScale: Float;
 }

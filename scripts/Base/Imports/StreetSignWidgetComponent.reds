@@ -1,7 +1,7 @@
 public native class StreetSignWidgetComponent extends IWorldWidgetComponent {
-  native let streetSignTDBID: TweakDBID;
-  native let isAStreetName: Bool;
-  native let streetNameSignTDBID: TweakDBID;
-  native let signSelector: ref<TweakDBIDSelector>;
-  native let signVersion: Uint32;
+  public native let streetSignTDBID: TweakDBID;
+  public native let isAStreetName: Bool;
+  public native let streetNameSignTDBID: TweakDBID;
+  public native let signSelector: ref<TweakDBIDSelector>;
+  public native let signVersion: Uint32;
 }

@@ -1,3 +1,3 @@
 public native struct scnVoicetagId {
-  native let id: CRUID;
+  public native let id: CRUID;
 }

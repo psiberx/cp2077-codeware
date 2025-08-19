@@ -1,6 +1,6 @@
 public native class animAnimNode_SkFrameAnimByTrack extends animAnimNode_SkFrameAnim {
-  native let progressFloatTrack: animNamedTrackIndex;
-  native let timeFloatTrack: animNamedTrackIndex;
-  native let frameFloatTrack: animNamedTrackIndex;
-  native let inputWithTracks: animPoseLink;
+  public native let progressFloatTrack: animNamedTrackIndex;
+  public native let timeFloatTrack: animNamedTrackIndex;
+  public native let frameFloatTrack: animNamedTrackIndex;
+  public native let inputWithTracks: animPoseLink;
 }

@@ -1,5 +1,5 @@
 public native class questShowNarrativeEvent_NodeType extends questIUIManagerNodeType {
-  native let eventText: String;
-  native let textColor: Color;
-  native let durationSec: Float;
+  public native let eventText: String;
+  public native let textColor: Color;
+  public native let durationSec: Float;
 }

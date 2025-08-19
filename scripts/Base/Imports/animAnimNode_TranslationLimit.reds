@@ -1,7 +1,7 @@
 public native class animAnimNode_TranslationLimit extends animAnimNode_OnePoseInput {
-  native let constrainedTransform: animTransformIndex;
-  native let parentTransform: animTransformIndex;
-  native let limitOnXAxis: animFloatClamp;
-  native let limitOnYAxis: animFloatClamp;
-  native let limitOnZAxis: animFloatClamp;
+  public native let constrainedTransform: animTransformIndex;
+  public native let parentTransform: animTransformIndex;
+  public native let limitOnXAxis: animFloatClamp;
+  public native let limitOnYAxis: animFloatClamp;
+  public native let limitOnZAxis: animFloatClamp;
 }

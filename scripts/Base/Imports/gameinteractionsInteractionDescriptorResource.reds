@@ -1,3 +1,3 @@
 public native class gameinteractionsInteractionDescriptorResource extends CResource {
-  native let definition: gameinteractionsCHotSpotDefinition;
+  public native let definition: gameinteractionsCHotSpotDefinition;
 }

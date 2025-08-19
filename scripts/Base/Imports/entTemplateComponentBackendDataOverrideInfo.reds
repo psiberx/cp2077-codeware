@@ -1,4 +1,4 @@
 public native struct entTemplateComponentBackendDataOverrideInfo {
-  native let componentName: CName;
-  native let offset: Vector2;
+  public native let componentName: CName;
+  public native let offset: Vector2;
 }

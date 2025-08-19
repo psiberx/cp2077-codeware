@@ -1,4 +1,4 @@
 public native struct animPoseCorrectionParams {
-  native let poseCorrectionGroup: animPoseCorrectionGroup;
-  native let blendDuration: Float;
+  public native let poseCorrectionGroup: animPoseCorrectionGroup;
+  public native let blendDuration: Float;
 }

@@ -1,4 +1,4 @@
 public native class CParticleInitializerSize extends IParticleInitializer {
-  native let size: ref<IEvaluatorVector>;
-  native let scale: Float;
+  public native let size: ref<IEvaluatorVector>;
+  public native let scale: Float;
 }

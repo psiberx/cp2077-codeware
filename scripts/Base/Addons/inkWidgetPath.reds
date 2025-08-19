@@ -1,2 +1,2 @@
 @addField(inkWidgetPath)
-native let names: array<CName>;
+public native let names: array<CName>;

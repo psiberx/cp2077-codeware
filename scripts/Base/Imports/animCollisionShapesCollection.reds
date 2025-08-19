@@ -1,3 +1,3 @@
 public native class animCollisionShapesCollection extends ISerializable {
-  native let collisionRoundedShapes: array<animCollisionRoundedShape>;
+  public native let collisionRoundedShapes: array<animCollisionRoundedShape>;
 }

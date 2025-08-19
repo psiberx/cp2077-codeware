@@ -1,4 +1,4 @@
 public native struct scnSpawnerParams {
-  native let reference: NodeRef;
-  native let forceMaxVisibility: Bool;
+  public native let reference: NodeRef;
+  public native let forceMaxVisibility: Bool;
 }

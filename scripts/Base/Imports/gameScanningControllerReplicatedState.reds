@@ -1,3 +1,3 @@
 public native class gameScanningControllerReplicatedState extends ISerializable {
-  native let taggedObjectIDs: array<EntityID>;
+  public native let taggedObjectIDs: array<EntityID>;
 }

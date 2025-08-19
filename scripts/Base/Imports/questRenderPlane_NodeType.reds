@@ -1,4 +1,4 @@
 public native class questRenderPlane_NodeType extends questIRenderFxManagerNodeType {
-  native let puppetRef: EntityReference;
-  native let renderPlane: ERenderingPlane;
+  public native let puppetRef: EntityReference;
+  public native let renderPlane: ERenderingPlane;
 }

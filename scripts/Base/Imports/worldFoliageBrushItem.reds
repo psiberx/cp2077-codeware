@@ -1,6 +1,6 @@
 public native class worldFoliageBrushItem extends ISerializable {
-  native let Mesh: ResourceRef; // rRef<CMesh>
-  native let MeshAppearance: CName;
-  native let Params: worldFoliageBrushParams;
-  native let Selected: Bool;
+  public native let Mesh: ResourceRef; // rRef<CMesh>
+  public native let MeshAppearance: CName;
+  public native let Params: worldFoliageBrushParams;
+  public native let Selected: Bool;
 }

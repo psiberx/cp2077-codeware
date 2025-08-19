@@ -1,8 +1,8 @@
 public native class worldAcousticSectorNode extends worldNode {
-  native let data: ResourceAsyncRef; // raRef<worldAcousticDataResource>
-  native let inSectorCoordsX: Uint32;
-  native let inSectorCoordsY: Uint32;
-  native let inSectorCoordsZ: Uint32;
-  native let generatorId: Uint32;
-  native let edgeMask: Uint8;
+  public native let data: ResourceAsyncRef; // raRef<worldAcousticDataResource>
+  public native let inSectorCoordsX: Uint32;
+  public native let inSectorCoordsY: Uint32;
+  public native let inSectorCoordsZ: Uint32;
+  public native let generatorId: Uint32;
+  public native let edgeMask: Uint8;
 }

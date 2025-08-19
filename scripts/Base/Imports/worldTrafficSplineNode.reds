@@ -1,16 +1,16 @@
 public native class worldTrafficSplineNode extends worldTrafficSourceNode {
-  native let usage: worldTrafficSplineNodeUsage;
-  native let maxSlotMaxSpeed: Float;
-  native let width: Float;
-  native let pathSamplingDistance: Float;
-  native let bidirectional: Bool;
-  native let autoConnectionRange: Float;
-  native let markings: array<CName>;
-  native let outLanes: array<worldTrafficLaneExitDefinition>;
-  native let lights: array<worldTrafficLightDefinition>;
-  native let neverDeadEnd: Bool;
-  native let trafficDisabled: Bool;
-  native let laneSamplingAngle: Float;
-  native let noAIDriving: Bool;
-  native let noAutodrive: Bool;
+  public native let usage: worldTrafficSplineNodeUsage;
+  public native let maxSlotMaxSpeed: Float;
+  public native let width: Float;
+  public native let pathSamplingDistance: Float;
+  public native let bidirectional: Bool;
+  public native let autoConnectionRange: Float;
+  public native let markings: array<CName>;
+  public native let outLanes: array<worldTrafficLaneExitDefinition>;
+  public native let lights: array<worldTrafficLightDefinition>;
+  public native let neverDeadEnd: Bool;
+  public native let trafficDisabled: Bool;
+  public native let laneSamplingAngle: Float;
+  public native let noAIDriving: Bool;
+  public native let noAutodrive: Bool;
 }

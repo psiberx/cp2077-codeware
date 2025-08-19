@@ -1,10 +1,10 @@
 public native class AIbehaviorDriveToPointTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
-  native let targetPosition: ref<AIArgumentMapping>;
-  native let secureTimeOut: ref<AIArgumentMapping>;
-  native let useTraffic: ref<AIArgumentMapping>;
-  native let speedInTraffic: ref<AIArgumentMapping>;
-  native let forceGreenLights: ref<AIArgumentMapping>;
-  native let portals: ref<AIArgumentMapping>;
-  native let trafficTryNeighborsForStart: ref<AIArgumentMapping>;
-  native let trafficTryNeighborsForEnd: ref<AIArgumentMapping>;
+  public native let targetPosition: ref<AIArgumentMapping>;
+  public native let secureTimeOut: ref<AIArgumentMapping>;
+  public native let useTraffic: ref<AIArgumentMapping>;
+  public native let speedInTraffic: ref<AIArgumentMapping>;
+  public native let forceGreenLights: ref<AIArgumentMapping>;
+  public native let portals: ref<AIArgumentMapping>;
+  public native let trafficTryNeighborsForStart: ref<AIArgumentMapping>;
+  public native let trafficTryNeighborsForEnd: ref<AIArgumentMapping>;
 }

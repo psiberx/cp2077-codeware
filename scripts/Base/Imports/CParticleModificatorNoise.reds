@@ -1,9 +1,9 @@
 public native class CParticleModificatorNoise extends IParticleModificator {
-  native let amplitude: ref<IEvaluatorVector>;
-  native let offset: ref<IEvaluatorVector>;
-  native let frequency: ref<IEvaluatorVector>;
-  native let changeRate: Vector3;
-  native let applyToPosition: Bool;
-  native let worldSpaceOffset: Bool;
-  native let noiseType: ENoiseType;
+  public native let amplitude: ref<IEvaluatorVector>;
+  public native let offset: ref<IEvaluatorVector>;
+  public native let frequency: ref<IEvaluatorVector>;
+  public native let changeRate: Vector3;
+  public native let applyToPosition: Bool;
+  public native let worldSpaceOffset: Bool;
+  public native let noiseType: ENoiseType;
 }

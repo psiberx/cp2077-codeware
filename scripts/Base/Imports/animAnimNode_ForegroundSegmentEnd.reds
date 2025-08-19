@@ -1,3 +1,3 @@
 public native class animAnimNode_ForegroundSegmentEnd extends animAnimNode_OnePoseInput {
-  native let isAlwaysEnabledForHighEndHardware: Bool;
+  public native let isAlwaysEnabledForHighEndHardware: Bool;
 }

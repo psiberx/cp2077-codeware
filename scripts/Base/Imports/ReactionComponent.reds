@@ -1,6 +1,6 @@
 public importonly class ReactionComponent extends IComponent {
-  native let reactions: array<ReactionData>;
-  native let triggerAutomatically: Bool;
+  public native let reactions: array<ReactionData>;
+  public native let triggerAutomatically: Bool;
 
   public final native func GetReactionIndex()
   public final native func GetRequiredItems()

@@ -1,12 +1,12 @@
 public native class audioSecurityTurretMetadata extends audioCustomEmitterMetadata {
-  native let singleFire: CName;
-  native let activated: CName;
-  native let deactivaed: CName;
-  native let destroyed: CName;
-  native let idleStart: CName;
-  native let idleStop: CName;
-  native let triggerEffectSingle: CName;
-  native let triggerEffectAuto: CName;
-  native let obstructionEnabled: Bool;
-  native let occlusionEnabled: Bool;
+  public native let singleFire: CName;
+  public native let activated: CName;
+  public native let deactivaed: CName;
+  public native let destroyed: CName;
+  public native let idleStart: CName;
+  public native let idleStop: CName;
+  public native let triggerEffectSingle: CName;
+  public native let triggerEffectAuto: CName;
+  public native let obstructionEnabled: Bool;
+  public native let occlusionEnabled: Bool;
 }

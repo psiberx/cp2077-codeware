@@ -1,17 +1,17 @@
 public native class audioDynamicReverbSettings extends audioAudioMetadata {
-  native let reverbType: audioDynamicReverbType;
-  native let crossover1: audioReverbCrossoverParams;
-  native let crossover2: audioReverbCrossoverParams;
-  native let maxDistance: Float;
-  native let smallReverb: CName;
-  native let smallReverbMaxDistance: Float;
-  native let smallReverbFadeOutThreshold: Float;
-  native let mediumReverb: CName;
-  native let largeReverb: CName;
-  native let vehicleReverb: CName;
-  native let overrideWeaponTail: Bool;
-  native let sourceBasedReverbSet: CName;
-  native let weaponTailType: audioWeaponTailEnvironment;
-  native let echoPositionType: audioEchoPositionType;
-  native let reportPositionType: audioEchoPositionType;
+  public native let reverbType: audioDynamicReverbType;
+  public native let crossover1: audioReverbCrossoverParams;
+  public native let crossover2: audioReverbCrossoverParams;
+  public native let maxDistance: Float;
+  public native let smallReverb: CName;
+  public native let smallReverbMaxDistance: Float;
+  public native let smallReverbFadeOutThreshold: Float;
+  public native let mediumReverb: CName;
+  public native let largeReverb: CName;
+  public native let vehicleReverb: CName;
+  public native let overrideWeaponTail: Bool;
+  public native let sourceBasedReverbSet: CName;
+  public native let weaponTailType: audioWeaponTailEnvironment;
+  public native let echoPositionType: audioEchoPositionType;
+  public native let reportPositionType: audioEchoPositionType;
 }

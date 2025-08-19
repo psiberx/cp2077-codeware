@@ -1,3 +1,3 @@
 public native class questCutControlNodeDefinition extends questDisableableNodeDefinition {
-  native let permanent: Bool;
+  public native let permanent: Bool;
 }

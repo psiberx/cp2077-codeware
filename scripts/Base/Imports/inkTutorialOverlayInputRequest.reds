@@ -1,3 +1,3 @@
 public native class inkTutorialOverlayInputRequest extends Event {
-  native let isInputRequested: Bool;
+  public native let isInputRequested: Bool;
 }

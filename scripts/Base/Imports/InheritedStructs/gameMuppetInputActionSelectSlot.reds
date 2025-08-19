@@ -1,3 +1,3 @@
 public native struct gameMuppetInputActionSelectSlot {
-  native let targetSlot: Int32;
+  public native let targetSlot: Int32;
 }

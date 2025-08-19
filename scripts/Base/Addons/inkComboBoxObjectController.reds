@@ -1,11 +1,11 @@
 @addField(inkComboBoxObjectController)
-native let contentWidgetRef: inkWidgetRef;
+public native let contentWidgetRef: inkWidgetRef;
 
 @addField(inkComboBoxObjectController)
-native let placeholderOffsetWidgetRef: inkWidgetRef;
+public native let placeholderOffsetWidgetRef: inkWidgetRef;
 
 @addField(inkComboBoxObjectController)
-native let colliderRef: inkShapeRef;
+public native let colliderRef: inkShapeRef;
 
 @addField(inkComboBoxObjectController)
-native let offset: inkMargin;
+public native let offset: inkMargin;

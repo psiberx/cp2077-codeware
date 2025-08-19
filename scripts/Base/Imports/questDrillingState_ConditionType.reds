@@ -1,4 +1,4 @@
 public native class questDrillingState_ConditionType extends questIObjectConditionType {
-  native let objectRef: NodeRef;
-  native let state: questDrillingState;
+  public native let objectRef: NodeRef;
+  public native let state: questDrillingState;
 }

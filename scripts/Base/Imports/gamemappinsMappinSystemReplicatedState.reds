@@ -1,4 +1,4 @@
 public native class gamemappinsMappinSystemReplicatedState extends gameIGameSystemReplicatedState {
-  native let mappinState: array<NewMappinID>;
-  native let mappinWithJournalState: array<Uint32>;
+  public native let mappinState: array<NewMappinID>;
+  public native let mappinWithJournalState: array<Uint32>;
 }

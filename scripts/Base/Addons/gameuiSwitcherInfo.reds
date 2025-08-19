@@ -1,5 +1,5 @@
 @addField(gameuiSwitcherInfo)
-native let uiSlots: array<CName>;
+public native let uiSlots: array<CName>;
 
 @addField(gameuiSwitcherInfo)
-native let switchVisibility: Bool;
+public native let switchVisibility: Bool;

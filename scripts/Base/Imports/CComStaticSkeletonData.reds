@@ -1,3 +1,3 @@
 public native struct CComStaticSkeletonData {
-  native let entries: array<CComStaticSkeletonDataEntry>;
+  public native let entries: array<CComStaticSkeletonDataEntry>;
 }

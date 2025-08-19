@@ -1,6 +1,6 @@
 public native struct audioVehicleEngageMovingFasterInterpolationData {
-  native let enterCurveType: audioESoundCurveType;
-  native let enterCurveTime: Float;
-  native let exitCurveType: audioESoundCurveType;
-  native let exitCurveTime: Float;
+  public native let enterCurveType: audioESoundCurveType;
+  public native let enterCurveTime: Float;
+  public native let exitCurveType: audioESoundCurveType;
+  public native let exitCurveTime: Float;
 }

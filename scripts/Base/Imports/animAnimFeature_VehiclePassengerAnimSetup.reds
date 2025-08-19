@@ -1,4 +1,4 @@
 public native class animAnimFeature_VehiclePassengerAnimSetup extends AnimFeature {
-  native let enableAdditiveAnim: Bool;
-  native let additiveScale: Float;
+  public native let enableAdditiveAnim: Bool;
+  public native let additiveScale: Float;
 }

@@ -1,4 +1,4 @@
 public native class entGarmentParameter extends entEntityParameter {
-  native let componentsData: array<entGarmentParameterComponentData>;
-  native let collarArea: garmentCollarAreaParams;
+  public native let componentsData: array<entGarmentParameterComponentData>;
+  public native let collarArea: garmentCollarAreaParams;
 }

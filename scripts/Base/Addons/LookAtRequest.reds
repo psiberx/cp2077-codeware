@@ -1,2 +1,2 @@
 @addField(LookAtRequest)
-native let additionalParts: [LookAtPartRequest; 2];
+public native let additionalParts: [LookAtPartRequest; 2];

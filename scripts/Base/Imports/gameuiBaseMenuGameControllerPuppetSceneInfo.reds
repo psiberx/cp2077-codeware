@@ -1,8 +1,8 @@
 public native struct gameuiBaseMenuGameControllerPuppetSceneInfo {
-  native let sceneName: CName;
-  native let markerRef: NodeRef;
-  native let prefabRef: NodeRef;
-  native let entityTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
-  native let puppetRecordId: TweakDBID;
-  native let gender: gameuiBaseMenuGameControllerPuppetGenderInfo;
+  public native let sceneName: CName;
+  public native let markerRef: NodeRef;
+  public native let prefabRef: NodeRef;
+  public native let entityTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
+  public native let puppetRecordId: TweakDBID;
+  public native let gender: gameuiBaseMenuGameControllerPuppetGenderInfo;
 }

@@ -1,4 +1,4 @@
 public native class gameLootSlot extends gameLootContainerBase {
-  native let immovableAfterDrop: Bool;
-  native let dropChance: Float;
+  public native let immovableAfterDrop: Bool;
+  public native let dropChance: Float;
 }

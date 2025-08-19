@@ -1,4 +1,4 @@
 public native struct AISpotUsageToken {
-  native persistent let usedSpotId: GlobalNodeID;
-  native persistent let spotUserId: EntityID;
+  public native persistent let usedSpotId: GlobalNodeID;
+  public native persistent let spotUserId: EntityID;
 }

@@ -1,3 +1,3 @@
 public native struct gameCompressedSmartObjectPointTransform {
-  native let transformId: Uint16;
+  public native let transformId: Uint16;
 }

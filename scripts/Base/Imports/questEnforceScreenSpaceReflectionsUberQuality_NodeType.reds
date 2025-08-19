@@ -1,3 +1,3 @@
 public native class questEnforceScreenSpaceReflectionsUberQuality_NodeType extends questIRenderFxManagerNodeType {
-  native let enabled: Bool;
+  public native let enabled: Bool;
 }

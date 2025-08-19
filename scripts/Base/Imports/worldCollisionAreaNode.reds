@@ -1,5 +1,5 @@
 public native class worldCollisionAreaNode extends worldAreaShapeNode {
-  native let material: CName;
-  native let navigationSetting: NavGenNavigationSetting;
-  native let filterData: ref<physicsFilterData>;
+  public native let material: CName;
+  public native let navigationSetting: NavGenNavigationSetting;
+  public native let filterData: ref<physicsFilterData>;
 }

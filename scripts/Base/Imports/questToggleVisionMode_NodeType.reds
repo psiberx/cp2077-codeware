@@ -1,4 +1,4 @@
 public native class questToggleVisionMode_NodeType extends questIVisionModeNodeType {
-  native let objectRef: EntityReference;
-  native let enable: Bool;
+  public native let objectRef: EntityReference;
+  public native let enable: Bool;
 }

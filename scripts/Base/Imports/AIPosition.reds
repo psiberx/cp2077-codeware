@@ -1,3 +1,3 @@
 public native struct AIPosition {
-  native let position: Vector3;
+  public native let position: Vector3;
 }

@@ -1,5 +1,5 @@
 public native class SharpeningAreaSettings extends IAreaSettings {
-  native let sharpeningStrength: Float;
-  native let sharpeningStrengthWhenUpsaling: Float;
-  native let sharpeningStrengthUpscalingTreshold: Float;
+  public native let sharpeningStrength: Float;
+  public native let sharpeningStrengthWhenUpsaling: Float;
+  public native let sharpeningStrengthUpscalingTreshold: Float;
 }

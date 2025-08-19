@@ -1,4 +1,4 @@
 public native struct SWeaponPlaneParams {
-  native let weaponNearPlaneCM: Float;
-  native let blurIntensity: Float;
+  public native let weaponNearPlaneCM: Float;
+  public native let blurIntensity: Float;
 }

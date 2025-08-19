@@ -1,10 +1,10 @@
 public native class scnVehicleMoveOnSpline_Overrides extends questIVehicleMoveOnSpline_Overrides {
-  native let useEntry: Bool;
-  native let useExit: Bool;
-  native let entrySpeed: Float;
-  native let exitSpeed: Float;
-  native let entryTransform: Transform;
-  native let exitTransform: Transform;
-  native let entryMarker: scnMarker;
-  native let exitMarker: scnMarker;
+  public native let useEntry: Bool;
+  public native let useExit: Bool;
+  public native let entrySpeed: Float;
+  public native let exitSpeed: Float;
+  public native let entryTransform: Transform;
+  public native let exitTransform: Transform;
+  public native let entryMarker: scnMarker;
+  public native let exitMarker: scnMarker;
 }

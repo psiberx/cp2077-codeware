@@ -1,3 +1,3 @@
 public native class audioLanguageGameConfiguration extends audioAudioMetadata {
-  native let langsInProject: array<audioLanguageMapItem>;
+  public native let langsInProject: array<audioLanguageMapItem>;
 }

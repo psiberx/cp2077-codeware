@@ -1,23 +1,23 @@
 @addField(ReactionData)
-native let startDuration: Float;
+public native let startDuration: Float;
 
 @addField(ReactionData)
-native let endDuration: Float;
+public native let endDuration: Float;
 
 @addField(ReactionData)
-native let interactionDuration: Float;
+public native let interactionDuration: Float;
 
 @addField(ReactionData)
-native let interactionType: CName;
+public native let interactionType: CName;
 
 @addField(ReactionData)
-native let requiredEquips: array<RequestItemParam>;
+public native let requiredEquips: array<RequestItemParam>;
 
 @addField(ReactionData)
-native let interactionPoint: Transform;
+public native let interactionPoint: Transform;
 
 @addField(ReactionData)
-native let useIK: Bool;
+public native let useIK: Bool;
 
 @addField(ReactionData)
-native let IKPoint: Vector4;
+public native let IKPoint: Vector4;

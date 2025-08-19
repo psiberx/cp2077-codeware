@@ -1,4 +1,4 @@
 public native class questQuestPhaseResource extends graphGraphResource {
-  native let phasePrefabs: array<questQuestPrefabEntry>;
-  native let inplacePhases: array<ResourceRef>;
+  public native let phasePrefabs: array<questQuestPrefabEntry>;
+  public native let inplacePhases: array<ResourceRef>;
 }

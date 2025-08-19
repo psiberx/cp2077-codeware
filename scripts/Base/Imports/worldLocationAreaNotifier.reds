@@ -1,4 +1,4 @@
 public native class worldLocationAreaNotifier extends worldITriggerAreaNotifer {
-  native let districtID: TweakDBID;
-  native let sendNewLocationNotification: Bool;
+  public native let districtID: TweakDBID;
+  public native let sendNewLocationNotification: Bool;
 }

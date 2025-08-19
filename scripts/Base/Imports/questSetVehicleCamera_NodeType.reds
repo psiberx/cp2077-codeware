@@ -1,4 +1,4 @@
 public native class questSetVehicleCamera_NodeType extends questIVehicleManagerNodeType {
-  native let cameraType: questVehicleCameraType;
-  native let blockOtherCameras: Bool;
+  public native let cameraType: questVehicleCameraType;
+  public native let blockOtherCameras: Bool;
 }

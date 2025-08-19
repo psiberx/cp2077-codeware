@@ -1,5 +1,5 @@
 @addField(JournalImageEntry)
-native let imageId: TweakDBID;
+public native let imageId: TweakDBID;
 
 @addField(JournalImageEntry)
-native let thumbnailImageId: TweakDBID;
+public native let thumbnailImageId: TweakDBID;

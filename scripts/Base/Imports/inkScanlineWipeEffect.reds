@@ -1,5 +1,5 @@
 public native class inkScanlineWipeEffect extends inkIEffect {
-  native let angle: Float;
-  native let transition: Float;
-  native let width: Float;
+  public native let angle: Float;
+  public native let transition: Float;
+  public native let width: Float;
 }

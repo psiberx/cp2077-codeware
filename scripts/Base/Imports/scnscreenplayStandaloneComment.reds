@@ -1,4 +1,4 @@
 public native struct scnscreenplayStandaloneComment {
-  native let itemId: scnscreenplayItemId;
-  native let comment: String;
+  public native let itemId: scnscreenplayItemId;
+  public native let comment: String;
 }

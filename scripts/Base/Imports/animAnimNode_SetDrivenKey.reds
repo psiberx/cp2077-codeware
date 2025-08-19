@@ -1,4 +1,4 @@
 public native class animAnimNode_SetDrivenKey extends animAnimNode_Base {
-  native let inputLink: animPoseLink;
-  native let provider: ref<animAnimNode_SetDrivenKey_InternalsISetDrivenKeyEntryProvider>;
+  public native let inputLink: animPoseLink;
+  public native let provider: ref<animAnimNode_SetDrivenKey_InternalsISetDrivenKeyEntryProvider>;
 }

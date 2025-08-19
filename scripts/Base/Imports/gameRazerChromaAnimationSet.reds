@@ -1,4 +1,4 @@
 public native struct gameRazerChromaAnimationSet {
-  native let name: CName;
-  native let animations: array<gameRazerChromaAnimation>;
+  public native let name: CName;
+  public native let animations: array<gameRazerChromaAnimation>;
 }

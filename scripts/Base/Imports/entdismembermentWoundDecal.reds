@@ -1,8 +1,8 @@
 public native struct entdismembermentWoundDecal {
-  native let OffsetA: Vector3;
-  native let OffsetB: Vector3;
-  native let Scale: Float;
-  native let FadeOrigin: Float;
-  native let FadePower: Float;
-  native let Material: ResourceAsyncRef; // raRef<IMaterial>
+  public native let OffsetA: Vector3;
+  public native let OffsetB: Vector3;
+  public native let Scale: Float;
+  public native let FadeOrigin: Float;
+  public native let FadePower: Float;
+  public native let Material: ResourceAsyncRef; // raRef<IMaterial>
 }

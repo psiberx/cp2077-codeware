@@ -1,4 +1,4 @@
 public native class TonemappingAreaSettings extends IAreaSettings {
-  native let mode: ref<ITonemappingMode>;
-  native let hdrMode: ref<ITonemappingMode>;
+  public native let mode: ref<ITonemappingMode>;
+  public native let hdrMode: ref<ITonemappingMode>;
 }

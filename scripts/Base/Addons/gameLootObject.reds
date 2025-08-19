@@ -1,2 +1,2 @@
 @addField(gameLootObject)
-native let lootID: TweakDBID;
+public native let lootID: TweakDBID;

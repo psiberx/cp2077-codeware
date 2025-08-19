@@ -1,5 +1,5 @@
 public native struct scnscreenplayChoiceOption {
-  native let itemId: scnscreenplayItemId;
-  native let usage: scnscreenplayOptionUsage;
-  native let locstringId: scnlocLocstringId;
+  public native let itemId: scnscreenplayItemId;
+  public native let usage: scnscreenplayOptionUsage;
+  public native let locstringId: scnlocLocstringId;
 }

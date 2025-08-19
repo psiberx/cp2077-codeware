@@ -1,5 +1,5 @@
 @addField(inkAnimTranslation)
-native let startValue: Vector2;
+public native let startValue: Vector2;
 
 @addField(inkAnimTranslation)
-native let endValue: Vector2;
+public native let endValue: Vector2;

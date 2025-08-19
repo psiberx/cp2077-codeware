@@ -1,4 +1,4 @@
 public native class animAnimSetEntry extends ISerializable {
-  native let animation: ref<animAnimation>;
-  native let events: ref<animEventsContainer>;
+  public native let animation: ref<animAnimation>;
+  public native let events: ref<animEventsContainer>;
 }

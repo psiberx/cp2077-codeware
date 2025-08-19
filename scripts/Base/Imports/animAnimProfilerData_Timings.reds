@@ -1,5 +1,5 @@
 public native struct animAnimProfilerData_Timings {
-  native let className: CName;
-  native let avarageExclusiveTimeMS: Float;
-  native let avarageInclusiveTimeMS: Float;
+  public native let className: CName;
+  public native let avarageExclusiveTimeMS: Float;
+  public native let avarageInclusiveTimeMS: Float;
 }

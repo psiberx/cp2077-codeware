@@ -1,6 +1,6 @@
 public native class audioSourceBasedReverbBussesMetadata extends audioAudioMetadata {
-  native let exterior: CName;
-  native let interiorLarge: CName;
-  native let interiorMedium: CName;
-  native let interiorSmall: CName;
+  public native let exterior: CName;
+  public native let interiorLarge: CName;
+  public native let interiorMedium: CName;
+  public native let interiorSmall: CName;
 }

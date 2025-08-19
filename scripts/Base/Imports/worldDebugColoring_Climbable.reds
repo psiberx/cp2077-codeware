@@ -1,4 +1,4 @@
 public native class worldDebugColoring_Climbable extends worldEditorDebugColoringSettings {
-  native let climbableColour: Color;
-  native let notClimbableColour: Color;
+  public native let climbableColour: Color;
+  public native let notClimbableColour: Color;
 }

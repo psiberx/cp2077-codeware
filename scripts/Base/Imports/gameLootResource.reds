@@ -1,3 +1,3 @@
 public native class gameLootResource extends CResource {
-  native let data: ref<gameLootResourceData>;
+  public native let data: ref<gameLootResourceData>;
 }

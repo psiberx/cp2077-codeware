@@ -1,2 +1,2 @@
 @addField(LocalizationStringComponent)
-native let Strings: array<entLocalizationStringMapEntry>;
+public native let Strings: array<entLocalizationStringMapEntry>;

@@ -1,5 +1,5 @@
 @neverRef()
 public native class entdismembermentWoundConfig extends ISerializable {
-  native let WoundName: CName;
-  native let ResourceSet: entdismembermentResourceSetE;
+  public native let WoundName: CName;
+  public native let ResourceSet: entdismembermentResourceSetE;
 }

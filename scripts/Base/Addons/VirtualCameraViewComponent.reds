@@ -1,5 +1,5 @@
 @addField(VirtualCameraViewComponent)
-native let virtualCameraName: CName;
+public native let virtualCameraName: CName;
 
 @addField(VirtualCameraViewComponent)
-native let targetPlaneSize: Vector2;
+public native let targetPlaneSize: Vector2;

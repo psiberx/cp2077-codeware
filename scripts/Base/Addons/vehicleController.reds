@@ -1,8 +1,8 @@
 @addField(vehicleController)
-native let alarmCurve: CName;
+public native let alarmCurve: CName;
 
 @addField(vehicleController)
-native let alarmTime: Float;
+public native let alarmTime: Float;
 
 @addField(vehicleController)
-native let overrideHeadlightsSettingsForPlayer: Bool;
+public native let overrideHeadlightsSettingsForPlayer: Bool;

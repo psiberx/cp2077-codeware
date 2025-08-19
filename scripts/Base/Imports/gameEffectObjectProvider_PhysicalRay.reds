@@ -1,8 +1,8 @@
 public native class gameEffectObjectProvider_PhysicalRay extends EffectObjectProvider {
-  native let inputPosition: EffectInputParameter_Vector;
-  native let inputForward: EffectInputParameter_Vector;
-  native let inputRange: EffectInputParameter_Float;
-  native let outputRaycastEnd: EffectOutputParameter_Vector;
-  native let filterData: ref<physicsFilterData>;
-  native let queryPreset: QueryPreset;
+  public native let inputPosition: EffectInputParameter_Vector;
+  public native let inputForward: EffectInputParameter_Vector;
+  public native let inputRange: EffectInputParameter_Float;
+  public native let outputRaycastEnd: EffectOutputParameter_Vector;
+  public native let filterData: ref<physicsFilterData>;
+  public native let queryPreset: QueryPreset;
 }

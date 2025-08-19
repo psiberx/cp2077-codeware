@@ -1,3 +1,3 @@
 public native struct worldWaterPatchNodeType {
-  native let typeName: CName;
+  public native let typeName: CName;
 }

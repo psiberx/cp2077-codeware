@@ -1,6 +1,6 @@
 public native struct scnIKEventData {
-  native let orientation: Quaternion;
-  native let basic: scnAnimTargetBasicData;
-  native let chainName: CName;
-  native let request: IKTargetRequest;
+  public native let orientation: Quaternion;
+  public native let basic: scnAnimTargetBasicData;
+  public native let chainName: CName;
+  public native let request: IKTargetRequest;
 }

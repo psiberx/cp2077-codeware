@@ -1,8 +1,8 @@
 @addField(inkAnimRotation)
-native let startValue: Float;
+public native let startValue: Float;
 
 @addField(inkAnimRotation)
-native let endValue: Float;
+public native let endValue: Float;
 
 @addField(inkAnimRotation)
-native let goShortPath: Bool;
+public native let goShortPath: Bool;

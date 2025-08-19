@@ -1,5 +1,5 @@
 public native class AIbehaviorGetPatrolPointTaskDefinition extends AIbehaviorTaskDefinition {
-  native let inPatrolDistance: ref<AIArgumentMapping>;
-  native let inLastKnownPosition: ref<AIArgumentMapping>;
-  native let outFollowTrailPoint: ref<AIArgumentMapping>;
+  public native let inPatrolDistance: ref<AIArgumentMapping>;
+  public native let inLastKnownPosition: ref<AIArgumentMapping>;
+  public native let outFollowTrailPoint: ref<AIArgumentMapping>;
 }

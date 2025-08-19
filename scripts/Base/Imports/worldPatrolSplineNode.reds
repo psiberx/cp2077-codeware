@@ -1,5 +1,5 @@
 public native class worldPatrolSplineNode extends worldSplineNode {
-  native let patrolPointDefs: array<ref<worldPatrolSplinePointDefinition>>;
-  native let patrolPoints: array<NodeRef>;
-  native let spots: array<ref<worldTrafficSpotDefinition>>;
+  public native let patrolPointDefs: array<ref<worldPatrolSplinePointDefinition>>;
+  public native let patrolPoints: array<NodeRef>;
+  public native let spots: array<ref<worldTrafficSpotDefinition>>;
 }

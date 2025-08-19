@@ -1,12 +1,12 @@
 public native struct STonemappingACESParamsHDR {
-  native let minStops: Float;
-  native let maxStops: Float;
-  native let midGrayScale: Float;
-  native let surroundGamma: Float;
-  native let toneCurveSaturation: Float;
-  native let adjustWhitePoint: Bool;
-  native let desaturate: Bool;
-  native let dimSurround: Bool;
-  native let tonemapLuminance: Bool;
-  native let applyAfterLUT: Bool;
+  public native let minStops: Float;
+  public native let maxStops: Float;
+  public native let midGrayScale: Float;
+  public native let surroundGamma: Float;
+  public native let toneCurveSaturation: Float;
+  public native let adjustWhitePoint: Bool;
+  public native let desaturate: Bool;
+  public native let dimSurround: Bool;
+  public native let tonemapLuminance: Bool;
+  public native let applyAfterLUT: Bool;
 }

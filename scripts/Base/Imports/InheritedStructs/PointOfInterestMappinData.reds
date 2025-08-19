@@ -1,9 +1,9 @@
 public importonly struct PointOfInterestMappinData {
-  native let typedVariant: ref<gamemappinsIPointOfInterestVariant>;
-  native let active: Bool;
-  native let slotName: CName;
-  native let slotOffset: Vector3;
-  native let dynamicMappinRadius: Float;
-  native let staticMappinDef: TweakDBID;
-  native let dynamicMappinDef: TweakDBID;
+  public native let typedVariant: ref<gamemappinsIPointOfInterestVariant>;
+  public native let active: Bool;
+  public native let slotName: CName;
+  public native let slotOffset: Vector3;
+  public native let dynamicMappinRadius: Float;
+  public native let staticMappinDef: TweakDBID;
+  public native let dynamicMappinDef: TweakDBID;
 }

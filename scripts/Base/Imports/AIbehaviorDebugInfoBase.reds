@@ -1,3 +1,3 @@
 public native class AIbehaviorDebugInfoBase extends ISerializable {
-  native let caption: String;
+  public native let caption: String;
 }

@@ -1,3 +1,3 @@
 public abstract native class IParticleEvent extends IParticleModule {
-  native let eventName: CName;
+  public native let eventName: CName;
 }

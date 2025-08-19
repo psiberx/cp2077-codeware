@@ -1,3 +1,3 @@
 public native class animSyncMethodByEvent extends animISyncMethod {
-  native let eventName: CName;
+  public native let eventName: CName;
 }

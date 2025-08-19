@@ -1,2 +1,2 @@
 @addField(WorldMapDistrictLogicController)
-native let outlineWidget: inkLinePatternRef;
+public native let outlineWidget: inkLinePatternRef;

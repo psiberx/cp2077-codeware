@@ -1,5 +1,5 @@
 public native struct SampleMapArrayElement {
-  native let myKey: Uint32;
-  native let someStringProperty: String;
-  native let someArrayProperty: array<String>;
+  public native let myKey: Uint32;
+  public native let someStringProperty: String;
+  public native let someArrayProperty: array<String>;
 }

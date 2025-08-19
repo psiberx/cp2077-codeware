@@ -1,7 +1,7 @@
 public abstract native class audioEntitySettings extends audioAudioMetadata {
-  native let commonSettings: audioCommonEntitySettings;
-  native let scanningSettings: audioScanningSettings;
-  native let auxiliaryMetadata: audioAuxiliaryMetadata;
-  native let emitterDecoratorMetadata: CName;
-  native let preferSoundComponentPosition: Bool;
+  public native let commonSettings: audioCommonEntitySettings;
+  public native let scanningSettings: audioScanningSettings;
+  public native let auxiliaryMetadata: audioAuxiliaryMetadata;
+  public native let emitterDecoratorMetadata: CName;
+  public native let preferSoundComponentPosition: Bool;
 }

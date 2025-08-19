@@ -1,6 +1,6 @@
 public abstract importonly class PhysicalTriggerComponent extends IPlacedComponent {
-  native let simulationType: physicsSimulationType;
-  native let shape: physicsTriggerShape;
-  native let filterData: ref<physicsFilterData>;
-  native let isEnabled: Bool;
+  public native let simulationType: physicsSimulationType;
+  public native let shape: physicsTriggerShape;
+  public native let filterData: ref<physicsFilterData>;
+  public native let isEnabled: Bool;
 }

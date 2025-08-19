@@ -1,4 +1,4 @@
 public native class scnChoiceNodeNsMappinParams extends ISerializable {
-  native let locationType: scnChoiceNodeNsMappinLocation;
-  native let mappinSettings: TweakDBID;
+  public native let locationType: scnChoiceNodeNsMappinLocation;
+  public native let mappinSettings: TweakDBID;
 }

@@ -1,4 +1,4 @@
 public native struct navSerializableSplineProgression {
-  native let sectionIdx: Uint32;
-  native let alpha: Float;
+  public native let sectionIdx: Uint32;
+  public native let alpha: Float;
 }

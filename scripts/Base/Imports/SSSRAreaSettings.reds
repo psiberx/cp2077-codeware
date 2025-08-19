@@ -1,4 +1,4 @@
 public native class SSSRAreaSettings extends IAreaSettings {
-  native let depthFadeStart: Float;
-  native let depthFadeEnd: Float;
+  public native let depthFadeStart: Float;
+  public native let depthFadeEnd: Float;
 }

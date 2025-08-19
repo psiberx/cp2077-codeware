@@ -1,4 +1,4 @@
 public native struct Multilayer_LayerTemplateOverridesColor {
-  native let n: CName;
-  native let v: [Float; 3];
+  public native let n: CName;
+  public native let v: [Float; 3];
 }

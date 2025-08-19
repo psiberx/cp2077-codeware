@@ -1,5 +1,5 @@
 public native struct animGenericAnimDatabase_AnimationData {
-  native let animationName: CName;
-  native let fallbackAnimationName: CName;
-  native let streamingContext: CName;
+  public native let animationName: CName;
+  public native let fallbackAnimationName: CName;
+  public native let streamingContext: CName;
 }

@@ -1,4 +1,4 @@
 public native struct AICombatGuardAreaConnectedCommunity {
-  native let communityArea: EntityReference;
-  native let conditions: array<ref<ICombatRestrictMovementAreaCondition>>;
+  public native let communityArea: EntityReference;
+  public native let conditions: array<ref<ICombatRestrictMovementAreaCondition>>;
 }

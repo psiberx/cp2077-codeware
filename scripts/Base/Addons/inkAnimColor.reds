@@ -1,5 +1,5 @@
 @addField(inkAnimColor)
-native let startValue: HDRColor;
+public native let startValue: HDRColor;
 
 @addField(inkAnimColor)
-native let endValue: HDRColor;
+public native let endValue: HDRColor;

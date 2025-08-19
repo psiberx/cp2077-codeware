@@ -1,2 +1,2 @@
 @addField(EnvironmentDamageReceiverComponent)
-native let shapes: array<ref<gameEnvironmentDamageReceiverShape>>;
+public native let shapes: array<ref<gameEnvironmentDamageReceiverShape>>;

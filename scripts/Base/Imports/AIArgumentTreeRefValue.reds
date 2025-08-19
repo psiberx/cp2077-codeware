@@ -1,4 +1,4 @@
 public native class AIArgumentTreeRefValue extends AIArgumentDefinition {
-  native let type: AIArgumentType;
-  native let defaultValue: ref<AIbehaviorParameterizedBehavior>;
+  public native let type: AIArgumentType;
+  public native let defaultValue: ref<AIbehaviorParameterizedBehavior>;
 }

@@ -1,5 +1,5 @@
 public native class worldFoliagePhysicalDestructionMapping extends worldFoliageDestructionMapping {
-  native let audioMetadata: CName;
-  native let destructionParams: physicsDestructionParams;
-  native let destructionLevelData: array<physicsDestructionLevelData>;
+  public native let audioMetadata: CName;
+  public native let destructionParams: physicsDestructionParams;
+  public native let destructionLevelData: array<physicsDestructionLevelData>;
 }

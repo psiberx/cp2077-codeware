@@ -1,4 +1,4 @@
 public native struct LoadoutData {
-  native let slotID: TweakDBID;
-  native let itemID: ItemID;
+  public native let slotID: TweakDBID;
+  public native let itemID: ItemID;
 }

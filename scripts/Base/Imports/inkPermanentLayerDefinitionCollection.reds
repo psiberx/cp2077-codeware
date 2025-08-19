@@ -1,6 +1,6 @@
 public native struct inkPermanentLayerDefinitionCollection {
-  native let loadingLayer: inkLoadingLayerDefinition;
-  native let watermarksLayer: inkWatermarksLayerDefinition;
-  native let sysNotificationsLayer: inkSystemNotificationsLayerDefinition;
-  native let waitingSignLayerDefinition: inkWaitingSignLayerDefinition;
+  public native let loadingLayer: inkLoadingLayerDefinition;
+  public native let watermarksLayer: inkWatermarksLayerDefinition;
+  public native let sysNotificationsLayer: inkSystemNotificationsLayerDefinition;
+  public native let waitingSignLayerDefinition: inkWaitingSignLayerDefinition;
 }

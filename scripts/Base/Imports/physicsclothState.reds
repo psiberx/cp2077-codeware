@@ -1,7 +1,7 @@
 public native struct physicsclothState {
-  native let verticalPhaseData: physicsclothPhaseConfig;
-  native let horizontalPhaseData: physicsclothPhaseConfig;
-  native let bendPhaseData: physicsclothPhaseConfig;
-  native let shearPhaseData: physicsclothPhaseConfig;
-  native let runtimeInfo: physicsclothRuntimeInfo;
+  public native let verticalPhaseData: physicsclothPhaseConfig;
+  public native let horizontalPhaseData: physicsclothPhaseConfig;
+  public native let bendPhaseData: physicsclothPhaseConfig;
+  public native let shearPhaseData: physicsclothPhaseConfig;
+  public native let runtimeInfo: physicsclothRuntimeInfo;
 }

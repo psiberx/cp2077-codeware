@@ -1,3 +1,3 @@
 public native class ExposureCompensationAreaSettings extends IAreaSettings {
-  native let exposureCompensation: Float;
+  public native let exposureCompensation: Float;
 }

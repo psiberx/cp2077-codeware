@@ -1,6 +1,6 @@
 public native struct cpConveyorLine {
-  native let spline: NodeRef;
-  native let template: CName;
-  native let reverseDirection: Bool;
-  native let physicsValidRanges: array<Vector2>;
+  public native let spline: NodeRef;
+  public native let template: CName;
+  public native let reverseDirection: Bool;
+  public native let physicsValidRanges: array<Vector2>;
 }

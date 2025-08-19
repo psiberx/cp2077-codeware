@@ -1,17 +1,17 @@
 @addField(SoundPlayVo)
-native let ignoreGlobalVoLimitCheck: Bool;
+public native let ignoreGlobalVoLimitCheck: Bool;
 
 @addField(SoundPlayVo)
-native let overridingVoiceoverContext: locVoiceoverContext;
+public native let overridingVoiceoverContext: locVoiceoverContext;
 
 @addField(SoundPlayVo)
-native let overridingVoiceoverExpression: locVoiceoverExpression;
+public native let overridingVoiceoverExpression: locVoiceoverExpression;
 
 @addField(SoundPlayVo)
-native let overrideVoiceoverExpression: Bool;
+public native let overrideVoiceoverExpression: Bool;
 
 @addField(SoundPlayVo)
-native let overridingVisualStyleValue: Uint8;
+public native let overridingVisualStyleValue: Uint8;
 
 @addField(SoundPlayVo)
-native let overrideVisualStyle: Bool;
+public native let overrideVisualStyle: Bool;

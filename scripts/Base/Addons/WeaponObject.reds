@@ -1,2 +1,2 @@
 @addField(WeaponObject)
-native let effect: ResourceRef; // rRef<gameEffectSet>
+public native let effect: ResourceRef; // rRef<gameEffectSet>

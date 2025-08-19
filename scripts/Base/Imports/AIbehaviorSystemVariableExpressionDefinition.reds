@@ -1,3 +1,3 @@
 public native class AIbehaviorSystemVariableExpressionDefinition extends AIbehaviorPassiveExpressionDefinition {
-  native let variable: AIbehaviorSystemVariableExpressionTypes;
+  public native let variable: AIbehaviorSystemVariableExpressionTypes;
 }

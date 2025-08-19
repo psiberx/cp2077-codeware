@@ -1,11 +1,11 @@
 public native class animFacialCustomizationSet extends CResource {
-  native let baseSetup: ResourceRef; // rRef<animFacialSetup>
-  native let targetSetups: array<ResourceAsyncRef>;
-  native let targetSetupsTemp: array<animFacialCustomizationTargetEntryTemp>;
-  native let numTargets: Uint32;
-  native let posesInfo: animFacialSetup_PosesBufferInfo;
-  native let jointRegions: array<Uint8>;
-  native let usedTransformIndices: array<Uint16>;
-  native let numJoints: Uint32;
-  native let isCooked: Bool;
+  public native let baseSetup: ResourceRef; // rRef<animFacialSetup>
+  public native let targetSetups: array<ResourceAsyncRef>;
+  public native let targetSetupsTemp: array<animFacialCustomizationTargetEntryTemp>;
+  public native let numTargets: Uint32;
+  public native let posesInfo: animFacialSetup_PosesBufferInfo;
+  public native let jointRegions: array<Uint8>;
+  public native let usedTransformIndices: array<Uint16>;
+  public native let numJoints: Uint32;
+  public native let isCooked: Bool;
 }

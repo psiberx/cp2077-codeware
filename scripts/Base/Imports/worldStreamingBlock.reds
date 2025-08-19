@@ -1,4 +1,4 @@
 public native class worldStreamingBlock extends CResource {
-  native let descriptors: array<worldStreamingSectorDescriptor>;
-  native let index: worldStreamingBlockIndex;
+  public native let descriptors: array<worldStreamingSectorDescriptor>;
+  public native let index: worldStreamingBlockIndex;
 }

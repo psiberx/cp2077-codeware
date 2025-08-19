@@ -1,6 +1,6 @@
 public native struct entRagdollComponentReplicatedState {
-  native let componentName: CName;
-  native let enabled: Bool;
-  native let transforms: array<Transform>;
-  native let isSleeping: Bool;
+  public native let componentName: CName;
+  public native let enabled: Bool;
+  public native let transforms: array<Transform>;
+  public native let isSleeping: Bool;
 }

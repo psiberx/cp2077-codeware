@@ -1,8 +1,8 @@
 public native class CMaterialLayerLibrary extends CResource {
-  native let uvTiling: Float;
-  native let mbTiling: Float;
-  native let microblendContrast: Float;
-  native let paletteColorIndex: Uint32;
-  native let layers: array<MaterialLayerDef>;
-  native let microblends: array<MicroblendDef>;
+  public native let uvTiling: Float;
+  public native let mbTiling: Float;
+  public native let microblendContrast: Float;
+  public native let paletteColorIndex: Uint32;
+  public native let layers: array<MaterialLayerDef>;
+  public native let microblends: array<MicroblendDef>;
 }

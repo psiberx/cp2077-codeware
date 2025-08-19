@@ -1,4 +1,4 @@
 public native class AICTreeNodeActionTeleportToPositionDefinition extends AICTreeNodeActionDefinition {
-  native let positionName: CName;
-  native let doNavTest: Bool;
+  public native let positionName: CName;
+  public native let doNavTest: Bool;
 }

@@ -1,8 +1,8 @@
 public native class questInputHint_NodeType extends questIUIManagerNodeType {
-  native let show: Bool;
-  native let action: CName;
-  native let groupId: CName;
-  native let source: CName;
-  native let localizedLabel: String;
-  native let queuePriority: Int32;
+  public native let show: Bool;
+  public native let action: CName;
+  public native let groupId: CName;
+  public native let source: CName;
+  public native let localizedLabel: String;
+  public native let queuePriority: Int32;
 }

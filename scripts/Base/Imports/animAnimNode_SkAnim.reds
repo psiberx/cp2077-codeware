@@ -1,19 +1,19 @@
 public native class animAnimNode_SkAnim extends animAnimNode_Base {
-  native let animation: CName;
-  native let applyMotion: Bool;
-  native let isLooped: Bool;
-  native let resume: Bool;
-  native let collectEvents: Bool;
-  native let fireAnimLoopEvent: Bool;
-  native let animLoopEventName: CName;
-  native let clipFront: Float;
-  native let clipEnd: Float;
-  native let clipFrontByEvent: CName;
-  native let clipEndByEvent: CName;
-  native let pushDataByTag: CName;
-  native let popDataByTag: CName;
-  native let pushSafeCutTag: CName;
-  native let convertToAdditive: Bool;
-  native let motionProvider: ref<animIMotionTableProvider>;
-  native let applyInertializationOnAnimSetSwap: Bool;
+  public native let animation: CName;
+  public native let applyMotion: Bool;
+  public native let isLooped: Bool;
+  public native let resume: Bool;
+  public native let collectEvents: Bool;
+  public native let fireAnimLoopEvent: Bool;
+  public native let animLoopEventName: CName;
+  public native let clipFront: Float;
+  public native let clipEnd: Float;
+  public native let clipFrontByEvent: CName;
+  public native let clipEndByEvent: CName;
+  public native let pushDataByTag: CName;
+  public native let popDataByTag: CName;
+  public native let pushSafeCutTag: CName;
+  public native let convertToAdditive: Bool;
+  public native let motionProvider: ref<animIMotionTableProvider>;
+  public native let applyInertializationOnAnimSetSwap: Bool;
 }

@@ -1,6 +1,6 @@
 public native struct gameuiRoadEditorObstacleSettings {
-  native let libraryName: CName;
-  native let offset: Float;
-  native let speed: Float;
-  native let segmentOffset: Uint32;
+  public native let libraryName: CName;
+  public native let offset: Float;
+  public native let speed: Float;
+  public native let segmentOffset: Uint32;
 }

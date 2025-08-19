@@ -1,5 +1,5 @@
 public native class AIbehaviorFindTeleportPositionTaskDefinition extends AIbehaviorTaskDefinition {
-  native let patrolPath: ref<AIArgumentMapping>;
-  native let teleportPosition: ref<AIArgumentMapping>;
-  native let teleportRotation: ref<AIArgumentMapping>;
+  public native let patrolPath: ref<AIArgumentMapping>;
+  public native let teleportPosition: ref<AIArgumentMapping>;
+  public native let teleportRotation: ref<AIArgumentMapping>;
 }

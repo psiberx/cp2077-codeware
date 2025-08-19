@@ -1,2 +1,2 @@
 @addField(ISenseShape)
-native let id: TweakDBID;
+public native let id: TweakDBID;

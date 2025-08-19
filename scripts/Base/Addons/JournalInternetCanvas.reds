@@ -1,2 +1,2 @@
 @addField(JournalInternetCanvas)
-native let isHidden: Bool;
+public native let isHidden: Bool;

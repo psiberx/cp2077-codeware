@@ -1,3 +1,3 @@
 public native struct InfluenceSeparationAgent {
-  native let radius: Float;
+  public native let radius: Float;
 }

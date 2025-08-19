@@ -1,10 +1,10 @@
 public native class questvehicleFollowParams extends questVehicleSpecificCommandParams {
-  native let targetEntRef: EntityReference;
-  native let distanceMin: Float;
-  native let distanceMax: Float;
-  native let isPlayer: Bool;
-  native let stopWhenTargetReached: Bool;
-  native let useTraffic: Bool;
-  native let trafficTryNeighborsForStart: Bool;
-  native let trafficTryNeighborsForEnd: Bool;
+  public native let targetEntRef: EntityReference;
+  public native let distanceMin: Float;
+  public native let distanceMax: Float;
+  public native let isPlayer: Bool;
+  public native let stopWhenTargetReached: Bool;
+  public native let useTraffic: Bool;
+  public native let trafficTryNeighborsForStart: Bool;
+  public native let trafficTryNeighborsForEnd: Bool;
 }

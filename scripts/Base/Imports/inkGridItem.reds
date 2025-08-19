@@ -1,3 +1,3 @@
 public native struct inkGridItem {
-  native let rootIdx: Uint32;
+  public native let rootIdx: Uint32;
 }

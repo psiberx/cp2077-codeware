@@ -1,2 +1,2 @@
 @addField(JournalContainerEntry)
-native let entries: array<ref<JournalEntry>>;
+public native let entries: array<ref<JournalEntry>>;

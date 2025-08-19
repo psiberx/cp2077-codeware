@@ -1,5 +1,5 @@
 public native struct inkCreditsSectionEntry {
-  native let sectionTitle: String;
-  native let names: array<String>;
-  native let displayMode: inkDisplayMode;
+  public native let sectionTitle: String;
+  public native let names: array<String>;
+  public native let displayMode: inkDisplayMode;
 }

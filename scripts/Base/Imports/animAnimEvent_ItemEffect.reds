@@ -1,3 +1,3 @@
 public native class animAnimEvent_ItemEffect extends animAnimEvent {
-  native let effectName: CName;
+  public native let effectName: CName;
 }

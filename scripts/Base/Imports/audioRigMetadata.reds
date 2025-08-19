@@ -1,4 +1,4 @@
 public native class audioRigMetadata extends audioAudioMetadata {
-  native let positionBones: array<CName>;
-  native let defaultBone: CName;
+  public native let positionBones: array<CName>;
+  public native let defaultBone: CName;
 }

@@ -1,5 +1,5 @@
 public native struct meshChunkIndicesOffset {
-  native let start: Uint32;
-  native let count: Uint32;
-  native let boneIndex: Uint8;
+  public native let start: Uint32;
+  public native let count: Uint32;
+  public native let boneIndex: Uint8;
 }

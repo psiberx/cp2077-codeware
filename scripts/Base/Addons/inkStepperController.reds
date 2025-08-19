@@ -1,2 +1,2 @@
 @addField(inkStepperController)
-native let Change: inkStepperChangedCallback;
+public native let Change: inkStepperChangedCallback;

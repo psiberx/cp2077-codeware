@@ -1,9 +1,9 @@
 public native struct rendEmitterLOD {
-  native let lodSwitchDistance: Float;
-  native let burstList: array<rendParticleBurst>;
-  native let birthRate: array<Float>;
-  native let emitterDurationSettings: rendEmitterDurationSettings;
-  native let emitterDelaySettings: rendEmitterDelaySettings;
-  native let sortingMode: rendEParticleSortingMode;
-  native let isEnabled: Bool;
+  public native let lodSwitchDistance: Float;
+  public native let burstList: array<rendParticleBurst>;
+  public native let birthRate: array<Float>;
+  public native let emitterDurationSettings: rendEmitterDurationSettings;
+  public native let emitterDelaySettings: rendEmitterDelaySettings;
+  public native let sortingMode: rendEParticleSortingMode;
+  public native let isEnabled: Bool;
 }

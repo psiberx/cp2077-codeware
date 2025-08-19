@@ -1,6 +1,6 @@
 public native class audioPhysicalPropSettings extends audioAudioMetadata {
-  native let shockwaveSound: CName;
-  native let damagedSound: CName;
-  native let destroyedSound: CName;
-  native let materialOverrides: array<CName>;
+  public native let shockwaveSound: CName;
+  public native let damagedSound: CName;
+  public native let destroyedSound: CName;
+  public native let materialOverrides: array<CName>;
 }

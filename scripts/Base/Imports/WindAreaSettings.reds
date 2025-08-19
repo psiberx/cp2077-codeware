@@ -1,4 +1,4 @@
 public native class WindAreaSettings extends IAreaSettings {
-  native let strength: CurveDataFloat;
-  native let direction: CurveDataVector4;
+  public native let strength: CurveDataFloat;
+  public native let direction: CurveDataVector4;
 }

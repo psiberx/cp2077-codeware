@@ -1,4 +1,4 @@
 public native struct audioVehicleDestructionGridCell {
-  native let impactEvent: CName;
-  native let impactDetailEvent: CName;
+  public native let impactEvent: CName;
+  public native let impactDetailEvent: CName;
 }

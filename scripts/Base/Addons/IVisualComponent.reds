@@ -1,5 +1,5 @@
 @addField(IVisualComponent)
-native let autoHideDistance: Float;
+public native let autoHideDistance: Float;
 
 @addField(IVisualComponent)
-native let forceLODLevel: Int8;
+public native let forceLODLevel: Int8;

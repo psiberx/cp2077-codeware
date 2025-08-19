@@ -1,4 +1,4 @@
 public native class questInstancedCrowdControlNodeDefinition extends questDisableableNodeDefinition {
-  native let crowdVariantTag: CName;
-  native let enable: Bool;
+  public native let crowdVariantTag: CName;
+  public native let enable: Bool;
 }

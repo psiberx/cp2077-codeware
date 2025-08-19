@@ -1,2 +1,2 @@
 @addField(MappinData)
-native let localizedCaption: LocalizationString;
+public native let localizedCaption: LocalizationString;

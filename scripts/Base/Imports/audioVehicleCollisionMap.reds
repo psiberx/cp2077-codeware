@@ -1,15 +1,15 @@
 public native class audioVehicleCollisionMap extends audioAudioMetadata {
-  native let minImpactVelocityThreshold: Float;
-  native let minRumbleVelocityThreshold: Float;
-  native let rumbleCooldown: Float;
-  native let scrapingMinTangentialVelocityThreshold: Float;
-  native let scrapingMaxCollisionCooldown: Float;
-  native let scrapingMinVehicleUpCollisionContactAngle: Float;
-  native let useScrapingMinVehicleUpCollisionContactAngle: Bool;
-  native let explosionEvent: CName;
-  native let bigFireEvent: CName;
-  native let engineFireEvent: CName;
-  native let coolerDamageEvent: CName;
-  native let interiorCollisionEvent: CName;
-  native let collisionSettings: array<audioVehicleCollisionMapItem>;
+  public native let minImpactVelocityThreshold: Float;
+  public native let minRumbleVelocityThreshold: Float;
+  public native let rumbleCooldown: Float;
+  public native let scrapingMinTangentialVelocityThreshold: Float;
+  public native let scrapingMaxCollisionCooldown: Float;
+  public native let scrapingMinVehicleUpCollisionContactAngle: Float;
+  public native let useScrapingMinVehicleUpCollisionContactAngle: Bool;
+  public native let explosionEvent: CName;
+  public native let bigFireEvent: CName;
+  public native let engineFireEvent: CName;
+  public native let coolerDamageEvent: CName;
+  public native let interiorCollisionEvent: CName;
+  public native let collisionSettings: array<audioVehicleCollisionMapItem>;
 }

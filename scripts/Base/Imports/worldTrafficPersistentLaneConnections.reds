@@ -1,4 +1,4 @@
 public native struct worldTrafficPersistentLaneConnections {
-  native let outlanes: array<worldTrafficConnectivityOutLane>;
-  native let inLanes: array<worldTrafficConnectivityInLane>;
+  public native let outlanes: array<worldTrafficConnectivityOutLane>;
+  public native let inLanes: array<worldTrafficConnectivityInLane>;
 }

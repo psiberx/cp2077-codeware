@@ -1,4 +1,4 @@
 public native class questSetPhoneStatus_NodeType extends questIPhoneManagerNodeType {
-  native let status: questPhoneStatus;
-  native let customStatus: CName;
+  public native let status: questPhoneStatus;
+  public native let customStatus: CName;
 }

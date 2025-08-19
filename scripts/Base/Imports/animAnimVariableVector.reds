@@ -1,9 +1,9 @@
 public native class animAnimVariableVector extends animAnimVariable {
-  native let x: Float;
-  native let y: Float;
-  native let z: Float;
-  native let w: Float;
-  native let default: Vector4;
-  native let min: Vector4;
-  native let max: Vector4;
+  public native let x: Float;
+  public native let y: Float;
+  public native let z: Float;
+  public native let w: Float;
+  public native let default: Vector4;
+  public native let min: Vector4;
+  public native let max: Vector4;
 }

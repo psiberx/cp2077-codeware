@@ -1,3 +1,3 @@
 public native class LightColorSettings extends IAreaSettings {
-  native let light: worldWorldGlobalLightParameters;
+  public native let light: worldWorldGlobalLightParameters;
 }

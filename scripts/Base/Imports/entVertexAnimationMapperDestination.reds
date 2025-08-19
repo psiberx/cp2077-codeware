@@ -1,3 +1,3 @@
 public native struct entVertexAnimationMapperDestination {
-  native let vertexCustomSlotIndex: Uint32;
+  public native let vertexCustomSlotIndex: Uint32;
 }

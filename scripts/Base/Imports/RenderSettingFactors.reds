@@ -1,6 +1,6 @@
 public native struct RenderSettingFactors {
-  native let resolutionAberrationScale: CurveDataFloat;
-  native let resolutionAberrationDispersal: CurveDataFloat;
-  native let resolutionFilmGrainScale: CurveDataFloat;
-  native let resolutionFilmGrainStrength: CurveDataFloat;
+  public native let resolutionAberrationScale: CurveDataFloat;
+  public native let resolutionAberrationDispersal: CurveDataFloat;
+  public native let resolutionFilmGrainScale: CurveDataFloat;
+  public native let resolutionFilmGrainStrength: CurveDataFloat;
 }

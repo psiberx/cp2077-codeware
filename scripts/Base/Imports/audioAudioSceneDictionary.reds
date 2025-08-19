@@ -1,3 +1,3 @@
 public native class audioAudioSceneDictionary extends audioInlinedAudioMetadata {
-  native let entries: array<audioAudioSceneDictionaryItem>;
+  public native let entries: array<audioAudioSceneDictionaryItem>;
 }

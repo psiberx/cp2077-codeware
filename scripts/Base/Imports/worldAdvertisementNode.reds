@@ -1,10 +1,10 @@
 public native class worldAdvertisementNode extends worldStaticMeshNode {
-  native let meshInitialScale: Vector3;
-  native let format: AdvertisementFormat;
-  native let adGroupTDBID: TweakDBID;
-  native let enableOverride: Bool;
-  native let adOverrideTDBID: TweakDBID;
-  native let adVersion: Uint32;
-  native let glitchValue: Float;
-  native let lightsData: array<worldAdvertisementLightData>;
+  public native let meshInitialScale: Vector3;
+  public native let format: AdvertisementFormat;
+  public native let adGroupTDBID: TweakDBID;
+  public native let enableOverride: Bool;
+  public native let adOverrideTDBID: TweakDBID;
+  public native let adVersion: Uint32;
+  public native let glitchValue: Float;
+  public native let lightsData: array<worldAdvertisementLightData>;
 }

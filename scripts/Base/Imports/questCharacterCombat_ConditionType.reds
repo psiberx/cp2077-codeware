@@ -1,5 +1,5 @@
 public native class questCharacterCombat_ConditionType extends questICharacterConditionType {
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let inverted: Bool;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let inverted: Bool;
 }

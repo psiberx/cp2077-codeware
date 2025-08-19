@@ -1,4 +1,4 @@
 public native class gameEffectParameter_StringEvaluator_ValueOrBlackboard extends gameIEffectParameter_StringEvaluator {
-  native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
-  native let value: String;
+  public native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
+  public native let value: String;
 }

@@ -1,4 +1,4 @@
 public native struct animTransformMask {
-  native let index: Int32;
-  native let weight: Float;
+  public native let index: Int32;
+  public native let weight: Float;
 }

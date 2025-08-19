@@ -1,9 +1,9 @@
 public native class questMoveOnSplineAndKeepDistance_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let keepDistanceFromRef: EntityReference;
-  native let splineRef: NodeRef;
-  native let distance: Float;
-  native let blendTime: Float;
-  native let minSpeed: Float;
-  native let reduceSpeedOnTurns: Bool;
+  public native let vehicleRef: EntityReference;
+  public native let keepDistanceFromRef: EntityReference;
+  public native let splineRef: NodeRef;
+  public native let distance: Float;
+  public native let blendTime: Float;
+  public native let minSpeed: Float;
+  public native let reduceSpeedOnTurns: Bool;
 }

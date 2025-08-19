@@ -1,3 +1,3 @@
 public native struct IsQuickhackPanelOpenedPrereq {
-  native let inverted: Bool;
+  public native let inverted: Bool;
 }

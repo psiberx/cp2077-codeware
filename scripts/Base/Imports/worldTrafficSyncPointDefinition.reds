@@ -1,5 +1,5 @@
 public native struct worldTrafficSyncPointDefinition {
-  native let laneRefs: array<NodeRef>;
-  native let lanePositions: array<Float>;
-  native let length: Float;
+  public native let laneRefs: array<NodeRef>;
+  public native let lanePositions: array<Float>;
+  public native let length: Float;
 }

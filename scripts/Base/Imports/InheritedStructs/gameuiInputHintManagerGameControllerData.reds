@@ -1,4 +1,4 @@
 public native struct gameuiInputHintManagerGameControllerData {
-  native let id: Int64;
-  native let inputHintsData: array<InputHintData>;
+  public native let id: Int64;
+  public native let inputHintsData: array<InputHintData>;
 }

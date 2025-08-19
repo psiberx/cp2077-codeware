@@ -1,3 +1,3 @@
 public native class AICTreeNodeIncludedTreeDefinition extends AICTreeNodeDefinition {
-  native let tree: LibTreeDefTree;
+  public native let tree: LibTreeDefTree;
 }

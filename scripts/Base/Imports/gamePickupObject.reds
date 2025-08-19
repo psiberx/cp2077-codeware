@@ -1,3 +1,3 @@
 public native class gamePickupObject extends GameObject {
-  native let interactionTag: CName;
+  public native let interactionTag: CName;
 }

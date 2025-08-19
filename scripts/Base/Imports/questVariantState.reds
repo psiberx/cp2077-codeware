@@ -1,4 +1,4 @@
 public native struct questVariantState {
-  native persistent let name: CName;
-  native persistent let show: Bool;
+  public native persistent let name: CName;
+  public native persistent let show: Bool;
 }

@@ -1,6 +1,6 @@
 public native class AIbehaviorMountRequestConditionDefinition extends AIbehaviorConditionDefinition {
-  native let testMountRequest: Bool;
-  native let testUnmountRequest: Bool;
-  native let acceptInstant: Bool;
-  native let acceptNotInstant: Bool;
+  public native let testMountRequest: Bool;
+  public native let testUnmountRequest: Bool;
+  public native let acceptInstant: Bool;
+  public native let acceptNotInstant: Bool;
 }

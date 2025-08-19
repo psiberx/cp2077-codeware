@@ -1,3 +1,3 @@
 public native class TaggedSignalUserDataDefinition extends SignalUserDataDefinition {
-  native let tags: array<CName>;
+  public native let tags: array<CName>;
 }

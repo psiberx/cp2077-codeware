@@ -1,3 +1,3 @@
 public abstract native class AICTreeExtendableNodeDefinition extends AICTreeNodeDefinition {
-  native let optionalChild: ref<LibTreeINodeDefinition>;
+  public native let optionalChild: ref<LibTreeINodeDefinition>;
 }

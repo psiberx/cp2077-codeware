@@ -1,2 +1,2 @@
 @addField(JournalMetaQuest)
-native let title: LocalizationString;
+public native let title: LocalizationString;

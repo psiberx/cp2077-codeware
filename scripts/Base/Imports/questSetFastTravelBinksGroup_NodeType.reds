@@ -1,3 +1,3 @@
 public native class questSetFastTravelBinksGroup_NodeType extends questIUIManagerNodeType {
-  native let selectedBinkDataGroup: TweakDBID;
+  public native let selectedBinkDataGroup: TweakDBID;
 }

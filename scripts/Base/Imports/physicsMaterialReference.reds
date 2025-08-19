@@ -1,3 +1,3 @@
 public native struct physicsMaterialReference {
-  native let name: CName;
+  public native let name: CName;
 }

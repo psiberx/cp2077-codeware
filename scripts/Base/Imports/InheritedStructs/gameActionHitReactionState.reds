@@ -1,8 +1,8 @@
 public native struct gameActionHitReactionState {
-  native let replicationId: Uint32;
-  native let type: Uint16;
-  native let startTimeStamp: netTime;
-  native let stopTimeStamp: netTime;
-  native let updateBucket: Uint8;
-  native let animFeature: ref<AnimFeature_HitReactionsData>;
+  public native let replicationId: Uint32;
+  public native let type: Uint16;
+  public native let startTimeStamp: netTime;
+  public native let stopTimeStamp: netTime;
+  public native let updateBucket: Uint8;
+  public native let animFeature: ref<AnimFeature_HitReactionsData>;
 }

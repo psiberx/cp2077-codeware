@@ -1,10 +1,10 @@
 public native class questSpawnPlayerVehicle_NodeType extends questIVehicleManagerNodeType {
-  native let despawn: Bool;
-  native let positionRef: ref<questUniversalRef>;
-  native let offset: Vector3;
-  native let driveIn: Bool;
-  native let vehicle: String;
-  native let vehicleGlobalName: CName;
-  native let despawnAllEnabledVehicles: Bool;
-  native let retryUntilStubCreated: Bool;
+  public native let despawn: Bool;
+  public native let positionRef: ref<questUniversalRef>;
+  public native let offset: Vector3;
+  public native let driveIn: Bool;
+  public native let vehicle: String;
+  public native let vehicleGlobalName: CName;
+  public native let despawnAllEnabledVehicles: Bool;
+  public native let retryUntilStubCreated: Bool;
 }

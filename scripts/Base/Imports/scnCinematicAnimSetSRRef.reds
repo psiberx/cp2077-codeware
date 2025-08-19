@@ -1,5 +1,5 @@
 public native struct scnCinematicAnimSetSRRef {
-  native let asyncAnimSet: ResourceAsyncRef; // raRef<animAnimSet>
-  native let priority: Uint8;
-  native let isOverride: Bool;
+  public native let asyncAnimSet: ResourceAsyncRef; // raRef<animAnimSet>
+  public native let priority: Uint8;
+  public native let isOverride: Bool;
 }

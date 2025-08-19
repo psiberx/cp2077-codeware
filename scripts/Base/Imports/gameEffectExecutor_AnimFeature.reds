@@ -1,6 +1,6 @@
 public native class gameEffectExecutor_AnimFeature extends EffectExecutor {
-  native let key: CName;
-  native let animFeature: ref<AnimFeature>;
-  native let applyTo: gameEffectExecutor_AnimFeatureApplyTo;
-  native let ignoreWaterImpacts: Bool;
+  public native let key: CName;
+  public native let animFeature: ref<AnimFeature>;
+  public native let applyTo: gameEffectExecutor_AnimFeatureApplyTo;
+  public native let ignoreWaterImpacts: Bool;
 }

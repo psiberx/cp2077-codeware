@@ -1,19 +1,19 @@
 public native class AIbehaviorActionMoveOnSplineNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let spline: ref<AIArgumentMapping>;
-  native let strafingTarget: ref<AIArgumentMapping>;
-  native let movementType: ref<AIArgumentMapping>;
-  native let ignoreNavigation: ref<AIArgumentMapping>;
-  native let snapToTerrain: ref<AIArgumentMapping>;
-  native let rotateEntity: ref<AIArgumentMapping>;
-  native let startFromClosestPoint: ref<AIArgumentMapping>;
-  native let splineRecalculation: ref<AIArgumentMapping>;
-  native let useStart: ref<AIArgumentMapping>;
-  native let useStop: ref<AIArgumentMapping>;
-  native let reverse: ref<AIArgumentMapping>;
-  native let isBackAndForth: ref<AIArgumentMapping>;
-  native let isInfinite: ref<AIArgumentMapping>;
-  native let numberOfLoops: ref<AIArgumentMapping>;
-  native let useOffMeshLinkReservation: ref<AIArgumentMapping>;
-  native let disableFootIK: ref<AIArgumentMapping>;
-  native let allowCrowdOnPath: ref<AIArgumentMapping>;
+  public native let spline: ref<AIArgumentMapping>;
+  public native let strafingTarget: ref<AIArgumentMapping>;
+  public native let movementType: ref<AIArgumentMapping>;
+  public native let ignoreNavigation: ref<AIArgumentMapping>;
+  public native let snapToTerrain: ref<AIArgumentMapping>;
+  public native let rotateEntity: ref<AIArgumentMapping>;
+  public native let startFromClosestPoint: ref<AIArgumentMapping>;
+  public native let splineRecalculation: ref<AIArgumentMapping>;
+  public native let useStart: ref<AIArgumentMapping>;
+  public native let useStop: ref<AIArgumentMapping>;
+  public native let reverse: ref<AIArgumentMapping>;
+  public native let isBackAndForth: ref<AIArgumentMapping>;
+  public native let isInfinite: ref<AIArgumentMapping>;
+  public native let numberOfLoops: ref<AIArgumentMapping>;
+  public native let useOffMeshLinkReservation: ref<AIArgumentMapping>;
+  public native let disableFootIK: ref<AIArgumentMapping>;
+  public native let allowCrowdOnPath: ref<AIArgumentMapping>;
 }

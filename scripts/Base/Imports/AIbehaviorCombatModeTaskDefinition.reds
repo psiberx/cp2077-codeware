@@ -1,5 +1,5 @@
 public native class AIbehaviorCombatModeTaskDefinition extends AIbehaviorTaskDefinition {
-  native let mode: AIbehaviorCombatModes;
-  native let priority: Int32;
-  native let timeToLive: Float;
+  public native let mode: AIbehaviorCombatModes;
+  public native let priority: Int32;
+  public native let timeToLive: Float;
 }

@@ -1,2 +1,2 @@
 @addField(gameHitEvent)
-native let hitColliderTag: CName;
+public native let hitColliderTag: CName;

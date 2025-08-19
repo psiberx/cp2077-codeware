@@ -1,38 +1,38 @@
 @addField(RoachRaceLogicController)
-native let jumpAcceleration: Float;
+public native let jumpAcceleration: Float;
 
 @addField(RoachRaceLogicController)
-native let jumpCancelAcceleration: Float;
+public native let jumpCancelAcceleration: Float;
 
 @addField(RoachRaceLogicController)
-native let gravity: Float;
+public native let gravity: Float;
 
 @addField(RoachRaceLogicController)
-native let playerSpawnPoint: Vector2;
+public native let playerSpawnPoint: Vector2;
 
 @addField(RoachRaceLogicController)
-native let pixelsPerScore: Float;
+public native let pixelsPerScore: Float;
 
 @addField(RoachRaceLogicController)
-native let invincibilityTime: Float;
+public native let invincibilityTime: Float;
 
 @addField(RoachRaceLogicController)
-native let maxSpeedMultiplier: Float;
+public native let maxSpeedMultiplier: Float;
 
 @addField(RoachRaceLogicController)
-native let multiplierPerScore: Float;
+public native let multiplierPerScore: Float;
 
 @addField(RoachRaceLogicController)
-native let house: inkWidgetRef;
+public native let house: inkWidgetRef;
 
 @addField(RoachRaceLogicController)
-native let ground: inkWidgetRef;
+public native let ground: inkWidgetRef;
 
 @addField(RoachRaceLogicController)
-native let startAnimation: CName;
+public native let startAnimation: CName;
 
 @addField(RoachRaceLogicController)
-native let deathAnimation: CName;
+public native let deathAnimation: CName;
 
 @addField(RoachRaceLogicController)
-native let layers: array<RoachRaceChunkLayer>;
+public native let layers: array<RoachRaceChunkLayer>;

@@ -1,3 +1,3 @@
 public native class moveMotionPlannerComponent extends moveIMotionPlannerComponent {
-  native let snapToGround: Bool;
+  public native let snapToGround: Bool;
 }

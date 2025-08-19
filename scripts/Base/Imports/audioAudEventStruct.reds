@@ -1,3 +1,3 @@
 public native struct audioAudEventStruct {
-  native let event: CName;
+  public native let event: CName;
 }

@@ -1,6 +1,6 @@
 public native struct questManageCollision_NodeTypeParams {
-  native persistent let objectRef: NodeRef;
-  native persistent let enableCollision: Bool;
-  native persistent let enableQueries: Bool;
-  native persistent let components: array<CName>;
+  public native persistent let objectRef: NodeRef;
+  public native persistent let enableCollision: Bool;
+  public native persistent let enableQueries: Bool;
+  public native persistent let components: array<CName>;
 }

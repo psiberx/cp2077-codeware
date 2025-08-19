@@ -1,10 +1,10 @@
 public native class AIbehaviorTrackPatrolProgressNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
-  native let pathParameters: ref<AIArgumentMapping>;
-  native let patrolProgress: ref<AIArgumentMapping>;
-  native let startFromClosestPoint: ref<AIArgumentMapping>;
-  native let patrolContinuationPolicy: ref<AIArgumentMapping>;
-  native let teleportPositionAfterTimeSkipping: ref<AIArgumentMapping>;
-  native let teleportRotationAfterTimeSkipping: ref<AIArgumentMapping>;
-  native let handleTeleportRequest: ref<AIArgumentMapping>;
-  native let fastForwardAfterTeleport: ref<AIArgumentMapping>;
+  public native let pathParameters: ref<AIArgumentMapping>;
+  public native let patrolProgress: ref<AIArgumentMapping>;
+  public native let startFromClosestPoint: ref<AIArgumentMapping>;
+  public native let patrolContinuationPolicy: ref<AIArgumentMapping>;
+  public native let teleportPositionAfterTimeSkipping: ref<AIArgumentMapping>;
+  public native let teleportRotationAfterTimeSkipping: ref<AIArgumentMapping>;
+  public native let handleTeleportRequest: ref<AIArgumentMapping>;
+  public native let fastForwardAfterTeleport: ref<AIArgumentMapping>;
 }

@@ -1,5 +1,5 @@
 public native struct gameBlackboardPropertyBindingDefinition {
-  native let serializableID: BlackboardSerializableID;
-  native let propertyPath: array<CName>;
-  native let propertyType: CName;
+  public native let serializableID: BlackboardSerializableID;
+  public native let propertyPath: array<CName>;
+  public native let propertyType: CName;
 }

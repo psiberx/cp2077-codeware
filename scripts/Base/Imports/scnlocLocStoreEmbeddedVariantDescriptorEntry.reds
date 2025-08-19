@@ -1,7 +1,7 @@
 public native struct scnlocLocStoreEmbeddedVariantDescriptorEntry {
-  native let variantId: scnlocVariantId;
-  native let locstringId: scnlocLocstringId;
-  native let localeId: scnlocLocaleId;
-  native let signature: scnlocSignature;
-  native let vpeIndex: Uint32;
+  public native let variantId: scnlocVariantId;
+  public native let locstringId: scnlocLocstringId;
+  public native let localeId: scnlocLocaleId;
+  public native let signature: scnlocSignature;
+  public native let vpeIndex: Uint32;
 }

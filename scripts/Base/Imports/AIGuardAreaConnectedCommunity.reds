@@ -1,4 +1,4 @@
 public native struct AIGuardAreaConnectedCommunity {
-  native let communityArea: EntityReference;
-  native let isPrimary: Bool;
+  public native let communityArea: EntityReference;
+  public native let isPrimary: Bool;
 }

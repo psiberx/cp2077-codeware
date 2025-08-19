@@ -1,3 +1,3 @@
 public native class worldSceneRecordingContentObserverNode extends worldNode {
-  native let filter: worldSceneRecordingNodeFilter;
+  public native let filter: worldSceneRecordingNodeFilter;
 }

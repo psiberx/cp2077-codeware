@@ -1,5 +1,5 @@
 public native class AIbehaviorGetEntryPointOnPathTaskDefinition extends AIbehaviorTaskDefinition {
-  native let patrolProgress: ref<AIArgumentMapping>;
-  native let positionOnPath: ref<AIArgumentMapping>;
-  native let entryTangent: ref<AIArgumentMapping>;
+  public native let patrolProgress: ref<AIArgumentMapping>;
+  public native let positionOnPath: ref<AIArgumentMapping>;
+  public native let entryTangent: ref<AIArgumentMapping>;
 }

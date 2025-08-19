@@ -1,3 +1,3 @@
 public abstract native class AICTreeNodeDecoratorDefinition extends AICTreeNodeDefinition {
-  native let child: ref<LibTreeINodeDefinition>;
+  public native let child: ref<LibTreeINodeDefinition>;
 }

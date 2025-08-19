@@ -1,3 +1,3 @@
 public native struct JournalRequestClassFilter {
-  native let className: CName;
+  public native let className: CName;
 }

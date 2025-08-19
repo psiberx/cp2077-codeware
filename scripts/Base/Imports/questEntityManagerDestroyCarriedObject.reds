@@ -1,5 +1,5 @@
 public native class questEntityManagerDestroyCarriedObject extends questIEntityManagerSetAttachment_NodeSubType {
-  native let attachmentRef: NodeRef;
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
+  public native let attachmentRef: NodeRef;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
 }

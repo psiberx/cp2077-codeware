@@ -1,9 +1,9 @@
 public native class workRandomList extends workIContainerEntry {
-  native let minClips: Int8;
-  native let maxClips: Int8;
-  native let pauseBetweenLength: Float;
-  native let pauseLengthDeviation: Float;
-  native let weights: array<Float>;
-  native let pauseBlendOutTime: Float;
-  native let dontRepeatLastAnims: Int8;
+  public native let minClips: Int8;
+  public native let maxClips: Int8;
+  public native let pauseBetweenLength: Float;
+  public native let pauseLengthDeviation: Float;
+  public native let weights: array<Float>;
+  public native let pauseBlendOutTime: Float;
+  public native let dontRepeatLastAnims: Int8;
 }

@@ -1,6 +1,6 @@
 public native class InputHintGroupController extends inkLogicController {
-  native let titleTextRef: inkTextRef;
-  native let descriptionTextRef: inkTextRef;
-  native let hintsContainerRef: inkCompoundRef;
-  native let iconRef: inkImageRef;
+  public native let titleTextRef: inkTextRef;
+  public native let descriptionTextRef: inkTextRef;
+  public native let hintsContainerRef: inkCompoundRef;
+  public native let iconRef: inkImageRef;
 }

@@ -1,17 +1,17 @@
 @addField(inkMask)
-native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+public native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
 
 @addField(inkMask)
-native let texturePart: CName;
+public native let texturePart: CName;
 
 @addField(inkMask)
-native let dynamicTextureMask: CName;
+public native let dynamicTextureMask: CName;
 
 @addField(inkMask)
-native let dataSource: inkMaskDataSource;
+public native let dataSource: inkMaskDataSource;
 
 @addField(inkMask)
-native let invertMask: Bool;
+public native let invertMask: Bool;
 
 @addField(inkMask)
-native let maskTransparency: Float;
+public native let maskTransparency: Float;

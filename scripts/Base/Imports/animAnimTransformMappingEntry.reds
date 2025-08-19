@@ -1,4 +1,4 @@
 public native struct animAnimTransformMappingEntry {
-  native let from: CName;
-  native let to: CName;
+  public native let from: CName;
+  public native let to: CName;
 }

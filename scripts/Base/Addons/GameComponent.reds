@@ -1,2 +1,2 @@
 @addField(GameComponent)
-native let persistentState: ref<PersistentState>;
+public native let persistentState: ref<PersistentState>;

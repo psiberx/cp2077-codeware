@@ -1,17 +1,17 @@
 @addField(FriendlyFireParams)
-native let attitude: wref<AttitudeAgent>;
+public native let attitude: wref<AttitudeAgent>;
 
 @addField(FriendlyFireParams)
-native let slots: wref<SlotComponent>;
+public native let slots: wref<SlotComponent>;
 
 @addField(FriendlyFireParams)
-native let attachmentName: CName;
+public native let attachmentName: CName;
 
 @addField(FriendlyFireParams)
-native let slotId: Int32;
+public native let slotId: Int32;
 
 @addField(FriendlyFireParams)
-native let spread: Float;
+public native let spread: Float;
 
 @addField(FriendlyFireParams)
-native let maxRange: Float;
+public native let maxRange: Float;

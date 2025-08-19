@@ -1,4 +1,4 @@
 public native struct effectEffectParameterEvaluator {
-  native let evaluator: ref<IEvaluator>;
-  native let inputParameterOverride: CName;
+  public native let evaluator: ref<IEvaluator>;
+  public native let inputParameterOverride: CName;
 }

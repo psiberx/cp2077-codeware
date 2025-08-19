@@ -1,5 +1,5 @@
 @addField(inkVirtualListController)
-native let itemTemplates: array<inkWidgetLibraryReference>;
+public native let itemTemplates: array<inkWidgetLibraryReference>;
 
 @addField(inkVirtualListController)
-native let cycleNavigation: Bool;
+public native let cycleNavigation: Bool;

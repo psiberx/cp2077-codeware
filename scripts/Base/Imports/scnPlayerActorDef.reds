@@ -1,20 +1,20 @@
 public native struct scnPlayerActorDef {
-  native let actorId: scnActorId;
-  native let specTemplate: CName;
-  native let specCharacterRecordId: TweakDBID;
-  native let specAppearance: CName;
-  native let voicetagId: scnVoicetagId;
-  native let animSets: array<scnSRRefId>;
-  native let lipsyncAnimSet: scnLipsyncAnimSetSRRefId;
-  native let facialAnimSets: array<scnRidFacialAnimSetSRRefId>;
-  native let cyberwareAnimSets: array<scnRidCyberwareAnimSetSRRefId>;
-  native let deformationAnimSets: array<scnRidDeformationAnimSetSRRefId>;
-  native let bodyCinematicAnimSets: array<scnCinematicAnimSetSRRefId>;
-  native let facialCinematicAnimSets: array<scnCinematicAnimSetSRRefId>;
-  native let cyberwareCinematicAnimSets: array<scnCinematicAnimSetSRRefId>;
-  native let dynamicAnimSets: array<scnDynamicAnimSetSRRefId>;
-  native let acquisitionPlan: scnEntityAcquisitionPlan;
-  native let findNetworkPlayerParams: scnFindNetworkPlayerParams;
-  native let findActorInContextParams: scnFindEntityInContextParams;
-  native let playerName: String;
+  public native let actorId: scnActorId;
+  public native let specTemplate: CName;
+  public native let specCharacterRecordId: TweakDBID;
+  public native let specAppearance: CName;
+  public native let voicetagId: scnVoicetagId;
+  public native let animSets: array<scnSRRefId>;
+  public native let lipsyncAnimSet: scnLipsyncAnimSetSRRefId;
+  public native let facialAnimSets: array<scnRidFacialAnimSetSRRefId>;
+  public native let cyberwareAnimSets: array<scnRidCyberwareAnimSetSRRefId>;
+  public native let deformationAnimSets: array<scnRidDeformationAnimSetSRRefId>;
+  public native let bodyCinematicAnimSets: array<scnCinematicAnimSetSRRefId>;
+  public native let facialCinematicAnimSets: array<scnCinematicAnimSetSRRefId>;
+  public native let cyberwareCinematicAnimSets: array<scnCinematicAnimSetSRRefId>;
+  public native let dynamicAnimSets: array<scnDynamicAnimSetSRRefId>;
+  public native let acquisitionPlan: scnEntityAcquisitionPlan;
+  public native let findNetworkPlayerParams: scnFindNetworkPlayerParams;
+  public native let findActorInContextParams: scnFindEntityInContextParams;
+  public native let playerName: String;
 }

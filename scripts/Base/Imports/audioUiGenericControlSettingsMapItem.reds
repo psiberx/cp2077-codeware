@@ -1,4 +1,4 @@
 @neverRef()
 public native class audioUiGenericControlSettingsMapItem extends audioAudioMetadata {
-  native let uiEventToAudioEventDictionary: ref<audioKeySoundEventDictionary>;
+  public native let uiEventToAudioEventDictionary: ref<audioKeySoundEventDictionary>;
 }

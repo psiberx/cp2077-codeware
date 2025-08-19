@@ -1,7 +1,7 @@
 public native class AnimFeature_Bump extends AnimFeature {
-  native let direction: Float;
-  native let source: Float;
-  native let intensity: Float;
-  native let isBumping: Bool;
-  native let bumpType: Int32;
+  public native let direction: Float;
+  public native let source: Float;
+  public native let intensity: Float;
+  public native let isBumping: Bool;
+  public native let bumpType: Int32;
 }

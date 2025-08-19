@@ -1,9 +1,9 @@
 public native class animAnimNode_LookAt extends animAnimNode_OnePoseInput {
-  native let transform: animTransformIndex;
-  native let forwardAxis: animAxis;
-  native let useLimits: Bool;
-  native let limitAxis: animAxis;
-  native let limitAngle: Float;
-  native let targetNode: animVectorLink;
-  native let weightNode: animFloatLink;
+  public native let transform: animTransformIndex;
+  public native let forwardAxis: animAxis;
+  public native let useLimits: Bool;
+  public native let limitAxis: animAxis;
+  public native let limitAngle: Float;
+  public native let targetNode: animVectorLink;
+  public native let weightNode: animFloatLink;
 }

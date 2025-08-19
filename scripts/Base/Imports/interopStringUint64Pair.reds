@@ -1,4 +1,4 @@
 public native struct interopStringUint64Pair {
-  native let string: String;
-  native let number: Uint64;
+  public native let string: String;
+  public native let number: Uint64;
 }

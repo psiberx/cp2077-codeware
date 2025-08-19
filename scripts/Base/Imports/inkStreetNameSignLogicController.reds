@@ -1,5 +1,5 @@
 public native class inkStreetNameSignLogicController extends inkIStreetNameSignLogicController {
-  native let streetName: inkTextRef;
-  native let districtName: inkTextRef;
-  native let subdistrictName: inkTextRef;
+  public native let streetName: inkTextRef;
+  public native let districtName: inkTextRef;
+  public native let subdistrictName: inkTextRef;
 }

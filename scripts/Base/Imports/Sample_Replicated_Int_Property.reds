@@ -1,3 +1,3 @@
 public native struct Sample_Replicated_Int_Property {
-  native let property: Int32;
+  public native let property: Int32;
 }

@@ -1,5 +1,5 @@
 public native struct worldSpeedSplineNodeSpeedRestriction {
-  native let speed: Float;
-  native let from: Float;
-  native let adjustTime: Float;
+  public native let speed: Float;
+  public native let from: Float;
+  public native let adjustTime: Float;
 }

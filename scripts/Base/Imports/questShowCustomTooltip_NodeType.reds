@@ -1,7 +1,7 @@
 public native class questShowCustomTooltip_NodeType extends questIUIManagerNodeType {
-  native let setTooltip: Bool;
-  native let text: LocalizationString;
-  native let inputAction: String;
-  native let holdIndicationType: inkInputHintHoldIndicationType;
-  native let queuePriority: Int32;
+  public native let setTooltip: Bool;
+  public native let text: LocalizationString;
+  public native let inputAction: String;
+  public native let holdIndicationType: inkInputHintHoldIndicationType;
+  public native let queuePriority: Int32;
 }

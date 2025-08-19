@@ -1,11 +1,11 @@
 public native struct worldProxyWindowsParams {
-  native let windowsType: worldProxWindowsType;
-  native let distance: Float;
-  native let distanceAboveProxy: Float;
-  native let boolean: Bool;
-  native let removeSmallerThan: Float;
-  native let distantWindowsEmissive: Float;
-  native let distantWindowsSize: Float;
-  native let distantWindowsSaturation: Float;
-  native let distantWindowsTurnedOf: Float;
+  public native let windowsType: worldProxWindowsType;
+  public native let distance: Float;
+  public native let distanceAboveProxy: Float;
+  public native let boolean: Bool;
+  public native let removeSmallerThan: Float;
+  public native let distantWindowsEmissive: Float;
+  public native let distantWindowsSize: Float;
+  public native let distantWindowsSaturation: Float;
+  public native let distantWindowsTurnedOf: Float;
 }

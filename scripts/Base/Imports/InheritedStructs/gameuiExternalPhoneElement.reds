@@ -1,7 +1,7 @@
 public native struct gameuiExternalPhoneElement {
-  native let libraryID: CName;
-  native let request: wref<inkAsyncSpawnRequest>;
-  native let widget: wref<inkWidget>;
-  native let slot: inkCompoundRef;
-  native let libraryResource: ResourceRef; // rRef<inkWidgetLibraryResource>
+  public native let libraryID: CName;
+  public native let request: wref<inkAsyncSpawnRequest>;
+  public native let widget: wref<inkWidget>;
+  public native let slot: inkCompoundRef;
+  public native let libraryResource: ResourceRef; // rRef<inkWidgetLibraryResource>
 }

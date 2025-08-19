@@ -1,4 +1,4 @@
 public native struct scnEffectEntry {
-  native let effectInstanceId: scnEffectInstanceId;
-  native let effectName: CName;
+  public native let effectInstanceId: scnEffectInstanceId;
+  public native let effectName: CName;
 }

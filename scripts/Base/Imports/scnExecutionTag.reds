@@ -1,3 +1,3 @@
 public native struct scnExecutionTag {
-  native let flags: Uint8;
+  public native let flags: Uint8;
 }

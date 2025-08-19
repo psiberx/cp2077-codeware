@@ -1,3 +1,3 @@
 public native struct gameTransformAnimationTimeline {
-  native let items: array<gameTransformAnimationTrackItem>;
+  public native let items: array<gameTransformAnimationTrackItem>;
 }

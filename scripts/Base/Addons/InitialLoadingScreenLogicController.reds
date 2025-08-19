@@ -1,11 +1,11 @@
 @addField(InitialLoadingScreenLogicController)
-native let skipButtonPanel: inkWidgetRef;
+public native let skipButtonPanel: inkWidgetRef;
 
 @addField(InitialLoadingScreenLogicController)
-native let loadingPartsContainer: inkCompoundRef;
+public native let loadingPartsContainer: inkCompoundRef;
 
 @addField(InitialLoadingScreenLogicController)
-native let afterSkipAnimation: CName;
+public native let afterSkipAnimation: CName;
 
 @addField(InitialLoadingScreenLogicController)
-native let loadingFinishedAudioStopEvent: CName;
+public native let loadingFinishedAudioStopEvent: CName;

@@ -1,5 +1,5 @@
 public native struct gameReplicatedEntityEvent {
-  native let entity: wref<Entity>;
-  native let netTime: netTime;
-  native let value: ref<Event>;
+  public native let entity: wref<Entity>;
+  public native let netTime: netTime;
+  public native let value: ref<Event>;
 }

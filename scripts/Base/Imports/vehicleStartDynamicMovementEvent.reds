@@ -1,3 +1,3 @@
 public native class vehicleStartDynamicMovementEvent extends Event {
-  native let targetPosition: Vector3;
+  public native let targetPosition: Vector3;
 }

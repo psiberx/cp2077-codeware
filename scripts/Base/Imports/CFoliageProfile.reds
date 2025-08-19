@@ -1,14 +1,14 @@
 public native class CFoliageProfile extends CResource {
-  native let cutoffAlphaMinMip: Float;
-  native let cutoffAlphaMaxMip: Float;
-  native let billboardCutoffAlpha: Float;
-  native let aoScale: Float;
-  native let terrainBlendScale: Float;
-  native let terrainBlendBias: Float;
-  native let billboardDepthScale: Float;
-  native let billboardRoughnessBias: Float;
-  native let colorGradient: ResourceRef; // rRef<CGradient>
-  native let colorGradientWeight: Float;
-  native let colorGradientDarkenWeight: Float;
-  native let preserveOriginalColor: Float;
+  public native let cutoffAlphaMinMip: Float;
+  public native let cutoffAlphaMaxMip: Float;
+  public native let billboardCutoffAlpha: Float;
+  public native let aoScale: Float;
+  public native let terrainBlendScale: Float;
+  public native let terrainBlendBias: Float;
+  public native let billboardDepthScale: Float;
+  public native let billboardRoughnessBias: Float;
+  public native let colorGradient: ResourceRef; // rRef<CGradient>
+  public native let colorGradientWeight: Float;
+  public native let colorGradientDarkenWeight: Float;
+  public native let preserveOriginalColor: Float;
 }

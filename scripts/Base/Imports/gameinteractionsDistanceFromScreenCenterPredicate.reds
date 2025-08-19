@@ -1,6 +1,6 @@
 public native class gameinteractionsDistanceFromScreenCenterPredicate extends gameinteractionsIPredicateType {
-  native let height: Float;
-  native let width: Float;
-  native let curvature: Float;
-  native let maxPriorityBoundsFactor: Float;
+  public native let height: Float;
+  public native let width: Float;
+  public native let curvature: Float;
+  public native let maxPriorityBoundsFactor: Float;
 }

@@ -1,7 +1,7 @@
 public native class worldHeatmapLayer extends CResource {
-  native let minValue: Uint32;
-  native let maxValue: Uint32;
-  native let name: String;
-  native let units: String;
-  native let invert: Bool;
+  public native let minValue: Uint32;
+  public native let maxValue: Uint32;
+  public native let name: String;
+  public native let units: String;
+  public native let invert: Bool;
 }

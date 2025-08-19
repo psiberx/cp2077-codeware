@@ -1,4 +1,4 @@
 public native struct gameReplicatedAnimControllerEventsState {
-  native let items: array<gameReplicatedAnimEvent>;
-  native let lastAppliedActionsTime: netTime;
+  public native let items: array<gameReplicatedAnimEvent>;
+  public native let lastAppliedActionsTime: netTime;
 }

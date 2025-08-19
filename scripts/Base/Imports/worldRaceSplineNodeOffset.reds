@@ -1,6 +1,6 @@
 public native struct worldRaceSplineNodeOffset {
-  native let from: Float;
-  native let to: Float;
-  native let left: Float;
-  native let right: Float;
+  public native let from: Float;
+  public native let to: Float;
+  public native let left: Float;
+  public native let right: Float;
 }

@@ -1,4 +1,4 @@
 public native class CEvaluatorFloatCurve extends IEvaluatorFloat {
-  native let curves: CurveDataFloat;
-  native let numberOfCurveSamples: Uint32;
+  public native let curves: CurveDataFloat;
+  public native let numberOfCurveSamples: Uint32;
 }

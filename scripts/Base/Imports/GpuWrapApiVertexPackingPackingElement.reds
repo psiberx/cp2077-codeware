@@ -1,7 +1,7 @@
 public native struct GpuWrapApiVertexPackingPackingElement {
-  native let type: GpuWrapApiVertexPackingePackingType;
-  native let usage: GpuWrapApiVertexPackingePackingUsage;
-  native let usageIndex: Uint8;
-  native let streamIndex: Uint8;
-  native let streamType: GpuWrapApiVertexPackingEStreamType;
+  public native let type: GpuWrapApiVertexPackingePackingType;
+  public native let usage: GpuWrapApiVertexPackingePackingUsage;
+  public native let usageIndex: Uint8;
+  public native let streamIndex: Uint8;
+  public native let streamType: GpuWrapApiVertexPackingEStreamType;
 }

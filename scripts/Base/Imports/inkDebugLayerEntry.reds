@@ -1,5 +1,5 @@
 public native struct inkDebugLayerEntry {
-  native let widgetResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
-  native let anchorPlace: inkEAnchor;
-  native let anchorPoint: Vector2;
+  public native let widgetResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+  public native let anchorPlace: inkEAnchor;
+  public native let anchorPoint: Vector2;
 }

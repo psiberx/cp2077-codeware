@@ -1,6 +1,6 @@
 public native struct gameWeaponReplicationHistory {
-  native let weaponSlot: TweakDBID;
-  native let shots: [gameReplicatedShotData; 8];
-  native let latestShotId: Uint32;
-  native let continuousAttack: gameReplicatedContinuousAttack;
+  public native let weaponSlot: TweakDBID;
+  public native let shots: [gameReplicatedShotData; 8];
+  public native let latestShotId: Uint32;
+  public native let continuousAttack: gameReplicatedContinuousAttack;
 }

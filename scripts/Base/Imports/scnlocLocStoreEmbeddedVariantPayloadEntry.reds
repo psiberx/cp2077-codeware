@@ -1,4 +1,4 @@
 public native struct scnlocLocStoreEmbeddedVariantPayloadEntry {
-  native let variantId: scnlocVariantId;
-  native let content: String;
+  public native let variantId: scnlocVariantId;
+  public native let content: String;
 }

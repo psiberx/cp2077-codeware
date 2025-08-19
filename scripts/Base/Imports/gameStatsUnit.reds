@@ -1,3 +1,3 @@
 public native class gameStatsUnit extends ISerializable {
-  native let recordID: TweakDBID;
+  public native let recordID: TweakDBID;
 }

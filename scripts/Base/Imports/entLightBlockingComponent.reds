@@ -1,4 +1,4 @@
 public native class entLightBlockingComponent extends IVisualComponent {
-  native let radius: Float;
-  native let lightBlockerComponentVersion: Uint8;
+  public native let radius: Float;
+  public native let lightBlockerComponentVersion: Uint8;
 }

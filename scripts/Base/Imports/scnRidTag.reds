@@ -1,4 +1,4 @@
 public native struct scnRidTag {
-  native let signature: CName;
-  native let serialNumber: scnRidSerialNumber;
+  public native let signature: CName;
+  public native let serialNumber: scnRidSerialNumber;
 }

@@ -1,7 +1,7 @@
 public native class worldInterestingConversationsAreaNode extends worldTriggerAreaNode {
-  native let conversationGroups: array<ResourceRef>;
-  native let conversationResources: array<ref<worldConversationGroupData>>;
-  native let conversations: array<ref<worldConversationData>>;
-  native let workspots: array<NodeRef>;
-  native let savingStrategy: audioConversationSavingStrategy;
+  public native let conversationGroups: array<ResourceRef>;
+  public native let conversationResources: array<ref<worldConversationGroupData>>;
+  public native let conversations: array<ref<worldConversationData>>;
+  public native let workspots: array<NodeRef>;
+  public native let savingStrategy: audioConversationSavingStrategy;
 }

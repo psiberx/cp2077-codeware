@@ -1,5 +1,5 @@
 public native class inkQuadShape extends inkBaseShapeWidget {
-  native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let texturePart: CName;
-  native let vertexList: array<Vector2>;
+  public native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let texturePart: CName;
+  public native let vertexList: array<Vector2>;
 }

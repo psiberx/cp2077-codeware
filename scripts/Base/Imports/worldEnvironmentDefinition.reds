@@ -1,10 +1,10 @@
 public native class worldEnvironmentDefinition extends CResource {
-  native let worldRenderSettings: WorldRenderAreaSettings;
-  native let worldShadowConfig: WorldShadowConfig;
-  native let worldLightingConfig: WorldLightingConfig;
-  native let renderSettingFactors: RenderSettingFactors;
-  native let weatherStates: array<ref<worldWeatherState>>;
-  native let weatherStateTransitions: array<ref<worldWeatherStateTransition>>;
-  native let areaEnvironmentParameterLayers: array<ResourceRef>;
-  native let resourceVersion: Uint8;
+  public native let worldRenderSettings: WorldRenderAreaSettings;
+  public native let worldShadowConfig: WorldShadowConfig;
+  public native let worldLightingConfig: WorldLightingConfig;
+  public native let renderSettingFactors: RenderSettingFactors;
+  public native let weatherStates: array<ref<worldWeatherState>>;
+  public native let weatherStateTransitions: array<ref<worldWeatherStateTransition>>;
+  public native let areaEnvironmentParameterLayers: array<ResourceRef>;
+  public native let resourceVersion: Uint8;
 }

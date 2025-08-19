@@ -1,3 +1,3 @@
 public native struct audioUiControl {
-  native let uiEventsByAction: ref<audioKeyUiSoundDictionary>;
+  public native let uiEventsByAction: ref<audioKeyUiSoundDictionary>;
 }

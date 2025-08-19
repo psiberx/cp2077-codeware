@@ -1,6 +1,6 @@
 public native class scnPlayDefaultMountedSlotWorkspotEvent extends scnSceneEvent {
-  native let performer: scnPerformerId;
-  native let parentRef: EntityReference;
-  native let slotName: CName;
-  native let puppetVehicleState: scnPuppetVehicleState;
+  public native let performer: scnPerformerId;
+  public native let parentRef: EntityReference;
+  public native let slotName: CName;
+  public native let puppetVehicleState: scnPuppetVehicleState;
 }

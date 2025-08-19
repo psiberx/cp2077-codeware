@@ -1,5 +1,5 @@
 public native class gameMappinResource extends CResource {
-  native let cookedData: array<gameCookedMappinData>;
-  native let cookedMultiData: array<gameCookedMultiMappinData>;
-  native let cookedGpsData: array<gameCookedGpsMappinData>;
+  public native let cookedData: array<gameCookedMappinData>;
+  public native let cookedMultiData: array<gameCookedMultiMappinData>;
+  public native let cookedGpsData: array<gameCookedGpsMappinData>;
 }

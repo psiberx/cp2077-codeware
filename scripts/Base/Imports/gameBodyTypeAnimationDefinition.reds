@@ -1,5 +1,5 @@
 public native struct gameBodyTypeAnimationDefinition {
-  native let rig: ResourceAsyncRef; // raRef<animRig>
-  native let animsets: array<ResourceAsyncRef>;
-  native let overrides: array<gameAnimationOverrideDefinition>;
+  public native let rig: ResourceAsyncRef; // raRef<animRig>
+  public native let animsets: array<ResourceAsyncRef>;
+  public native let overrides: array<gameAnimationOverrideDefinition>;
 }

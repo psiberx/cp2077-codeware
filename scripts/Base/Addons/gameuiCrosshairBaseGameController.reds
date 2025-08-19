@@ -1,2 +1,2 @@
 @addField(gameuiCrosshairBaseGameController)
-native let details: inkWidgetRef;
+public native let details: inkWidgetRef;

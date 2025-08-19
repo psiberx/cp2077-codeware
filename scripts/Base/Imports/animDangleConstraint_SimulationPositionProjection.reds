@@ -1,7 +1,7 @@
 public native class animDangleConstraint_SimulationPositionProjection extends animDangleConstraint_SimulationSingleBone {
-  native let collisionCapsuleRadius: Float;
-  native let collisionCapsuleHeightExtent: Float;
-  native let collisionCapsuleAxisLS: Vector3;
-  native let directionReferenceBone: animTransformIndex;
-  native let projectionType: animPositionProjectionType;
+  public native let collisionCapsuleRadius: Float;
+  public native let collisionCapsuleHeightExtent: Float;
+  public native let collisionCapsuleAxisLS: Vector3;
+  public native let directionReferenceBone: animTransformIndex;
+  public native let projectionType: animPositionProjectionType;
 }

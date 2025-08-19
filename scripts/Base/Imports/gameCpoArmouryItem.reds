@@ -1,3 +1,3 @@
 public native class gameCpoArmouryItem extends GameObject {
-  native let armouryItemID: TweakDBID;
+  public native let armouryItemID: TweakDBID;
 }

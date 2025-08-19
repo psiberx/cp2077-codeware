@@ -1,6 +1,6 @@
 public native struct genLevelRandomizerEntry {
-  native let id: String;
-  native let templateName: CName;
-  native let spawnPos: NodeRef;
-  native let probability: Float;
+  public native let id: String;
+  public native let templateName: CName;
+  public native let spawnPos: NodeRef;
+  public native let probability: Float;
 }

@@ -1,3 +1,3 @@
 public native class inkanimChangeTexturePartEvent extends inkAnimEvent {
-  native let imageTexturePartName: CName;
+  public native let imageTexturePartName: CName;
 }

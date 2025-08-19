@@ -1,13 +1,13 @@
 public native struct interopTerrainEditToolInfo {
-  native let defaultHeightmapMode: Int32;
-  native let defaultEmptyHeightmapWidth: Int32;
-  native let defaultEmptyHeightmapHeight: Int32;
-  native let defaultEmptyHeightmapMaskFalloff: Float;
-  native let defaultEmptyHeightmapMaskRoundness: Float;
-  native let defaultEmptyHeightmapZeroMaskMargin: Uint32;
-  native let defaultHeightmap1: String;
-  native let defaultHeightmap2: String;
-  native let defaultColormap1: String;
-  native let defaultColormap2: String;
-  native let creationSlots: array<interopTerrainEditToolCreationSlotInfo>;
+  public native let defaultHeightmapMode: Int32;
+  public native let defaultEmptyHeightmapWidth: Int32;
+  public native let defaultEmptyHeightmapHeight: Int32;
+  public native let defaultEmptyHeightmapMaskFalloff: Float;
+  public native let defaultEmptyHeightmapMaskRoundness: Float;
+  public native let defaultEmptyHeightmapZeroMaskMargin: Uint32;
+  public native let defaultHeightmap1: String;
+  public native let defaultHeightmap2: String;
+  public native let defaultColormap1: String;
+  public native let defaultColormap2: String;
+  public native let creationSlots: array<interopTerrainEditToolCreationSlotInfo>;
 }

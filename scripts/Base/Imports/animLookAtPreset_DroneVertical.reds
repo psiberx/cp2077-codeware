@@ -1,8 +1,8 @@
 public native class animLookAtPreset_DroneVertical extends animLookAtPreset {
-  native let softLimitDegrees: Float;
-  native let hardLimitDegrees: Float;
-  native let hardLimitDistance: Float;
-  native let backLimitDegrees: Float;
-  native let suppress: Float;
-  native let mode: Int32;
+  public native let softLimitDegrees: Float;
+  public native let hardLimitDegrees: Float;
+  public native let hardLimitDistance: Float;
+  public native let backLimitDegrees: Float;
+  public native let suppress: Float;
+  public native let mode: Int32;
 }

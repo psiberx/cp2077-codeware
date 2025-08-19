@@ -1,4 +1,4 @@
 public native class inkanimPlayAnimEvent extends inkAnimEvent {
-  native let animName: CName;
-  native let playbackOptions: inkAnimOptions;
+  public native let animName: CName;
+  public native let playbackOptions: inkAnimOptions;
 }

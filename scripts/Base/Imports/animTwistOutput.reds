@@ -1,7 +1,7 @@
 public native struct animTwistOutput {
-  native let positiveScale: Float;
-  native let negativeScale: Float;
-  native let twistAxis: animAxis;
-  native let twistedTransform: animTransformIndex;
-  native let outputAngleTrack: animNamedTrackIndex;
+  public native let positiveScale: Float;
+  public native let negativeScale: Float;
+  public native let twistAxis: animAxis;
+  public native let twistedTransform: animTransformIndex;
+  public native let outputAngleTrack: animNamedTrackIndex;
 }

@@ -1,3 +1,3 @@
 public native class StoryTierChangedEvent extends AIEvent {
-  native let newTier: gameStoryTier;
+  public native let newTier: gameStoryTier;
 }

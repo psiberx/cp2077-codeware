@@ -1,7 +1,7 @@
 public native class animAnimNode_FloatTrackModifier extends animAnimNode_Base {
-  native let floatTrack: animNamedTrackIndex;
-  native let operationType: animFloatTrackOperationType;
-  native let inputFloatTrack: animNamedTrackIndex;
-  native let poseInputNode: animPoseLink;
-  native let floatInputNode: animFloatLink;
+  public native let floatTrack: animNamedTrackIndex;
+  public native let operationType: animFloatTrackOperationType;
+  public native let inputFloatTrack: animNamedTrackIndex;
+  public native let poseInputNode: animPoseLink;
+  public native let floatInputNode: animFloatLink;
 }

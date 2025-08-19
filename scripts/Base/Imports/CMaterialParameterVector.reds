@@ -1,3 +1,3 @@
 public native class CMaterialParameterVector extends CMaterialParameter {
-  native let vector: Vector4;
+  public native let vector: Vector4;
 }

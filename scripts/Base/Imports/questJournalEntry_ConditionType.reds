@@ -1,4 +1,4 @@
 public native class questJournalEntry_ConditionType extends questIJournalConditionType {
-  native let path: ref<gameJournalPath>;
-  native let state: gameJournalEntryUserState;
+  public native let path: ref<gameJournalPath>;
+  public native let state: gameJournalEntryUserState;
 }

@@ -1,4 +1,4 @@
 public native class AddedAsHostileThreat extends AIEvent {
-  native let threateningEntity: wref<TargetTrackerComponent>;
-  native let threateningEntityCanTriggersCombat: Bool;
+  public native let threateningEntity: wref<TargetTrackerComponent>;
+  public native let threateningEntityCanTriggersCombat: Bool;
 }

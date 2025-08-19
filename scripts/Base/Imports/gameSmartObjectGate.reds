@@ -1,5 +1,5 @@
 public native struct gameSmartObjectGate {
-  native let animationName: CName;
-  native let movementType: moveMovementType;
-  native let movementOrientationType: moveMovementOrientationType;
+  public native let animationName: CName;
+  public native let movementType: moveMovementType;
+  public native let movementOrientationType: moveMovementOrientationType;
 }

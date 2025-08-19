@@ -1,3 +1,3 @@
 public native struct animTransformLink {
-  native let node: wref<animAnimNode_TransformValue>;
+  public native let node: wref<animAnimNode_TransformValue>;
 }

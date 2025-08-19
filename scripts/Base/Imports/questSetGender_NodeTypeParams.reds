@@ -1,5 +1,5 @@
 public native struct questSetGender_NodeTypeParams {
-  native let puppetRef: EntityReference;
-  native let isPlayer: Bool;
-  native let gender: CName;
+  public native let puppetRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let gender: CName;
 }

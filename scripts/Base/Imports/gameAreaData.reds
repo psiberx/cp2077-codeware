@@ -1,9 +1,9 @@
 public native struct gameAreaData {
-  native let position: Vector4;
-  native let size: Float;
-  native let type: gameEAreaType;
-  native let shape: gameEAreaShape;
-  native let name: CName;
-  native let priority: Uint32;
-  native let lootID: TweakDBID;
+  public native let position: Vector4;
+  public native let size: Float;
+  public native let type: gameEAreaType;
+  public native let shape: gameEAreaShape;
+  public native let name: CName;
+  public native let priority: Uint32;
+  public native let lootID: TweakDBID;
 }

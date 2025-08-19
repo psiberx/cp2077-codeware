@@ -1,3 +1,3 @@
 public native class questCharacterLifePath_ConditionType extends questICharacterConditionType {
-  native let lifePathID: TweakDBID;
+  public native let lifePathID: TweakDBID;
 }

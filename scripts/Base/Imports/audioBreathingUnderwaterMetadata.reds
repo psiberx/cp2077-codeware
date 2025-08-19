@@ -1,9 +1,9 @@
 public native class audioBreathingUnderwaterMetadata extends audioAudioMetadata {
-  native let inhaleSound: CName;
-  native let exhaleSound: CName;
-  native let emergenceSound: CName;
-  native let struggledEmergenceSound: CName;
-  native let divingSuitRTPC: CName;
-  native let BPM: Float;
-  native let lowOxygen: Float;
+  public native let inhaleSound: CName;
+  public native let exhaleSound: CName;
+  public native let emergenceSound: CName;
+  public native let struggledEmergenceSound: CName;
+  public native let divingSuitRTPC: CName;
+  public native let BPM: Float;
+  public native let lowOxygen: Float;
 }

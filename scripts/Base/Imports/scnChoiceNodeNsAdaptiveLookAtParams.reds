@@ -1,11 +1,11 @@
 public native class scnChoiceNodeNsAdaptiveLookAtParams extends scnChoiceNodeNsLookAtParams {
-  native let nearbySlotName: CName;
-  native let distantSlotName: CName;
-  native let blendLimit: Float;
-  native let referencePointFullEffectAngle: Float;
-  native let referencePointNoEffectAngle: Float;
-  native let referencePointFullEffectDistance: Float;
-  native let referencePointNoEffectDistance: Float;
-  native let referencePoints: array<scnChoiceNodeNsAdaptiveLookAtReferencePoint>;
-  native let auxiliaryRelativePoint: Vector3;
+  public native let nearbySlotName: CName;
+  public native let distantSlotName: CName;
+  public native let blendLimit: Float;
+  public native let referencePointFullEffectAngle: Float;
+  public native let referencePointNoEffectAngle: Float;
+  public native let referencePointFullEffectDistance: Float;
+  public native let referencePointNoEffectDistance: Float;
+  public native let referencePoints: array<scnChoiceNodeNsAdaptiveLookAtReferencePoint>;
+  public native let auxiliaryRelativePoint: Vector3;
 }

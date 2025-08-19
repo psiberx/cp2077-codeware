@@ -1,8 +1,8 @@
 public native struct Multilayer_LayerOverrideSelection {
-  native let colorScale: CName;
-  native let normalStrength: CName;
-  native let roughLevelsIn: CName;
-  native let roughLevelsOut: CName;
-  native let metalLevelsIn: CName;
-  native let metalLevelsOut: CName;
+  public native let colorScale: CName;
+  public native let normalStrength: CName;
+  public native let roughLevelsIn: CName;
+  public native let roughLevelsOut: CName;
+  public native let metalLevelsIn: CName;
+  public native let metalLevelsOut: CName;
 }

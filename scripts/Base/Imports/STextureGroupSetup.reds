@@ -1,11 +1,11 @@
 public native struct STextureGroupSetup {
-  native let group: GpuWrapApieTextureGroup;
-  native let rawFormat: ETextureRawFormat;
-  native let compression: ETextureCompression;
-  native let isStreamable: Bool;
-  native let hasMipchain: Bool;
-  native let isGamma: Bool;
-  native let platformMipBiasPC: Uint8;
-  native let platformMipBiasConsole: Uint8;
-  native let allowTextureDowngrade: Bool;
+  public native let group: GpuWrapApieTextureGroup;
+  public native let rawFormat: ETextureRawFormat;
+  public native let compression: ETextureCompression;
+  public native let isStreamable: Bool;
+  public native let hasMipchain: Bool;
+  public native let isGamma: Bool;
+  public native let platformMipBiasPC: Uint8;
+  public native let platformMipBiasConsole: Uint8;
+  public native let allowTextureDowngrade: Bool;
 }

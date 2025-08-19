@@ -1,4 +1,4 @@
 public native struct questPrefabVariantReplicatedInfo {
-  native let variantNameKey: CName;
-  native let show: Bool;
+  public native let variantNameKey: CName;
+  public native let show: Bool;
 }

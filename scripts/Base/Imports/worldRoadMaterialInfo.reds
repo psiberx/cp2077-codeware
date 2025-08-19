@@ -1,4 +1,4 @@
 public native struct worldRoadMaterialInfo {
-  native let startOffset: Float;
-  native let material: worldRoadMaterial;
+  public native let startOffset: Float;
+  public native let material: worldRoadMaterial;
 }

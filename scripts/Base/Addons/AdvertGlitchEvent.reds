@@ -1,2 +1,2 @@
 @addField(AdvertGlitchEvent)
-native let glitchValue: Float;
+public native let glitchValue: Float;

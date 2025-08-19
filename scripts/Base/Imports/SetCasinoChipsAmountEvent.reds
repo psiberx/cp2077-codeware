@@ -1,3 +1,3 @@
 public native class SetCasinoChipsAmountEvent extends Event {
-  native let value: Uint32;
+  public native let value: Uint32;
 }

@@ -1,3 +1,3 @@
 public native struct gameHitRepresentationResults {
-  native let sults: array<gameHitRepresentationResult>;
+  public native let sults: array<gameHitRepresentationResult>;
 }

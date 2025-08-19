@@ -1,5 +1,5 @@
 @neverRef()
 public importonly class HitRepresentationVisualTaggedOverride extends ISerializable {
-  native let visualTags: redTagList;
-  native let represenationOverride: HitShapeContainer;
+  public native let visualTags: redTagList;
+  public native let represenationOverride: HitShapeContainer;
 }

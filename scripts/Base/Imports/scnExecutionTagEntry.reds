@@ -1,4 +1,4 @@
 public native struct scnExecutionTagEntry {
-  native let name: CName;
-  native let flags: Uint8;
+  public native let name: CName;
+  public native let flags: Uint8;
 }

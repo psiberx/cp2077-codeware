@@ -1,3 +1,3 @@
 public native struct toolsJiraIssueTransition {
-  native let id: String;
+  public native let id: String;
 }

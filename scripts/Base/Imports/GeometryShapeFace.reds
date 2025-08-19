@@ -1,3 +1,3 @@
 public native struct GeometryShapeFace {
-  native let indices: array<Uint32>;
+  public native let indices: array<Uint32>;
 }

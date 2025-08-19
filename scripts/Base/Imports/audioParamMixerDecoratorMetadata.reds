@@ -1,6 +1,6 @@
 public native class audioParamMixerDecoratorMetadata extends audioEmitterMetadata {
-  native let inParams: array<audioMixParamDescription>;
-  native let outputName: CName;
-  native let operation: audioMixParamsAction;
-  native let globalOutput: Bool;
+  public native let inParams: array<audioMixParamDescription>;
+  public native let outputName: CName;
+  public native let operation: audioMixParamsAction;
+  public native let globalOutput: Bool;
 }

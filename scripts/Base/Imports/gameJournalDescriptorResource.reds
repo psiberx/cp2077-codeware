@@ -1,3 +1,3 @@
 public native class gameJournalDescriptorResource extends gameJournalBaseResource {
-  native let entriesActivatedAtStart: array<String>;
+  public native let entriesActivatedAtStart: array<String>;
 }

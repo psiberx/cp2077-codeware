@@ -1,17 +1,17 @@
 public native struct scnInterruptionScenario {
-  native let id: scnInterruptionScenarioId;
-  native let name: CName;
-  native let queueName: CName;
-  native let enabled: Bool;
-  native let talkOnReturn: Bool;
-  native let playInterruptLine: Bool;
-  native let forcePlayReturnLine: Bool;
-  native let interruptionSpammingSafeguard: Bool;
-  native let playingLinesBehavior: scnInterruptReturnLinesBehavior;
-  native let postInterruptSignalTimeDelay: Float;
-  native let postReturnSignalTimeDelay: Float;
-  native let postInterruptSignalFactCondition: ref<scnInterruptFactConditionType>;
-  native let postReturnSignalFactCondition: ref<scnInterruptFactConditionType>;
-  native let interruptConditions: array<ref<scnIInterruptCondition>>;
-  native let returnConditions: array<ref<scnIReturnCondition>>;
+  public native let id: scnInterruptionScenarioId;
+  public native let name: CName;
+  public native let queueName: CName;
+  public native let enabled: Bool;
+  public native let talkOnReturn: Bool;
+  public native let playInterruptLine: Bool;
+  public native let forcePlayReturnLine: Bool;
+  public native let interruptionSpammingSafeguard: Bool;
+  public native let playingLinesBehavior: scnInterruptReturnLinesBehavior;
+  public native let postInterruptSignalTimeDelay: Float;
+  public native let postReturnSignalTimeDelay: Float;
+  public native let postInterruptSignalFactCondition: ref<scnInterruptFactConditionType>;
+  public native let postReturnSignalFactCondition: ref<scnInterruptFactConditionType>;
+  public native let interruptConditions: array<ref<scnIInterruptCondition>>;
+  public native let returnConditions: array<ref<scnIReturnCondition>>;
 }

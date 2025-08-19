@@ -1,2 +1,2 @@
 @addField(VoicesetComponent)
-native let combatVoSettingsName: CName;
+public native let combatVoSettingsName: CName;

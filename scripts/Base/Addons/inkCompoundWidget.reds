@@ -1,8 +1,8 @@
 @addField(inkCompoundWidget)
-native let childOrder: inkEChildOrder;
+public native let childOrder: inkEChildOrder;
 
 @addField(inkCompoundWidget)
-native let children: ref<inkMultiChildren>;
+public native let children: ref<inkMultiChildren>;
 
 @addField(inkCompoundWidget)
-native let childMargin: inkMargin;
+public native let childMargin: inkMargin;

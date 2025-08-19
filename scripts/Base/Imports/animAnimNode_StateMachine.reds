@@ -1,10 +1,10 @@
 public native class animAnimNode_StateMachine extends animAnimNode_Base {
-  native let states: array<ref<animAnimNode_State>>;
-  native let frozenState: ref<animAnimNode_StateFrozen>;
-  native let transitions: array<ref<animAnimStateTransitionDescription>>;
-  native let conditionalEntries: array<ref<animAnimStateMachineConditionalEntry>>;
-  native let globalTransitions: array<ref<animAnimStateTransitionDescription>>;
-  native let anyStateInterpolator: ref<animIAnimStateTransitionInterpolator>;
-  native let defaultStateIndex: Uint32;
-  native let notifyOnEnterState: Bool;
+  public native let states: array<ref<animAnimNode_State>>;
+  public native let frozenState: ref<animAnimNode_StateFrozen>;
+  public native let transitions: array<ref<animAnimStateTransitionDescription>>;
+  public native let conditionalEntries: array<ref<animAnimStateMachineConditionalEntry>>;
+  public native let globalTransitions: array<ref<animAnimStateTransitionDescription>>;
+  public native let anyStateInterpolator: ref<animIAnimStateTransitionInterpolator>;
+  public native let defaultStateIndex: Uint32;
+  public native let notifyOnEnterState: Bool;
 }

@@ -1,4 +1,4 @@
 public native struct inkInputDevicesMappingsJSON {
-  native let devices: array<CName>;
-  native let mappings: array<inkInputIconMappingJSON>;
+  public native let devices: array<CName>;
+  public native let mappings: array<inkInputIconMappingJSON>;
 }

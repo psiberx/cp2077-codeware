@@ -1,6 +1,6 @@
 public native struct animCurvePathControllersSetup {
-  native let name: CName;
-  native let startControllerName: CName;
-  native let mainControllerName: CName;
-  native let stopControllerName: CName;
+  public native let name: CName;
+  public native let startControllerName: CName;
+  public native let mainControllerName: CName;
+  public native let stopControllerName: CName;
 }

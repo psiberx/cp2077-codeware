@@ -1,4 +1,4 @@
 public native struct gameNetrunnerPrototypeStruct {
-  native let key: CName;
-  native let entityTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
+  public native let key: CName;
+  public native let entityTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
 }

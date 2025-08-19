@@ -1,3 +1,3 @@
 public native struct animAdditionalTransformContainer {
-  native let entries: array<ref<animAdditionalTransformEntry>>;
+  public native let entries: array<ref<animAdditionalTransformEntry>>;
 }

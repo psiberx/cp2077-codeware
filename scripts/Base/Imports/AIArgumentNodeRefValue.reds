@@ -1,4 +1,4 @@
 public native class AIArgumentNodeRefValue extends AIArgumentDefinition {
-  native let type: AIArgumentType;
-  native let defaultValue: NodeRef;
+  public native let type: AIArgumentType;
+  public native let defaultValue: NodeRef;
 }

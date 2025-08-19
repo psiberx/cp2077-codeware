@@ -1,3 +1,3 @@
 public native class meshMeshParamImportedSnapPoint extends meshMeshParameter {
-  native let snapFeatureData: array<ref<meshMeshImportedSnapPoint>>;
+  public native let snapFeatureData: array<ref<meshMeshImportedSnapPoint>>;
 }

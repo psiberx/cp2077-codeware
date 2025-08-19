@@ -1,2 +1,2 @@
 @addField(MappinEntry)
-native let type: CName;
+public native let type: CName;

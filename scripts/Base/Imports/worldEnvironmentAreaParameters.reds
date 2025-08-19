@@ -1,4 +1,4 @@
 public native class worldEnvironmentAreaParameters extends CResource {
-  native let renderAreaSettings: WorldRenderAreaSettings;
-  native let resourceVersion: Uint8;
+  public native let renderAreaSettings: WorldRenderAreaSettings;
+  public native let resourceVersion: Uint8;
 }

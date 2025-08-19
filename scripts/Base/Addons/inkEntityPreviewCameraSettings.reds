@@ -1,5 +1,5 @@
 @addField(inkEntityPreviewCameraSettings)
-native let autoEnable: Bool;
+public native let autoEnable: Bool;
 
 @addField(inkEntityPreviewCameraSettings)
-native let renderingMode: ERenderingMode;
+public native let renderingMode: ERenderingMode;

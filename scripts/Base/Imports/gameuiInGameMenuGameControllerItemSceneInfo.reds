@@ -1,6 +1,6 @@
 public native struct gameuiInGameMenuGameControllerItemSceneInfo {
-  native let sceneName: CName;
-  native let puppetSceneName: CName;
-  native let prefabRef: NodeRef;
-  native let markerRef: NodeRef;
+  public native let sceneName: CName;
+  public native let puppetSceneName: CName;
+  public native let prefabRef: NodeRef;
+  public native let markerRef: NodeRef;
 }

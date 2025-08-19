@@ -1,4 +1,4 @@
 public native struct audioReverbCrossoverParams {
-  native let dist: Float;
-  native let fade: Float;
+  public native let dist: Float;
+  public native let fade: Float;
 }

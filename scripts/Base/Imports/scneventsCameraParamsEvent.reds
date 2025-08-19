@@ -1,16 +1,16 @@
 public native class scneventsCameraParamsEvent extends scnSceneEvent {
-  native let cameraRef: NodeRef;
-  native let fovValue: Float;
-  native let fovWeigh: Float;
-  native let dofIntensity: Float;
-  native let dofNearBlur: Float;
-  native let dofNearFocus: Float;
-  native let dofFarBlur: Float;
-  native let dofFarFocus: Float;
-  native let useNearPlane: Bool;
-  native let useFarPlane: Bool;
-  native let isPlayerCamera: Bool;
-  native let cameraOverrideSettings: scneventsCameraOverrideSettings;
-  native let targetActor: scnPerformerId;
-  native let targetSlot: CName;
+  public native let cameraRef: NodeRef;
+  public native let fovValue: Float;
+  public native let fovWeigh: Float;
+  public native let dofIntensity: Float;
+  public native let dofNearBlur: Float;
+  public native let dofNearFocus: Float;
+  public native let dofFarBlur: Float;
+  public native let dofFarFocus: Float;
+  public native let useNearPlane: Bool;
+  public native let useFarPlane: Bool;
+  public native let isPlayerCamera: Bool;
+  public native let cameraOverrideSettings: scneventsCameraOverrideSettings;
+  public native let targetActor: scnPerformerId;
+  public native let targetSlot: CName;
 }

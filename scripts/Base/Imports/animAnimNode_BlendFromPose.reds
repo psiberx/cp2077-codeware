@@ -1,7 +1,7 @@
 public native class animAnimNode_BlendFromPose extends animAnimNode_OnePoseInput {
-  native let blendTime: Float;
-  native let blendType: animEBlendTypeLBC;
-  native let customBlendCurve: CurveDataFloat;
-  native let mode: animEBlendFromPoseMode;
-  native let requestedByTag: CName;
+  public native let blendTime: Float;
+  public native let blendType: animEBlendTypeLBC;
+  public native let customBlendCurve: CurveDataFloat;
+  public native let mode: animEBlendFromPoseMode;
+  public native let requestedByTag: CName;
 }

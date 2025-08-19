@@ -1,3 +1,3 @@
 public native struct netTime {
-  native let milliSecs: Uint64;
+  public native let milliSecs: Uint64;
 }

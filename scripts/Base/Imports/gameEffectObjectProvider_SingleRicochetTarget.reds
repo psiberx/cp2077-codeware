@@ -1,4 +1,4 @@
 public native class gameEffectObjectProvider_SingleRicochetTarget extends EffectObjectProvider {
-  native let filterData: ref<physicsFilterData>;
-  native let queryPreset: QueryPreset;
+  public native let filterData: ref<physicsFilterData>;
+  public native let queryPreset: QueryPreset;
 }

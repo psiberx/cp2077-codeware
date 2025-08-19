@@ -1,5 +1,5 @@
 public native class audioShockwavePropertyMetadata extends audioAudioMetadata {
-  native let eventName: CName;
-  native let maxDistance: Float;
-  native let probability: Float;
+  public native let eventName: CName;
+  public native let maxDistance: Float;
+  public native let probability: Float;
 }

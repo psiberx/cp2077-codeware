@@ -1,4 +1,4 @@
 public native struct minimapuiSettings {
-  native let showTime: Float;
-  native let hideTime: Float;
+  public native let showTime: Float;
+  public native let hideTime: Float;
 }

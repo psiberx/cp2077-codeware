@@ -1,4 +1,4 @@
 public native class AIbehaviorPassiveSignalConditionDefinition extends AIbehaviorPassiveConditionDefinition {
-  native let tag: CName;
-  native let deactivateSignal: Bool;
+  public native let tag: CName;
+  public native let deactivateSignal: Bool;
 }

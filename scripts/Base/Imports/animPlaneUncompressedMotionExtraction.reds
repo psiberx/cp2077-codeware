@@ -1,4 +1,4 @@
 public native class animPlaneUncompressedMotionExtraction extends animIMotionExtraction {
-  native let frames: array<Vector3>;
-  native let duration: Float;
+  public native let frames: array<Vector3>;
+  public native let duration: Float;
 }

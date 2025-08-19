@@ -1,4 +1,4 @@
 public native class questToggleMinimapVisibility_NodeSubType extends questIUIManagerNodeType {
-  native let entityReference: EntityReference;
-  native let show: Bool;
+  public native let entityReference: EntityReference;
+  public native let show: Bool;
 }

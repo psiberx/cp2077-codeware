@@ -1,4 +1,4 @@
 public native class gameuiarcadeArcadeSpawnerController extends inkLogicController {
-  native let objectLibraryID: CName;
-  native let initialObjectsCount: Uint32;
+  public native let objectLibraryID: CName;
+  public native let initialObjectsCount: Uint32;
 }

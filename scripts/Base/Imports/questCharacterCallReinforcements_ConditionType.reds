@@ -1,3 +1,3 @@
 public native class questCharacterCallReinforcements_ConditionType extends questICharacterConditionType {
-  native let puppetRef: EntityReference;
+  public native let puppetRef: EntityReference;
 }

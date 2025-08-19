@@ -1,7 +1,7 @@
 public native struct GlobalLightingTrajectoryOverride {
-  native let overrideScale: Float;
-  native let latitude: Float;
-  native let sunRotationOffset: Float;
-  native let moonRotationOffset: Float;
-  native let timeOfYearSeason: ETimeOfYearSeason;
+  public native let overrideScale: Float;
+  public native let latitude: Float;
+  public native let sunRotationOffset: Float;
+  public native let moonRotationOffset: Float;
+  public native let timeOfYearSeason: ETimeOfYearSeason;
 }

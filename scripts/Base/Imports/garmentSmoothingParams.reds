@@ -1,7 +1,7 @@
 public native struct garmentSmoothingParams {
-  native let smoothingStrength: Float;
-  native let smoothingRadiusInCM: Float;
-  native let smoothingExponent: Float;
-  native let smoothingNumNeighbours: Uint32;
-  native let smoothNormalsEnabled: Bool;
+  public native let smoothingStrength: Float;
+  public native let smoothingRadiusInCM: Float;
+  public native let smoothingExponent: Float;
+  public native let smoothingNumNeighbours: Uint32;
+  public native let smoothNormalsEnabled: Bool;
 }

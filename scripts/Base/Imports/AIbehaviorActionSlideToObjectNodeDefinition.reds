@@ -1,4 +1,4 @@
 public native class AIbehaviorActionSlideToObjectNodeDefinition extends AIbehaviorActionSlideNodeDefinition {
-  native let destination: ref<AIArgumentMapping>;
-  native let offset: ref<AIArgumentMapping>;
+  public native let destination: ref<AIArgumentMapping>;
+  public native let offset: ref<AIArgumentMapping>;
 }

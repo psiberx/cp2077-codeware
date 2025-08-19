@@ -1,5 +1,5 @@
 public native struct scneventsPlayAnimEventExData {
-  native let basic: scneventsPlayAnimEventData;
-  native let weight: Float;
-  native let bodyPartMask: CName;
+  public native let basic: scneventsPlayAnimEventData;
+  public native let weight: Float;
+  public native let bodyPartMask: CName;
 }

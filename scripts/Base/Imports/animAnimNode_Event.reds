@@ -1,5 +1,5 @@
 public native class animAnimNode_Event extends animAnimNode_FloatValue {
-  native let eventName: CName;
-  native let defaultValue: Float;
-  native let eventValue: Float;
+  public native let eventName: CName;
+  public native let defaultValue: Float;
+  public native let eventValue: Float;
 }

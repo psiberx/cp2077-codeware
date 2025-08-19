@@ -1,5 +1,5 @@
 public native struct EmitterDurationSettings {
-  native let emitterDuration: Float;
-  native let emitterDurationLow: Float;
-  native let useEmitterDurationRange: Bool;
+  public native let emitterDuration: Float;
+  public native let emitterDurationLow: Float;
+  public native let useEmitterDurationRange: Bool;
 }

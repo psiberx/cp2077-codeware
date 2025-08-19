@@ -1,4 +1,4 @@
 public native struct workWorkspotItemOverride {
-  native let propOverrides: array<workWorkspotItemOverridePropOverride>;
-  native let itemOverrides: array<workWorkspotItemOverrideItemOverride>;
+  public native let propOverrides: array<workWorkspotItemOverridePropOverride>;
+  public native let itemOverrides: array<workWorkspotItemOverrideItemOverride>;
 }

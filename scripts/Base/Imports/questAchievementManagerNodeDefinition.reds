@@ -1,3 +1,3 @@
 public native class questAchievementManagerNodeDefinition extends questDisableableNodeDefinition {
-  native let type: ref<questIAchievementManagerNodeType>;
+  public native let type: ref<questIAchievementManagerNodeType>;
 }

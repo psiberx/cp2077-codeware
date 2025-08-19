@@ -1,5 +1,5 @@
 public native class scneventsSetAnimFeatureEvent extends scnSceneEvent {
-  native let actorId: scnActorId;
-  native let animFeatureName: CName;
-  native let animFeature: ref<AnimFeature>;
+  public native let actorId: scnActorId;
+  public native let animFeatureName: CName;
+  public native let animFeature: ref<AnimFeature>;
 }

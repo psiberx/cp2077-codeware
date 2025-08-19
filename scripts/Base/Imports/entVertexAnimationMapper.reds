@@ -1,3 +1,3 @@
 public native struct entVertexAnimationMapper {
-  native let entries: array<entVertexAnimationMapperEntry>;
+  public native let entries: array<entVertexAnimationMapperEntry>;
 }

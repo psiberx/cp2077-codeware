@@ -1,4 +1,4 @@
 public native struct scnOutputSocket {
-  native let stamp: scnOutputSocketStamp;
-  native let destinations: array<scnInputSocketId>;
+  public native let stamp: scnOutputSocketStamp;
+  public native let destinations: array<scnInputSocketId>;
 }

@@ -1,6 +1,6 @@
 public native class dbgSpawner extends GameObject {
-  native let objectRecordId: TweakDBID;
-  native let appearance: CName;
-  native let isActive: Bool;
-  native let alwaysSpawned: gameAlwaysSpawnedState;
+  public native let objectRecordId: TweakDBID;
+  public native let appearance: CName;
+  public native let isActive: Bool;
+  public native let alwaysSpawned: gameAlwaysSpawnedState;
 }

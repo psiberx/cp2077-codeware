@@ -1,5 +1,5 @@
 public native class physicsSectorCacheArtifact extends CResource {
-  native let sectorGeometryKeys: array<physicsGeometryKey>;
-  native let sectorInPlaceGeometry: ref<physicsGeometryCacheArtifact>;
-  native let sectorBounds: Box;
+  public native let sectorGeometryKeys: array<physicsGeometryKey>;
+  public native let sectorInPlaceGeometry: ref<physicsGeometryCacheArtifact>;
+  public native let sectorBounds: Box;
 }

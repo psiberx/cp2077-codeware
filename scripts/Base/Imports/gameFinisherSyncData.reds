@@ -1,4 +1,4 @@
 public native struct gameFinisherSyncData {
-  native let syncAnimSlotName: CName;
-  native let effector: TweakDBID;
+  public native let syncAnimSlotName: CName;
+  public native let effector: TweakDBID;
 }

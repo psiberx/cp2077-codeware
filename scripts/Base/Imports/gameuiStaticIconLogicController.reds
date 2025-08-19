@@ -1,3 +1,3 @@
 public native class gameuiStaticIconLogicController extends gameuiDynamicIconLogicController {
-  native let iconReference: TweakDBID;
+  public native let iconReference: TweakDBID;
 }

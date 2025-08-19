@@ -1,4 +1,4 @@
 public native class animLookAtPreset_EyesHeadWithoutSuppress extends animLookAtPreset {
-  native let headMobility: Float;
-  native let softLimitAngle: Float;
+  public native let headMobility: Float;
+  public native let softLimitAngle: Float;
 }

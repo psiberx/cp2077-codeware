@@ -1,4 +1,4 @@
 public native struct scnOutputSocketStamp {
-  native let name: Uint16;
-  native let ordinal: Uint16;
+  public native let name: Uint16;
+  public native let ordinal: Uint16;
 }

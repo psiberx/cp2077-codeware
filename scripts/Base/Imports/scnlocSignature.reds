@@ -1,3 +1,3 @@
 public native struct scnlocSignature {
-  native let val: Uint64;
+  public native let val: Uint64;
 }

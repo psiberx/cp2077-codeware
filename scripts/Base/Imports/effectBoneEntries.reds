@@ -1,4 +1,4 @@
 public native class effectBoneEntries extends effectIPlacementEntries {
-  native let inheritRotation: Bool;
-  native let bones: array<effectBoneEntry>;
+  public native let inheritRotation: Bool;
+  public native let bones: array<effectBoneEntry>;
 }

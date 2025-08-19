@@ -1,4 +1,4 @@
 public native class AIbehaviorAssignTaskDefinition extends AIbehaviorTaskDefinition {
-  native let assignments: array<AIbehaviorAssignTaskItem>;
-  native let endAssignments: array<AIbehaviorAssignTaskItem>;
+  public native let assignments: array<AIbehaviorAssignTaskItem>;
+  public native let endAssignments: array<AIbehaviorAssignTaskItem>;
 }

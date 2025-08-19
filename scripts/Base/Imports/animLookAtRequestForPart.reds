@@ -1,6 +1,6 @@
 public native struct animLookAtRequestForPart {
-  native let bodyPart: CName;
-  native let request: LookAtRequest;
-  native let attachLeftHandToRightHand: Int32;
-  native let attachRightHandToLeftHand: Int32;
+  public native let bodyPart: CName;
+  public native let request: LookAtRequest;
+  public native let attachLeftHandToRightHand: Int32;
+  public native let attachRightHandToLeftHand: Int32;
 }

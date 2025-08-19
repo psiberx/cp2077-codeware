@@ -1,4 +1,4 @@
 public native struct audioAppearanceToFoleyLoopMetadata {
-  native let appearances: array<CName>;
-  native let loop: audioFoleyLoopMetadata;
+  public native let appearances: array<CName>;
+  public native let loop: audioFoleyLoopMetadata;
 }

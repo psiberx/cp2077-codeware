@@ -1,3 +1,3 @@
 public abstract native class AICTreeNodeSingleSharedVarDecoratorDefinition extends AICTreeNodeSharedVarsBaseDecoratorDefinition {
-  native let sharedVarName: LibTreeSharedVarRegistrationName;
+  public native let sharedVarName: LibTreeSharedVarRegistrationName;
 }

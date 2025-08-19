@@ -1,3 +1,3 @@
 public native class AIResource extends LibTreeCTreeResource {
-  native let root: ref<AICTreeNodeDefinition>;
+  public native let root: ref<AICTreeNodeDefinition>;
 }

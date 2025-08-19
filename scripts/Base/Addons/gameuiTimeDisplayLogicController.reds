@@ -1,5 +1,5 @@
 @addField(gameuiTimeDisplayLogicController)
-native let timerText: inkTextRef;
+public native let timerText: inkTextRef;
 
 @addField(gameuiTimeDisplayLogicController)
-native let noConnectionText: inkTextRef;
+public native let noConnectionText: inkTextRef;

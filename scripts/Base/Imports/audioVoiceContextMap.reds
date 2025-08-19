@@ -1,4 +1,4 @@
 public native class audioVoiceContextMap extends audioAudioMetadata {
-  native let includes: array<CName>;
-  native let contexts: array<audioVoiceContextMapItem>;
+  public native let includes: array<CName>;
+  public native let contexts: array<audioVoiceContextMapItem>;
 }

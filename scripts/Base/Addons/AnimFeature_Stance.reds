@@ -1,2 +1,2 @@
 @addField(AnimFeature_Stance)
-native let stanceState: Int32;
+public native let stanceState: Int32;

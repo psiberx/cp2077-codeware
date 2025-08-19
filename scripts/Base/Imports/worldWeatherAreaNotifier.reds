@@ -1,6 +1,6 @@
 public native class worldWeatherAreaNotifier extends worldITriggerAreaNotifer {
-  native let horizontalFadeDistance: Float;
-  native let verticalFadeDistance: Float;
-  native let weatherStateNames: array<CName>;
-  native let weatherStateValues: array<Float>;
+  public native let horizontalFadeDistance: Float;
+  public native let verticalFadeDistance: Float;
+  public native let weatherStateNames: array<CName>;
+  public native let weatherStateValues: array<Float>;
 }

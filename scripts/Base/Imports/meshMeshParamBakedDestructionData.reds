@@ -1,3 +1,3 @@
 public native class meshMeshParamBakedDestructionData extends meshMeshParameter {
-  native let regionData: array<meshRegionData>;
+  public native let regionData: array<meshRegionData>;
 }

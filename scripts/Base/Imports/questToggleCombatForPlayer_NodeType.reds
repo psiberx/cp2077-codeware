@@ -1,3 +1,3 @@
 public native class questToggleCombatForPlayer_NodeType extends questIVehicleManagerNodeType {
-  native let startCombat: Bool;
+  public native let startCombat: Bool;
 }

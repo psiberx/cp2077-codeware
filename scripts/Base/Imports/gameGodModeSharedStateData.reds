@@ -1,4 +1,4 @@
 public native struct gameGodModeSharedStateData {
-  native let entity: wref<Entity>;
-  native let flags: Int32;
+  public native let entity: wref<Entity>;
+  public native let flags: Int32;
 }

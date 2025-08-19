@@ -1,5 +1,5 @@
 @addField(IPlacedComponent)
-native let localTransform: WorldTransform;
+public native let localTransform: WorldTransform;
 
 @addField(IPlacedComponent)
-native let parentTransform: ref<entITransformBinding>;
+public native let parentTransform: ref<entITransformBinding>;

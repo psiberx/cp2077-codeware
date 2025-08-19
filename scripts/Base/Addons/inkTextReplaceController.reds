@@ -1,14 +1,14 @@
 @addField(inkTextReplaceController)
-native let timeToSkip: Float;
+public native let timeToSkip: Float;
 
 @addField(inkTextReplaceController)
-native let widgetTextUsage: inkTextReplaceAnimationControllerWidgetTextUsage;
+public native let widgetTextUsage: inkTextReplaceAnimationControllerWidgetTextUsage;
 
 @addField(inkTextReplaceController)
-native let baseTextLocalized: LocalizationString;
+public native let baseTextLocalized: LocalizationString;
 
 @addField(inkTextReplaceController)
-native let targetText: String;
+public native let targetText: String;
 
 @addField(inkTextReplaceController)
-native let targetTextLocalized: LocalizationString;
+public native let targetTextLocalized: LocalizationString;

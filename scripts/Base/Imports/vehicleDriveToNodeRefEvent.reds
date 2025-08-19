@@ -1,5 +1,5 @@
 public native class vehicleDriveToNodeRefEvent extends Event {
-  native let targetRef: NodeRef;
-  native let useTraffic: Bool;
-  native let speedInTraffic: Float;
+  public native let targetRef: NodeRef;
+  public native let useTraffic: Bool;
+  public native let speedInTraffic: Float;
 }

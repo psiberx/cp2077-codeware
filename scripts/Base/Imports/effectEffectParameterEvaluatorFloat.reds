@@ -1,5 +1,5 @@
 public native struct effectEffectParameterEvaluatorFloat {
-  native let evaluator: ref<IEvaluatorFloat>;
-  native let inputParameterOverride: CName;
-  native let inputParameterIsPostMultiplier: Bool;
+  public native let evaluator: ref<IEvaluatorFloat>;
+  public native let inputParameterOverride: CName;
+  public native let inputParameterIsPostMultiplier: Bool;
 }

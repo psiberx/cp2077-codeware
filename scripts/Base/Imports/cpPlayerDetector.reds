@@ -1,3 +1,3 @@
 public native class cpPlayerDetector extends GameObject {
-  native let range: Float;
+  public native let range: Float;
 }

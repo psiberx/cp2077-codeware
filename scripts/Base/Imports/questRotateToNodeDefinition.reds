@@ -1,4 +1,4 @@
 public native class questRotateToNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let entityReference: EntityReference;
-  native let params: ref<questRotateToParams>;
+  public native let entityReference: EntityReference;
+  public native let params: ref<questRotateToParams>;
 }

@@ -1,3 +1,3 @@
 public native struct sharedMenuCollection {
-  native let items: array<sharedMenuItem>;
+  public native let items: array<sharedMenuItem>;
 }

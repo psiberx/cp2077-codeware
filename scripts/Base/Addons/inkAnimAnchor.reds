@@ -1,5 +1,5 @@
 @addField(inkAnimAnchor)
-native let startValue: Vector2;
+public native let startValue: Vector2;
 
 @addField(inkAnimAnchor)
-native let endValue: Vector2;
+public native let endValue: Vector2;

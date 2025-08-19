@@ -1,5 +1,5 @@
 public native class vehicleNetrunnerQuickhackVehicleEndedEvent extends Event {
-  native let vehicleNetrunnerQuickhackType: VehicleNetrunnerQuickhackType;
-  native let shouldTriggerPanicDriving: Bool;
-  native let shouldRejoinTraffic: Bool;
+  public native let vehicleNetrunnerQuickhackType: VehicleNetrunnerQuickhackType;
+  public native let shouldTriggerPanicDriving: Bool;
+  public native let shouldRejoinTraffic: Bool;
 }

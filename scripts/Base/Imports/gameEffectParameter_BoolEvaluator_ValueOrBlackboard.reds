@@ -1,4 +1,4 @@
 public native class gameEffectParameter_BoolEvaluator_ValueOrBlackboard extends gameIEffectParameter_BoolEvaluator {
-  native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
-  native let value: Bool;
+  public native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
+  public native let value: Bool;
 }

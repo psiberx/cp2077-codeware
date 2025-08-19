@@ -1,5 +1,5 @@
 public native class gameEffectPostAction_NewEffect_ChimeraMissileExplosion extends EffectPostAction {
-  native let tagInThisFile: CName;
-  native let overrideRadius: Float;
-  native let executeOnNthHit: Int32;
+  public native let tagInThisFile: CName;
+  public native let overrideRadius: Float;
+  public native let executeOnNthHit: Int32;
 }

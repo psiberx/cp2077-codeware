@@ -1,3 +1,3 @@
 public native class toolsJiraEditIssueBody extends ISerializable {
-  native let fields: toolsJiraIssueFields;
+  public native let fields: toolsJiraIssueFields;
 }

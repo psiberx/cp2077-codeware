@@ -1,3 +1,3 @@
 public native class questVehicleAirtime_ConditionType extends questIVehicleConditionType {
-  native let seconds: Float;
+  public native let seconds: Float;
 }

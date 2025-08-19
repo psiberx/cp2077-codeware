@@ -1,7 +1,7 @@
 public native struct physicsMaterialTags {
-  native let aiVisibility: physicsMaterialTagVisibility;
-  native let playerVisibility: physicsMaterialTagVisibility;
-  native let projectilePenetration: physicsMaterialTagProjectilePenetration;
-  native let projectileRicochet: physicsMaterialTagProjectileRicochet;
-  native let vehicleTraction: physicsMaterialTagVehicleTraction;
+  public native let aiVisibility: physicsMaterialTagVisibility;
+  public native let playerVisibility: physicsMaterialTagVisibility;
+  public native let projectilePenetration: physicsMaterialTagProjectilePenetration;
+  public native let projectileRicochet: physicsMaterialTagProjectileRicochet;
+  public native let vehicleTraction: physicsMaterialTagVehicleTraction;
 }

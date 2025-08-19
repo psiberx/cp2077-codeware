@@ -1,3 +1,3 @@
 public native class gameVisionModePrereq extends IPrereq {
-  native let type: gameVisionModeType;
+  public native let type: gameVisionModeType;
 }

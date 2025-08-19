@@ -1,5 +1,5 @@
 public native struct animAnimFallbackFrameDesc {
-  native let mPositions: Uint16;
-  native let mRotations: Uint16;
-  native let mFloatTracks: Uint16;
+  public native let mPositions: Uint16;
+  public native let mRotations: Uint16;
+  public native let mFloatTracks: Uint16;
 }

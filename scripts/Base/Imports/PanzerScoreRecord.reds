@@ -1,4 +1,4 @@
 public native class PanzerScoreRecord extends inkLogicController {
-  native let nameWidget: inkTextRef;
-  native let scoreWidget: inkTextRef;
+  public native let nameWidget: inkTextRef;
+  public native let scoreWidget: inkTextRef;
 }

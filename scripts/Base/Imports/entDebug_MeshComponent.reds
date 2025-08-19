@@ -1,3 +1,3 @@
 public native class entDebug_MeshComponent extends MeshComponent {
-  native let filterName: String;
+  public native let filterName: String;
 }

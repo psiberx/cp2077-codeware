@@ -1,6 +1,6 @@
 public native struct Rect {
-  native let left: Int32;
-  native let top: Int32;
-  native let right: Int32;
-  native let bottom: Int32;
+  public native let left: Int32;
+  public native let top: Int32;
+  public native let right: Int32;
+  public native let bottom: Int32;
 }

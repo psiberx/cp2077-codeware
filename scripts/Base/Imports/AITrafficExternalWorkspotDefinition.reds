@@ -1,4 +1,4 @@
 public native class AITrafficExternalWorkspotDefinition extends worldTrafficSpotDefinition {
-  native let nearestPointEntry: Bool;
-  native let globalWorkspotNodeRef: NodeRef;
+  public native let nearestPointEntry: Bool;
+  public native let globalWorkspotNodeRef: NodeRef;
 }

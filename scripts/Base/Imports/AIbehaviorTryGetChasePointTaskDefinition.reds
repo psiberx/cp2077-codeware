@@ -1,6 +1,6 @@
 public native class AIbehaviorTryGetChasePointTaskDefinition extends AIbehaviorTaskDefinition {
-  native let inPlayerPositionDelay: ref<AIArgumentMapping>;
-  native let inPlayerPositionMaxDistance: ref<AIArgumentMapping>;
-  native let inNearestNavmeshPolyExtent: ref<AIArgumentMapping>;
-  native let outChasePosition: ref<AIArgumentMapping>;
+  public native let inPlayerPositionDelay: ref<AIArgumentMapping>;
+  public native let inPlayerPositionMaxDistance: ref<AIArgumentMapping>;
+  public native let inNearestNavmeshPolyExtent: ref<AIArgumentMapping>;
+  public native let outChasePosition: ref<AIArgumentMapping>;
 }

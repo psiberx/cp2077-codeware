@@ -1,2 +1,2 @@
 @addField(InteractionChoice)
-native let lookAtDescriptor: gameinteractionsChoiceLookAtDescriptor;
+public native let lookAtDescriptor: gameinteractionsChoiceLookAtDescriptor;

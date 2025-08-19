@@ -1,4 +1,4 @@
 public native class meshMeshParamDestructionStepData extends meshMeshParameter {
-  native let offsets: array<physicsDestructionHierarchyOffset>;
-  native let isInstantRemovable: String;
+  public native let offsets: array<physicsDestructionHierarchyOffset>;
+  public native let isInstantRemovable: String;
 }

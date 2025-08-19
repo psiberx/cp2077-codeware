@@ -1,3 +1,3 @@
 public native class inkanimChangeStateEvent extends inkAnimEvent {
-  native let state: CName;
+  public native let state: CName;
 }

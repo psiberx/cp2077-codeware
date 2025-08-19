@@ -1,5 +1,5 @@
 public native struct CComStaticSkeletonDataEntry {
-  native let boneIndex: Int32;
-  native let mass: Float;
-  native let locationLS: Vector4;
+  public native let boneIndex: Int32;
+  public native let mass: Float;
+  public native let locationLS: Vector4;
 }

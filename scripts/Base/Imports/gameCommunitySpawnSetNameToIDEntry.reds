@@ -1,4 +1,4 @@
 public native struct gameCommunitySpawnSetNameToIDEntry {
-  native let communityId: gameCommunityID;
-  native let nameReference: CName;
+  public native let communityId: gameCommunityID;
+  public native let nameReference: CName;
 }

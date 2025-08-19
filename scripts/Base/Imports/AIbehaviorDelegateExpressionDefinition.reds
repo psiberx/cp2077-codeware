@@ -1,4 +1,4 @@
 public native class AIbehaviorDelegateExpressionDefinition extends AIbehaviorPassiveExpressionDefinition {
-  native let delegateAttribute: AIDelegateAttrRef;
-  native let behaviorCallbackNames: array<CName>;
+  public native let delegateAttribute: AIDelegateAttrRef;
+  public native let behaviorCallbackNames: array<CName>;
 }

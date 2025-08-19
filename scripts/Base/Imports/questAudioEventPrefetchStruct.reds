@@ -1,4 +1,4 @@
 public native struct questAudioEventPrefetchStruct {
-  native let eventName: CName;
-  native let mode: questAudioEventPrefetchMode;
+  public native let eventName: CName;
+  public native let mode: questAudioEventPrefetchMode;
 }

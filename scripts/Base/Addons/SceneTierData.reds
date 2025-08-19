@@ -1,2 +1,2 @@
 @addField(SceneTierData)
-native let userDebugInfo: String;
+public native let userDebugInfo: String;

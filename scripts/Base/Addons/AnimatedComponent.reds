@@ -1,41 +1,41 @@
 @addField(AnimatedComponent)
-native let controlBinding: ref<entAnimationControlBinding>;
+public native let controlBinding: ref<entAnimationControlBinding>;
 
 @addField(AnimatedComponent)
-native let rig: ResourceRef; // rRef<animRig>
+public native let rig: ResourceRef; // rRef<animRig>
 
 @addField(AnimatedComponent)
-native let graph: ResourceRef; // rRef<animAnimGraph>
+public native let graph: ResourceRef; // rRef<animAnimGraph>
 
 @addField(AnimatedComponent)
-native let animations: animAnimSetup;
+public native let animations: animAnimSetup;
 
 @addField(AnimatedComponent)
-native let animTags: redTagList;
+public native let animTags: redTagList;
 
 @addField(AnimatedComponent)
-native let audioAltName: CName;
+public native let audioAltName: CName;
 
 @addField(AnimatedComponent)
-native let useLongRangeVisibility: Bool;
+public native let useLongRangeVisibility: Bool;
 
 @addField(AnimatedComponent)
-native let facialSetup: ResourceAsyncRef; // raRef<animFacialSetup>
+public native let facialSetup: ResourceAsyncRef; // raRef<animFacialSetup>
 
 @addField(AnimatedComponent)
-native let calculateAccelerationWs: Bool;
+public native let calculateAccelerationWs: Bool;
 
 @addField(AnimatedComponent)
-native let animParameters: array<entAnimTrackParameter>;
+public native let animParameters: array<entAnimTrackParameter>;
 
 @addField(AnimatedComponent)
-native let serverForcedLod: Int32;
+public native let serverForcedLod: Int32;
 
 @addField(AnimatedComponent)
-native let clientForcedLod: Int32;
+public native let clientForcedLod: Int32;
 
 @addField(AnimatedComponent)
-native let serverForcedVisibility: Bool;
+public native let serverForcedVisibility: Bool;
 
 @addField(AnimatedComponent)
-native let clientForcedVisibility: Bool;
+public native let clientForcedVisibility: Bool;

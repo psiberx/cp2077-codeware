@@ -1,9 +1,9 @@
 public native class questCharacterManagerParameters_SetStatusEffect extends questICharacterManagerParameters_NodeSubType {
-  native let puppetRef: EntityReference;
-  native let isPlayer: Bool;
-  native let statusEffectID: TweakDBID;
-  native let isPlayerStatusEffectSource: Bool;
-  native let statusEffectSourceObject: EntityReference;
-  native let recordSelector: ref<questRecordSelector>;
-  native let set: Bool;
+  public native let puppetRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let statusEffectID: TweakDBID;
+  public native let isPlayerStatusEffectSource: Bool;
+  public native let statusEffectSourceObject: EntityReference;
+  public native let recordSelector: ref<questRecordSelector>;
+  public native let set: Bool;
 }

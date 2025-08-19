@@ -1,7 +1,7 @@
 public native class questCombatNodeParams_UseCover extends questCombatNodeParams {
-  native let cover: NodeRef;
-  native let oneTimeSelection: Bool;
-  native let forceStance: array<AICoverExposureMethod>;
-  native let forcedEntryAnimation: CName;
-  native let immediately: Bool;
+  public native let cover: NodeRef;
+  public native let oneTimeSelection: Bool;
+  public native let forceStance: array<AICoverExposureMethod>;
+  public native let forcedEntryAnimation: CName;
+  public native let immediately: Bool;
 }

@@ -1,11 +1,11 @@
 public native struct animDyngParticle {
-  native let mass: Float;
-  native let damping: Float;
-  native let pullForceFactor: Float;
-  native let isFree: Bool;
-  native let bone: animTransformIndex;
-  native let collisionCapsuleRadius: Float;
-  native let collisionCapsuleHeightExtent: Float;
-  native let collisionCapsuleAxisLS: Vector3;
-  native let projectionType: animDyngParticleProjectionType;
+  public native let mass: Float;
+  public native let damping: Float;
+  public native let pullForceFactor: Float;
+  public native let isFree: Bool;
+  public native let bone: animTransformIndex;
+  public native let collisionCapsuleRadius: Float;
+  public native let collisionCapsuleHeightExtent: Float;
+  public native let collisionCapsuleAxisLS: Vector3;
+  public native let projectionType: animDyngParticleProjectionType;
 }

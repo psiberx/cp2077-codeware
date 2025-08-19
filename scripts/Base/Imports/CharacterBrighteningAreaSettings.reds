@@ -1,6 +1,6 @@
 public native class CharacterBrighteningAreaSettings extends IAreaSettings {
-  native let effectStrengthMultiplier: Float;
-  native let minDistance: Float;
-  native let maxDistance: Float;
-  native let envMultiplier: CurveDataFloat;
+  public native let effectStrengthMultiplier: Float;
+  public native let minDistance: Float;
+  public native let maxDistance: Float;
+  public native let envMultiplier: CurveDataFloat;
 }

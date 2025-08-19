@@ -1,9 +1,9 @@
 public native class questCameraFocus_ConditionType extends questISystemConditionType {
-  native let objectRef: EntityReference;
-  native let timeInterval: Float;
-  native let onScreenTest: Bool;
-  native let useFrustrumCheck: Bool;
-  native let angleTolerance: Float;
-  native let inverted: Bool;
-  native let zoomed: Bool;
+  public native let objectRef: EntityReference;
+  public native let timeInterval: Float;
+  public native let onScreenTest: Bool;
+  public native let useFrustrumCheck: Bool;
+  public native let angleTolerance: Float;
+  public native let inverted: Bool;
+  public native let zoomed: Bool;
 }

@@ -1,7 +1,7 @@
 public native struct MorphTargetMeshEntry {
-  native let name: CName;
-  native let regionName: CName;
-  native let faceRegion: MorphTargetsFaceRegion;
-  native let boneNames: array<CName>;
-  native let boneRigMatrices: array<Matrix>;
+  public native let name: CName;
+  public native let regionName: CName;
+  public native let faceRegion: MorphTargetsFaceRegion;
+  public native let boneNames: array<CName>;
+  public native let boneRigMatrices: array<Matrix>;
 }

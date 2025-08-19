@@ -1,4 +1,4 @@
 public native struct ActionParameterTweakDBID {
-  native let name: CName;
-  native let value: TweakDBID;
+  public native let name: CName;
+  public native let value: TweakDBID;
 }

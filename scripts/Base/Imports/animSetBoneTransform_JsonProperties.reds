@@ -1,3 +1,3 @@
 public native class animSetBoneTransform_JsonProperties extends ISerializable {
-  native let entries: array<animSetBoneTransform_JsonEntry>;
+  public native let entries: array<animSetBoneTransform_JsonEntry>;
 }

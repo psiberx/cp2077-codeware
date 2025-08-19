@@ -1,4 +1,4 @@
 public native struct questUseWorkspotParams {
-  native persistent let workspotNode: NodeRef;
-  native persistent let forceEntryAnimName: CName;
+  public native persistent let workspotNode: NodeRef;
+  public native persistent let forceEntryAnimName: CName;
 }

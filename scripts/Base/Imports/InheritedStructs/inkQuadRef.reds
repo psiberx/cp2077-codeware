@@ -1,3 +1,3 @@
 public native struct inkQuadRef {
-  native let widget: wref<inkWidget>;
+  public native let widget: wref<inkWidget>;
 }

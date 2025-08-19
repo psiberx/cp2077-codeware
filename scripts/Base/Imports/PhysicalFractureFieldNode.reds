@@ -1,4 +1,4 @@
 public native class PhysicalFractureFieldNode extends worldNode {
-  native let shape: physicsTriggerShape;
-  native let fractureFieldParams: physicsFractureFieldParams;
+  public native let shape: physicsTriggerShape;
+  public native let fractureFieldParams: physicsFractureFieldParams;
 }

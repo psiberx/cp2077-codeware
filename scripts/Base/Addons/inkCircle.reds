@@ -1,2 +1,2 @@
 @addField(inkCircle)
-native let segmentsNumber: Uint32;
+public native let segmentsNumber: Uint32;

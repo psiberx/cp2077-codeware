@@ -1,2 +1,2 @@
 @addField(JournalCodexCategory)
-native let categoryName: LocalizationString;
+public native let categoryName: LocalizationString;

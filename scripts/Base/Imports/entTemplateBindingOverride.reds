@@ -1,5 +1,5 @@
 public native struct entTemplateBindingOverride {
-  native let componentName: CName;
-  native let propertyName: CName;
-  native let binding: ref<entIBinding>;
+  public native let componentName: CName;
+  public native let propertyName: CName;
+  public native let binding: ref<entIBinding>;
 }

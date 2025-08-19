@@ -1,7 +1,7 @@
 public native class vehicleDriveFollowEvent extends Event {
-  native let targetObjToFollow: wref<GameObject>;
-  native let distanceMin: Float;
-  native let distanceMax: Float;
-  native let stopWhenTargetReached: Bool;
-  native let useTraffic: Bool;
+  public native let targetObjToFollow: wref<GameObject>;
+  public native let distanceMin: Float;
+  public native let distanceMax: Float;
+  public native let stopWhenTargetReached: Bool;
+  public native let useTraffic: Bool;
 }

@@ -1,4 +1,4 @@
 public native class audioVehiclePartSettingsMap extends audioAudioMetadata {
-  native let minAcousticsIsolationFactorValue: Float;
-  native let partSettings: array<audioVehiclePartSettingsMapItem>;
+  public native let minAcousticsIsolationFactorValue: Float;
+  public native let partSettings: array<audioVehiclePartSettingsMapItem>;
 }

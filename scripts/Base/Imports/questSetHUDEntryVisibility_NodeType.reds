@@ -1,6 +1,6 @@
 public native class questSetHUDEntryVisibility_NodeType extends questIUIManagerNodeType {
-  native let hudEntryName: array<CName>;
-  native let usePreset: Bool;
-  native let hudVisibilityPreset: TweakDBID;
-  native let visibility: Bool;
+  public native let hudEntryName: array<CName>;
+  public native let usePreset: Bool;
+  public native let hudVisibilityPreset: TweakDBID;
+  public native let visibility: Bool;
 }

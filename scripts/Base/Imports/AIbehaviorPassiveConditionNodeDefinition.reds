@@ -1,4 +1,4 @@
 public native class AIbehaviorPassiveConditionNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
-  native let condition: ref<AIbehaviorPassiveConditionDefinition>;
-  native let resultIfFailed: AIbehaviorCompletionStatus;
+  public native let condition: ref<AIbehaviorPassiveConditionDefinition>;
+  public native let resultIfFailed: AIbehaviorCompletionStatus;
 }

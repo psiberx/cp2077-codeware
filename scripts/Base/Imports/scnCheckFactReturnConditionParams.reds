@@ -1,3 +1,3 @@
 public native struct scnCheckFactReturnConditionParams {
-  native let factCondition: ref<scnInterruptFactConditionType>;
+  public native let factCondition: ref<scnInterruptFactConditionType>;
 }

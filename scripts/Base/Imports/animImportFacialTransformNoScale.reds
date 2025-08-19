@@ -1,4 +1,4 @@
 public native struct animImportFacialTransformNoScale {
-  native let rotation: Quaternion;
-  native let translation: Vector3;
+  public native let rotation: Quaternion;
+  public native let translation: Vector3;
 }

@@ -1,8 +1,8 @@
 @addField(ControllerSettingsGameController)
-native let defaultWidgets: array<inkWidgetRef>;
+public native let defaultWidgets: array<inkWidgetRef>;
 
 @addField(ControllerSettingsGameController)
-native let southpawWidgets: array<inkWidgetRef>;
+public native let southpawWidgets: array<inkWidgetRef>;
 
 @addField(ControllerSettingsGameController)
-native let legacyWidgets: array<inkWidgetRef>;
+public native let legacyWidgets: array<inkWidgetRef>;

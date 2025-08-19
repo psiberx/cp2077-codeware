@@ -1,3 +1,3 @@
 public native struct entReplicatedInputSetters {
-  native let serverReplicatedTime: netTime;
+  public native let serverReplicatedTime: netTime;
 }

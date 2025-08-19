@@ -1,5 +1,5 @@
 public abstract native class IParticleModule extends ISerializable {
-  native let editorName: String;
-  native let editorGroup: String;
-  native let isEnabled: Bool;
+  public native let editorName: String;
+  public native let editorGroup: String;
+  public native let isEnabled: Bool;
 }

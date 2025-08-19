@@ -1,4 +1,4 @@
 public native struct gameMuppetAbility {
-  native let value: Int32;
-  native let blocks: Int32;
+  public native let value: Int32;
+  public native let blocks: Int32;
 }

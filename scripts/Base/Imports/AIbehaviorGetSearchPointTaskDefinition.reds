@@ -1,8 +1,8 @@
 public native class AIbehaviorGetSearchPointTaskDefinition extends AIbehaviorTaskDefinition {
-  native let inPlayerPositionDelay: ref<AIArgumentMapping>;
-  native let inSearchPositionMaxRadius: ref<AIArgumentMapping>;
-  native let inNearestNavmeshPolyExtent: ref<AIArgumentMapping>;
-  native let inPavementsOnly: ref<AIArgumentMapping>;
-  native let inLastKnownPosition: ref<AIArgumentMapping>;
-  native let outSearchPosition: ref<AIArgumentMapping>;
+  public native let inPlayerPositionDelay: ref<AIArgumentMapping>;
+  public native let inSearchPositionMaxRadius: ref<AIArgumentMapping>;
+  public native let inNearestNavmeshPolyExtent: ref<AIArgumentMapping>;
+  public native let inPavementsOnly: ref<AIArgumentMapping>;
+  public native let inLastKnownPosition: ref<AIArgumentMapping>;
+  public native let outSearchPosition: ref<AIArgumentMapping>;
 }

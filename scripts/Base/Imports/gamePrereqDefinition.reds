@@ -1,4 +1,4 @@
 public native struct gamePrereqDefinition {
-  native let prereqName: CName;
-  native let prereq: ref<IPrereq>;
+  public native let prereqName: CName;
+  public native let prereq: ref<IPrereq>;
 }

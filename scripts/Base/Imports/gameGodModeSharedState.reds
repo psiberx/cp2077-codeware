@@ -1,3 +1,3 @@
 public native class gameGodModeSharedState extends gameIGameSystemReplicatedState {
-  native let datas: array<gameGodModeSharedStateData>;
+  public native let datas: array<gameGodModeSharedStateData>;
 }

@@ -1,4 +1,4 @@
 public native class inkWidgetClipboardData extends ISerializable {
-  native let widget: ref<inkWidget>;
-  native let widgetPath: inkWidgetPath;
+  public native let widget: ref<inkWidget>;
+  public native let widgetPath: inkWidgetPath;
 }

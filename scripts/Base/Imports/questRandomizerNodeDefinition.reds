@@ -1,4 +1,4 @@
 public native class questRandomizerNodeDefinition extends questDisableableNodeDefinition {
-  native let mode: questRandomizerMode;
-  native let outputWeights: array<Uint8>;
+  public native let mode: questRandomizerMode;
+  public native let outputWeights: array<Uint8>;
 }

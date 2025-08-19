@@ -1,4 +1,4 @@
 public native struct gameMuppetHighLevelState {
-  native let isDead: Bool;
-  native let deathFrameId: Uint32;
+  public native let isDead: Bool;
+  public native let deathFrameId: Uint32;
 }

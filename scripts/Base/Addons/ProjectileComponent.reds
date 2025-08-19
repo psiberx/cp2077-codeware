@@ -1,41 +1,41 @@
 @addField(ProjectileComponent)
-native let onCollisionAction: gameprojectileOnCollisionAction;
+public native let onCollisionAction: gameprojectileOnCollisionAction;
 
 @addField(ProjectileComponent)
-native let useSweepCollision: Bool;
+public native let useSweepCollision: Bool;
 
 @addField(ProjectileComponent)
-native let collisionsFilterClosest: Bool;
+public native let collisionsFilterClosest: Bool;
 
 @addField(ProjectileComponent)
-native let sweepCollisionRadius: Float;
+public native let sweepCollisionRadius: Float;
 
 @addField(ProjectileComponent)
-native let rotationOffset: Quaternion;
+public native let rotationOffset: Quaternion;
 
 @addField(ProjectileComponent)
-native let deriveOwnerVelocity: Bool;
+public native let deriveOwnerVelocity: Bool;
 
 @addField(ProjectileComponent)
-native let derivedVelocityParams: gameprojectileVelocityParams;
+public native let derivedVelocityParams: gameprojectileVelocityParams;
 
 @addField(ProjectileComponent)
-native let filterData: ref<physicsFilterData>;
+public native let filterData: ref<physicsFilterData>;
 
 @addField(ProjectileComponent)
-native let queryPreset: QueryPreset;
+public native let queryPreset: QueryPreset;
 
 @addField(ProjectileComponent)
-native let previewEffect: ResourceAsyncRef; // raRef<worldEffect>
+public native let previewEffect: ResourceAsyncRef; // raRef<worldEffect>
 
 @addField(ProjectileComponent)
-native let bouncePreviewEffect: ResourceAsyncRef; // raRef<worldEffect>
+public native let bouncePreviewEffect: ResourceAsyncRef; // raRef<worldEffect>
 
 @addField(ProjectileComponent)
-native let explosionPreviewEffect: ResourceAsyncRef; // raRef<worldEffect>
+public native let explosionPreviewEffect: ResourceAsyncRef; // raRef<worldEffect>
 
 @addField(ProjectileComponent)
-native let explosionPreviewTime: Float;
+public native let explosionPreviewTime: Float;
 
 @addField(ProjectileComponent)
-native let gameEffectRef: EffectRef;
+public native let gameEffectRef: EffectRef;

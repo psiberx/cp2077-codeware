@@ -1,8 +1,8 @@
 public native class gameinteractionsvisDeviceVisualizerDefinition extends gameinteractionsvisIVisualizerDefinition {
-  native let interactionType: gameinteractionsvisInteractionType;
-  native let displayNameOverride: String;
-  native let useDefaultActionMapping: Bool;
-  native let createMappin: Bool;
-  native let isDynamic: Bool;
-  native let timeProvider: ref<IVisualizerTimeProvider>;
+  public native let interactionType: gameinteractionsvisInteractionType;
+  public native let displayNameOverride: String;
+  public native let useDefaultActionMapping: Bool;
+  public native let createMappin: Bool;
+  public native let isDynamic: Bool;
+  public native let timeProvider: ref<IVisualizerTimeProvider>;
 }

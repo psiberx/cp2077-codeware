@@ -1,4 +1,4 @@
 public native class AIArchetype extends CResource {
-  native let behaviorDefinition: ref<AIbehaviorParameterizedBehavior>;
-  native let movementParameters: [MovementParameters; 5];
+  public native let behaviorDefinition: ref<AIbehaviorParameterizedBehavior>;
+  public native let movementParameters: [MovementParameters; 5];
 }

@@ -1,10 +1,10 @@
 public native class audioGroupingTagMetadata extends audioAudioMetadata {
-  native let shape: CName;
-  native let classificationMethod: audioClassificationMethod;
-  native let inputEmitterName: CName;
-  native let inputEventNames: array<CName>;
-  native let inputTags: array<CName>;
-  native let outputEventId: CName;
-  native let minimalGroupCount: Float;
-  native let fullGroupCount: Float;
+  public native let shape: CName;
+  public native let classificationMethod: audioClassificationMethod;
+  public native let inputEmitterName: CName;
+  public native let inputEventNames: array<CName>;
+  public native let inputTags: array<CName>;
+  public native let outputEventId: CName;
+  public native let minimalGroupCount: Float;
+  public native let fullGroupCount: Float;
 }

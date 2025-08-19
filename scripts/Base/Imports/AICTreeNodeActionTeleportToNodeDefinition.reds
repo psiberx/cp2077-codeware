@@ -1,5 +1,5 @@
 public native class AICTreeNodeActionTeleportToNodeDefinition extends AICTreeNodeActionDefinition {
-  native let nodeRef: LibTreeDefNodeRef;
-  native let offset: LibTreeDefVector;
-  native let doNavTest: Bool;
+  public native let nodeRef: LibTreeDefNodeRef;
+  public native let offset: LibTreeDefVector;
+  public native let doNavTest: Bool;
 }

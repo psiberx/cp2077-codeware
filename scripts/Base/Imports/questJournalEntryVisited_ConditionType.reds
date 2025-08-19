@@ -1,4 +1,4 @@
 public native class questJournalEntryVisited_ConditionType extends questIJournalConditionType {
-  native let path: ref<gameJournalPath>;
-  native let visited: Bool;
+  public native let path: ref<gameJournalPath>;
+  public native let visited: Bool;
 }

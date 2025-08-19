@@ -1,6 +1,6 @@
 public native class AICTreeNodeActionDynamicMoveToDefinition extends AICTreeNodeActionDefinition {
-  native let moveType: moveMovementType;
-  native let tolerance: Float;
-  native let target: CName;
-  native let keepDistance: Bool;
+  public native let moveType: moveMovementType;
+  public native let tolerance: Float;
+  public native let target: CName;
+  public native let keepDistance: Bool;
 }

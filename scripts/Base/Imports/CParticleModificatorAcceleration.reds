@@ -1,5 +1,5 @@
 public native class CParticleModificatorAcceleration extends IParticleModificator {
-  native let direction: ref<IEvaluatorVector>;
-  native let scale: ref<IEvaluatorFloat>;
-  native let worldSpace: Bool;
+  public native let direction: ref<IEvaluatorVector>;
+  public native let scale: ref<IEvaluatorFloat>;
+  public native let worldSpace: Bool;
 }

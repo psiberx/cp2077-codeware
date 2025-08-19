@@ -1,3 +1,3 @@
 public native class inkHUDScalingMarginAdjustment extends inkInitializedWidgetUserData {
-  native let adjustmentMargin: inkMargin;
+  public native let adjustmentMargin: inkMargin;
 }

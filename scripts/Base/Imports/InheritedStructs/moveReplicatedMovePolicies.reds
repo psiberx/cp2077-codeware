@@ -1,6 +1,6 @@
 public native struct moveReplicatedMovePolicies {
-  native let entity: wref<Entity>;
-  native let netTime: netTime;
-  native let key: Uint64;
-  native let policies: ref<MovePolicies>;
+  public native let entity: wref<Entity>;
+  public native let netTime: netTime;
+  public native let key: Uint64;
+  public native let policies: ref<MovePolicies>;
 }

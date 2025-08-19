@@ -1,3 +1,3 @@
 public native struct TrafficGenDynamicTrafficSetting {
-  native let impact: TrafficGenDynamicImpact;
+  public native let impact: TrafficGenDynamicImpact;
 }

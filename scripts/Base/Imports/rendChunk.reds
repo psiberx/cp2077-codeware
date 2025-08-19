@@ -1,11 +1,11 @@
 public native struct rendChunk {
-  native let chunkVertices: rendVertexBufferChunk;
-  native let chunkIndices: rendIndexBufferChunk;
-  native let numVertices: Uint16;
-  native let numIndices: Uint32;
-  native let materialId: array<CName>;
-  native let vertexFactory: Uint8;
-  native let baseRenderMask: Uint16;
-  native let mergedRenderMask: Uint16;
-  native let lodMask: Uint8;
+  public native let chunkVertices: rendVertexBufferChunk;
+  public native let chunkIndices: rendIndexBufferChunk;
+  public native let numVertices: Uint16;
+  public native let numIndices: Uint32;
+  public native let materialId: array<CName>;
+  public native let vertexFactory: Uint8;
+  public native let baseRenderMask: Uint16;
+  public native let mergedRenderMask: Uint16;
+  public native let lodMask: Uint8;
 }

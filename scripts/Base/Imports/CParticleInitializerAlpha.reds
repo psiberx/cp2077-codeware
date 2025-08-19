@@ -1,3 +1,3 @@
 public native class CParticleInitializerAlpha extends IParticleInitializer {
-  native let alpha: ref<IEvaluatorFloat>;
+  public native let alpha: ref<IEvaluatorFloat>;
 }

@@ -1,2 +1,2 @@
 @addField(GridCell)
-native let isActive: Bool;
+public native let isActive: Bool;

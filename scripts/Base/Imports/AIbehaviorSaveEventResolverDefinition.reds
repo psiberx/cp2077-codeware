@@ -1,3 +1,3 @@
 public native class AIbehaviorSaveEventResolverDefinition extends AIbehaviorEventResolverDefinition {
-  native let eventData: ref<AIArgumentMapping>;
+  public native let eventData: ref<AIArgumentMapping>;
 }

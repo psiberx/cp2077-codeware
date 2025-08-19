@@ -1,3 +1,3 @@
 public native class animAnimFeature_AIActionAnimation extends AnimFeature_AIAction {
-  native let animFeatureName: CName;
+  public native let animFeatureName: CName;
 }

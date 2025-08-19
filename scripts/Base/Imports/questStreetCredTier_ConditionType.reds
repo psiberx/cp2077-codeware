@@ -1,4 +1,4 @@
 public native class questStreetCredTier_ConditionType extends questIStatsConditionType {
-  native let tierID: TweakDBID;
-  native let comparisonType: EComparisonType;
+  public native let tierID: TweakDBID;
+  public native let comparisonType: EComparisonType;
 }

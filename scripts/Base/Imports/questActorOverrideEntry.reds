@@ -1,4 +1,4 @@
 public native struct questActorOverrideEntry {
-  native let MetadataForOverride: CName;
-  native let ActorName: CName;
+  public native let MetadataForOverride: CName;
+  public native let ActorName: CName;
 }

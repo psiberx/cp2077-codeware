@@ -1,4 +1,4 @@
 public native struct animBoneCorrection {
-  native let boneName: CName;
-  native let additiveCorrection: Quaternion;
+  public native let boneName: CName;
+  public native let additiveCorrection: Quaternion;
 }

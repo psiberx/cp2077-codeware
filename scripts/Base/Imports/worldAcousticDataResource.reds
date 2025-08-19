@@ -1,3 +1,3 @@
 public native class worldAcousticDataResource extends resStreamedResource {
-  native let cells: array<worldAcousticDataCell>;
+  public native let cells: array<worldAcousticDataCell>;
 }

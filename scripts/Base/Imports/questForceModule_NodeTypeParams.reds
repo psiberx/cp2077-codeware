@@ -1,5 +1,5 @@
 public native struct questForceModule_NodeTypeParams {
-  native let objectRef: NodeRef;
-  native let module: String;
-  native let components: array<CName>;
+  public native let objectRef: NodeRef;
+  public native let module: String;
+  public native let components: array<CName>;
 }

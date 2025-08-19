@@ -1,4 +1,4 @@
 public native struct rendVertexBufferChunk {
-  native let vertexLayout: GpuWrapApiVertexLayoutDesc;
-  native let byteOffsets: [Uint32; 5];
+  public native let vertexLayout: GpuWrapApiVertexLayoutDesc;
+  public native let byteOffsets: [Uint32; 5];
 }

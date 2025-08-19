@@ -1,4 +1,4 @@
 public native class CParticleModificatorRotationRateOverLife extends IParticleModificator {
-  native let rotationRate: ref<IEvaluatorFloat>;
-  native let modulate: Bool;
+  public native let rotationRate: ref<IEvaluatorFloat>;
+  public native let modulate: Bool;
 }

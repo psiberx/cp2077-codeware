@@ -1,4 +1,4 @@
 public native struct entdismembermentDebrisResourceItem {
-  native let rig: ResourceRef; // rRef<animRig>
-  native let mesh: ResourceRef; // rRef<CMesh>
+  public native let rig: ResourceRef; // rRef<animRig>
+  public native let mesh: ResourceRef; // rRef<CMesh>
 }

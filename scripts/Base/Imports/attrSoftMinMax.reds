@@ -1,4 +1,4 @@
 public native class attrSoftMinMax extends attrAttribute {
-  native let n: Float;
-  native let x: Float;
+  public native let n: Float;
+  public native let x: Float;
 }

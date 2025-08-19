@@ -1,11 +1,11 @@
 @addField(SongbirdAudioCallGameController)
-native let waveformEnabled: Bool;
+public native let waveformEnabled: Bool;
 
 @addField(SongbirdAudioCallGameController)
-native let voLevelsUpdateTimer: Float;
+public native let voLevelsUpdateTimer: Float;
 
 @addField(SongbirdAudioCallGameController)
-native let intensityMultiplier: Float;
+public native let intensityMultiplier: Float;
 
 @addField(SongbirdAudioCallGameController)
-native let targets: array<inkWidgetRef>;
+public native let targets: array<inkWidgetRef>;

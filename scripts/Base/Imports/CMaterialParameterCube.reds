@@ -1,3 +1,3 @@
 public native class CMaterialParameterCube extends CMaterialParameter {
-  native let texture: ResourceRef; // rRef<ITexture>
+  public native let texture: ResourceRef; // rRef<ITexture>
 }

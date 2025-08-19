@@ -1,4 +1,4 @@
 public native struct questUnequipItemParams {
-  native let slotId: TweakDBID;
-  native let unequipDurationOverride: Float;
+  public native let slotId: TweakDBID;
+  public native let unequipDurationOverride: Float;
 }

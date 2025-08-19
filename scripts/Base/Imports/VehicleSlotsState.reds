@@ -1,6 +1,6 @@
 @neverRef()
 public native class VehicleSlotsState extends ISerializable {
-  native persistent let vehicleDoorState: VehicleDoorState;
-  native persistent let vehicleWindowState: EVehicleWindowState;
-  native persistent let vehicleInteractionState: VehicleDoorInteractionState;
+  public native persistent let vehicleDoorState: VehicleDoorState;
+  public native persistent let vehicleWindowState: EVehicleWindowState;
+  public native persistent let vehicleInteractionState: VehicleDoorInteractionState;
 }

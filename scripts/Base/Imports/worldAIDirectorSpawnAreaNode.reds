@@ -1,3 +1,3 @@
 public native class worldAIDirectorSpawnAreaNode extends worldAreaShapeNode {
-  native let groupKey: CName;
+  public native let groupKey: CName;
 }

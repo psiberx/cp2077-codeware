@@ -1,3 +1,3 @@
 public native class animRigTagCondition extends animIStaticCondition {
-  native let tag: CName;
+  public native let tag: CName;
 }

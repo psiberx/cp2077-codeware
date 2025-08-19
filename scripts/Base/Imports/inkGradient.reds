@@ -1,6 +1,6 @@
 public native class inkGradient extends inkBaseShapeWidget {
-  native let gradientMode: inkGradientMode;
-  native let startColor: HDRColor;
-  native let endColor: HDRColor;
-  native let angle: Float;
+  public native let gradientMode: inkGradientMode;
+  public native let startColor: HDRColor;
+  public native let endColor: HDRColor;
+  public native let angle: Float;
 }

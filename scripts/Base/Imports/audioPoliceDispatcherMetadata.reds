@@ -1,8 +1,8 @@
 public native class audioPoliceDispatcherMetadata extends audioAudioMetadata {
-  native let regularInputs: array<CName>;
-  native let playerChaseStartInputs: array<CName>;
-  native let playerChaseBackupNeededInputs: array<CName>;
-  native let playerChaseEndInputs: array<CName>;
-  native let dispatcherTimeInterval: Float;
-  native let sceneFilePath: String;
+  public native let regularInputs: array<CName>;
+  public native let playerChaseStartInputs: array<CName>;
+  public native let playerChaseBackupNeededInputs: array<CName>;
+  public native let playerChaseEndInputs: array<CName>;
+  public native let dispatcherTimeInterval: Float;
+  public native let sceneFilePath: String;
 }

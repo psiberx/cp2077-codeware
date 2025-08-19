@@ -1,3 +1,3 @@
 public native class AIbehaviorStackScriptTaskDefinition extends AIbehaviorTaskDefinition {
-  native let script: ref<AIbehaviortaskStackScript>;
+  public native let script: ref<AIbehaviortaskStackScript>;
 }

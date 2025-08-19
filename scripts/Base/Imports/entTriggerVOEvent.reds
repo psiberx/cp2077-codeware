@@ -1,13 +1,13 @@
 public native class entTriggerVOEvent extends Event {
-  native let triggerBaseName: CName;
-  native let triggerVariationIndex: Uint32;
-  native let triggerVariationNumber: Uint32;
-  native let debugInitialContext: CName;
-  native let answeringEntityIDHash: Uint64;
-  native let ignoreGlobalVoLimitCheck: Bool;
-  native let overridingVoContext: locVoiceoverContext;
-  native let overridingVoiceoverExpression: locVoiceoverExpression;
-  native let overrideVoiceoverExpression: Bool;
-  native let overridingVisualStyleValue: Uint8;
-  native let overrideVisualStyle: Bool;
+  public native let triggerBaseName: CName;
+  public native let triggerVariationIndex: Uint32;
+  public native let triggerVariationNumber: Uint32;
+  public native let debugInitialContext: CName;
+  public native let answeringEntityIDHash: Uint64;
+  public native let ignoreGlobalVoLimitCheck: Bool;
+  public native let overridingVoContext: locVoiceoverContext;
+  public native let overridingVoiceoverExpression: locVoiceoverExpression;
+  public native let overrideVoiceoverExpression: Bool;
+  public native let overridingVisualStyleValue: Uint8;
+  public native let overrideVisualStyle: Bool;
 }

@@ -1,4 +1,4 @@
 public native struct gameReplAnimTransformSyncMatrixRequest {
-  native let applyServerTime: netTime;
-  native let transform: Transform;
+  public native let applyServerTime: netTime;
+  public native let transform: Transform;
 }

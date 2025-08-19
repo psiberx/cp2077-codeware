@@ -1,3 +1,3 @@
 public native struct netPeerID {
-  native let value: Uint8;
+  public native let value: Uint8;
 }

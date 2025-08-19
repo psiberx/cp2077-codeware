@@ -1,14 +1,14 @@
 public native struct LookAtStateMachineSettings {
-  native let partName: CName;
-  native let partAlias: CName;
-  native let sphereAttachmentBone: CName;
-  native let sphereRadius: Float;
-  native let followingSpeedFactor: Float;
-  native let followingSpeedByAngleCurve: CurveDataFloat;
-  native let enableFloatTrack: CName;
-  native let eyesOverrideFloatTrack: CName;
-  native let transitionSpeedMultiplier: Float;
-  native let blendWeightPowFactor: Float;
-  native let coneLimitReached: CName;
-  native let allowToBlendBehindBack: Bool;
+  public native let partName: CName;
+  public native let partAlias: CName;
+  public native let sphereAttachmentBone: CName;
+  public native let sphereRadius: Float;
+  public native let followingSpeedFactor: Float;
+  public native let followingSpeedByAngleCurve: CurveDataFloat;
+  public native let enableFloatTrack: CName;
+  public native let eyesOverrideFloatTrack: CName;
+  public native let transitionSpeedMultiplier: Float;
+  public native let blendWeightPowFactor: Float;
+  public native let coneLimitReached: CName;
+  public native let allowToBlendBehindBack: Bool;
 }

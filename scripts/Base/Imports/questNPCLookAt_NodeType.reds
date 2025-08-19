@@ -1,6 +1,6 @@
 public native class questNPCLookAt_NodeType extends questISceneManagerNodeType {
-  native let puppetRef: EntityReference;
-  native let lookAtTargetRef: EntityReference;
-  native let assignLookAt: Bool;
-  native let refPlayer: Bool;
+  public native let puppetRef: EntityReference;
+  public native let lookAtTargetRef: EntityReference;
+  public native let assignLookAt: Bool;
+  public native let refPlayer: Bool;
 }

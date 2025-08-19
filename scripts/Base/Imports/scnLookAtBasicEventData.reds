@@ -1,5 +1,5 @@
 public native struct scnLookAtBasicEventData {
-  native let basic: scnAnimTargetBasicData;
-  native let removePreviousAdvancedLookAts: Bool;
-  native let requests: array<animLookAtRequestForPart>;
+  public native let basic: scnAnimTargetBasicData;
+  public native let removePreviousAdvancedLookAts: Bool;
+  public native let requests: array<animLookAtRequestForPart>;
 }

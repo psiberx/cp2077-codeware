@@ -1,5 +1,5 @@
 public native class gameuiarcadeRoachRaceCloudSpawnerController extends gameuiarcadeArcadeSpawnerController {
-  native let minCloudRelativeVelocity: Float;
-  native let maxCloudRelativeVelocity: Float;
-  native let cloudSpawnTime: Float;
+  public native let minCloudRelativeVelocity: Float;
+  public native let maxCloudRelativeVelocity: Float;
+  public native let cloudSpawnTime: Float;
 }

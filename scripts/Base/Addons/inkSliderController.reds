@@ -1,47 +1,47 @@
 @addField(inkSliderController)
-native let slidingAreaRef: inkWidgetRef;
+public native let slidingAreaRef: inkWidgetRef;
 
 @addField(inkSliderController)
-native let handleRef: inkWidgetRef;
+public native let handleRef: inkWidgetRef;
 
 @addField(inkSliderController)
-native let nextRef: inkWidgetRef;
+public native let nextRef: inkWidgetRef;
 
 @addField(inkSliderController)
-native let priorRef: inkWidgetRef;
+public native let priorRef: inkWidgetRef;
 
 @addField(inkSliderController)
-native let direction: inkESliderDirection;
+public native let direction: inkESliderDirection;
 
 @addField(inkSliderController)
-native let autoSizeHandle: Bool;
+public native let autoSizeHandle: Bool;
 
 @addField(inkSliderController)
-native let minHandleSize: Float;
+public native let minHandleSize: Float;
 
 @addField(inkSliderController)
-native let maxHandleSize: Float;
+public native let maxHandleSize: Float;
 
 @addField(inkSliderController)
-native let percentHandleSize: Float;
+public native let percentHandleSize: Float;
 
 @addField(inkSliderController)
-native let currentProgress: Float;
+public native let currentProgress: Float;
 
 @addField(inkSliderController)
-native let minimumValue: Float;
+public native let minimumValue: Float;
 
 @addField(inkSliderController)
-native let maximumValue: Float;
+public native let maximumValue: Float;
 
 @addField(inkSliderController)
-native let step: Float;
+public native let step: Float;
 
 @addField(inkSliderController)
-native let SliderInput: inkSliderControllerInputCallback;
+public native let SliderInput: inkSliderControllerInputCallback;
 
 @addField(inkSliderController)
-native let SliderValueChanged: inkSliderControllerValueChangeCallback;
+public native let SliderValueChanged: inkSliderControllerValueChangeCallback;
 
 @addField(inkSliderController)
-native let SliderHandleReleased: inkSliderControllerHandleReleasedCallback;
+public native let SliderHandleReleased: inkSliderControllerHandleReleasedCallback;

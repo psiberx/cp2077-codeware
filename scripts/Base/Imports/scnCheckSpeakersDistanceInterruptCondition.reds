@@ -1,3 +1,3 @@
 public native class scnCheckSpeakersDistanceInterruptCondition extends scnIInterruptCondition {
-  native let params: scnCheckSpeakersDistanceInterruptConditionParams;
+  public native let params: scnCheckSpeakersDistanceInterruptConditionParams;
 }

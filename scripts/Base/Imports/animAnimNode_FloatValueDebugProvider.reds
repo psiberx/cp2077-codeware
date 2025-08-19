@@ -1,9 +1,9 @@
 public native struct animAnimNode_FloatValueDebugProvider {
-  native let isEnabled: Bool;
-  native let min: Float;
-  native let max: Float;
-  native let progress: Float;
-  native let auto: Bool;
-  native let speed: Float;
-  native let wrap: Bool;
+  public native let isEnabled: Bool;
+  public native let min: Float;
+  public native let max: Float;
+  public native let progress: Float;
+  public native let auto: Bool;
+  public native let speed: Float;
+  public native let wrap: Bool;
 }

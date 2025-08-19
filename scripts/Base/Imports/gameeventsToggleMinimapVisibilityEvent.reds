@@ -1,3 +1,3 @@
 public native class gameeventsToggleMinimapVisibilityEvent extends Event {
-  native let show: Bool;
+  public native let show: Bool;
 }

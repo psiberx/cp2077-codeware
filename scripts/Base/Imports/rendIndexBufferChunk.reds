@@ -1,4 +1,4 @@
 public native struct rendIndexBufferChunk {
-  native let pe: GpuWrapApieIndexBufferChunkType;
-  native let teOffset: Uint32;
+  public native let pe: GpuWrapApieIndexBufferChunkType;
+  public native let teOffset: Uint32;
 }

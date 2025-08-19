@@ -1,11 +1,11 @@
 public native class CMaterialTemplate extends IMaterialDefinition {
-  native let name: CName;
-  native let parameters: [array<ref<CMaterialParameter>>; 3];
-  native let techniques: array<MaterialTechnique>;
-  native let samplerStates: [array<SamplerStateInfo>; 3];
-  native let usedParameters: [array<MaterialUsedParameter>; 3];
-  native let materialPriority: EMaterialPriority;
-  native let materialType: ERenderMaterialType;
-  native let audioTag: CName;
-  native let resourceVersion: Uint8;
+  public native let name: CName;
+  public native let parameters: [array<ref<CMaterialParameter>>; 3];
+  public native let techniques: array<MaterialTechnique>;
+  public native let samplerStates: [array<SamplerStateInfo>; 3];
+  public native let usedParameters: [array<MaterialUsedParameter>; 3];
+  public native let materialPriority: EMaterialPriority;
+  public native let materialType: ERenderMaterialType;
+  public native let audioTag: CName;
+  public native let resourceVersion: Uint8;
 }

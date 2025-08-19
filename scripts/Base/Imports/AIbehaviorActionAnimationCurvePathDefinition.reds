@@ -1,18 +1,18 @@
 public native class AIbehaviorActionAnimationCurvePathDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let nodeReference: ref<AIArgumentMapping>;
-  native let controllersSetupName: ref<AIArgumentMapping>;
-  native let useStart: ref<AIArgumentMapping>;
-  native let useStop: ref<AIArgumentMapping>;
-  native let blendTime: ref<AIArgumentMapping>;
-  native let globalInBlendTime: ref<AIArgumentMapping>;
-  native let globalOutBlendTime: ref<AIArgumentMapping>;
-  native let turnCharacterToMatchVelocity: ref<AIArgumentMapping>;
-  native let customStartAnimationName: ref<AIArgumentMapping>;
-  native let customMainAnimationName: ref<AIArgumentMapping>;
-  native let customStopAnimationName: ref<AIArgumentMapping>;
-  native let startSnapToTerrain: ref<AIArgumentMapping>;
-  native let mainSnapToTerrain: ref<AIArgumentMapping>;
-  native let stopSnapToTerrain: ref<AIArgumentMapping>;
-  native let startSnapToTerrainBlendTime: ref<AIArgumentMapping>;
-  native let stopSnapToTerrainBlendTime: ref<AIArgumentMapping>;
+  public native let nodeReference: ref<AIArgumentMapping>;
+  public native let controllersSetupName: ref<AIArgumentMapping>;
+  public native let useStart: ref<AIArgumentMapping>;
+  public native let useStop: ref<AIArgumentMapping>;
+  public native let blendTime: ref<AIArgumentMapping>;
+  public native let globalInBlendTime: ref<AIArgumentMapping>;
+  public native let globalOutBlendTime: ref<AIArgumentMapping>;
+  public native let turnCharacterToMatchVelocity: ref<AIArgumentMapping>;
+  public native let customStartAnimationName: ref<AIArgumentMapping>;
+  public native let customMainAnimationName: ref<AIArgumentMapping>;
+  public native let customStopAnimationName: ref<AIArgumentMapping>;
+  public native let startSnapToTerrain: ref<AIArgumentMapping>;
+  public native let mainSnapToTerrain: ref<AIArgumentMapping>;
+  public native let stopSnapToTerrain: ref<AIArgumentMapping>;
+  public native let startSnapToTerrainBlendTime: ref<AIArgumentMapping>;
+  public native let stopSnapToTerrainBlendTime: ref<AIArgumentMapping>;
 }

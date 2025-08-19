@@ -1,6 +1,6 @@
 public native struct audioMusicController {
-  native let playEvent: CName;
-  native let stopEvent: CName;
-  native let muteEvent: CName;
-  native let unmuteEvent: CName;
+  public native let playEvent: CName;
+  public native let stopEvent: CName;
+  public native let muteEvent: CName;
+  public native let unmuteEvent: CName;
 }

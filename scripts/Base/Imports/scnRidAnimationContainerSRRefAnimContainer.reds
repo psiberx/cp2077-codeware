@@ -1,4 +1,4 @@
 public native struct scnRidAnimationContainerSRRefAnimContainer {
-  native let animation: scnRidAnimationSRRefId;
-  native let context: scnRidAnimationContainerSRRefAnimContainerContext;
+  public native let animation: scnRidAnimationSRRefId;
+  public native let context: scnRidAnimationContainerSRRefAnimContainerContext;
 }

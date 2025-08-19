@@ -1,6 +1,6 @@
 public native struct animImportFacialPoseDesc {
-  native let transforms: array<animImportFacialTransform>;
-  native let transformsNoScale: array<animImportFacialTransformNoScale>;
-  native let transformIds: array<Uint16>;
-  native let transformNames: array<CName>;
+  public native let transforms: array<animImportFacialTransform>;
+  public native let transformsNoScale: array<animImportFacialTransformNoScale>;
+  public native let transformIds: array<Uint16>;
+  public native let transformNames: array<CName>;
 }

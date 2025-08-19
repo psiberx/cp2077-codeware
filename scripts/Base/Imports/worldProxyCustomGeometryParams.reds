@@ -1,4 +1,4 @@
 public native struct worldProxyCustomGeometryParams {
-  native let useLimiterHelper: Bool;
-  native let uvType: worldProxyMeshUVType;
+  public native let useLimiterHelper: Bool;
+  public native let uvType: worldProxyMeshUVType;
 }

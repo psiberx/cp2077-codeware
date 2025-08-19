@@ -1,3 +1,3 @@
 public native struct gameinteractionsHotSpotActivationResult {
-  native let priority: Float;
+  public native let priority: Float;
 }

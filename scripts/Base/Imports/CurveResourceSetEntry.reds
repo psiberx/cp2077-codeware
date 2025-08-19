@@ -1,4 +1,4 @@
 public native struct CurveResourceSetEntry {
-  native let name: CName;
-  native let curveResRef: ResourceRef; // rRef<CurveSet>
+  public native let name: CName;
+  public native let curveResRef: ResourceRef; // rRef<CurveSet>
 }

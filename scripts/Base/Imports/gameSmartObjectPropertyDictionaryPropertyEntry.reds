@@ -1,12 +1,12 @@
 public native struct gameSmartObjectPropertyDictionaryPropertyEntry {
-  native let id: Uint16;
-  native let usage: Uint32;
-  native let animationName: CName;
-  native let sourceAnimset: Uint64;
-  native let type: gameSmartObjectPointType;
-  native let movementType: moveMovementType;
-  native let movementOrientation: moveMovementOrientationType;
-  native let isOnNavmesh: Bool;
-  native let isReachable: Bool;
-  native let overObstacle: Bool;
+  public native let id: Uint16;
+  public native let usage: Uint32;
+  public native let animationName: CName;
+  public native let sourceAnimset: Uint64;
+  public native let type: gameSmartObjectPointType;
+  public native let movementType: moveMovementType;
+  public native let movementOrientation: moveMovementOrientationType;
+  public native let isOnNavmesh: Bool;
+  public native let isReachable: Bool;
+  public native let overObstacle: Bool;
 }

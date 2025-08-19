@@ -1,4 +1,4 @@
 public native struct inkTextureAtlasSlice {
-  native let partName: CName;
-  native let nineSliceScaleRect: RectF;
+  public native let partName: CName;
+  public native let nineSliceScaleRect: RectF;
 }

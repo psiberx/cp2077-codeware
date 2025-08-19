@@ -1,4 +1,4 @@
 public native struct audioLimitedSound {
-  native let soundType: audioLimitedSoundType;
-  native let attenuationDistance: Float;
+  public native let soundType: audioLimitedSoundType;
+  public native let attenuationDistance: Float;
 }

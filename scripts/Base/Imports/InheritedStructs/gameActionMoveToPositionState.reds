@@ -1,14 +1,14 @@
 public native struct gameActionMoveToPositionState {
-  native let replicationId: Uint32;
-  native let type: Uint16;
-  native let startTimeStamp: netTime;
-  native let stopTimeStamp: netTime;
-  native let updateBucket: Uint8;
-  native let target: Vector3;
-  native let useSpotReservation: Bool;
-  native let usePathfinding: Bool;
-  native let useStart: Bool;
-  native let useStop: Bool;
-  native let movementType: moveMovementType;
-  native let strafingTarget: wref<GameObject>;
+  public native let replicationId: Uint32;
+  public native let type: Uint16;
+  public native let startTimeStamp: netTime;
+  public native let stopTimeStamp: netTime;
+  public native let updateBucket: Uint8;
+  public native let target: Vector3;
+  public native let useSpotReservation: Bool;
+  public native let usePathfinding: Bool;
+  public native let useStart: Bool;
+  public native let useStop: Bool;
+  public native let movementType: moveMovementType;
+  public native let strafingTarget: wref<GameObject>;
 }

@@ -1,4 +1,4 @@
 public native struct worldWorldEnvironmentAreaParameters {
-  native let enable: Bool;
-  native let globalLight: worldWorldGlobalLightParameters;
+  public native let enable: Bool;
+  public native let globalLight: worldWorldGlobalLightParameters;
 }

@@ -1,12 +1,12 @@
 public native class worldBendedMeshNode extends worldNode {
-  native let mesh: ResourceAsyncRef; // raRef<CMesh>
-  native let meshAppearance: CName;
-  native let deformationData: array<Matrix>;
-  native let deformedBox: Box;
-  native let isBendedRoad: Bool;
-  native let castShadows: shadowsShadowCastingMode;
-  native let castLocalShadows: shadowsShadowCastingMode;
-  native let removeFromRainMap: Bool;
-  native let navigationSetting: NavGenNavigationSetting;
-  native let version: Uint8;
+  public native let mesh: ResourceAsyncRef; // raRef<CMesh>
+  public native let meshAppearance: CName;
+  public native let deformationData: array<Matrix>;
+  public native let deformedBox: Box;
+  public native let isBendedRoad: Bool;
+  public native let castShadows: shadowsShadowCastingMode;
+  public native let castLocalShadows: shadowsShadowCastingMode;
+  public native let removeFromRainMap: Bool;
+  public native let navigationSetting: NavGenNavigationSetting;
+  public native let version: Uint8;
 }

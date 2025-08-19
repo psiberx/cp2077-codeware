@@ -1,3 +1,3 @@
 public native class effectTrackItemMotionBlurScale extends effectTrackItem {
-  native let scale: effectEffectParameterEvaluatorFloat;
+  public native let scale: effectEffectParameterEvaluatorFloat;
 }

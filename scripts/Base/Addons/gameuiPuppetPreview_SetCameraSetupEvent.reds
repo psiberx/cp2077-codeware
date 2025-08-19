@@ -1,2 +1,2 @@
 @addField(gameuiPuppetPreview_SetCameraSetupEvent)
-native let delayed: Bool;
+public native let delayed: Bool;

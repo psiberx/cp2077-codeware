@@ -1,5 +1,5 @@
 public native struct gameReplAnimTransformSkipRequest {
-  native let applyServerTime: netTime;
-  native let animName: CName;
-  native let skipTime: Float;
+  public native let applyServerTime: netTime;
+  public native let animName: CName;
+  public native let skipTime: Float;
 }

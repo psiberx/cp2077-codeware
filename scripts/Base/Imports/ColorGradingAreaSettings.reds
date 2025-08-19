@@ -1,19 +1,19 @@
 public native class ColorGradingAreaSettings extends IAreaSettings {
-  native let contrast: Float;
-  native let contrastPivot: Float;
-  native let saturation: Float;
-  native let hue: Float;
-  native let brightness: Float;
-  native let lift: ColorBalance;
-  native let gammaValue: ColorBalance;
-  native let gain: ColorBalance;
-  native let offset: ColorBalance;
-  native let lowRange: Float;
-  native let shadowOffset: ColorBalance;
-  native let midtoneOffset: ColorBalance;
-  native let highRange: Float;
-  native let highlightOffset: ColorBalance;
-  native let ldrLut: ColorGradingLutParams;
-  native let hdrLut: ColorGradingLutParams;
-  native let forceHdrLut: Bool;
+  public native let contrast: Float;
+  public native let contrastPivot: Float;
+  public native let saturation: Float;
+  public native let hue: Float;
+  public native let brightness: Float;
+  public native let lift: ColorBalance;
+  public native let gammaValue: ColorBalance;
+  public native let gain: ColorBalance;
+  public native let offset: ColorBalance;
+  public native let lowRange: Float;
+  public native let shadowOffset: ColorBalance;
+  public native let midtoneOffset: ColorBalance;
+  public native let highRange: Float;
+  public native let highlightOffset: ColorBalance;
+  public native let ldrLut: ColorGradingLutParams;
+  public native let hdrLut: ColorGradingLutParams;
+  public native let forceHdrLut: Bool;
 }

@@ -1,5 +1,5 @@
 public native struct gameEffectDebugSettings {
-  native let overrideGlobalSettings: Bool;
-  native let duration: Float;
-  native let color: Color;
+  public native let overrideGlobalSettings: Bool;
+  public native let duration: Float;
+  public native let color: Color;
 }

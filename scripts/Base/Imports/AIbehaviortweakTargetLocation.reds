@@ -1,8 +1,8 @@
 public native struct AIbehaviortweakTargetLocation {
-  native let object: wref<GameObject>;
-  native let position: Vector3;
-  native let speed: Vector3;
-  native let coverId: AIObjectId;
-  native let hasPosition: Bool;
-  native let hasSpeed: Bool;
+  public native let object: wref<GameObject>;
+  public native let position: Vector3;
+  public native let speed: Vector3;
+  public native let coverId: AIObjectId;
+  public native let hasPosition: Bool;
+  public native let hasSpeed: Bool;
 }

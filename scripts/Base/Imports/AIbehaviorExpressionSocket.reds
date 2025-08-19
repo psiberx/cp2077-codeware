@@ -1,4 +1,4 @@
 public native class AIbehaviorExpressionSocket extends ISerializable {
-  native let typeHint: AIbehaviorTypeRef;
-  native let expression: ref<AIbehaviorPassiveExpressionDefinition>;
+  public native let typeHint: AIbehaviorTypeRef;
+  public native let expression: ref<AIbehaviorPassiveExpressionDefinition>;
 }

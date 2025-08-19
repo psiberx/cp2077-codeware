@@ -1,3 +1,3 @@
 public native struct FixedPoint {
-  native let Bits: Int32;
+  public native let Bits: Int32;
 }

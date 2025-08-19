@@ -1,3 +1,3 @@
 public native class gameuiarcadeTankScoreMultiplierHUDController extends inkLogicController {
-  native let scoreMultiplierBarFill: inkImageRef;
+  public native let scoreMultiplierBarFill: inkImageRef;
 }

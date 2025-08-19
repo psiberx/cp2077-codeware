@@ -1,4 +1,4 @@
 public native struct scnScenesVersionsSceneChanges {
-  native let scene: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let sceneChanges: array<scnScenesVersionsChangedRecord>;
+  public native let scene: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let sceneChanges: array<scnScenesVersionsChangedRecord>;
 }

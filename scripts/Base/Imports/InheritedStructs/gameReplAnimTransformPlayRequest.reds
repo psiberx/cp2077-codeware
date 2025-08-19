@@ -1,6 +1,6 @@
 public native struct gameReplAnimTransformPlayRequest {
-  native let applyServerTime: netTime;
-  native let animName: CName;
-  native let timeScale: Float;
-  native let timesToPlay: Int32;
+  public native let applyServerTime: netTime;
+  public native let animName: CName;
+  public native let timeScale: Float;
+  public native let timesToPlay: Int32;
 }

@@ -1,3 +1,3 @@
 public native class questManageCollision_NodeType extends questIWorldDataManagerNodeType {
-  native let params: array<questManageCollision_NodeTypeParams>;
+  public native let params: array<questManageCollision_NodeTypeParams>;
 }

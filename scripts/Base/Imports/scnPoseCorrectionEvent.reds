@@ -1,4 +1,4 @@
 public native class scnPoseCorrectionEvent extends scnSceneEvent {
-  native let performerId: scnPerformerId;
-  native let poseCorrectionGroup: animPoseCorrectionGroup;
+  public native let performerId: scnPerformerId;
+  public native let poseCorrectionGroup: animPoseCorrectionGroup;
 }

@@ -1,26 +1,26 @@
 @addField(AnimFeature_Movement)
-native let movementDirection: Vector4;
+public native let movementDirection: Vector4;
 
 @addField(AnimFeature_Movement)
-native let speed: Float;
+public native let speed: Float;
 
 @addField(AnimFeature_Movement)
-native let desiredSpeed: Float;
+public native let desiredSpeed: Float;
 
 @addField(AnimFeature_Movement)
-native let stabilizedSpeed: Float;
+public native let stabilizedSpeed: Float;
 
 @addField(AnimFeature_Movement)
-native let acceleration: Float;
+public native let acceleration: Float;
 
 @addField(AnimFeature_Movement)
-native let timeToChangeLocomotion: Float;
+public native let timeToChangeLocomotion: Float;
 
 @addField(AnimFeature_Movement)
-native let strafeYaw: Float;
+public native let strafeYaw: Float;
 
 @addField(AnimFeature_Movement)
-native let yawSpeed: Float;
+public native let yawSpeed: Float;
 
 @addField(AnimFeature_Movement)
-native let locomotionState: Int32;
+public native let locomotionState: Int32;

@@ -1,3 +1,3 @@
 public native class gamePrereqsResource extends CResource {
-  native let prereqs: array<gamePrereqDefinition>;
+  public native let prereqs: array<gamePrereqDefinition>;
 }

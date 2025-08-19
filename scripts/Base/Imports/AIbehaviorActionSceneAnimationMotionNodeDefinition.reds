@@ -1,4 +1,4 @@
 public native class AIbehaviorActionSceneAnimationMotionNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let params: ref<AIArgumentMapping>;
-  native let mountData: ref<AIArgumentMapping>;
+  public native let params: ref<AIArgumentMapping>;
+  public native let mountData: ref<AIArgumentMapping>;
 }

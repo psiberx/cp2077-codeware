@@ -1,5 +1,5 @@
 public native class scneventsUIAnimationEvent extends scnSceneEvent {
-  native let animationName: CName;
-  native let performerId: scnPerformerId;
-  native let nodeRef: NodeRef;
+  public native let animationName: CName;
+  public native let performerId: scnPerformerId;
+  public native let nodeRef: NodeRef;
 }

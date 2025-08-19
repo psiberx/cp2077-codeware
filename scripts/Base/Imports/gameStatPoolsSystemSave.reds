@@ -1,4 +1,4 @@
 public native class gameStatPoolsSystemSave extends ISerializable {
-  native let mapping: array<StatsObjectID>;
-  native let statPools: array<gameStatPoolData>;
+  public native let mapping: array<StatsObjectID>;
+  public native let statPools: array<gameStatPoolData>;
 }

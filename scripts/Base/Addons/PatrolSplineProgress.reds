@@ -1,8 +1,8 @@
 @addField(PatrolSplineProgress)
-native let currentControlPoints: array<gamePatrolSplineControlPoint>;
+public native let currentControlPoints: array<gamePatrolSplineControlPoint>;
 
 @addField(PatrolSplineProgress)
-native let entrySplineParam: Float;
+public native let entrySplineParam: Float;
 
 @addField(PatrolSplineProgress)
-native let controlPointIndex: Uint32;
+public native let controlPointIndex: Uint32;

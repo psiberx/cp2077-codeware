@@ -1,5 +1,5 @@
 @addField(inkWidgetLayout)
-native let sizeRule: inkESizeRule;
+public native let sizeRule: inkESizeRule;
 
 @addField(inkWidgetLayout)
-native let sizeCoefficient: Float;
+public native let sizeCoefficient: Float;

@@ -1,4 +1,4 @@
 public native class AIArgumentIntValue extends AIArgumentDefinition {
-  native let type: AIArgumentType;
-  native let defaultValue: Int32;
+  public native let type: AIArgumentType;
+  public native let defaultValue: Int32;
 }

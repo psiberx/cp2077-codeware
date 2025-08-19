@@ -1,3 +1,3 @@
 public native class gameGodModeSaveData extends ISerializable {
-  native let gods: array<gameGodModeSaveEntityData>;
+  public native let gods: array<gameGodModeSaveEntityData>;
 }

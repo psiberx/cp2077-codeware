@@ -1,4 +1,4 @@
 public native struct inkShapePreset {
-  native let name: CName;
-  native let points: array<Vector2>;
+  public native let name: CName;
+  public native let points: array<Vector2>;
 }

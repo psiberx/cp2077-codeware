@@ -1,3 +1,3 @@
 public native class entCharacterCustomizationSkinnedMeshComponent extends entSkinnedMeshComponent {
-  native let tags: redTagList;
+  public native let tags: redTagList;
 }

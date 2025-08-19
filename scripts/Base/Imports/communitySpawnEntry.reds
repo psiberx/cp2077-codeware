@@ -1,7 +1,7 @@
 public native class communitySpawnEntry extends ISerializable {
-  native let entryName: CName;
-  native let characterRecordId: TweakDBID;
-  native let phases: array<ref<communitySpawnPhase>>;
-  native let spawnInView: gameSpawnInViewState;
-  native let initializers: array<ref<communitySpawnInitializer>>;
+  public native let entryName: CName;
+  public native let characterRecordId: TweakDBID;
+  public native let phases: array<ref<communitySpawnPhase>>;
+  public native let spawnInView: gameSpawnInViewState;
+  public native let initializers: array<ref<communitySpawnInitializer>>;
 }

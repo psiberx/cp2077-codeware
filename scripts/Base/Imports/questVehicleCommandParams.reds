@@ -1,10 +1,10 @@
 public native class questVehicleCommandParams extends AICommandParams {
-  native let type: questVehicleCommandType;
-  native let additionalParamsOnSpline: ref<questvehicleOnSplineParams>;
-  native let additionalParamsFollow: ref<questvehicleFollowParams>;
-  native let additionalParamsToNode: ref<questvehicleToNodeParams>;
-  native let additionalParamsRacing: ref<questvehicleRacingParams>;
-  native let additionalParamsJoinTraffic: ref<questvehicleJoinTrafficParams>;
-  native let additionalParamsPanic: ref<questvehiclePanicParams>;
-  native let additionalParamsChase: ref<questvehicleChaseParams>;
+  public native let type: questVehicleCommandType;
+  public native let additionalParamsOnSpline: ref<questvehicleOnSplineParams>;
+  public native let additionalParamsFollow: ref<questvehicleFollowParams>;
+  public native let additionalParamsToNode: ref<questvehicleToNodeParams>;
+  public native let additionalParamsRacing: ref<questvehicleRacingParams>;
+  public native let additionalParamsJoinTraffic: ref<questvehicleJoinTrafficParams>;
+  public native let additionalParamsPanic: ref<questvehiclePanicParams>;
+  public native let additionalParamsChase: ref<questvehicleChaseParams>;
 }

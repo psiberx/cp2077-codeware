@@ -1,5 +1,5 @@
 public native class questFlowControlNodeDefinition extends questDisableableNodeDefinition {
-  native let isOpen: Bool;
-  native let opensAt: Uint16;
-  native let closesAt: Uint16;
+  public native let isOpen: Bool;
+  public native let opensAt: Uint16;
+  public native let closesAt: Uint16;
 }

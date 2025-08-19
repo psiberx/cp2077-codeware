@@ -1,5 +1,5 @@
 @neverRef()
 public native class audioUiControlEventsSettingsMapItem extends audioAudioMetadata {
-  native let baseEvent: CName;
-  native let customActionsDictionary: ref<audioKeySoundEventDictionary>;
+  public native let baseEvent: CName;
+  public native let customActionsDictionary: ref<audioKeySoundEventDictionary>;
 }

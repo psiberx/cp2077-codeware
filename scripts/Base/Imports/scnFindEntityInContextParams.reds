@@ -1,7 +1,7 @@
 public native struct scnFindEntityInContextParams {
-  native let contextualName: scnContextualActorName;
-  native let voiceVagId: scnVoicetagId;
-  native let contextActorName: CName;
-  native let specRecordId: TweakDBID;
-  native let forceMaxVisibility: Bool;
+  public native let contextualName: scnContextualActorName;
+  public native let voiceVagId: scnVoicetagId;
+  public native let contextActorName: CName;
+  public native let specRecordId: TweakDBID;
+  public native let forceMaxVisibility: Bool;
 }

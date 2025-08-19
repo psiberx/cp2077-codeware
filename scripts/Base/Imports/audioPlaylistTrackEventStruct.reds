@@ -1,4 +1,4 @@
 public native struct audioPlaylistTrackEventStruct {
-  native let playlistName: CName;
-  native let trackName: CName;
+  public native let playlistName: CName;
+  public native let trackName: CName;
 }

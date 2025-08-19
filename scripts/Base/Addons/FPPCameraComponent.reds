@@ -1,23 +1,23 @@
 @addField(FPPCameraComponent)
-native let pitchMin: Float;
+public native let pitchMin: Float;
 
 @addField(FPPCameraComponent)
-native let pitchMax: Float;
+public native let pitchMax: Float;
 
 @addField(FPPCameraComponent)
-native let yawMaxLeft: Float;
+public native let yawMaxLeft: Float;
 
 @addField(FPPCameraComponent)
-native let yawMaxRight: Float;
+public native let yawMaxRight: Float;
 
 @addField(FPPCameraComponent)
-native let headingLocked: Bool;
+public native let headingLocked: Bool;
 
 @addField(FPPCameraComponent)
-native let sensitivityMultX: Float;
+public native let sensitivityMultX: Float;
 
 @addField(FPPCameraComponent)
-native let sensitivityMultY: Float;
+public native let sensitivityMultY: Float;
 
 @addField(FPPCameraComponent)
-native let timeDilationCurveName: CName;
+public native let timeDilationCurveName: CName;

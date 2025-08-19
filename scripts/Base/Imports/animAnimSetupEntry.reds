@@ -1,5 +1,5 @@
 public native struct animAnimSetupEntry {
-  native let priority: Uint8;
-  native let animSet: ResourceAsyncRef; // raRef<animAnimSet>
-  native let variableNames: array<CName>;
+  public native let priority: Uint8;
+  public native let animSet: ResourceAsyncRef; // raRef<animAnimSet>
+  public native let variableNames: array<CName>;
 }

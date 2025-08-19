@@ -1,29 +1,29 @@
 @addField(inkInputDisplayController)
-native let iconRef: inkWidgetRef;
+public native let iconRef: inkWidgetRef;
 
 @addField(inkInputDisplayController)
-native let iconAND: inkTextRef;
+public native let iconAND: inkTextRef;
 
 @addField(inkInputDisplayController)
-native let nameRef: inkWidgetRef;
+public native let nameRef: inkWidgetRef;
 
 @addField(inkInputDisplayController)
-native let canvasRef: inkWidgetRef;
+public native let canvasRef: inkWidgetRef;
 
 @addField(inkInputDisplayController)
-native let holdIndicatorContainerRef: inkCompoundRef;
+public native let holdIndicatorContainerRef: inkCompoundRef;
 
 @addField(inkInputDisplayController)
-native let gamepadHoldIndicatorLibraryRef: inkWidgetLibraryReference;
+public native let gamepadHoldIndicatorLibraryRef: inkWidgetLibraryReference;
 
 @addField(inkInputDisplayController)
-native let keyboardHoldIndicatorLibraryRef: inkWidgetLibraryReference;
+public native let keyboardHoldIndicatorLibraryRef: inkWidgetLibraryReference;
 
 @addField(inkInputDisplayController)
-native let holdIndicationType: inkInputHintHoldIndicationType;
+public native let holdIndicationType: inkInputHintHoldIndicationType;
 
 @addField(inkInputDisplayController)
-native let inputActionName: CName;
+public native let inputActionName: CName;
 
 @addField(inkInputDisplayController)
-native let fixedIconHeight: Float;
+public native let fixedIconHeight: Float;

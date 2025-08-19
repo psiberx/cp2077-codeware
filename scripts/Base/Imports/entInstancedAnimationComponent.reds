@@ -1,6 +1,6 @@
 public native class entInstancedAnimationComponent extends ISkinableComponent {
-  native let animations: ResourceRef; // rRef<animAnimSet>
-  native let animToSample: CName;
-  native let variantAnimToSample: CName;
-  native let variantTriggerTag: CName;
+  public native let animations: ResourceRef; // rRef<animAnimSet>
+  public native let animToSample: CName;
+  public native let variantAnimToSample: CName;
+  public native let variantTriggerTag: CName;
 }

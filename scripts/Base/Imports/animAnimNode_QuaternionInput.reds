@@ -1,4 +1,4 @@
 public native class animAnimNode_QuaternionInput extends animAnimNode_QuaternionValue {
-  native let group: CName;
-  native let name: CName;
+  public native let group: CName;
+  public native let name: CName;
 }

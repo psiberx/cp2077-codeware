@@ -1,4 +1,4 @@
 public native struct scnFindEntityInWorldParams {
-  native let actorRef: EntityReference;
-  native let forceMaxVisibility: Bool;
+  public native let actorRef: EntityReference;
+  public native let forceMaxVisibility: Bool;
 }

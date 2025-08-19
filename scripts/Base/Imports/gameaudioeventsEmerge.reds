@@ -1,3 +1,3 @@
 public native class gameaudioeventsEmerge extends Event {
-  native let oxygen: Float;
+  public native let oxygen: Float;
 }

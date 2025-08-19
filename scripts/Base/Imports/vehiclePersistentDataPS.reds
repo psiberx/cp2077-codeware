@@ -1,10 +1,10 @@
 public native class vehiclePersistentDataPS extends GameComponentPS {
-  native persistent let flags: Uint32;
-  native persistent let autopilotPos: Float;
-  native persistent let autopilotCurrentSpeed: Float;
-  native persistent let isHackable: Bool;
-  native persistent let wheelRuntimeData: [vehicleWheelRuntimePSData; 4];
-  native persistent let questEnforcedTransform: Transform;
-  native persistent let destruction: vehicleDestructionPSData;
-  native persistent let audio: vehicleAudioPSData;
+  public native persistent let flags: Uint32;
+  public native persistent let autopilotPos: Float;
+  public native persistent let autopilotCurrentSpeed: Float;
+  public native persistent let isHackable: Bool;
+  public native persistent let wheelRuntimeData: [vehicleWheelRuntimePSData; 4];
+  public native persistent let questEnforcedTransform: Transform;
+  public native persistent let destruction: vehicleDestructionPSData;
+  public native persistent let audio: vehicleAudioPSData;
 }

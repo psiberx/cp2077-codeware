@@ -1,9 +1,9 @@
 public native struct audioAmbientAreaGroupingSettings {
-  native let GroupCountTag: CName;
-  native let GroupCountRtpc: CName;
-  native let GroupAvgDistanceRtpc: CName;
-  native let groupingVariant: audioAmbientGroupingVariant;
-  native let MinDistance: Float;
-  native let MaxDistance: Float;
-  native let GroupingVerticallimit: Float;
+  public native let GroupCountTag: CName;
+  public native let GroupCountRtpc: CName;
+  public native let GroupAvgDistanceRtpc: CName;
+  public native let groupingVariant: audioAmbientGroupingVariant;
+  public native let MinDistance: Float;
+  public native let MaxDistance: Float;
+  public native let GroupingVerticallimit: Float;
 }

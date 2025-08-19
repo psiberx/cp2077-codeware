@@ -1,3 +1,3 @@
 public native class audioAnimationOverrideMetadata extends audioAudioMetadata {
-  native let animationOverrides: ref<audioAnimationOverrideDictionary>;
+  public native let animationOverrides: ref<audioAnimationOverrideDictionary>;
 }

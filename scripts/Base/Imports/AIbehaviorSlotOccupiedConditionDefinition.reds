@@ -1,3 +1,3 @@
 public native class AIbehaviorSlotOccupiedConditionDefinition extends AIbehaviorConditionDefinition {
-  native let slot: ref<AIArgumentMapping>;
+  public native let slot: ref<AIArgumentMapping>;
 }

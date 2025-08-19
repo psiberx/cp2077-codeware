@@ -1,16 +1,16 @@
 public native class animAnimNode_RotateBone extends animAnimNode_Base {
-  native let inputNode: animPoseLink;
-  native let angleNode: animFloatLink;
-  native let minValueNode: animFloatLink;
-  native let maxValueNode: animFloatLink;
-  native let bone: animTransformIndex;
-  native let axis: animETransformAxis;
-  native let scale: Float;
-  native let biasAngle: Float;
-  native let minAngle: Float;
-  native let maxAngle: Float;
-  native let clampRotation: Bool;
-  native let useIncrementalMode: Bool;
-  native let resetOnActivation: Bool;
-  native let inModelSpace: Bool;
+  public native let inputNode: animPoseLink;
+  public native let angleNode: animFloatLink;
+  public native let minValueNode: animFloatLink;
+  public native let maxValueNode: animFloatLink;
+  public native let bone: animTransformIndex;
+  public native let axis: animETransformAxis;
+  public native let scale: Float;
+  public native let biasAngle: Float;
+  public native let minAngle: Float;
+  public native let maxAngle: Float;
+  public native let clampRotation: Bool;
+  public native let useIncrementalMode: Bool;
+  public native let resetOnActivation: Bool;
+  public native let inModelSpace: Bool;
 }

@@ -1,3 +1,3 @@
 public native struct toolsJiraCustomFieldId {
-  native let id: String;
+  public native let id: String;
 }

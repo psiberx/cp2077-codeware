@@ -1,3 +1,3 @@
 public native class scnLookAtEvent extends scnSceneEvent {
-  native let basicData: scnLookAtBasicEventData;
+  public native let basicData: scnLookAtBasicEventData;
 }

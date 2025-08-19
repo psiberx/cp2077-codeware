@@ -1,4 +1,4 @@
 public native class scnBraindanceResetting_ConditionType extends scnIBraindanceConditionType {
-  native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let SceneVersion: scnSceneVersionCheck;
+  public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let SceneVersion: scnSceneVersionCheck;
 }

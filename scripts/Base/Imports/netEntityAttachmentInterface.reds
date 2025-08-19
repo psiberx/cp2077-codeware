@@ -1,3 +1,3 @@
 public native struct netEntityAttachmentInterface {
-  native let time: netTime;
+  public native let time: netTime;
 }

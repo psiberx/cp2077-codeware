@@ -1,7 +1,7 @@
 public importonly struct gameOccupantSlotData {
-  native let slotName: CName;
-  native let syncAnimationTag: CName;
-  native let workSpotResource: ResourceRef; // rRef<workWorkspotResource>
-  native let exitOffsetFromSlot: Vector4;
-  native let role: gameMountingSlotRole;
+  public native let slotName: CName;
+  public native let syncAnimationTag: CName;
+  public native let workSpotResource: ResourceRef; // rRef<workWorkspotResource>
+  public native let exitOffsetFromSlot: Vector4;
+  public native let role: gameMountingSlotRole;
 }

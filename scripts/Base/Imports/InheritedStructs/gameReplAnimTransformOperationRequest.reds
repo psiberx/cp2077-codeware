@@ -1,5 +1,5 @@
 public native struct gameReplAnimTransformOperationRequest {
-  native let applyServerTime: netTime;
-  native let animName: CName;
-  native let operationType: Uint8;
+  public native let applyServerTime: netTime;
+  public native let animName: CName;
+  public native let operationType: Uint8;
 }

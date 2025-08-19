@@ -1,16 +1,16 @@
 public native class animAnimationBufferSimd extends animIAnimationBuffer {
-  native let duration: Float;
-  native let numFrames: Uint32;
-  native let numExtraJoints: Uint8;
-  native let numExtraTracks: Uint8;
-  native let numJoints: Uint16;
-  native let numTracks: Uint16;
-  native let numTranslationsToCopy: Uint16;
-  native let numTranslationsToEvalAlignedToSimd: Uint16;
-  native let quantizationBits: Uint16;
-  native let isScaleConstant: Bool;
-  native let isTrackConstant: Bool;
-  native let dataAddress: animAnimDataAddress;
-  native let fallbackFrameIndices: array<Uint16>;
-  native let extraDataNames: array<CName>;
+  public native let duration: Float;
+  public native let numFrames: Uint32;
+  public native let numExtraJoints: Uint8;
+  public native let numExtraTracks: Uint8;
+  public native let numJoints: Uint16;
+  public native let numTracks: Uint16;
+  public native let numTranslationsToCopy: Uint16;
+  public native let numTranslationsToEvalAlignedToSimd: Uint16;
+  public native let quantizationBits: Uint16;
+  public native let isScaleConstant: Bool;
+  public native let isTrackConstant: Bool;
+  public native let dataAddress: animAnimDataAddress;
+  public native let fallbackFrameIndices: array<Uint16>;
+  public native let extraDataNames: array<CName>;
 }

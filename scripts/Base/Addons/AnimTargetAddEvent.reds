@@ -1,2 +1,2 @@
 @addField(AnimTargetAddEvent)
-native let targetPositionProvider: ref<IPositionProvider>;
+public native let targetPositionProvider: ref<IPositionProvider>;

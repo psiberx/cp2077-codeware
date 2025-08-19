@@ -1,3 +1,3 @@
 public native class questFXManagerNodeDefinition extends questDisableableNodeDefinition {
-  native let type: ref<questIFXManagerNodeType>;
+  public native let type: ref<questIFXManagerNodeType>;
 }

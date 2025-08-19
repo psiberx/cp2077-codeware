@@ -1,4 +1,4 @@
 public native class LightChannelComponent extends IVisualComponent {
-  native let isEnabled: Bool;
-  native let shape: ref<GeometryShape>;
+  public native let isEnabled: Bool;
+  public native let shape: ref<GeometryShape>;
 }

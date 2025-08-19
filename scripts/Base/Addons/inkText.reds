@@ -1,59 +1,59 @@
 @addField(inkText)
-native let localizationString: LocalizationString;
+public native let localizationString: LocalizationString;
 
 @addField(inkText)
-native let textIdKey: CName;
+public native let textIdKey: CName;
 
 @addField(inkText)
-native let text: String;
+public native let text: String;
 
 @addField(inkText)
-native let fontFamily: ResourceAsyncRef; // raRef<inkFontFamilyResource>
+public native let fontFamily: ResourceAsyncRef; // raRef<inkFontFamilyResource>
 
 @addField(inkText)
-native let fontStyle: CName;
+public native let fontStyle: CName;
 
 @addField(inkText)
-native let fontSize: Uint32;
+public native let fontSize: Uint32;
 
 @addField(inkText)
-native let font: ref<rendFont>;
+public native let font: ref<rendFont>;
 
 @addField(inkText)
-native let letterCase: textLetterCase;
+public native let letterCase: textLetterCase;
 
 @addField(inkText)
-native let tracking: Uint32;
+public native let tracking: Uint32;
 
 @addField(inkText)
-native let lockFontInGame: Bool;
+public native let lockFontInGame: Bool;
 
 @addField(inkText)
-native let wrappingInfo: textWrappingInfo;
+public native let wrappingInfo: textWrappingInfo;
 
 @addField(inkText)
-native let lineHeightPercentage: Float;
+public native let lineHeightPercentage: Float;
 
 @addField(inkText)
-native let justification: textJustificationType;
+public native let justification: textJustificationType;
 
 @addField(inkText)
-native let textHorizontalAlignment: textHorizontalAlignment;
+public native let textHorizontalAlignment: textHorizontalAlignment;
 
 @addField(inkText)
-native let textVerticalAlignment: textVerticalAlignment;
+public native let textVerticalAlignment: textVerticalAlignment;
 
 @addField(inkText)
-native let textOverflowPolicy: textOverflowPolicy;
+public native let textOverflowPolicy: textOverflowPolicy;
 
 @addField(inkText)
-native let scrollTextSpeed: Float;
+public native let scrollTextSpeed: Float;
 
 @addField(inkText)
-native let scrollDelay: Uint16;
+public native let scrollDelay: Uint16;
 
 @addField(inkText)
-native let contentHAlign: inkEHorizontalAlign;
+public native let contentHAlign: inkEHorizontalAlign;
 
 @addField(inkText)
-native let contentVAlign: inkEVerticalAlign;
+public native let contentVAlign: inkEVerticalAlign;

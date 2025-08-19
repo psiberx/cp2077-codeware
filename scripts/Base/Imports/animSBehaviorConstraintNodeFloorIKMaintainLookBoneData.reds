@@ -1,4 +1,4 @@
 public native struct animSBehaviorConstraintNodeFloorIKMaintainLookBoneData {
-  native let bone: CName;
-  native let amountOfRotation: Float;
+  public native let bone: CName;
+  public native let amountOfRotation: Float;
 }

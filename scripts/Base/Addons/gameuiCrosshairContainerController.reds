@@ -1,2 +1,2 @@
 @addField(gameuiCrosshairContainerController)
-native let defaultCrosshair: TweakDBID;
+public native let defaultCrosshair: TweakDBID;

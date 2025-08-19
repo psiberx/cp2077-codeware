@@ -1,5 +1,5 @@
 @addField(OffMeshConnectionComponent)
-native let offMeshConnectionNodesRefs: array<NodeRef>;
+public native let offMeshConnectionNodesRefs: array<NodeRef>;
 
 @addField(OffMeshConnectionComponent)
-native let agentSize: NavGenAgentSize;
+public native let agentSize: NavGenAgentSize;

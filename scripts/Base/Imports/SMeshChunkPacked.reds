@@ -1,13 +1,13 @@
 public native struct SMeshChunkPacked {
-  native let vertexType: EMeshVertexType;
-  native let materialID: array<CName>;
-  native let numBonesPerVertex: Uint8;
-  native let numVertices: Uint32;
-  native let numIndices: Uint32;
-  native let firstVertex: Uint32;
-  native let firstIndex: Uint32;
-  native let useForShadowmesh: Bool;
-  native let streams: array<SMeshStream>;
-  native let streamMask: Uint64;
-  native let lodMask: Uint8;
+  public native let vertexType: EMeshVertexType;
+  public native let materialID: array<CName>;
+  public native let numBonesPerVertex: Uint8;
+  public native let numVertices: Uint32;
+  public native let numIndices: Uint32;
+  public native let firstVertex: Uint32;
+  public native let firstIndex: Uint32;
+  public native let useForShadowmesh: Bool;
+  public native let streams: array<SMeshStream>;
+  public native let streamMask: Uint64;
+  public native let lodMask: Uint8;
 }

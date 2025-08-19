@@ -1,6 +1,6 @@
 public native class questCharacterManagerVisuals_BreastSizeController extends questICharacterManagerVisuals_NodeSubType {
-  native let bodyGroupName: CName;
-  native let puppetRef: EntityReference;
-  native let isPlayer: Bool;
-  native let customizedSize: Bool;
+  public native let bodyGroupName: CName;
+  public native let puppetRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let customizedSize: Bool;
 }

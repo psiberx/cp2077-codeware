@@ -1,5 +1,5 @@
 public native struct scnDialogLineDuplicationParams {
-  native let executionTag: Uint8;
-  native let additionalSpeakerId: scnActorId;
-  native let isHolocallSpeaker: Bool;
+  public native let executionTag: Uint8;
+  public native let additionalSpeakerId: scnActorId;
+  public native let isHolocallSpeaker: Bool;
 }

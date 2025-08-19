@@ -1,6 +1,6 @@
 public native struct PSODescBlendModeDesc {
-  native let numTargets: Uint8;
-  native let independent: Bool;
-  native let alphaToCoverage: Bool;
-  native let renderTarget: [PSODescRenderTarget; 8];
+  public native let numTargets: Uint8;
+  public native let independent: Bool;
+  public native let alphaToCoverage: Bool;
+  public native let renderTarget: [PSODescRenderTarget; 8];
 }

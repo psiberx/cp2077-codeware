@@ -1,4 +1,4 @@
 public native struct animOverrideBlendBoneInfo {
-  native let transformIndex: animTransformIndex;
-  native let weight: Float;
+  public native let transformIndex: animTransformIndex;
+  public native let weight: Float;
 }

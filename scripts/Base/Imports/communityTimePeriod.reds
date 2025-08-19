@@ -1,3 +1,3 @@
 public native struct communityTimePeriod {
-  native let hour: communityECommunitySpawnTime;
+  public native let hour: communityECommunitySpawnTime;
 }

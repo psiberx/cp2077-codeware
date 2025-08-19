@@ -1,3 +1,3 @@
 public native class animAnimsetVariableCondition extends animIRuntimeCondition {
-  native let variableToCompare: CName;
+  public native let variableToCompare: CName;
 }

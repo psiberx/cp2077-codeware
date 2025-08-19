@@ -1,3 +1,3 @@
 public native class gameEffectParameter_QuatEvaluator_Blackboard extends gameIEffectParameter_QuatEvaluator {
-  native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
+  public native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
 }

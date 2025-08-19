@@ -1,4 +1,4 @@
 public native struct animImportFacialInitialPoseWeightDesc {
-  native let poseNames: array<CName>;
-  native let weights: array<Float>;
+  public native let poseNames: array<CName>;
+  public native let weights: array<Float>;
 }

@@ -1,7 +1,7 @@
 public native class audioAdvertMetadata extends audioEmitterMetadata {
-  native let advertSoundNames: array<CName>;
-  native let minSilenceTime: Float;
-  native let maxSilenceTime: Float;
-  native let minDistance: Float;
-  native let filter: audioAdvertIndoorFilter;
+  public native let advertSoundNames: array<CName>;
+  public native let minSilenceTime: Float;
+  public native let maxSilenceTime: Float;
+  public native let minDistance: Float;
+  public native let filter: audioAdvertIndoorFilter;
 }

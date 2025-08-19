@@ -1,2 +1,2 @@
 @addField(ListChoiceHubData)
-native let hubPriority: Uint8;
+public native let hubPriority: Uint8;

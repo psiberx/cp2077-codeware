@@ -1,5 +1,5 @@
 public native struct audioCommonEntitySettings {
-  native let onAttachEvent: CName;
-  native let onDetachEvent: CName;
-  native let stopAllSoundsOnDetach: Bool;
+  public native let onAttachEvent: CName;
+  public native let onDetachEvent: CName;
+  public native let stopAllSoundsOnDetach: Bool;
 }

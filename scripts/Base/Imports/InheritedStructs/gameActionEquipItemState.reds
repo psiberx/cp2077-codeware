@@ -1,13 +1,13 @@
 public native struct gameActionEquipItemState {
-  native let replicationId: Uint32;
-  native let type: Uint16;
-  native let startTimeStamp: netTime;
-  native let stopTimeStamp: netTime;
-  native let updateBucket: Uint8;
-  native let slotId: TweakDBID;
-  native let itemId: ItemID;
-  native let animFeatureNameRight: CName;
-  native let animFeatureNameLeft: CName;
-  native let duration: Float;
-  native let spawnDelay: Float;
+  public native let replicationId: Uint32;
+  public native let type: Uint16;
+  public native let startTimeStamp: netTime;
+  public native let stopTimeStamp: netTime;
+  public native let updateBucket: Uint8;
+  public native let slotId: TweakDBID;
+  public native let itemId: ItemID;
+  public native let animFeatureNameRight: CName;
+  public native let animFeatureNameLeft: CName;
+  public native let duration: Float;
+  public native let spawnDelay: Float;
 }

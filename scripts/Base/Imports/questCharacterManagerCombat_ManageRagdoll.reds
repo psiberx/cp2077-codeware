@@ -1,4 +1,4 @@
 public native class questCharacterManagerCombat_ManageRagdoll extends questICharacterManagerCombat_NodeSubType {
-  native let puppetRef: EntityReference;
-  native let enableRagdoll: Bool;
+  public native let puppetRef: EntityReference;
+  public native let enableRagdoll: Bool;
 }

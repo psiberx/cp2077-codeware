@@ -1,3 +1,3 @@
 public native class AdjustableStreamingRangeTarget extends GameObject {
-  native let minStreamingDistance: Float;
+  public native let minStreamingDistance: Float;
 }

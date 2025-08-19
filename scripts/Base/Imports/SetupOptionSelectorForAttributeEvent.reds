@@ -1,6 +1,6 @@
 public native class SetupOptionSelectorForAttributeEvent extends Event {
-  native let attribute: Uint32;
-  native let values: array<PhotoModeOptionSelectorData>;
-  native let startDataValue: Int32;
-  native let doApply: Bool;
+  public native let attribute: Uint32;
+  public native let values: array<PhotoModeOptionSelectorData>;
+  public native let startDataValue: Int32;
+  public native let doApply: Bool;
 }

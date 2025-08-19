@@ -1,3 +1,3 @@
 public native class meshMeshParamDestructionBoneChunkMapping extends meshMeshParameter {
-  native let boneChunkMasks: array<Uint64>;
+  public native let boneChunkMasks: array<Uint64>;
 }

@@ -1,3 +1,3 @@
 public native class questAudioMixNodeType extends questIAudioNodeType {
-  native let mixSignpost: CName;
+  public native let mixSignpost: CName;
 }

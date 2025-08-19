@@ -1,4 +1,4 @@
 public native struct workWorkspotItemOverridePropOverride {
-  native let prevItemId: CName;
-  native let newItemId: CName;
+  public native let prevItemId: CName;
+  public native let newItemId: CName;
 }

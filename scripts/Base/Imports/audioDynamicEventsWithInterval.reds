@@ -1,4 +1,4 @@
 public native struct audioDynamicEventsWithInterval {
-  native let events: array<CName>;
-  native let interval: Float;
+  public native let events: array<CName>;
+  public native let interval: Float;
 }

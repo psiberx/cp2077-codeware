@@ -1,5 +1,5 @@
 public abstract native class effectTrackItem extends effectBaseItem {
-  native let timeBegin: Float;
-  native let timeDuration: Float;
-  native let ruid: CRUID;
+  public native let timeBegin: Float;
+  public native let timeDuration: Float;
+  public native let ruid: CRUID;
 }

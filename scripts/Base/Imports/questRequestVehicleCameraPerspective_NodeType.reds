@@ -1,3 +1,3 @@
 public native class questRequestVehicleCameraPerspective_NodeType extends questIVehicleManagerNodeType {
-  native let cameraPerspective: questVehicleCameraPerspective;
+  public native let cameraPerspective: questVehicleCameraPerspective;
 }

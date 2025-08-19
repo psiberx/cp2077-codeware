@@ -1,5 +1,5 @@
 @neverRef()
 public native class gameVisualTagsAppearanceNamesPreset_TagsAppearances extends ISerializable {
-  native let visualTagHash: CName;
-  native let appearanceNames: array<CName>;
+  public native let visualTagHash: CName;
+  public native let appearanceNames: array<CName>;
 }

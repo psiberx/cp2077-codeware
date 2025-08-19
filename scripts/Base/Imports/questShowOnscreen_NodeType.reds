@@ -1,6 +1,6 @@
 public native class questShowOnscreen_NodeType extends questIUIManagerNodeType {
-  native let message: String;
-  native let localizedMessage: LocalizationString;
-  native let duration: Float;
-  native let show: Bool;
+  public native let message: String;
+  public native let localizedMessage: LocalizationString;
+  public native let duration: Float;
+  public native let show: Bool;
 }

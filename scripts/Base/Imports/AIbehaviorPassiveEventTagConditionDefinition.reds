@@ -1,4 +1,4 @@
 public native class AIbehaviorPassiveEventTagConditionDefinition extends AIbehaviorPassiveConditionDefinition {
-  native let tag: CName;
-  native let deactivateEvents: Bool;
+  public native let tag: CName;
+  public native let deactivateEvents: Bool;
 }

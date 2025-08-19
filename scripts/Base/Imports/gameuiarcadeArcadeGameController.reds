@@ -1,8 +1,8 @@
 public native class gameuiarcadeArcadeGameController extends inkGameController {
-  native let minigame: gameuiarcadeArcadeMinigame;
-  native let defaultScreenTransitionTotalTime: Float;
-  native let screenTransitionWidget: inkImageRef;
-  native let menu: inkWidgetRef;
-  native let gameplay: inkWidgetRef;
-  native let scoreboard: inkWidgetRef;
+  public native let minigame: gameuiarcadeArcadeMinigame;
+  public native let defaultScreenTransitionTotalTime: Float;
+  public native let screenTransitionWidget: inkImageRef;
+  public native let menu: inkWidgetRef;
+  public native let gameplay: inkWidgetRef;
+  public native let scoreboard: inkWidgetRef;
 }

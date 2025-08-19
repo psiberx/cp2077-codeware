@@ -1,4 +1,4 @@
 public native class questScan_ConditionType extends questIObjectConditionType {
-  native let objectRef: EntityReference;
-  native let eventType: questObjectScanEventType;
+  public native let objectRef: EntityReference;
+  public native let eventType: questObjectScanEventType;
 }

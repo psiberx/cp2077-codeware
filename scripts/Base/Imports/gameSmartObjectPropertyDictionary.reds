@@ -1,3 +1,3 @@
 public native class gameSmartObjectPropertyDictionary extends ISerializable {
-  native let properties: array<gameSmartObjectPropertyDictionaryPropertyEntry>;
+  public native let properties: array<gameSmartObjectPropertyDictionaryPropertyEntry>;
 }

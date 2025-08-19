@@ -1,7 +1,7 @@
 public native class CParticleDrawerTrail extends IParticleDrawer {
-  native let texturesPerUnit: Float;
-  native let dynamicTexCoords: Bool;
-  native let minSegmentsPer360Degrees: Int32;
-  native let ribbonize: Bool;
-  native let ribbonTesselationDelta: Float;
+  public native let texturesPerUnit: Float;
+  public native let dynamicTexCoords: Bool;
+  public native let minSegmentsPer360Degrees: Int32;
+  public native let ribbonize: Bool;
+  public native let ribbonTesselationDelta: Float;
 }

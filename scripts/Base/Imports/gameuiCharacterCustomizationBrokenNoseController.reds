@@ -1,5 +1,5 @@
 public native class gameuiCharacterCustomizationBrokenNoseController extends gameuiICharacterCustomizationComponent {
-  native let stage1App: gameuiCharacterCustomizationBrokenNoseControllerBrokenNoseAppearance;
-  native let stage2App: gameuiCharacterCustomizationBrokenNoseControllerBrokenNoseAppearance;
-  native let finalSceneGroup: CName;
+  public native let stage1App: gameuiCharacterCustomizationBrokenNoseControllerBrokenNoseAppearance;
+  public native let stage2App: gameuiCharacterCustomizationBrokenNoseControllerBrokenNoseAppearance;
+  public native let finalSceneGroup: CName;
 }

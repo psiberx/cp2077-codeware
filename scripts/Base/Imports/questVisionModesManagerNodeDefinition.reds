@@ -1,3 +1,3 @@
 public native class questVisionModesManagerNodeDefinition extends questDisableableNodeDefinition {
-  native let type: ref<questIVisionModeNodeType>;
+  public native let type: ref<questIVisionModeNodeType>;
 }

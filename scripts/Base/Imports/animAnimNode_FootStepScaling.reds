@@ -1,8 +1,8 @@
 public native class animAnimNode_FootStepScaling extends animAnimNode_OnePoseInput {
-  native let hipsIndex: animTransformIndex;
-  native let leftFootIKIndex: animTransformIndex;
-  native let rightFootIKIndex: animTransformIndex;
-  native let inputSpeed: animFloatLink;
-  native let weight: animFloatLink;
-  native let Params: animfssBodyOfflineParams;
+  public native let hipsIndex: animTransformIndex;
+  public native let leftFootIKIndex: animTransformIndex;
+  public native let rightFootIKIndex: animTransformIndex;
+  public native let inputSpeed: animFloatLink;
+  public native let weight: animFloatLink;
+  public native let Params: animfssBodyOfflineParams;
 }

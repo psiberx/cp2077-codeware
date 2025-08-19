@@ -1,9 +1,9 @@
 public native struct scneventsPlayAnimEventData {
-  native let blendIn: Float;
-  native let blendOut: Float;
-  native let clipFront: Float;
-  native let clipEnd: Float;
-  native let stretch: Float;
-  native let blendInCurve: scnEasingType;
-  native let blendOutCurve: scnEasingType;
+  public native let blendIn: Float;
+  public native let blendOut: Float;
+  public native let clipFront: Float;
+  public native let clipEnd: Float;
+  public native let stretch: Float;
+  public native let blendInCurve: scnEasingType;
+  public native let blendOutCurve: scnEasingType;
 }

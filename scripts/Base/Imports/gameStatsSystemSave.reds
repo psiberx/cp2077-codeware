@@ -1,4 +1,4 @@
 public importonly class gameStatsSystemSave extends ISerializable {
-  native let statsObjectsData: array<gameStatsSeedKey>;
-  native let statModifiersData: array<gameStatModifierSave>;
+  public native let statsObjectsData: array<gameStatsSeedKey>;
+  public native let statModifiersData: array<gameStatModifierSave>;
 }

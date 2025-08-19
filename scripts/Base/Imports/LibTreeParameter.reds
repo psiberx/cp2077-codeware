@@ -1,6 +1,6 @@
 public native struct LibTreeParameter {
-  native let parameterName: CName;
-  native let parameterId: Uint16;
-  native let parameterType: LibTreeEParameterType;
-  native let value: Variant;
+  public native let parameterName: CName;
+  public native let parameterId: Uint16;
+  public native let parameterType: LibTreeEParameterType;
+  public native let value: Variant;
 }

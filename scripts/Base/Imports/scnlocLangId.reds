@@ -1,3 +1,3 @@
 public native struct scnlocLangId {
-  native let langId: Uint8;
+  public native let langId: Uint8;
 }

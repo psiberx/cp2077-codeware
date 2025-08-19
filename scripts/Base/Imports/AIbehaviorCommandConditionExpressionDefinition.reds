@@ -1,6 +1,6 @@
 public native class AIbehaviorCommandConditionExpressionDefinition extends AIbehaviorPassiveExpressionDefinition {
-  native let commandName: CName;
-  native let useInheritance: Bool;
-  native let isEnqueued: Bool;
-  native let isExecuting: Bool;
+  public native let commandName: CName;
+  public native let useInheritance: Bool;
+  public native let isEnqueued: Bool;
+  public native let isExecuting: Bool;
 }

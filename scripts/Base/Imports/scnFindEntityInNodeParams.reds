@@ -1,4 +1,4 @@
 public native struct scnFindEntityInNodeParams {
-  native let nodeRef: NodeRef;
-  native let forceMaxVisibility: Bool;
+  public native let nodeRef: NodeRef;
+  public native let forceMaxVisibility: Bool;
 }

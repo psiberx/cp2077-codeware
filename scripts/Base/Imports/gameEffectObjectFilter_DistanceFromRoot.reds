@@ -1,4 +1,4 @@
 public native class gameEffectObjectFilter_DistanceFromRoot extends gameEffectObjectGroupFilter {
-  native let rootZOffset: Float;
-  native let bonusRange: Float;
+  public native let rootZOffset: Float;
+  public native let bonusRange: Float;
 }

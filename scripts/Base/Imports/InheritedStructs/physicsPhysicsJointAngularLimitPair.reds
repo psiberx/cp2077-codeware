@@ -1,10 +1,10 @@
 public native struct physicsPhysicsJointAngularLimitPair {
-  native let restitution: Float;
-  native let bounceThreshold: Float;
-  native let stiffness: Float;
-  native let damping: Float;
-  native let contactDistance: Float;
-  native let twist: physicsPhysicsJointMotion;
-  native let upper: Float;
-  native let lower: Float;
+  public native let restitution: Float;
+  public native let bounceThreshold: Float;
+  public native let stiffness: Float;
+  public native let damping: Float;
+  public native let contactDistance: Float;
+  public native let twist: physicsPhysicsJointMotion;
+  public native let upper: Float;
+  public native let lower: Float;
 }

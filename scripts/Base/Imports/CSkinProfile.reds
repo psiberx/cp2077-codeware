@@ -1,8 +1,8 @@
 public native class CSkinProfile extends CResource {
-  native let blurSize: Float;
-  native let diffuse: Color;
-  native let falloff: Color;
-  native let roughness0: Float;
-  native let roughness1: Float;
-  native let lobeMix: Float;
+  public native let blurSize: Float;
+  public native let diffuse: Color;
+  public native let falloff: Color;
+  public native let roughness0: Float;
+  public native let roughness1: Float;
+  public native let lobeMix: Float;
 }

@@ -1,6 +1,6 @@
 public native struct inkLanguageDefinition {
-  native let languageCode: CName;
-  native let isoScriptCode: CName;
-  native let textDirection: inkETextDirection;
-  native let fonts: array<inkLanguageFont>;
+  public native let languageCode: CName;
+  public native let isoScriptCode: CName;
+  public native let textDirection: inkETextDirection;
+  public native let fonts: array<inkLanguageFont>;
 }

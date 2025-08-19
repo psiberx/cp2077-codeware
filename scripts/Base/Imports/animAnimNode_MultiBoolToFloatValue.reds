@@ -1,6 +1,6 @@
 public native class animAnimNode_MultiBoolToFloatValue extends animAnimNode_FloatValue {
-  native let allMustBeTrue: Bool;
-  native let onTrue: Float;
-  native let onFalse: Float;
-  native let inputsData: array<animAnimMultiBoolToFloatEntry>;
+  public native let allMustBeTrue: Bool;
+  public native let onTrue: Float;
+  public native let onFalse: Float;
+  public native let inputsData: array<animAnimMultiBoolToFloatEntry>;
 }

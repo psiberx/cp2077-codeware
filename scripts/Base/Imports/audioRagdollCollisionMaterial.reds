@@ -1,5 +1,5 @@
 public native class audioRagdollCollisionMaterial extends audioAudioMetadata {
-  native let lightCollisionEventName: CName;
-  native let heavyCollisionEventName: CName;
-  native let dismemberedLimbCollisionEventName: CName;
+  public native let lightCollisionEventName: CName;
+  public native let heavyCollisionEventName: CName;
+  public native let dismemberedLimbCollisionEventName: CName;
 }

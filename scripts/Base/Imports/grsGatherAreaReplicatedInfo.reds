@@ -1,5 +1,5 @@
 public native struct grsGatherAreaReplicatedInfo {
-  native let enteredPlayerIDs: [netPeerID; 7];
-  native let hasActiveQuestListener: Bool;
-  native let enabled: Bool;
+  public native let enteredPlayerIDs: [netPeerID; 7];
+  public native let hasActiveQuestListener: Bool;
+  public native let enabled: Bool;
 }

@@ -1,4 +1,4 @@
 public native struct scnChoiceNodeNsAttachToGameObjectParams {
-  native let nodeRef: NodeRef;
-  native let visualizerStyle: scnChoiceNodeNsVisualizerStyle;
+  public native let nodeRef: NodeRef;
+  public native let visualizerStyle: scnChoiceNodeNsVisualizerStyle;
 }

@@ -1,8 +1,8 @@
 @addField(AnimFeature_AimPlayer)
-native let zoomLevel: Float;
+public native let zoomLevel: Float;
 
 @addField(AnimFeature_AimPlayer)
-native let aimInTime: Float;
+public native let aimInTime: Float;
 
 @addField(AnimFeature_AimPlayer)
-native let aimOutTime: Float;
+public native let aimOutTime: Float;

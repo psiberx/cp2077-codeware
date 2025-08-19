@@ -1,10 +1,10 @@
 public native class animAnimNode_StackTransformsExtender extends animAnimNode_OnePoseInput {
-  native let tag: CName;
-  native let transformInfos: array<animTransformInfo>;
-  native let snapMethods: array<animStackTransformsExtender_SnapToBoneMethod>;
-  native let snapToReferenceValues: array<Bool>;
-  native let snapTargetBones: array<animTransformIndex>;
-  native let offsetToReferenceValues: array<Bool>;
-  native let offsetSpaceBones: array<animTransformIndex>;
-  native let offsets: array<QsTransform>;
+  public native let tag: CName;
+  public native let transformInfos: array<animTransformInfo>;
+  public native let snapMethods: array<animStackTransformsExtender_SnapToBoneMethod>;
+  public native let snapToReferenceValues: array<Bool>;
+  public native let snapTargetBones: array<animTransformIndex>;
+  public native let offsetToReferenceValues: array<Bool>;
+  public native let offsetSpaceBones: array<animTransformIndex>;
+  public native let offsets: array<QsTransform>;
 }

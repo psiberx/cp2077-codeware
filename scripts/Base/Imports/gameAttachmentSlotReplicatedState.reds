@@ -1,5 +1,5 @@
 public native struct gameAttachmentSlotReplicatedState {
-  native let slotID: TweakDBID;
-  native let activeItemID: ItemID;
-  native let hasItemObject: Bool;
+  public native let slotID: TweakDBID;
+  public native let activeItemID: ItemID;
+  public native let hasItemObject: Bool;
 }

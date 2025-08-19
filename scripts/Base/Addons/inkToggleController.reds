@@ -1,8 +1,8 @@
 @addField(inkToggleController)
-native let ToggleChanged: inkToggleChangedCallback;
+public native let ToggleChanged: inkToggleChangedCallback;
 
 @addField(inkToggleController)
-native let isToggled: Bool;
+public native let isToggled: Bool;
 
 @addField(inkToggleController)
-native let autoToggleOnInput: Bool;
+public native let autoToggleOnInput: Bool;

@@ -1,3 +1,3 @@
 public native class gameaudioBreathingSubSystem extends gameaudioISoundComponentSubSystem {
-  native let metadataName: CName;
+  public native let metadataName: CName;
 }

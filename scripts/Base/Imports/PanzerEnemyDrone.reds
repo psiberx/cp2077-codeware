@@ -1,5 +1,5 @@
 public native class PanzerEnemyDrone extends PanzerEnemy {
-  native let speed: Float;
-  native let shootIntervalMinimum: Float;
-  native let shootIntervalMaximum: Float;
+  public native let speed: Float;
+  public native let shootIntervalMinimum: Float;
+  public native let shootIntervalMaximum: Float;
 }

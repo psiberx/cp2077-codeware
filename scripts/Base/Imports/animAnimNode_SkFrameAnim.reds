@@ -1,6 +1,6 @@
 public native class animAnimNode_SkFrameAnim extends animAnimNode_SkAnim {
-  native let progressLink: animFloatLink;
-  native let timeLink: animFloatLink;
-  native let frameLink: animFloatLink;
-  native let fireAnimEndOnceOnAnimEnd: Bool;
+  public native let progressLink: animFloatLink;
+  public native let timeLink: animFloatLink;
+  public native let frameLink: animFloatLink;
+  public native let fireAnimEndOnceOnAnimEnd: Bool;
 }

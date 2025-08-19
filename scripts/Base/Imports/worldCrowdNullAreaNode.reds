@@ -1,4 +1,4 @@
 public native class worldCrowdNullAreaNode extends worldAreaShapeNode {
-  native let IsForBlockade: Bool;
-  native let permanentlyEnabledByDefault: Bool;
+  public native let IsForBlockade: Bool;
+  public native let permanentlyEnabledByDefault: Bool;
 }

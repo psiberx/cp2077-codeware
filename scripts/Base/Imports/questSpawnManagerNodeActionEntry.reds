@@ -1,3 +1,3 @@
 public native struct questSpawnManagerNodeActionEntry {
-  native let type: ref<questSpawnManagerNodeType>;
+  public native let type: ref<questSpawnManagerNodeType>;
 }

@@ -1,6 +1,6 @@
 public native struct animPoseInfoLogger {
-  native let enabled: Bool;
-  native let showStackTransformsCount: Bool;
-  native let showStackTracksCount: Bool;
-  native let entries: array<ref<animPoseInfoLoggerEntry>>;
+  public native let enabled: Bool;
+  public native let showStackTransformsCount: Bool;
+  public native let showStackTracksCount: Bool;
+  public native let entries: array<ref<animPoseInfoLoggerEntry>>;
 }

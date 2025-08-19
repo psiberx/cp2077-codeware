@@ -1,4 +1,4 @@
 public native struct scnLipsyncAnimSetSRRef {
-  native let lipsyncAnimSet: ResourceRef; // rRef<animAnimSet>
-  native let asyncRefLipsyncAnimSet: ResourceAsyncRef; // raRef<animAnimSet>
+  public native let lipsyncAnimSet: ResourceRef; // rRef<animAnimSet>
+  public native let asyncRefLipsyncAnimSet: ResourceAsyncRef; // raRef<animAnimSet>
 }

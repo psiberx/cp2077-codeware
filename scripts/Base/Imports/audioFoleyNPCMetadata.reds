@@ -1,13 +1,13 @@
 public native class audioFoleyNPCMetadata extends audioAudioMetadata {
-  native let fastHeavy: audioMeleeSound;
-  native let fastMedium: audioMeleeSound;
-  native let fastLight: audioMeleeSound;
-  native let normalHeavy: audioMeleeSound;
-  native let normalMedium: audioMeleeSound;
-  native let normalLight: audioMeleeSound;
-  native let slowHeavy: audioMeleeSound;
-  native let slowMedium: audioMeleeSound;
-  native let slowLight: audioMeleeSound;
-  native let walk: audioMeleeSound;
-  native let run: audioMeleeSound;
+  public native let fastHeavy: audioMeleeSound;
+  public native let fastMedium: audioMeleeSound;
+  public native let fastLight: audioMeleeSound;
+  public native let normalHeavy: audioMeleeSound;
+  public native let normalMedium: audioMeleeSound;
+  public native let normalLight: audioMeleeSound;
+  public native let slowHeavy: audioMeleeSound;
+  public native let slowMedium: audioMeleeSound;
+  public native let slowLight: audioMeleeSound;
+  public native let walk: audioMeleeSound;
+  public native let run: audioMeleeSound;
 }

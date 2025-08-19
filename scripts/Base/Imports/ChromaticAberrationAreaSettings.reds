@@ -1,7 +1,7 @@
 public native class ChromaticAberrationAreaSettings extends IAreaSettings {
-  native let chromaticAberrationEnabled: Bool;
-  native let chromaticAberrationMargin: Float;
-  native let chromaticAberrationSize: Vector2;
-  native let chromaticAberrationExp: Float;
-  native let subpixelDispersal: Float;
+  public native let chromaticAberrationEnabled: Bool;
+  public native let chromaticAberrationMargin: Float;
+  public native let chromaticAberrationSize: Vector2;
+  public native let chromaticAberrationExp: Float;
+  public native let subpixelDispersal: Float;
 }

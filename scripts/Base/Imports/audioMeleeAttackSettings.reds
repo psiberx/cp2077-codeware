@@ -1,6 +1,6 @@
 public native struct audioMeleeAttackSettings {
-  native let hitEvent: CName;
-  native let penetratingHitEvent: CName;
-  native let criticalHitEvent: CName;
-  native let killingHitEvent: CName;
+  public native let hitEvent: CName;
+  public native let penetratingHitEvent: CName;
+  public native let criticalHitEvent: CName;
+  public native let killingHitEvent: CName;
 }

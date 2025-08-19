@@ -1,4 +1,4 @@
 public native class MusicSync extends Event {
-  native let syncType: audioMusicSyncType;
-  native let syncParameter: Float;
+  public native let syncType: audioMusicSyncType;
+  public native let syncParameter: Float;
 }

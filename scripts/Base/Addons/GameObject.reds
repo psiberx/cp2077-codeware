@@ -1,20 +1,20 @@
 @addField(GameObject)
-native let persistentState: ref<PersistentState>;
+public native let persistentState: ref<PersistentState>;
 
 @addField(GameObject)
-native let playerSocket: gamePlayerSocket;
+public native let playerSocket: gamePlayerSocket;
 
 @addField(GameObject)
-native let tags: redTagList;
+public native let tags: redTagList;
 
 @addField(GameObject)
-native let displayName: LocalizationString;
+public native let displayName: LocalizationString;
 
 @addField(GameObject)
-native let displayDescription: LocalizationString;
+public native let displayDescription: LocalizationString;
 
 @addField(GameObject)
-native let audioResourceName: CName;
+public native let audioResourceName: CName;
 
 @addField(GameObject)
-native let visibilityCheckDistance: Float;
+public native let visibilityCheckDistance: Float;

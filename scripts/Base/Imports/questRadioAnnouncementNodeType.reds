@@ -1,3 +1,3 @@
 public native class questRadioAnnouncementNodeType extends questIAudioNodeType {
-  native let radioStationEvents: array<questRadioStationAnnouncementEventStruct>;
+  public native let radioStationEvents: array<questRadioStationAnnouncementEventStruct>;
 }

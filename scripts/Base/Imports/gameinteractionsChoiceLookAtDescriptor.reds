@@ -1,6 +1,6 @@
 public native struct gameinteractionsChoiceLookAtDescriptor {
-  native let type: gameinteractionsChoiceLookAtType;
-  native let slotName: CName;
-  native let offset: Vector3;
-  native let orbId: gameinteractionsOrbID;
+  public native let type: gameinteractionsChoiceLookAtType;
+  public native let slotName: CName;
+  public native let offset: Vector3;
+  public native let orbId: gameinteractionsOrbID;
 }

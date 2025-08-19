@@ -1,5 +1,5 @@
 public native struct ConsumableParameterIScriptable {
-  native let name: CName;
-  native let value: ref<IScriptable>;
-  native let consumed: Bool;
+  public native let name: CName;
+  public native let value: ref<IScriptable>;
+  public native let consumed: Bool;
 }

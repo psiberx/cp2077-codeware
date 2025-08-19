@@ -1,13 +1,13 @@
 public native class questvehicleOnSplineParams extends questVehicleSpecificCommandParams {
-  native let splineRef: NodeRef;
-  native let reverseSpline: Bool;
-  native let backwards: Bool;
-  native let closest: Bool;
-  native let forcedStartSpeed: Float;
-  native let stopAtEnd: Bool;
-  native let keepDistance: Bool;
-  native let keepDistanceParam: ref<questParamKeepDistance>;
-  native let rubberBanding: Bool;
-  native let rubberBandingParam: ref<questParamRubberbanding>;
-  native let audioCurvesParam: ref<vehicleAudioCurvesParam>;
+  public native let splineRef: NodeRef;
+  public native let reverseSpline: Bool;
+  public native let backwards: Bool;
+  public native let closest: Bool;
+  public native let forcedStartSpeed: Float;
+  public native let stopAtEnd: Bool;
+  public native let keepDistance: Bool;
+  public native let keepDistanceParam: ref<questParamKeepDistance>;
+  public native let rubberBanding: Bool;
+  public native let rubberBandingParam: ref<questParamRubberbanding>;
+  public native let audioCurvesParam: ref<vehicleAudioCurvesParam>;
 }

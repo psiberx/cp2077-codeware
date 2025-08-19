@@ -1,6 +1,6 @@
 public native struct inkWidgetStateAnimatedTransition {
-  native let startState: CName;
-  native let endState: CName;
-  native let animationName: CName;
-  native let playbackOptions: inkAnimOptions;
+  public native let startState: CName;
+  public native let endState: CName;
+  public native let animationName: CName;
+  public native let playbackOptions: inkAnimOptions;
 }

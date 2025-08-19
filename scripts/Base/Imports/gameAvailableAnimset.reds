@@ -1,4 +1,4 @@
 public native struct gameAvailableAnimset {
-  native let hash: Uint64;
-  native let resourcePath: String;
+  public native let hash: Uint64;
+  public native let resourcePath: String;
 }

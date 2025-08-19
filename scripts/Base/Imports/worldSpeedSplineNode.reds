@@ -1,10 +1,10 @@
 public native class worldSpeedSplineNode extends worldSplineNode {
-  native let speedChangeSections: array<worldSpeedSplineNodeSpeedChangeSection>;
-  native let useDeprecated: Bool;
-  native let deprecatedSpeedRestrictions: array<worldSpeedSplineNodeSpeedRestriction>;
-  native let deprecatedDefaultSpeed: Float;
-  native let deprecatedDefaultAdjustTime: Float;
-  native let orientationChangeSections: array<worldSpeedSplineNodeOrientationChangeSection>;
-  native let roadAdjustmentFactorChangeSections: array<worldSpeedSplineNodeRoadAdjustmentFactorChangeSection>;
-  native let ignoreTerrain: Bool;
+  public native let speedChangeSections: array<worldSpeedSplineNodeSpeedChangeSection>;
+  public native let useDeprecated: Bool;
+  public native let deprecatedSpeedRestrictions: array<worldSpeedSplineNodeSpeedRestriction>;
+  public native let deprecatedDefaultSpeed: Float;
+  public native let deprecatedDefaultAdjustTime: Float;
+  public native let orientationChangeSections: array<worldSpeedSplineNodeOrientationChangeSection>;
+  public native let roadAdjustmentFactorChangeSections: array<worldSpeedSplineNodeRoadAdjustmentFactorChangeSection>;
+  public native let ignoreTerrain: Bool;
 }

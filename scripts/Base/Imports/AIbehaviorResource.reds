@@ -1,6 +1,6 @@
 public native class AIbehaviorResource extends CResource {
-  native let root: ref<AIbehaviorTreeNodeDefinition>;
-  native let arguments: AITreeArgumentsDefinition;
-  native let delegate: ref<BehaviorDelegate>;
-  native let initializationEvents: array<CName>;
+  public native let root: ref<AIbehaviorTreeNodeDefinition>;
+  public native let arguments: AITreeArgumentsDefinition;
+  public native let delegate: ref<BehaviorDelegate>;
+  public native let initializationEvents: array<CName>;
 }

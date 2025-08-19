@@ -1,4 +1,4 @@
 public native struct audioVoiceTagAppearanceGroup {
-  native let appearances: array<CName>;
-  native let voicetags: array<CName>;
+  public native let appearances: array<CName>;
+  public native let voicetags: array<CName>;
 }

@@ -1,3 +1,3 @@
 public abstract native class questIStatsScriptConditionType extends questIStatsConditionType {
-  native let scriptCondition: ref<IScriptable>;
+  public native let scriptCondition: ref<IScriptable>;
 }

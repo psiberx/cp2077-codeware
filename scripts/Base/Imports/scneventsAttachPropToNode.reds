@@ -1,6 +1,6 @@
 public native class scneventsAttachPropToNode extends scnSceneEvent {
-  native let propId: scnPropId;
-  native let nodeRef: NodeRef;
-  native let customOffsetPos: Vector3;
-  native let customOffsetRot: Quaternion;
+  public native let propId: scnPropId;
+  public native let nodeRef: NodeRef;
+  public native let customOffsetPos: Vector3;
+  public native let customOffsetRot: Quaternion;
 }

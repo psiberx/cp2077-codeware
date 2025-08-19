@@ -1,2 +1,2 @@
 @addField(JournalBriefingVideoSection)
-native let videoResource: ResourceAsyncRef; // raRef<Bink>
+public native let videoResource: ResourceAsyncRef; // raRef<Bink>

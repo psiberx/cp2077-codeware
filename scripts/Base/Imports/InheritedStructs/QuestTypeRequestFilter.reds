@@ -1,7 +1,7 @@
 public native struct QuestTypeRequestFilter {
-  native let includeMainQuests: Bool;
-  native let includeSideQuests: Bool;
-  native let includeStreetStories: Bool;
-  native let includeCyberPsycho: Bool;
-  native let includeContracts: Bool;
+  public native let includeMainQuests: Bool;
+  public native let includeSideQuests: Bool;
+  public native let includeStreetStories: Bool;
+  public native let includeCyberPsycho: Bool;
+  public native let includeContracts: Bool;
 }

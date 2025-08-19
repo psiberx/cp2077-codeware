@@ -1,12 +1,12 @@
 public native class animAnimNode_LocomotionMachine extends animAnimNode_StateMachine {
-  native let usePlanner: Bool;
-  native let group: CName;
-  native let logic: CName;
-  native let requestId: CName;
-  native let distance: CName;
-  native let duration: CName;
-  native let motion: CName;
-  native let state: CName;
-  native let transitionTime: Float;
-  native let numVariants: Uint32;
+  public native let usePlanner: Bool;
+  public native let group: CName;
+  public native let logic: CName;
+  public native let requestId: CName;
+  public native let distance: CName;
+  public native let duration: CName;
+  public native let motion: CName;
+  public native let state: CName;
+  public native let transitionTime: Float;
+  public native let numVariants: Uint32;
 }

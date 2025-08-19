@@ -1,4 +1,4 @@
 public native class gameuiCharacterCustomizationUiPreset extends CResource {
-  native let isMaleVO: Bool;
-  native let values: array<gameuiCharacterCustomizationUiPresetValue>;
+  public native let isMaleVO: Bool;
+  public native let values: array<gameuiCharacterCustomizationUiPresetValue>;
 }

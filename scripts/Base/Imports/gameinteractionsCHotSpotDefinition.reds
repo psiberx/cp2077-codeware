@@ -1,4 +1,4 @@
 public native struct gameinteractionsCHotSpotDefinition {
-  native let suppressor: Bool;
-  native let layersDefinition: array<ref<gameinteractionsCLinkedLayersDefinition>>;
+  public native let suppressor: Bool;
+  public native let layersDefinition: array<ref<gameinteractionsCLinkedLayersDefinition>>;
 }

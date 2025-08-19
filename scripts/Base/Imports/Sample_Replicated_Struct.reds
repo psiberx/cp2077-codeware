@@ -1,6 +1,6 @@
 public native struct Sample_Replicated_Struct {
-  native let a: Bool;
-  native let b: Bool;
-  native let c: Bool;
-  native let d_not_replicated_still_OK: Bool;
+  public native let a: Bool;
+  public native let b: Bool;
+  public native let c: Bool;
+  public native let d_not_replicated_still_OK: Bool;
 }

@@ -1,3 +1,3 @@
 public native struct audioSoundBankStruct {
-  native let soundBank: CName;
+  public native let soundBank: CName;
 }

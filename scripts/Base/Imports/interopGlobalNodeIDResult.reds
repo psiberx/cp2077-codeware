@@ -1,5 +1,5 @@
 public native struct interopGlobalNodeIDResult {
-  native let errorMessage: String;
-  native let result: String;
-  native let isValid: Bool;
+  public native let errorMessage: String;
+  public native let result: String;
+  public native let isValid: Bool;
 }

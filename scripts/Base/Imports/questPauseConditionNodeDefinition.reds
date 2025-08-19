@@ -1,3 +1,3 @@
 public native class questPauseConditionNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let condition: ref<questIBaseCondition>;
+  public native let condition: ref<questIBaseCondition>;
 }

@@ -1,18 +1,18 @@
 public native struct inkWaitingSignLayerDefinition {
-  native let enabled: Bool;
-  native let rootLibrary: ResourceRef; // rRef<inkWidgetLibraryResource>
-  native let activeByDefault: Bool;
-  native let isPermanent: Bool;
-  native let useGlobalStyleTheme: Bool;
-  native let isAffectedByFadeout: Bool;
-  native let useGameInput: Bool;
-  native let inputContext: CName;
-  native let introAnimName: CName;
-  native let waitingAnimName: CName;
-  native let outroAnimName: CName;
-  native let delayTime: Float;
-  native let introTime: Float;
-  native let waitingTime: Float;
-  native let postWaitTime: Float;
-  native let outroTime: Float;
+  public native let enabled: Bool;
+  public native let rootLibrary: ResourceRef; // rRef<inkWidgetLibraryResource>
+  public native let activeByDefault: Bool;
+  public native let isPermanent: Bool;
+  public native let useGlobalStyleTheme: Bool;
+  public native let isAffectedByFadeout: Bool;
+  public native let useGameInput: Bool;
+  public native let inputContext: CName;
+  public native let introAnimName: CName;
+  public native let waitingAnimName: CName;
+  public native let outroAnimName: CName;
+  public native let delayTime: Float;
+  public native let introTime: Float;
+  public native let waitingTime: Float;
+  public native let postWaitTime: Float;
+  public native let outroTime: Float;
 }

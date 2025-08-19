@@ -1,5 +1,5 @@
 public native class GlobalLightOverrideAreaSettings extends IAreaSettings {
-  native let color: CurveDataHDRColor;
-  native let lightAzimuth: Float;
-  native let lightElevation: Float;
+  public native let color: CurveDataHDRColor;
+  public native let lightAzimuth: Float;
+  public native let lightElevation: Float;
 }

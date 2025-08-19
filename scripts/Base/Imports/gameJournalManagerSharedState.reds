@@ -1,4 +1,4 @@
 public native class gameJournalManagerSharedState extends gameIGameSystemReplicatedState {
-  native let entryData: array<gameJournalSharedStateData>;
-  native let trackedQuestPath: Uint32;
+  public native let entryData: array<gameJournalSharedStateData>;
+  public native let trackedQuestPath: Uint32;
 }

@@ -1,5 +1,5 @@
 public native struct textTextBlockFontStyle {
-  native let fontStyle: CName;
-  native let outlineSize: Int32;
-  native let outlineColor: HDRColor;
+  public native let fontStyle: CName;
+  public native let outlineSize: Int32;
+  public native let outlineColor: HDRColor;
 }

@@ -1,11 +1,11 @@
 @addField(soundComponent)
-native let subSystems: array<gameaudioSoundComponentSubSystemWrapper>;
+public native let subSystems: array<gameaudioSoundComponentSubSystemWrapper>;
 
 @addField(soundComponent)
-native let voEventOverride: CName;
+public native let voEventOverride: CName;
 
 @addField(soundComponent)
-native let minVocalizationRepeatTime: Float;
+public native let minVocalizationRepeatTime: Float;
 
 @addField(soundComponent)
-native let streamingDistance: Float;
+public native let streamingDistance: Float;

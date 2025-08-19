@@ -1,5 +1,5 @@
 @addField(gameCpoPickableItem)
-native let itemIDToEquip: TweakDBID;
+public native let itemIDToEquip: TweakDBID;
 
 @addField(gameCpoPickableItem)
-native let quickSlotID: Int32;
+public native let quickSlotID: Int32;

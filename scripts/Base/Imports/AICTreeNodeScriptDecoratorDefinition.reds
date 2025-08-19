@@ -1,4 +1,4 @@
 public native class AICTreeNodeScriptDecoratorDefinition extends AICTreeExtendableNodeDefinition {
-  native let script: ref<ActionScript>;
-  native let scriptName: CName;
+  public native let script: ref<ActionScript>;
+  public native let scriptName: CName;
 }

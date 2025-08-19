@@ -1,10 +1,10 @@
 public native class AIActionSpot extends AISmartSpot {
-  native let resource: ResourceAsyncRef; // raRef<workWorkspotResource>
-  native let ActorBodytypeE3: AISocketsForRig;
-  native let masterNodeRef: NodeRef;
-  native let enabledWhenMasterOccupied: Bool;
-  native let snapToGround: Bool;
-  native let useClippingSpace: Bool;
-  native let clippingSpaceOrientation: Float;
-  native let clippingSpaceRange: Float;
+  public native let resource: ResourceAsyncRef; // raRef<workWorkspotResource>
+  public native let ActorBodytypeE3: AISocketsForRig;
+  public native let masterNodeRef: NodeRef;
+  public native let enabledWhenMasterOccupied: Bool;
+  public native let snapToGround: Bool;
+  public native let useClippingSpace: Bool;
+  public native let clippingSpaceOrientation: Float;
+  public native let clippingSpaceRange: Float;
 }

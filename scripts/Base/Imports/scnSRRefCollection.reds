@@ -1,16 +1,16 @@
 public native struct scnSRRefCollection {
-  native let ridAnimations: array<scnRidAnimationSRRef>;
-  native let ridAnimSets: array<scnRidAnimSetSRRef>;
-  native let ridFacialAnimSets: array<scnRidAnimSetSRRef>;
-  native let ridCyberwareAnimSets: array<scnRidAnimSetSRRef>;
-  native let ridDeformationAnimSets: array<scnRidAnimSetSRRef>;
-  native let lipsyncAnimSets: array<scnLipsyncAnimSetSRRef>;
-  native let ridCameraAnimations: array<scnRidCameraAnimationSRRef>;
-  native let cinematicAnimSets: array<scnCinematicAnimSetSRRef>;
-  native let gameplayAnimSets: array<scnGameplayAnimSetSRRef>;
-  native let dynamicAnimSets: array<scnDynamicAnimSetSRRef>;
-  native let cinematicAnimNames: array<scnAnimSetAnimNames>;
-  native let gameplayAnimNames: array<scnAnimSetAnimNames>;
-  native let dynamicAnimNames: array<scnAnimSetDynAnimNames>;
-  native let ridAnimationContainers: array<scnRidAnimationContainerSRRef>;
+  public native let ridAnimations: array<scnRidAnimationSRRef>;
+  public native let ridAnimSets: array<scnRidAnimSetSRRef>;
+  public native let ridFacialAnimSets: array<scnRidAnimSetSRRef>;
+  public native let ridCyberwareAnimSets: array<scnRidAnimSetSRRef>;
+  public native let ridDeformationAnimSets: array<scnRidAnimSetSRRef>;
+  public native let lipsyncAnimSets: array<scnLipsyncAnimSetSRRef>;
+  public native let ridCameraAnimations: array<scnRidCameraAnimationSRRef>;
+  public native let cinematicAnimSets: array<scnCinematicAnimSetSRRef>;
+  public native let gameplayAnimSets: array<scnGameplayAnimSetSRRef>;
+  public native let dynamicAnimSets: array<scnDynamicAnimSetSRRef>;
+  public native let cinematicAnimNames: array<scnAnimSetAnimNames>;
+  public native let gameplayAnimNames: array<scnAnimSetAnimNames>;
+  public native let dynamicAnimNames: array<scnAnimSetDynAnimNames>;
+  public native let ridAnimationContainers: array<scnRidAnimationContainerSRRef>;
 }

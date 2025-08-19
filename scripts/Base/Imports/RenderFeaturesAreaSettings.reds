@@ -1,5 +1,5 @@
 public native class RenderFeaturesAreaSettings extends IAreaSettings {
-  native let allowGlobalIllumination: Bool;
-  native let allowScreenSpaceReflections: Bool;
-  native let allowVolumetricFog: Bool;
+  public native let allowGlobalIllumination: Bool;
+  public native let allowScreenSpaceReflections: Bool;
+  public native let allowVolumetricFog: Bool;
 }

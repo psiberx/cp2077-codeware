@@ -1,3 +1,3 @@
 public native class questDeletionMarkerNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let deletedNodeIds: array<Uint16>;
+  public native let deletedNodeIds: array<Uint16>;
 }

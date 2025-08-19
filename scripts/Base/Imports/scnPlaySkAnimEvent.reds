@@ -1,6 +1,6 @@
 public native class scnPlaySkAnimEvent extends scnPlayFPPControlAnimEvent {
-  native let animName: ref<scnAnimName>;
-  native let poseBlendOutWorkspot: ref<scnEventBlendWorkspotSetupParameters>;
-  native let rootMotionData: scnPlaySkAnimRootMotionData;
-  native let playerData: scnPlayerAnimData;
+  public native let animName: ref<scnAnimName>;
+  public native let poseBlendOutWorkspot: ref<scnEventBlendWorkspotSetupParameters>;
+  public native let rootMotionData: scnPlaySkAnimRootMotionData;
+  public native let playerData: scnPlayerAnimData;
 }

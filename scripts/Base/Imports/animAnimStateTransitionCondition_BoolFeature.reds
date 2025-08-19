@@ -1,5 +1,5 @@
 public native class animAnimStateTransitionCondition_BoolFeature extends animIAnimStateTransitionCondition {
-  native let compareValue: Bool;
-  native let featureName: CName;
-  native let featurePropertyName: CName;
+  public native let compareValue: Bool;
+  public native let featureName: CName;
+  public native let featurePropertyName: CName;
 }

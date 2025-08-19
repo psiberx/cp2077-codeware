@@ -1,6 +1,6 @@
 public native class MinimapDataNode extends worldNode {
-  native let encodedShapesRef: ResourceAsyncRef; // raRef<minimapEncodedShapes>
-  native let streamingDistance: Float;
-  native let localBounds: Box;
-  native let allInteriorShapes: Bool;
+  public native let encodedShapesRef: ResourceAsyncRef; // raRef<minimapEncodedShapes>
+  public native let streamingDistance: Float;
+  public native let localBounds: Box;
+  public native let allInteriorShapes: Bool;
 }

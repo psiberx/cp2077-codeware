@@ -1,7 +1,7 @@
 public native class worldConversationData extends ISerializable {
-  native let sceneFilename: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let condition: ref<questIBaseCondition>;
-  native let interruptionOperations: array<ref<scnIInterruptionOperation>>;
-  native let ignoreLocalLimit: Bool;
-  native let ignoreGlobalLimit: Bool;
+  public native let sceneFilename: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let condition: ref<questIBaseCondition>;
+  public native let interruptionOperations: array<ref<scnIInterruptionOperation>>;
+  public native let ignoreLocalLimit: Bool;
+  public native let ignoreGlobalLimit: Bool;
 }

@@ -1,3 +1,3 @@
 public native class gameeventsUserEnteredCoverEvent extends Event {
-  native let actionsPoints: array<WorldTransform>;
+  public native let actionsPoints: array<WorldTransform>;
 }

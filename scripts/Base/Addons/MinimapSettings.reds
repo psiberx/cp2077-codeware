@@ -1,11 +1,11 @@
 @addField(MinimapSettings)
-native let globalVisionRadiusBounds: Range;
+public native let globalVisionRadiusBounds: Range;
 
 @addField(MinimapSettings)
-native let visionRadiusLocked: Bool;
+public native let visionRadiusLocked: Bool;
 
 @addField(MinimapSettings)
-native let dynamicVisionRadiusEnabled: Bool;
+public native let dynamicVisionRadiusEnabled: Bool;
 
 @addField(MinimapSettings)
-native let smoothingEnabled: Bool;
+public native let smoothingEnabled: Bool;

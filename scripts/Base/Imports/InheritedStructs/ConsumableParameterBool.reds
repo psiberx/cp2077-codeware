@@ -1,5 +1,5 @@
 public native struct ConsumableParameterBool {
-  native let name: CName;
-  native let value: Bool;
-  native let consumed: Bool;
+  public native let name: CName;
+  public native let value: Bool;
+  public native let consumed: Bool;
 }

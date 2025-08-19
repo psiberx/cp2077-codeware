@@ -1,14 +1,14 @@
 @addField(inkVideo)
-native let videoResource: ResourceAsyncRef; // raRef<Bink>
+public native let videoResource: ResourceAsyncRef; // raRef<Bink>
 
 @addField(inkVideo)
-native let loop: Bool;
+public native let loop: Bool;
 
 @addField(inkVideo)
-native let overriddenPlayerName: CName;
+public native let overriddenPlayerName: CName;
 
 @addField(inkVideo)
-native let isParallaxEnabled: Bool;
+public native let isParallaxEnabled: Bool;
 
 @addField(inkVideo)
-native let prefetchVideo: Bool;
+public native let prefetchVideo: Bool;

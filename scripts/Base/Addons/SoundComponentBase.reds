@@ -1,17 +1,17 @@
 @addField(SoundComponentBase)
-native let audioName: CName;
+public native let audioName: CName;
 
 @addField(SoundComponentBase)
-native let applyObstruction: Bool;
+public native let applyObstruction: Bool;
 
 @addField(SoundComponentBase)
-native let applyAcousticOcclusion: Bool;
+public native let applyAcousticOcclusion: Bool;
 
 @addField(SoundComponentBase)
-native let applyAcousticRepositioning: Bool;
+public native let applyAcousticRepositioning: Bool;
 
 @addField(SoundComponentBase)
-native let obstructionChangeTime: Float;
+public native let obstructionChangeTime: Float;
 
 @addField(SoundComponentBase)
-native let maxPlayDistance: Float;
+public native let maxPlayDistance: Float;

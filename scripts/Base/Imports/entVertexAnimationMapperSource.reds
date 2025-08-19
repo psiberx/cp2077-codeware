@@ -1,4 +1,4 @@
 public native struct entVertexAnimationMapperSource {
-  native let type: entVertexAnimationMapperSourceType;
-  native let name: CName;
+  public native let type: entVertexAnimationMapperSourceType;
+  public native let name: CName;
 }

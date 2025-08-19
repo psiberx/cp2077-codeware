@@ -1,5 +1,5 @@
 public native class scnTimedCondition extends ISerializable {
-  native let duration: scnSceneTime;
-  native let action: scnChoiceNodeNsTimedAction;
-  native let timeLimitedFinish: Bool;
+  public native let duration: scnSceneTime;
+  public native let action: scnChoiceNodeNsTimedAction;
+  public native let timeLimitedFinish: Bool;
 }

@@ -1,5 +1,5 @@
 public native class questVehicleDestruction_ConditionType extends questIVehicleConditionType {
-  native let vehicleRef: EntityReference;
-  native let destruction: Float;
-  native let comparisonType: EComparisonType;
+  public native let vehicleRef: EntityReference;
+  public native let destruction: Float;
+  public native let comparisonType: EComparisonType;
 }

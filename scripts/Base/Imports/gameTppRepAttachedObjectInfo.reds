@@ -1,4 +1,4 @@
 public native struct gameTppRepAttachedObjectInfo {
-  native let slotID: TweakDBID;
-  native let itemID: TweakDBID;
+  public native let slotID: TweakDBID;
+  public native let itemID: TweakDBID;
 }

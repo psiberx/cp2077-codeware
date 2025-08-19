@@ -1,4 +1,4 @@
 public native struct gameuiVOWithDelay {
-  native let playDelay: Float;
-  native let voHexID: String;
+  public native let playDelay: Float;
+  public native let voHexID: String;
 }

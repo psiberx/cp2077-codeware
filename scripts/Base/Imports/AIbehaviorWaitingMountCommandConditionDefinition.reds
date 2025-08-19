@@ -1,4 +1,4 @@
 public native class AIbehaviorWaitingMountCommandConditionDefinition extends AIbehaviorConditionDefinition {
-  native let requestArgument: ref<AIArgumentMapping>;
-  native let callbackName: CName;
+  public native let requestArgument: ref<AIArgumentMapping>;
+  public native let callbackName: CName;
 }

@@ -1,3 +1,3 @@
 public native struct workSetSequenceCategoriesCommandData {
-  native let sequenceCategories: gameCategorySelectionProbability;
+  public native let sequenceCategories: gameCategorySelectionProbability;
 }

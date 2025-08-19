@@ -1,6 +1,6 @@
 public native class questCharacterStatusEffect_CondtionType extends questICharacterConditionType {
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let statusEffectID: String;
-  native let inverted: Bool;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let statusEffectID: String;
+  public native let inverted: Bool;
 }

@@ -1,4 +1,4 @@
 public native struct audioFlybySettings {
-  native let movementSpeed: Float;
-  native let flybyEvent: CName;
+  public native let movementSpeed: Float;
+  public native let flybyEvent: CName;
 }

@@ -1,4 +1,4 @@
 public native class gameEffectAction_KillFX extends EffectAction {
-  native let action: gameEffectAction_KillFXAction;
-  native let effectTag: CName;
+  public native let action: gameEffectAction_KillFXAction;
+  public native let effectTag: CName;
 }

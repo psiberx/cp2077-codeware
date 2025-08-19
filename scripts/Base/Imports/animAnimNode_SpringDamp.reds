@@ -1,12 +1,12 @@
 public native class animAnimNode_SpringDamp extends animAnimNode_FloatValue {
-  native let massFactor: Float;
-  native let springFactor: Float;
-  native let dampFactor: Float;
-  native let startFromDefaultValue: Bool;
-  native let defaultInitialValue: Float;
-  native let wrapAroundRange: Bool;
-  native let rangeMin: Float;
-  native let rangeMax: Float;
-  native let timeStep: Float;
-  native let inputNode: animFloatLink;
+  public native let massFactor: Float;
+  public native let springFactor: Float;
+  public native let dampFactor: Float;
+  public native let startFromDefaultValue: Bool;
+  public native let defaultInitialValue: Float;
+  public native let wrapAroundRange: Bool;
+  public native let rangeMin: Float;
+  public native let rangeMax: Float;
+  public native let timeStep: Float;
+  public native let inputNode: animFloatLink;
 }

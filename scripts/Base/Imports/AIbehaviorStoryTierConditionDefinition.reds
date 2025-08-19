@@ -1,4 +1,4 @@
 public native class AIbehaviorStoryTierConditionDefinition extends AIbehaviorConditionDefinition {
-  native let tier: gameStoryTier;
-  native let storyTier: ref<AIArgumentMapping>;
+  public native let tier: gameStoryTier;
+  public native let storyTier: ref<AIArgumentMapping>;
 }

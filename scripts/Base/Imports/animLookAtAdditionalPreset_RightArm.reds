@@ -1,4 +1,4 @@
 public native class animLookAtAdditionalPreset_RightArm extends animLookAtAdditionalPreset {
-  native let isAiming: Bool;
-  native let softLimitAngle: Float;
+  public native let isAiming: Bool;
+  public native let softLimitAngle: Float;
 }

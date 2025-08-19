@@ -1,4 +1,4 @@
 public native class questInteraction_ConditionType extends questIObjectConditionType {
-  native let objectRef: NodeRef;
-  native let eventType: questObjectInteractionEventType;
+  public native let objectRef: NodeRef;
+  public native let eventType: questObjectInteractionEventType;
 }

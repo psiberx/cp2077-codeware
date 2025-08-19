@@ -1,3 +1,3 @@
 public native class AIArchetypeSet extends CResource {
-  native let archetypeResources: array<AIArchetypeSetEntry>;
+  public native let archetypeResources: array<AIArchetypeSetEntry>;
 }

@@ -1,7 +1,7 @@
 public native class entTriggerActivatorComponent extends IPlacedComponent {
-  native let radius: Float;
-  native let height: Float;
-  native let maxContinousDistance: Float;
-  native let enableCCD: Bool;
-  native let isEnabled: Bool;
+  public native let radius: Float;
+  public native let height: Float;
+  public native let maxContinousDistance: Float;
+  public native let enableCCD: Bool;
+  public native let isEnabled: Bool;
 }

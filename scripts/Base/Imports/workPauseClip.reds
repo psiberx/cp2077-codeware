@@ -1,5 +1,5 @@
 public native class workPauseClip extends workIEntry {
-  native let timeMin: Float;
-  native let timeMax: Float;
-  native let blendOutTime: Float;
+  public native let timeMin: Float;
+  public native let timeMax: Float;
+  public native let blendOutTime: Float;
 }

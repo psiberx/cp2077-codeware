@@ -1,19 +1,19 @@
 public native class appearanceAppearanceResource extends resStreamedResource {
-  native let alternateAppearanceSettingName: CName;
-  native let alternateAppearanceSuffixes: array<CName>;
-  native let alternateAppearanceMapping: array<appearanceAlternateAppearanceEntry>;
-  native let censorshipMapping: array<appearanceCensorshipEntry>;
-  native let Wounds: array<ref<entdismembermentWoundResource>>;
-  native let DismEffects: array<ref<entdismembermentEffectResource>>;
-  native let DismWoundConfig: entdismembermentWoundsConfigSet;
-  native let baseType: CName;
-  native let baseEntityType: CName;
-  native let baseEntity: ResourceAsyncRef; // raRef<entEntityTemplate>
-  native let partType: CName;
-  native let preset: CName;
-  native let appearances: array<ref<appearanceAppearanceDefinition>>;
-  native let commonCookData: ResourceAsyncRef; // raRef<appearanceCookedAppearanceData>
-  native let proxyPolyCount: Int32;
-  native let forceCompileProxy: Bool;
-  native let generatePlayerBlockingCollisionForProxy: Bool;
+  public native let alternateAppearanceSettingName: CName;
+  public native let alternateAppearanceSuffixes: array<CName>;
+  public native let alternateAppearanceMapping: array<appearanceAlternateAppearanceEntry>;
+  public native let censorshipMapping: array<appearanceCensorshipEntry>;
+  public native let Wounds: array<ref<entdismembermentWoundResource>>;
+  public native let DismEffects: array<ref<entdismembermentEffectResource>>;
+  public native let DismWoundConfig: entdismembermentWoundsConfigSet;
+  public native let baseType: CName;
+  public native let baseEntityType: CName;
+  public native let baseEntity: ResourceAsyncRef; // raRef<entEntityTemplate>
+  public native let partType: CName;
+  public native let preset: CName;
+  public native let appearances: array<ref<appearanceAppearanceDefinition>>;
+  public native let commonCookData: ResourceAsyncRef; // raRef<appearanceCookedAppearanceData>
+  public native let proxyPolyCount: Int32;
+  public native let forceCompileProxy: Bool;
+  public native let generatePlayerBlockingCollisionForProxy: Bool;
 }

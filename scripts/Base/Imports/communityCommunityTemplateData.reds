@@ -1,5 +1,5 @@
 public native class communityCommunityTemplateData extends ISerializable {
-  native let entries: array<ref<communitySpawnEntry>>;
-  native let crowdEntries: array<gameCrowdTemplateEntry>;
-  native let spawnSetReference: CName;
+  public native let entries: array<ref<communitySpawnEntry>>;
+  public native let crowdEntries: array<gameCrowdTemplateEntry>;
+  public native let spawnSetReference: CName;
 }

@@ -1,5 +1,5 @@
 public native class questUseWorkspotCommandParams extends AICommandParams {
-  native let workspotNode: NodeRef;
-  native let moveToWorkspot: Bool;
-  native let forceEntryAnimName: CName;
+  public native let workspotNode: NodeRef;
+  public native let moveToWorkspot: Bool;
+  public native let forceEntryAnimName: CName;
 }

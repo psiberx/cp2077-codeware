@@ -1,3 +1,3 @@
 public native class toolsMessageToken_Text extends toolsIMessageToken {
-  native let text: String;
+  public native let text: String;
 }

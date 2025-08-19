@@ -1,5 +1,5 @@
 @addField(PhoneWaveformGameController)
-native let measurementsIntreval: Float;
+public native let measurementsIntreval: Float;
 
 @addField(PhoneWaveformGameController)
-native let measurementsCount: Int32;
+public native let measurementsCount: Int32;

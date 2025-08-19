@@ -1,5 +1,5 @@
 public native struct interopDispatchPrefabProxyJobsResult {
-  native let numProxyJobsDispatched: Uint32;
-  native let numProxyJobsSkipped: Uint32;
-  native let numProxyJobsFailed: Uint32;
+  public native let numProxyJobsDispatched: Uint32;
+  public native let numProxyJobsSkipped: Uint32;
+  public native let numProxyJobsFailed: Uint32;
 }

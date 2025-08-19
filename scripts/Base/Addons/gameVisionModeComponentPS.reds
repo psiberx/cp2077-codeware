@@ -1,11 +1,11 @@
 @addField(gameVisionModeComponentPS)
-native persistent let hideInDefaultMode: Bool;
+public native persistent let hideInDefaultMode: Bool;
 
 @addField(gameVisionModeComponentPS)
-native persistent let hideInFocusMode: Bool;
+public native persistent let hideInFocusMode: Bool;
 
 @addField(gameVisionModeComponentPS)
-native persistent let inactive: Bool;
+public native persistent let inactive: Bool;
 
 @addField(gameVisionModeComponentPS)
-native persistent let questInactive: Bool;
+public native persistent let questInactive: Bool;

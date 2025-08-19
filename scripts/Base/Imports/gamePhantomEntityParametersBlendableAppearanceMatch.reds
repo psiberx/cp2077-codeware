@@ -1,4 +1,4 @@
 public native struct gamePhantomEntityParametersBlendableAppearanceMatch {
-  native let blendable: CName;
-  native let notBlendable: CName;
+  public native let blendable: CName;
+  public native let notBlendable: CName;
 }

@@ -1,7 +1,7 @@
 public native class AIbehaviorActionRotateToObjectConstTimeTreeNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let target: ref<AIArgumentMapping>;
-  native let angleOffset: ref<AIArgumentMapping>;
-  native let angleTolerance: ref<AIArgumentMapping>;
-  native let time: ref<AIArgumentMapping>;
-  native let keepUpdatingTarget: ref<AIArgumentMapping>;
+  public native let target: ref<AIArgumentMapping>;
+  public native let angleOffset: ref<AIArgumentMapping>;
+  public native let angleTolerance: ref<AIArgumentMapping>;
+  public native let time: ref<AIArgumentMapping>;
+  public native let keepUpdatingTarget: ref<AIArgumentMapping>;
 }

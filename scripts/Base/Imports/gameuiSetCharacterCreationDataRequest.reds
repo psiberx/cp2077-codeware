@@ -1,4 +1,4 @@
 public native class gameuiSetCharacterCreationDataRequest extends PlayerScriptableSystemRequest {
-  native let lifepath: TweakDBID;
-  native let attributes: array<CharacterCustomizationAttribute>;
+  public native let lifepath: TweakDBID;
+  public native let attributes: array<CharacterCustomizationAttribute>;
 }

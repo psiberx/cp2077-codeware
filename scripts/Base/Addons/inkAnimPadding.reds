@@ -1,5 +1,5 @@
 @addField(inkAnimPadding)
-native let startValue: inkMargin;
+public native let startValue: inkMargin;
 
 @addField(inkAnimPadding)
-native let endValue: inkMargin;
+public native let endValue: inkMargin;

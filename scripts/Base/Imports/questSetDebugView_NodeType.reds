@@ -1,3 +1,3 @@
 public native class questSetDebugView_NodeType extends questIRenderFxManagerNodeType {
-  native let mode: questEDebugViewMode;
+  public native let mode: questEDebugViewMode;
 }

@@ -1,4 +1,4 @@
 public native struct scnOutputSocketId {
-  native let nodeId: scnNodeId;
-  native let osockStamp: scnOutputSocketStamp;
+  public native let nodeId: scnNodeId;
+  public native let osockStamp: scnOutputSocketStamp;
 }

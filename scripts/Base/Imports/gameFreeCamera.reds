@@ -1,8 +1,8 @@
 public native class gameFreeCamera extends GameObject {
-  native let baseSpeed: Float;
-  native let analogTurnRate: Float;
-  native let mouseTurnRate: Float;
-  native let activationBlendTime: Float;
-  native let deactivationBlendTime: Float;
-  native let usePhysicalCollision: Bool;
+  public native let baseSpeed: Float;
+  public native let analogTurnRate: Float;
+  public native let mouseTurnRate: Float;
+  public native let activationBlendTime: Float;
+  public native let deactivationBlendTime: Float;
+  public native let usePhysicalCollision: Bool;
 }

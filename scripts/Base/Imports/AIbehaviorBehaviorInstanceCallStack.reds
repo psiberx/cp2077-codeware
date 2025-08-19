@@ -1,3 +1,3 @@
 public native struct AIbehaviorBehaviorInstanceCallStack {
-  native let resourceHashes: array<Uint32>;
+  public native let resourceHashes: array<Uint32>;
 }

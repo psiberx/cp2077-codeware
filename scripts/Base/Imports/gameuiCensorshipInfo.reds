@@ -1,3 +1,3 @@
 public native struct gameuiCensorshipInfo {
-  native let censorFlagAction: gameuiCharacterCustomizationActionType;
+  public native let censorFlagAction: gameuiCharacterCustomizationActionType;
 }

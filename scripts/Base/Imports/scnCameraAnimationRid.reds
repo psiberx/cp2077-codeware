@@ -1,5 +1,5 @@
 public native struct scnCameraAnimationRid {
-  native let tag: scnRidTag;
-  native let animation: ref<animIAnimationBuffer>;
-  native let cameraAnimationLOD: scnCameraAnimationLOD;
+  public native let tag: scnRidTag;
+  public native let animation: ref<animIAnimationBuffer>;
+  public native let cameraAnimationLOD: scnCameraAnimationLOD;
 }

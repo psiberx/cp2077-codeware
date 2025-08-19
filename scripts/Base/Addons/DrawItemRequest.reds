@@ -1,2 +1,2 @@
 @addField(DrawItemRequest)
-native let assignOnly: Bool;
+public native let assignOnly: Bool;

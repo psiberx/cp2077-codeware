@@ -1,4 +1,4 @@
 public native class worldTrafficNullAreaCollisionData extends ISerializable {
-  native let header: worldCrowdNullAreaCollisionHeader;
-  native let nullAreaCollisions: array<worldCrowdNullAreaCollisionData>;
+  public native let header: worldCrowdNullAreaCollisionHeader;
+  public native let nullAreaCollisions: array<worldCrowdNullAreaCollisionData>;
 }

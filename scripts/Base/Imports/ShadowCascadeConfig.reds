@@ -1,6 +1,6 @@
 public native struct ShadowCascadeConfig {
-  native let range: Float;
-  native let filterSize: Float;
-  native let blendRange: Float;
-  native let biasOffset: Float;
+  public native let range: Float;
+  public native let filterSize: Float;
+  public native let blendRange: Float;
+  public native let biasOffset: Float;
 }

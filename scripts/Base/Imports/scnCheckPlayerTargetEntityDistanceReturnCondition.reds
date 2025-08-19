@@ -1,3 +1,3 @@
 public native class scnCheckPlayerTargetEntityDistanceReturnCondition extends scnIReturnCondition {
-  native let params: scnCheckPlayerTargetEntityDistanceReturnConditionParams;
+  public native let params: scnCheckPlayerTargetEntityDistanceReturnConditionParams;
 }

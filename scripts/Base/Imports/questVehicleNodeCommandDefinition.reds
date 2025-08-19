@@ -1,4 +1,4 @@
 public native class questVehicleNodeCommandDefinition extends questAICommandNodeBase {
-  native let vehicle: EntityReference;
-  native let commandParams: ref<questVehicleCommandParams>;
+  public native let vehicle: EntityReference;
+  public native let commandParams: ref<questVehicleCommandParams>;
 }

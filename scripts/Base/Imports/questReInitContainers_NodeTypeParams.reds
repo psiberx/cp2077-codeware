@@ -1,5 +1,5 @@
 public native struct questReInitContainers_NodeTypeParams {
-  native let containerNodeRef: NodeRef;
-  native let lootTables: array<TweakDBID>;
-  native let useAreaLoot: Bool;
+  public native let containerNodeRef: NodeRef;
+  public native let lootTables: array<TweakDBID>;
+  public native let useAreaLoot: Bool;
 }

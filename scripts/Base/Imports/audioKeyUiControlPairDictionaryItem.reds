@@ -1,5 +1,5 @@
 @neverRef()
 public native class audioKeyUiControlPairDictionaryItem extends audioInlinedAudioMetadata {
-  native let key: CName;
-  native let value: audioUiControl;
+  public native let key: CName;
+  public native let value: audioUiControl;
 }

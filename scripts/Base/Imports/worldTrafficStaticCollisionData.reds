@@ -1,3 +1,3 @@
 public native class worldTrafficStaticCollisionData extends ISerializable {
-  native let laneCollisions: array<worldStaticLaneCollisions>;
+  public native let laneCollisions: array<worldStaticLaneCollisions>;
 }

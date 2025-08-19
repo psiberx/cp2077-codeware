@@ -1,4 +1,4 @@
 public native class AIbehaviorMovementPolicyTaskItemDefinition extends ISerializable {
-  native let function: AIbehaviorMovementPolicyTaskFunctions;
-  native let params: [ref<AIbehaviorExpressionSocket>; 4];
+  public native let function: AIbehaviorMovementPolicyTaskFunctions;
+  public native let params: [ref<AIbehaviorExpressionSocket>; 4];
 }

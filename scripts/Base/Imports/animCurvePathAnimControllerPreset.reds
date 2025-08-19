@@ -1,6 +1,6 @@
 public native struct animCurvePathAnimControllerPreset {
-  native let name: CName;
-  native let leftAnimationName: CName;
-  native let forwardAnimationName: CName;
-  native let rightAnimationName: CName;
+  public native let name: CName;
+  public native let leftAnimationName: CName;
+  public native let forwardAnimationName: CName;
+  public native let rightAnimationName: CName;
 }

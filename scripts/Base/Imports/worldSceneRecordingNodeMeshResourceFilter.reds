@@ -1,4 +1,4 @@
 public native struct worldSceneRecordingNodeMeshResourceFilter {
-  native let forceFilterIgnore: array<ResourceAsyncRef>;
-  native let forceFilterMatch: array<ResourceAsyncRef>;
+  public native let forceFilterIgnore: array<ResourceAsyncRef>;
+  public native let forceFilterMatch: array<ResourceAsyncRef>;
 }

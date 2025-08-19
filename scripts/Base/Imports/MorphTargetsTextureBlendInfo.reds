@@ -1,5 +1,5 @@
 public native struct MorphTargetsTextureBlendInfo {
-  native let blend: Bool;
-  native let diffSize: MorphTargetsDiffTextureSize;
-  native let name: CName;
+  public native let blend: Bool;
+  public native let diffSize: MorphTargetsDiffTextureSize;
+  public native let name: CName;
 }

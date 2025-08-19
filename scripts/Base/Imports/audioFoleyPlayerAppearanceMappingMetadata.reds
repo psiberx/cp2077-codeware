@@ -1,7 +1,7 @@
 public native class audioFoleyPlayerAppearanceMappingMetadata extends audioAudioMetadata {
-  native let fallbackMetadata: CName;
-  native let jacketSettings: array<audioAppearanceToPlayerMetadata>;
-  native let topSettings: array<audioAppearanceToPlayerMetadata>;
-  native let bottomSettings: array<audioAppearanceToPlayerMetadata>;
-  native let jewelrySettings: array<audioAppearanceToPlayerMetadata>;
+  public native let fallbackMetadata: CName;
+  public native let jacketSettings: array<audioAppearanceToPlayerMetadata>;
+  public native let topSettings: array<audioAppearanceToPlayerMetadata>;
+  public native let bottomSettings: array<audioAppearanceToPlayerMetadata>;
+  public native let jewelrySettings: array<audioAppearanceToPlayerMetadata>;
 }

@@ -1,7 +1,7 @@
 public native struct gameMountDescriptor {
-  native let parentId: EntityID;
-  native let slotName: CName;
-  native let initialTransform: Transform;
-  native let state: PuppetVehicleState;
-  native let mountType: MountDescriptor_MountingType;
+  public native let parentId: EntityID;
+  public native let slotName: CName;
+  public native let initialTransform: Transform;
+  public native let state: PuppetVehicleState;
+  public native let mountType: MountDescriptor_MountingType;
 }

@@ -1,2 +1,2 @@
 @addField(WorldMapPlayerMappinController)
-native let coneIconWidget: inkImageRef;
+public native let coneIconWidget: inkImageRef;

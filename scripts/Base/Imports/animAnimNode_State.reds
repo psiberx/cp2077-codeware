@@ -1,7 +1,7 @@
 public native class animAnimNode_State extends animAnimNode_Container {
-  native let name: CName;
-  native let outTransitionIndices: array<Int16>;
-  native let preventTransitionsInActivationFrame: Bool;
-  native let tags: array<CName>;
-  native let requiredQualityDistanceCategory: Uint32;
+  public native let name: CName;
+  public native let outTransitionIndices: array<Int16>;
+  public native let preventTransitionsInActivationFrame: Bool;
+  public native let tags: array<CName>;
+  public native let requiredQualityDistanceCategory: Uint32;
 }

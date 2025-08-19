@@ -1,4 +1,4 @@
 public abstract native class LibTreeDefTreeVariable extends ISerializable {
-  native let id: Uint16;
-  native let readableName: CName;
+  public native let id: Uint16;
+  public native let readableName: CName;
 }

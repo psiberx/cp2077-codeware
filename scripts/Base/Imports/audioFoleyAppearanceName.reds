@@ -1,3 +1,3 @@
 public native class audioFoleyAppearanceName extends audioAudioMetadata {
-  native let void: Bool;
+  public native let void: Bool;
 }

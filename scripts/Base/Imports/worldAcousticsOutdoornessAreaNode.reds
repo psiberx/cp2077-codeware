@@ -1,3 +1,3 @@
 public native class worldAcousticsOutdoornessAreaNode extends worldAreaShapeNode {
-  native let outdoor: Float;
+  public native let outdoor: Float;
 }

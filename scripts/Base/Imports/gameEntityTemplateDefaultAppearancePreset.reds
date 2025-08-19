@@ -1,3 +1,3 @@
 public native class gameEntityTemplateDefaultAppearancePreset extends ISerializable {
-  native let defaultAppearancePresets: array<gameDefaultAppearancePreset_Entity>;
+  public native let defaultAppearancePresets: array<gameDefaultAppearancePreset_Entity>;
 }

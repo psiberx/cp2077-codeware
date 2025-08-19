@@ -1,3 +1,3 @@
 public native struct workDynamicSyncBindCommandData {
-  native let masterID: EntityID;
+  public native let masterID: EntityID;
 }

@@ -1,3 +1,3 @@
 public abstract native class animDangleConstraint_SimulationSingleBone extends animDangleConstraint_Simulation {
-  native let dangleBone: animTransformIndex;
+  public native let dangleBone: animTransformIndex;
 }

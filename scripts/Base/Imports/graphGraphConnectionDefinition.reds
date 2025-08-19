@@ -1,4 +1,4 @@
 public native class graphGraphConnectionDefinition extends graphIGraphObjectDefinition {
-  native let source: wref<graphGraphSocketDefinition>;
-  native let destination: wref<graphGraphSocketDefinition>;
+  public native let source: wref<graphGraphSocketDefinition>;
+  public native let destination: wref<graphGraphSocketDefinition>;
 }

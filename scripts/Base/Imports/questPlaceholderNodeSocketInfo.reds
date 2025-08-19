@@ -1,4 +1,4 @@
 public native struct questPlaceholderNodeSocketInfo {
-  native let name: CName;
-  native let type: questSocketType;
+  public native let name: CName;
+  public native let type: questSocketType;
 }

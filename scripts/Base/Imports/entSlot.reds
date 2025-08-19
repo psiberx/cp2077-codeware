@@ -1,6 +1,6 @@
 public native struct entSlot {
-  native let slotName: CName;
-  native let relativePosition: Vector3;
-  native let relativeRotation: Quaternion;
-  native let boneName: CName;
+  public native let slotName: CName;
+  public native let relativePosition: Vector3;
+  public native let relativeRotation: Quaternion;
+  public native let boneName: CName;
 }

@@ -1,9 +1,9 @@
 public native class gameEffectAction_ChildEffectsMovingInCone extends EffectPostAction {
-  native let effectsCount: Uint32;
-  native let effectTagInThisFile: CName;
-  native let coneAngle: Float;
-  native let minEffectDuration: Float;
-  native let maxEffectDuration: Float;
-  native let twoDimensional: Bool;
-  native let smoothInterpolations: Bool;
+  public native let effectsCount: Uint32;
+  public native let effectTagInThisFile: CName;
+  public native let coneAngle: Float;
+  public native let minEffectDuration: Float;
+  public native let maxEffectDuration: Float;
+  public native let twoDimensional: Bool;
+  public native let smoothInterpolations: Bool;
 }

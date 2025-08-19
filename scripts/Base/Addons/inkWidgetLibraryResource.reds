@@ -1,2 +1,2 @@
 @addField(inkWidgetLibraryResource)
-native let library: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+public native let library: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>

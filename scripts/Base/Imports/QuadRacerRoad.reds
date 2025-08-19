@@ -1,4 +1,4 @@
 public native class QuadRacerRoad extends MinigameDynObject {
-  native let groundParts: array<CName>;
-  native let roadParts: array<CName>;
+  public native let groundParts: array<CName>;
+  public native let roadParts: array<CName>;
 }

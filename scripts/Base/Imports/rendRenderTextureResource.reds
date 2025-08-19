@@ -1,3 +1,3 @@
 public native struct rendRenderTextureResource {
-  native let renderResourceBlobPC: ref<IRenderResourceBlob>;
+  public native let renderResourceBlobPC: ref<IRenderResourceBlob>;
 }

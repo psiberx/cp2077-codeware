@@ -1,5 +1,5 @@
 public native struct audioConversationItemMetadata {
-  native let sceneFile: CName;
-  native let characterConditions: array<audioConversationCharacterCondition>;
-  native let shouldSceneInstanceBeSaved: Bool;
+  public native let sceneFile: CName;
+  public native let characterConditions: array<audioConversationCharacterCondition>;
+  public native let shouldSceneInstanceBeSaved: Bool;
 }

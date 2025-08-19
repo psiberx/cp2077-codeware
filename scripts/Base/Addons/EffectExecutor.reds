@@ -1,2 +1,2 @@
 @addField(EffectExecutor)
-native let usesHitCooldown: Bool;
+public native let usesHitCooldown: Bool;

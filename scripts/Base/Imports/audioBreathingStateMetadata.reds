@@ -1,12 +1,12 @@
 public native class audioBreathingStateMetadata extends audioAudioMetadata {
-  native let inhaleSound: CName;
-  native let exhaleSound: CName;
-  native let paramChangeSpeed: Float;
-  native let targetBpm: Float;
-  native let targetTimeDistortion: Float;
-  native let stateMinimalTime: Float;
-  native let exhaustionChangeSpeed: Float;
-  native let targetExhaustion: Float;
-  native let loopBehavior: audiobreathingLoopBehavior;
-  native let startStateFromBreath: Bool;
+  public native let inhaleSound: CName;
+  public native let exhaleSound: CName;
+  public native let paramChangeSpeed: Float;
+  public native let targetBpm: Float;
+  public native let targetTimeDistortion: Float;
+  public native let stateMinimalTime: Float;
+  public native let exhaustionChangeSpeed: Float;
+  public native let targetExhaustion: Float;
+  public native let loopBehavior: audiobreathingLoopBehavior;
+  public native let startStateFromBreath: Bool;
 }

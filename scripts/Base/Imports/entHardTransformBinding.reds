@@ -1,3 +1,3 @@
 public native class entHardTransformBinding extends entITransformBinding {
-  native let slotName: CName;
+  public native let slotName: CName;
 }

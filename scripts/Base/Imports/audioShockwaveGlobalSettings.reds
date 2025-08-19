@@ -1,6 +1,6 @@
 public native class audioShockwaveGlobalSettings extends audioAudioMetadata {
-  native let explosionPropagationSpeed: Float;
-  native let thumpPropagationSpeed: Float;
-  native let electroshockPropagationSpeed: Float;
-  native let revealPropagationSpeed: Float;
+  public native let explosionPropagationSpeed: Float;
+  public native let thumpPropagationSpeed: Float;
+  public native let electroshockPropagationSpeed: Float;
+  public native let revealPropagationSpeed: Float;
 }

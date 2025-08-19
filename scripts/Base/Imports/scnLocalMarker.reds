@@ -1,4 +1,4 @@
 public native struct scnLocalMarker {
-  native let transformLS: Transform;
-  native let name: CName;
+  public native let transformLS: Transform;
+  public native let name: CName;
 }

@@ -1,4 +1,4 @@
 public native struct gameCookedMultiMappinData {
-  native let journalPathHash: Uint32;
-  native let positions: array<Vector3>;
+  public native let journalPathHash: Uint32;
+  public native let positions: array<Vector3>;
 }

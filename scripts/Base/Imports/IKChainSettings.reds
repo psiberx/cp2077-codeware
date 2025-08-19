@@ -1,6 +1,6 @@
 public native struct IKChainSettings {
-  native let chainName: CName;
-  native let enableFloatTrack: CName;
-  native let ikEndPointOffset: Vector3;
-  native let ikEndRotationOffset: Quaternion;
+  public native let chainName: CName;
+  public native let enableFloatTrack: CName;
+  public native let ikEndPointOffset: Vector3;
+  public native let ikEndRotationOffset: Quaternion;
 }

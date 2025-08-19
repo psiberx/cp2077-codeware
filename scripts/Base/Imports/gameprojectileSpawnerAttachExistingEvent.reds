@@ -1,4 +1,4 @@
 public importonly class gameprojectileSpawnerAttachExistingEvent extends Event {
-  native let projectile: wref<GameObject>;
-  native let owner: wref<GameObject>;
+  public native let projectile: wref<GameObject>;
+  public native let owner: wref<GameObject>;
 }

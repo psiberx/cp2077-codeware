@@ -1,152 +1,152 @@
 @addField(LightComponent)
-native let type: ELightType;
+public native let type: ELightType;
 
 @addField(LightComponent)
-native let color: Color;
+public native let color: Color;
 
 @addField(LightComponent)
-native let radius: Float;
+public native let radius: Float;
 
 @addField(LightComponent)
-native let unit: ELightUnit;
+public native let unit: ELightUnit;
 
 @addField(LightComponent)
-native let intensity: Float;
+public native let intensity: Float;
 
 @addField(LightComponent)
-native let EV: Float;
+public native let EV: Float;
 
 @addField(LightComponent)
-native let temperature: Float;
+public native let temperature: Float;
 
 @addField(LightComponent)
-native let sceneDiffuse: Bool;
+public native let sceneDiffuse: Bool;
 
 @addField(LightComponent)
-native let sceneSpecularScale: Uint8;
+public native let sceneSpecularScale: Uint8;
 
 @addField(LightComponent)
-native let directional: Bool;
+public native let directional: Bool;
 
 @addField(LightComponent)
-native let roughnessBias: Int8;
+public native let roughnessBias: Int8;
 
 @addField(LightComponent)
-native let scaleGI: Uint8;
+public native let scaleGI: Uint8;
 
 @addField(LightComponent)
-native let scaleEnvProbes: Uint8;
+public native let scaleEnvProbes: Uint8;
 
 @addField(LightComponent)
-native let useInTransparents: Bool;
+public native let useInTransparents: Bool;
 
 @addField(LightComponent)
-native let scaleVolFog: Uint8;
+public native let scaleVolFog: Uint8;
 
 @addField(LightComponent)
-native let useInParticles: Bool;
+public native let useInParticles: Bool;
 
 @addField(LightComponent)
-native let attenuation: rendLightAttenuation;
+public native let attenuation: rendLightAttenuation;
 
 @addField(LightComponent)
-native let clampAttenuation: Bool;
+public native let clampAttenuation: Bool;
 
 @addField(LightComponent)
-native let group: rendLightGroup;
+public native let group: rendLightGroup;
 
 @addField(LightComponent)
-native let areaShape: EAreaLightShape;
+public native let areaShape: EAreaLightShape;
 
 @addField(LightComponent)
-native let areaTwoSided: Bool;
+public native let areaTwoSided: Bool;
 
 @addField(LightComponent)
-native let spotCapsule: Bool;
+public native let spotCapsule: Bool;
 
 @addField(LightComponent)
-native let sourceRadius: Float;
+public native let sourceRadius: Float;
 
 @addField(LightComponent)
-native let capsuleLength: Float;
+public native let capsuleLength: Float;
 
 @addField(LightComponent)
-native let areaRectSideA: Float;
+public native let areaRectSideA: Float;
 
 @addField(LightComponent)
-native let areaRectSideB: Float;
+public native let areaRectSideB: Float;
 
 @addField(LightComponent)
-native let innerAngle: Float;
+public native let innerAngle: Float;
 
 @addField(LightComponent)
-native let outerAngle: Float;
+public native let outerAngle: Float;
 
 @addField(LightComponent)
-native let softness: Float;
+public native let softness: Float;
 
 @addField(LightComponent)
-native let enableLocalShadows: Bool;
+public native let enableLocalShadows: Bool;
 
 @addField(LightComponent)
-native let enableLocalShadowsForceStaticsOnly: Bool;
+public native let enableLocalShadowsForceStaticsOnly: Bool;
 
 @addField(LightComponent)
-native let contactShadows: rendContactShadowReciever;
+public native let contactShadows: rendContactShadowReciever;
 
 @addField(LightComponent)
-native let shadowAngle: Float;
+public native let shadowAngle: Float;
 
 @addField(LightComponent)
-native let shadowRadius: Float;
+public native let shadowRadius: Float;
 
 @addField(LightComponent)
-native let shadowFadeDistance: Float;
+public native let shadowFadeDistance: Float;
 
 @addField(LightComponent)
-native let shadowFadeRange: Float;
+public native let shadowFadeRange: Float;
 
 @addField(LightComponent)
-native let shadowSoftnessMode: ELightShadowSoftnessMode;
+public native let shadowSoftnessMode: ELightShadowSoftnessMode;
 
 @addField(LightComponent)
-native let rayTracedShadowsPlatform: rendRayTracedShadowsPlatform;
+public native let rayTracedShadowsPlatform: rendRayTracedShadowsPlatform;
 
 @addField(LightComponent)
-native let rayTracingLightSourceRadius: Float;
+public native let rayTracingLightSourceRadius: Float;
 
 @addField(LightComponent)
-native let rayTracingContactShadowRange: Float;
+public native let rayTracingContactShadowRange: Float;
 
 @addField(LightComponent)
-native let iesProfile: ResourceAsyncRef; // raRef<CIESDataResource>
+public native let iesProfile: ResourceAsyncRef; // raRef<CIESDataResource>
 
 @addField(LightComponent)
-native let flicker: rendSLightFlickering;
+public native let flicker: rendSLightFlickering;
 
 @addField(LightComponent)
-native let envColorGroup: EEnvColorGroup;
+public native let envColorGroup: EEnvColorGroup;
 
 @addField(LightComponent)
-native let colorGroupSaturation: Uint8;
+public native let colorGroupSaturation: Uint8;
 
 @addField(LightComponent)
-native let portalAngleCutoff: Uint8;
+public native let portalAngleCutoff: Uint8;
 
 @addField(LightComponent)
-native let allowDistantLight: Bool;
+public native let allowDistantLight: Bool;
 
 @addField(LightComponent)
-native let rayTracingIntensityScale: Float;
+public native let rayTracingIntensityScale: Float;
 
 @addField(LightComponent)
-native let pathTracingLightUsage: rendEPathTracingLightUsage;
+public native let pathTracingLightUsage: rendEPathTracingLightUsage;
 
 @addField(LightComponent)
-native let pathTracingOverrideScaleGI: Bool;
+public native let pathTracingOverrideScaleGI: Bool;
 
 @addField(LightComponent)
-native let rtxdiShadowStartingDistance: Float;
+public native let rtxdiShadowStartingDistance: Float;
 
 @addField(LightComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

@@ -1,5 +1,5 @@
 public native struct AIArgumentOverrideWrapper {
-  native let name: CName;
-  native let type: AIArgumentType;
-  native let definition: ref<AIArgumentDefinition>;
+  public native let name: CName;
+  public native let type: AIArgumentType;
+  public native let definition: ref<AIArgumentDefinition>;
 }

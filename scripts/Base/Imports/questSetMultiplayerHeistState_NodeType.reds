@@ -1,3 +1,3 @@
 public native class questSetMultiplayerHeistState_NodeType extends questIMultiplayerHeistNodeType {
-  native let state: questMultiplayerHeistState;
+  public native let state: questMultiplayerHeistState;
 }

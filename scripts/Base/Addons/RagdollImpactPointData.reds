@@ -1,2 +1,2 @@
 @addField(RagdollImpactPointData)
-native let otherProxyActorIndex: Uint32;
+public native let otherProxyActorIndex: Uint32;

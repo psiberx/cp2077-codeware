@@ -1,4 +1,4 @@
 public native class questPhoneMuted_ConditionType extends questISystemConditionType {
-  native let groupName: CName;
-  native let inverted: Bool;
+  public native let groupName: CName;
+  public native let inverted: Bool;
 }

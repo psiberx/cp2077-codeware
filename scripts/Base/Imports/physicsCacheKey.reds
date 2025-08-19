@@ -1,4 +1,4 @@
 public native struct physicsCacheKey {
-  native let key: physicsGeometryKey;
-  native let entryIndex: Uint32;
+  public native let key: physicsGeometryKey;
+  public native let entryIndex: Uint32;
 }

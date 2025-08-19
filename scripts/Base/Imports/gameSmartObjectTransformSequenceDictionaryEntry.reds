@@ -1,4 +1,4 @@
 public native struct gameSmartObjectTransformSequenceDictionaryEntry {
-  native let sequence: array<Uint16>;
-  native let id: Uint8;
+  public native let sequence: array<Uint16>;
+  public native let id: Uint8;
 }

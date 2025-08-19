@@ -1,3 +1,3 @@
 public native struct inkStylePropertyReference {
-  native let referencedPath: CName;
+  public native let referencedPath: CName;
 }

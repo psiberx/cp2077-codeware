@@ -1,4 +1,4 @@
 public native struct gameuiarcadeArcadeColliderData {
-  native let type: gameuiarcadeArcadeColliderType;
-  native let shape: ref<gameuiarcadeBoundingShape>;
+  public native let type: gameuiarcadeArcadeColliderType;
+  public native let shape: ref<gameuiarcadeBoundingShape>;
 }

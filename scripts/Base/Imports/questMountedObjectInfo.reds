@@ -1,7 +1,7 @@
 public native class questMountedObjectInfo extends ISerializable {
-  native let isFirst: Bool;
-  native let isPlayer: Bool;
-  native let ref: EntityReference;
-  native let onMount: Bool;
-  native let role: gameMountingSlotRole;
+  public native let isFirst: Bool;
+  public native let isPlayer: Bool;
+  public native let ref: EntityReference;
+  public native let onMount: Bool;
+  public native let role: gameMountingSlotRole;
 }

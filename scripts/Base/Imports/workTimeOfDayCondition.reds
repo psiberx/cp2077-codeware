@@ -1,4 +1,4 @@
 public native class workTimeOfDayCondition extends workIWorkspotCondition {
-  native let activeAfter: GameTime;
-  native let activeUntil: GameTime;
+  public native let activeAfter: GameTime;
+  public native let activeUntil: GameTime;
 }

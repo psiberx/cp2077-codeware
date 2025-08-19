@@ -1,4 +1,4 @@
 public native class worldAcousticPortalNode extends worldNode {
-  native let radius: Uint8;
-  native let nominalRadius: Uint8;
+  public native let radius: Uint8;
+  public native let nominalRadius: Uint8;
 }

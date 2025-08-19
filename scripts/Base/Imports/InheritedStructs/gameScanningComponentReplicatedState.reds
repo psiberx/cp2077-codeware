@@ -1,7 +1,7 @@
 public native struct gameScanningComponentReplicatedState {
-  native let componentName: CName;
-  native let enabled: Bool;
-  native let scanningState: gameScanningState;
-  native let pctScanned: Float;
-  native let controllingPeerIDs: [netPeerID; 8];
+  public native let componentName: CName;
+  public native let enabled: Bool;
+  public native let scanningState: gameScanningState;
+  public native let pctScanned: Float;
+  public native let controllingPeerIDs: [netPeerID; 8];
 }

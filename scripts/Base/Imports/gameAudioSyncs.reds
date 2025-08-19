@@ -1,6 +1,6 @@
 public native struct gameAudioSyncs {
-  native let switchEvents: array<audioAudSwitch>;
-  native let playEvents: array<audioAudEventStruct>;
-  native let stopEvents: array<audioAudEventStruct>;
-  native let parameterEvents: array<audioAudParameter>;
+  public native let switchEvents: array<audioAudSwitch>;
+  public native let playEvents: array<audioAudEventStruct>;
+  public native let stopEvents: array<audioAudEventStruct>;
+  public native let parameterEvents: array<audioAudParameter>;
 }

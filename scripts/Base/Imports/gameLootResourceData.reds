@@ -1,3 +1,3 @@
 public native class gameLootResourceData extends ISerializable {
-  native let version: Uint32;
+  public native let version: Uint32;
 }

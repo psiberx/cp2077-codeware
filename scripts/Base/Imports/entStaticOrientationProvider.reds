@@ -1,3 +1,3 @@
 public native class entStaticOrientationProvider extends IOrientationProvider {
-  native let staticOrientation: Quaternion;
+  public native let staticOrientation: Quaternion;
 }

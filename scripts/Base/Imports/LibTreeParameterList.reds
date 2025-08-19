@@ -1,3 +1,3 @@
 public native struct LibTreeParameterList {
-  native let parameters: array<LibTreeParameter>;
+  public native let parameters: array<LibTreeParameter>;
 }

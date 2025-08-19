@@ -1,2 +1,2 @@
 @addField(inkAnimEvent)
-native let startTime: Float;
+public native let startTime: Float;

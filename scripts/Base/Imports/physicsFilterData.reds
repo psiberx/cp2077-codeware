@@ -1,6 +1,6 @@
 public native class physicsFilterData extends ISerializable {
-  native let simulationFilter: SimulationFilter;
-  native let queryFilter: QueryFilter;
-  native let preset: CName;
-  native let customFilterData: ref<physicsCustomFilterData>;
+  public native let simulationFilter: SimulationFilter;
+  public native let queryFilter: QueryFilter;
+  public native let preset: CName;
+  public native let customFilterData: ref<physicsCustomFilterData>;
 }

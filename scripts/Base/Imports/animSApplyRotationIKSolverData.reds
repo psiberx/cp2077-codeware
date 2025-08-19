@@ -1,3 +1,3 @@
 public native struct animSApplyRotationIKSolverData {
-  native let bone: animTransformIndex;
+  public native let bone: animTransformIndex;
 }

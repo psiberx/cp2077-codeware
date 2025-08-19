@@ -1,3 +1,3 @@
 public native class OnVisibilityBlockerAffectedTBHEvent extends Event {
-  native let newTBHModifier: Float;
+  public native let newTBHModifier: Float;
 }

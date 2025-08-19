@@ -1,3 +1,3 @@
 public native class questValueDistance extends questIDistance {
-  native let distanceValue: Float;
+  public native let distanceValue: Float;
 }

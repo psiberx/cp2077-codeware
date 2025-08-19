@@ -1,5 +1,5 @@
 @addField(inkUniformGrid)
-native let wrappingWidgetCount: Uint32;
+public native let wrappingWidgetCount: Uint32;
 
 @addField(inkUniformGrid)
-native let orientation: inkEOrientation;
+public native let orientation: inkEOrientation;

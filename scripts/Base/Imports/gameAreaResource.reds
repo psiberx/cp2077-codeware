@@ -1,3 +1,3 @@
 public native class gameAreaResource extends CResource {
-  native let cookedData: array<gameCookedAreaData>;
+  public native let cookedData: array<gameCookedAreaData>;
 }

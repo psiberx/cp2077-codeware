@@ -1,7 +1,7 @@
 public native class gameEffectObjectProvider_SweepMelee_Box extends gameEffectObjectProvider_SweepOverTime {
-  native let playerStaticDetectionConeDistance: Float;
-  native let playerStaticDetectionConeStartAngle: Float;
-  native let playerStaticDetectionConeEndAngle: Float;
-  native let playerUseCameraForObstructionChecks: Bool;
-  native let checkMeleeInvulnerability: Bool;
+  public native let playerStaticDetectionConeDistance: Float;
+  public native let playerStaticDetectionConeStartAngle: Float;
+  public native let playerStaticDetectionConeEndAngle: Float;
+  public native let playerUseCameraForObstructionChecks: Bool;
+  public native let checkMeleeInvulnerability: Bool;
 }

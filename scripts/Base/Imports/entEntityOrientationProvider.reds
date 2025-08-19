@@ -1,6 +1,6 @@
 public native class entEntityOrientationProvider extends IOrientationProvider {
-  native let slotComponent: wref<SlotComponent>;
-  native let slotId: Int32;
-  native let entity: wref<Entity>;
-  native let orientationEntitySpace: Quaternion;
+  public native let slotComponent: wref<SlotComponent>;
+  public native let slotId: Int32;
+  public native let entity: wref<Entity>;
+  public native let orientationEntitySpace: Quaternion;
 }

@@ -1,5 +1,5 @@
 public native class worldWaterPatchNode extends worldMeshNode {
-  native let type: worldWaterPatchNodeType;
-  native let depth: Float;
-  native let generateNavmesh: Bool;
+  public native let type: worldWaterPatchNodeType;
+  public native let depth: Float;
+  public native let generateNavmesh: Bool;
 }

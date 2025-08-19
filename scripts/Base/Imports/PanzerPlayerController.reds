@@ -1,9 +1,9 @@
 public native class PanzerPlayerController extends MinigameDynObjectAdvanced {
-  native let bulletSpeed: Float;
-  native let bulletSpawnOffset: Vector2;
-  native let bulletLibraryname: CName;
-  native let shootInterval: Float;
-  native let gameLayerName: CName;
-  native let invulnerableAnimationName: CName;
-  native let explosionLibraryName: CName;
+  public native let bulletSpeed: Float;
+  public native let bulletSpawnOffset: Vector2;
+  public native let bulletLibraryname: CName;
+  public native let shootInterval: Float;
+  public native let gameLayerName: CName;
+  public native let invulnerableAnimationName: CName;
+  public native let explosionLibraryName: CName;
 }

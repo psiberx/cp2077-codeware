@@ -1,11 +1,11 @@
 public native class inkTextureAtlas extends CResource {
-  native let activeTexture: inkTextureType;
-  native let textureResolution: inkETextureResolution;
-  native let texture: ResourceAsyncRef; // raRef<CBitmapTexture>
-  native let dynamicTexture: ResourceAsyncRef; // raRef<DynamicTexture>
-  native let parts: array<inkTextureAtlasMapper>;
-  native let slices: array<inkTextureAtlasSlice>;
-  native let slots: [inkTextureSlot; 3];
-  native let dynamicTextureSlot: inkDynamicTextureSlot;
-  native let isSingleTextureMode: Bool;
+  public native let activeTexture: inkTextureType;
+  public native let textureResolution: inkETextureResolution;
+  public native let texture: ResourceAsyncRef; // raRef<CBitmapTexture>
+  public native let dynamicTexture: ResourceAsyncRef; // raRef<DynamicTexture>
+  public native let parts: array<inkTextureAtlasMapper>;
+  public native let slices: array<inkTextureAtlasSlice>;
+  public native let slots: [inkTextureSlot; 3];
+  public native let dynamicTextureSlot: inkDynamicTextureSlot;
+  public native let isSingleTextureMode: Bool;
 }

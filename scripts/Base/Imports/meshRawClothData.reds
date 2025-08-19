@@ -1,3 +1,3 @@
 public native struct meshRawClothData {
-  native let state: physicsclothState;
+  public native let state: physicsclothState;
 }

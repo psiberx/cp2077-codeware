@@ -1,5 +1,5 @@
 public native class InputHintController extends inkLogicController {
-  native let inputDisplayLibRef: inkWidgetLibraryReference;
-  native let inputDisplayContainer: inkCompoundRef;
-  native let textWidgetRef: inkTextRef;
+  public native let inputDisplayLibRef: inkWidgetLibraryReference;
+  public native let inputDisplayContainer: inkCompoundRef;
+  public native let textWidgetRef: inkTextRef;
 }

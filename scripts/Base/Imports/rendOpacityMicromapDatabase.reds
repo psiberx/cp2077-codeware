@@ -1,4 +1,4 @@
 public native struct rendOpacityMicromapDatabase {
-  native let ommChunks: array<rendOpacityMicromapChunk>;
-  native let dataBuffer: array<Uint8>;
+  public native let ommChunks: array<rendOpacityMicromapChunk>;
+  public native let dataBuffer: array<Uint8>;
 }

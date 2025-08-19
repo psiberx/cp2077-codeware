@@ -1,3 +1,3 @@
 public native class SetAudioOverrideEvent extends Event {
-  native let enable: Bool;
+  public native let enable: Bool;
 }

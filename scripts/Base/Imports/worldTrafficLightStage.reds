@@ -1,4 +1,4 @@
 public native struct worldTrafficLightStage {
-  native let color: worldTrafficLightColor;
-  native let duration: Float;
+  public native let color: worldTrafficLightColor;
+  public native let duration: Float;
 }

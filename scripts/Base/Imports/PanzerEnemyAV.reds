@@ -1,6 +1,6 @@
 public native class PanzerEnemyAV extends PanzerEnemy {
-  native let speed: Float;
-  native let shotsAmount: Uint32;
-  native let longShotInterval: Float;
-  native let shortShotInterval: Float;
+  public native let speed: Float;
+  public native let shotsAmount: Uint32;
+  public native let longShotInterval: Float;
+  public native let shortShotInterval: Float;
 }

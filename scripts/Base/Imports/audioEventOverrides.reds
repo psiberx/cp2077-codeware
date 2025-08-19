@@ -1,3 +1,3 @@
 public native class audioEventOverrides extends audioAudioMetadata {
-  native let eventOverrides: ref<audioEventOverrideDictionary>;
+  public native let eventOverrides: ref<audioEventOverrideDictionary>;
 }

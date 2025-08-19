@@ -1,5 +1,5 @@
 public native struct gameStatusEffectComponentReplicatedState {
-  native let componentName: CName;
-  native let enabled: Bool;
-  native let replicatedInfo: array<gameStatusEffectReplicatedInfo>;
+  public native let componentName: CName;
+  public native let enabled: Bool;
+  public native let replicatedInfo: array<gameStatusEffectReplicatedInfo>;
 }

@@ -1,4 +1,4 @@
 public native class worldTerrainMeshNode extends worldNode {
-  native let mesh: ref<CMesh>;
-  native let meshRef: ResourceAsyncRef; // raRef<CMesh>
+  public native let mesh: ref<CMesh>;
+  public native let meshRef: ResourceAsyncRef; // raRef<CMesh>
 }

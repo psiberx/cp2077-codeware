@@ -1,4 +1,4 @@
 public native struct animAnimMathExpressionVectorSocket {
-  native let link: animVectorLink;
-  native let expressionVarId: Uint16;
+  public native let link: animVectorLink;
+  public native let expressionVarId: Uint16;
 }

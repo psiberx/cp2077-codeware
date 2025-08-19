@@ -1,4 +1,4 @@
 public native class questSetInteractionState_NodeType extends questIInteractiveObjectManagerNodeType {
-  native let objectRef: NodeRef;
-  native let enable: Bool;
+  public native let objectRef: NodeRef;
+  public native let enable: Bool;
 }

@@ -1,13 +1,13 @@
 public native struct animFacialEmotionTransitionBaked {
-  native let toIdleMale: CName;
-  native let facialKey_Male: CName;
-  native let toIdleFemale: CName;
-  native let facialKey_Female: CName;
-  native let transitionType: animFacialEmotionTransitionType;
-  native let transitionDuration: Float;
-  native let timeScale: Float;
-  native let toIdleWeight: Float;
-  native let toIdleNeckWeight: Float;
-  native let facialKeyWeight: Float;
-  native let customTransitionAnim: CName;
+  public native let toIdleMale: CName;
+  public native let facialKey_Male: CName;
+  public native let toIdleFemale: CName;
+  public native let facialKey_Female: CName;
+  public native let transitionType: animFacialEmotionTransitionType;
+  public native let transitionDuration: Float;
+  public native let timeScale: Float;
+  public native let toIdleWeight: Float;
+  public native let toIdleNeckWeight: Float;
+  public native let facialKeyWeight: Float;
+  public native let customTransitionAnim: CName;
 }

@@ -1,8 +1,8 @@
 public native class worldEffect extends resStreamedResource {
-  native let name: CName;
-  native let length: Float;
-  native let inputParameterNames: array<CName>;
-  native let trackRoot: ref<effectTrackGroup>;
-  native let events: array<ref<effectTrackItem>>;
-  native let effectLoops: array<effectLoopData>;
+  public native let name: CName;
+  public native let length: Float;
+  public native let inputParameterNames: array<CName>;
+  public native let trackRoot: ref<effectTrackGroup>;
+  public native let events: array<ref<effectTrackItem>>;
+  public native let effectLoops: array<effectLoopData>;
 }

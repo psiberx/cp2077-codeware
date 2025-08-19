@@ -1,3 +1,3 @@
 public native class questVehicleCrowdHit_ConditionType extends questIVehicleConditionType {
-  native let lethal: Bool;
+  public native let lethal: Bool;
 }

@@ -1,5 +1,5 @@
 @addField(EffectRef)
-native let set: ResourceRef; // rRef<gameEffectSet>
+public native let set: ResourceRef; // rRef<gameEffectSet>
 
 @addField(EffectRef)
-native let tag: CName;
+public native let tag: CName;

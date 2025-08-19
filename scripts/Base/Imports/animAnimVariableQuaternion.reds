@@ -1,6 +1,6 @@
 public native class animAnimVariableQuaternion extends animAnimVariable {
-  native let roll: Float;
-  native let pitch: Float;
-  native let yaw: Float;
-  native let default: Quaternion;
+  public native let roll: Float;
+  public native let pitch: Float;
+  public native let yaw: Float;
+  public native let default: Quaternion;
 }

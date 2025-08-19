@@ -1,5 +1,5 @@
 public native struct gameReplicatedContinuousAttack {
-  native let startTimeStamp: netTime;
-  native let stopTimeStamp: netTime;
-  native let attackId: TweakDBID;
+  public native let startTimeStamp: netTime;
+  public native let stopTimeStamp: netTime;
+  public native let attackId: TweakDBID;
 }

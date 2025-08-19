@@ -1,4 +1,4 @@
 public native struct audioVoiceTriggerPerSquadOrderMapItem {
-  native let name: CName;
-  native let triggerName: CName;
+  public native let name: CName;
+  public native let triggerName: CName;
 }

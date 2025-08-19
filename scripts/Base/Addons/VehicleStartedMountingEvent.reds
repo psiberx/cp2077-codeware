@@ -1,2 +1,2 @@
 @addField(VehicleStartedMountingEvent)
-native let silent: Bool;
+public native let silent: Bool;

@@ -1,9 +1,9 @@
 public native class audioBulletImpactSettings extends audioEntitySettings {
-  native let lowImpactSound: CName;
-  native let medImpactSound: CName;
-  native let hiImpactSound: CName;
-  native let critImpactSound: CName;
-  native let npcImpactSound: CName;
-  native let mediumDamageDistance: Float;
-  native let highDamageDistance: Float;
+  public native let lowImpactSound: CName;
+  public native let medImpactSound: CName;
+  public native let hiImpactSound: CName;
+  public native let critImpactSound: CName;
+  public native let npcImpactSound: CName;
+  public native let mediumDamageDistance: Float;
+  public native let highDamageDistance: Float;
 }

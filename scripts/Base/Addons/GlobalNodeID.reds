@@ -1,2 +1,2 @@
 @addField(GlobalNodeID)
-native persistent let hash: Uint64;
+public native persistent let hash: Uint64;

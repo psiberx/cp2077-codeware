@@ -1,6 +1,6 @@
 public native class inkFullscreenCompositionResource extends CResource {
-  native let compositionPresets: array<inkCompositionPreset>;
-  native let backgroundMenuTextureUHDRes: ResourceAsyncRef; // raRef<CBitmapTexture>
-  native let backgroundMenuTextureFHDRes: ResourceAsyncRef; // raRef<CBitmapTexture>
-  native let previewSettings: ref<inkCompositionPreviewSettings>;
+  public native let compositionPresets: array<inkCompositionPreset>;
+  public native let backgroundMenuTextureUHDRes: ResourceAsyncRef; // raRef<CBitmapTexture>
+  public native let backgroundMenuTextureFHDRes: ResourceAsyncRef; // raRef<CBitmapTexture>
+  public native let previewSettings: ref<inkCompositionPreviewSettings>;
 }

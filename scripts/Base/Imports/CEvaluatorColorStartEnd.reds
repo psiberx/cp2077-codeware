@@ -1,4 +1,4 @@
 public native class CEvaluatorColorStartEnd extends IEvaluatorColor {
-  native let start: Color;
-  native let end: Color;
+  public native let start: Color;
+  public native let end: Color;
 }

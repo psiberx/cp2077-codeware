@@ -1,6 +1,6 @@
 public native struct gameMuppetComparisonReportItem {
-  native let type: gameMuppetComparisonReportItemType;
-  native let propertyName: String;
-  native let serverValue: String;
-  native let clientValue: String;
+  public native let type: gameMuppetComparisonReportItemType;
+  public native let propertyName: String;
+  public native let serverValue: String;
+  public native let clientValue: String;
 }

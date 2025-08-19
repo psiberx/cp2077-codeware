@@ -1,4 +1,4 @@
 public native class gameuiCharacterCustomizationFeetController extends gameuiCharacterCustomizationBodyPartsController {
-  native let liftedFeetGroupName: CName;
-  native let flatFeetGroupName: CName;
+  public native let liftedFeetGroupName: CName;
+  public native let flatFeetGroupName: CName;
 }

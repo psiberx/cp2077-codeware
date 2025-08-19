@@ -1,3 +1,3 @@
 public native class entExternalComponent extends IComponent {
-  native let externalComponentName: CName;
+  public native let externalComponentName: CName;
 }

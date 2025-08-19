@@ -1,3 +1,3 @@
 public native class animAnimNodeSourceChannel_StaticVector extends animIAnimNodeSourceChannel_Vector {
-  native let data: Vector4;
+  public native let data: Vector4;
 }

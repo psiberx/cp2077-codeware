@@ -1,3 +1,3 @@
 public native struct rendRenderMultilayerMaskResource {
-  native let renderResourceBlobPC: ref<IRenderResourceBlob>;
+  public native let renderResourceBlobPC: ref<IRenderResourceBlob>;
 }

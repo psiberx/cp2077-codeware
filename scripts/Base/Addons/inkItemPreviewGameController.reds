@@ -1,11 +1,11 @@
 @addField(inkItemPreviewGameController)
-native let root: inkWidgetRef;
+public native let root: inkWidgetRef;
 
 @addField(inkItemPreviewGameController)
-native let image: inkImageRef;
+public native let image: inkImageRef;
 
 @addField(inkItemPreviewGameController)
-native let sceneName: CName;
+public native let sceneName: CName;
 
 @addField(inkItemPreviewGameController)
-native let cameraRef: NodeRef;
+public native let cameraRef: NodeRef;

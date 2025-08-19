@@ -1,9 +1,9 @@
 public native struct PSODescDepthStencilModeDesc {
-  native let depthTestEnable: Bool;
-  native let depthWriteEnable: Bool;
-  native let depthFunc: PSODescDepthStencilModeComparisonMode;
-  native let stencilEnable: Bool;
-  native let stencilReadMask: Bool;
-  native let stencilWriteMask: Bool;
-  native let frontFace: PSODescStencilFuncDesc;
+  public native let depthTestEnable: Bool;
+  public native let depthWriteEnable: Bool;
+  public native let depthFunc: PSODescDepthStencilModeComparisonMode;
+  public native let stencilEnable: Bool;
+  public native let stencilReadMask: Bool;
+  public native let stencilWriteMask: Bool;
+  public native let frontFace: PSODescStencilFuncDesc;
 }

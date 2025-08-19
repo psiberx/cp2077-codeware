@@ -1,14 +1,14 @@
 @addField(JournalQuestMapPin)
-native let reference: EntityReference;
+public native let reference: EntityReference;
 
 @addField(JournalQuestMapPin)
-native let slotName: CName;
+public native let slotName: CName;
 
 @addField(JournalQuestMapPin)
-native let mappinData: MappinData;
+public native let mappinData: MappinData;
 
 @addField(JournalQuestMapPin)
-native let offset: Vector3;
+public native let offset: Vector3;
 
 @addField(JournalQuestMapPin)
-native let uiAnimation: TweakDBID;
+public native let uiAnimation: TweakDBID;

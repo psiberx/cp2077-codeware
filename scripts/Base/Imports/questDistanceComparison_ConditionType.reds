@@ -1,5 +1,5 @@
 public native class questDistanceComparison_ConditionType extends questIDistanceConditionType {
-  native let distanceDefinition1: ref<questObjectDistance>;
-  native let distanceDefinition2: ref<questValueDistance>;
-  native let comparisonType: EComparisonType;
+  public native let distanceDefinition1: ref<questObjectDistance>;
+  public native let distanceDefinition2: ref<questValueDistance>;
+  public native let comparisonType: EComparisonType;
 }

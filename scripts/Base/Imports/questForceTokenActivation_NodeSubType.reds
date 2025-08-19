@@ -1,3 +1,3 @@
 public native class questForceTokenActivation_NodeSubType extends questIContentTokenManager_NodeSubType {
-  native let forceCreatingToken: Bool;
+  public native let forceCreatingToken: Bool;
 }

@@ -1,4 +1,4 @@
 public native struct scneventsAttachPropToWorldCachedFallbackBone {
-  native let boneName: CName;
-  native let modelSpaceTransform: Transform;
+  public native let boneName: CName;
+  public native let modelSpaceTransform: Transform;
 }

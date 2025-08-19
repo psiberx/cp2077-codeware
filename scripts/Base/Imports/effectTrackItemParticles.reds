@@ -1,9 +1,9 @@
 public native class effectTrackItemParticles extends effectTrackItem {
-  native let particleSystem: ResourceRef; // rRef<CParticleSystem>
-  native let emissionScale: effectEffectParameterEvaluatorFloat;
-  native let alpha: effectEffectParameterEvaluatorFloat;
-  native let size: effectEffectParameterEvaluatorFloat;
-  native let velocity: effectEffectParameterEvaluatorFloat;
-  native let soundPositionName: CName;
-  native let soundPositionOffset: Vector3;
+  public native let particleSystem: ResourceRef; // rRef<CParticleSystem>
+  public native let emissionScale: effectEffectParameterEvaluatorFloat;
+  public native let alpha: effectEffectParameterEvaluatorFloat;
+  public native let size: effectEffectParameterEvaluatorFloat;
+  public native let velocity: effectEffectParameterEvaluatorFloat;
+  public native let soundPositionName: CName;
+  public native let soundPositionOffset: Vector3;
 }

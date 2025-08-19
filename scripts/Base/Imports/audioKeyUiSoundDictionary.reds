@@ -1,3 +1,3 @@
 public native class audioKeyUiSoundDictionary extends audioInlinedAudioMetadata {
-  native let entries: array<audioKeyUiSoundPairDictionaryItem>;
+  public native let entries: array<audioKeyUiSoundPairDictionaryItem>;
 }

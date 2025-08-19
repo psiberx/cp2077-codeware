@@ -1,8 +1,8 @@
 @addField(ProjectileSpawnComponent)
-native let spawnOffset: Vector3;
+public native let spawnOffset: Vector3;
 
 @addField(ProjectileSpawnComponent)
-native let projectileTemplates: array<CName>;
+public native let projectileTemplates: array<CName>;
 
 @addField(ProjectileSpawnComponent)
-native let slotName: CName;
+public native let slotName: CName;

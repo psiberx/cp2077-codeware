@@ -1,3 +1,3 @@
 public native class questContentBlockTriggerAreaNotifier extends worldITriggerAreaNotifer {
-  native let resetTokenSpawnTimer: Bool;
+  public native let resetTokenSpawnTimer: Bool;
 }

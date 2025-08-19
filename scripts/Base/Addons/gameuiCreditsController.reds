@@ -1,59 +1,59 @@
 @addField(gameuiCreditsController)
-native let creditsResourcePS4: ResourceRef; // rRef<inkCreditsResource>
+public native let creditsResourcePS4: ResourceRef; // rRef<inkCreditsResource>
 
 @addField(gameuiCreditsController)
-native let creditsResourceXBOXPC: ResourceRef; // rRef<inkCreditsResource>
+public native let creditsResourceXBOXPC: ResourceRef; // rRef<inkCreditsResource>
 
 @addField(gameuiCreditsController)
-native let scrollingSpeed: Float;
+public native let scrollingSpeed: Float;
 
 @addField(gameuiCreditsController)
-native let fastforwardScrollingSpeed: Float;
+public native let fastforwardScrollingSpeed: Float;
 
 @addField(gameuiCreditsController)
-native let sectionsContainer: inkCompoundRef;
+public native let sectionsContainer: inkCompoundRef;
 
 @addField(gameuiCreditsController)
-native let singleTextWidget: inkTextRef;
+public native let singleTextWidget: inkTextRef;
 
 @addField(gameuiCreditsController)
-native let speakerNameTextWidget: inkTextRef;
+public native let speakerNameTextWidget: inkTextRef;
 
 @addField(gameuiCreditsController)
-native let swapBackgroundVideoAnimName: CName;
+public native let swapBackgroundVideoAnimName: CName;
 
 @addField(gameuiCreditsController)
-native let singleAnimName: CName;
+public native let singleAnimName: CName;
 
 @addField(gameuiCreditsController)
-native let openVideoScreenAnimName: CName;
+public native let openVideoScreenAnimName: CName;
 
 @addField(gameuiCreditsController)
-native let closeVideoScreenAnimName: CName;
+public native let closeVideoScreenAnimName: CName;
 
 @addField(gameuiCreditsController)
-native let headerLibraryID: CName;
+public native let headerLibraryID: CName;
 
 @addField(gameuiCreditsController)
-native let boldLibraryID: CName;
+public native let boldLibraryID: CName;
 
 @addField(gameuiCreditsController)
-native let basicLibraryID: CName;
+public native let basicLibraryID: CName;
 
 @addField(gameuiCreditsController)
-native let basicTranslatableLibraryID: CName;
+public native let basicTranslatableLibraryID: CName;
 
 @addField(gameuiCreditsController)
-native let topCreditsMargin: Float;
+public native let topCreditsMargin: Float;
 
 @addField(gameuiCreditsController)
-native let bottomCreditsMargin: Float;
+public native let bottomCreditsMargin: Float;
 
 @addField(gameuiCreditsController)
-native let startPosition: Float;
+public native let startPosition: Float;
 
 @addField(gameuiCreditsController)
-native let subtitlesContainer: inkCompoundRef;
+public native let subtitlesContainer: inkCompoundRef;
 
 @addField(gameuiCreditsController)
-native let subtitlesLibraryPath: ResourceAsyncRef; // raRef<CResource>
+public native let subtitlesLibraryPath: ResourceAsyncRef; // raRef<CResource>

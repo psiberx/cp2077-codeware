@@ -1,4 +1,4 @@
 public native struct audioContextualVoiceGrunt {
-  native let regularGrunt: CName;
-  native let stealthGrunt: CName;
+  public native let regularGrunt: CName;
+  public native let stealthGrunt: CName;
 }

@@ -1,5 +1,5 @@
 public native class scnPlayVideoEvent extends scnSceneEvent {
-  native let videoPath: String;
-  native let isPhoneCall: Bool;
-  native let forceFrameRate: Bool;
+  public native let videoPath: String;
+  public native let isPhoneCall: Bool;
+  public native let forceFrameRate: Bool;
 }

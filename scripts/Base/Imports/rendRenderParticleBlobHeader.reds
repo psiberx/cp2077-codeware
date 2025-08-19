@@ -1,4 +1,4 @@
 public native struct rendRenderParticleBlobHeader {
-  native let version: Uint32;
-  native let emitterInfo: rendRenderParticleBlobEmitterInfo;
+  public native let version: Uint32;
+  public native let emitterInfo: rendRenderParticleBlobEmitterInfo;
 }

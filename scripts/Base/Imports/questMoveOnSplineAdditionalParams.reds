@@ -1,6 +1,6 @@
 public native class questMoveOnSplineAdditionalParams extends ISerializable {
-  native let type: questMoveOnSplineType;
-  native let simpleParams: questSimpleMoveOnSplineParams;
-  native let animParams: questAnimMoveOnSplineParams;
-  native let withCompanionParams: questWithCompanionMoveOnSplineParams;
+  public native let type: questMoveOnSplineType;
+  public native let simpleParams: questSimpleMoveOnSplineParams;
+  public native let animParams: questAnimMoveOnSplineParams;
+  public native let withCompanionParams: questWithCompanionMoveOnSplineParams;
 }

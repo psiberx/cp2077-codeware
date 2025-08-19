@@ -1,4 +1,4 @@
 public native struct animFacialCustomizationTargetEntryTemp {
-  native let setup: ResourceAsyncRef; // raRef<animFacialSetup>
-  native let targetNames: array<CName>;
+  public native let setup: ResourceAsyncRef; // raRef<animFacialSetup>
+  public native let targetNames: array<CName>;
 }

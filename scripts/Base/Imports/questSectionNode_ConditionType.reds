@@ -1,6 +1,6 @@
 public native class questSectionNode_ConditionType extends questISceneConditionType {
-  native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let SceneVersion: scnSceneVersionCheck;
-  native let sectionName: CName;
-  native let type: questSceneConditionType;
+  public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let SceneVersion: scnSceneVersionCheck;
+  public native let sectionName: CName;
+  public native let type: questSceneConditionType;
 }

@@ -1,4 +1,4 @@
 public native class questBehind_ConditionType extends questISensesConditionType {
-  native let targetRef: EntityReference;
-  native let eventType: questBehindInteractionEventType;
+  public native let targetRef: EntityReference;
+  public native let eventType: questBehindInteractionEventType;
 }

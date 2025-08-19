@@ -1,4 +1,4 @@
 public native class worldNode extends ISerializable {
-  native let isVisibleInGame: Bool;
-  native let isHostOnly: Bool;
+  public native let isVisibleInGame: Bool;
+  public native let isHostOnly: Bool;
 }

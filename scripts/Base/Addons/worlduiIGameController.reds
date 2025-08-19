@@ -1,2 +1,2 @@
 @addField(worlduiIGameController)
-native let elementRecordID: TweakDBID;
+public native let elementRecordID: TweakDBID;

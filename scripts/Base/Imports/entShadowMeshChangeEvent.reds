@@ -1,3 +1,3 @@
 public native class entShadowMeshChangeEvent extends Event {
-  native let requestedState: entAppearanceStatus;
+  public native let requestedState: entAppearanceStatus;
 }

@@ -1,4 +1,4 @@
 public native class animAnimNode_GraphSlot_Test extends animAnimNode_GraphSlot {
-  native let graph_TEST: ResourceRef; // rRef<animAnimGraph>
-  native let copyAnimInputsAtAttachTime: Bool;
+  public native let graph_TEST: ResourceRef; // rRef<animAnimGraph>
+  public native let copyAnimInputsAtAttachTime: Bool;
 }

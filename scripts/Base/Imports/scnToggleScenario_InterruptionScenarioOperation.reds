@@ -1,3 +1,3 @@
 public native class scnToggleScenario_InterruptionScenarioOperation extends scnIInterruptionScenarioOperation {
-  native let enable: Bool;
+  public native let enable: Bool;
 }

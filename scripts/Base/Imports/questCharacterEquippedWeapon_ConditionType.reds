@@ -1,6 +1,6 @@
 public native class questCharacterEquippedWeapon_ConditionType extends questICharacterConditionType {
-  native let anyWeaponEquipped: Bool;
-  native let weaponID: String;
-  native let weaponTag: CName;
-  native let inverted: Bool;
+  public native let anyWeaponEquipped: Bool;
+  public native let weaponID: String;
+  public native let weaponTag: CName;
+  public native let inverted: Bool;
 }

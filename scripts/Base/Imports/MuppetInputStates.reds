@@ -1,3 +1,3 @@
 public native class MuppetInputStates extends MuppetComponent {
-  native let replicationTime: netTime;
+  public native let replicationTime: netTime;
 }

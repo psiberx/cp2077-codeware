@@ -1,5 +1,5 @@
 public native struct questHUDEntryAnimationFinished {
-  native let hudEntry: CName;
-  native let animationName: CName;
-  native let finished: Bool;
+  public native let hudEntry: CName;
+  public native let animationName: CName;
+  public native let finished: Bool;
 }

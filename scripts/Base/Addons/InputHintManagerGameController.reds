@@ -1,11 +1,11 @@
 @addField(InputHintManagerGameController)
-native let baseGroupContainer: inkCompoundRef;
+public native let baseGroupContainer: inkCompoundRef;
 
 @addField(InputHintManagerGameController)
-native let groupsContainer: inkCompoundRef;
+public native let groupsContainer: inkCompoundRef;
 
 @addField(InputHintManagerGameController)
-native let hintLibRef: inkWidgetLibraryReference;
+public native let hintLibRef: inkWidgetLibraryReference;
 
 @addField(InputHintManagerGameController)
-native let groupLibRef: inkWidgetLibraryReference;
+public native let groupLibRef: inkWidgetLibraryReference;

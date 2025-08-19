@@ -1,4 +1,4 @@
 public abstract native class worldTrafficSpotDefinition extends ISerializable {
-  native let length: Float;
-  native let direction: worldTrafficSpotDirection;
+  public native let length: Float;
+  public native let direction: worldTrafficSpotDirection;
 }

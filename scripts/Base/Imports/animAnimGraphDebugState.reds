@@ -1,3 +1,3 @@
 public native class animAnimGraphDebugState extends ISerializable {
-  native let nodes: array<animAnimNodeDebugState>;
+  public native let nodes: array<animAnimNodeDebugState>;
 }

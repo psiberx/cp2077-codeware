@@ -1,3 +1,3 @@
 public native class questEntityManagerEnablePlayerTPPRepresentation_NodeType extends questIEntityManager_NodeType {
-  native let enable: Bool;
+  public native let enable: Bool;
 }

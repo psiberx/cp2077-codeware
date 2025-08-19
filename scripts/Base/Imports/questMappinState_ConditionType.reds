@@ -1,4 +1,4 @@
 public native class questMappinState_ConditionType extends questIJournalConditionType {
-  native let mappinPath: ref<gameJournalPath>;
-  native let active: Bool;
+  public native let mappinPath: ref<gameJournalPath>;
+  public native let active: Bool;
 }

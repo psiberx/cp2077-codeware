@@ -1,4 +1,4 @@
 public native class entFootPlantedEvent extends Event {
-  native let customAction: CName;
-  native let footSide: animEventSide;
+  public native let customAction: CName;
+  public native let footSide: animEventSide;
 }

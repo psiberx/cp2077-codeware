@@ -1,5 +1,5 @@
 public native struct gameuiarcadeShooterEventData {
-  native let triggerPosition: Vector2;
-  native let finalPosition: Vector2;
-  native let spawnerDataList: array<gameuiarcadeShooterEventSpawnerData>;
+  public native let triggerPosition: Vector2;
+  public native let finalPosition: Vector2;
+  public native let spawnerDataList: array<gameuiarcadeShooterEventSpawnerData>;
 }

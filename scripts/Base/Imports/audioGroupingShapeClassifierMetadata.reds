@@ -1,11 +1,11 @@
 public native class audioGroupingShapeClassifierMetadata extends audioAudioMetadata {
-  native let useAngle: Bool;
-  native let minGroupSize: Float;
-  native let maxGroupSize: Float;
-  native let minGroupAngleSpread: Float;
-  native let maxGroupAngleSpread: Float;
-  native let floorLimit: Bool;
-  native let ceilingLimit: Bool;
-  native let minDistanceLimit: CName;
-  native let maxDistanceLimit: CName;
+  public native let useAngle: Bool;
+  public native let minGroupSize: Float;
+  public native let maxGroupSize: Float;
+  public native let minGroupAngleSpread: Float;
+  public native let maxGroupAngleSpread: Float;
+  public native let floorLimit: Bool;
+  public native let ceilingLimit: Bool;
+  public native let minDistanceLimit: CName;
+  public native let maxDistanceLimit: CName;
 }

@@ -1,5 +1,5 @@
 @neverRef()
 public native class physicsQueryPresetDefinition extends ISerializable {
-  native let name: CName;
-  native let queryGroups: array<CName>;
+  public native let name: CName;
+  public native let queryGroups: array<CName>;
 }

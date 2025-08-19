@@ -1,6 +1,6 @@
 public native class questSetLocationName_NodeType extends questIUIManagerNodeType {
-  native let locationName: String;
-  native let action: questLocationAction;
-  native let districtID: TweakDBID;
-  native let isNewLocation: Bool;
+  public native let locationName: String;
+  public native let action: questLocationAction;
+  public native let districtID: TweakDBID;
+  public native let isNewLocation: Bool;
 }

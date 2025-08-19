@@ -1,11 +1,11 @@
 @addField(InfluenceObstacleComponent)
-native let boundingBoxType: gameinfluenceEBoundingBoxType;
+public native let boundingBoxType: gameinfluenceEBoundingBoxType;
 
 @addField(InfluenceObstacleComponent)
-native let customBoundingBox: Box;
+public native let customBoundingBox: Box;
 
 @addField(InfluenceObstacleComponent)
-native let obstacleAgent: InfluenceObstacleAgent;
+public native let obstacleAgent: InfluenceObstacleAgent;
 
 @addField(InfluenceObstacleComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

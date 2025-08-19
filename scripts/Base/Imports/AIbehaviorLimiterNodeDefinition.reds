@@ -1,5 +1,5 @@
 public native class AIbehaviorLimiterNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
-  native let activationLimitPerFrame: Uint32;
-  native let delayChildActivation: Bool;
-  native let delayChildActivationIfAttaching: Bool;
+  public native let activationLimitPerFrame: Uint32;
+  public native let delayChildActivation: Bool;
+  public native let delayChildActivationIfAttaching: Bool;
 }

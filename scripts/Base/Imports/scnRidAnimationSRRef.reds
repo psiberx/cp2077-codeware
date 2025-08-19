@@ -1,4 +1,4 @@
 public native struct scnRidAnimationSRRef {
-  native let resourceId: scnRidResourceId;
-  native let animationSN: scnRidSerialNumber;
+  public native let resourceId: scnRidResourceId;
+  public native let animationSN: scnRidSerialNumber;
 }

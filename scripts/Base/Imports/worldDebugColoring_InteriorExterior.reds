@@ -1,5 +1,5 @@
 public native class worldDebugColoring_InteriorExterior extends worldEditorDebugColoringSettings {
-  native let interiorColor: Color;
-  native let openInteriorColor: Color;
-  native let exteriorColor: Color;
+  public native let interiorColor: Color;
+  public native let openInteriorColor: Color;
+  public native let exteriorColor: Color;
 }

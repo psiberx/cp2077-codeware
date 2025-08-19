@@ -1,6 +1,6 @@
 public native struct scnPlayerAnimData {
-  native let tierData: ref<SceneTierData>;
-  native let useZSnapping: Bool;
-  native let unmountBodyCarry: Bool;
-  native let isEndOfCarryingAnimation: Bool;
+  public native let tierData: ref<SceneTierData>;
+  public native let useZSnapping: Bool;
+  public native let unmountBodyCarry: Bool;
+  public native let isEndOfCarryingAnimation: Bool;
 }

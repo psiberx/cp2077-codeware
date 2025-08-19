@@ -1,9 +1,9 @@
 @neverRef()
 public native class physicsCollisionPresetDefinition extends ISerializable {
-  native let Name: CName;
-  native let Description: String;
-  native let ForceEnableCollisionCallbacks: Bool;
-  native let CollisionType: array<CName>;
-  native let CollisionMask: array<CName>;
-  native let QueryDetect: array<CName>;
+  public native let Name: CName;
+  public native let Description: String;
+  public native let ForceEnableCollisionCallbacks: Bool;
+  public native let CollisionType: array<CName>;
+  public native let CollisionMask: array<CName>;
+  public native let QueryDetect: array<CName>;
 }

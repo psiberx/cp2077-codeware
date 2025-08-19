@@ -1,9 +1,9 @@
 public native class rendSingleScreenShotData extends ISerializable {
-  native let mode: rendScreenshotMode;
-  native let outputPath: AbsolutePathSerializable;
-  native let resolution: renddimEPreset;
-  native let resolutionMultiplier: rendResolutionMultiplier;
-  native let emmModes: array<EEnvManagerModifier>;
-  native let forceLOD0: Bool;
-  native let saveFormat: ESaveFormat;
+  public native let mode: rendScreenshotMode;
+  public native let outputPath: AbsolutePathSerializable;
+  public native let resolution: renddimEPreset;
+  public native let resolutionMultiplier: rendResolutionMultiplier;
+  public native let emmModes: array<EEnvManagerModifier>;
+  public native let forceLOD0: Bool;
+  public native let saveFormat: ESaveFormat;
 }

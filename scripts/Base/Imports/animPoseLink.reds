@@ -1,3 +1,3 @@
 public native struct animPoseLink {
-  native let node: wref<animAnimNode_Base>;
+  public native let node: wref<animAnimNode_Base>;
 }

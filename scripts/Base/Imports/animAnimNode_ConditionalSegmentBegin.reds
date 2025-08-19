@@ -1,3 +1,3 @@
 public native class animAnimNode_ConditionalSegmentBegin extends animAnimNode_OnePoseInput {
-  native let condition: animConditionalSegmentCondition;
+  public native let condition: animConditionalSegmentCondition;
 }

@@ -1,5 +1,5 @@
 public native class scnSceneGraph extends ISerializable {
-  native let graph: array<ref<scnSceneGraphNode>>;
-  native let startNodes: array<scnNodeId>;
-  native let endNodes: array<scnNodeId>;
+  public native let graph: array<ref<scnSceneGraphNode>>;
+  public native let startNodes: array<scnNodeId>;
+  public native let endNodes: array<scnNodeId>;
 }

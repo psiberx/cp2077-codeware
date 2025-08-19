@@ -1,6 +1,6 @@
 public native class questDisplayMessageBox_NodeType extends questIUIManagerNodeType {
-  native let title: String;
-  native let message: String;
-  native let localizedTitle: LocalizationString;
-  native let localizedMessage: LocalizationString;
+  public native let title: String;
+  public native let message: String;
+  public native let localizedTitle: LocalizationString;
+  public native let localizedMessage: LocalizationString;
 }

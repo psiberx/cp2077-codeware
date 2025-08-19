@@ -1,3 +1,3 @@
 public native class questClearForcedBehavioursNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let puppet: EntityReference;
+  public native let puppet: EntityReference;
 }

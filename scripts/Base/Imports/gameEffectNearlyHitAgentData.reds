@@ -1,7 +1,7 @@
 public native struct gameEffectNearlyHitAgentData {
-  native let hitPosition: Vector4;
-  native let hitDirection: Vector4;
-  native let entity: wref<Entity>;
-  native let isPlayer: Bool;
-  native let wasHit: Bool;
+  public native let hitPosition: Vector4;
+  public native let hitDirection: Vector4;
+  public native let entity: wref<Entity>;
+  public native let isPlayer: Bool;
+  public native let wasHit: Bool;
 }

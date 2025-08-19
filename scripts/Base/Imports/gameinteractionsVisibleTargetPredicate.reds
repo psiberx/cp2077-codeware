@@ -1,3 +1,3 @@
 public native class gameinteractionsVisibleTargetPredicate extends gameinteractionsIPredicateType {
-  native let stopOnTransparent: Bool;
+  public native let stopOnTransparent: Bool;
 }

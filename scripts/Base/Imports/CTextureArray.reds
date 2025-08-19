@@ -1,5 +1,5 @@
 public native class CTextureArray extends ITexture {
-  native let setup: STextureGroupSetup;
-  native let renderResourceBlob: ref<IRenderResourceBlob>;
-  native let renderTextureResource: rendRenderTextureResource;
+  public native let setup: STextureGroupSetup;
+  public native let renderResourceBlob: ref<IRenderResourceBlob>;
+  public native let renderTextureResource: rendRenderTextureResource;
 }

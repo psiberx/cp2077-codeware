@@ -1,11 +1,11 @@
 public native struct gameStatModifierGroup {
-  native let statModifierArray: array<gameStatModifierHandle>;
-  native let statModifiersLimit: Int32;
-  native let statModifiersLimitModifier: TweakDBID;
-  native let relatedModifierGroups: array<TweakDBID>;
-  native let statModifierGroupRecordID: TweakDBID;
-  native let stackCount: Uint16;
-  native let drawBasedOnStatType: Bool;
-  native let saveBasedOnStatType: Bool;
-  native let optimiseCombinedModifiers: Bool;
+  public native let statModifierArray: array<gameStatModifierHandle>;
+  public native let statModifiersLimit: Int32;
+  public native let statModifiersLimitModifier: TweakDBID;
+  public native let relatedModifierGroups: array<TweakDBID>;
+  public native let statModifierGroupRecordID: TweakDBID;
+  public native let stackCount: Uint16;
+  public native let drawBasedOnStatType: Bool;
+  public native let saveBasedOnStatType: Bool;
+  public native let optimiseCombinedModifiers: Bool;
 }

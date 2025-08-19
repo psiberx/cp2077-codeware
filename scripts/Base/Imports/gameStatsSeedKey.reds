@@ -1,5 +1,5 @@
 public importonly struct gameStatsSeedKey {
-  native let entityID: EntityID;
-  native let recordID: TweakDBID;
-  native let seed: Uint32;
+  public native let entityID: EntityID;
+  public native let recordID: TweakDBID;
+  public native let seed: Uint32;
 }

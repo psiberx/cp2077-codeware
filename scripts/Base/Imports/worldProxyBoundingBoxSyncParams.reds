@@ -1,7 +1,7 @@
 public native struct worldProxyBoundingBoxSyncParams {
-  native let positiveAxis: worldProxyBBoxSyncOptions;
-  native let negativeAxis: worldProxyBBoxSyncOptions;
-  native let pullRange: Float;
-  native let makeStackable: Bool;
-  native let stackOffset: Vector3;
+  public native let positiveAxis: worldProxyBBoxSyncOptions;
+  public native let negativeAxis: worldProxyBBoxSyncOptions;
+  public native let pullRange: Float;
+  public native let makeStackable: Bool;
+  public native let stackOffset: Vector3;
 }

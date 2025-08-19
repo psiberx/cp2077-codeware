@@ -1,11 +1,11 @@
 @neverRef()
 public native class navgendebugPolyMesh extends ISerializable {
-  native let vertices: array<Vector3>;
-  native let polygons: array<navgendebugCompactPolygon>;
-  native let bounds: Box;
-  native let cellSize: Float;
-  native let cellHeight: Float;
-  native let borderSize: Int32;
-  native let maxEdgeError: Float;
-  native let maxVerticesPerPolygon: Int32;
+  public native let vertices: array<Vector3>;
+  public native let polygons: array<navgendebugCompactPolygon>;
+  public native let bounds: Box;
+  public native let cellSize: Float;
+  public native let cellHeight: Float;
+  public native let borderSize: Int32;
+  public native let maxEdgeError: Float;
+  public native let maxVerticesPerPolygon: Int32;
 }

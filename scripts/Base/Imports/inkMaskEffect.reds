@@ -1,5 +1,5 @@
 public native class inkMaskEffect extends inkIEffect {
-  native let angle: Float;
-  native let opacity: Float;
-  native let invert: Bool;
+  public native let angle: Float;
+  public native let opacity: Float;
+  public native let invert: Bool;
 }

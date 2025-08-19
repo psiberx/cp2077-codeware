@@ -1,7 +1,7 @@
 public native struct entReplicatedAnimFeature {
-  native let entity: wref<Entity>;
-  native let netTime: netTime;
-  native let name: CName;
-  native let value: ref<AnimFeature>;
-  native let invokeCallback: Bool;
+  public native let entity: wref<Entity>;
+  public native let netTime: netTime;
+  public native let name: CName;
+  public native let value: ref<AnimFeature>;
+  public native let invokeCallback: Bool;
 }

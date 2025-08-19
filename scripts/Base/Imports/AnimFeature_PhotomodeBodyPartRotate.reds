@@ -1,3 +1,3 @@
 public native class AnimFeature_PhotomodeBodyPartRotate extends AnimFeature {
-  native let rotateDegree: Float;
+  public native let rotateDegree: Float;
 }

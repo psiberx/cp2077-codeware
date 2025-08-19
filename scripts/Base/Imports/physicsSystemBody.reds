@@ -1,8 +1,8 @@
 public native class physicsSystemBody extends physicsISystemObject {
-  native let params: physicsSystemBodyParams;
-  native let localToModel: Transform;
-  native let collisionShapes: array<ref<physicsICollider>>;
-  native let mappedBoneName: CName;
-  native let mappedBoneToBody: Transform;
-  native let isQueryBodyOnly: Bool;
+  public native let params: physicsSystemBodyParams;
+  public native let localToModel: Transform;
+  public native let collisionShapes: array<ref<physicsICollider>>;
+  public native let mappedBoneName: CName;
+  public native let mappedBoneToBody: Transform;
+  public native let isQueryBodyOnly: Bool;
 }

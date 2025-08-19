@@ -1,4 +1,4 @@
 public native class animAnimStateTransitionCondition_BoolEdgeFeature extends animIAnimStateTransitionCondition {
-  native let featureName: CName;
-  native let featurePropertyName: CName;
+  public native let featureName: CName;
+  public native let featurePropertyName: CName;
 }

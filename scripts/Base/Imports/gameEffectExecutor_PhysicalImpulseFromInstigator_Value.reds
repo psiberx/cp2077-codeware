@@ -1,4 +1,4 @@
 public native class gameEffectExecutor_PhysicalImpulseFromInstigator_Value extends EffectExecutor {
-  native let magnitude: Float;
-  native let forceUseHitPosition: Bool;
+  public native let magnitude: Float;
+  public native let forceUseHitPosition: Bool;
 }

@@ -1,3 +1,3 @@
 public native class animAnimStateTransitionCondition_IntEdgeGreaterFromZeroFeature extends animAnimStateTransitionCondition_IntEdgeFeature {
-  native let greaterThenValue: Int32;
+  public native let greaterThenValue: Int32;
 }

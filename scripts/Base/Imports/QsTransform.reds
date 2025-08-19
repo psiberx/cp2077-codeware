@@ -1,5 +1,5 @@
 public native struct QsTransform {
-  native let Translation: Vector4;
-  native let Rotation: Quaternion;
-  native let Scale: Vector4;
+  public native let Translation: Vector4;
+  public native let Rotation: Quaternion;
+  public native let Scale: Vector4;
 }

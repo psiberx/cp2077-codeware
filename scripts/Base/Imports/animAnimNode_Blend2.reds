@@ -1,9 +1,9 @@
 public native class animAnimNode_Blend2 extends animAnimNode_Base {
-  native let minInputValue: Float;
-  native let maxInputValue: Float;
-  native let timeWarpingEnabled: Bool;
-  native let syncMethod: ref<animISyncMethod>;
-  native let firstInputNode: animPoseLink;
-  native let secondInputNode: animPoseLink;
-  native let weightNode: animFloatLink;
+  public native let minInputValue: Float;
+  public native let maxInputValue: Float;
+  public native let timeWarpingEnabled: Bool;
+  public native let syncMethod: ref<animISyncMethod>;
+  public native let firstInputNode: animPoseLink;
+  public native let secondInputNode: animPoseLink;
+  public native let weightNode: animFloatLink;
 }

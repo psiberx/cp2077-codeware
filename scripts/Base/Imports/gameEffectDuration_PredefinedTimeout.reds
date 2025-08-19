@@ -1,3 +1,3 @@
 public native class gameEffectDuration_PredefinedTimeout extends EffectDurationModifier {
-  native let timeToLive: Float;
+  public native let timeToLive: Float;
 }

@@ -1,4 +1,4 @@
 public abstract native class worldPrefabProxyMeshNode extends worldMeshNode {
-  native let nearAutoHideDistance: Float;
-  native let nbNodesUnderProxy: Uint32;
+  public native let nearAutoHideDistance: Float;
+  public native let nbNodesUnderProxy: Uint32;
 }

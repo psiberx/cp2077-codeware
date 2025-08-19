@@ -1,6 +1,6 @@
 public native class animAnimNode_ApplyCorrectivePoseRBF extends animAnimNode_OnePoseInput {
-  native let rbfCoefficient: Float;
-  native let rbfPowValue: Float;
-  native let correctiveFrame: Float;
-  native let correctives: array<animCorrectivePoseEntry>;
+  public native let rbfCoefficient: Float;
+  public native let rbfPowValue: Float;
+  public native let correctiveFrame: Float;
+  public native let correctives: array<animCorrectivePoseEntry>;
 }

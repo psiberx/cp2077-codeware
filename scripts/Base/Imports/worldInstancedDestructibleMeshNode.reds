@@ -1,25 +1,25 @@
 public native class worldInstancedDestructibleMeshNode extends worldMeshNode {
-  native let staticMesh: ResourceAsyncRef; // raRef<CMesh>
-  native let staticMeshAppearance: CName;
-  native let simulationType: physicsSimulationType;
-  native let filterDataSource: physicsFilterDataSource;
-  native let startInactive: Bool;
-  native let turnDynamicOnImpulse: Bool;
-  native let useAggregate: Bool;
-  native let enableSelfCollisionInAggregate: Bool;
-  native let isDestructible: Bool;
-  native let filterData: ref<physicsFilterData>;
-  native let damageThreshold: Float;
-  native let damageEndurance: Float;
-  native let accumulateDamage: Bool;
-  native let impulseToDamage: Float;
-  native let fracturingEffect: ResourceAsyncRef; // raRef<worldEffect>
-  native let idleEffect: ResourceAsyncRef; // raRef<worldEffect>
-  native let instanceTransforms: array<Transform>;
-  native let cookedInstanceTransforms: worldTransformBuffer;
-  native let isPierceable: Bool;
-  native let isWorkspot: Bool;
-  native let navigationSetting: NavGenNavigationSetting;
-  native let useMeshNavmeshSettings: Bool;
-  native let systemsToNotifyFlags: Uint16;
+  public native let staticMesh: ResourceAsyncRef; // raRef<CMesh>
+  public native let staticMeshAppearance: CName;
+  public native let simulationType: physicsSimulationType;
+  public native let filterDataSource: physicsFilterDataSource;
+  public native let startInactive: Bool;
+  public native let turnDynamicOnImpulse: Bool;
+  public native let useAggregate: Bool;
+  public native let enableSelfCollisionInAggregate: Bool;
+  public native let isDestructible: Bool;
+  public native let filterData: ref<physicsFilterData>;
+  public native let damageThreshold: Float;
+  public native let damageEndurance: Float;
+  public native let accumulateDamage: Bool;
+  public native let impulseToDamage: Float;
+  public native let fracturingEffect: ResourceAsyncRef; // raRef<worldEffect>
+  public native let idleEffect: ResourceAsyncRef; // raRef<worldEffect>
+  public native let instanceTransforms: array<Transform>;
+  public native let cookedInstanceTransforms: worldTransformBuffer;
+  public native let isPierceable: Bool;
+  public native let isWorkspot: Bool;
+  public native let navigationSetting: NavGenNavigationSetting;
+  public native let useMeshNavmeshSettings: Bool;
+  public native let systemsToNotifyFlags: Uint16;
 }

@@ -1,3 +1,3 @@
 public native class audioPhysicalMaterialToAudioMetadataMatrix extends audioAudioMetadata {
-  native let physicalToAudioMaterialAssignments: array<audioAudioMaterialMetadataMapItem>;
+  public native let physicalToAudioMaterialAssignments: array<audioAudioMaterialMetadataMapItem>;
 }

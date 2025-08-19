@@ -1,2 +1,2 @@
 @addField(inkLanguageOverrideProvider)
-native let languageId: inkLanguageId;
+public native let languageId: inkLanguageId;

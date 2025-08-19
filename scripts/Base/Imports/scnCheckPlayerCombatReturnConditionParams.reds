@@ -1,3 +1,3 @@
 public native struct scnCheckPlayerCombatReturnConditionParams {
-  native let isInCombat: Bool;
+  public native let isInCombat: Bool;
 }

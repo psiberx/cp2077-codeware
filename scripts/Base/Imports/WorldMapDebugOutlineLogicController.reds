@@ -1,3 +1,3 @@
 public native class WorldMapDebugOutlineLogicController extends inkLogicController {
-  native let outlineWidget: inkShapeRef;
+  public native let outlineWidget: inkShapeRef;
 }

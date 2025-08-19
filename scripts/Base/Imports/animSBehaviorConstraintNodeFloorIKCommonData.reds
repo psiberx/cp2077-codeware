@@ -1,7 +1,7 @@
 public native struct animSBehaviorConstraintNodeFloorIKCommonData {
-  native let gravityCentreBone: animTransformIndex;
-  native let rootRotationBlendTime: Float;
-  native let verticalVelocityOffsetUpBlendTime: Float;
-  native let verticalVelocityOffsetDownBlendTime: Float;
-  native let slidingOnSlopeBlendTime: Float;
+  public native let gravityCentreBone: animTransformIndex;
+  public native let rootRotationBlendTime: Float;
+  public native let verticalVelocityOffsetUpBlendTime: Float;
+  public native let verticalVelocityOffsetDownBlendTime: Float;
+  public native let slidingOnSlopeBlendTime: Float;
 }

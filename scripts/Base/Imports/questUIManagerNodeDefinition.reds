@@ -1,3 +1,3 @@
 public native class questUIManagerNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let type: ref<questIUIManagerNodeType>;
+  public native let type: ref<questIUIManagerNodeType>;
 }

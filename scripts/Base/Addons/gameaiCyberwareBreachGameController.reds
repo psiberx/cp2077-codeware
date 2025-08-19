@@ -1,2 +1,2 @@
 @addField(gameaiCyberwareBreachGameController)
-native let strokeHealthDepleation: inkWidgetRef;
+public native let strokeHealthDepleation: inkWidgetRef;

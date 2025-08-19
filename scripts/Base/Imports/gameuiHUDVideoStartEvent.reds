@@ -1,12 +1,12 @@
 public native struct gameuiHUDVideoStartEvent {
-  native let videoPathHash: Uint64;
-  native let playOnHud: Bool;
-  native let fullScreen: Bool;
-  native let useFullscreenVideoState: Bool;
-  native let keepWidescreenAspectRatio: Bool;
-  native let position: Vector2;
-  native let size: Vector2;
-  native let skippable: Bool;
-  native let isLooped: Bool;
-  native let forceVideoFrameRate: Bool;
+  public native let videoPathHash: Uint64;
+  public native let playOnHud: Bool;
+  public native let fullScreen: Bool;
+  public native let useFullscreenVideoState: Bool;
+  public native let keepWidescreenAspectRatio: Bool;
+  public native let position: Vector2;
+  public native let size: Vector2;
+  public native let skippable: Bool;
+  public native let isLooped: Bool;
+  public native let forceVideoFrameRate: Bool;
 }

@@ -1,4 +1,4 @@
 public native class AIArgumentObjectValue extends AIArgumentDefinition {
-  native let type: AIArgumentType;
-  native let defaultValue: wref<GameObject>;
+  public native let type: AIArgumentType;
+  public native let defaultValue: wref<GameObject>;
 }

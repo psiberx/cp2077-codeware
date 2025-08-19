@@ -1,4 +1,4 @@
 public native class worldAreaShapeNode extends worldNode {
-  native let color: Color;
-  native let outline: ref<AreaShapeOutline>;
+  public native let color: Color;
+  public native let outline: ref<AreaShapeOutline>;
 }

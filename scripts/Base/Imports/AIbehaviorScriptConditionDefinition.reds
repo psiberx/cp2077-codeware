@@ -1,4 +1,4 @@
 public native class AIbehaviorScriptConditionDefinition extends AIbehaviorConditionDefinition {
-  native let script: ref<AIbehaviorconditionScript>;
-  native let disableLazyInitialization: Bool;
+  public native let script: ref<AIbehaviorconditionScript>;
+  public native let disableLazyInitialization: Bool;
 }

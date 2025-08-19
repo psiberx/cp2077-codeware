@@ -1,4 +1,4 @@
 public native class gameuiTutorialAreaDespawnEvent extends Event {
-  native let bracketID: CName;
-  native let areaID: Uint32;
+  public native let bracketID: CName;
+  public native let areaID: Uint32;
 }

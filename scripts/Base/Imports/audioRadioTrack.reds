@@ -1,6 +1,6 @@
 public native struct audioRadioTrack {
-  native let trackEventName: CName;
-  native let localizationKey: CName;
-  native let primaryLocKey: Uint64;
-  native let isStreamingFriendly: Bool;
+  public native let trackEventName: CName;
+  public native let localizationKey: CName;
+  public native let primaryLocKey: Uint64;
+  public native let isStreamingFriendly: Bool;
 }

@@ -1,4 +1,4 @@
 public native struct gameuiCharacterCustomizationVersionUpdateInfo {
-  native let newVersion: Uint32;
-  native let optionUpdates: array<gameuiCharacterCustomizationOptionVersionUpdateInfo>;
+  public native let newVersion: Uint32;
+  public native let optionUpdates: array<gameuiCharacterCustomizationOptionVersionUpdateInfo>;
 }

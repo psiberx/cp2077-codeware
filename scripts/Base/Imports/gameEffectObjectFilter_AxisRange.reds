@@ -1,5 +1,5 @@
 public native class gameEffectObjectFilter_AxisRange extends EffectObjectSingleFilter {
-  native let axis: gameEffectObjectFilter_AxisRangeAxis;
-  native let position: EffectInputParameter_Vector;
-  native let constraints: EffectInputParameter_Vector;
+  public native let axis: gameEffectObjectFilter_AxisRangeAxis;
+  public native let position: EffectInputParameter_Vector;
+  public native let constraints: EffectInputParameter_Vector;
 }

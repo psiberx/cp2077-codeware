@@ -1,4 +1,4 @@
 public abstract native class entISkinTargetComponent extends IVisualComponent {
-  native let skinning: ref<entSkinningBinding>;
-  native let useSkinningLOD: Bool;
+  public native let skinning: ref<entSkinningBinding>;
+  public native let useSkinningLOD: Bool;
 }

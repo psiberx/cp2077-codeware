@@ -1,3 +1,3 @@
 public native class inkEnableHUDScaleOverride extends inkInitializedWidgetUserData {
-  native let scalingInterpolationValue: Float;
+  public native let scalingInterpolationValue: Float;
 }

@@ -1,7 +1,7 @@
 public native class audioRadioStationMetadataMap extends audioAudioMetadata {
-  native let radioStations: array<CName>;
-  native let switchStationEvent: CName;
-  native let turnOnRadioEvent: CName;
-  native let turnOffRadioEvent: CName;
-  native let defaultBackgroundJingle: audioRadioStationJingleMetadata;
+  public native let radioStations: array<CName>;
+  public native let switchStationEvent: CName;
+  public native let turnOnRadioEvent: CName;
+  public native let turnOffRadioEvent: CName;
+  public native let defaultBackgroundJingle: audioRadioStationJingleMetadata;
 }

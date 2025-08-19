@@ -1,2 +1,2 @@
 @addField(OnBeingDetectedEvent)
-native let source: wref<SensorObject>;
+public native let source: wref<SensorObject>;

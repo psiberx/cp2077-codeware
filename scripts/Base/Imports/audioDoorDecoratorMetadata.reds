@@ -1,10 +1,10 @@
 public native class audioDoorDecoratorMetadata extends audioEmitterMetadata {
-  native let startOpen: CName;
-  native let startClose: CName;
-  native let endOpen: CName;
-  native let endClose: CName;
-  native let openLoop: CName;
-  native let closeLoop: CName;
-  native let openTime: Float;
-  native let closeTime: Float;
+  public native let startOpen: CName;
+  public native let startClose: CName;
+  public native let endOpen: CName;
+  public native let endClose: CName;
+  public native let openLoop: CName;
+  public native let closeLoop: CName;
+  public native let openTime: Float;
+  public native let closeTime: Float;
 }

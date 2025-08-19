@@ -1,11 +1,11 @@
 public native class LightAreaSettings extends IAreaSettings {
-  native let latitude: CurveDataFloat;
-  native let season: ETimeOfYearSeason;
-  native let sunRotationOffset: CurveDataFloat;
-  native let sunColor: CurveDataHDRColor;
-  native let sunSize: CurveDataFloat;
-  native let moonRotationOffset: CurveDataFloat;
-  native let moonColor: CurveDataHDRColor;
-  native let moonSize: CurveDataFloat;
-  native let specularTint: CurveDataHDRColor;
+  public native let latitude: CurveDataFloat;
+  public native let season: ETimeOfYearSeason;
+  public native let sunRotationOffset: CurveDataFloat;
+  public native let sunColor: CurveDataHDRColor;
+  public native let sunSize: CurveDataFloat;
+  public native let moonRotationOffset: CurveDataFloat;
+  public native let moonColor: CurveDataHDRColor;
+  public native let moonSize: CurveDataFloat;
+  public native let specularTint: CurveDataHDRColor;
 }

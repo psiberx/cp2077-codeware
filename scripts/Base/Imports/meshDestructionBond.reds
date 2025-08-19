@@ -1,4 +1,4 @@
 public native struct meshDestructionBond {
-  native let bondIndex: Uint16;
-  native let bondHealth: Uint8;
+  public native let bondIndex: Uint16;
+  public native let bondHealth: Uint8;
 }

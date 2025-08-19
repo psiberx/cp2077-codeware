@@ -1,4 +1,4 @@
 public native struct gamemappinsDynamicQuestMappinRepInfo {
-  native let journalPathHash: Uint32;
-  native let entity: wref<Entity>;
+  public native let journalPathHash: Uint32;
+  public native let entity: wref<Entity>;
 }

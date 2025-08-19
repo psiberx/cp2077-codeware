@@ -1,5 +1,5 @@
 public native class audioEnvelopeSettings extends audioAudioMetadata {
-  native let attackTime: Float;
-  native let releaseTime: Float;
-  native let holdTime: Float;
+  public native let attackTime: Float;
+  public native let releaseTime: Float;
+  public native let holdTime: Float;
 }

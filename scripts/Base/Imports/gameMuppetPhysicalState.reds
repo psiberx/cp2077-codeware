@@ -1,7 +1,7 @@
 public native struct gameMuppetPhysicalState {
-  native let position: Vector4;
-  native let worldYaw: Float;
-  native let velocity: Vector4;
-  native let isOnGround: Bool;
-  native let groundNormal: Vector4;
+  public native let position: Vector4;
+  public native let worldYaw: Float;
+  public native let velocity: Vector4;
+  public native let isOnGround: Bool;
+  public native let groundNormal: Vector4;
 }

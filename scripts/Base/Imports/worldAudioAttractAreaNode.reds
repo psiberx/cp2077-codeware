@@ -1,4 +1,4 @@
 public native class worldAudioAttractAreaNode extends worldTriggerAreaNode {
-  native let interestingConversationsNodeRef: NodeRef;
-  native let audioAttractSoundSettings: array<worldAudioAttractAreaNodeSettings>;
+  public native let interestingConversationsNodeRef: NodeRef;
+  public native let audioAttractSoundSettings: array<worldAudioAttractAreaNodeSettings>;
 }

@@ -1,3 +1,3 @@
 public native class audioUiGenericControlSettingsMap extends audioAudioMetadata {
-  native let uiControlMatrix: array<audioUiGenericControlSettingsMapItem>;
+  public native let uiControlMatrix: array<audioUiGenericControlSettingsMapItem>;
 }

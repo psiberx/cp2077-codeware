@@ -1,4 +1,4 @@
 public native class animAnimNode_SetBoneOrientation extends animAnimNode_OnePoseInput {
-  native let bone: animTransformIndex;
-  native let orientationMs: animQuaternionLink;
+  public native let bone: animTransformIndex;
+  public native let orientationMs: animQuaternionLink;
 }

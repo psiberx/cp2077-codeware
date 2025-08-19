@@ -1,4 +1,4 @@
 public native struct gameGlobalTierSaveData {
-  native let subtype: gameGlobalTierSubtype;
-  native let data: ref<SceneTierData>;
+  public native let subtype: gameGlobalTierSubtype;
+  public native let data: ref<SceneTierData>;
 }

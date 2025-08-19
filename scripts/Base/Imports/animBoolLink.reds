@@ -1,3 +1,3 @@
 public native struct animBoolLink {
-  native let node: wref<animAnimNode_BoolValue>;
+  public native let node: wref<animAnimNode_BoolValue>;
 }

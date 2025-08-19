@@ -1,5 +1,5 @@
 public native class gameaudioRagdollSubSystem extends gameaudioISoundComponentSubSystem {
-  native let defaultMaterialMetadata: CName;
-  native let customDismembermentSettings: CName;
-  native let lookupMatrixName: CName;
+  public native let defaultMaterialMetadata: CName;
+  public native let customDismembermentSettings: CName;
+  public native let lookupMatrixName: CName;
 }

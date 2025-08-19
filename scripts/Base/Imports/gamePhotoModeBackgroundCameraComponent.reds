@@ -1,12 +1,12 @@
 public native class gamePhotoModeBackgroundCameraComponent extends entCameraComponent {
-  native let isEnabled: Bool;
-  native let virtualCameraName: CName;
-  native let dynamicTextureRes: ResourceAsyncRef; // raRef<DynamicTexture>
-  native let env: ResourceRef; // rRef<worldEnvironmentAreaParameters>
-  native let params: WorldRenderAreaSettings;
-  native let depthCutDistance: Float;
-  native let backgroundColor: Color;
-  native let overrideBackgroundColor: Bool;
-  native let renderSceneLayer: RenderSceneLayer;
-  native let streamingDistance: Float;
+  public native let isEnabled: Bool;
+  public native let virtualCameraName: CName;
+  public native let dynamicTextureRes: ResourceAsyncRef; // raRef<DynamicTexture>
+  public native let env: ResourceRef; // rRef<worldEnvironmentAreaParameters>
+  public native let params: WorldRenderAreaSettings;
+  public native let depthCutDistance: Float;
+  public native let backgroundColor: Color;
+  public native let overrideBackgroundColor: Bool;
+  public native let renderSceneLayer: RenderSceneLayer;
+  public native let streamingDistance: Float;
 }

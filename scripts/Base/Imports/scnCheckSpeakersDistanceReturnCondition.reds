@@ -1,3 +1,3 @@
 public native class scnCheckSpeakersDistanceReturnCondition extends scnIReturnCondition {
-  native let params: scnCheckSpeakersDistanceReturnConditionParams;
+  public native let params: scnCheckSpeakersDistanceReturnConditionParams;
 }

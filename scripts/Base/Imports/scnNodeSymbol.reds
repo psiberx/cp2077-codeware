@@ -1,5 +1,5 @@
 public native struct scnNodeSymbol {
-  native let nodeId: scnNodeId;
-  native let editorNodeId: scnNodeId;
-  native let editorEventId: Uint64;
+  public native let nodeId: scnNodeId;
+  public native let editorNodeId: scnNodeId;
+  public native let editorEventId: Uint64;
 }

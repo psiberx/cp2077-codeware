@@ -1,11 +1,11 @@
 @addField(inkRadioGroupController)
-native let toggleRefs: array<inkWidgetRef>;
+public native let toggleRefs: array<inkWidgetRef>;
 
 @addField(inkRadioGroupController)
-native let alwaysToggled: Bool;
+public native let alwaysToggled: Bool;
 
 @addField(inkRadioGroupController)
-native let selectedIndex: Int32;
+public native let selectedIndex: Int32;
 
 @addField(inkRadioGroupController)
-native let ValueChanged: inkRadioGroupChangedCallback;
+public native let ValueChanged: inkRadioGroupChangedCallback;

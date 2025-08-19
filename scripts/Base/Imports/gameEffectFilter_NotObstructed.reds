@@ -1,6 +1,6 @@
 public native class gameEffectFilter_NotObstructed extends EffectObjectSingleFilter {
-  native let forwardOffset: Float;
-  native let filterData: ref<physicsFilterData>;
-  native let queryPreset: QueryPreset;
-  native let playerUseCameraPositionForCheck: Bool;
+  public native let forwardOffset: Float;
+  public native let filterData: ref<physicsFilterData>;
+  public native let queryPreset: QueryPreset;
+  public native let playerUseCameraPositionForCheck: Bool;
 }

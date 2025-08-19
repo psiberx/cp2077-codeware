@@ -1,2 +1,2 @@
 @addField(inkWidgetRef)
-native let widget: wref<inkWidget>;
+public native let widget: wref<inkWidget>;

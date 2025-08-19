@@ -1,10 +1,10 @@
 public native class scnInteractionShapeParams extends ISerializable {
-  native let preset: scnChoiceNodeNsSizePreset;
-  native let offset: Vector3;
-  native let rotation: Quaternion;
-  native let customIndicationRange: Float;
-  native let customActivationRange: Float;
-  native let activationYawLimit: Float;
-  native let activationBaseLength: Float;
-  native let activationHeight: Float;
+  public native let preset: scnChoiceNodeNsSizePreset;
+  public native let offset: Vector3;
+  public native let rotation: Quaternion;
+  public native let customIndicationRange: Float;
+  public native let customActivationRange: Float;
+  public native let activationYawLimit: Float;
+  public native let activationBaseLength: Float;
+  public native let activationHeight: Float;
 }

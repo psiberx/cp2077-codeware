@@ -1,2 +1,2 @@
 @addField(RequestItemParam)
-native let instant: Bool;
+public native let instant: Bool;

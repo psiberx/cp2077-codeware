@@ -1,7 +1,7 @@
 public abstract native class animIMotionTableProvider extends ISerializable {
-  native let id: Int32;
-  native let parentId: Int32;
-  native let type: animMotionTableType;
-  native let action: animMotionTableAction;
-  native let parentStaticSwitchBranch: animParentStaticSwitchBranch;
+  public native let id: Int32;
+  public native let parentId: Int32;
+  public native let type: animMotionTableType;
+  public native let action: animMotionTableAction;
+  public native let parentStaticSwitchBranch: animParentStaticSwitchBranch;
 }

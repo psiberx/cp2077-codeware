@@ -1,4 +1,4 @@
 public native struct questSetIdleRazerAnimation_NodeTypeParams {
-  native let animationName: CName;
-  native let use: Bool;
+  public native let animationName: CName;
+  public native let use: Bool;
 }

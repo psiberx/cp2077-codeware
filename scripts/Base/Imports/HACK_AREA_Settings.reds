@@ -1,12 +1,12 @@
 public native class HACK_AREA_Settings extends IAreaSettings {
-  native let surfelScale: Float;
-  native let missingEnergyScale: Float;
-  native let overrideOnPureView: Bool;
-  native let surfAlbedoOverrideRatio: Float;
-  native let surfAlbedoOverride: HDRColor;
-  native let skyScale: Float;
-  native let bottomHemisphereTint: CurveDataHDRColor;
-  native let bottomHemisphereStrength: Float;
-  native let emissiveScale: Float;
-  native let albedoMetalness: Float;
+  public native let surfelScale: Float;
+  public native let missingEnergyScale: Float;
+  public native let overrideOnPureView: Bool;
+  public native let surfAlbedoOverrideRatio: Float;
+  public native let surfAlbedoOverride: HDRColor;
+  public native let skyScale: Float;
+  public native let bottomHemisphereTint: CurveDataHDRColor;
+  public native let bottomHemisphereStrength: Float;
+  public native let emissiveScale: Float;
+  public native let albedoMetalness: Float;
 }

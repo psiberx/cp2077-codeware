@@ -1,3 +1,3 @@
 public abstract native class questNodeDefinition extends graphGraphNodeDefinition {
-  native let id: Uint16;
+  public native let id: Uint16;
 }

@@ -1,5 +1,5 @@
 public native class worldDecorationMeshNode extends worldMeshNode {
-  native let startAsleep: Bool;
-  native let filterDataSource: physicsFilterDataSource;
-  native let filterData: ref<physicsFilterData>;
+  public native let startAsleep: Bool;
+  public native let filterDataSource: physicsFilterDataSource;
+  public native let filterData: ref<physicsFilterData>;
 }

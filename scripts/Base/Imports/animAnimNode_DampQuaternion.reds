@@ -1,7 +1,7 @@
 public native class animAnimNode_DampQuaternion extends animAnimNode_QuaternionValue {
-  native let defaultRotationSpeed: Float;
-  native let defaultInitialValue: EulerAngles;
-  native let inputNode: animQuaternionLink;
-  native let initialValueNode: animQuaternionLink;
-  native let rotationSpeedNode: animFloatLink;
+  public native let defaultRotationSpeed: Float;
+  public native let defaultInitialValue: EulerAngles;
+  public native let inputNode: animQuaternionLink;
+  public native let initialValueNode: animQuaternionLink;
+  public native let rotationSpeedNode: animFloatLink;
 }

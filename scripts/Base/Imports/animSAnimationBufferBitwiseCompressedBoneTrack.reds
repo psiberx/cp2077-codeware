@@ -1,5 +1,5 @@
 public native struct animSAnimationBufferBitwiseCompressedBoneTrack {
-  native let position: animSAnimationBufferBitwiseCompressedData;
-  native let orientation: animSAnimationBufferBitwiseCompressedData;
-  native let scale: animSAnimationBufferBitwiseCompressedData;
+  public native let position: animSAnimationBufferBitwiseCompressedData;
+  public native let orientation: animSAnimationBufferBitwiseCompressedData;
+  public native let scale: animSAnimationBufferBitwiseCompressedData;
 }

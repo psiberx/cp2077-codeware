@@ -1,7 +1,7 @@
 public native class SetupColorBarForAttributeEvent extends Event {
-  native let attribute: Uint32;
-  native let startValue: Float;
-  native let minValue: Float;
-  native let maxValue: Float;
-  native let step: Float;
+  public native let attribute: Uint32;
+  public native let startValue: Float;
+  public native let minValue: Float;
+  public native let maxValue: Float;
+  public native let step: Float;
 }

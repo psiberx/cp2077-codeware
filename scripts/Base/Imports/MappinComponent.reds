@@ -1,3 +1,3 @@
 public importonly class MappinComponent extends IPlacedComponent {
-  native let data: MappinData;
+  public native let data: MappinData;
 }

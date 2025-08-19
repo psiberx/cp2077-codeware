@@ -1,3 +1,3 @@
 public native class gameTelemetryPostMortemContainer extends ISerializable {
-  native let postMortem: gameTelemetryPostMortem;
+  public native let postMortem: gameTelemetryPostMortem;
 }

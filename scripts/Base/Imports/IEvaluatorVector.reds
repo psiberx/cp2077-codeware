@@ -1,4 +1,4 @@
 public abstract native class IEvaluatorVector extends IEvaluator {
-  native let freeAxes: EFreeVectorAxes;
-  native let spill: Bool;
+  public native let freeAxes: EFreeVectorAxes;
+  public native let spill: Bool;
 }

@@ -1,3 +1,3 @@
 public native struct CTextureArrayEntry {
-  native let texture: ResourceRef; // rRef<CBitmapTexture>
+  public native let texture: ResourceRef; // rRef<CBitmapTexture>
 }

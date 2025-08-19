@@ -1,2 +1,2 @@
 @addField(BinkResource)
-native let video: ResourceAsyncRef; // raRef<Bink>
+public native let video: ResourceAsyncRef; // raRef<Bink>

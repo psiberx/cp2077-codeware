@@ -1,4 +1,4 @@
 public abstract native struct gamePlayer {
-  native let peerID: netPeerID;
-  native let nickname: String;
+  public native let peerID: netPeerID;
+  public native let nickname: String;
 }

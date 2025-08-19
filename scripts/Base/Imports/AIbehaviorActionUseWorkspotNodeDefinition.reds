@@ -1,9 +1,9 @@
 public native class AIbehaviorActionUseWorkspotNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let eventData: ref<AIArgumentMapping>;
-  native let playStartAnimationAfterwards: ref<AIArgumentMapping>;
-  native let mountData: ref<AIArgumentMapping>;
-  native let dependentWorkspotData: ref<AIArgumentMapping>;
-  native let playExitAutomatically: ref<AIArgumentMapping>;
-  native let markUninterruptable: ref<AIArgumentMapping>;
-  native let fastForwardAfterTeleport: ref<AIArgumentMapping>;
+  public native let eventData: ref<AIArgumentMapping>;
+  public native let playStartAnimationAfterwards: ref<AIArgumentMapping>;
+  public native let mountData: ref<AIArgumentMapping>;
+  public native let dependentWorkspotData: ref<AIArgumentMapping>;
+  public native let playExitAutomatically: ref<AIArgumentMapping>;
+  public native let markUninterruptable: ref<AIArgumentMapping>;
+  public native let fastForwardAfterTeleport: ref<AIArgumentMapping>;
 }

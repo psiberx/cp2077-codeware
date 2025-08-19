@@ -1,10 +1,10 @@
 public native class animAnimNode_AimConstraint_ObjectUp extends animAnimNode_OnePoseInput {
-  native let targetTransform: animTransformIndex;
-  native let upTransform: animTransformIndex;
-  native let transformIndex: animTransformIndex;
-  native let forwardAxisLS: Vector3;
-  native let upAxisLS: Vector3;
-  native let weightMode: animConstraintWeightMode;
-  native let weight: Float;
-  native let weightFloatTrack: animNamedTrackIndex;
+  public native let targetTransform: animTransformIndex;
+  public native let upTransform: animTransformIndex;
+  public native let transformIndex: animTransformIndex;
+  public native let forwardAxisLS: Vector3;
+  public native let upAxisLS: Vector3;
+  public native let weightMode: animConstraintWeightMode;
+  public native let weight: Float;
+  public native let weightFloatTrack: animNamedTrackIndex;
 }

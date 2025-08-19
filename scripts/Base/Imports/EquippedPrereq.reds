@@ -1,4 +1,4 @@
 public native class EquippedPrereq extends IPrereq {
-  native let itemID: ItemID;
-  native let slot: TweakDBID;
+  public native let itemID: ItemID;
+  public native let slot: TweakDBID;
 }

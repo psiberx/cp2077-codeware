@@ -1,4 +1,4 @@
 public native class gameDynamicEventNode extends worldAreaShapeNode {
-  native let mappinRef: NodeRef;
-  native let condition: ref<questIBaseCondition>;
+  public native let mappinRef: NodeRef;
+  public native let condition: ref<questIBaseCondition>;
 }

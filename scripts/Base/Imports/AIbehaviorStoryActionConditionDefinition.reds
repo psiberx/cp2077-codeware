@@ -1,3 +1,3 @@
 public native class AIbehaviorStoryActionConditionDefinition extends AIbehaviorConditionDefinition {
-  native let action: AIbehaviorStoryActionType;
+  public native let action: AIbehaviorStoryActionType;
 }

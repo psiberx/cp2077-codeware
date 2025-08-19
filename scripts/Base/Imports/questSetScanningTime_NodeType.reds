@@ -1,4 +1,4 @@
 public native class questSetScanningTime_NodeType extends questIVisionModeNodeType {
-  native let objectRef: EntityReference;
-  native let time: Float;
+  public native let objectRef: EntityReference;
+  public native let time: Float;
 }

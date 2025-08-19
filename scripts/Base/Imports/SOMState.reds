@@ -1,8 +1,8 @@
 public native struct SOMState {
-  native let depthStencilModeDesc: PSODescDepthStencilModeDesc;
-  native let rasterizerModeDesc: PSODescRasterizerModeDesc;
-  native let blendModeDesc: PSODescBlendModeDesc;
-  native let stencilReadMask: Uint8;
-  native let stencilWriteMask: Uint8;
-  native let stencilRef: Uint8;
+  public native let depthStencilModeDesc: PSODescDepthStencilModeDesc;
+  public native let rasterizerModeDesc: PSODescRasterizerModeDesc;
+  public native let blendModeDesc: PSODescBlendModeDesc;
+  public native let stencilReadMask: Uint8;
+  public native let stencilWriteMask: Uint8;
+  public native let stencilRef: Uint8;
 }

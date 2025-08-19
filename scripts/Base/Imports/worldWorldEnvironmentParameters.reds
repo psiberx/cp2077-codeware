@@ -1,3 +1,3 @@
 public native struct worldWorldEnvironmentParameters {
-  native let globalLightingTrajectory: GlobalLightingTrajectory;
+  public native let globalLightingTrajectory: GlobalLightingTrajectory;
 }

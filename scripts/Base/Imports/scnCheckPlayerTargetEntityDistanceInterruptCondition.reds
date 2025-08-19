@@ -1,3 +1,3 @@
 public native class scnCheckPlayerTargetEntityDistanceInterruptCondition extends scnIInterruptCondition {
-  native let params: scnCheckPlayerTargetEntityDistanceInterruptConditionParams;
+  public native let params: scnCheckPlayerTargetEntityDistanceInterruptConditionParams;
 }

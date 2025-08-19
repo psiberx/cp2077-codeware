@@ -1,8 +1,8 @@
 public native struct audioVehicleInteriorParameterData {
-  native let enterCurveType: audioESoundCurveType;
-  native let enterCurveTime: Float;
-  native let enterDelayTime: Float;
-  native let exitCurveType: audioESoundCurveType;
-  native let exitCurveTime: Float;
-  native let exitDelayTime: Float;
+  public native let enterCurveType: audioESoundCurveType;
+  public native let enterCurveTime: Float;
+  public native let enterDelayTime: Float;
+  public native let exitCurveType: audioESoundCurveType;
+  public native let exitCurveTime: Float;
+  public native let exitDelayTime: Float;
 }

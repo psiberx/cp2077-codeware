@@ -1,4 +1,4 @@
 public native class scnGameplayActionSetVehicleSuspensionData extends scnIGameplayActionData {
-  native let active: Bool;
-  native let cooldownTime: Float;
+  public native let active: Bool;
+  public native let cooldownTime: Float;
 }

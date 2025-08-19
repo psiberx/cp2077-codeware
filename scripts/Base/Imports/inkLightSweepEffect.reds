@@ -1,7 +1,7 @@
 public native class inkLightSweepEffect extends inkIEffect {
-  native let positionX: Float;
-  native let positionY: Float;
-  native let angle: Float;
-  native let width: Float;
-  native let intensity: Float;
+  public native let positionX: Float;
+  public native let positionY: Float;
+  public native let angle: Float;
+  public native let width: Float;
+  public native let intensity: Float;
 }

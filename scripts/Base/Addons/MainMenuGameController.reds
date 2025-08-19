@@ -1,2 +1,2 @@
 @addField(MainMenuGameController)
-native let backgroundContainer: inkCompoundRef;
+public native let backgroundContainer: inkCompoundRef;

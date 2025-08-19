@@ -1,5 +1,5 @@
 public native class audioEnemyStateCountASTCD extends audioAudioStateTransitionConditionData {
-  native let enemiesState: audioEnemyState;
-  native let countComparer: audioNumberComparer;
-  native let enemiesCount: Uint32;
+  public native let enemiesState: audioEnemyState;
+  public native let countComparer: audioNumberComparer;
+  public native let enemiesCount: Uint32;
 }

@@ -1,14 +1,14 @@
 public native class animAnimSet extends CResource {
-  native let animations: array<ref<animAnimSetEntry>>;
-  native let animationDataChunks: array<animAnimDataChunk>;
-  native let fallbackDataAddresses: array<Uint16>;
-  native let fallbackDataAddressIndexes: array<Uint8>;
-  native let fallbackAnimFrameDescs: array<animAnimFallbackFrameDesc>;
-  native let fallbackAnimDescIndexes: array<Uint8>;
-  native let fallbackNumPositionData: Uint16;
-  native let fallbackNumRotationData: Uint16;
-  native let fallbackNumFloatTrackData: Uint16;
-  native let rig: ResourceRef; // rRef<animRig>
-  native let tags: redTagList;
-  native let version: Uint32;
+  public native let animations: array<ref<animAnimSetEntry>>;
+  public native let animationDataChunks: array<animAnimDataChunk>;
+  public native let fallbackDataAddresses: array<Uint16>;
+  public native let fallbackDataAddressIndexes: array<Uint8>;
+  public native let fallbackAnimFrameDescs: array<animAnimFallbackFrameDesc>;
+  public native let fallbackAnimDescIndexes: array<Uint8>;
+  public native let fallbackNumPositionData: Uint16;
+  public native let fallbackNumRotationData: Uint16;
+  public native let fallbackNumFloatTrackData: Uint16;
+  public native let rig: ResourceRef; // rRef<animRig>
+  public native let tags: redTagList;
+  public native let version: Uint32;
 }

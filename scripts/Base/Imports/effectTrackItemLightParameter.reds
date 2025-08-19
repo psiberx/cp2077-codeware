@@ -1,6 +1,6 @@
 public native class effectTrackItemLightParameter extends effectTrackItem {
-  native let scale: Float;
-  native let intensityMultiplier: effectEffectParameterEvaluatorFloat;
-  native let intensity: effectEffectParameterEvaluatorFloat;
-  native let radius: effectEffectParameterEvaluatorFloat;
+  public native let scale: Float;
+  public native let intensityMultiplier: effectEffectParameterEvaluatorFloat;
+  public native let intensity: effectEffectParameterEvaluatorFloat;
+  public native let radius: effectEffectParameterEvaluatorFloat;
 }

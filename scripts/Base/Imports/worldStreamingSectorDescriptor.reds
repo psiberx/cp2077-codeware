@@ -1,10 +1,10 @@
 public native struct worldStreamingSectorDescriptor {
-  native let data: ResourceAsyncRef; // raRef<worldStreamingSector>
-  native let streamingBox: Box;
-  native let questPrefabNodeRef: NodeRef;
-  native let numNodeRanges: Uint32;
-  native let variants: array<worldStreamingSectorVariant>;
-  native let blockIndex: worldStreamingBlockIndex;
-  native let level: Uint8;
-  native let category: worldStreamingSectorCategory;
+  public native let data: ResourceAsyncRef; // raRef<worldStreamingSector>
+  public native let streamingBox: Box;
+  public native let questPrefabNodeRef: NodeRef;
+  public native let numNodeRanges: Uint32;
+  public native let variants: array<worldStreamingSectorVariant>;
+  public native let blockIndex: worldStreamingBlockIndex;
+  public native let level: Uint8;
+  public native let category: worldStreamingSectorCategory;
 }

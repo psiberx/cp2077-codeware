@@ -1,9 +1,9 @@
 public native class questCharacterManagerCombat_EquipWeapon extends questICharacterManagerCombat_NodeSubType {
-  native let equip: Bool;
-  native let weaponID: TweakDBID;
-  native let slotID: TweakDBID;
-  native let equipLastWeapon: Bool;
-  native let forceFirstEquip: Bool;
-  native let instant: Bool;
-  native let ignoreStateMachine: Bool;
+  public native let equip: Bool;
+  public native let weaponID: TweakDBID;
+  public native let slotID: TweakDBID;
+  public native let equipLastWeapon: Bool;
+  public native let forceFirstEquip: Bool;
+  public native let instant: Bool;
+  public native let ignoreStateMachine: Bool;
 }

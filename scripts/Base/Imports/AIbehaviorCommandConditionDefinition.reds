@@ -1,7 +1,7 @@
 public native class AIbehaviorCommandConditionDefinition extends AIbehaviorConditionDefinition {
-  native let commandName: ref<AIArgumentMapping>;
-  native let useInheritance: Bool;
-  native let isWaiting: Bool;
-  native let isExecuting: Bool;
-  native let commandOut: ref<AIArgumentMapping>;
+  public native let commandName: ref<AIArgumentMapping>;
+  public native let useInheritance: Bool;
+  public native let isWaiting: Bool;
+  public native let isExecuting: Bool;
+  public native let commandOut: ref<AIArgumentMapping>;
 }

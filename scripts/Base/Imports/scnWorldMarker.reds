@@ -1,5 +1,5 @@
 public native struct scnWorldMarker {
-  native let type: scnWorldMarkerType;
-  native let tag: CName;
-  native let nodeRef: NodeRef;
+  public native let type: scnWorldMarkerType;
+  public native let tag: CName;
+  public native let nodeRef: NodeRef;
 }

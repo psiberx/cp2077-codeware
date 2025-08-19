@@ -1,3 +1,3 @@
 public native class gameaudioeventsStopSoundOnEmitter extends gameaudioeventsEmitterEvent {
-  native let soundName: CName;
+  public native let soundName: CName;
 }

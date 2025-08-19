@@ -1,4 +1,4 @@
 public native class gameuiarcadeTankEnemyController extends gameuiarcadeTankDestroyableObjectController {
-  native let headParent: inkWidgetRef;
-  native let head: inkWidgetRef;
+  public native let headParent: inkWidgetRef;
+  public native let head: inkWidgetRef;
 }

@@ -1,5 +1,5 @@
 @addField(inkPreviewGameController)
-native let yawSpeed: Float;
+public native let yawSpeed: Float;
 
 @addField(inkPreviewGameController)
-native let yawDefault: Float;
+public native let yawDefault: Float;

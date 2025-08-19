@@ -1,2 +1,2 @@
 @addField(DamageIndicatorPartLogicController)
-native let maxDistanceForSharedIndicators: Float;
+public native let maxDistanceForSharedIndicators: Float;

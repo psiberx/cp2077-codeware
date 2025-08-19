@@ -1,4 +1,4 @@
 public native class questSetTimer_NodeType extends questIGameManagerNodeType {
-  native let enable: Bool;
-  native let duration: Float;
+  public native let enable: Bool;
+  public native let duration: Float;
 }

@@ -1,21 +1,21 @@
 public native class entRenderToTextureCameraComponent extends entCameraComponent {
-  native let isEnabled: Bool;
-  native let virtualCameraName: CName;
-  native let dynamicTextureRes: ResourceAsyncRef; // raRef<DynamicTexture>
-  native let depthDynamicTextureRes: ResourceRef; // rRef<DynamicTexture>
-  native let albedoDynamicTextureRes: ResourceRef; // rRef<DynamicTexture>
-  native let normalsDynamicTextureRes: ResourceRef; // rRef<DynamicTexture>
-  native let particlesDynamicTextureRes: ResourceRef; // rRef<DynamicTexture>
-  native let resolutionWidth: Uint32;
-  native let resolutionHeight: Uint32;
-  native let aspectRatio: Float;
-  native let env: ResourceRef; // rRef<worldEnvironmentAreaParameters>
-  native let params: WorldRenderAreaSettings;
-  native let renderingMode: entRenderToTextureMode;
-  native let depthCutDistance: Float;
-  native let backgroundColor: Color;
-  native let overrideBackgroundColor: Bool;
-  native let renderSceneLayer: RenderSceneLayer;
-  native let features: entRenderToTextureFeatures;
-  native let streamingDistance: Float;
+  public native let isEnabled: Bool;
+  public native let virtualCameraName: CName;
+  public native let dynamicTextureRes: ResourceAsyncRef; // raRef<DynamicTexture>
+  public native let depthDynamicTextureRes: ResourceRef; // rRef<DynamicTexture>
+  public native let albedoDynamicTextureRes: ResourceRef; // rRef<DynamicTexture>
+  public native let normalsDynamicTextureRes: ResourceRef; // rRef<DynamicTexture>
+  public native let particlesDynamicTextureRes: ResourceRef; // rRef<DynamicTexture>
+  public native let resolutionWidth: Uint32;
+  public native let resolutionHeight: Uint32;
+  public native let aspectRatio: Float;
+  public native let env: ResourceRef; // rRef<worldEnvironmentAreaParameters>
+  public native let params: WorldRenderAreaSettings;
+  public native let renderingMode: entRenderToTextureMode;
+  public native let depthCutDistance: Float;
+  public native let backgroundColor: Color;
+  public native let overrideBackgroundColor: Bool;
+  public native let renderSceneLayer: RenderSceneLayer;
+  public native let features: entRenderToTextureFeatures;
+  public native let streamingDistance: Float;
 }

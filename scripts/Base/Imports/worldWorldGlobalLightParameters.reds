@@ -1,8 +1,8 @@
 public native struct worldWorldGlobalLightParameters {
-  native let unit: ELightUnit;
-  native let sunColor: CurveDataHDRColor;
-  native let moonColor: CurveDataHDRColor;
-  native let sunSize: CurveDataFloat;
-  native let moonSize: CurveDataFloat;
-  native let specularTint: CurveDataHDRColor;
+  public native let unit: ELightUnit;
+  public native let sunColor: CurveDataHDRColor;
+  public native let moonColor: CurveDataHDRColor;
+  public native let sunSize: CurveDataFloat;
+  public native let moonSize: CurveDataFloat;
+  public native let specularTint: CurveDataHDRColor;
 }

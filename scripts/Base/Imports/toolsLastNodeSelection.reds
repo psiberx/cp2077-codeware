@@ -1,4 +1,4 @@
 public native struct toolsLastNodeSelection {
-  native let editorName: String;
-  native let selectedNodeIDPath: toolsEditorObjectIDPath;
+  public native let editorName: String;
+  public native let selectedNodeIDPath: toolsEditorObjectIDPath;
 }

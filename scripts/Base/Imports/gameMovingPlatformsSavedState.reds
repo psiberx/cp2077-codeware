@@ -1,4 +1,4 @@
 public native class gameMovingPlatformsSavedState extends ISerializable {
-  native let mapping: array<EntityID>;
-  native let data: array<gameMovingPlatformSavedData>;
+  public native let mapping: array<EntityID>;
+  public native let data: array<gameMovingPlatformSavedData>;
 }

@@ -1,13 +1,13 @@
 public native class worldAISpotNode extends worldSocketNode {
-  native let spot: ref<AISpot>;
-  native let isWorkspotInfinite: Bool;
-  native let isWorkspotStatic: Bool;
-  native let markings: array<CName>;
-  native let spotDef: ref<worldTrafficSpotDefinition>;
-  native let disableBumps: Bool;
-  native let lookAtTarget: NodeRef;
-  native let useCrowdWhitelist: Bool;
-  native let useCrowdBlacklist: Bool;
-  native let crowdWhitelist: redTagList;
-  native let crowdBlacklist: redTagList;
+  public native let spot: ref<AISpot>;
+  public native let isWorkspotInfinite: Bool;
+  public native let isWorkspotStatic: Bool;
+  public native let markings: array<CName>;
+  public native let spotDef: ref<worldTrafficSpotDefinition>;
+  public native let disableBumps: Bool;
+  public native let lookAtTarget: NodeRef;
+  public native let useCrowdWhitelist: Bool;
+  public native let useCrowdBlacklist: Bool;
+  public native let crowdWhitelist: redTagList;
+  public native let crowdBlacklist: redTagList;
 }

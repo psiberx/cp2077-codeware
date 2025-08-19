@@ -1,6 +1,6 @@
 public native class inkWidgetBackendData extends IBackendData {
-  native let owner: wref<inkWidget>;
-  native let isHiddenInEditor: Bool;
-  native let isLocked: Bool;
-  native let boundLibraryItemName: CName;
+  public native let owner: wref<inkWidget>;
+  public native let isHiddenInEditor: Bool;
+  public native let isLocked: Bool;
+  public native let boundLibraryItemName: CName;
 }

@@ -1,6 +1,6 @@
 public native struct gamecarryReplicatedEntitySetAttachmentToEntity {
-  native let time: netTime;
-  native let entity: wref<Entity>;
-  native let slot: CName;
-  native let localTransform: Transform;
+  public native let time: netTime;
+  public native let entity: wref<Entity>;
+  public native let slot: CName;
+  public native let localTransform: Transform;
 }

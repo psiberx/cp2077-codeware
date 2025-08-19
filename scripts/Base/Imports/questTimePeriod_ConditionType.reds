@@ -1,4 +1,4 @@
 public native class questTimePeriod_ConditionType extends questITimeConditionType {
-  native let begin: GameTime;
-  native let end: GameTime;
+  public native let begin: GameTime;
+  public native let end: GameTime;
 }

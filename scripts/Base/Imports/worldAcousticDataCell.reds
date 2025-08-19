@@ -1,3 +1,3 @@
 public native struct worldAcousticDataCell {
-  native let sectorId: Uint32;
+  public native let sectorId: Uint32;
 }

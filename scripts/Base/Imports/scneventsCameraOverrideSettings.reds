@@ -1,6 +1,6 @@
 public native struct scneventsCameraOverrideSettings {
-  native let overrideFov: Bool;
-  native let overrideDof: Bool;
-  native let resetFov: Bool;
-  native let resetDof: Bool;
+  public native let overrideFov: Bool;
+  public native let overrideDof: Bool;
+  public native let resetFov: Bool;
+  public native let resetDof: Bool;
 }

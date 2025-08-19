@@ -1,14 +1,14 @@
 @addField(gameuiPhotoModeMenuController)
-native let SetAttributeOptionEnabled: gameuiSetPhotoModeKeyEnabledCallback;
+public native let SetAttributeOptionEnabled: gameuiSetPhotoModeKeyEnabledCallback;
 
 @addField(gameuiPhotoModeMenuController)
-native let SetCategoryEnabled: gameuiSetPhotoModeKeyEnabledCallback;
+public native let SetCategoryEnabled: gameuiSetPhotoModeKeyEnabledCallback;
 
 @addField(gameuiPhotoModeMenuController)
-native let SetStickerImage: gameuiStickerImageCallback;
+public native let SetStickerImage: gameuiStickerImageCallback;
 
 @addField(gameuiPhotoModeMenuController)
-native let SetNpcImage: gameuiNpcImageCallback;
+public native let SetNpcImage: gameuiNpcImageCallback;
 
 @addField(gameuiPhotoModeMenuController)
-native let ChangeAspectRatio: gameuiChangeAspectRatioCallback;
+public native let ChangeAspectRatio: gameuiChangeAspectRatioCallback;

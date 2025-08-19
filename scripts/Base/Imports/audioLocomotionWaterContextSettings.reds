@@ -1,6 +1,6 @@
 public native struct audioLocomotionWaterContextSettings {
-  native let minDistanceBetweenImpulsesSquared: Float;
-  native let impulseStrength: Float;
-  native let impulseMinRadius: Float;
-  native let impulseMaxRadius: Float;
+  public native let minDistanceBetweenImpulsesSquared: Float;
+  public native let impulseStrength: Float;
+  public native let impulseMinRadius: Float;
+  public native let impulseMaxRadius: Float;
 }

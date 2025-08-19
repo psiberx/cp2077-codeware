@@ -1,8 +1,8 @@
 public native struct scnMarker {
-  native let type: scnMarkerType;
-  native let localMarkerId: CName;
-  native let nodeRef: NodeRef;
-  native let entityRef: EntityReference;
-  native let slotName: CName;
-  native let isMounted: Bool;
+  public native let type: scnMarkerType;
+  public native let localMarkerId: CName;
+  public native let nodeRef: NodeRef;
+  public native let entityRef: EntityReference;
+  public native let slotName: CName;
+  public native let isMounted: Bool;
 }

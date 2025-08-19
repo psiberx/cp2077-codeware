@@ -1,6 +1,6 @@
 public native class animAnimNode_StaticSwitch extends animAnimNode_MotionTableSwitch {
-  native let condition: ref<animIStaticCondition>;
-  native let motionProvider: ref<animIMotionTableProvider>;
-  native let True: animPoseLink;
-  native let False: animPoseLink;
+  public native let condition: ref<animIStaticCondition>;
+  public native let motionProvider: ref<animIMotionTableProvider>;
+  public native let True: animPoseLink;
+  public native let False: animPoseLink;
 }

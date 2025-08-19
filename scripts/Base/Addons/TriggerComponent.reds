@@ -1,5 +1,5 @@
 @addField(TriggerComponent)
-native let includeMask: Uint32;
+public native let includeMask: Uint32;
 
 @addField(TriggerComponent)
-native let excludeMask: Uint32;
+public native let excludeMask: Uint32;

@@ -1,3 +1,3 @@
 public native class RagdollComponent extends IComponent {
-  native let isEnabled: Bool;
+  public native let isEnabled: Bool;
 }

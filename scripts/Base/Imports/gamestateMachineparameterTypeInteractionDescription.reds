@@ -1,4 +1,4 @@
 public native class gamestateMachineparameterTypeInteractionDescription extends IScriptable {
-  native let interactionEntity: wref<Entity>;
-  native let interactionType: CName;
+  public native let interactionEntity: wref<Entity>;
+  public native let interactionType: CName;
 }

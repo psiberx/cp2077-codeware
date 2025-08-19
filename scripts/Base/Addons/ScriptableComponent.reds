@@ -1,2 +1,2 @@
 @addField(ScriptableComponent)
-native let priority: Uint32;
+public native let priority: Uint32;

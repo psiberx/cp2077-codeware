@@ -1,4 +1,4 @@
 public native struct inkSize {
-  native let width: Float;
-  native let height: Float;
+  public native let width: Float;
+  public native let height: Float;
 }

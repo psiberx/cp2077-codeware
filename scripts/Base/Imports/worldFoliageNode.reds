@@ -1,12 +1,12 @@
 public native class worldFoliageNode extends worldNode {
-  native let mesh: ResourceAsyncRef; // raRef<CMesh>
-  native let meshAppearance: CName;
-  native let foliageResource: ResourceAsyncRef; // raRef<worldFoliageCompiledResource>
-  native let foliageLocalBounds: Box;
-  native let autoHideDistanceScale: Float;
-  native let lodDistanceScale: Float;
-  native let streamingDistance: Float;
-  native let populationSpanInfo: worldFoliagePopulationSpanInfo;
-  native let destructionHash: Uint64;
-  native let meshHeight: Float;
+  public native let mesh: ResourceAsyncRef; // raRef<CMesh>
+  public native let meshAppearance: CName;
+  public native let foliageResource: ResourceAsyncRef; // raRef<worldFoliageCompiledResource>
+  public native let foliageLocalBounds: Box;
+  public native let autoHideDistanceScale: Float;
+  public native let lodDistanceScale: Float;
+  public native let streamingDistance: Float;
+  public native let populationSpanInfo: worldFoliagePopulationSpanInfo;
+  public native let destructionHash: Uint64;
+  public native let meshHeight: Float;
 }

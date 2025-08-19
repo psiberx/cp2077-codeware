@@ -1,5 +1,5 @@
 @addField(entSpawnEffectEvent)
-native let idForRandomizedEffect: CRUID;
+public native let idForRandomizedEffect: CRUID;
 
 @addField(entSpawnEffectEvent)
-native let e3hackDeferCount: Uint32;
+public native let e3hackDeferCount: Uint32;

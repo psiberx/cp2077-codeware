@@ -1,4 +1,4 @@
 public native class questObjectDistance extends questIDistance {
-  native let entityRef: ref<questUniversalRef>;
-  native let nodeRef2: EntityReference;
+  public native let entityRef: ref<questUniversalRef>;
+  public native let nodeRef2: EntityReference;
 }

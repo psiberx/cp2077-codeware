@@ -1,18 +1,18 @@
 public native class AICTreeNodeActionAnimationCurvePathDefinition extends AICTreeNodeActionDefinition {
-  native let nodeReference: LibTreeDefNodeRef;
-  native let controllersSetupName: LibTreeDefCName;
-  native let useStart: LibTreeDefBool;
-  native let useStop: LibTreeDefBool;
-  native let blendTime: LibTreeDefFloat;
-  native let globalInBlendTime: LibTreeDefFloat;
-  native let globalOutBlendTime: LibTreeDefFloat;
-  native let turnCharacterToMatchVelocity: LibTreeDefBool;
-  native let customStartAnimationName: LibTreeDefCName;
-  native let customMainAnimationName: LibTreeDefCName;
-  native let customStopAnimationName: LibTreeDefCName;
-  native let startSnapToTerrain: LibTreeDefBool;
-  native let mainSnapToTerrain: LibTreeDefBool;
-  native let stopSnapToTerrain: LibTreeDefBool;
-  native let startSnapToTerrainBlendTime: LibTreeDefFloat;
-  native let stopSnapToTerrainBlendTime: LibTreeDefFloat;
+  public native let nodeReference: LibTreeDefNodeRef;
+  public native let controllersSetupName: LibTreeDefCName;
+  public native let useStart: LibTreeDefBool;
+  public native let useStop: LibTreeDefBool;
+  public native let blendTime: LibTreeDefFloat;
+  public native let globalInBlendTime: LibTreeDefFloat;
+  public native let globalOutBlendTime: LibTreeDefFloat;
+  public native let turnCharacterToMatchVelocity: LibTreeDefBool;
+  public native let customStartAnimationName: LibTreeDefCName;
+  public native let customMainAnimationName: LibTreeDefCName;
+  public native let customStopAnimationName: LibTreeDefCName;
+  public native let startSnapToTerrain: LibTreeDefBool;
+  public native let mainSnapToTerrain: LibTreeDefBool;
+  public native let stopSnapToTerrain: LibTreeDefBool;
+  public native let startSnapToTerrainBlendTime: LibTreeDefFloat;
+  public native let stopSnapToTerrainBlendTime: LibTreeDefFloat;
 }

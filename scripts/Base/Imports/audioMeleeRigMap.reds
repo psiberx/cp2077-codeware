@@ -1,3 +1,3 @@
 public native class audioMeleeRigMap extends audioAudioMetadata {
-  native let mapItems: array<audioMeleeRigMapItem>;
+  public native let mapItems: array<audioMeleeRigMapItem>;
 }

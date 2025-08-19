@@ -1,10 +1,10 @@
 public native class gameuiarcadeTankGameplayController extends gameuiarcadeArcadeGameplayController {
-  native let player: inkWidgetRef;
-  native let enemySpawner: inkWidgetRef;
-  native let obstacleSpawner: inkWidgetRef;
-  native let pickupSpawner: inkWidgetRef;
-  native let projectileSpawner: inkWidgetRef;
-  native let background: inkWidgetRef;
-  native let hudCounter: inkWidgetRef;
-  native let hudScoreMultiplier: inkWidgetRef;
+  public native let player: inkWidgetRef;
+  public native let enemySpawner: inkWidgetRef;
+  public native let obstacleSpawner: inkWidgetRef;
+  public native let pickupSpawner: inkWidgetRef;
+  public native let projectileSpawner: inkWidgetRef;
+  public native let background: inkWidgetRef;
+  public native let hudCounter: inkWidgetRef;
+  public native let hudScoreMultiplier: inkWidgetRef;
 }

@@ -1,3 +1,3 @@
 public native class inkInputKeyDictionaryJSON extends ISerializable {
-  native let devicesMappings: array<inkInputDevicesMappingsJSON>;
+  public native let devicesMappings: array<inkInputDevicesMappingsJSON>;
 }

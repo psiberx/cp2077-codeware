@@ -1,2 +1,2 @@
 @addField(JournalPhoneConversation)
-native let title: LocalizationString;
+public native let title: LocalizationString;

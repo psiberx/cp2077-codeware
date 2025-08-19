@@ -1,3 +1,3 @@
 public native struct scnscreenplayOptionUsage {
-  native let playerGenderMask: scnGenderMask;
+  public native let playerGenderMask: scnGenderMask;
 }

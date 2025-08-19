@@ -1,4 +1,4 @@
 public native struct gameMuppetInputActionMoveForward {
-  native let direction: Vector2;
-  native let isSprinting: Bool;
+  public native let direction: Vector2;
+  public native let isSprinting: Bool;
 }

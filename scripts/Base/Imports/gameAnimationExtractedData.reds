@@ -1,5 +1,5 @@
 public native struct gameAnimationExtractedData {
-  native let animationName: CName;
-  native let animsetsExtractedTransforms: array<gameAnimationTransforms>;
-  native let smartObjectPointType: gameSmartObjectPointType;
+  public native let animationName: CName;
+  public native let animsetsExtractedTransforms: array<gameAnimationTransforms>;
+  public native let smartObjectPointType: gameSmartObjectPointType;
 }

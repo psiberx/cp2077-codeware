@@ -1,2 +1,2 @@
 @addField(AIHumanComponent)
-native let movementParamsRecord: TweakDBID;
+public native let movementParamsRecord: TweakDBID;

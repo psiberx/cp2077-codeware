@@ -1,5 +1,5 @@
 public native class worldFoliageCompiledResource extends CResource {
-  native let version: Uint32;
-  native let populationCount: Uint32;
-  native let bucketCount: Uint32;
+  public native let version: Uint32;
+  public native let populationCount: Uint32;
+  public native let bucketCount: Uint32;
 }

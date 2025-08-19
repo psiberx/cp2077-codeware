@@ -1,4 +1,4 @@
 public native class questFinalBoardsOpenSpeakerScreen_NodeType extends questIUIManagerNodeType {
-  native let openSpeakerScreen: Bool;
-  native let speakerName: String;
+  public native let openSpeakerScreen: Bool;
+  public native let speakerName: String;
 }

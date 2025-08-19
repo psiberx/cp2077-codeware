@@ -1,4 +1,4 @@
 public abstract native class vgBaseVectorGraphicShape extends ISerializable {
-  native let calTransform: Matrix;
-  native let yle: ref<vgVectorGraphicStyle>;
+  public native let calTransform: Matrix;
+  public native let yle: ref<vgVectorGraphicStyle>;
 }

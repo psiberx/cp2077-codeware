@@ -1,5 +1,5 @@
 public native struct questSetItemTags_NodeTypeParams {
-  native let objectRef: ref<questUniversalRef>;
-  native let itemId: TweakDBID;
-  native let addTags: Bool;
+  public native let objectRef: ref<questUniversalRef>;
+  public native let itemId: TweakDBID;
+  public native let addTags: Bool;
 }

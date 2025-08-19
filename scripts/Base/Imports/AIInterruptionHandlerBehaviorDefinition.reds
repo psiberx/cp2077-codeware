@@ -1,6 +1,6 @@
 public native class AIInterruptionHandlerBehaviorDefinition extends AIInterruptionHandlerDefinition {
-  native let ai: ref<LibTreeINodeDefinition>;
-  native let parallelActivation: Bool;
-  native let parallelExecution: Bool;
-  native let blockInterruption: Bool;
+  public native let ai: ref<LibTreeINodeDefinition>;
+  public native let parallelActivation: Bool;
+  public native let parallelExecution: Bool;
+  public native let blockInterruption: Bool;
 }

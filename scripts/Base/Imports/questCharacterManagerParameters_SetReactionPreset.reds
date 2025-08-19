@@ -1,4 +1,4 @@
 public native class questCharacterManagerParameters_SetReactionPreset extends questICharacterManagerParameters_NodeSubType {
-  native let puppetRef: EntityReference;
-  native let recordSelector: ref<questReactionPresetRecordSelector>;
+  public native let puppetRef: EntityReference;
+  public native let recordSelector: ref<questReactionPresetRecordSelector>;
 }

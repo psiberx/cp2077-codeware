@@ -1,5 +1,5 @@
 public native struct gameSmartObjectTransformDictionaryTransformEntry {
-  native let transform: Transform;
-  native let usage: Uint32;
-  native let id: Uint16;
+  public native let transform: Transform;
+  public native let usage: Uint32;
+  public native let id: Uint16;
 }

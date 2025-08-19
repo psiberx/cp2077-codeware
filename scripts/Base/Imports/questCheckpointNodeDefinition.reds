@@ -1,9 +1,9 @@
 public native class questCheckpointNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let saveLock: Bool;
-  native let ignoreSaveLocks: Bool;
-  native let pointOfNoReturn: Bool;
-  native let endGameSave: Bool;
-  native let retryOnFailure: Bool;
-  native let additionalEndGameRewardsTweak: array<TweakDBID>;
-  native let debugString: String;
+  public native let saveLock: Bool;
+  public native let ignoreSaveLocks: Bool;
+  public native let pointOfNoReturn: Bool;
+  public native let endGameSave: Bool;
+  public native let retryOnFailure: Bool;
+  public native let additionalEndGameRewardsTweak: array<TweakDBID>;
+  public native let debugString: String;
 }

@@ -1,8 +1,8 @@
 public native class scneventsClueEvent extends scnSceneEvent {
-  native let clueEntity: EntityReference;
-  native let markedOnTimeline: Bool;
-  native let clueName: CName;
-  native let layer: gameuiEBraindanceLayer;
-  native let overrideFact: Bool;
-  native let factName: CName;
+  public native let clueEntity: EntityReference;
+  public native let markedOnTimeline: Bool;
+  public native let clueName: CName;
+  public native let layer: gameuiEBraindanceLayer;
+  public native let overrideFact: Bool;
+  public native let factName: CName;
 }

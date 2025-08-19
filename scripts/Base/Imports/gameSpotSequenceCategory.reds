@@ -1,4 +1,4 @@
 public native struct gameSpotSequenceCategory {
-  native let type: gamedataWorkspotCategory;
-  native let probability: Float;
+  public native let type: gamedataWorkspotCategory;
+  public native let probability: Float;
 }

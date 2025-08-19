@@ -1,2 +1,2 @@
 @addField(JournalQuestDescription)
-native let description: LocalizationString;
+public native let description: LocalizationString;

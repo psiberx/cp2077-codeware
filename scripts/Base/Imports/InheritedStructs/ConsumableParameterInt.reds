@@ -1,5 +1,5 @@
 public native struct ConsumableParameterInt {
-  native let name: CName;
-  native let value: Int32;
-  native let consumed: Bool;
+  public native let name: CName;
+  public native let value: Int32;
+  public native let consumed: Bool;
 }

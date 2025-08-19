@@ -1,4 +1,4 @@
 public native struct AIInterruptionSignal {
-  native let importance: AIEInterruptionImportance;
-  native let signal: CName;
+  public native let importance: AIEInterruptionImportance;
+  public native let signal: CName;
 }

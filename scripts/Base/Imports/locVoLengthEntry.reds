@@ -1,5 +1,5 @@
 public native struct locVoLengthEntry {
-  native let stringId: CRUID;
-  native let femaleLength: Float;
-  native let maleLength: Float;
+  public native let stringId: CRUID;
+  public native let femaleLength: Float;
+  public native let maleLength: Float;
 }

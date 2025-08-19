@@ -1,5 +1,5 @@
 @addField(gameuiHudSafezonesEditorGameController)
-native let rootWidget: inkCompoundRef;
+public native let rootWidget: inkCompoundRef;
 
 @addField(gameuiHudSafezonesEditorGameController)
-native let flexWidget: inkCompoundRef;
+public native let flexWidget: inkCompoundRef;

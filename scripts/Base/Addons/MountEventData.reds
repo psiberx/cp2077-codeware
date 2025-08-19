@@ -1,14 +1,14 @@
 @addField(MountEventData)
-native persistent let setEntityVisibleWhenMountFinish: Bool;
+public native persistent let setEntityVisibleWhenMountFinish: Bool;
 
 @addField(MountEventData)
-native persistent let switchRenderPlane: Bool;
+public native persistent let switchRenderPlane: Bool;
 
 @addField(MountEventData)
-native persistent let isJustAttached: Bool;
+public native persistent let isJustAttached: Bool;
 
 @addField(MountEventData)
-native persistent let isCarrying: Bool;
+public native persistent let isCarrying: Bool;
 
 @addField(MountEventData)
-native persistent let allowFailsafeTeleport: Bool;
+public native persistent let allowFailsafeTeleport: Bool;

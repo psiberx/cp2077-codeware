@@ -1,5 +1,5 @@
 public native class questTeleportVehicleNodeDefinition extends questDisableableNodeDefinition {
-  native let entityReference: EntityReference;
-  native let params: questTeleportPuppetParams;
-  native let resetVelocities: Bool;
+  public native let entityReference: EntityReference;
+  public native let params: questTeleportPuppetParams;
+  public native let resetVelocities: Bool;
 }

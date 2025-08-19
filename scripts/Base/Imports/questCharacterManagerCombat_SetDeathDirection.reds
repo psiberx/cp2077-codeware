@@ -1,4 +1,4 @@
 public native class questCharacterManagerCombat_SetDeathDirection extends questICharacterManagerCombat_NodeSubType {
-  native let puppetRef: EntityReference;
-  native let direction: gameeventsDeathDirection;
+  public native let puppetRef: EntityReference;
+  public native let direction: gameeventsDeathDirection;
 }

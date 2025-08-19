@@ -1,5 +1,5 @@
 public native class meshMeshParamOccluderData extends meshMeshParameter {
-  native let occluderResource: ref<visIOccluderResource>;
-  native let defaultOccluderType: visWorldOccluderType;
-  native let autoHideDistanceScale: Uint8;
+  public native let occluderResource: ref<visIOccluderResource>;
+  public native let defaultOccluderType: visWorldOccluderType;
+  public native let autoHideDistanceScale: Uint8;
 }

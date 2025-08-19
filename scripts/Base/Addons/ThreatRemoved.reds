@@ -1,2 +1,2 @@
 @addField(ThreatRemoved)
-native let isDead: Bool;
+public native let isDead: Bool;

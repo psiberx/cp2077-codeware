@@ -1,3 +1,3 @@
 public native struct QuestDistanceRequestFilter {
-  native let distanceSquared: Float;
+  public native let distanceSquared: Float;
 }

@@ -1,2 +1,2 @@
 @addField(MinimapRemotePlayerMappinController)
-native let rootWidget: inkWidgetRef;
+public native let rootWidget: inkWidgetRef;

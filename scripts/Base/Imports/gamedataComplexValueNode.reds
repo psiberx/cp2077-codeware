@@ -1,3 +1,3 @@
 public native class gamedataComplexValueNode extends gamedataValueDataNode {
-  native let data: array<String>;
+  public native let data: array<String>;
 }

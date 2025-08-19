@@ -1,4 +1,4 @@
 public native class AIbehaviorRecalculateVehicleWorkspotPositionTaskDefinition extends AIbehaviorTaskDefinition {
-  native let mountData: ref<AIArgumentMapping>;
-  native let workspotData: ref<AIArgumentMapping>;
+  public native let mountData: ref<AIArgumentMapping>;
+  public native let workspotData: ref<AIArgumentMapping>;
 }

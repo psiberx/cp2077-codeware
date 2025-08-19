@@ -1,8 +1,8 @@
 @addField(JournalCodexEntry)
-native let title: LocalizationString;
+public native let title: LocalizationString;
 
 @addField(JournalCodexEntry)
-native let imageId: TweakDBID;
+public native let imageId: TweakDBID;
 
 @addField(JournalCodexEntry)
-native let linkImageId: TweakDBID;
+public native let linkImageId: TweakDBID;

@@ -1,5 +1,5 @@
 public native class questPrereq_ConditionType extends questISystemConditionType {
-  native let objectRef: EntityReference;
-  native let isObjectPlayer: Bool;
-  native let prereq: ref<IPrereq>;
+  public native let objectRef: EntityReference;
+  public native let isObjectPlayer: Bool;
+  public native let prereq: ref<IPrereq>;
 }

@@ -1,4 +1,4 @@
 public native struct audioVehicleDoorsSettings {
-  native let openEvent: CName;
-  native let closeEvent: CName;
+  public native let openEvent: CName;
+  public native let closeEvent: CName;
 }

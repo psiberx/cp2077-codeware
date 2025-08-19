@@ -1,8 +1,8 @@
 @addField(AnimFeature_LoopableAction)
-native let loopDuration: Float;
+public native let loopDuration: Float;
 
 @addField(AnimFeature_LoopableAction)
-native let numLoops: Uint8;
+public native let numLoops: Uint8;
 
 @addField(AnimFeature_LoopableAction)
-native let isActive: Bool;
+public native let isActive: Bool;

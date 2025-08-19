@@ -1,3 +1,3 @@
 public native class audioAppearancesGroup extends audioAudioMetadata {
-  native let appearances: array<CName>;
+  public native let appearances: array<CName>;
 }

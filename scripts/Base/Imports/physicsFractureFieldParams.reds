@@ -1,6 +1,6 @@
 public native struct physicsFractureFieldParams {
-  native let origin: Vector3;
-  native let fractureFieldValue: Float;
-  native let fractureFieldEffect: physicsFractureFieldEffect;
-  native let fractureFieldValueType: physicsFractureFieldValueType;
+  public native let origin: Vector3;
+  public native let fractureFieldValue: Float;
+  public native let fractureFieldEffect: physicsFractureFieldEffect;
+  public native let fractureFieldValueType: physicsFractureFieldValueType;
 }

@@ -1,3 +1,3 @@
 public native class cpAnimFeature_Stairs extends AnimFeature {
-  native let onOff: Bool;
+  public native let onOff: Bool;
 }

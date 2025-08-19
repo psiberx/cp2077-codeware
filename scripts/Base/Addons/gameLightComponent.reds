@@ -1,50 +1,50 @@
 @addField(gameLightComponent)
-native let emissiveOnly: Bool;
+public native let emissiveOnly: Bool;
 
 @addField(gameLightComponent)
-native let materialZone: gameEMaterialZone;
+public native let materialZone: gameEMaterialZone;
 
 @addField(gameLightComponent)
-native let meshBrokenAppearance: CName;
+public native let meshBrokenAppearance: CName;
 
 @addField(gameLightComponent)
-native let onStrength: Float;
+public native let onStrength: Float;
 
 @addField(gameLightComponent)
-native let turnOnByDefault: Bool;
+public native let turnOnByDefault: Bool;
 
 @addField(gameLightComponent)
-native let turnOnTime: Float;
+public native let turnOnTime: Float;
 
 @addField(gameLightComponent)
-native let turnOnCurve: CName;
+public native let turnOnCurve: CName;
 
 @addField(gameLightComponent)
-native let turnOffTime: Float;
+public native let turnOffTime: Float;
 
 @addField(gameLightComponent)
-native let turnOffCurve: CName;
+public native let turnOffCurve: CName;
 
 @addField(gameLightComponent)
-native let loopTime: Float;
+public native let loopTime: Float;
 
 @addField(gameLightComponent)
-native let loopCurve: CName;
+public native let loopCurve: CName;
 
 @addField(gameLightComponent)
-native let synchronizedLoop: Bool;
+public native let synchronizedLoop: Bool;
 
 @addField(gameLightComponent)
-native let isDestructible: Bool;
+public native let isDestructible: Bool;
 
 @addField(gameLightComponent)
-native let colliderName: CName;
+public native let colliderName: CName;
 
 @addField(gameLightComponent)
-native let colliderTag: CName;
+public native let colliderTag: CName;
 
 @addField(gameLightComponent)
-native let destructionEffect: ResourceAsyncRef; // raRef<worldEffect>
+public native let destructionEffect: ResourceAsyncRef; // raRef<worldEffect>
 
 @addField(gameLightComponent)
-native let genericCurveSetOverride: ResourceRef; // rRef<CurveSet>
+public native let genericCurveSetOverride: ResourceRef; // rRef<CurveSet>

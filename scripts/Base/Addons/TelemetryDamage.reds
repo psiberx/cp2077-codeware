@@ -1,2 +1,2 @@
 @addField(TelemetryDamage)
-native let hitCount: Uint32;
+public native let hitCount: Uint32;

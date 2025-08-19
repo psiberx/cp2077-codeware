@@ -1,4 +1,4 @@
 public native struct AIFSMEventTransitionsListDefinition {
-  native let eventName: CName;
-  native let transitions: AIFSMTransitionListDefinition;
+  public native let eventName: CName;
+  public native let transitions: AIFSMTransitionListDefinition;
 }

@@ -1,4 +1,4 @@
 public native struct AIArchetypeSetEntry {
-  native let name: CName;
-  native let resource: ResourceRef; // rRef<AIArchetype>
+  public native let name: CName;
+  public native let resource: ResourceRef; // rRef<AIArchetype>
 }

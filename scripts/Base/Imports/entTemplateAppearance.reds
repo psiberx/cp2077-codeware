@@ -1,5 +1,5 @@
 public native struct entTemplateAppearance {
-  native let name: CName;
-  native let appearanceResource: ResourceAsyncRef; // raRef<appearanceAppearanceResource>
-  native let appearanceName: CName;
+  public native let name: CName;
+  public native let appearanceResource: ResourceAsyncRef; // raRef<appearanceAppearanceResource>
+  public native let appearanceName: CName;
 }

@@ -1,4 +1,4 @@
 public native struct animRigPartBone {
-  native let bone: CName;
-  native let weight: Float;
+  public native let bone: CName;
+  public native let weight: Float;
 }

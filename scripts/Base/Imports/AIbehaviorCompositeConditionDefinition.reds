@@ -1,3 +1,3 @@
 public abstract native class AIbehaviorCompositeConditionDefinition extends AIbehaviorConditionDefinition {
-  native let conditions: array<ref<AIbehaviorConditionDefinition>>;
+  public native let conditions: array<ref<AIbehaviorConditionDefinition>>;
 }

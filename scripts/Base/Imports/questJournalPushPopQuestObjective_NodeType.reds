@@ -1,4 +1,4 @@
 public native class questJournalPushPopQuestObjective_NodeType extends questIJournal_NodeType {
-  native let path: ref<gameJournalPath>;
-  native let restore: Bool;
+  public native let path: ref<gameJournalPath>;
+  public native let restore: Bool;
 }

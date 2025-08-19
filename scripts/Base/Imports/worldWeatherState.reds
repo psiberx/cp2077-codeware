@@ -1,9 +1,9 @@
 public native class worldWeatherState extends ISerializable {
-  native let minDuration: CurveDataFloat;
-  native let maxDuration: CurveDataFloat;
-  native let environmentAreaParameters: ResourceRef; // rRef<worldEnvironmentAreaParameters>
-  native let effect: ResourceAsyncRef; // raRef<worldEffect>
-  native let name: CName;
-  native let probability: CurveDataFloat;
-  native let transitionDuration: CurveDataFloat;
+  public native let minDuration: CurveDataFloat;
+  public native let maxDuration: CurveDataFloat;
+  public native let environmentAreaParameters: ResourceRef; // rRef<worldEnvironmentAreaParameters>
+  public native let effect: ResourceAsyncRef; // raRef<worldEffect>
+  public native let name: CName;
+  public native let probability: CurveDataFloat;
+  public native let transitionDuration: CurveDataFloat;
 }

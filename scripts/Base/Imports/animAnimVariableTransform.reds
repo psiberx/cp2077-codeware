@@ -1,4 +1,4 @@
 public native class animAnimVariableTransform extends animAnimVariable {
-  native let value: QsTransform;
-  native let default: QsTransform;
+  public native let value: QsTransform;
+  public native let default: QsTransform;
 }

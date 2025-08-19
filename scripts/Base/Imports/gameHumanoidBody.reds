@@ -1,7 +1,7 @@
 public native class gameHumanoidBody extends IComponent {
-  native let basePersonalSpace: Float;
-  native let baseHeight: Float;
-  native let baseEyesHeightRatio: Float;
-  native let stanceAnimFeatureName: CName;
-  native let aimAnimFeatureName: CName;
+  public native let basePersonalSpace: Float;
+  public native let baseHeight: Float;
+  public native let baseEyesHeightRatio: Float;
+  public native let stanceAnimFeatureName: CName;
+  public native let aimAnimFeatureName: CName;
 }

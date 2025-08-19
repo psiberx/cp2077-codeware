@@ -1,3 +1,3 @@
 public native struct toolsJiraIssueType {
-  native let name: String;
+  public native let name: String;
 }

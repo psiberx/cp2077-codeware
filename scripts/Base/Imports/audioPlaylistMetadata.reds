@@ -1,4 +1,4 @@
 public native class audioPlaylistMetadata extends audioAudioMetadata {
-  native let broadcastChannel: Uint8;
-  native let tracks: array<CName>;
+  public native let broadcastChannel: Uint8;
+  public native let tracks: array<CName>;
 }

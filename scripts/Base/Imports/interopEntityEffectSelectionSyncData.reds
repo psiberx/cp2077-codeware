@@ -1,4 +1,4 @@
 public native struct interopEntityEffectSelectionSyncData {
-  native let effectName: CName;
-  native let effectIDPath: toolsEditorObjectIDPath;
+  public native let effectName: CName;
+  public native let effectIDPath: toolsEditorObjectIDPath;
 }

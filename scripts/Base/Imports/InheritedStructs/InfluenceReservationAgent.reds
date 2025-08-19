@@ -1,3 +1,3 @@
 public native struct InfluenceReservationAgent {
-  native let radius: Float;
+  public native let radius: Float;
 }

@@ -1,3 +1,3 @@
 public native class questSetFOV_NodeType extends questISceneManagerNodeType {
-  native let FOV: Float;
+  public native let FOV: Float;
 }

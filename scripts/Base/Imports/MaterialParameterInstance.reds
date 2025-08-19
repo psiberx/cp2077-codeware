@@ -1,4 +1,4 @@
 public native struct MaterialParameterInstance {
-  native let name: CName;
-  native let data: Variant;
+  public native let name: CName;
+  public native let data: Variant;
 }

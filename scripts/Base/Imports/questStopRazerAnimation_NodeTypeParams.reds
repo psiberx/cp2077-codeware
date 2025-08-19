@@ -1,3 +1,3 @@
 public native struct questStopRazerAnimation_NodeTypeParams {
-  native let animationName: CName;
+  public native let animationName: CName;
 }

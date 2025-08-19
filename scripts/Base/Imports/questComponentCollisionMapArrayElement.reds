@@ -1,5 +1,5 @@
 public native struct questComponentCollisionMapArrayElement {
-  native let componentNameKey: CName;
-  native let enableCollision: Bool;
-  native let enableQueries: Bool;
+  public native let componentNameKey: CName;
+  public native let enableCollision: Bool;
+  public native let enableQueries: Bool;
 }

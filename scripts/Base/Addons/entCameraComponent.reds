@@ -1,14 +1,14 @@
 @addField(entCameraComponent)
-native let fov: Float;
+public native let fov: Float;
 
 @addField(entCameraComponent)
-native let zoom: Float;
+public native let zoom: Float;
 
 @addField(entCameraComponent)
-native let nearPlaneOverride: Float;
+public native let nearPlaneOverride: Float;
 
 @addField(entCameraComponent)
-native let farPlaneOverride: Float;
+public native let farPlaneOverride: Float;
 
 @addField(entCameraComponent)
-native let motionBlurScale: Float;
+public native let motionBlurScale: Float;

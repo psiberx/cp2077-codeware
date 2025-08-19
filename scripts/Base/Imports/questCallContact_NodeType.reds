@@ -1,11 +1,11 @@
 public native class questCallContact_NodeType extends questIPhoneManagerNodeType {
-  native let caller: ref<gameJournalPath>;
-  native let addressee: ref<gameJournalPath>;
-  native let phase: questPhoneCallPhase;
-  native let mode: questPhoneCallMode;
-  native let prefabNodeRef: NodeRef;
-  native let applyPhoneRestriction: Bool;
-  native let isRejectable: Bool;
-  native let showAvatar: Bool;
-  native let visuals: questPhoneCallVisuals;
+  public native let caller: ref<gameJournalPath>;
+  public native let addressee: ref<gameJournalPath>;
+  public native let phase: questPhoneCallPhase;
+  public native let mode: questPhoneCallMode;
+  public native let prefabNodeRef: NodeRef;
+  public native let applyPhoneRestriction: Bool;
+  public native let isRejectable: Bool;
+  public native let showAvatar: Bool;
+  public native let visuals: questPhoneCallVisuals;
 }

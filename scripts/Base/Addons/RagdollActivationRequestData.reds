@@ -1,8 +1,8 @@
 @addField(RagdollActivationRequestData)
-native let activationNoGroundThreshold: Float;
+public native let activationNoGroundThreshold: Float;
 
 @addField(RagdollActivationRequestData)
-native let activateOnCollision: Bool;
+public native let activateOnCollision: Bool;
 
 @addField(RagdollActivationRequestData)
-native let calculateEarlyPositionGroundHeight: Bool;
+public native let calculateEarlyPositionGroundHeight: Bool;

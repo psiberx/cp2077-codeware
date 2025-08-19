@@ -1,3 +1,3 @@
 public native struct animQuaternionLink {
-  native let node: wref<animAnimNode_QuaternionValue>;
+  public native let node: wref<animAnimNode_QuaternionValue>;
 }

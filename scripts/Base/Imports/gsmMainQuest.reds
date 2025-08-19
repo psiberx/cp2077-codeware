@@ -1,5 +1,5 @@
 public native class gsmMainQuest extends ISerializable {
-  native let questFile: ResourceAsyncRef; // raRef<questQuestResource>
-  native let additionalContent: Bool;
-  native let additionalContentName: CName;
+  public native let questFile: ResourceAsyncRef; // raRef<questQuestResource>
+  public native let additionalContent: Bool;
+  public native let additionalContentName: CName;
 }

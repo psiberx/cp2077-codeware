@@ -1,20 +1,20 @@
 public native class audioAcousticConstantsPreset extends audioAudioMetadata {
-  native let dopplerFactor: Float;
-  native let speedOfSound: Float;
-  native let wideInteriorLimit: Float;
-  native let enclosedCeilingDistance: Float;
-  native let urbanNarrowDistance: Float;
-  native let urbanStreetDistance: Float;
-  native let exteriorWideAltitude: Float;
-  native let elevatedOpenDistance: Float;
-  native let ambExteriorCeilingMinDistance: Float;
-  native let ambExteriorCeilingMaxDistance: Float;
-  native let badlandsWideRelativeAltitude: Float;
-  native let repositioningStandardZoomFactor: Float;
-  native let repositioningScanningZoomFactor: Float;
-  native let repositioningVoStandardZoomFactor: Float;
-  native let repositioningVoScanningZoomFactor: Float;
-  native let groupingExcludedVisualTags: array<CName>;
-  native let windowEventName: CName;
-  native let maxWindowOffset: Float;
+  public native let dopplerFactor: Float;
+  public native let speedOfSound: Float;
+  public native let wideInteriorLimit: Float;
+  public native let enclosedCeilingDistance: Float;
+  public native let urbanNarrowDistance: Float;
+  public native let urbanStreetDistance: Float;
+  public native let exteriorWideAltitude: Float;
+  public native let elevatedOpenDistance: Float;
+  public native let ambExteriorCeilingMinDistance: Float;
+  public native let ambExteriorCeilingMaxDistance: Float;
+  public native let badlandsWideRelativeAltitude: Float;
+  public native let repositioningStandardZoomFactor: Float;
+  public native let repositioningScanningZoomFactor: Float;
+  public native let repositioningVoStandardZoomFactor: Float;
+  public native let repositioningVoScanningZoomFactor: Float;
+  public native let groupingExcludedVisualTags: array<CName>;
+  public native let windowEventName: CName;
+  public native let maxWindowOffset: Float;
 }

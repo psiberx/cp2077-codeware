@@ -1,8 +1,8 @@
 public native class questMoveOnSplineControlRubberbanding_NodeType extends questIVehicleManagerNodeType {
-  native let enable: Bool;
-  native let vehicleRef: EntityReference;
-  native let keepDistanceFromRef: EntityReference;
-  native let distance: Float;
-  native let minSpeed: Float;
-  native let reduceSpeedOnTurns: Bool;
+  public native let enable: Bool;
+  public native let vehicleRef: EntityReference;
+  public native let keepDistanceFromRef: EntityReference;
+  public native let distance: Float;
+  public native let minSpeed: Float;
+  public native let reduceSpeedOnTurns: Bool;
 }

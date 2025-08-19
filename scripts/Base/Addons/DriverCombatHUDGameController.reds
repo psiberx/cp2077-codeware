@@ -1,35 +1,35 @@
 @addField(DriverCombatHUDGameController)
-native let crosshairBrackets: inkWidgetRef;
+public native let crosshairBrackets: inkWidgetRef;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairBracketsFlairLeft: inkWidgetRef;
+public native let crosshairBracketsFlairLeft: inkWidgetRef;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairBracketsFlairRight: inkWidgetRef;
+public native let crosshairBracketsFlairRight: inkWidgetRef;
 
 @addField(DriverCombatHUDGameController)
-native let bracketsTransitionDetailsWidgetList: array<inkWidgetRef>;
+public native let bracketsTransitionDetailsWidgetList: array<inkWidgetRef>;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairBracketsMinSize: Vector2;
+public native let crosshairBracketsMinSize: Vector2;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairBracketsInstantSnapValue: Float;
+public native let crosshairBracketsInstantSnapValue: Float;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairBracketsInOutTransitionTime: Float;
+public native let crosshairBracketsInOutTransitionTime: Float;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairBracketsIntroSizeMultiplier: Float;
+public native let crosshairBracketsIntroSizeMultiplier: Float;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairBracketsTrail: inkWidgetRef;
+public native let crosshairBracketsTrail: inkWidgetRef;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairBracketsTrailTransitionTime: Float;
+public native let crosshairBracketsTrailTransitionTime: Float;
 
 @addField(DriverCombatHUDGameController)
-native let crosshairReducedOpacity: Float;
+public native let crosshairReducedOpacity: Float;
 
 @addField(DriverCombatHUDGameController)
-native let unifomSafeZone: Float;
+public native let unifomSafeZone: Float;

@@ -1,3 +1,3 @@
 public native struct TrafficGenTrafficSetting {
-  native let meshImpact: TrafficGenMeshImpact;
+  public native let meshImpact: TrafficGenMeshImpact;
 }

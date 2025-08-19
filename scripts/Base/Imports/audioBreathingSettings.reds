@@ -1,5 +1,5 @@
 public native class audioBreathingSettings extends audioAudioMetadata {
-  native let exhaustionRtpc: CName;
-  native let idleFadeOutRtpc: CName;
-  native let initialState: CName;
+  public native let exhaustionRtpc: CName;
+  public native let idleFadeOutRtpc: CName;
+  public native let initialState: CName;
 }

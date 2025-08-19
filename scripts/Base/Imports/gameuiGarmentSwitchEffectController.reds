@@ -1,6 +1,6 @@
 public native struct gameuiGarmentSwitchEffectController {
-  native let sceneName: CName;
-  native let effectName: CName;
-  native let switchTime: Float;
-  native let hideTime: Float;
+  public native let sceneName: CName;
+  public native let effectName: CName;
+  public native let switchTime: Float;
+  public native let hideTime: Float;
 }

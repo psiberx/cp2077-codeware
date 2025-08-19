@@ -1,10 +1,10 @@
 public native struct SamplerStateInfo {
-  native let filteringMin: ETextureFilteringMin;
-  native let filteringMag: ETextureFilteringMag;
-  native let filteringMip: ETextureFilteringMip;
-  native let addressU: ETextureAddressing;
-  native let addressV: ETextureAddressing;
-  native let addressW: ETextureAddressing;
-  native let comparisonFunc: ETextureComparisonFunction;
-  native let register: Uint8;
+  public native let filteringMin: ETextureFilteringMin;
+  public native let filteringMag: ETextureFilteringMag;
+  public native let filteringMip: ETextureFilteringMip;
+  public native let addressU: ETextureAddressing;
+  public native let addressV: ETextureAddressing;
+  public native let addressW: ETextureAddressing;
+  public native let comparisonFunc: ETextureComparisonFunction;
+  public native let register: Uint8;
 }

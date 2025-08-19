@@ -1,4 +1,4 @@
 public native class animAdditionalTransformEntry extends ISerializable {
-  native let transformInfo: animTransformInfo;
-  native let value: QsTransform;
+  public native let transformInfo: animTransformInfo;
+  public native let value: QsTransform;
 }

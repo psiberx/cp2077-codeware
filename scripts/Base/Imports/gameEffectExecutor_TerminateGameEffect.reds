@@ -1,3 +1,3 @@
 public native class gameEffectExecutor_TerminateGameEffect extends EffectExecutor {
-  native let onlyWithPlayerInstigator: Bool;
+  public native let onlyWithPlayerInstigator: Bool;
 }

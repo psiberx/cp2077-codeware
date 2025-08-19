@@ -1,6 +1,6 @@
 public native class questSwitchNameplate_NodeType extends questIUIManagerNodeType {
-  native let puppetRef: EntityReference;
-  native let isPlayer: Bool;
-  native let enable: Bool;
-  native let alternativeName: Bool;
+  public native let puppetRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let enable: Bool;
+  public native let alternativeName: Bool;
 }

@@ -1,3 +1,3 @@
 public native class communityPatrolInitializer extends communitySpawnInitializer {
-  native let patrolRole: ref<AIPatrolRole>;
+  public native let patrolRole: ref<AIPatrolRole>;
 }

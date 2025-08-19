@@ -1,8 +1,8 @@
 public native struct scnFindEntityInEntityParams {
-  native let actorId: scnActorId;
-  native let performerId: scnPerformerId;
-  native let itemID: TweakDBID;
-  native let slotID: TweakDBID;
-  native let forceMaxVisibility: Bool;
-  native let ownershipTransferOptions: scnPropOwnershipTransferOptions;
+  public native let actorId: scnActorId;
+  public native let performerId: scnPerformerId;
+  public native let itemID: TweakDBID;
+  public native let slotID: TweakDBID;
+  public native let forceMaxVisibility: Bool;
+  public native let ownershipTransferOptions: scnPropOwnershipTransferOptions;
 }

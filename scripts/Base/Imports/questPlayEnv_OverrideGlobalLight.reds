@@ -1,3 +1,3 @@
 public native class questPlayEnv_OverrideGlobalLight extends questIEnvironmentManagerNodeType {
-  native let params: worldWorldGlobalLightOverrideWithColorParameters;
+  public native let params: worldWorldGlobalLightOverrideWithColorParameters;
 }

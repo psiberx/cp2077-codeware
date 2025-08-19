@@ -1,4 +1,4 @@
 public native class worldEntityProxyMeshNode extends worldPrefabProxyMeshNode {
-  native let ownerGlobalId: GlobalNodeID;
-  native let entityAttachDistance: Float;
+  public native let ownerGlobalId: GlobalNodeID;
+  public native let entityAttachDistance: Float;
 }

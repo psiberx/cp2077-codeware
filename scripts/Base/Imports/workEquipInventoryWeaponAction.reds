@@ -1,6 +1,6 @@
 public native class workEquipInventoryWeaponAction extends workIWorkspotItemAction {
-  native let weaponType: workWeaponType;
-  native let keepEquippedAfterExit: Bool;
-  native let fallbackItem: TweakDBID;
-  native let fallbackSlot: TweakDBID;
+  public native let weaponType: workWeaponType;
+  public native let keepEquippedAfterExit: Bool;
+  public native let fallbackItem: TweakDBID;
+  public native let fallbackSlot: TweakDBID;
 }

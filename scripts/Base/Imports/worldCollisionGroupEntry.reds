@@ -1,4 +1,4 @@
 public native struct worldCollisionGroupEntry {
-  native let neRef: NodeRef;
-  native let Reversed: Bool;
+  public native let neRef: NodeRef;
+  public native let Reversed: Bool;
 }

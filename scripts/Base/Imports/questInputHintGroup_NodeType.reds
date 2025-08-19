@@ -1,7 +1,7 @@
 public native class questInputHintGroup_NodeType extends questIUIManagerNodeType {
-  native let show: Bool;
-  native let iconID: TweakDBID;
-  native let groupId: CName;
-  native let localizedTitle: String;
-  native let localizedDescription: String;
+  public native let show: Bool;
+  public native let iconID: TweakDBID;
+  public native let groupId: CName;
+  public native let localizedTitle: String;
+  public native let localizedDescription: String;
 }

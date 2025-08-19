@@ -1,16 +1,16 @@
 public native class questEquipItemParams extends AICommandParams {
-  native let slotId: TweakDBID;
-  native let type: questNodeType;
-  native let itemId: TweakDBID;
-  native let equipDurationOverride: Float;
-  native let unequipDurationOverride: Float;
-  native let failIfItemNotFound: Bool;
-  native let instant: Bool;
-  native let equipLastWeapon: Bool;
-  native let forceFirstEquip: Bool;
-  native let ignoreStateMachine: Bool;
-  native let isPlayer: Bool;
-  native let equipTypes: gameItemEquipContexts;
-  native let unequipTypes: gameItemUnequipContexts;
-  native let byItem: Bool;
+  public native let slotId: TweakDBID;
+  public native let type: questNodeType;
+  public native let itemId: TweakDBID;
+  public native let equipDurationOverride: Float;
+  public native let unequipDurationOverride: Float;
+  public native let failIfItemNotFound: Bool;
+  public native let instant: Bool;
+  public native let equipLastWeapon: Bool;
+  public native let forceFirstEquip: Bool;
+  public native let ignoreStateMachine: Bool;
+  public native let isPlayer: Bool;
+  public native let equipTypes: gameItemEquipContexts;
+  public native let unequipTypes: gameItemUnequipContexts;
+  public native let byItem: Bool;
 }

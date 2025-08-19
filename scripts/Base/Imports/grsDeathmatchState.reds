@@ -1,6 +1,6 @@
 public native struct grsDeathmatchState {
-  native let time: netTime;
-  native let status: grsDeathmatchStatus;
-  native let sessionLength: netTime;
-  native let playersInfo: [grsDeathmatchPlayerGameInfo; 7];
+  public native let time: netTime;
+  public native let status: grsDeathmatchStatus;
+  public native let sessionLength: netTime;
+  public native let playersInfo: [grsDeathmatchPlayerGameInfo; 7];
 }

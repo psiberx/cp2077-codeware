@@ -1,5 +1,5 @@
 public native struct interopRTTIResourceDumpInfo {
-  native let extension: String;
-  native let deprecatedExtension: String;
-  native let friendlyDescription: String;
+  public native let extension: String;
+  public native let deprecatedExtension: String;
+  public native let friendlyDescription: String;
 }

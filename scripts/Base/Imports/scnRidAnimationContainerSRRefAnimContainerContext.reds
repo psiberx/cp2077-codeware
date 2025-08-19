@@ -1,3 +1,3 @@
 public native struct scnRidAnimationContainerSRRefAnimContainerContext {
-  native let genderMask: scnGenderMask;
+  public native let genderMask: scnGenderMask;
 }

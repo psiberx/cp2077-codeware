@@ -1,4 +1,4 @@
 public native class worldNavigationDeniedAreaNode extends worldAreaShapeNode {
-  native let human: Bool;
-  native let vehicle: Bool;
+  public native let human: Bool;
+  public native let vehicle: Bool;
 }

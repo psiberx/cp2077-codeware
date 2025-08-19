@@ -1,7 +1,7 @@
 public native class scnAudioEvent extends scnSceneEvent {
-  native let performer: scnPerformerId;
-  native let audioEventName: CName;
-  native let ambientUniqueName: CName;
-  native let emitterName: CName;
-  native let fastForwardSupport: scnAudioFastForwardSupport;
+  public native let performer: scnPerformerId;
+  public native let audioEventName: CName;
+  public native let ambientUniqueName: CName;
+  public native let emitterName: CName;
+  public native let fastForwardSupport: scnAudioFastForwardSupport;
 }

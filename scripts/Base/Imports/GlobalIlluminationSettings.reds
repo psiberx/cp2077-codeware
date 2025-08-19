@@ -1,11 +1,11 @@
 public native class GlobalIlluminationSettings extends IAreaSettings {
-  native let multiBouceScale: CurveDataFloat;
-  native let multiBouceSaturation: CurveDataFloat;
-  native let emissiveScale: CurveDataFloat;
-  native let diffuseScale: CurveDataFloat;
-  native let localLightsScale: CurveDataFloat;
-  native let lightScaleCompenensation: CurveDataFloat;
-  native let reflectionCompensation: CurveDataFloat;
-  native let ambientBase: CurveDataHDRColor;
-  native let rayTracedSkyRadianceScale: CurveDataFloat;
+  public native let multiBouceScale: CurveDataFloat;
+  public native let multiBouceSaturation: CurveDataFloat;
+  public native let emissiveScale: CurveDataFloat;
+  public native let diffuseScale: CurveDataFloat;
+  public native let localLightsScale: CurveDataFloat;
+  public native let lightScaleCompenensation: CurveDataFloat;
+  public native let reflectionCompensation: CurveDataFloat;
+  public native let ambientBase: CurveDataHDRColor;
+  public native let rayTracedSkyRadianceScale: CurveDataFloat;
 }

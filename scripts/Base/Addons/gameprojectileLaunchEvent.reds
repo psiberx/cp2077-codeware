@@ -1,2 +1,2 @@
 @addField(gameprojectileLaunchEvent)
-native let weapon: wref<GameObject>;
+public native let weapon: wref<GameObject>;

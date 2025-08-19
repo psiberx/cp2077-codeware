@@ -1,5 +1,5 @@
 public importonly class NarrationPlateComponent extends IComponent {
-  native let narrationCaption: CName;
-  native let narrationText: CName;
-  native let isEnabled: Bool;
+  public native let narrationCaption: CName;
+  public native let narrationText: CName;
+  public native let isEnabled: Bool;
 }

@@ -1,6 +1,6 @@
 public native struct redTaskProgressMessage {
-  native let id: Uint32;
-  native let parent: Uint32;
-  native let progress: Float;
-  native let processingTime: Float;
+  public native let id: Uint32;
+  public native let parent: Uint32;
+  public native let progress: Float;
+  public native let processingTime: Float;
 }

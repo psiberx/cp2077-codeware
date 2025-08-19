@@ -1,4 +1,4 @@
 public native struct audioFoleyLoopMetadata {
-  native let startEvent: CName;
-  native let stopEvent: CName;
+  public native let startEvent: CName;
+  public native let stopEvent: CName;
 }

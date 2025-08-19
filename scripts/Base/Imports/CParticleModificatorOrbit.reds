@@ -1,6 +1,6 @@
 public native class CParticleModificatorOrbit extends IParticleModificator {
-  native let offset: ref<IEvaluatorVector>;
-  native let frequency: ref<IEvaluatorVector>;
-  native let phase: ref<IEvaluatorVector>;
-  native let overridePosition: Bool;
+  public native let offset: ref<IEvaluatorVector>;
+  public native let frequency: ref<IEvaluatorVector>;
+  public native let phase: ref<IEvaluatorVector>;
+  public native let overridePosition: Bool;
 }

@@ -1,2 +1,2 @@
 @addField(inkGameNotificationData)
-native let introAnimation: CName;
+public native let introAnimation: CName;

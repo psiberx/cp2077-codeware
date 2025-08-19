@@ -1,7 +1,7 @@
 public native struct audioDeviceStateSettings {
-  native let powerRestoredSound: CName;
-  native let powerCutSound: CName;
-  native let turnOnSound: CName;
-  native let turnOffSound: CName;
-  native let breakingSound: CName;
+  public native let powerRestoredSound: CName;
+  public native let powerCutSound: CName;
+  public native let turnOnSound: CName;
+  public native let turnOffSound: CName;
+  public native let breakingSound: CName;
 }

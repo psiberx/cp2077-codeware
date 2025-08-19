@@ -1,4 +1,4 @@
 public native class audioFoleyGlobalMetadata extends audioAudioMetadata {
-  native let fadeoutTime: Float;
-  native let fadeoutRtpc: CName;
+  public native let fadeoutTime: Float;
+  public native let fadeoutRtpc: CName;
 }

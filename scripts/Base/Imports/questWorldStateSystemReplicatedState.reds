@@ -1,6 +1,6 @@
 public native struct questWorldStateSystemReplicatedState {
-  native let nodeVisibilityMapArray: array<questNodeVisibilityMapArrayElement>;
-  native let isInMirrorsAreaMapArray: array<questIsInMirrorsAreaMapArrayElement>;
-  native let nodeCollisionMapArray: array<questNodeCollisionMapArrayElement>;
-  native let prefabVariants: array<questPrefabVariantMapArrayElement>;
+  public native let nodeVisibilityMapArray: array<questNodeVisibilityMapArrayElement>;
+  public native let isInMirrorsAreaMapArray: array<questIsInMirrorsAreaMapArrayElement>;
+  public native let nodeCollisionMapArray: array<questNodeCollisionMapArrayElement>;
+  public native let prefabVariants: array<questPrefabVariantMapArrayElement>;
 }

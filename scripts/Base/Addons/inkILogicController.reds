@@ -1,2 +1,2 @@
 @addField(inkILogicController)
-native let audioMetadataName: CName;
+public native let audioMetadataName: CName;

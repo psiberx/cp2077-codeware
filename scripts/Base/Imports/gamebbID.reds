@@ -1,3 +1,3 @@
 public native struct gamebbID {
-  native let g: CName;
+  public native let g: CName;
 }

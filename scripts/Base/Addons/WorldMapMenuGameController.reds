@@ -1,29 +1,29 @@
 @addField(WorldMapMenuGameController)
-native let settingsRecordID: TweakDBID;
+public native let settingsRecordID: TweakDBID;
 
 @addField(WorldMapMenuGameController)
-native let playerOnTop: Bool;
+public native let playerOnTop: Bool;
 
 @addField(WorldMapMenuGameController)
-native let entityPreviewLibraryID: CName;
+public native let entityPreviewLibraryID: CName;
 
 @addField(WorldMapMenuGameController)
-native let floorPlanSpawnContainer: inkCompoundRef;
+public native let floorPlanSpawnContainer: inkCompoundRef;
 
 @addField(WorldMapMenuGameController)
-native let compassWidget: inkWidgetRef;
+public native let compassWidget: inkWidgetRef;
 
 @addField(WorldMapMenuGameController)
-native let mappinOutlinesContainer: inkCompoundRef;
+public native let mappinOutlinesContainer: inkCompoundRef;
 
 @addField(WorldMapMenuGameController)
-native let groupOutlinesContainer: inkCompoundRef;
+public native let groupOutlinesContainer: inkCompoundRef;
 
 @addField(WorldMapMenuGameController)
-native let tooltipDistrictOffset: inkMargin;
+public native let tooltipDistrictOffset: inkMargin;
 
 @addField(WorldMapMenuGameController)
-native let hoveredDistrict: gamedataDistrict;
+public native let hoveredDistrict: gamedataDistrict;
 
 @addField(WorldMapMenuGameController)
-native let hoveredSubDistrict: gamedataDistrict;
+public native let hoveredSubDistrict: gamedataDistrict;

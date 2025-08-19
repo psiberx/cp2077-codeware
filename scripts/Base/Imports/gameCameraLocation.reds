@@ -1,4 +1,4 @@
 public native struct gameCameraLocation {
-  native let position: Vector3;
-  native let rotation: EulerAngles;
+  public native let position: Vector3;
+  public native let rotation: EulerAngles;
 }

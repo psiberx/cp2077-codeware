@@ -1,8 +1,8 @@
 @addField(MappinVariantChangedEvent)
-native let entry: wref<JournalEntry>;
+public native let entry: wref<JournalEntry>;
 
 @addField(MappinVariantChangedEvent)
-native let phase: gamedataMappinPhase;
+public native let phase: gamedataMappinPhase;
 
 @addField(MappinVariantChangedEvent)
-native let variant: gamedataMappinVariant;
+public native let variant: gamedataMappinVariant;

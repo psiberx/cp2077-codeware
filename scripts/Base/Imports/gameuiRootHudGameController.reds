@@ -1,3 +1,3 @@
 public native class gameuiRootHudGameController extends inkGameController {
-  native let resolutionSensitiveRoots: array<inkCompoundRef>;
+  public native let resolutionSensitiveRoots: array<inkCompoundRef>;
 }

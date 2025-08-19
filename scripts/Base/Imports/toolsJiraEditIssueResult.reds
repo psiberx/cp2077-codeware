@@ -1,4 +1,4 @@
 public native class toolsJiraEditIssueResult extends ISerializable {
-  native let errorMessages: array<String>;
-  native let errors: toolsJiraIssueFieldsResult;
+  public native let errorMessages: array<String>;
+  public native let errors: toolsJiraIssueFieldsResult;
 }

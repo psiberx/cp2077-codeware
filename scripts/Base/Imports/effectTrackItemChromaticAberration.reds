@@ -1,5 +1,5 @@
 public native class effectTrackItemChromaticAberration extends effectTrackItem {
-  native let override: Bool;
-  native let chromaticAberrationOffset: effectEffectParameterEvaluatorFloat;
-  native let chromaticAberrationExp: effectEffectParameterEvaluatorFloat;
+  public native let override: Bool;
+  public native let chromaticAberrationOffset: effectEffectParameterEvaluatorFloat;
+  public native let chromaticAberrationExp: effectEffectParameterEvaluatorFloat;
 }

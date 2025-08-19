@@ -1,7 +1,7 @@
 public native struct animImportFacialCorrectivePoseDataDesc {
-  native let transforms: array<animImportFacialTransform>;
-  native let transformsNoScale: array<animImportFacialTransformNoScale>;
-  native let transformIds: array<Uint16>;
-  native let transformNames: array<CName>;
-  native let parentsWeights: array<Float>;
+  public native let transforms: array<animImportFacialTransform>;
+  public native let transformsNoScale: array<animImportFacialTransformNoScale>;
+  public native let transformIds: array<Uint16>;
+  public native let transformNames: array<CName>;
+  public native let parentsWeights: array<Float>;
 }

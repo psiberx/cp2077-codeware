@@ -1,8 +1,8 @@
 public importonly struct HitShapeContainer {
-  native let name: CName;
-  native let slotName: CName;
-  native let color: Color;
-  native let shape: ref<IHitShape>;
-  native let userData: ref<HitShapeUserData>;
-  native let physicsMaterial: physicsMaterialReference;
+  public native let name: CName;
+  public native let slotName: CName;
+  public native let color: Color;
+  public native let shape: ref<IHitShape>;
+  public native let userData: ref<HitShapeUserData>;
+  public native let physicsMaterial: physicsMaterialReference;
 }

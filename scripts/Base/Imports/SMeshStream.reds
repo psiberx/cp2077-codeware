@@ -1,3 +1,3 @@
 public native struct SMeshStream {
-  native let type: EMeshStreamType;
+  public native let type: EMeshStreamType;
 }

@@ -1,4 +1,4 @@
 public native struct questTransferItems_NodeTypeParams_OperationData {
-  native let itemTDBID: TweakDBID;
-  native let quantity: Int32;
+  public native let itemTDBID: TweakDBID;
+  public native let quantity: Int32;
 }

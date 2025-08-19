@@ -1,4 +1,4 @@
 public native struct worldTrafficLanePolygonRepresentation {
-  native let outline: array<Vector3>;
-  native let polygon: array<Vector2>;
+  public native let outline: array<Vector3>;
+  public native let polygon: array<Vector2>;
 }

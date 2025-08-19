@@ -1,2 +1,2 @@
 @addField(FactChangedEvent)
-native let factName: CName;
+public native let factName: CName;

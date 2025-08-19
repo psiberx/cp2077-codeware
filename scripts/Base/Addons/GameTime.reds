@@ -1,2 +1,2 @@
 @addField(GameTime)
-native let seconds: Int32;
+public native let seconds: Int32;

@@ -1,4 +1,4 @@
 public native class CParticleDrawerEmitterOrientation extends IParticleDrawer {
-  native let coordinateSystem: EulerAngles;
-  native let isGPUBased: Bool;
+  public native let coordinateSystem: EulerAngles;
+  public native let isGPUBased: Bool;
 }

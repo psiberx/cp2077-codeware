@@ -1,5 +1,5 @@
 public native class questCharacterMountedTogether_ConditionType extends questICharacterConditionType {
-  native let vehicleType: questMountVehicleType;
-  native let vehicleOrigin: questMountVehicleOrigin;
-  native let characters: array<ref<questMountedObjectInfo>>;
+  public native let vehicleType: questMountVehicleType;
+  public native let vehicleOrigin: questMountVehicleOrigin;
+  public native let characters: array<ref<questMountedObjectInfo>>;
 }

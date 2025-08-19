@@ -1,5 +1,5 @@
 public native struct animInertializationFloatClamp {
-  native let isActive: Bool;
-  native let min: Float;
-  native let max: Float;
+  public native let isActive: Bool;
+  public native let min: Float;
+  public native let max: Float;
 }

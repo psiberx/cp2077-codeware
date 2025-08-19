@@ -1,3 +1,3 @@
 public native class questCountdownTimer_NodeType extends questIUIManagerNodeType {
-  native let duration: Float;
+  public native let duration: Float;
 }

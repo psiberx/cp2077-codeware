@@ -1,4 +1,4 @@
 public native class meshMeshParamShadowMeshCreationData extends meshMeshParameter {
-  native let geometries: array<ref<physicsICollider>>;
-  native let bonesPerGeometry: array<Int32>;
+  public native let geometries: array<ref<physicsICollider>>;
+  public native let bonesPerGeometry: array<Int32>;
 }

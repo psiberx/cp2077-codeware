@@ -1,4 +1,4 @@
 public native struct inkCallbackListener {
-  native let object: wref<IScriptable>;
-  native let functionName: CName;
+  public native let object: wref<IScriptable>;
+  public native let functionName: CName;
 }

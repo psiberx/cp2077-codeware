@@ -1,6 +1,6 @@
 public native class scnSectionNode extends scnSceneGraphNode {
-  native let events: array<ref<scnSceneEvent>>;
-  native let sectionDuration: scnSceneTime;
-  native let actorBehaviors: array<scnSectionInternalsActorBehavior>;
-  native let isFocusClue: Bool;
+  public native let events: array<ref<scnSceneEvent>>;
+  public native let sectionDuration: scnSceneTime;
+  public native let actorBehaviors: array<scnSectionInternalsActorBehavior>;
+  public native let isFocusClue: Bool;
 }

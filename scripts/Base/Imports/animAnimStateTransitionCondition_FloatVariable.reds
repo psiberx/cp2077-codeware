@@ -1,5 +1,5 @@
 public native class animAnimStateTransitionCondition_FloatVariable extends animIAnimStateTransitionCondition {
-  native let variableName: CName;
-  native let compareValue: Float;
-  native let compareFunc: animCompareFunc;
+  public native let variableName: CName;
+  public native let compareValue: Float;
+  public native let compareFunc: animCompareFunc;
 }

@@ -1,3 +1,3 @@
 public native class gamePointOfInterestMappinResource extends CResource {
-  native let cookedData: array<gameCookedPointOfInterestMappinData>;
+  public native let cookedData: array<gameCookedPointOfInterestMappinData>;
 }

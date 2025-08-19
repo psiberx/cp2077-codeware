@@ -1,8 +1,8 @@
 public native class audioTriggerEffectMetadata extends audioAudioMetadata {
-  native let mode: audioTriggerEffectMode;
-  native let target: audioTriggerEffectTarget;
-  native let strength: Float;
-  native let startPosition: Float;
-  native let endPosition: Float;
-  native let frequency: Float;
+  public native let mode: audioTriggerEffectMode;
+  public native let target: audioTriggerEffectTarget;
+  public native let strength: Float;
+  public native let startPosition: Float;
+  public native let endPosition: Float;
+  public native let frequency: Float;
 }

@@ -1,5 +1,5 @@
 @addField(vehicleCinematicCameraShotGroup)
-native let conditions: array<ref<vehicleCinematicCameraShotStartCondition>>;
+public native let conditions: array<ref<vehicleCinematicCameraShotStartCondition>>;
 
 @addField(vehicleCinematicCameraShotGroup)
-native let shots: array<vehicleCinematicCameraShot>;
+public native let shots: array<vehicleCinematicCameraShot>;

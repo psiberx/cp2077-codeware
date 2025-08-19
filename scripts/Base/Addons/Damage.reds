@@ -1,5 +1,5 @@
 @addField(Damage)
-native let damageType: gamedataDamageType;
+public native let damageType: gamedataDamageType;
 
 @addField(Damage)
-native let value: Float;
+public native let value: Float;

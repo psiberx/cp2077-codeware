@@ -1,3 +1,3 @@
 public native class AICTreeNodeCompleteImmediatelyDefinition extends AICTreeNodeAtomicDefinition {
-  native let completeWithSuccess: Bool;
+  public native let completeWithSuccess: Bool;
 }

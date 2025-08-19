@@ -1,7 +1,7 @@
 public native class audioWeaponShellCasingSettings extends audioAudioMetadata {
-  native let mode: audioWeaponShellCasingMode;
-  native let direction: audioWeaponShellCasingDirection;
-  native let firstCollisionEventName: CName;
-  native let secondCollisionEventName: CName;
-  native let initialDelay: Float;
+  public native let mode: audioWeaponShellCasingMode;
+  public native let direction: audioWeaponShellCasingDirection;
+  public native let firstCollisionEventName: CName;
+  public native let secondCollisionEventName: CName;
+  public native let initialDelay: Float;
 }

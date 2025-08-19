@@ -1,5 +1,5 @@
 public native struct audioVehicleTemperatureSettings {
-  native let rpmThreshold: Float;
-  native let timeToActivateTemperature: Float;
-  native let cooldownTime: Float;
+  public native let rpmThreshold: Float;
+  public native let timeToActivateTemperature: Float;
+  public native let cooldownTime: Float;
 }

@@ -1,3 +1,3 @@
 public native class gameRazerChromaAnimationDatabase extends CResource {
-  native let setsSerialized: array<gameRazerChromaAnimationSet>;
+  public native let setsSerialized: array<gameRazerChromaAnimationSet>;
 }

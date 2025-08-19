@@ -1,4 +1,4 @@
 public native class animAnimFeature_Interaction extends AnimFeature {
-  native let interactionDuration: Float;
-  native let interactionStage: Int32;
+  public native let interactionDuration: Float;
+  public native let interactionStage: Int32;
 }

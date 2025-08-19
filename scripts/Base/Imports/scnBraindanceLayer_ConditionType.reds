@@ -1,5 +1,5 @@
 public native class scnBraindanceLayer_ConditionType extends scnIBraindanceConditionType {
-  native let layer: scnBraindanceLayer;
-  native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let SceneVersion: scnSceneVersionCheck;
+  public native let layer: scnBraindanceLayer;
+  public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let SceneVersion: scnSceneVersionCheck;
 }

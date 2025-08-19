@@ -1,7 +1,7 @@
 public native struct toolsMessage {
-  native let severity: toolsMessageSeverity;
-  native let created: Int64;
-  native let location: ref<toolsIMessageLocation>;
-  native let tokens: array<ref<toolsIMessageToken>>;
-  native let verbosity: toolsMessageVerbosity;
+  public native let severity: toolsMessageSeverity;
+  public native let created: Int64;
+  public native let location: ref<toolsIMessageLocation>;
+  public native let tokens: array<ref<toolsIMessageToken>>;
+  public native let verbosity: toolsMessageVerbosity;
 }

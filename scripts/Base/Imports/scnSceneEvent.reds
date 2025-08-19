@@ -1,8 +1,8 @@
 public abstract native class scnSceneEvent extends ISerializable {
-  native let id: scnSceneEventId;
-  native let type: scnEventType;
-  native let startTime: Uint32;
-  native let duration: Uint32;
-  native let executionTagFlags: Uint8;
-  native let scalingData: ref<scnIScalingData>;
+  public native let id: scnSceneEventId;
+  public native let type: scnEventType;
+  public native let startTime: Uint32;
+  public native let duration: Uint32;
+  public native let executionTagFlags: Uint8;
+  public native let scalingData: ref<scnIScalingData>;
 }

@@ -1,6 +1,6 @@
 public native class audioSpatialSoundLimitMetadata extends audioAudioMetadata {
-  native let eventNames: array<CName>;
-  native let writeOnlyEventNames: array<CName>;
-  native let readOnlyEventNames: array<CName>;
-  native let radius: Float;
+  public native let eventNames: array<CName>;
+  public native let writeOnlyEventNames: array<CName>;
+  public native let readOnlyEventNames: array<CName>;
+  public native let radius: Float;
 }

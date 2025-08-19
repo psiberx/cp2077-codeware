@@ -1,7 +1,7 @@
 public native struct scnWorkspotInstance {
-  native let workspotInstanceId: scnSceneWorkspotInstanceId;
-  native let dataId: scnSceneWorkspotDataId;
-  native let localTransform: Transform;
-  native let playAtActorLocation: Bool;
-  native let originMarker: scnMarker;
+  public native let workspotInstanceId: scnSceneWorkspotInstanceId;
+  public native let dataId: scnSceneWorkspotDataId;
+  public native let localTransform: Transform;
+  public native let playAtActorLocation: Bool;
+  public native let originMarker: scnMarker;
 }

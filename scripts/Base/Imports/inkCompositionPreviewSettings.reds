@@ -1,8 +1,8 @@
 public native class inkCompositionPreviewSettings extends ISerializable {
-  native let sourceState: CName;
-  native let targetState: CName;
-  native let previewResolution: inkETextureResolution;
-  native let gameFrameTexture: ResourceAsyncRef; // raRef<CBitmapTexture>
-  native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let texturePart: CName;
+  public native let sourceState: CName;
+  public native let targetState: CName;
+  public native let previewResolution: inkETextureResolution;
+  public native let gameFrameTexture: ResourceAsyncRef; // raRef<CBitmapTexture>
+  public native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let texturePart: CName;
 }

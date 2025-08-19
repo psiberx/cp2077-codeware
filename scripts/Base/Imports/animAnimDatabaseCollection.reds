@@ -1,3 +1,3 @@
 public native struct animAnimDatabaseCollection {
-  native let animDatabases: array<animAnimDatabaseCollectionEntry>;
+  public native let animDatabases: array<animAnimDatabaseCollectionEntry>;
 }

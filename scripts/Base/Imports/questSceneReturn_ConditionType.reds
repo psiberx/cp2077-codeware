@@ -1,5 +1,5 @@
 public native class questSceneReturn_ConditionType extends questISceneConditionType {
-  native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let SceneVersion: scnSceneVersionCheck;
-  native let returnConditions: array<ref<scnIReturnCondition>>;
+  public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let SceneVersion: scnSceneVersionCheck;
+  public native let returnConditions: array<ref<scnIReturnCondition>>;
 }

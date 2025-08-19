@@ -1,4 +1,4 @@
 public native struct scnSceneMarkerInternalsWorkspotEntrySocket {
-  native let name: CName;
-  native let transform: Transform;
+  public native let name: CName;
+  public native let transform: Transform;
 }

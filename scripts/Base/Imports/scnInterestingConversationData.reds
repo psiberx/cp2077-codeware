@@ -1,4 +1,4 @@
 public native class scnInterestingConversationData extends ISerializable {
-  native let sceneFilename: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let interruptionOperations: array<ref<scnIInterruptionOperation>>;
+  public native let sceneFilename: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let interruptionOperations: array<ref<scnIInterruptionOperation>>;
 }

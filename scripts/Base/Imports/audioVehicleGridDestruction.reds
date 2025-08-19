@@ -1,7 +1,7 @@
 public native class audioVehicleGridDestruction extends audioAudioMetadata {
-  native let minGridCellRawChangeThreshold: Float;
-  native let specificGridCellImpactCooldown: Float;
-  native let minGridCellValueToPlayDetailedEvent: Float;
-  native let bottomLayer: audioVehicleDestructionGridLayer;
-  native let upperLayer: audioVehicleDestructionGridLayer;
+  public native let minGridCellRawChangeThreshold: Float;
+  public native let specificGridCellImpactCooldown: Float;
+  public native let minGridCellValueToPlayDetailedEvent: Float;
+  public native let bottomLayer: audioVehicleDestructionGridLayer;
+  public native let upperLayer: audioVehicleDestructionGridLayer;
 }

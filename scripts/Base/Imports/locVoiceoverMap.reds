@@ -1,3 +1,3 @@
 public native class locVoiceoverMap extends ISerializable {
-  native let entries: array<locVoLineEntry>;
+  public native let entries: array<locVoLineEntry>;
 }

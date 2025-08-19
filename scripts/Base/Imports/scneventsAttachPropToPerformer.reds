@@ -1,9 +1,9 @@
 public native class scneventsAttachPropToPerformer extends scnSceneEvent {
-  native let propId: scnPropId;
-  native let performerId: scnPerformerId;
-  native let slot: CName;
-  native let offsetMode: scnOffsetMode;
-  native let customOffsetPos: Vector3;
-  native let customOffsetRot: Quaternion;
-  native let fallbackData: array<scneventsAttachPropToPerformerFallbackData>;
+  public native let propId: scnPropId;
+  public native let performerId: scnPerformerId;
+  public native let slot: CName;
+  public native let offsetMode: scnOffsetMode;
+  public native let customOffsetPos: Vector3;
+  public native let customOffsetRot: Quaternion;
+  public native let fallbackData: array<scneventsAttachPropToPerformerFallbackData>;
 }

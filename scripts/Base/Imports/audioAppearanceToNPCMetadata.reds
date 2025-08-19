@@ -1,4 +1,4 @@
 public native struct audioAppearanceToNPCMetadata {
-  native let appearances: array<CName>;
-  native let foleyNPCMetadata: CName;
+  public native let appearances: array<CName>;
+  public native let foleyNPCMetadata: CName;
 }

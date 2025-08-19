@@ -1,4 +1,4 @@
 public native class meshMeshParamGarmentSupport extends meshMeshParameter {
-  native let chunkCapVertices: array<array<Uint32>>;
-  native let customMorph: Bool;
+  public native let chunkCapVertices: array<array<Uint32>>;
+  public native let customMorph: Bool;
 }

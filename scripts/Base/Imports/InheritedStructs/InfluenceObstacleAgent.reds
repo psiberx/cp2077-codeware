@@ -1,4 +1,4 @@
 public native struct InfluenceObstacleAgent {
-  native let useMeshes: Bool;
-  native let radius: Float;
+  public native let useMeshes: Bool;
+  public native let radius: Float;
 }

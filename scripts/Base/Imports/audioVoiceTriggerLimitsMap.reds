@@ -1,4 +1,4 @@
 public native class audioVoiceTriggerLimitsMap extends audioAudioMetadata {
-  native let includes: array<CName>;
-  native let triggers: array<audioVoiceTriggerLimitsMapItem>;
+  public native let includes: array<CName>;
+  public native let triggers: array<audioVoiceTriggerLimitsMapItem>;
 }

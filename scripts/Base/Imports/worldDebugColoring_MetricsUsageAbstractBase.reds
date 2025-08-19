@@ -1,6 +1,6 @@
 public abstract native class worldDebugColoring_MetricsUsageAbstractBase extends worldEditorDebugColoringSettings {
-  native let maxColor: Color;
-  native let minColor: Color;
-  native let minSize: Uint32;
-  native let maxSize: Uint32;
+  public native let maxColor: Color;
+  public native let minColor: Color;
+  public native let minSize: Uint32;
+  public native let maxSize: Uint32;
 }

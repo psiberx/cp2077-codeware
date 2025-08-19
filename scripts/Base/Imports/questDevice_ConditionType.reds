@@ -1,6 +1,6 @@
 public native class questDevice_ConditionType extends questIObjectConditionType {
-  native let objectRef: NodeRef;
-  native let deviceControllerClass: CName;
-  native let deviceConditionFunction: CName;
-  native let functionParameters: array<questDevice_ConditionFunctionParameter>;
+  public native let objectRef: NodeRef;
+  public native let deviceControllerClass: CName;
+  public native let deviceConditionFunction: CName;
+  public native let functionParameters: array<questDevice_ConditionFunctionParameter>;
 }

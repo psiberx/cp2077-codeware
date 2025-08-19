@@ -1,4 +1,4 @@
 public native class questAddCombatLogMessage_NodeType extends questIUIManagerNodeType {
-  native let message: String;
-  native let localizedMessage: LocalizationString;
+  public native let message: String;
+  public native let localizedMessage: LocalizationString;
 }

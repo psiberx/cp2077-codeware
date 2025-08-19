@@ -1,3 +1,3 @@
 public native class questSetPossesion_NodeType extends questISceneManagerNodeType {
-  native let playerPossesion: gamedataPlayerPossesion;
+  public native let playerPossesion: gamedataPlayerPossesion;
 }

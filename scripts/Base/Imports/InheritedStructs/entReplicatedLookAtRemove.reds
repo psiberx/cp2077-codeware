@@ -1,6 +1,6 @@
 public native struct entReplicatedLookAtRemove {
-  native let creationNetTime: netTime;
-  native let ref: LookAtRef;
-  native let hasOutTransition: Float;
-  native let outTransitionSpeed: Float;
+  public native let creationNetTime: netTime;
+  public native let ref: LookAtRef;
+  public native let hasOutTransition: Float;
+  public native let outTransitionSpeed: Float;
 }

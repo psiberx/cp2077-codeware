@@ -1,3 +1,3 @@
 public native class gameuiarcadeArcadeBackgroundController extends inkLogicController {
-  native let backgroundLayerList: array<inkWidgetRef>;
+  public native let backgroundLayerList: array<inkWidgetRef>;
 }

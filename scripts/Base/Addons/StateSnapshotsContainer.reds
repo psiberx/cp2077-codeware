@@ -1,2 +1,2 @@
 @addField(StateSnapshotsContainer)
-native let snapshot: array<StateSnapshot>;
+public native let snapshot: array<StateSnapshot>;

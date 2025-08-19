@@ -1,3 +1,3 @@
 public native struct gameMuppetInputActionRangedAttack {
-  native let actionType: gameMuppetInputActionType;
+  public native let actionType: gameMuppetInputActionType;
 }

@@ -1,2 +1,2 @@
 @addField(inkBorder)
-native let thickness: Float;
+public native let thickness: Float;

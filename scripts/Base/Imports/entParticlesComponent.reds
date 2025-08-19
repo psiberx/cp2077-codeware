@@ -1,6 +1,6 @@
 public native class entParticlesComponent extends IVisualComponent {
-  native let emissionRate: Float;
-  native let particleSystem: ResourceRef; // rRef<CParticleSystem>
-  native let autoHideRange: Float;
-  native let isEnabled: Bool;
+  public native let emissionRate: Float;
+  public native let particleSystem: ResourceRef; // rRef<CParticleSystem>
+  public native let autoHideRange: Float;
+  public native let isEnabled: Bool;
 }

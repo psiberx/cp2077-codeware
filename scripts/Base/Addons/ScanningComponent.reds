@@ -1,17 +1,17 @@
 @addField(ScanningComponent)
-native let scannableData: array<ScanningTooltipElementDef>;
+public native let scannableData: array<ScanningTooltipElementDef>;
 
 @addField(ScanningComponent)
-native let timeNeeded: Float;
+public native let timeNeeded: Float;
 
 @addField(ScanningComponent)
-native let autoGenerateBoundingSphere: Bool;
+public native let autoGenerateBoundingSphere: Bool;
 
 @addField(ScanningComponent)
-native let boundingSphere: Sphere;
+public native let boundingSphere: Sphere;
 
 @addField(ScanningComponent)
-native let ignoresScanningDistanceLimit: Bool;
+public native let ignoresScanningDistanceLimit: Bool;
 
 @addField(ScanningComponent)
-native let cpoEnableMultiplePlayersScanningModifier: Bool;
+public native let cpoEnableMultiplePlayersScanningModifier: Bool;

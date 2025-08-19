@@ -1,4 +1,4 @@
 public native class CorpseComponent extends ISkinableComponent {
-  native let filterData: ref<physicsFilterData>;
-  native let material: CName;
+  public native let filterData: ref<physicsFilterData>;
+  public native let material: CName;
 }

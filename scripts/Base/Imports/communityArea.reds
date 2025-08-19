@@ -1,3 +1,3 @@
 public native class communityArea extends ISerializable {
-  native let entriesData: array<communityCommunityEntrySpotsData>;
+  public native let entriesData: array<communityCommunityEntrySpotsData>;
 }

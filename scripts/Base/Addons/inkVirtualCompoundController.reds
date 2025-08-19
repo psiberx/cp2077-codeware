@@ -1,8 +1,8 @@
 @addField(inkVirtualCompoundController)
-native let ItemSelected: inkVirtualCompoundControllerCallback;
+public native let ItemSelected: inkVirtualCompoundControllerCallback;
 
 @addField(inkVirtualCompoundController)
-native let ItemActivated: inkVirtualCompoundControllerCallback;
+public native let ItemActivated: inkVirtualCompoundControllerCallback;
 
 @addField(inkVirtualCompoundController)
-native let AllElementsSpawned: inkEmptyCallback;
+public native let AllElementsSpawned: inkEmptyCallback;

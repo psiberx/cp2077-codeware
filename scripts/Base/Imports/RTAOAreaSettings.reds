@@ -1,11 +1,11 @@
 public native class RTAOAreaSettings extends IAreaSettings {
-  native let RangeNear: CurveDataFloat;
-  native let RangeFar: CurveDataFloat;
-  native let RadiusNear: CurveDataFloat;
-  native let RadiusFar: CurveDataFloat;
-  native let coneAoDiffuseStrength: CurveDataFloat;
-  native let coneAoSpecularStrength: CurveDataFloat;
-  native let coneAoSpecularTreshold: CurveDataFloat;
-  native let lightAoDiffuseStrength: CurveDataFloat;
-  native let lightAoSpecularStrength: CurveDataFloat;
+  public native let RangeNear: CurveDataFloat;
+  public native let RangeFar: CurveDataFloat;
+  public native let RadiusNear: CurveDataFloat;
+  public native let RadiusFar: CurveDataFloat;
+  public native let coneAoDiffuseStrength: CurveDataFloat;
+  public native let coneAoSpecularStrength: CurveDataFloat;
+  public native let coneAoSpecularTreshold: CurveDataFloat;
+  public native let lightAoDiffuseStrength: CurveDataFloat;
+  public native let lightAoSpecularStrength: CurveDataFloat;
 }

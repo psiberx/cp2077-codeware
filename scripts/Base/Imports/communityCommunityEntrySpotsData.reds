@@ -1,4 +1,4 @@
 public native struct communityCommunityEntrySpotsData {
-  native let phasesData: array<communityCommunityEntryPhaseSpotsData>;
-  native let entryName: CName;
+  public native let phasesData: array<communityCommunityEntryPhaseSpotsData>;
+  public native let entryName: CName;
 }

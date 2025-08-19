@@ -1,3 +1,3 @@
 public native class worldSmartObjectNode extends worldNode {
-  native let object: ref<gameSmartObjectDefinition>;
+  public native let object: ref<gameSmartObjectDefinition>;
 }

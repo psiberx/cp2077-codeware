@@ -1,10 +1,10 @@
 public native struct worldExtractedNodeSocket {
-  native let name: CName;
-  native let displayName: CName;
-  native let position: Vector3;
-  native let rotation: Quaternion;
-  native let direction: Vector3;
-  native let type: worldNodeSocketType;
-  native let isSnapped: Bool;
-  native let color: Color;
+  public native let name: CName;
+  public native let displayName: CName;
+  public native let position: Vector3;
+  public native let rotation: Quaternion;
+  public native let direction: Vector3;
+  public native let type: worldNodeSocketType;
+  public native let isSnapped: Bool;
+  public native let color: Color;
 }

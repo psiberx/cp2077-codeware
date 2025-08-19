@@ -1,8 +1,8 @@
 @addField(SenseComponent)
-native let enableBeingDetectable: Bool;
+public native let enableBeingDetectable: Bool;
 
 @addField(SenseComponent)
-native let sensorObject: ref<SensorObject>;
+public native let sensorObject: ref<SensorObject>;
 
 @addField(SenseComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

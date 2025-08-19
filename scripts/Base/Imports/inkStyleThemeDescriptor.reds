@@ -1,4 +1,4 @@
 public native struct inkStyleThemeDescriptor {
-  native let themeID: CName;
-  native let themeNameLocKey: CName;
+  public native let themeID: CName;
+  public native let themeNameLocKey: CName;
 }

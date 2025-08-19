@@ -1,3 +1,3 @@
 public native class toolsMessageLocation_BoundingBox extends toolsIMessageLocation {
-  native let box: Box;
+  public native let box: Box;
 }

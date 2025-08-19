@@ -1,4 +1,4 @@
 public native class animAnimNode_SetBonePosition extends animAnimNode_OnePoseInput {
-  native let bone: animTransformIndex;
-  native let positionMs: animVectorLink;
+  public native let bone: animTransformIndex;
+  public native let positionMs: animVectorLink;
 }

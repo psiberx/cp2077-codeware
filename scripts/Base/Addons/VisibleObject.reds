@@ -1,2 +1,2 @@
 @addField(VisibleObject)
-native let visibleObjectType: gamedataSenseObjectType;
+public native let visibleObjectType: gamedataSenseObjectType;

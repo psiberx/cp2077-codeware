@@ -1,3 +1,3 @@
 public native struct entReplicatedLookAtData {
-  native let creationNetTime: netTime;
+  public native let creationNetTime: netTime;
 }

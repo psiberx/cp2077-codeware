@@ -1,5 +1,5 @@
 public native class worldCableMeshNode extends worldBendedMeshNode {
-  native let destructionHashes: [Uint64; 2];
-  native let cableLength: Float;
-  native let cableRadius: Float;
+  public native let destructionHashes: [Uint64; 2];
+  public native let cableLength: Float;
+  public native let cableRadius: Float;
 }

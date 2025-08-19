@@ -1,3 +1,3 @@
 public native class localizationPersistenceLocDataMap extends ISerializable {
-  native let entries: array<localizationPersistenceLocDataMapEntry>;
+  public native let entries: array<localizationPersistenceLocDataMapEntry>;
 }

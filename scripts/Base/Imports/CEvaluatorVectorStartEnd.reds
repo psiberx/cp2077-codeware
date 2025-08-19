@@ -1,4 +1,4 @@
 public native class CEvaluatorVectorStartEnd extends IEvaluatorVector {
-  native let start: Vector4;
-  native let end: Vector4;
+  public native let start: Vector4;
+  public native let end: Vector4;
 }

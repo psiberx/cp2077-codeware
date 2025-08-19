@@ -1,7 +1,7 @@
 public native class entAmbientSoundEmitterComponent extends IPlacedComponent {
-  native let Settings: ref<audioAmbientAreaSettings>;
-  native let usePhysicsObstruction: Bool;
-  native let occlusionEnabled: Bool;
-  native let repositionEnabled: Bool;
-  native let obstructionChangeTime: Float;
+  public native let Settings: ref<audioAmbientAreaSettings>;
+  public native let usePhysicsObstruction: Bool;
+  public native let occlusionEnabled: Bool;
+  public native let repositionEnabled: Bool;
+  public native let obstructionChangeTime: Float;
 }

@@ -1,5 +1,5 @@
 public native class entChangeVoicesetStateEvent extends Event {
-  native let enableVoicesetLines: Bool;
-  native let enableVoicesetGrunts: Bool;
-  native let inputsToBlock: array<entVoicesetInputToBlock>;
+  public native let enableVoicesetLines: Bool;
+  public native let enableVoicesetGrunts: Bool;
+  public native let inputsToBlock: array<entVoicesetInputToBlock>;
 }

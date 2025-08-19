@@ -1,7 +1,7 @@
 public native class animMultipleParentConstraint_JsonProperties extends ISerializable {
-  native let parentsTransforms: array<animMultipleParentConstraint_JsonEntry>;
-  native let transformIndex: CName;
-  native let weightMode: animConstraintWeightMode;
-  native let weight: Float;
-  native let weightFloatTrack: CName;
+  public native let parentsTransforms: array<animMultipleParentConstraint_JsonEntry>;
+  public native let transformIndex: CName;
+  public native let weightMode: animConstraintWeightMode;
+  public native let weight: Float;
+  public native let weightFloatTrack: CName;
 }

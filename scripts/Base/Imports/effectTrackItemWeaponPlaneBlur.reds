@@ -1,4 +1,4 @@
 public native class effectTrackItemWeaponPlaneBlur extends effectTrackItem {
-  native let farPlaneMultiplier: effectEffectParameterEvaluatorFloat;
-  native let override: Bool;
+  public native let farPlaneMultiplier: effectEffectParameterEvaluatorFloat;
+  public native let override: Bool;
 }

@@ -1,8 +1,8 @@
 public native struct gameTelemetryTrackedQuest {
-  native let name: String;
-  native let objectiveName: String;
-  native let type: String;
-  native let distance: Float;
-  native let questName: String;
-  native let questType: String;
+  public native let name: String;
+  public native let objectiveName: String;
+  public native let type: String;
+  public native let distance: Float;
+  public native let questName: String;
+  public native let questType: String;
 }

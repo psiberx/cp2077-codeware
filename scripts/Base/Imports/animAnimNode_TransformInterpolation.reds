@@ -1,6 +1,6 @@
 public native class animAnimNode_TransformInterpolation extends animAnimNode_TransformValue {
-  native let interpolationType: animQuaternionInterpolationType;
-  native let firstInput: animTransformLink;
-  native let secondInput: animTransformLink;
-  native let weight: animFloatLink;
+  public native let interpolationType: animQuaternionInterpolationType;
+  public native let firstInput: animTransformLink;
+  public native let secondInput: animTransformLink;
+  public native let weight: animFloatLink;
 }

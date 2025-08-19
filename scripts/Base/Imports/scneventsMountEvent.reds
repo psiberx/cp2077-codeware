@@ -1,11 +1,11 @@
 public native class scneventsMountEvent extends scnSceneEvent {
-  native let parent: scnPerformerId;
-  native let child: scnPerformerId;
-  native let slotName: CName;
-  native let carryStyle: gamePSMBodyCarryingStyle;
-  native let isInstant: Bool;
-  native let removePitchRollRotationOnDismount: Bool;
-  native let keepTransform: Bool;
-  native let isCarrying: Bool;
-  native let switchRenderPlane: Bool;
+  public native let parent: scnPerformerId;
+  public native let child: scnPerformerId;
+  public native let slotName: CName;
+  public native let carryStyle: gamePSMBodyCarryingStyle;
+  public native let isInstant: Bool;
+  public native let removePitchRollRotationOnDismount: Bool;
+  public native let keepTransform: Bool;
+  public native let isCarrying: Bool;
+  public native let switchRenderPlane: Bool;
 }

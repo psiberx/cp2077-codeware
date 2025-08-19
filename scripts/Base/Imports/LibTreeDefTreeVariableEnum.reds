@@ -1,5 +1,5 @@
 public native class LibTreeDefTreeVariableEnum extends LibTreeDefTreeVariable {
-  native let exportAsProperty: Bool;
-  native let enumClass: CName;
-  native let defaultValue: Int64;
+  public native let exportAsProperty: Bool;
+  public native let enumClass: CName;
+  public native let defaultValue: Int64;
 }

@@ -1,8 +1,8 @@
 public native class scnPlayRidAnimEvent extends scnPlayFPPControlAnimEvent {
-  native let ridVersinon: Uint32;
-  native let animResRefId: scnRidAnimationSRRefId;
-  native let animOriginMarker: scnMarker;
-  native let actorPlacement: scnRidActorPlacement;
-  native let actorHasCollision: Bool;
-  native let blendInTrajectoryBone: Float;
+  public native let ridVersinon: Uint32;
+  public native let animResRefId: scnRidAnimationSRRefId;
+  public native let animOriginMarker: scnMarker;
+  public native let actorPlacement: scnRidActorPlacement;
+  public native let actorHasCollision: Bool;
+  public native let blendInTrajectoryBone: Float;
 }

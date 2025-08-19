@@ -1,5 +1,5 @@
 public native struct gameWeakSpotReplicatedInfo {
-  native let weakSpotRecordID: Uint64;
-  native let wsHealthValue: Float;
-  native let LastDamageInstigator: wref<gamePuppet>;
+  public native let weakSpotRecordID: Uint64;
+  public native let wsHealthValue: Float;
+  public native let LastDamageInstigator: wref<gamePuppet>;
 }

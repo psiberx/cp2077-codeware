@@ -1,4 +1,4 @@
 public importonly struct RoachRaceObstacle {
-  native let interval: Float;
-  native let dynObjectType: CName;
+  public native let interval: Float;
+  public native let dynObjectType: CName;
 }

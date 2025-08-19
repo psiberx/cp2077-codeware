@@ -1,8 +1,8 @@
 public native class inkAnimVideo extends inkAnimInterpolator {
-  native let startValue: Float;
-  native let endValue: Float;
-  native let synchronizeToAudio: Bool;
-  native let allowSkipBackward: Bool;
-  native let audioEvent: CName;
-  native let retriggerAudioOnLoop: Bool;
+  public native let startValue: Float;
+  public native let endValue: Float;
+  public native let synchronizeToAudio: Bool;
+  public native let allowSkipBackward: Bool;
+  public native let audioEvent: CName;
+  public native let retriggerAudioOnLoop: Bool;
 }

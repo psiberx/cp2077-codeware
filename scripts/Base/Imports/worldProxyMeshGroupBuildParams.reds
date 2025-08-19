@@ -1,4 +1,4 @@
 public native struct worldProxyMeshGroupBuildParams {
-  native let overridePrefabBuildParams: Bool;
-  native let buildParams: worldGroupProxyMeshBuildParams;
+  public native let overridePrefabBuildParams: Bool;
+  public native let buildParams: worldGroupProxyMeshBuildParams;
 }

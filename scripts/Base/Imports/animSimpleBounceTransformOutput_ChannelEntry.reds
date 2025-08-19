@@ -1,4 +1,4 @@
 public native struct animSimpleBounceTransformOutput_ChannelEntry {
-  native let transformChannel: animTransformChannel;
-  native let multiplier: Float;
+  public native let transformChannel: animTransformChannel;
+  public native let multiplier: Float;
 }

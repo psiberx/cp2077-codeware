@@ -1,4 +1,4 @@
 public native struct AIFSMTransitionDefinition {
-  native let destination: Uint16;
-  native let condition: Uint16;
+  public native let destination: Uint16;
+  public native let condition: Uint16;
 }

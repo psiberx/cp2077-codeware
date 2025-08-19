@@ -1,5 +1,5 @@
 public native struct audioVehiclePartSettingsMapItem {
-  native let name: CName;
-  native let onDetachEvent: CName;
-  native let onDetachAcousticsIsolationFactorReduction: Float;
+  public native let name: CName;
+  public native let onDetachEvent: CName;
+  public native let onDetachAcousticsIsolationFactorReduction: Float;
 }

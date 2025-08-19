@@ -1,3 +1,3 @@
 public native class gameEffectSet extends CResource {
-  native let effects: array<gameEffectDefinition>;
+  public native let effects: array<gameEffectDefinition>;
 }

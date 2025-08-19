@@ -1,7 +1,7 @@
 public native class gameCoverDefinition extends gameSmartObjectWorkspotDefinition {
-  native let overridenCoveringFOVDegrees: Float;
-  native let overridenCoveringVerticalFOVDegrees: Float;
-  native let fovExposureDegrees: Float;
-  native let overridenHeight: gameCoverHeight;
-  native let overrideGeneratedCoverAngles: Bool;
+  public native let overridenCoveringFOVDegrees: Float;
+  public native let overridenCoveringVerticalFOVDegrees: Float;
+  public native let fovExposureDegrees: Float;
+  public native let overridenHeight: gameCoverHeight;
+  public native let overrideGeneratedCoverAngles: Bool;
 }

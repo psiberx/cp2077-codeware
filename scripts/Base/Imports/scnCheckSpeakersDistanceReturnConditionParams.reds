@@ -1,4 +1,4 @@
 public native struct scnCheckSpeakersDistanceReturnConditionParams {
-  native let distance: Float;
-  native let comparisonType: EComparisonType;
+  public native let distance: Float;
+  public native let comparisonType: EComparisonType;
 }

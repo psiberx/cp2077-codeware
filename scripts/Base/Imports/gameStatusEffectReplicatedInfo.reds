@@ -1,5 +1,5 @@
 public native struct gameStatusEffectReplicatedInfo {
-  native let statusEffectRecordID: TweakDBID;
-  native let stackCount: Uint32;
-  native let source: CName;
+  public native let statusEffectRecordID: TweakDBID;
+  public native let stackCount: Uint32;
+  public native let source: CName;
 }

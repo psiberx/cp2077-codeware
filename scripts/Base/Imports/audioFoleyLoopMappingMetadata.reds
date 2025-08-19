@@ -1,4 +1,4 @@
 public native class audioFoleyLoopMappingMetadata extends audioAudioMetadata {
-  native let loopsPerAppearance: array<audioAppearanceToFoleyLoopMetadata>;
-  native let loopsPerVisualTag: array<audioVisualTagToFoleyLoopMetadata>;
+  public native let loopsPerAppearance: array<audioAppearanceToFoleyLoopMetadata>;
+  public native let loopsPerVisualTag: array<audioVisualTagToFoleyLoopMetadata>;
 }

@@ -1,8 +1,8 @@
 @addField(gameJournalPath)
-native let realPath: String;
+public native let realPath: String;
 
 @addField(gameJournalPath)
-native let fileEntryIndex: Int32;
+public native let fileEntryIndex: Int32;
 
 @addField(gameJournalPath)
-native let className: CName;
+public native let className: CName;

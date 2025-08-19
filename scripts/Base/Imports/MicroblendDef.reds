@@ -1,4 +1,4 @@
 public native struct MicroblendDef {
-  native let name: CName;
-  native let texture: ResourceRef; // rRef<CBitmapTexture>
+  public native let name: CName;
+  public native let texture: ResourceRef; // rRef<CBitmapTexture>
 }

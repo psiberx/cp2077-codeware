@@ -1,6 +1,6 @@
 public native class worldDebugColoring_StreamingCullingFlag extends worldEditorDebugColoringSettings {
-  native let cullableColor: Color;
-  native let forceCulledAlwaysColor: Color;
-  native let forceCulledPeripheralColor: Color;
-  native let defaultColor: Color;
+  public native let cullableColor: Color;
+  public native let forceCulledAlwaysColor: Color;
+  public native let forceCulledPeripheralColor: Color;
+  public native let defaultColor: Color;
 }

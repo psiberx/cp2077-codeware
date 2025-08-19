@@ -1,6 +1,6 @@
 public native struct audioScanningSettings {
-  native let scanningStartEvent: CName;
-  native let scanningStopEvent: CName;
-  native let scanningCompleteEvent: CName;
-  native let scanningAvailableEvent: CName;
+  public native let scanningStartEvent: CName;
+  public native let scanningStopEvent: CName;
+  public native let scanningCompleteEvent: CName;
+  public native let scanningAvailableEvent: CName;
 }

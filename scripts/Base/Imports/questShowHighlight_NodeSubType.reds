@@ -1,4 +1,4 @@
 public native class questShowHighlight_NodeSubType extends questITutorial_NodeSubType {
-  native let entityReference: EntityReference;
-  native let enable: Bool;
+  public native let entityReference: EntityReference;
+  public native let enable: Bool;
 }

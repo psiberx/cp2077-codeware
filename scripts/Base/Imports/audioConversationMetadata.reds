@@ -1,3 +1,3 @@
 public native class audioConversationMetadata extends audioAudioMetadata {
-  native let conversations: array<audioConversationItemMetadata>;
+  public native let conversations: array<audioConversationItemMetadata>;
 }

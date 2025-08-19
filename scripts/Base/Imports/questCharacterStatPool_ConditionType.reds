@@ -1,7 +1,7 @@
 public native class questCharacterStatPool_ConditionType extends questICharacterConditionType {
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let percent: Float;
-  native let comparisonType: EComparisonType;
-  native let statPoolType: gamedataStatPoolType;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let percent: Float;
+  public native let comparisonType: EComparisonType;
+  public native let statPoolType: gamedataStatPoolType;
 }

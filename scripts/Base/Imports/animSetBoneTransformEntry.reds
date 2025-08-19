@@ -1,9 +1,9 @@
 public native struct animSetBoneTransformEntry {
-  native let transformToChange: animTransformIndex;
-  native let setMethod: animSetBoneTransformEntry_SetMethod;
-  native let snapToReference: Bool;
-  native let sourceBone: animTransformIndex;
-  native let offsetToReference: Bool;
-  native let offsetSpaceBone: animTransformIndex;
-  native let offset: QsTransform;
+  public native let transformToChange: animTransformIndex;
+  public native let setMethod: animSetBoneTransformEntry_SetMethod;
+  public native let snapToReference: Bool;
+  public native let sourceBone: animTransformIndex;
+  public native let offsetToReference: Bool;
+  public native let offsetSpaceBone: animTransformIndex;
+  public native let offset: QsTransform;
 }

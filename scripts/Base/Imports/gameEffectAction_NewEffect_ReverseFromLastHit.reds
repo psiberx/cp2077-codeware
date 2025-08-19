@@ -1,6 +1,6 @@
 public native class gameEffectAction_NewEffect_ReverseFromLastHit extends EffectPostAction {
-  native let tagInThisFile: CName;
-  native let forwardOffset: Float;
-  native let childEffect: Bool;
-  native let childEffectTag: CName;
+  public native let tagInThisFile: CName;
+  public native let forwardOffset: Float;
+  public native let childEffect: Bool;
+  public native let childEffectTag: CName;
 }

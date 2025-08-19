@@ -1,3 +1,3 @@
 public native class CParticleEventReceiverSpawn extends IParticleEvent {
-  native let spawnObject: EParticleEventSpawnObject;
+  public native let spawnObject: EParticleEventSpawnObject;
 }

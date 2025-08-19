@@ -1,3 +1,3 @@
 public native class scnAnimName extends ISerializable {
-  native let type: scnAnimNameType;
+  public native let type: scnAnimNameType;
 }

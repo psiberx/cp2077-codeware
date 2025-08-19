@@ -1,4 +1,4 @@
 public native class AreaShapeOutline extends ISerializable {
-  native let points: array<Vector3>;
-  native let height: Float;
+  public native let points: array<Vector3>;
+  public native let height: Float;
 }

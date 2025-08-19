@@ -1,6 +1,6 @@
 public native class garmentGarmentLayerParams extends CResource {
-  native let bending: garmentBendingParams;
-  native let smoothing: garmentSmoothingParams;
-  native let collarArea: garmentCollarAreaParams;
-  native let hiddenTrianglesRemoval: garmentHiddenTrianglesRemovalParams;
+  public native let bending: garmentBendingParams;
+  public native let smoothing: garmentSmoothingParams;
+  public native let collarArea: garmentCollarAreaParams;
+  public native let hiddenTrianglesRemoval: garmentHiddenTrianglesRemovalParams;
 }

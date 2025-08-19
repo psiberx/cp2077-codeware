@@ -1,11 +1,11 @@
 public native class CParticleSystem extends resStreamedResource {
-  native let visibleThroughWalls: Bool;
-  native let prewarmingTime: Float;
-  native let emitters: array<ref<CParticleEmitter>>;
-  native let boundingBox: Box;
-  native let autoHideDistance: Float;
-  native let autoHideRange: Float;
-  native let lastLODFadeoutRange: Float;
-  native let renderingPlane: ERenderingPlane;
-  native let particleDamage: ref<ParticleDamage>;
+  public native let visibleThroughWalls: Bool;
+  public native let prewarmingTime: Float;
+  public native let emitters: array<ref<CParticleEmitter>>;
+  public native let boundingBox: Box;
+  public native let autoHideDistance: Float;
+  public native let autoHideRange: Float;
+  public native let lastLODFadeoutRange: Float;
+  public native let renderingPlane: ERenderingPlane;
+  public native let particleDamage: ref<ParticleDamage>;
 }

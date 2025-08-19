@@ -1,13 +1,13 @@
 public native struct interopMaterialListDescriptor {
-  native let chunksInfo: String;
-  native let chunksLODInfo: String;
-  native let numLayers: Uint32;
-  native let isForward: Bool;
-  native let isMultilayer: Bool;
-  native let isLocalInstance: Bool;
-  native let isTemplate: Bool;
-  native let itemMaterialIndex: Uint32;
-  native let materialName: String;
-  native let appearanceName: String;
-  native let availableMaterials: array<String>;
+  public native let chunksInfo: String;
+  public native let chunksLODInfo: String;
+  public native let numLayers: Uint32;
+  public native let isForward: Bool;
+  public native let isMultilayer: Bool;
+  public native let isLocalInstance: Bool;
+  public native let isTemplate: Bool;
+  public native let itemMaterialIndex: Uint32;
+  public native let materialName: String;
+  public native let appearanceName: String;
+  public native let availableMaterials: array<String>;
 }

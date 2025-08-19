@@ -1,4 +1,4 @@
 public native class LibTreeDefTreeVariableTreeRefList extends LibTreeDefTreeVariable {
-  native let exportAsProperty: Bool;
-  native let defaultValue: array<ref<LibTreeCTreeReference>>;
+  public native let exportAsProperty: Bool;
+  public native let defaultValue: array<ref<LibTreeCTreeReference>>;
 }

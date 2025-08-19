@@ -1,9 +1,9 @@
 public native class gameaudioeventsHitEvent extends Event {
-  native let attackType: gamedataAttackType;
-  native let hitPosition: Vector4;
-  native let physicsMaterial: CName;
-  native let damage: Float;
-  native let isTargetPuppet: Bool;
-  native let targetPuppetMeleeMaterial: CName;
-  native let isTargetPuppetHead: Bool;
+  public native let attackType: gamedataAttackType;
+  public native let hitPosition: Vector4;
+  public native let physicsMaterial: CName;
+  public native let damage: Float;
+  public native let isTargetPuppet: Bool;
+  public native let targetPuppetMeleeMaterial: CName;
+  public native let isTargetPuppetHead: Bool;
 }

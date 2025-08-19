@@ -1,5 +1,5 @@
 public native class animAnimNode_SkOneShotAnim extends animAnimNode_SkAnim {
-  native let Input: animPoseLink;
-  native let blendIn: Float;
-  native let blendOut: Float;
+  public native let Input: animPoseLink;
+  public native let blendIn: Float;
+  public native let blendOut: Float;
 }

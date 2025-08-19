@@ -1,2 +1,2 @@
 @addField(inkHoldControllerActionData)
-native let actionName: CName;
+public native let actionName: CName;

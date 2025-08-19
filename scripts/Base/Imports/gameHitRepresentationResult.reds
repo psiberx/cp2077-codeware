@@ -1,4 +1,4 @@
 public native struct gameHitRepresentationResult {
-  native let sult: HitRepresentationQueryResult;
-  native let tityID: EntityID;
+  public native let sult: HitRepresentationQueryResult;
+  public native let tityID: EntityID;
 }

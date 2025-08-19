@@ -1,5 +1,5 @@
 @addField(LatestSaveMetadataInfo)
-native let gameVersion: String;
+public native let gameVersion: String;
 
 @addField(LatestSaveMetadataInfo)
-native let additionalContentIds: array<CName>;
+public native let additionalContentIds: array<CName>;

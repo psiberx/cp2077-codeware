@@ -1,3 +1,3 @@
 public native struct grsGatherAreaManager {
-  native let activeGatherAreaRepInfo: grsGatherAreaReplicatedInfo;
+  public native let activeGatherAreaRepInfo: grsGatherAreaReplicatedInfo;
 }

@@ -1,6 +1,6 @@
 public native class worldDebugColoring_TrianglesPerMesh extends worldEditorDebugColoringSettings {
-  native let maxColor: Color;
-  native let minColor: Color;
-  native let minCount: Uint32;
-  native let maxCount: Uint32;
+  public native let maxColor: Color;
+  public native let minColor: Color;
+  public native let minCount: Uint32;
+  public native let maxCount: Uint32;
 }

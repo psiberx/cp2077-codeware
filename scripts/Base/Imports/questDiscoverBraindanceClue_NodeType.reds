@@ -1,3 +1,3 @@
 public native class questDiscoverBraindanceClue_NodeType extends questIUIManagerNodeType {
-  native let clueName: CName;
+  public native let clueName: CName;
 }

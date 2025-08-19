@@ -1,6 +1,6 @@
 public native class audioFoleyNPCAppearanceMappingMetadata extends audioAudioMetadata {
-  native let fallbackMetadata: CName;
-  native let NPCsPerAppearance: array<audioAppearanceToNPCMetadata>;
-  native let NPCsPerMainMaterial: array<audioVisualTagToNPCMetadata>;
-  native let NPCsPerAdditive: array<audioVisualTagToNPCMetadata>;
+  public native let fallbackMetadata: CName;
+  public native let NPCsPerAppearance: array<audioAppearanceToNPCMetadata>;
+  public native let NPCsPerMainMaterial: array<audioVisualTagToNPCMetadata>;
+  public native let NPCsPerAdditive: array<audioVisualTagToNPCMetadata>;
 }

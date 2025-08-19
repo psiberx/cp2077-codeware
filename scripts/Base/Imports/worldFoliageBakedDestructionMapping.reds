@@ -1,8 +1,8 @@
 public native class worldFoliageBakedDestructionMapping extends worldFoliageDestructionMapping {
-  native let numFrames: Float;
-  native let frameRate: Float;
-  native let audioMetadata: CName;
-  native let destructionEffect: ResourceAsyncRef; // raRef<worldEffect>
-  native let filterDataSource: physicsFilterDataSource;
-  native let filterData: ref<physicsFilterData>;
+  public native let numFrames: Float;
+  public native let frameRate: Float;
+  public native let audioMetadata: CName;
+  public native let destructionEffect: ResourceAsyncRef; // raRef<worldEffect>
+  public native let filterDataSource: physicsFilterDataSource;
+  public native let filterData: ref<physicsFilterData>;
 }

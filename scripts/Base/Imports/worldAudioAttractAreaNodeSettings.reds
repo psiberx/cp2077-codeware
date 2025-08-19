@@ -1,3 +1,3 @@
 public native struct worldAudioAttractAreaNodeSettings {
-  native let metadataName: CName;
+  public native let metadataName: CName;
 }

@@ -1,5 +1,5 @@
 public native class questRadio_ConditionType extends questISystemConditionType {
-  native let inverted: Bool;
-  native let limitToSpecifiedSpeakersStations: Bool;
-  native let speakerType: audioRadioSpeakerType;
+  public native let inverted: Bool;
+  public native let limitToSpecifiedSpeakersStations: Bool;
+  public native let speakerType: audioRadioSpeakerType;
 }

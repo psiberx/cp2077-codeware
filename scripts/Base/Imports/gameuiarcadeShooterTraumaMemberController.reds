@@ -1,3 +1,3 @@
 public native class gameuiarcadeShooterTraumaMemberController extends gameuiarcadeShooterObjectController {
-  native let baseFollowDelay: Float;
+  public native let baseFollowDelay: Float;
 }

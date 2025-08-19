@@ -1,3 +1,3 @@
 public native struct scnSceneInstanceOwnerId {
-  native let hash: Uint64;
+  public native let hash: Uint64;
 }

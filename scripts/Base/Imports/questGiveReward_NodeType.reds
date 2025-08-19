@@ -1,3 +1,3 @@
 public native class questGiveReward_NodeType extends questIRewardManagerNodeType {
-  native let rewards: array<TweakDBID>;
+  public native let rewards: array<TweakDBID>;
 }

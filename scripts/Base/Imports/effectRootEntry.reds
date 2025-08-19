@@ -1,4 +1,4 @@
 public native struct effectRootEntry {
-  native let relativePosition: Vector3;
-  native let relativeRotation: Quaternion;
+  public native let relativePosition: Vector3;
+  public native let relativeRotation: Quaternion;
 }

@@ -1,5 +1,5 @@
 public native class audioLocomotionEmitterMetadata extends audioEmitterMetadata {
-  native let customMaterialLookup: CName;
-  native let isPlayer: Bool;
-  native let diveSuitName: CName;
+  public native let customMaterialLookup: CName;
+  public native let isPlayer: Bool;
+  public native let diveSuitName: CName;
 }

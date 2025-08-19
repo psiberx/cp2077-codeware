@@ -1,3 +1,3 @@
 public native class gameEffectObjectFilter_EntityType extends gameEffectObjectGroupFilter {
-  native let typeFilter: gameEffectObjectFilter_EntityTypeEntityTypeFilter;
+  public native let typeFilter: gameEffectObjectFilter_EntityTypeEntityTypeFilter;
 }

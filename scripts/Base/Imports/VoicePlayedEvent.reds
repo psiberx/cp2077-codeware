@@ -1,5 +1,5 @@
 public native class VoicePlayedEvent extends Event {
-  native let eventName: CName;
-  native let gruntType: audioVoGruntType;
-  native let isV: Bool;
+  public native let eventName: CName;
+  public native let gruntType: audioVoGruntType;
+  public native let isV: Bool;
 }

@@ -1,4 +1,4 @@
 public native class questIsAnyAlive_ConditionType extends questIDynamicSpawnSystemConditionType {
-  native let waveTag: CName;
-  native let inverted: Bool;
+  public native let waveTag: CName;
+  public native let inverted: Bool;
 }

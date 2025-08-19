@@ -1,8 +1,8 @@
 public native struct meshChunkFlags {
-  native let renderInScene: Bool;
-  native let renderInShadows: Bool;
-  native let isTwoSided: Bool;
-  native let isRayTracedEmissive: Bool;
-  native let isConsoleLOD0: Bool;
-  native let skipDynamicDecalGeneration: Bool;
+  public native let renderInScene: Bool;
+  public native let renderInShadows: Bool;
+  public native let isTwoSided: Bool;
+  public native let isRayTracedEmissive: Bool;
+  public native let isConsoleLOD0: Bool;
+  public native let skipDynamicDecalGeneration: Bool;
 }

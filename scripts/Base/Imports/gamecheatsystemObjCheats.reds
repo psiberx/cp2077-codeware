@@ -1,4 +1,4 @@
 public native struct gamecheatsystemObjCheats {
-  native let object: wref<GameObject>;
-  native let flags: Int32;
+  public native let object: wref<GameObject>;
+  public native let flags: Int32;
 }

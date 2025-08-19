@@ -1,5 +1,5 @@
 public native class inkBoxBlurEffect extends inkIEffect {
-  native let samples: Uint8;
-  native let intensity: Float;
-  native let blurDimension: inkEBlurDimension;
+  public native let samples: Uint8;
+  public native let intensity: Float;
+  public native let blurDimension: inkEBlurDimension;
 }

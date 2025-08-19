@@ -1,5 +1,5 @@
 public native class scneventsUnequipItemFromPerformer extends scnSceneEvent {
-  native let performerId: scnPerformerId;
-  native let slotId: TweakDBID;
-  native let restoreGameplayItem: Bool;
+  public native let performerId: scnPerformerId;
+  public native let slotId: TweakDBID;
+  public native let restoreGameplayItem: Bool;
 }

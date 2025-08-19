@@ -1,4 +1,4 @@
 public native struct audioAudioFoliageMaterial {
-  native let loopStart: CName;
-  native let loopEnd: CName;
+  public native let loopStart: CName;
+  public native let loopEnd: CName;
 }

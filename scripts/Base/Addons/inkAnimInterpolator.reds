@@ -1,20 +1,20 @@
 @addField(inkAnimInterpolator)
-native let interpolationMode: inkanimInterpolationMode;
+public native let interpolationMode: inkanimInterpolationMode;
 
 @addField(inkAnimInterpolator)
-native let interpolationType: inkanimInterpolationType;
+public native let interpolationType: inkanimInterpolationType;
 
 @addField(inkAnimInterpolator)
-native let interpolationDirection: inkanimInterpolationDirection;
+public native let interpolationDirection: inkanimInterpolationDirection;
 
 @addField(inkAnimInterpolator)
-native let duration: Float;
+public native let duration: Float;
 
 @addField(inkAnimInterpolator)
-native let startDelay: Float;
+public native let startDelay: Float;
 
 @addField(inkAnimInterpolator)
-native let useRelativeDuration: Bool;
+public native let useRelativeDuration: Bool;
 
 @addField(inkAnimInterpolator)
-native let isAdditive: Bool;
+public native let isAdditive: Bool;

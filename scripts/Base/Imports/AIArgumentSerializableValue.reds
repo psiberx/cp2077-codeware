@@ -1,4 +1,4 @@
 public native class AIArgumentSerializableValue extends AIArgumentDefinition {
-  native let type: AIArgumentType;
-  native let defaultValue: ref<ISerializable>;
+  public native let type: AIArgumentType;
+  public native let defaultValue: ref<ISerializable>;
 }

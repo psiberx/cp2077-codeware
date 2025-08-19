@@ -1,5 +1,5 @@
 public native struct scnOverridePhantomParamsEventParams {
-  native let performer: scnPerformerId;
-  native let overrideSpawnEffect: CName;
-  native let overrideIdleEffect: CName;
+  public native let performer: scnPerformerId;
+  public native let overrideSpawnEffect: CName;
+  public native let overrideIdleEffect: CName;
 }

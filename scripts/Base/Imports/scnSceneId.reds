@@ -1,3 +1,3 @@
 public native struct scnSceneId {
-  native let resPathHash: Uint64;
+  public native let resPathHash: Uint64;
 }

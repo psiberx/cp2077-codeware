@@ -1,3 +1,3 @@
 public native struct scnSceneWorkspotInstanceId {
-  native let id: Uint32;
+  public native let id: Uint32;
 }

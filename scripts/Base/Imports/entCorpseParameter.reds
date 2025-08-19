@@ -1,7 +1,7 @@
 public native class entCorpseParameter extends entEntityParameter {
-  native let lod: Uint32;
-  native let bakedPose: array<QsTransform>;
-  native let bakedBoneNames: array<CName>;
-  native let forceLOD0Components: array<CRUID>;
-  native let baseRig: ResourceAsyncRef; // raRef<animRig>
+  public native let lod: Uint32;
+  public native let bakedPose: array<QsTransform>;
+  public native let bakedBoneNames: array<CName>;
+  public native let forceLOD0Components: array<CRUID>;
+  public native let baseRig: ResourceAsyncRef; // raRef<animRig>
 }

@@ -1,2 +1,2 @@
 @addField(BaseStrategyRequest)
-native let forceArriveFromBehind: Bool;
+public native let forceArriveFromBehind: Bool;

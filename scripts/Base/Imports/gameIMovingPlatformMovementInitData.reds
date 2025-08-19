@@ -1,4 +1,4 @@
 public native struct gameIMovingPlatformMovementInitData {
-  native let initType: gameMovingPlatformMovementInitializationType;
-  native let initValue: Float;
+  public native let initType: gameMovingPlatformMovementInitializationType;
+  public native let initValue: Float;
 }

@@ -1,8 +1,8 @@
 public native struct gameuiCharacterCustomizationOptionVersionUpdateInfo {
-  native let curOptionNames: array<CName>;
-  native let curDefintionName: CName;
-  native let optionPrereqs: array<gameuiCharacterCustomizationOptionVersionPrereq>;
-  native let newOptionName: CName;
-  native let newDefinitionName: CName;
-  native let replaceCurOption: Bool;
+  public native let curOptionNames: array<CName>;
+  public native let curDefintionName: CName;
+  public native let optionPrereqs: array<gameuiCharacterCustomizationOptionVersionPrereq>;
+  public native let newOptionName: CName;
+  public native let newDefinitionName: CName;
+  public native let replaceCurOption: Bool;
 }

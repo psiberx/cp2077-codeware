@@ -1,5 +1,5 @@
 public native struct scnCheckPlayerTargetEntityDistanceReturnConditionParams {
-  native let distance: Float;
-  native let comparisonType: EComparisonType;
-  native let targetEntity: EntityReference;
+  public native let distance: Float;
+  public native let comparisonType: EComparisonType;
+  public native let targetEntity: EntityReference;
 }

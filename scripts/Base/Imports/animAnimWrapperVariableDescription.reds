@@ -1,4 +1,4 @@
 public native struct animAnimWrapperVariableDescription {
-  native let variableName: CName;
-  native let defaultValue: Float;
+  public native let variableName: CName;
+  public native let defaultValue: Float;
 }

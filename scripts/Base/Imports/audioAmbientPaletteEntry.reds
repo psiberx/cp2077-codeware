@@ -1,3 +1,3 @@
 public native struct audioAmbientPaletteEntry {
-  native let brushCategory: CName;
+  public native let brushCategory: CName;
 }

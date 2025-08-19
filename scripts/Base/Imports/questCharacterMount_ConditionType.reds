@@ -1,16 +1,16 @@
 public native class questCharacterMount_ConditionType extends questICharacterConditionType {
-  native let anyParent: Bool;
-  native let parentRef: EntityReference;
-  native let parentIsPlayer: Bool;
-  native let anyChild: Bool;
-  native let childRef: EntityReference;
-  native let childIsPlayer: Bool;
-  native let condition: questMountConditionType;
-  native let enterAnimationFinished: Bool;
-  native let role: gameMountingSlotRole;
-  native let usePlayersVehicle: Bool;
-  native let playerVehicleName: String;
-  native let vehicleType: questMountVehicleType;
-  native let vehicleOrigin: questMountVehicleOrigin;
-  native let vehicleAfiliation: gamedataAffiliation;
+  public native let anyParent: Bool;
+  public native let parentRef: EntityReference;
+  public native let parentIsPlayer: Bool;
+  public native let anyChild: Bool;
+  public native let childRef: EntityReference;
+  public native let childIsPlayer: Bool;
+  public native let condition: questMountConditionType;
+  public native let enterAnimationFinished: Bool;
+  public native let role: gameMountingSlotRole;
+  public native let usePlayersVehicle: Bool;
+  public native let playerVehicleName: String;
+  public native let vehicleType: questMountVehicleType;
+  public native let vehicleOrigin: questMountVehicleOrigin;
+  public native let vehicleAfiliation: gamedataAffiliation;
 }

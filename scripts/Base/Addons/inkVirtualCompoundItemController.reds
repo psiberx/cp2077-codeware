@@ -1,14 +1,14 @@
 @addField(inkVirtualCompoundItemController)
-native let ToggledOff: inkVirtualCompoundItemControllerCallback;
+public native let ToggledOff: inkVirtualCompoundItemControllerCallback;
 
 @addField(inkVirtualCompoundItemController)
-native let ToggledOn: inkVirtualCompoundItemControllerCallback;
+public native let ToggledOn: inkVirtualCompoundItemControllerCallback;
 
 @addField(inkVirtualCompoundItemController)
-native let Selected: inkVirtualCompoundItemSelectControllerCallback;
+public native let Selected: inkVirtualCompoundItemSelectControllerCallback;
 
 @addField(inkVirtualCompoundItemController)
-native let Deselected: inkVirtualCompoundItemControllerCallback;
+public native let Deselected: inkVirtualCompoundItemControllerCallback;
 
 @addField(inkVirtualCompoundItemController)
-native let Added: inkVirtualCompoundItemControllerCallback;
+public native let Added: inkVirtualCompoundItemControllerCallback;

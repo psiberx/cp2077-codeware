@@ -1,3 +1,3 @@
 public native class CEvaluatorColorConst extends IEvaluatorColor {
-  native let value: Color;
+  public native let value: Color;
 }

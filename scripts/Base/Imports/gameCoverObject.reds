@@ -1,8 +1,8 @@
 public native class gameCoverObject extends GameObject {
-  native let coverType: animCoverState;
-  native let slotRadius: Float;
-  native let hpMax: Float;
-  native let isDestructible: Bool;
-  native let fovDegrees: Float;
-  native let fovExposureDegrees: Float;
+  public native let coverType: animCoverState;
+  public native let slotRadius: Float;
+  public native let hpMax: Float;
+  public native let isDestructible: Bool;
+  public native let fovDegrees: Float;
+  public native let fovExposureDegrees: Float;
 }

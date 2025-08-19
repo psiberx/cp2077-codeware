@@ -1,17 +1,17 @@
 public native class PanzerEnemy extends MinigameDynObjectAdvanced {
-  native let noBonusChanceCoeff: Uint32;
-  native let health: Int32;
-  native let score: Uint32;
-  native let shootPoint: Vector2;
-  native let bulletSpeed: Float;
-  native let gameLayerName: CName;
-  native let explosionLibraryName: CName;
-  native let bulletLibraryName: CName;
-  native let lifeBonusLibraryName: CName;
-  native let lifeBonusChanceCoeff: Uint32;
-  native let scoreBonusLibraryName: CName;
-  native let scoreBonusChanceCoeff: Uint32;
-  native let score50ChanceCoeff: Uint32;
-  native let score100ChanceCoeff: Uint32;
-  native let score200ChanceCoeff: Uint32;
+  public native let noBonusChanceCoeff: Uint32;
+  public native let health: Int32;
+  public native let score: Uint32;
+  public native let shootPoint: Vector2;
+  public native let bulletSpeed: Float;
+  public native let gameLayerName: CName;
+  public native let explosionLibraryName: CName;
+  public native let bulletLibraryName: CName;
+  public native let lifeBonusLibraryName: CName;
+  public native let lifeBonusChanceCoeff: Uint32;
+  public native let scoreBonusLibraryName: CName;
+  public native let scoreBonusChanceCoeff: Uint32;
+  public native let score50ChanceCoeff: Uint32;
+  public native let score100ChanceCoeff: Uint32;
+  public native let score200ChanceCoeff: Uint32;
 }

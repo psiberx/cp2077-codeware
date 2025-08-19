@@ -1,6 +1,6 @@
 public native class questSetInspectMode_NodeType extends questIInteractiveObjectManagerNodeType {
-  native let objectID: String;
-  native let startingOffset: Float;
-  native let zoomOffset: Float;
-  native let timeInterval: Float;
+  public native let objectID: String;
+  public native let startingOffset: Float;
+  public native let zoomOffset: Float;
+  public native let timeInterval: Float;
 }

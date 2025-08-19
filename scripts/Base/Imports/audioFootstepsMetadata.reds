@@ -1,9 +1,9 @@
 public native class audioFootstepsMetadata extends audioAudioMetadata {
-  native let defaultFootwearMetadata: CName;
-  native let footwearMetadataArray: array<CName>;
-  native let slideEvent: CName;
-  native let onEnterSound: CName;
-  native let onExitSound: CName;
-  native let defaultFootwearVfxMetadata: CName;
-  native let footwearVfxMetadataArray: array<CName>;
+  public native let defaultFootwearMetadata: CName;
+  public native let footwearMetadataArray: array<CName>;
+  public native let slideEvent: CName;
+  public native let onEnterSound: CName;
+  public native let onExitSound: CName;
+  public native let defaultFootwearVfxMetadata: CName;
+  public native let footwearVfxMetadataArray: array<CName>;
 }

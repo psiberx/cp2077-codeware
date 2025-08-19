@@ -1,14 +1,14 @@
 public native class questAddRemoveItem_NodeTypeParams extends ISerializable {
-  native let sendNotification: Bool;
-  native let isPlayer: Bool;
-  native let objectRef: EntityReference;
-  native let entityRef: ref<questUniversalRef>;
-  native let nodeType: questEAddRemoveItemType;
-  native let itemID: TweakDBID;
-  native let quantity: Int32;
-  native let flagItemAddedCallbackAsSilent: Bool;
-  native let removeAllQuantity: Bool;
-  native let tagToRemove: CName;
-  native let itemIDsToIgnoreOnRemove: array<TweakDBID>;
-  native let tagsToIgnoreOnRemove: array<CName>;
+  public native let sendNotification: Bool;
+  public native let isPlayer: Bool;
+  public native let objectRef: EntityReference;
+  public native let entityRef: ref<questUniversalRef>;
+  public native let nodeType: questEAddRemoveItemType;
+  public native let itemID: TweakDBID;
+  public native let quantity: Int32;
+  public native let flagItemAddedCallbackAsSilent: Bool;
+  public native let removeAllQuantity: Bool;
+  public native let tagToRemove: CName;
+  public native let itemIDsToIgnoreOnRemove: array<TweakDBID>;
+  public native let tagsToIgnoreOnRemove: array<CName>;
 }

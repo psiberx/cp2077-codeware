@@ -1,29 +1,29 @@
 @addField(MinimapContainerController)
-native let settings: ref<MinimapSettings>;
+public native let settings: ref<MinimapSettings>;
 
 @addField(MinimapContainerController)
-native let clampedMappinContainer: inkCompoundRef;
+public native let clampedMappinContainer: inkCompoundRef;
 
 @addField(MinimapContainerController)
-native let unclampedMappinContainer: inkCompoundRef;
+public native let unclampedMappinContainer: inkCompoundRef;
 
 @addField(MinimapContainerController)
-native let maskWidget: inkMaskRef;
+public native let maskWidget: inkMaskRef;
 
 @addField(MinimapContainerController)
-native let playerIconWidget: inkWidgetRef;
+public native let playerIconWidget: inkWidgetRef;
 
 @addField(MinimapContainerController)
-native let compassWidget: inkWidgetRef;
+public native let compassWidget: inkWidgetRef;
 
 @addField(MinimapContainerController)
-native let worldGeometryContainer: inkCanvasRef;
+public native let worldGeometryContainer: inkCanvasRef;
 
 @addField(MinimapContainerController)
-native let worldGeometryCache: inkCacheRef;
+public native let worldGeometryCache: inkCacheRef;
 
 @addField(MinimapContainerController)
-native let geometryLibraryID: CName;
+public native let geometryLibraryID: CName;
 
 @addField(MinimapContainerController)
-native let timeDisplayWidget: inkCompoundRef;
+public native let timeDisplayWidget: inkCompoundRef;

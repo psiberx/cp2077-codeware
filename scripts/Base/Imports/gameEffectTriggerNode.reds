@@ -1,3 +1,3 @@
 public native class gameEffectTriggerNode extends worldAreaShapeNode {
-  native let effectDescs: array<ref<gameEffectTriggerEffectDesc>>;
+  public native let effectDescs: array<ref<gameEffectTriggerEffectDesc>>;
 }

@@ -1,5 +1,5 @@
 @addField(inkComboBoxController)
-native let comboBoxObjectRef: inkWidgetRef;
+public native let comboBoxObjectRef: inkWidgetRef;
 
 @addField(inkComboBoxController)
-native let ComboBoxVisibleChanged: inkComboBoxVisibleChangedCallback;
+public native let ComboBoxVisibleChanged: inkComboBoxVisibleChangedCallback;

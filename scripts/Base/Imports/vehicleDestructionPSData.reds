@@ -1,9 +1,9 @@
 public native struct vehicleDestructionPSData {
-  native persistent let gridValues: [Float; 30];
-  native persistent let brokenGlass: Uint32;
-  native persistent let brokenLights: Uint32;
-  native persistent let flatTire: Uint8;
-  native persistent let windshieldShattered: Bool;
-  native persistent let windshieldPoints: array<Vector3>;
-  native persistent let detachedParts: array<CName>;
+  public native persistent let gridValues: [Float; 30];
+  public native persistent let brokenGlass: Uint32;
+  public native persistent let brokenLights: Uint32;
+  public native persistent let flatTire: Uint8;
+  public native persistent let windshieldShattered: Bool;
+  public native persistent let windshieldPoints: array<Vector3>;
+  public native persistent let detachedParts: array<CName>;
 }

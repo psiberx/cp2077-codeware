@@ -1,4 +1,4 @@
 public native class BlackboardPrereq extends IComparisonPrereq {
-  native let blackboardValue: gameBlackboardPropertyBindingDefinition;
-  native let value: Variant;
+  public native let blackboardValue: gameBlackboardPropertyBindingDefinition;
+  public native let value: Variant;
 }

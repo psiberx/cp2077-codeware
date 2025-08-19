@@ -1,4 +1,4 @@
 public native class audioFootstepDecalMaterialsMap extends audioAudioMetadata {
-  native let closestDecalDetectionRadius: Float;
-  native let entries: array<audioFootstepDecalMaterialEntry>;
+  public native let closestDecalDetectionRadius: Float;
+  public native let entries: array<audioFootstepDecalMaterialEntry>;
 }

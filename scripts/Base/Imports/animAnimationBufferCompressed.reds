@@ -1,18 +1,18 @@
 public native class animAnimationBufferCompressed extends animIAnimationBuffer {
-  native let duration: Float;
-  native let numFrames: Uint32;
-  native let numExtraJoints: Uint8;
-  native let numExtraTracks: Uint8;
-  native let numJoints: Uint16;
-  native let numTracks: Uint16;
-  native let numAnimKeys: Uint32;
-  native let numAnimKeysRaw: Uint32;
-  native let numConstAnimKeys: Uint32;
-  native let numTrackKeys: Uint32;
-  native let numConstTrackKeys: Uint32;
-  native let isScaleConstant: Bool;
-  native let hasRawRotations: Bool;
-  native let fallbackFrameIndices: array<Uint16>;
-  native let dataAddress: animAnimDataAddress;
-  native let extraDataNames: array<CName>;
+  public native let duration: Float;
+  public native let numFrames: Uint32;
+  public native let numExtraJoints: Uint8;
+  public native let numExtraTracks: Uint8;
+  public native let numJoints: Uint16;
+  public native let numTracks: Uint16;
+  public native let numAnimKeys: Uint32;
+  public native let numAnimKeysRaw: Uint32;
+  public native let numConstAnimKeys: Uint32;
+  public native let numTrackKeys: Uint32;
+  public native let numConstTrackKeys: Uint32;
+  public native let isScaleConstant: Bool;
+  public native let hasRawRotations: Bool;
+  public native let fallbackFrameIndices: array<Uint16>;
+  public native let dataAddress: animAnimDataAddress;
+  public native let extraDataNames: array<CName>;
 }

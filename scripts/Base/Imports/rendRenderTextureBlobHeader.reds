@@ -1,8 +1,8 @@
 public native struct rendRenderTextureBlobHeader {
-  native let version: Uint32;
-  native let sizeInfo: rendRenderTextureBlobSizeInfo;
-  native let textureInfo: rendRenderTextureBlobTextureInfo;
-  native let mipMapInfo: array<rendRenderTextureBlobMipMapInfo>;
-  native let histogramData: array<rendHistogramBias>;
-  native let flags: Uint32;
+  public native let version: Uint32;
+  public native let sizeInfo: rendRenderTextureBlobSizeInfo;
+  public native let textureInfo: rendRenderTextureBlobTextureInfo;
+  public native let mipMapInfo: array<rendRenderTextureBlobMipMapInfo>;
+  public native let histogramData: array<rendHistogramBias>;
+  public native let flags: Uint32;
 }

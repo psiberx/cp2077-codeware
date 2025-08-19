@@ -1,6 +1,6 @@
 public native struct localizationPersistenceOnScreenEntry {
-  native let primaryKey: Uint64;
-  native let secondaryKey: String;
-  native let femaleVariant: String;
-  native let maleVariant: String;
+  public native let primaryKey: Uint64;
+  public native let secondaryKey: String;
+  public native let femaleVariant: String;
+  public native let maleVariant: String;
 }

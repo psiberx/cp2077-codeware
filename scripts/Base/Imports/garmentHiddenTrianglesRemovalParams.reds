@@ -1,7 +1,7 @@
 public native struct garmentHiddenTrianglesRemovalParams {
-  native let garmentBorderThreshold: Float;
-  native let removeHiddenTriangles: Bool;
-  native let removeHiddenTrianglesRasterization: Bool;
-  native let rayLengthInCM: Float;
-  native let rayLengthMorphOffsetFactor: Float;
+  public native let garmentBorderThreshold: Float;
+  public native let removeHiddenTriangles: Bool;
+  public native let removeHiddenTrianglesRasterization: Bool;
+  public native let rayLengthInCM: Float;
+  public native let rayLengthMorphOffsetFactor: Float;
 }

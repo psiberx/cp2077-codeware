@@ -1,3 +1,3 @@
 public native class worldPrefabVariantsList extends ISerializable {
-  native let activeVariants: array<CName>;
+  public native let activeVariants: array<CName>;
 }

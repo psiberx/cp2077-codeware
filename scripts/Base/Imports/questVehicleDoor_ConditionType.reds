@@ -1,5 +1,5 @@
 public native class questVehicleDoor_ConditionType extends questIVehicleConditionType {
-  native let vehicleRef: EntityReference;
-  native let door: EVehicleDoor;
-  native let state: VehicleDoorState;
+  public native let vehicleRef: EntityReference;
+  public native let door: EVehicleDoor;
+  public native let state: VehicleDoorState;
 }

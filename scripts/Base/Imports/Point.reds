@@ -1,4 +1,4 @@
 public native struct Point {
-  native let x: Int32;
-  native let y: Int32;
+  public native let x: Int32;
+  public native let y: Int32;
 }

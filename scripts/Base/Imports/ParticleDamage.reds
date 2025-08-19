@@ -1,3 +1,3 @@
 public native class ParticleDamage extends ISerializable {
-  native let boundingBoxes: array<Box>;
+  public native let boundingBoxes: array<Box>;
 }

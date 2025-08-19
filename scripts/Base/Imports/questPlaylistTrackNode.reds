@@ -1,3 +1,3 @@
 public native class questPlaylistTrackNode extends questIAudioNodeType {
-  native let playlistEvents: array<audioPlaylistTrackEventStruct>;
+  public native let playlistEvents: array<audioPlaylistTrackEventStruct>;
 }

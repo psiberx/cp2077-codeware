@@ -1,9 +1,9 @@
 public native struct animfssBodyOfflineParams {
-  native let HipsTilt: Float;
-  native let HipsShift: Float;
-  native let LegsPullFactorMin: Float;
-  native let LegsPullFactorMax: Float;
-  native let LegLengthAdjustment: Float;
-  native let LegMaxStretchOffset: Float;
-  native let LegMaxStretchAdjustment: Float;
+  public native let HipsTilt: Float;
+  public native let HipsShift: Float;
+  public native let LegsPullFactorMin: Float;
+  public native let LegsPullFactorMax: Float;
+  public native let LegLengthAdjustment: Float;
+  public native let LegMaxStretchOffset: Float;
+  public native let LegMaxStretchAdjustment: Float;
 }

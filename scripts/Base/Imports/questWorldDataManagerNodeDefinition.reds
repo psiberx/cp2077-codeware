@@ -1,3 +1,3 @@
 public native class questWorldDataManagerNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let type: ref<questIWorldDataManagerNodeType>;
+  public native let type: ref<questIWorldDataManagerNodeType>;
 }

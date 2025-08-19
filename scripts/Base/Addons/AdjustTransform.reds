@@ -1,5 +1,5 @@
 @addField(AdjustTransform)
-native let position: Vector4;
+public native let position: Vector4;
 
 @addField(AdjustTransform)
-native let rotation: Quaternion;
+public native let rotation: Quaternion;

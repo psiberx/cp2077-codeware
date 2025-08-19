@@ -1,4 +1,4 @@
 public native struct animSBehaviorConstraintNodeFloorIKLegsData {
-  native let verticalOffsetBlendUpTime: Float;
-  native let verticalOffsetBlendDownTime: Float;
+  public native let verticalOffsetBlendUpTime: Float;
+  public native let verticalOffsetBlendDownTime: Float;
 }

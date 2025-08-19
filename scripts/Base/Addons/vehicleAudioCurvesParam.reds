@@ -1,2 +1,2 @@
 @addField(vehicleAudioCurvesParam)
-native let audioCurves: ResourceRef; // rRef<vehicleAudioVehicleCurveSet>
+public native let audioCurves: ResourceRef; // rRef<vehicleAudioVehicleCurveSet>

@@ -1,3 +1,3 @@
 public native class AnimInputSetterQuaternion extends AnimInputSetter {
-  native let value: Quaternion;
+  public native let value: Quaternion;
 }

@@ -1,3 +1,3 @@
 public native class DismemberedBodyPartEvent extends Event {
-  native let bones: [CName; 32];
+  public native let bones: [CName; 32];
 }

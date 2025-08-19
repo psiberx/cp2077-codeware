@@ -1,2 +1,2 @@
 @addField(JournalEntryOverrideData)
-native let overriddenLocalizationString: LocalizationString;
+public native let overriddenLocalizationString: LocalizationString;

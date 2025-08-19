@@ -1,3 +1,3 @@
 public native class gameuiarcadeArcadeScoreController extends inkLogicController {
-  native let scoreText: inkWidgetRef;
+  public native let scoreText: inkWidgetRef;
 }

@@ -1,5 +1,5 @@
 public native class gameuiCyberspaceUIObject extends GameObject {
-  native let slotName: CName;
-  native let mappinType: gameuiCyberspaceElementType;
-  native let caption: String;
+  public native let slotName: CName;
+  public native let mappinType: gameuiCyberspaceElementType;
+  public native let caption: String;
 }

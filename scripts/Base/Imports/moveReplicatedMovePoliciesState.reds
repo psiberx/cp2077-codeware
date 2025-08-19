@@ -1,4 +1,4 @@
 public native struct moveReplicatedMovePoliciesState {
-  native let items: array<moveReplicatedMovePolicies>;
-  native let lastAppliedActionsTime: netTime;
+  public native let items: array<moveReplicatedMovePolicies>;
+  public native let lastAppliedActionsTime: netTime;
 }

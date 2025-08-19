@@ -1,6 +1,6 @@
 public native class AIbehaviorMappingExpressionDefinition extends AIbehaviorPassiveExpressionDefinition {
-  native let mapping: ref<AIArgumentMapping>;
-  native let update: Bool;
-  native let updatePeriod: Float;
-  native let behaviorCallbackNames: array<CName>;
+  public native let mapping: ref<AIArgumentMapping>;
+  public native let update: Bool;
+  public native let updatePeriod: Float;
+  public native let behaviorCallbackNames: array<CName>;
 }

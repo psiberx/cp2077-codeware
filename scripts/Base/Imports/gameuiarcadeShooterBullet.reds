@@ -1,4 +1,4 @@
 public native class gameuiarcadeShooterBullet extends gameuiarcadeShooterObjectController {
-  native let customBoundSize: Bool;
-  native let boundSize: Vector2;
+  public native let customBoundSize: Bool;
+  public native let boundSize: Vector2;
 }

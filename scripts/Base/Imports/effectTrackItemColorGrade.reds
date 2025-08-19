@@ -1,10 +1,10 @@
 public native class effectTrackItemColorGrade extends effectTrackItem {
-  native let contrast: effectEffectParameterEvaluatorFloat;
-  native let saturate: effectEffectParameterEvaluatorFloat;
-  native let brightness: effectEffectParameterEvaluatorFloat;
-  native let lutWeight: effectEffectParameterEvaluatorFloat;
-  native let lutParams: ColorGradingLutParams;
-  native let lutParamsHdr: ColorGradingLutParams;
-  native let blendWithBaseLut: Bool;
-  native let mask: array<ERenderObjectType>;
+  public native let contrast: effectEffectParameterEvaluatorFloat;
+  public native let saturate: effectEffectParameterEvaluatorFloat;
+  public native let brightness: effectEffectParameterEvaluatorFloat;
+  public native let lutWeight: effectEffectParameterEvaluatorFloat;
+  public native let lutParams: ColorGradingLutParams;
+  public native let lutParamsHdr: ColorGradingLutParams;
+  public native let blendWithBaseLut: Bool;
+  public native let mask: array<ERenderObjectType>;
 }

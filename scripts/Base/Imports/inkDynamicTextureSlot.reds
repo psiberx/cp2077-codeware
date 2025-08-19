@@ -1,4 +1,4 @@
 public native struct inkDynamicTextureSlot {
-  native let texture: ResourceAsyncRef; // raRef<DynamicTexture>
-  native let parts: array<inkTextureAtlasMapper>;
+  public native let texture: ResourceAsyncRef; // raRef<DynamicTexture>
+  public native let parts: array<inkTextureAtlasMapper>;
 }

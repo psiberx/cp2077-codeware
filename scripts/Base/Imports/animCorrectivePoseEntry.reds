@@ -1,6 +1,6 @@
 public native struct animCorrectivePoseEntry {
-  native let comparePose: CName;
-  native let correctivePose: CName;
-  native let jointsToCompare: array<CName>;
-  native let enabled: Bool;
+  public native let comparePose: CName;
+  public native let correctivePose: CName;
+  public native let jointsToCompare: array<CName>;
+  public native let enabled: Bool;
 }

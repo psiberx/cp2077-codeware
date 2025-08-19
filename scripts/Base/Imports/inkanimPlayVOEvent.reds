@@ -1,4 +1,4 @@
 public native class inkanimPlayVOEvent extends inkAnimEvent {
-  native let VOLine: String;
-  native let speakerName: String;
+  public native let VOLine: String;
+  public native let speakerName: String;
 }

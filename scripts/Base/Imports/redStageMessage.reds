@@ -1,6 +1,6 @@
 public native struct redStageMessage {
-  native let parent: Uint32;
-  native let reset: Bool;
-  native let names: array<String>;
-  native let ids: array<Uint32>;
+  public native let parent: Uint32;
+  public native let reset: Bool;
+  public native let names: array<String>;
+  public native let ids: array<Uint32>;
 }

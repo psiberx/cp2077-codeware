@@ -1,10 +1,10 @@
 public native struct navgendebugContourSet {
-  native let contours: array<navgendebugCompactContour>;
-  native let boundingBox: Box;
-  native let cellSize: Float;
-  native let cellHeight: Float;
-  native let width: Int32;
-  native let height: Int32;
-  native let borderSize: Int32;
-  native let maxError: Float;
+  public native let contours: array<navgendebugCompactContour>;
+  public native let boundingBox: Box;
+  public native let cellSize: Float;
+  public native let cellHeight: Float;
+  public native let width: Int32;
+  public native let height: Int32;
+  public native let borderSize: Int32;
+  public native let maxError: Float;
 }

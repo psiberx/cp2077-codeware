@@ -1,9 +1,9 @@
 public native class questParamRubberbanding extends ISerializable {
-  native let targetRef: ref<questUniversalRef>;
-  native let targetForwardOffset: Float;
-  native let minDistance: Float;
-  native let maxDistance: Float;
-  native let stopAndWait: Bool;
-  native let teleportToCatchUp: Bool;
-  native let stayInFront: Bool;
+  public native let targetRef: ref<questUniversalRef>;
+  public native let targetForwardOffset: Float;
+  public native let minDistance: Float;
+  public native let maxDistance: Float;
+  public native let stopAndWait: Bool;
+  public native let teleportToCatchUp: Bool;
+  public native let stayInFront: Bool;
 }

@@ -1,3 +1,3 @@
 public native class worldDebugColoring_Device extends worldEditorDebugColoringSettings {
-  native let defaultColor: Color;
+  public native let defaultColor: Color;
 }

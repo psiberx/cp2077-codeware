@@ -1,5 +1,5 @@
 public native struct animSermoPoseInfo {
-  native let lod: Uint8;
-  native let type: Uint8;
-  native let trackIndex: Uint16;
+  public native let lod: Uint8;
+  public native let type: Uint8;
+  public native let trackIndex: Uint16;
 }

@@ -1,3 +1,3 @@
 public native class audioGrenadeEntitySettings extends audioEntitySettings {
-  native let explosionSound: CName;
+  public native let explosionSound: CName;
 }

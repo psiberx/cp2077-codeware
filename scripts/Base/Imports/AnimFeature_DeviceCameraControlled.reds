@@ -1,3 +1,3 @@
 public native class AnimFeature_DeviceCameraControlled extends AnimFeature {
-  native let currentRotation: Vector4;
+  public native let currentRotation: Vector4;
 }

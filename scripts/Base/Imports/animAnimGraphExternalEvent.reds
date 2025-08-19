@@ -1,3 +1,3 @@
 public native class animAnimGraphExternalEvent extends ISerializable {
-  native let eventName: CName;
+  public native let eventName: CName;
 }

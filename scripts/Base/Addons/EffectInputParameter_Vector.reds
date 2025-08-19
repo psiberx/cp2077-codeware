@@ -1,2 +1,2 @@
 @addField(EffectInputParameter_Vector)
-native let evaluator: ref<gameIEffectParameter_VectorEvaluator>;
+public native let evaluator: ref<gameIEffectParameter_VectorEvaluator>;

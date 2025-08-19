@@ -1,3 +1,3 @@
 public native class AdvertTranslationLogicController extends inkGameController {
-  native let advertText: inkTextRef;
+  public native let advertText: inkTextRef;
 }

@@ -1,5 +1,5 @@
 public native struct animTransformInfo {
-  native let name: CName;
-  native let parentName: CName;
-  native let referenceTransformLs: QsTransform;
+  public native let name: CName;
+  public native let parentName: CName;
+  public native let referenceTransformLs: QsTransform;
 }

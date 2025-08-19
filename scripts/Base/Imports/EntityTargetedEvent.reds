@@ -1,3 +1,3 @@
 public native class EntityTargetedEvent extends Event {
-  native let targetingEntity: wref<Entity>;
+  public native let targetingEntity: wref<Entity>;
 }

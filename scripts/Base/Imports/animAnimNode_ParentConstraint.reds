@@ -1,13 +1,13 @@
 public native class animAnimNode_ParentConstraint extends animAnimNode_OnePoseInput {
-  native let parentTransform: ref<animIAnimNodeSourceChannel_QsTransform>;
-  native let isParentTransformResaved: Bool;
-  native let parentTransformIndex: animTransformIndex;
-  native let transformIndex: animTransformIndex;
-  native let interpolationType: animEInterpolationType;
-  native let weight: Float;
-  native let weightFloatTrack: animNamedTrackIndex;
-  native let useBoneReferencePoseAsDefaultOffset: Bool;
-  native let weightNode: animFloatLink;
-  native let offsetTranslationLS: animVectorLink;
-  native let offsetEulerRotationLS: animVectorLink;
+  public native let parentTransform: ref<animIAnimNodeSourceChannel_QsTransform>;
+  public native let isParentTransformResaved: Bool;
+  public native let parentTransformIndex: animTransformIndex;
+  public native let transformIndex: animTransformIndex;
+  public native let interpolationType: animEInterpolationType;
+  public native let weight: Float;
+  public native let weightFloatTrack: animNamedTrackIndex;
+  public native let useBoneReferencePoseAsDefaultOffset: Bool;
+  public native let weightNode: animFloatLink;
+  public native let offsetTranslationLS: animVectorLink;
+  public native let offsetEulerRotationLS: animVectorLink;
 }

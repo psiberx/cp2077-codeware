@@ -1,9 +1,9 @@
 public native class audioDoorsSettings extends audioDeviceSettings {
-  native let openEvent: CName;
-  native let openFailedEvent: CName;
-  native let closeEvent: CName;
-  native let lockEvent: CName;
-  native let unlockEvent: CName;
-  native let sealEvent: CName;
-  native let soundBank: CName;
+  public native let openEvent: CName;
+  public native let openFailedEvent: CName;
+  public native let closeEvent: CName;
+  public native let lockEvent: CName;
+  public native let unlockEvent: CName;
+  public native let sealEvent: CName;
+  public native let soundBank: CName;
 }

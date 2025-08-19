@@ -1,4 +1,4 @@
 public native struct gamecarryReplicatedEntitySetAttachmentToNode {
-  native let time: netTime;
-  native let localTransform: Transform;
+  public native let time: netTime;
+  public native let localTransform: Transform;
 }

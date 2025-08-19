@@ -1,7 +1,7 @@
 public native class CParticleInitializerSpawnCircle extends IParticleInitializer {
-  native let innerRadius: ref<IEvaluatorFloat>;
-  native let outerRadius: ref<IEvaluatorFloat>;
-  native let surfaceOnly: Bool;
-  native let worldSpace: Bool;
-  native let spawnToLocal: Matrix;
+  public native let innerRadius: ref<IEvaluatorFloat>;
+  public native let outerRadius: ref<IEvaluatorFloat>;
+  public native let surfaceOnly: Bool;
+  public native let worldSpace: Bool;
+  public native let spawnToLocal: Matrix;
 }

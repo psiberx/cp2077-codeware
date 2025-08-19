@@ -1,4 +1,4 @@
 public native struct worldDeviceConnections {
-  native let deviceClassName: CName;
-  native let nodeRefs: array<NodeRef>;
+  public native let deviceClassName: CName;
+  public native let nodeRefs: array<NodeRef>;
 }

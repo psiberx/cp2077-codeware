@@ -1,5 +1,5 @@
 public native class animAnimNode_LookAtApplyVehicleRestrictions extends animAnimNode_OnePoseInput {
-  native let group: CName;
-  native let name: CName;
-  native let referenceBone: animTransformIndex;
+  public native let group: CName;
+  public native let name: CName;
+  public native let referenceBone: animTransformIndex;
 }

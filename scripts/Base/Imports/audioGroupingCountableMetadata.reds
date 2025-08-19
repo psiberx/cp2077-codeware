@@ -1,3 +1,3 @@
 public native class audioGroupingCountableMetadata extends audioEmitterMetadata {
-  native let void: Bool;
+  public native let void: Bool;
 }

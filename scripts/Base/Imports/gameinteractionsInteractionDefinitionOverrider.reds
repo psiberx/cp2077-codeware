@@ -1,6 +1,6 @@
 public native struct gameinteractionsInteractionDefinitionOverrider {
-  native let tag: CName;
-  native let shapes: array<ref<gameinteractionsIShapeDefinition>>;
-  native let negativeShapes: array<ref<gameinteractionsIShapeDefinition>>;
-  native let priorityMultiplier: Float;
+  public native let tag: CName;
+  public native let shapes: array<ref<gameinteractionsIShapeDefinition>>;
+  public native let negativeShapes: array<ref<gameinteractionsIShapeDefinition>>;
+  public native let priorityMultiplier: Float;
 }

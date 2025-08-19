@@ -1,4 +1,4 @@
 public importonly struct vehicleVehicleAppearanceToDecalsName {
-  native let appearanceName: CName;
-  native let decalsName: array<CName>;
+  public native let appearanceName: CName;
+  public native let decalsName: array<CName>;
 }

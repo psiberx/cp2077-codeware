@@ -1,4 +1,4 @@
 public native class navgendebugTileGenerationDebugData extends ISerializable {
-  native let tileIndex: Uint32;
-  native let contours: navgendebugContourSet;
+  public native let tileIndex: Uint32;
+  public native let contours: navgendebugContourSet;
 }

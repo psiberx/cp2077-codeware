@@ -1,6 +1,6 @@
 public abstract native class worldDebugColoring_DistanceAbstractBase extends worldEditorDebugColoringSettings {
-  native let maxColor: Color;
-  native let minColor: Color;
-  native let minDistance: Float;
-  native let maxDistance: Float;
+  public native let maxColor: Color;
+  public native let minColor: Color;
+  public native let minDistance: Float;
+  public native let maxDistance: Float;
 }

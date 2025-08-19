@@ -1,6 +1,6 @@
 public native struct scnActorRid {
-  native let tag: scnRidTag;
-  native let animations: array<scnAnimationRid>;
-  native let facialAnimations: array<scnAnimationRid>;
-  native let cyberwareAnimations: array<scnAnimationRid>;
+  public native let tag: scnRidTag;
+  public native let animations: array<scnAnimationRid>;
+  public native let facialAnimations: array<scnAnimationRid>;
+  public native let cyberwareAnimations: array<scnAnimationRid>;
 }

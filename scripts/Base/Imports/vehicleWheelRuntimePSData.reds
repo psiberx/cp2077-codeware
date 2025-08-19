@@ -1,7 +1,7 @@
 public native struct vehicleWheelRuntimePSData {
-  native persistent let previousTouchedMaterial: CName;
-  native persistent let previousVisualDisplacement: Float;
-  native persistent let previousLogicalSpringCompression: Float;
-  native persistent let previousSwaybarDisplacement: Float;
-  native persistent let previousDampedSpringForce: Float;
+  public native persistent let previousTouchedMaterial: CName;
+  public native persistent let previousVisualDisplacement: Float;
+  public native persistent let previousLogicalSpringCompression: Float;
+  public native persistent let previousSwaybarDisplacement: Float;
+  public native persistent let previousDampedSpringForce: Float;
 }

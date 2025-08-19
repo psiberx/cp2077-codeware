@@ -1,6 +1,6 @@
 public native class DistantProxiesSettings extends IAreaSettings {
-  native let distantProxiesEmissive: Float;
-  native let distantProxiesEmissiveHeight: Float;
-  native let distantProxiesEmissivePower: Float;
-  native let distantProxiesBboxzBlend: Float;
+  public native let distantProxiesEmissive: Float;
+  public native let distantProxiesEmissiveHeight: Float;
+  public native let distantProxiesEmissivePower: Float;
+  public native let distantProxiesBboxzBlend: Float;
 }

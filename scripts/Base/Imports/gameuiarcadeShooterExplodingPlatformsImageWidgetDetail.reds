@@ -1,4 +1,4 @@
 public native struct gameuiarcadeShooterExplodingPlatformsImageWidgetDetail {
-  native let platformName: CName;
-  native let platformImageDetails: array<gameuiarcadeShooterPlatformImageDetail>;
+  public native let platformName: CName;
+  public native let platformImageDetails: array<gameuiarcadeShooterPlatformImageDetail>;
 }

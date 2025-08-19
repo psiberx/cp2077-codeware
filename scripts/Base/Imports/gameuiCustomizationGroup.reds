@@ -1,5 +1,5 @@
 public native struct gameuiCustomizationGroup {
-  native let name: CName;
-  native let customization: array<gameuiCustomizationAppearance>;
-  native let morphs: array<gameuiCustomizationMorph>;
+  public native let name: CName;
+  public native let customization: array<gameuiCustomizationAppearance>;
+  public native let morphs: array<gameuiCustomizationMorph>;
 }

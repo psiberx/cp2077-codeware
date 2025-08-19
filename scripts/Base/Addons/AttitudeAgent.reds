@@ -1,2 +1,2 @@
 @addField(AttitudeAgent)
-native let baseAttitudeGroup: CName;
+public native let baseAttitudeGroup: CName;

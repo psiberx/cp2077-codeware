@@ -1,5 +1,5 @@
 public native struct inkNavigationOverrideEntry {
-  native let from: inkWidgetRef;
-  native let direction: inkDiscreteNavigationDirection;
-  native let to: inkWidgetRef;
+  public native let from: inkWidgetRef;
+  public native let direction: inkDiscreteNavigationDirection;
+  public native let to: inkWidgetRef;
 }

@@ -1,9 +1,9 @@
 public native class animAnimNode_TriggerBranch extends animAnimNode_Base {
-  native let base: animPoseLink;
-  native let overlay: animPoseLink;
-  native let blendIn: Float;
-  native let blendOut: Float;
-  native let startEvent: CName;
-  native let endEvent: CName;
-  native let cooldown: Float;
+  public native let base: animPoseLink;
+  public native let overlay: animPoseLink;
+  public native let blendIn: Float;
+  public native let blendOut: Float;
+  public native let startEvent: CName;
+  public native let endEvent: CName;
+  public native let cooldown: Float;
 }

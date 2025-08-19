@@ -1,3 +1,3 @@
 public native class AICTreeLazyNodeDefinition extends AICTreeNodeDefinition {
-  native let tree: ref<LibTreeCTreeResource>;
+  public native let tree: ref<LibTreeCTreeResource>;
 }

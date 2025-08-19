@@ -1,23 +1,23 @@
 @addField(inkLinePattern)
-native let vertexList: array<inkLineVertex>;
+public native let vertexList: array<inkLineVertex>;
 
 @addField(inkLinePattern)
-native let spacing: Float;
+public native let spacing: Float;
 
 @addField(inkLinePattern)
-native let looseSpacing: Float;
+public native let looseSpacing: Float;
 
 @addField(inkLinePattern)
-native let startOffset: Float;
+public native let startOffset: Float;
 
 @addField(inkLinePattern)
-native let endOffset: Float;
+public native let endOffset: Float;
 
 @addField(inkLinePattern)
-native let fadeInLength: Float;
+public native let fadeInLength: Float;
 
 @addField(inkLinePattern)
-native let rotateWithSegment: Bool;
+public native let rotateWithSegment: Bool;
 
 @addField(inkLinePattern)
-native let patternDirection: inkEChildOrder;
+public native let patternDirection: inkEChildOrder;

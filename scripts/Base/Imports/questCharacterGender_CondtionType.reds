@@ -1,5 +1,5 @@
 public native class questCharacterGender_CondtionType extends questICharacterConditionType {
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let gender: CName;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let gender: CName;
 }

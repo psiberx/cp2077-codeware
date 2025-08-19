@@ -1,3 +1,3 @@
 public native class gameuiBriefingGameController extends inkGameController {
-  native let briefingPlayerType: questBriefingPlayerType;
+  public native let briefingPlayerType: questBriefingPlayerType;
 }

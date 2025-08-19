@@ -1,4 +1,4 @@
 public native class LibTreeDefTreeVariableBool extends LibTreeDefTreeVariableBoolBase {
-  native let exportAsProperty: Bool;
-  native let defaultValue: Bool;
+  public native let exportAsProperty: Bool;
+  public native let defaultValue: Bool;
 }

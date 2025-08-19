@@ -1,3 +1,3 @@
 public native class workActorTagCondition extends workIWorkspotCondition {
-  native let tag: CName;
+  public native let tag: CName;
 }

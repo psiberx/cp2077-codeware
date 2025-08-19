@@ -1,3 +1,3 @@
 public native class PhotoModeUIInteractiveEvent extends Event {
-  native let interactive: Bool;
+  public native let interactive: Bool;
 }

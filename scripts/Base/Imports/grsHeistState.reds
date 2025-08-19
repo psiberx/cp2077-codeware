@@ -1,5 +1,5 @@
 public native struct grsHeistState {
-  native let time: netTime;
-  native let status: grsHeistStatus;
-  native let playersInfo: [grsHeistPlayerGameInfo; 7];
+  public native let time: netTime;
+  public native let status: grsHeistStatus;
+  public native let playersInfo: [grsHeistPlayerGameInfo; 7];
 }

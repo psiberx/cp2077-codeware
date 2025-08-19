@@ -1,3 +1,3 @@
 public native class CustomMoveEvent extends ActionEvent {
-  native let test: Int32;
+  public native let test: Int32;
 }

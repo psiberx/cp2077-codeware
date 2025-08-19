@@ -1,8 +1,8 @@
 public native struct worldStreamingQueryRoadData {
-  native let transform: Transform;
-  native let splineData: ref<Spline>;
-  native let roadGlobalNodeId: GlobalNodeID;
-  native let totalRoadWidth: Float;
-  native let connectedRoadsStartIndex: Uint16;
-  native let connectedRoadsCount: Uint16;
+  public native let transform: Transform;
+  public native let splineData: ref<Spline>;
+  public native let roadGlobalNodeId: GlobalNodeID;
+  public native let totalRoadWidth: Float;
+  public native let connectedRoadsStartIndex: Uint16;
+  public native let connectedRoadsCount: Uint16;
 }

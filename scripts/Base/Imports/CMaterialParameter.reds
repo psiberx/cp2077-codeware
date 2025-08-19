@@ -1,4 +1,4 @@
 public abstract native class CMaterialParameter extends ISerializable {
-  native let parameterName: CName;
-  native let register: Uint32;
+  public native let parameterName: CName;
+  public native let register: Uint32;
 }

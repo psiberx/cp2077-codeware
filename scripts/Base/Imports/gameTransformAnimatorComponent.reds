@@ -1,3 +1,3 @@
 public native class gameTransformAnimatorComponent extends IPlacedComponent {
-  native let animations: array<gameTransformAnimationDefinition>;
+  public native let animations: array<gameTransformAnimationDefinition>;
 }

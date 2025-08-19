@@ -1,5 +1,5 @@
 public native struct navLocomotionPathSegmentInfo {
-  native let type: navLocomotionPathSegmentTypes;
-  native let segmentEnd: navSerializableSplineProgression;
-  native let offMeshLink: Uint64;
+  public native let type: navLocomotionPathSegmentTypes;
+  public native let segmentEnd: navSerializableSplineProgression;
+  public native let offMeshLink: Uint64;
 }

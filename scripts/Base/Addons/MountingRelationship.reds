@@ -1,2 +1,2 @@
 @addField(MountingRelationship)
-native let otherObject: wref<GameObject>;
+public native let otherObject: wref<GameObject>;

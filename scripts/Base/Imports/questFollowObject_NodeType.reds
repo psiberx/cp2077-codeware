@@ -1,7 +1,7 @@
 public native class questFollowObject_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let followObjectRef: EntityReference;
-  native let offset: Vector3;
-  native let positionLerpSpeed: Float;
-  native let rotationLerpSpeed: Float;
+  public native let vehicleRef: EntityReference;
+  public native let followObjectRef: EntityReference;
+  public native let offset: Vector3;
+  public native let positionLerpSpeed: Float;
+  public native let rotationLerpSpeed: Float;
 }

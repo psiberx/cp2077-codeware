@@ -1,4 +1,4 @@
 public native struct audioVisualTagToNPCMetadata {
-  native let visualTags: array<CName>;
-  native let foleyNPCMetadata: CName;
+  public native let visualTags: array<CName>;
+  public native let foleyNPCMetadata: CName;
 }

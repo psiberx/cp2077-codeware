@@ -1,11 +1,11 @@
 public native struct animSAnimationBufferBitwiseCompressionSettings {
-  native let translationTolerance: Float;
-  native let translationSkipFrameTolerance: Float;
-  native let orientationTolerance: Float;
-  native let orientationCompressionMethod: SAnimationBufferOrientationCompressionMethod;
-  native let orientationSkipFrameTolerance: Float;
-  native let scaleTolerance: Float;
-  native let scaleSkipFrameTolerance: Float;
-  native let trackTolerance: Float;
-  native let trackSkipFrameTolerance: Float;
+  public native let translationTolerance: Float;
+  public native let translationSkipFrameTolerance: Float;
+  public native let orientationTolerance: Float;
+  public native let orientationCompressionMethod: SAnimationBufferOrientationCompressionMethod;
+  public native let orientationSkipFrameTolerance: Float;
+  public native let scaleTolerance: Float;
+  public native let scaleSkipFrameTolerance: Float;
+  public native let trackTolerance: Float;
+  public native let trackSkipFrameTolerance: Float;
 }

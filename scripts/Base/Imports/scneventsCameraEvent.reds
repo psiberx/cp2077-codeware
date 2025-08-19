@@ -1,5 +1,5 @@
 public native class scneventsCameraEvent extends scnSceneEvent {
-  native let cameraRef: NodeRef;
-  native let isBlendIn: Bool;
-  native let blendTime: Float;
+  public native let cameraRef: NodeRef;
+  public native let isBlendIn: Bool;
+  public native let blendTime: Float;
 }

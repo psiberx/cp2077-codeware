@@ -1,9 +1,9 @@
 public native class animAnimEvent_Sound extends animAnimEvent {
-  native let switches: array<audioAudSwitch>;
-  native let params: array<audioAudParameter>;
-  native let dynamicParams: array<CName>;
-  native let metadataContext: CName;
-  native let onlyPlayOn: CName;
-  native let dontPlayOn: CName;
-  native let playerGenderAlt: animAnimEventGenderAlt;
+  public native let switches: array<audioAudSwitch>;
+  public native let params: array<audioAudParameter>;
+  public native let dynamicParams: array<CName>;
+  public native let metadataContext: CName;
+  public native let onlyPlayOn: CName;
+  public native let dontPlayOn: CName;
+  public native let playerGenderAlt: animAnimEventGenderAlt;
 }

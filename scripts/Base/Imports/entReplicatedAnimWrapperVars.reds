@@ -1,4 +1,4 @@
 public native struct entReplicatedAnimWrapperVars {
-  native let serverReplicatedTime: netTime;
-  native let data: array<entReplicatedVariableValue>;
+  public native let serverReplicatedTime: netTime;
+  public native let data: array<entReplicatedVariableValue>;
 }

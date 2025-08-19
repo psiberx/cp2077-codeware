@@ -1,6 +1,6 @@
 public native class questTriggerCondition extends questCondition {
-  native let type: questTriggerConditionType;
-  native let triggerAreaRef: NodeRef;
-  native let activatorRef: EntityReference;
-  native let isPlayerActivator: Bool;
+  public native let type: questTriggerConditionType;
+  public native let triggerAreaRef: NodeRef;
+  public native let activatorRef: EntityReference;
+  public native let isPlayerActivator: Bool;
 }

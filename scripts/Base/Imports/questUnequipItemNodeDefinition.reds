@@ -1,4 +1,4 @@
 public native class questUnequipItemNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let entityReference: EntityReference;
-  native let params: questUnequipItemParams;
+  public native let entityReference: EntityReference;
+  public native let params: questUnequipItemParams;
 }

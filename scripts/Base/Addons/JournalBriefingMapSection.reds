@@ -1,2 +1,2 @@
 @addField(JournalBriefingMapSection)
-native let mapLocation: Vector3;
+public native let mapLocation: Vector3;

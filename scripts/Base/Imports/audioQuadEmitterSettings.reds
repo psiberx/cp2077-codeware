@@ -1,8 +1,8 @@
 public native struct audioQuadEmitterSettings {
-  native let Enabled: Bool;
-  native let Interleaved: Bool;
-  native let Radius: Float;
-  native let Offset: Vector3;
-  native let Angle: Float;
-  native let Events: [audioAudEventStruct; 4];
+  public native let Enabled: Bool;
+  public native let Interleaved: Bool;
+  public native let Radius: Float;
+  public native let Offset: Vector3;
+  public native let Angle: Float;
+  public native let Events: [audioAudEventStruct; 4];
 }

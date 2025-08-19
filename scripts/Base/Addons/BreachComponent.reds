@@ -1,5 +1,5 @@
 @addField(BreachComponent)
-native let radius: Float;
+public native let radius: Float;
 
 @addField(BreachComponent)
-native let healthPercentageOverride: Float;
+public native let healthPercentageOverride: Float;

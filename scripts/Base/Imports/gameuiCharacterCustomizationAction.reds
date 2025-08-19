@@ -1,6 +1,6 @@
 public native struct gameuiCharacterCustomizationAction {
-  native let type: gameuiCharacterCustomizationActionType;
-  native let params: String;
-  native let applyToUISlot: Bool;
-  native let applyImmediately: Bool;
+  public native let type: gameuiCharacterCustomizationActionType;
+  public native let params: String;
+  public native let applyToUISlot: Bool;
+  public native let applyImmediately: Bool;
 }

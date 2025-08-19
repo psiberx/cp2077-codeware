@@ -1,7 +1,7 @@
 public native struct animHipsIkRequest {
-  native let leftLegIkChain: CName;
-  native let rightLegIkChain: CName;
-  native let hipsTransformIndex: animTransformIndex;
-  native let leftFootTransformIndex: animTransformIndex;
-  native let rightFootTransformIndex: animTransformIndex;
+  public native let leftLegIkChain: CName;
+  public native let rightLegIkChain: CName;
+  public native let hipsTransformIndex: animTransformIndex;
+  public native let leftFootTransformIndex: animTransformIndex;
+  public native let rightFootTransformIndex: animTransformIndex;
 }

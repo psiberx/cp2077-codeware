@@ -1,12 +1,12 @@
 public native struct gameEffectDefinition {
-  native let tag: CName;
-  native let objectProviders: array<ref<EffectObjectProvider>>;
-  native let objectFilters: array<ref<gameEffectObjectFilter>>;
-  native let effectExecutors: array<ref<EffectExecutor>>;
-  native let durationModifiers: array<ref<EffectDurationModifier>>;
-  native let preActions: array<ref<EffectPreAction>>;
-  native let postActions: array<ref<EffectPostAction>>;
-  native let noTargetsActions: array<ref<EffectAction>>;
-  native let settings: gameEffectSettings;
-  native let debugSettings: gameEffectDebugSettings;
+  public native let tag: CName;
+  public native let objectProviders: array<ref<EffectObjectProvider>>;
+  public native let objectFilters: array<ref<gameEffectObjectFilter>>;
+  public native let effectExecutors: array<ref<EffectExecutor>>;
+  public native let durationModifiers: array<ref<EffectDurationModifier>>;
+  public native let preActions: array<ref<EffectPreAction>>;
+  public native let postActions: array<ref<EffectPostAction>>;
+  public native let noTargetsActions: array<ref<EffectAction>>;
+  public native let settings: gameEffectSettings;
+  public native let debugSettings: gameEffectDebugSettings;
 }

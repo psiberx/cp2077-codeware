@@ -1,5 +1,5 @@
 public native class gameuiTutorialAreaSpawnEvent extends Event {
-  native let bracketID: CName;
-  native let areaID: Uint32;
-  native let widget: wref<inkWidget>;
+  public native let bracketID: CName;
+  public native let areaID: Uint32;
+  public native let widget: wref<inkWidget>;
 }

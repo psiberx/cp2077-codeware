@@ -1,2 +1,2 @@
 @addField(inkAnimSetVisibilityEvent)
-native let isVisible: Bool;
+public native let isVisible: Bool;

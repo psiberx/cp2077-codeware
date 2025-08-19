@@ -1,6 +1,6 @@
 public native struct physicsclothPhaseConfig {
-  native let stiffness: Float;
-  native let stiffnessMultiplier: Float;
-  native let compressionLimit: Float;
-  native let stretchLimit: Float;
+  public native let stiffness: Float;
+  public native let stiffnessMultiplier: Float;
+  public native let compressionLimit: Float;
+  public native let stretchLimit: Float;
 }

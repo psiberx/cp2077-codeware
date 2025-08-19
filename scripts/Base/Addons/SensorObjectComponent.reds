@@ -1,5 +1,5 @@
 @addField(SensorObjectComponent)
-native let sensorObject: ref<SensorObject>;
+public native let sensorObject: ref<SensorObject>;
 
 @addField(SensorObjectComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

@@ -1,5 +1,5 @@
 public abstract native class gamedataDataNode extends ISerializable {
-  native let nodeType: gamedataDataNodeType;
-  native let fileName: String;
-  native let parent: wref<gamedataDataNode>;
+  public native let nodeType: gamedataDataNodeType;
+  public native let fileName: String;
+  public native let parent: wref<gamedataDataNode>;
 }

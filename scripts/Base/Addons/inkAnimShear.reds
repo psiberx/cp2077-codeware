@@ -1,5 +1,5 @@
 @addField(inkAnimShear)
-native let startValue: Vector2;
+public native let startValue: Vector2;
 
 @addField(inkAnimShear)
-native let endValue: Vector2;
+public native let endValue: Vector2;

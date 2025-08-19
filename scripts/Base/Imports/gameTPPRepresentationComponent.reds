@@ -1,5 +1,5 @@
 public native class gameTPPRepresentationComponent extends IComponent {
-  native let detachedObjectInfo: array<gameFppRepDetachedObjectInfo>;
-  native let attachedObjectInfo: array<gameTppRepAttachedObjectInfo>;
-  native let affectedAppearanceSlots: array<TweakDBID>;
+  public native let detachedObjectInfo: array<gameFppRepDetachedObjectInfo>;
+  public native let attachedObjectInfo: array<gameTppRepAttachedObjectInfo>;
+  public native let affectedAppearanceSlots: array<TweakDBID>;
 }

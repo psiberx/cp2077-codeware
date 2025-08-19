@@ -1,5 +1,5 @@
 public native class worldDebugColoring_ProxyMeshDependency extends worldEditorDebugColoringSettings {
-  native let noneColor: Color;
-  native let hasProxyColor: Color;
-  native let discardColor: Color;
+  public native let noneColor: Color;
+  public native let hasProxyColor: Color;
+  public native let discardColor: Color;
 }

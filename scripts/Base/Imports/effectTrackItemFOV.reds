@@ -1,3 +1,3 @@
 public native class effectTrackItemFOV extends effectTrackItem {
-  native let FOV: effectEffectParameterEvaluatorFloat;
+  public native let FOV: effectEffectParameterEvaluatorFloat;
 }

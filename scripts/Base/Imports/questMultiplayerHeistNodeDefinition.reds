@@ -1,3 +1,3 @@
 public native class questMultiplayerHeistNodeDefinition extends questDisableableNodeDefinition {
-  native let type: ref<questIMultiplayerHeistNodeType>;
+  public native let type: ref<questIMultiplayerHeistNodeType>;
 }

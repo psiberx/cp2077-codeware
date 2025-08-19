@@ -1,4 +1,4 @@
 public native struct inkStyleProperty {
-  native let propertyPath: CName;
-  native let value: Variant;
+  public native let propertyPath: CName;
+  public native let value: Variant;
 }

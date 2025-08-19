@@ -1,3 +1,3 @@
 public native struct scnRidAnimationContainerSRRef {
-  native let animations: array<scnRidAnimationContainerSRRefAnimContainer>;
+  public native let animations: array<scnRidAnimationContainerSRRefAnimContainer>;
 }

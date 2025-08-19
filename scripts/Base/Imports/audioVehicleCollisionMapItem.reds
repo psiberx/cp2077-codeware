@@ -1,6 +1,6 @@
 public native struct audioVehicleCollisionMapItem {
-  native let name: CName;
-  native let impactEvent: CName;
-  native let scrapingLoopStart: CName;
-  native let scrapingLoopEnd: CName;
+  public native let name: CName;
+  public native let impactEvent: CName;
+  public native let scrapingLoopStart: CName;
+  public native let scrapingLoopEnd: CName;
 }

@@ -1,4 +1,4 @@
 public native struct animOverrideBlendTrackInfo {
-  native let track: animNamedTrackIndex;
-  native let weight: Float;
+  public native let track: animNamedTrackIndex;
+  public native let weight: Float;
 }

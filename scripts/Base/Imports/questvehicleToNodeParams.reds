@@ -1,12 +1,12 @@
 public native class questvehicleToNodeParams extends questVehicleSpecificCommandParams {
-  native let stopAtEnd: Bool;
-  native let nodeRef: NodeRef;
-  native let isPlayer: Bool;
-  native let useTraffic: Bool;
-  native let speedInTraffic: Float;
-  native let forceGreenLights: Bool;
-  native let portals: ref<vehiclePortalsList>;
-  native let trafficTryNeighborsForStart: Bool;
-  native let trafficTryNeighborsForEnd: Bool;
-  native let ignoreNoAIDrivingLanes: Bool;
+  public native let stopAtEnd: Bool;
+  public native let nodeRef: NodeRef;
+  public native let isPlayer: Bool;
+  public native let useTraffic: Bool;
+  public native let speedInTraffic: Float;
+  public native let forceGreenLights: Bool;
+  public native let portals: ref<vehiclePortalsList>;
+  public native let trafficTryNeighborsForStart: Bool;
+  public native let trafficTryNeighborsForEnd: Bool;
+  public native let ignoreNoAIDrivingLanes: Bool;
 }

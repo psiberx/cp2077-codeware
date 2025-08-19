@@ -1,6 +1,6 @@
 public native struct WorldShadowConfig {
-  native let contactShadows: ContactShadowsConfig;
-  native let distantShadowsNumLevels: Uint32;
-  native let distantShadowsBaseLevelRadius: Float;
-  native let foliageShadowConfig: FoliageShadowConfig;
+  public native let contactShadows: ContactShadowsConfig;
+  public native let distantShadowsNumLevels: Uint32;
+  public native let distantShadowsBaseLevelRadius: Float;
+  public native let foliageShadowConfig: FoliageShadowConfig;
 }

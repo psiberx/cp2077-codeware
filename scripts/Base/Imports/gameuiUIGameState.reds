@@ -1,3 +1,3 @@
 public native class gameuiUIGameState extends ISerializable {
-  native let uiData: array<ref<gameuiBaseUIData>>;
+  public native let uiData: array<ref<gameuiBaseUIData>>;
 }

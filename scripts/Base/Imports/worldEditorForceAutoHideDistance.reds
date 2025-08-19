@@ -1,4 +1,4 @@
 public native class worldEditorForceAutoHideDistance extends ISerializable {
-  native let minAutoHideDistance: Float;
-  native let multiplier: Float;
+  public native let minAutoHideDistance: Float;
+  public native let multiplier: Float;
 }

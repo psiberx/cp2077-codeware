@@ -1,11 +1,11 @@
 @addField(inkWorldMapPreviewGameController)
-native let viewTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
+public native let viewTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
 
 @addField(inkWorldMapPreviewGameController)
-native let viewEnvironmentDefinition: ResourceRef; // rRef<worldEnvironmentAreaParameters>
+public native let viewEnvironmentDefinition: ResourceRef; // rRef<worldEnvironmentAreaParameters>
 
 @addField(inkWorldMapPreviewGameController)
-native let cursorTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
+public native let cursorTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
 
 @addField(inkWorldMapPreviewGameController)
-native let canvas: inkImageRef;
+public native let canvas: inkImageRef;

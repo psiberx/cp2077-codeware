@@ -1,8 +1,8 @@
 public native class audioDefaultMixingSignposts extends audioAudioMetadata {
-  native let endOfCombat: CName;
-  native let inCombat: CName;
-  native let inStealth: CName;
-  native let aiAlerted: CName;
-  native let sceneBootstrapSignpost: CName;
-  native let reservedSignposts: array<CName>;
+  public native let endOfCombat: CName;
+  public native let inCombat: CName;
+  public native let inStealth: CName;
+  public native let aiAlerted: CName;
+  public native let sceneBootstrapSignpost: CName;
+  public native let reservedSignposts: array<CName>;
 }

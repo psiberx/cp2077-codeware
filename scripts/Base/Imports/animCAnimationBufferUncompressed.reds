@@ -1,5 +1,5 @@
 public native class animCAnimationBufferUncompressed extends animIAnimationBuffer {
-  native let transforms: array<array<QsTransform>>;
-  native let tracks: array<array<Float>>;
-  native let duration: Float;
+  public native let transforms: array<array<QsTransform>>;
+  public native let tracks: array<array<Float>>;
+  public native let duration: Float;
 }

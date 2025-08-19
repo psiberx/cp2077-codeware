@@ -1,3 +1,3 @@
 public native class NotPrereq extends IPrereq {
-  native let negatedPrereq: ref<IPrereq>;
+  public native let negatedPrereq: ref<IPrereq>;
 }

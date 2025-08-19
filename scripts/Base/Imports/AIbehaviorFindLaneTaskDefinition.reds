@@ -1,4 +1,4 @@
 public native class AIbehaviorFindLaneTaskDefinition extends AIbehaviorTaskDefinition {
-  native let pointOnLane: ref<AIArgumentMapping>;
-  native let filter: worldFindLaneFilter;
+  public native let pointOnLane: ref<AIArgumentMapping>;
+  public native let filter: worldFindLaneFilter;
 }

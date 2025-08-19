@@ -1,7 +1,7 @@
 public native struct textTextBlockStyle {
-  native let tintColor: HDRColor;
-  native let shadowOffset: Vector2;
-  native let shadowColor: HDRColor;
-  native let fontStyle: textTextBlockFontStyle;
-  native let fontSize: Uint16;
+  public native let tintColor: HDRColor;
+  public native let shadowOffset: Vector2;
+  public native let shadowColor: HDRColor;
+  public native let fontStyle: textTextBlockFontStyle;
+  public native let fontSize: Uint16;
 }

@@ -1,6 +1,6 @@
 public native struct scnChoiceNodeNsAttachToWorldParams {
-  native let entityPosition: Vector3;
-  native let entityOrientation: Quaternion;
-  native let customEntityRadius: Float;
-  native let visualizerStyle: scnChoiceNodeNsVisualizerStyle;
+  public native let entityPosition: Vector3;
+  public native let entityOrientation: Quaternion;
+  public native let customEntityRadius: Float;
+  public native let visualizerStyle: scnChoiceNodeNsVisualizerStyle;
 }

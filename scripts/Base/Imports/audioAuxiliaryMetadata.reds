@@ -1,3 +1,3 @@
 public native struct audioAuxiliaryMetadata {
-  native let physicalPropSettings: CName;
+  public native let physicalPropSettings: CName;
 }

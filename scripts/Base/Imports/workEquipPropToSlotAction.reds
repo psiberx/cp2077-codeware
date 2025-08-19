@@ -1,7 +1,7 @@
 public native class workEquipPropToSlotAction extends workIWorkspotItemAction {
-  native let itemId: CName;
-  native let itemSlot: TweakDBID;
-  native let attachMethod: workPropAttachMethod;
-  native let customOffsetPos: Vector3;
-  native let customOffsetRot: Quaternion;
+  public native let itemId: CName;
+  public native let itemSlot: TweakDBID;
+  public native let attachMethod: workPropAttachMethod;
+  public native let customOffsetPos: Vector3;
+  public native let customOffsetRot: Quaternion;
 }

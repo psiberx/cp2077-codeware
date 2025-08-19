@@ -1,4 +1,4 @@
 public native class entVectorFieldComponent extends IVisualComponent {
-  native let direction: Vector3;
-  native let isEnabled: Bool;
+  public native let direction: Vector3;
+  public native let isEnabled: Bool;
 }

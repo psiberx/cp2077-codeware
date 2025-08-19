@@ -1,6 +1,6 @@
 public native struct MaterialLayerDef {
-  native let name: CName;
-  native let size: Uint32;
-  native let colorPalette: array<Color>;
-  native let material: ResourceRef; // rRef<CMaterialInstance>
+  public native let name: CName;
+  public native let size: Uint32;
+  public native let colorPalette: array<Color>;
+  public native let material: ResourceRef; // rRef<CMaterialInstance>
 }

@@ -1,4 +1,4 @@
 public native class workStopWorkspotQuestAction extends workIWorkspotQuestAction {
-  native let allowCurrAnimToFinish: Bool;
-  native let exitAnim: CName;
+  public native let allowCurrAnimToFinish: Bool;
+  public native let exitAnim: CName;
 }

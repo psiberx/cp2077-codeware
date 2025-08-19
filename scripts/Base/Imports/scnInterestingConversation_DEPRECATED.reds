@@ -1,3 +1,3 @@
 public native struct scnInterestingConversation_DEPRECATED {
-  native let sceneFilename: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let sceneFilename: ResourceAsyncRef; // raRef<scnSceneResource>
 }

@@ -1,5 +1,5 @@
 public native struct LibTreeDefCName {
-  native let variableId: Uint16;
-  native let treeVariable: CName;
-  native let v: CName;
+  public native let variableId: Uint16;
+  public native let treeVariable: CName;
+  public native let v: CName;
 }

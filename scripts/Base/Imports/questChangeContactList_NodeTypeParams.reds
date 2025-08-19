@@ -1,5 +1,5 @@
 public native struct questChangeContactList_NodeTypeParams {
-  native let contact: ref<gameJournalPath>;
-  native let addContact: Bool;
-  native let sendNotification: Bool;
+  public native let contact: ref<gameJournalPath>;
+  public native let addContact: Bool;
+  public native let sendNotification: Bool;
 }

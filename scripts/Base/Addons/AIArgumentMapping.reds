@@ -1,14 +1,14 @@
 @addField(AIArgumentMapping)
-native let type: AIArgumentType;
+public native let type: AIArgumentType;
 
 @addField(AIArgumentMapping)
-native let parameterizationType: AIParameterizationType;
+public native let parameterizationType: AIParameterizationType;
 
 @addField(AIArgumentMapping)
-native let defaultValue: Variant;
+public native let defaultValue: Variant;
 
 @addField(AIArgumentMapping)
-native let prefixValue: ref<AIArgumentMapping>;
+public native let prefixValue: ref<AIArgumentMapping>;
 
 @addField(AIArgumentMapping)
-native let customTypeName: CName;
+public native let customTypeName: CName;

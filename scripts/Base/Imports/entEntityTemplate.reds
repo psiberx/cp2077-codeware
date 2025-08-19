@@ -1,12 +1,12 @@
 public native class entEntityTemplate extends resStreamedResource {
-  native let includes: array<entTemplateInclude>;
-  native let appearances: array<entTemplateAppearance>;
-  native let defaultAppearance: CName;
-  native let visualTagsSchema: ref<entVisualTagsSchema>;
-  native let componentResolveSettings: array<entTemplateComponentResolveSettings>;
-  native let bindingOverrides: array<entTemplateBindingOverride>;
-  native let backendDataOverrides: array<entTemplateComponentBackendDataOverrideInfo>;
-  native let resolvedDependencies: array<ResourceAsyncRef>;
-  native let inplaceResources: array<ResourceRef>;
-  native let compiledEntityLODFlags: Uint16;
+  public native let includes: array<entTemplateInclude>;
+  public native let appearances: array<entTemplateAppearance>;
+  public native let defaultAppearance: CName;
+  public native let visualTagsSchema: ref<entVisualTagsSchema>;
+  public native let componentResolveSettings: array<entTemplateComponentResolveSettings>;
+  public native let bindingOverrides: array<entTemplateBindingOverride>;
+  public native let backendDataOverrides: array<entTemplateComponentBackendDataOverrideInfo>;
+  public native let resolvedDependencies: array<ResourceAsyncRef>;
+  public native let inplaceResources: array<ResourceRef>;
+  public native let compiledEntityLODFlags: Uint16;
 }

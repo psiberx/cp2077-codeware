@@ -1,5 +1,5 @@
 public native class questPlaceholderNodeDefinition extends questDisableableNodeDefinition {
-  native let replacedNodeClassName: CName;
-  native let copiedSockets: array<questPlaceholderNodeSocketInfo>;
-  native let clipboardHolder: ref<ISerializable>;
+  public native let replacedNodeClassName: CName;
+  public native let copiedSockets: array<questPlaceholderNodeSocketInfo>;
+  public native let clipboardHolder: ref<ISerializable>;
 }

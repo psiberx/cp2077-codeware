@@ -1,4 +1,4 @@
 public native struct gameuiCharacterCustomizationUiPresetInfo {
-  native let name: CName;
-  native let resource: ResourceAsyncRef; // raRef<gameuiCharacterCustomizationUiPreset>
+  public native let name: CName;
+  public native let resource: ResourceAsyncRef; // raRef<gameuiCharacterCustomizationUiPreset>
 }

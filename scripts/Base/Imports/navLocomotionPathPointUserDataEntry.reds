@@ -1,4 +1,4 @@
 public native struct navLocomotionPathPointUserDataEntry {
-  native let userData: ref<navLocomotionPathPointUserData>;
-  native let nextUserData: Uint32;
+  public native let userData: ref<navLocomotionPathPointUserData>;
+  public native let nextUserData: Uint32;
 }

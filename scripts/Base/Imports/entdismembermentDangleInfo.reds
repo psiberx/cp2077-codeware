@@ -1,7 +1,7 @@
 public native struct entdismembermentDangleInfo {
-  native let DangleSegmentLenght: Float;
-  native let DangleVelocityDamping: Float;
-  native let DangleBendStiffness: Float;
-  native let DangleSegmentStiffness: Float;
-  native let DangleCollisionSphereRadius: Float;
+  public native let DangleSegmentLenght: Float;
+  public native let DangleVelocityDamping: Float;
+  public native let DangleBendStiffness: Float;
+  public native let DangleSegmentStiffness: Float;
+  public native let DangleCollisionSphereRadius: Float;
 }

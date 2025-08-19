@@ -1,3 +1,3 @@
 public native class RequestNewHudEvent extends Event {
-  native let entriesResource: ResourceRef; // rRef<inkHudEntriesResource>
+  public native let entriesResource: ResourceRef; // rRef<inkHudEntriesResource>
 }

@@ -1,41 +1,41 @@
 public native class inkGameSettingsResource extends CResource {
-  native let compositionResource: ResourceRef; // rRef<inkFullscreenCompositionResource>
-  native let permanentTextureAtlases: array<ResourceAsyncRef>;
-  native let permanentTextureAtlasesPC: array<ResourceAsyncRef>;
-  native let permanentTextureAtlasesDurango: array<ResourceAsyncRef>;
-  native let permanentTextureAtlasesOrbis: array<ResourceAsyncRef>;
-  native let permanentTextureAtlasesProspero: array<ResourceAsyncRef>;
-  native let permanentTextureAtlasesStadiaSwitch: array<ResourceAsyncRef>;
-  native let permanentTextureAtlasesStadia: array<ResourceAsyncRef>;
-  native let permanentTextureAtlasesStadiaDurango: array<ResourceAsyncRef>;
-  native let permanentTextureAtlasesStadiaOrbis: array<ResourceAsyncRef>;
-  native let themes: array<inkStyleThemeDescriptor>;
-  native let layersResource: ResourceRef; // rRef<inkLayersResource>
-  native let iconReferenceFallbackTextureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let initLoadingScreenLogoLoopVideo: ResourceAsyncRef; // raRef<Bink>
-  native let npcNameplateResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
-  native let defaultShapeCollectionResource: ResourceRef; // rRef<inkShapeCollectionResource>
-  native let globalTVBinkLengthDataResource: ResourceAsyncRef; // raRef<JsonResource>
-  native let worldMapFloorplanWidgetResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
-  native let gpsAugmentedRealitySignEntity: ResourceAsyncRef; // raRef<entEntityTemplate>
-  native let gpsAugmentedRealityWidgetTurnLeft: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
-  native let gpsAugmentedRealityWidgetTurnRight: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
-  native let gpsAugmentedRealityWidgetTurnBack: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
-  native let malePresetResource: ResourceAsyncRef; // raRef<CResource>
-  native let femalePresetResource: ResourceAsyncRef; // raRef<CResource>
-  native let fallbackHeadCustomizationFpp: ResourceAsyncRef; // raRef<CResource>
-  native let fallbackHeadCustomizationTpp: ResourceAsyncRef; // raRef<CResource>
-  native let fallbackHeadCustomizationTppFaceRig: ResourceAsyncRef; // raRef<CResource>
-  native let fallbackBodyCustomization: ResourceAsyncRef; // raRef<CResource>
-  native let fallbackArmsCustomization: ResourceAsyncRef; // raRef<CResource>
-  native let vsetSceneResource: ResourceAsyncRef; // raRef<CResource>
-  native let keyboardIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let steamIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let durangoIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let orbisIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let prosperoIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let nintendoSwitchIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let stadiaIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let stadiaDurangoIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
-  native let stadiaOrbisIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let compositionResource: ResourceRef; // rRef<inkFullscreenCompositionResource>
+  public native let permanentTextureAtlases: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesPC: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesDurango: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesOrbis: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesProspero: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesStadiaSwitch: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesStadia: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesStadiaDurango: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesStadiaOrbis: array<ResourceAsyncRef>;
+  public native let themes: array<inkStyleThemeDescriptor>;
+  public native let layersResource: ResourceRef; // rRef<inkLayersResource>
+  public native let iconReferenceFallbackTextureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let initLoadingScreenLogoLoopVideo: ResourceAsyncRef; // raRef<Bink>
+  public native let npcNameplateResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+  public native let defaultShapeCollectionResource: ResourceRef; // rRef<inkShapeCollectionResource>
+  public native let globalTVBinkLengthDataResource: ResourceAsyncRef; // raRef<JsonResource>
+  public native let worldMapFloorplanWidgetResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+  public native let gpsAugmentedRealitySignEntity: ResourceAsyncRef; // raRef<entEntityTemplate>
+  public native let gpsAugmentedRealityWidgetTurnLeft: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+  public native let gpsAugmentedRealityWidgetTurnRight: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+  public native let gpsAugmentedRealityWidgetTurnBack: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
+  public native let malePresetResource: ResourceAsyncRef; // raRef<CResource>
+  public native let femalePresetResource: ResourceAsyncRef; // raRef<CResource>
+  public native let fallbackHeadCustomizationFpp: ResourceAsyncRef; // raRef<CResource>
+  public native let fallbackHeadCustomizationTpp: ResourceAsyncRef; // raRef<CResource>
+  public native let fallbackHeadCustomizationTppFaceRig: ResourceAsyncRef; // raRef<CResource>
+  public native let fallbackBodyCustomization: ResourceAsyncRef; // raRef<CResource>
+  public native let fallbackArmsCustomization: ResourceAsyncRef; // raRef<CResource>
+  public native let vsetSceneResource: ResourceAsyncRef; // raRef<CResource>
+  public native let keyboardIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let steamIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let durangoIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let orbisIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let prosperoIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let nintendoSwitchIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let stadiaIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let stadiaDurangoIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let stadiaOrbisIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
 }

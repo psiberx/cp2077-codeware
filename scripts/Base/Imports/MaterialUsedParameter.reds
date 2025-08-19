@@ -1,4 +1,4 @@
 public native struct MaterialUsedParameter {
-  native let name: CName;
-  native let register: Uint8;
+  public native let name: CName;
+  public native let register: Uint8;
 }

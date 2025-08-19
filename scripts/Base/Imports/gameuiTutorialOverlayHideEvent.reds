@@ -1,3 +1,3 @@
 public native class gameuiTutorialOverlayHideEvent extends Event {
-  native let itemName: CName;
+  public native let itemName: CName;
 }

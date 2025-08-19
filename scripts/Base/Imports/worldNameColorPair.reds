@@ -1,4 +1,4 @@
 public native struct worldNameColorPair {
-  native let name: String;
-  native let color: Color;
+  public native let name: String;
+  public native let color: Color;
 }

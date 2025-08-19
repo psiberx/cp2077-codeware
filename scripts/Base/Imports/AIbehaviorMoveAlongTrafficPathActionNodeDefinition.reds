@@ -1,11 +1,11 @@
 public native class AIbehaviorMoveAlongTrafficPathActionNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let joinTrafficSettings: ref<AIArgumentMapping>;
-  native let ignoreTrafficSpots: ref<AIArgumentMapping>;
-  native let useCrowdAnimationGraph: ref<AIArgumentMapping>;
-  native let workspotData: ref<AIArgumentMapping>;
-  native let workspotExitPositionWS: ref<AIArgumentMapping>;
-  native let workspotReturnPositionVector: ref<AIArgumentMapping>;
-  native let workspotExitTangent: ref<AIArgumentMapping>;
-  native let trafficLaneReturnTangent: ref<AIArgumentMapping>;
-  native let trafficLaneExitTangent: ref<AIArgumentMapping>;
+  public native let joinTrafficSettings: ref<AIArgumentMapping>;
+  public native let ignoreTrafficSpots: ref<AIArgumentMapping>;
+  public native let useCrowdAnimationGraph: ref<AIArgumentMapping>;
+  public native let workspotData: ref<AIArgumentMapping>;
+  public native let workspotExitPositionWS: ref<AIArgumentMapping>;
+  public native let workspotReturnPositionVector: ref<AIArgumentMapping>;
+  public native let workspotExitTangent: ref<AIArgumentMapping>;
+  public native let trafficLaneReturnTangent: ref<AIArgumentMapping>;
+  public native let trafficLaneExitTangent: ref<AIArgumentMapping>;
 }

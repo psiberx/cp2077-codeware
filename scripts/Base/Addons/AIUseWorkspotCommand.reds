@@ -1,2 +1,2 @@
 @addField(AIUseWorkspotCommand)
-native persistent let entryTag: CName;
+public native persistent let entryTag: CName;

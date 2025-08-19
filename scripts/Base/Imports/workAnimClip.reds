@@ -1,4 +1,4 @@
 public native class workAnimClip extends workIEntry {
-  native let animName: CName;
-  native let blendOutTime: Float;
+  public native let animName: CName;
+  public native let blendOutTime: Float;
 }

@@ -1,4 +1,4 @@
 public native struct inkStyleTheme {
-  native let themeID: CName;
-  native let styleResource: ResourceRef; // rRef<inkStyleResource>
+  public native let themeID: CName;
+  public native let styleResource: ResourceRef; // rRef<inkStyleResource>
 }

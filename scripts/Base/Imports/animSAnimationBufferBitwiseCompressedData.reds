@@ -1,7 +1,7 @@
 public native struct animSAnimationBufferBitwiseCompressedData {
-  native let dt: Float;
-  native let compression: Int8;
-  native let numFrames: Uint16;
-  native let dataAddr: Uint32;
-  native let dataAddrFallback: Uint32;
+  public native let dt: Float;
+  public native let compression: Int8;
+  public native let numFrames: Uint16;
+  public native let dataAddr: Uint32;
+  public native let dataAddrFallback: Uint32;
 }

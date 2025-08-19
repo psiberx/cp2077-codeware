@@ -1,5 +1,5 @@
 public native struct interopOpaqueData {
-  native let description: String;
-  native let payload: String;
-  native let version: Int32;
+  public native let description: String;
+  public native let payload: String;
+  public native let version: Int32;
 }

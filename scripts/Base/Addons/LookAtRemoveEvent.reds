@@ -1,5 +1,5 @@
 @addField(LookAtRemoveEvent)
-native let hasOutTransition: Bool;
+public native let hasOutTransition: Bool;
 
 @addField(LookAtRemoveEvent)
-native let outTransitionSpeed: Float;
+public native let outTransitionSpeed: Float;

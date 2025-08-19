@@ -1,3 +1,3 @@
 public native class attrTooltip extends attrAttribute {
-  native let xt: String;
+  public native let xt: String;
 }

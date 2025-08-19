@@ -1,5 +1,5 @@
 @addField(TransformHistoryComponent)
-native let historyLength: Float;
+public native let historyLength: Float;
 
 @addField(TransformHistoryComponent)
-native let samplesAmount: Uint32;
+public native let samplesAmount: Uint32;

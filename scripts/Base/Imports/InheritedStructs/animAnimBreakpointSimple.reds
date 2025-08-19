@@ -1,4 +1,4 @@
 public native struct animAnimBreakpointSimple {
-  native let enabled: Bool;
-  native let hitCount: Uint32;
+  public native let enabled: Bool;
+  public native let hitCount: Uint32;
 }

@@ -1,4 +1,4 @@
 public native struct GameplayFunctionalTestReturnValue {
-  native let value: String;
-  native let errorInfo: String;
+  public native let value: String;
+  public native let errorInfo: String;
 }

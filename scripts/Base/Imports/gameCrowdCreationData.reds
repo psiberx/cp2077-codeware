@@ -1,3 +1,3 @@
 public native struct gameCrowdCreationData {
-  native let timePeriods: [gameCrowdPhaseTimePeriod; 4];
+  public native let timePeriods: [gameCrowdPhaseTimePeriod; 4];
 }

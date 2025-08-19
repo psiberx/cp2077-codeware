@@ -1,4 +1,4 @@
 public native class audioVoiceTriggerRewireMap extends audioAudioMetadata {
-  native let includes: array<CName>;
-  native let items: array<audioVoiceTriggerRewireMapItem>;
+  public native let includes: array<CName>;
+  public native let items: array<audioVoiceTriggerRewireMapItem>;
 }

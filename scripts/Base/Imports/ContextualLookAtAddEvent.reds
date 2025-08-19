@@ -1,3 +1,3 @@
 public native class ContextualLookAtAddEvent extends LookAtAddEvent {
-  native let contextName: CName;
+  public native let contextName: CName;
 }

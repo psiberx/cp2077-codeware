@@ -1,4 +1,4 @@
 public native class questStartVehicle_NodeType extends questIVehicleManagerNodeType {
-  native let vehicleRef: EntityReference;
-  native let blendTime: Float;
+  public native let vehicleRef: EntityReference;
+  public native let blendTime: Float;
 }

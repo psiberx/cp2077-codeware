@@ -1,11 +1,11 @@
 public native class animLookAtPreset_FullControl extends animLookAtPreset {
-  native let limits: LookAtLimits;
-  native let eyesSuppress: Float;
-  native let eyesMode: Int32;
-  native let headSuppress: Float;
-  native let headMode: Int32;
-  native let headSquareScale: Float;
-  native let chestSuppress: Float;
-  native let chestMode: Int32;
-  native let chestSquareScale: Float;
+  public native let limits: LookAtLimits;
+  public native let eyesSuppress: Float;
+  public native let eyesMode: Int32;
+  public native let headSuppress: Float;
+  public native let headMode: Int32;
+  public native let headSquareScale: Float;
+  public native let chestSuppress: Float;
+  public native let chestMode: Int32;
+  public native let chestSquareScale: Float;
 }

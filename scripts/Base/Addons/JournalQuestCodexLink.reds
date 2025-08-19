@@ -1,2 +1,2 @@
 @addField(JournalQuestCodexLink)
-native let path: ref<gameJournalPath>;
+public native let path: ref<gameJournalPath>;

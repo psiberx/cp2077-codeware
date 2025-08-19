@@ -1,4 +1,4 @@
 public native struct AISharedVarDefinition {
-  native let type: AIESharedVarDefinitionType;
-  native let name: LibTreeSharedVarRegistrationName;
+  public native let type: AIESharedVarDefinitionType;
+  public native let name: LibTreeSharedVarRegistrationName;
 }

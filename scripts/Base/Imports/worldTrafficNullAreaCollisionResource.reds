@@ -1,4 +1,4 @@
 public native class worldTrafficNullAreaCollisionResource extends CResource {
-  native let nullAreasCollisionData: ref<worldTrafficNullAreaCollisionData>;
-  native let nullAreaBlockadeData: ref<worldTrafficNullAreaDynamicBlockadeData>;
+  public native let nullAreasCollisionData: ref<worldTrafficNullAreaCollisionData>;
+  public native let nullAreaBlockadeData: ref<worldTrafficNullAreaDynamicBlockadeData>;
 }

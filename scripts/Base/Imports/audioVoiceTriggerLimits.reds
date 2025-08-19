@@ -1,7 +1,7 @@
 public native struct audioVoiceTriggerLimits {
-  native let probability: Float;
-  native let singleNpcMinRepeatTime: Float;
-  native let allNpcsMinRepeatTime: Float;
-  native let allNpcsSharingVoicesetMinRepeatTime: Float;
-  native let combatVolume: Float;
+  public native let probability: Float;
+  public native let singleNpcMinRepeatTime: Float;
+  public native let allNpcsMinRepeatTime: Float;
+  public native let allNpcsSharingVoicesetMinRepeatTime: Float;
+  public native let combatVolume: Float;
 }

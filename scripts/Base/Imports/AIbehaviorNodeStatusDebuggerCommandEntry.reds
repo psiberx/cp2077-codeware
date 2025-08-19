@@ -1,5 +1,5 @@
 public native struct AIbehaviorNodeStatusDebuggerCommandEntry {
-  native let status: AIbehaviorDebugNodeStatus;
-  native let generation: Uint32;
-  native let failure: ref<gamedebugFailure>;
+  public native let status: AIbehaviorDebugNodeStatus;
+  public native let generation: Uint32;
+  public native let failure: ref<gamedebugFailure>;
 }

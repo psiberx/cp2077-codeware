@@ -1,8 +1,8 @@
 @addField(gameScanningComponentPS)
-native persistent let scanningState: gameScanningState;
+public native persistent let scanningState: gameScanningState;
 
 @addField(gameScanningComponentPS)
-native persistent let pctScanned: Float;
+public native persistent let pctScanned: Float;
 
 @addField(gameScanningComponentPS)
-native persistent let isBlocked: Bool;
+public native persistent let isBlocked: Bool;

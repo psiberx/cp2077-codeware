@@ -1,3 +1,3 @@
 public native struct scnDynamicAnimSetSRRef {
-  native let asyncAnimSet: ResourceAsyncRef; // raRef<animAnimSet>
+  public native let asyncAnimSet: ResourceAsyncRef; // raRef<animAnimSet>
 }

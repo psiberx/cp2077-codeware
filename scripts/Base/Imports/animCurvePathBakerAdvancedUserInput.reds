@@ -1,3 +1,3 @@
 public native struct animCurvePathBakerAdvancedUserInput {
-  native let partsInputs: [animCurvePathPartInput; 3];
+  public native let partsInputs: [animCurvePathPartInput; 3];
 }

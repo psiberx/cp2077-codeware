@@ -1,6 +1,6 @@
 public native struct questEntityManagerSetMeshAppearance_NodeTypeParams {
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
-  native let componentName: CName;
-  native let appearanceName: CName;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
+  public native let componentName: CName;
+  public native let appearanceName: CName;
 }

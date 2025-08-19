@@ -1,8 +1,8 @@
 public native class questSceneTalking_ConditionType extends questISceneConditionType {
-  native let GlobalEntityRef: EntityReference;
-  native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
-  native let SceneVersion: scnSceneVersionCheck;
-  native let SectionName: CName;
-  native let ActorName: String;
-  native let isInverted: Bool;
+  public native let GlobalEntityRef: EntityReference;
+  public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
+  public native let SceneVersion: scnSceneVersionCheck;
+  public native let SectionName: CName;
+  public native let ActorName: String;
+  public native let isInverted: Bool;
 }

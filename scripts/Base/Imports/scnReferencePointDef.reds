@@ -1,5 +1,5 @@
 public native struct scnReferencePointDef {
-  native let id: scnReferencePointId;
-  native let offset: Vector3;
-  native let originMarker: scnMarker;
+  public native let id: scnReferencePointId;
+  public native let offset: Vector3;
+  public native let originMarker: scnMarker;
 }

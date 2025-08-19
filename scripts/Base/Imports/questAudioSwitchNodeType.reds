@@ -1,6 +1,6 @@
 public native class questAudioSwitchNodeType extends questIAudioNodeType {
-  native let switch: audioAudSwitch;
-  native let isMusic: Bool;
-  native let objectRef: EntityReference;
-  native let isPlayer: Bool;
+  public native let switch: audioAudSwitch;
+  public native let isMusic: Bool;
+  public native let objectRef: EntityReference;
+  public native let isPlayer: Bool;
 }

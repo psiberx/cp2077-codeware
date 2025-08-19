@@ -1,3 +1,3 @@
 public native class MotionBlurAreaSettings extends IAreaSettings {
-  native let strength: Float;
+  public native let strength: Float;
 }

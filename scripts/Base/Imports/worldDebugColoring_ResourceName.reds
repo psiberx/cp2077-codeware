@@ -1,4 +1,4 @@
 public native class worldDebugColoring_ResourceName extends worldEditorDebugColoringSettings {
-  native let names: array<worldNameColorPair>;
-  native let defaultColor: Color;
+  public native let names: array<worldNameColorPair>;
+  public native let defaultColor: Color;
 }

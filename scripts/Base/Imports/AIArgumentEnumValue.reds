@@ -1,5 +1,5 @@
 public native class AIArgumentEnumValue extends AIArgumentDefinition {
-  native let type: AIArgumentType;
-  native let enumClass: CName;
-  native let defaultValue: Int64;
+  public native let type: AIArgumentType;
+  public native let enumClass: CName;
+  public native let defaultValue: Int64;
 }

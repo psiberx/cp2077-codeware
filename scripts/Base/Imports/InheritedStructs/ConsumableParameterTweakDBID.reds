@@ -1,5 +1,5 @@
 public native struct ConsumableParameterTweakDBID {
-  native let name: CName;
-  native let value: TweakDBID;
-  native let consumed: Bool;
+  public native let name: CName;
+  public native let value: TweakDBID;
+  public native let consumed: Bool;
 }

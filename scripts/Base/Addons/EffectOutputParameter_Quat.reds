@@ -1,2 +1,2 @@
 @addField(EffectOutputParameter_Quat)
-native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
+public native let blackboardProperty: gameBlackboardPropertyBindingDefinition;

@@ -1,5 +1,5 @@
 public native struct questTransferItems_NodeTypeParams_TagOperationData {
-  native let tagToTransfer: CName;
-  native let itemIDsToIgnore: array<TweakDBID>;
-  native let tagsToIgnore: array<CName>;
+  public native let tagToTransfer: CName;
+  public native let itemIDsToIgnore: array<TweakDBID>;
+  public native let tagsToIgnore: array<CName>;
 }

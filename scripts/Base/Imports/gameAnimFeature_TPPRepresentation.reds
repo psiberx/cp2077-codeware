@@ -1,3 +1,3 @@
 public native class gameAnimFeature_TPPRepresentation extends AnimFeature {
-  native let IsActive: Bool;
+  public native let IsActive: Bool;
 }

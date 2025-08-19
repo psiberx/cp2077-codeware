@@ -1,3 +1,3 @@
 public native struct AICMovementTarget {
-  native let position: Vector3;
+  public native let position: Vector3;
 }

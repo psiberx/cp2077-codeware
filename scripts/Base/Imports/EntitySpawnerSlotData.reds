@@ -1,4 +1,4 @@
 public native struct EntitySpawnerSlotData {
-  native let slotName: CName;
-  native let spawnableObject: TweakDBID;
+  public native let slotName: CName;
+  public native let spawnableObject: TweakDBID;
 }

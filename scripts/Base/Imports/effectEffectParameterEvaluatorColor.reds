@@ -1,4 +1,4 @@
 public native struct effectEffectParameterEvaluatorColor {
-  native let evaluator: ref<IEvaluatorColor>;
-  native let inputParameterOverride: CName;
+  public native let evaluator: ref<IEvaluatorColor>;
+  public native let inputParameterOverride: CName;
 }

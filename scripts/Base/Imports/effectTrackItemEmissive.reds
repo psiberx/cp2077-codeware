@@ -1,4 +1,4 @@
 public native class effectTrackItemEmissive extends effectTrackItem {
-  native let override: Bool;
-  native let brigtness: effectEffectParameterEvaluatorFloat;
+  public native let override: Bool;
+  public native let brigtness: effectEffectParameterEvaluatorFloat;
 }

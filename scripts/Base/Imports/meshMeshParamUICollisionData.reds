@@ -1,5 +1,5 @@
 public native class meshMeshParamUICollisionData extends meshMeshParameter {
-  native let uvs: array<Vector2>;
-  native let trianglesIndices: array<Uint16>;
-  native let vertices: array<Vector3>;
+  public native let uvs: array<Vector2>;
+  public native let trianglesIndices: array<Uint16>;
+  public native let vertices: array<Vector3>;
 }

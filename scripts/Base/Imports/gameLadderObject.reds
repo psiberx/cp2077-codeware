@@ -1,10 +1,10 @@
 public native class gameLadderObject extends GameObject {
-  native let heightOfBottomPart: Float;
-  native let exitStepTop: Float;
-  native let verticalStepTop: Float;
-  native let exitStepBottom: Float;
-  native let verticalStepBottom: Float;
-  native let exitStepJump: Float;
-  native let verticalStepJump: Float;
-  native let enterOffset: Float;
+  public native let heightOfBottomPart: Float;
+  public native let exitStepTop: Float;
+  public native let verticalStepTop: Float;
+  public native let exitStepBottom: Float;
+  public native let verticalStepBottom: Float;
+  public native let exitStepJump: Float;
+  public native let verticalStepJump: Float;
+  public native let enterOffset: Float;
 }

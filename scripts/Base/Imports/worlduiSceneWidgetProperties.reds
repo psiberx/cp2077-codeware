@@ -1,11 +1,11 @@
 public native struct worlduiSceneWidgetProperties {
-  native let projectionPlaneSize: Vector2;
-  native let renderingPlane: ERenderingPlane;
-  native let isAlwaysVisible: Bool;
-  native let isInteractable: Bool;
-  native let isInteractableFromBehind: Bool;
-  native let maxInteractionDistance: Float;
-  native let overrideMaxInteractionDistance: Bool;
-  native let useCustomFaceVector: Bool;
-  native let faceVector: Vector3;
+  public native let projectionPlaneSize: Vector2;
+  public native let renderingPlane: ERenderingPlane;
+  public native let isAlwaysVisible: Bool;
+  public native let isInteractable: Bool;
+  public native let isInteractableFromBehind: Bool;
+  public native let maxInteractionDistance: Float;
+  public native let overrideMaxInteractionDistance: Bool;
+  public native let useCustomFaceVector: Bool;
+  public native let faceVector: Vector3;
 }

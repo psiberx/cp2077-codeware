@@ -1,4 +1,4 @@
 public native struct LookAtPartInfo {
-  native let partName: CName;
-  native let defaultPositionBoneName: CName;
+  public native let partName: CName;
+  public native let defaultPositionBoneName: CName;
 }

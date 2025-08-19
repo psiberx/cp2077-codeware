@@ -1,5 +1,5 @@
 public native class questMinigameNodeDefinition extends questSignalStoppingNodeDefinition {
-  native let start: Bool;
-  native let skipSummaryScreen: Bool;
-  native let networkRef: EntityReference;
+  public native let start: Bool;
+  public native let skipSummaryScreen: Bool;
+  public native let networkRef: EntityReference;
 }

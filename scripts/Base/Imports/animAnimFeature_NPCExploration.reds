@@ -1,7 +1,7 @@
 public native class animAnimFeature_NPCExploration extends AnimFeature {
-  native let explorationType: Int32;
-  native let state: Int32;
-  native let movementType: Int32;
-  native let isEvenLoop: Bool;
-  native let playbackTime: Float;
+  public native let explorationType: Int32;
+  public native let state: Int32;
+  public native let movementType: Int32;
+  public native let isEvenLoop: Bool;
+  public native let playbackTime: Float;
 }

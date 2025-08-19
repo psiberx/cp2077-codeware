@@ -1,3 +1,3 @@
 public native class questDistanceCondition extends questTypedCondition {
-  native let type: ref<questIDistanceConditionType>;
+  public native let type: ref<questIDistanceConditionType>;
 }

@@ -1,15 +1,15 @@
 public native class worldMeshNode extends worldNode {
-  native let mesh: ResourceAsyncRef; // raRef<CMesh>
-  native let meshAppearance: CName;
-  native let forceAutoHideDistance: Float;
-  native let occluderType: visWorldOccluderType;
-  native let occluderAutohideDistanceScale: Uint8;
-  native let castShadows: shadowsShadowCastingMode;
-  native let castLocalShadows: shadowsShadowCastingMode;
-  native let castRayTracedGlobalShadows: shadowsShadowCastingMode;
-  native let castRayTracedLocalShadows: shadowsShadowCastingMode;
-  native let windImpulseEnabled: Bool;
-  native let removeFromRainMap: Bool;
-  native let lodLevelScales: Uint32;
-  native let version: Uint8;
+  public native let mesh: ResourceAsyncRef; // raRef<CMesh>
+  public native let meshAppearance: CName;
+  public native let forceAutoHideDistance: Float;
+  public native let occluderType: visWorldOccluderType;
+  public native let occluderAutohideDistanceScale: Uint8;
+  public native let castShadows: shadowsShadowCastingMode;
+  public native let castLocalShadows: shadowsShadowCastingMode;
+  public native let castRayTracedGlobalShadows: shadowsShadowCastingMode;
+  public native let castRayTracedLocalShadows: shadowsShadowCastingMode;
+  public native let windImpulseEnabled: Bool;
+  public native let removeFromRainMap: Bool;
+  public native let lodLevelScales: Uint32;
+  public native let version: Uint8;
 }

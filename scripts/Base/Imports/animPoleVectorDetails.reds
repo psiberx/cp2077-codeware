@@ -1,4 +1,4 @@
 public native struct animPoleVectorDetails {
-  native let targetBone: animTransformIndex;
-  native let positionOffset: Vector3;
+  public native let targetBone: animTransformIndex;
+  public native let positionOffset: Vector3;
 }

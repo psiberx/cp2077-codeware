@@ -1,4 +1,4 @@
 public native class effectTrackGroup extends effectTrackBase {
-  native let tracks: array<ref<effectTrackBase>>;
-  native let componentName: CName;
+  public native let tracks: array<ref<effectTrackBase>>;
+  public native let componentName: CName;
 }

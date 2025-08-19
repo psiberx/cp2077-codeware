@@ -1,6 +1,6 @@
 public native class worldHeatmapResource extends CResource {
-  native let setup: worldHeatmapSetup;
-  native let name: String;
-  native let layerNames: array<String>;
-  native let layers: array<ResourceAsyncRef>;
+  public native let setup: worldHeatmapSetup;
+  public native let name: String;
+  public native let layerNames: array<String>;
+  public native let layers: array<ResourceAsyncRef>;
 }

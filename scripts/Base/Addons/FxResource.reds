@@ -1,2 +1,2 @@
 @addField(FxResource)
-native let effect: ResourceAsyncRef; // raRef<worldEffect>
+public native let effect: ResourceAsyncRef; // raRef<worldEffect>

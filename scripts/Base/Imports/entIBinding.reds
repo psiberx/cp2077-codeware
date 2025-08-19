@@ -1,5 +1,5 @@
 public abstract native class entIBinding extends ISerializable {
-  native let enabled: Bool;
-  native let enableMask: entTagMask;
-  native let bindName: CName;
+  public native let enabled: Bool;
+  public native let enableMask: entTagMask;
+  public native let bindName: CName;
 }

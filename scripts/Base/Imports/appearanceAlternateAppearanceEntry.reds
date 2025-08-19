@@ -1,5 +1,5 @@
 public native struct appearanceAlternateAppearanceEntry {
-  native let Original: CName;
-  native let Alternate: CName;
-  native let AlternateAppearanceIndex: Uint8;
+  public native let Original: CName;
+  public native let Alternate: CName;
+  public native let AlternateAppearanceIndex: Uint8;
 }

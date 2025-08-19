@@ -1,14 +1,14 @@
 @addField(gameLootContainerBase)
-native let useAreaLoot: Bool;
+public native let useAreaLoot: Bool;
 
 @addField(gameLootContainerBase)
-native let lootTables: array<TweakDBID>;
+public native let lootTables: array<TweakDBID>;
 
 @addField(gameLootContainerBase)
-native let contentAssignment: TweakDBID;
+public native let contentAssignment: TweakDBID;
 
 @addField(gameLootContainerBase)
-native let isIllegal: Bool;
+public native let isIllegal: Bool;
 
 @addField(gameLootContainerBase)
-native let containerType: gamedataContainerType;
+public native let containerType: gamedataContainerType;

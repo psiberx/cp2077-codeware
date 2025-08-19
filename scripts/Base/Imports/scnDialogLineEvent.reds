@@ -1,6 +1,6 @@
 public native class scnDialogLineEvent extends scnSceneEvent {
-  native let screenplayLineId: scnscreenplayItemId;
-  native let voParams: scnDialogLineVoParams;
-  native let visualStyle: scnDialogLineVisualStyle;
-  native let additionalSpeakers: scnAdditionalSpeakers;
+  public native let screenplayLineId: scnscreenplayItemId;
+  public native let voParams: scnDialogLineVoParams;
+  public native let visualStyle: scnDialogLineVisualStyle;
+  public native let additionalSpeakers: scnAdditionalSpeakers;
 }

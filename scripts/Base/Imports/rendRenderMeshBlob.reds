@@ -1,3 +1,3 @@
 public native class rendRenderMeshBlob extends IRenderResourceBlob {
-  native let header: rendRenderMeshBlobHeader;
+  public native let header: rendRenderMeshBlobHeader;
 }

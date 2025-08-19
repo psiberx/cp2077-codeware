@@ -1,4 +1,4 @@
 public native struct toolsJiraStatus {
-  native let name: String;
-  native let id: String;
+  public native let name: String;
+  public native let id: String;
 }

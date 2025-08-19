@@ -1,4 +1,4 @@
 public native struct questResetContainers_NodeTypeParams {
-  native let containerNodeRef: NodeRef;
-  native let clearReinitData: Bool;
+  public native let containerNodeRef: NodeRef;
+  public native let clearReinitData: Bool;
 }

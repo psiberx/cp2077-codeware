@@ -1,9 +1,9 @@
 public native struct grsDeathmatchPlayerGameInfo {
-  native let peerID: netPeerID;
-  native let isInGame: Bool;
-  native let isDead: Bool;
-  native let spawnTime: netTime;
-  native let killCount: Uint32;
-  native let deathCount: Uint32;
-  native let lastShooter: netPeerID;
+  public native let peerID: netPeerID;
+  public native let isInGame: Bool;
+  public native let isDead: Bool;
+  public native let spawnTime: netTime;
+  public native let killCount: Uint32;
+  public native let deathCount: Uint32;
+  public native let lastShooter: netPeerID;
 }

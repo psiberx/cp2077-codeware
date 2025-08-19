@@ -1,8 +1,8 @@
 public native struct inkMenuEntry {
-  native let name: CName;
-  native let menuWidget: ResourceRef; // rRef<inkWidgetLibraryResource>
-  native let depth: Uint32;
-  native let spawnMode: inkSpawnMode;
-  native let isAffectedByFadeout: Bool;
-  native let inputContext: CName;
+  public native let name: CName;
+  public native let menuWidget: ResourceRef; // rRef<inkWidgetLibraryResource>
+  public native let depth: Uint32;
+  public native let spawnMode: inkSpawnMode;
+  public native let isAffectedByFadeout: Bool;
+  public native let inputContext: CName;
 }

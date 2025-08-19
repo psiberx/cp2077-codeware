@@ -1,6 +1,6 @@
 public native class meshMeshImportedSnapPoint extends ISerializable {
-  native let localToCloud: Matrix;
-  native let range: Float;
-  native let rotationAlignmentSteps: Uint8;
-  native let snapTags: meshImportedSnapTags;
+  public native let localToCloud: Matrix;
+  public native let range: Float;
+  public native let rotationAlignmentSteps: Uint8;
+  public native let snapTags: meshImportedSnapTags;
 }

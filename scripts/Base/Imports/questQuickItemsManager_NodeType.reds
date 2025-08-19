@@ -1,3 +1,3 @@
 public native class questQuickItemsManager_NodeType extends questIUIManagerNodeType {
-  native let set: questQuickItemsSet;
+  public native let set: questQuickItemsSet;
 }

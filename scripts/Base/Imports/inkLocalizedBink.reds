@@ -1,3 +1,3 @@
 public native struct inkLocalizedBink {
-  native let binks: array<inkBinkLanguageDescriptor>;
+  public native let binks: array<inkBinkLanguageDescriptor>;
 }

@@ -1,4 +1,4 @@
 public native class inkAnimatedAdvertController extends inkLogicController {
-  native let animName: CName;
-  native let loopType: inkanimLoopType;
+  public native let animName: CName;
+  public native let loopType: inkanimLoopType;
 }

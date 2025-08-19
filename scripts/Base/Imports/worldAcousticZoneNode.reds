@@ -1,5 +1,5 @@
 public native class worldAcousticZoneNode extends worldNode {
-  native let isBlocker: Bool;
-  native let tagName: CName;
-  native let tagSpread: Float;
+  public native let isBlocker: Bool;
+  public native let tagName: CName;
+  public native let tagSpread: Float;
 }

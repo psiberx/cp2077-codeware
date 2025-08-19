@@ -1,5 +1,5 @@
 public native struct ShaftsAreaSettings {
-  native let shaftsLevelIndex: Uint32;
-  native let shaftsIntensity: Float;
-  native let shaftsThresholdsScale: Float;
+  public native let shaftsLevelIndex: Uint32;
+  public native let shaftsIntensity: Float;
+  public native let shaftsThresholdsScale: Float;
 }

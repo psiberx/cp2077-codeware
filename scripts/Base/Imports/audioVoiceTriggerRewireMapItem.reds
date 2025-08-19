@@ -1,7 +1,7 @@
 public native struct audioVoiceTriggerRewireMapItem {
-  native let name: CName;
-  native let inputToBeRewiredVariationIndex: Uint32;
-  native let inputToBeActuallyPlayedName: CName;
-  native let inputToBeActuallyPlayedVariationIndex: Uint32;
-  native let allowReuse: Bool;
+  public native let name: CName;
+  public native let inputToBeRewiredVariationIndex: Uint32;
+  public native let inputToBeActuallyPlayedName: CName;
+  public native let inputToBeActuallyPlayedVariationIndex: Uint32;
+  public native let allowReuse: Bool;
 }

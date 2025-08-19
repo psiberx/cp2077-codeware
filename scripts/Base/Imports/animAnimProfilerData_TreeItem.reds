@@ -1,6 +1,6 @@
 public native class animAnimProfilerData_TreeItem extends ISerializable {
-  native let className: CName;
-  native let exclusiveTimeMS: Float;
-  native let inclusiveTimeMS: Float;
-  native let children: array<ref<animAnimProfilerData_TreeItem>>;
+  public native let className: CName;
+  public native let exclusiveTimeMS: Float;
+  public native let inclusiveTimeMS: Float;
+  public native let children: array<ref<animAnimProfilerData_TreeItem>>;
 }

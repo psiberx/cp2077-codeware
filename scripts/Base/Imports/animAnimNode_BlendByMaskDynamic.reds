@@ -1,8 +1,8 @@
 public native class animAnimNode_BlendByMaskDynamic extends animAnimNode_Base {
-  native let base: animPoseLink;
-  native let blend: animPoseLink;
-  native let mask: animIntLink;
-  native let weight: animFloatLink;
-  native let masks: array<CName>;
-  native let syncMethod: ref<animISyncMethod>;
+  public native let base: animPoseLink;
+  public native let blend: animPoseLink;
+  public native let mask: animIntLink;
+  public native let weight: animFloatLink;
+  public native let masks: array<CName>;
+  public native let syncMethod: ref<animISyncMethod>;
 }

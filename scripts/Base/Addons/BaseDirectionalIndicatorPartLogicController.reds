@@ -1,5 +1,5 @@
 @addField(BaseDirectionalIndicatorPartLogicController)
-native let defaultForwardFovRange: Float;
+public native let defaultForwardFovRange: Float;
 
 @addField(BaseDirectionalIndicatorPartLogicController)
-native let adjustedForwardFovRange: Float;
+public native let adjustedForwardFovRange: Float;

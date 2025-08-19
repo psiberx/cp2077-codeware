@@ -1,5 +1,5 @@
 public native class questGameplayRestrictions_NodeType extends questIGameManagerNonSignalStoppingNodeType {
-  native let action: questGameplayRestrictionAction;
-  native let source: CName;
-  native let restrictionIDs: array<TweakDBID>;
+  public native let action: questGameplayRestrictionAction;
+  public native let source: CName;
+  public native let restrictionIDs: array<TweakDBID>;
 }

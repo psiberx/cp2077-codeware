@@ -1,4 +1,4 @@
 public native struct audioVehicleMultipliers {
-  native let throttleInputMultiplier: Float;
-  native let rpmMultiplier: Float;
+  public native let throttleInputMultiplier: Float;
+  public native let rpmMultiplier: Float;
 }

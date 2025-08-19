@@ -1,4 +1,4 @@
 public native class CParticleModificatorDrag extends IParticleModificator {
-  native let dragCoefficient: ref<IEvaluatorFloat>;
-  native let scale: Float;
+  public native let dragCoefficient: ref<IEvaluatorFloat>;
+  public native let scale: Float;
 }

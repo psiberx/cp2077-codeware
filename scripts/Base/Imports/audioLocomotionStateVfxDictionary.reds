@@ -1,3 +1,3 @@
 public native class audioLocomotionStateVfxDictionary extends audioInlinedAudioMetadata {
-  native let entries: array<audioLocomotionStateVfxDictionaryItem>;
+  public native let entries: array<audioLocomotionStateVfxDictionaryItem>;
 }

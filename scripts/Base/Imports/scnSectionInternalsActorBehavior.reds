@@ -1,4 +1,4 @@
 public native struct scnSectionInternalsActorBehavior {
-  native let actorId: scnActorId;
-  native let behaviorMode: scnSectionInternalsActorBehaviorMode;
+  public native let actorId: scnActorId;
+  public native let behaviorMode: scnSectionInternalsActorBehaviorMode;
 }

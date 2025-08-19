@@ -1,4 +1,4 @@
 public native struct worldSpeedSplineNodeRoadAdjustmentFactorChangeSection {
-  native let pos: Float;
-  native let targetFactor: Float;
+  public native let pos: Float;
+  public native let targetFactor: Float;
 }

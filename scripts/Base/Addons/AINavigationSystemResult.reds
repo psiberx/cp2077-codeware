@@ -1,2 +1,2 @@
 @addField(AINavigationSystemResult)
-native let adjustedTargetPosition: WorldPosition;
+public native let adjustedTargetPosition: WorldPosition;

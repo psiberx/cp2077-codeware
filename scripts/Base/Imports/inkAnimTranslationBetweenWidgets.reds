@@ -1,4 +1,4 @@
 public native class inkAnimTranslationBetweenWidgets extends inkAnimTranslation {
-  native let startWidgetPath: CName;
-  native let endWidgetPath: CName;
+  public native let startWidgetPath: CName;
+  public native let endWidgetPath: CName;
 }

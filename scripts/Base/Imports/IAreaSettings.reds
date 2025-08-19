@@ -1,4 +1,4 @@
 public abstract native class IAreaSettings extends ISerializable {
-  native let enable: Bool;
-  native let disabledIndexedProperties: Uint64;
+  public native let enable: Bool;
+  public native let disabledIndexedProperties: Uint64;
 }

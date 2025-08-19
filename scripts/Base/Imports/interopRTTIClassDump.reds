@@ -1,6 +1,6 @@
 public native struct interopRTTIClassDump {
-  native let classNames: array<String>;
-  native let descriptiveNames: array<String>;
-  native let resourceInfos: array<interopRTTIResourceDumpInfo>;
-  native let entries: array<interopRTTIClassDumpEntry>;
+  public native let classNames: array<String>;
+  public native let descriptiveNames: array<String>;
+  public native let resourceInfos: array<interopRTTIResourceDumpInfo>;
+  public native let entries: array<interopRTTIClassDumpEntry>;
 }

@@ -1,4 +1,4 @@
 public native struct AIGuardAreaSavedData {
-  native let puppetId: EntityID;
-  native let nodeRef: NodeRef;
+  public native let puppetId: EntityID;
+  public native let nodeRef: NodeRef;
 }

@@ -1,4 +1,4 @@
 public native class questNodeLoadingCondition extends questCondition {
-  native let objectRef: NodeRef;
-  native let inverted: Bool;
+  public native let objectRef: NodeRef;
+  public native let inverted: Bool;
 }

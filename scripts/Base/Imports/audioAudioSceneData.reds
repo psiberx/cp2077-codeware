@@ -1,10 +1,10 @@
 public native class audioAudioSceneData extends audioAudioMetadata {
-  native let anyStateArray: [audioAudioStateData; 1];
-  native let states: array<audioAudioStateData>;
-  native let anyStateTransitionsTable: array<audioAnyStateTransitionEntry>;
-  native let voLineSignals: array<audioVoLineSignal>;
-  native let signalLeadingToShutdown: CName;
-  native let templateScene: CName;
-  native let templateSceneStateOverrides: array<audioAudioSceneStateOverride>;
-  native let templateSceneSignalOverrides: array<audioAudioSceneSignalOverride>;
+  public native let anyStateArray: [audioAudioStateData; 1];
+  public native let states: array<audioAudioStateData>;
+  public native let anyStateTransitionsTable: array<audioAnyStateTransitionEntry>;
+  public native let voLineSignals: array<audioVoLineSignal>;
+  public native let signalLeadingToShutdown: CName;
+  public native let templateScene: CName;
+  public native let templateSceneStateOverrides: array<audioAudioSceneStateOverride>;
+  public native let templateSceneSignalOverrides: array<audioAudioSceneSignalOverride>;
 }

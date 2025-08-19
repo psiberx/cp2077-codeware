@@ -1,7 +1,7 @@
 public native class scnSceneSharedState extends ISerializable {
-  native let entrypoint: CName;
-  native let syncNodesVisited: array<scnSyncNodeSignal>;
-  native let instanceHash: Uint64;
-  native let finishedOnServer: Bool;
-  native let finishedOnClient: Bool;
+  public native let entrypoint: CName;
+  public native let syncNodesVisited: array<scnSyncNodeSignal>;
+  public native let instanceHash: Uint64;
+  public native let finishedOnServer: Bool;
+  public native let finishedOnClient: Bool;
 }

@@ -1,5 +1,5 @@
 @neverRef()
 public native class animAnimNodeDebugState extends ISerializable {
-  native let nodeId: Uint32;
-  native let active: Bool;
+  public native let nodeId: Uint32;
+  public native let active: Bool;
 }

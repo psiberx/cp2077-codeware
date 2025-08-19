@@ -1,3 +1,3 @@
 public native class gameEffectParameter_CNameEvaluator_Blackboard extends gameIEffectParameter_CNameEvaluator {
-  native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
+  public native let blackboardProperty: gameBlackboardPropertyBindingDefinition;
 }

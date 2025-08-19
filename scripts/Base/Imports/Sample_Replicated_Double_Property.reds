@@ -1,3 +1,3 @@
 public native struct Sample_Replicated_Double_Property {
-  native let property: Double;
+  public native let property: Double;
 }

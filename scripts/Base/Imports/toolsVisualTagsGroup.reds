@@ -1,5 +1,5 @@
 @neverRef()
 public native class toolsVisualTagsGroup extends ISerializable {
-  native let name: CName;
-  native let tags: array<toolsVisualTagsDefinition>;
+  public native let name: CName;
+  public native let tags: array<toolsVisualTagsDefinition>;
 }

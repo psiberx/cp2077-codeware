@@ -1,4 +1,4 @@
 public native class AIbehaviorMaybeNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
-  native let onChildSuccess: AIbehaviorMaybeNodeAction;
-  native let onChildFailure: AIbehaviorMaybeNodeAction;
+  public native let onChildSuccess: AIbehaviorMaybeNodeAction;
+  public native let onChildFailure: AIbehaviorMaybeNodeAction;
 }

@@ -1,2 +1,2 @@
 @addField(JournalInternetText)
-native let text: LocalizationString;
+public native let text: LocalizationString;

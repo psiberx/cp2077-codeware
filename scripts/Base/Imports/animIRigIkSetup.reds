@@ -1,3 +1,3 @@
 public abstract native class animIRigIkSetup extends ISerializable {
-  native let name: CName;
+  public native let name: CName;
 }

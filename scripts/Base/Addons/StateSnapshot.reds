@@ -1,2 +1,2 @@
 @addField(StateSnapshot)
-native let logicalOwnerIsAWeapon: Bool;
+public native let logicalOwnerIsAWeapon: Bool;

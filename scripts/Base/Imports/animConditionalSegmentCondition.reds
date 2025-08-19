@@ -1,6 +1,6 @@
 public native struct animConditionalSegmentCondition {
-  native let lod: Int32;
-  native let group: CName;
-  native let name: CName;
-  native let animFeatureValue: Bool;
+  public native let lod: Int32;
+  public native let group: CName;
+  public native let name: CName;
+  public native let animFeatureValue: Bool;
 }

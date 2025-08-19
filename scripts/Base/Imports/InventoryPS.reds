@@ -1,4 +1,4 @@
 public importonly class InventoryPS extends GameComponentPS {
-  native persistent let isRegisteredShared: Bool;
-  native persistent let accessible: Bool;
+  public native persistent let isRegisteredShared: Bool;
+  public native persistent let accessible: Bool;
 }

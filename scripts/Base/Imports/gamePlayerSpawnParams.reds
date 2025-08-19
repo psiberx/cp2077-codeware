@@ -1,9 +1,9 @@
 public native struct gamePlayerSpawnParams {
-  native let isSpectator: Bool;
-  native let spawnPoint: Transform;
-  native let recordId: TweakDBID;
-  native let gender: CName;
-  native let useSpecifiedStartPoint: Bool;
-  native let spawnTags: redTagList;
-  native let nickname: String;
+  public native let isSpectator: Bool;
+  public native let spawnPoint: Transform;
+  public native let recordId: TweakDBID;
+  public native let gender: CName;
+  public native let useSpecifiedStartPoint: Bool;
+  public native let spawnTags: redTagList;
+  public native let nickname: String;
 }

@@ -1,4 +1,4 @@
 public native class gameuiRandomNewsFeedAnimator extends inkLogicController {
-  native let textWidget: inkTextRef;
-  native let animDuration: Float;
+  public native let textWidget: inkTextRef;
+  public native let animDuration: Float;
 }

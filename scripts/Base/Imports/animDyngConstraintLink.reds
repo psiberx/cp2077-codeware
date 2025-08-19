@@ -1,8 +1,8 @@
 public native class animDyngConstraintLink extends animIDyngConstraint {
-  native let bone1: animTransformIndex;
-  native let bone2: animTransformIndex;
-  native let linkType: animDyngConstraintLinkType;
-  native let lengthLowerBoundRatioPercentage: Float;
-  native let lengthUpperBoundRatioPercentage: Float;
-  native let lookAtAxis: Vector3;
+  public native let bone1: animTransformIndex;
+  public native let bone2: animTransformIndex;
+  public native let linkType: animDyngConstraintLinkType;
+  public native let lengthLowerBoundRatioPercentage: Float;
+  public native let lengthUpperBoundRatioPercentage: Float;
+  public native let lookAtAxis: Vector3;
 }

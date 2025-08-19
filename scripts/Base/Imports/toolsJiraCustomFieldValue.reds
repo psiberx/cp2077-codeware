@@ -1,3 +1,3 @@
 public native struct toolsJiraCustomFieldValue {
-  native let value: String;
+  public native let value: String;
 }

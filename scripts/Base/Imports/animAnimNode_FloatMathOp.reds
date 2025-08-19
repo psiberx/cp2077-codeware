@@ -1,5 +1,5 @@
 public native class animAnimNode_FloatMathOp extends animAnimNode_FloatValue {
-  native let operationType: animEAnimGraphMathOp;
-  native let firstInputNode: animFloatLink;
-  native let secondInputNode: animFloatLink;
+  public native let operationType: animEAnimGraphMathOp;
+  public native let firstInputNode: animFloatLink;
+  public native let secondInputNode: animFloatLink;
 }

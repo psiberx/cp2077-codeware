@@ -1,7 +1,7 @@
 public native class genLevelRandomizer extends GameObject {
-  native let entries: array<genLevelRandomizerEntry>;
-  native let seed: Uint32;
-  native let dataSource: genLevelRandomizerDataSource;
-  native let supervisorType: CName;
-  native let debugSpawnAll: Bool;
+  public native let entries: array<genLevelRandomizerEntry>;
+  public native let seed: Uint32;
+  public native let dataSource: genLevelRandomizerDataSource;
+  public native let supervisorType: CName;
+  public native let debugSpawnAll: Bool;
 }

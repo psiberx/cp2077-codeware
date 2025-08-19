@@ -1,5 +1,5 @@
 public native class scnFlowControlNode extends scnSceneGraphNode {
-  native let isOpen: Bool;
-  native let opensAt: Uint32;
-  native let closesAt: Uint32;
+  public native let isOpen: Bool;
+  public native let opensAt: Uint32;
+  public native let closesAt: Uint32;
 }

@@ -1,5 +1,5 @@
 @addField(SetAsQuestImportantEvent)
-native let isImportant: Bool;
+public native let isImportant: Bool;
 
 @addField(SetAsQuestImportantEvent)
-native let propagateToSlaves: Bool;
+public native let propagateToSlaves: Bool;

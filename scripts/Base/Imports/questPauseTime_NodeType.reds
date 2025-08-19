@@ -1,4 +1,4 @@
 public native class questPauseTime_NodeType extends questITimeManagerNodeType {
-  native let pause: Bool;
-  native let source: CName;
+  public native let pause: Bool;
+  public native let source: CName;
 }

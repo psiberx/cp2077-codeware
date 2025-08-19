@@ -1,41 +1,41 @@
 @addField(inkImage)
-native let useExternalDynamicTexture: Bool;
+public native let useExternalDynamicTexture: Bool;
 
 @addField(inkImage)
-native let externalDynamicTexture: CName;
+public native let externalDynamicTexture: CName;
 
 @addField(inkImage)
-native let useNineSliceScale: Bool;
+public native let useNineSliceScale: Bool;
 
 @addField(inkImage)
-native let nineSliceScale: inkMargin;
+public native let nineSliceScale: inkMargin;
 
 @addField(inkImage)
-native let mirrorType: inkBrushMirrorType;
+public native let mirrorType: inkBrushMirrorType;
 
 @addField(inkImage)
-native let tileType: inkBrushTileType;
+public native let tileType: inkBrushTileType;
 
 @addField(inkImage)
-native let horizontalTileCrop: Float;
+public native let horizontalTileCrop: Float;
 
 @addField(inkImage)
-native let verticalTileCrop: Float;
+public native let verticalTileCrop: Float;
 
 @addField(inkImage)
-native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+public native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
 
 @addField(inkImage)
-native let texturePart: CName;
+public native let texturePart: CName;
 
 @addField(inkImage)
-native let contentHAlign: inkEHorizontalAlign;
+public native let contentHAlign: inkEHorizontalAlign;
 
 @addField(inkImage)
-native let contentVAlign: inkEVerticalAlign;
+public native let contentVAlign: inkEVerticalAlign;
 
 @addField(inkImage)
-native let tileHAlign: inkEHorizontalAlign;
+public native let tileHAlign: inkEHorizontalAlign;
 
 @addField(inkImage)
-native let tileVAlign: inkEVerticalAlign;
+public native let tileVAlign: inkEVerticalAlign;

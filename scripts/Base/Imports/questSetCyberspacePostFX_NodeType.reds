@@ -1,10 +1,10 @@
 public native class questSetCyberspacePostFX_NodeType extends questIRenderFxManagerNodeType {
-  native let enabled: Bool;
-  native let fullScreen: Bool;
-  native let vfx: Bool;
-  native let initialDatamosh: Float;
-  native let targetDatamosh: Float;
-  native let initialTreshold: Float;
-  native let targetTreshold: Float;
-  native let timeBlend: Float;
+  public native let enabled: Bool;
+  public native let fullScreen: Bool;
+  public native let vfx: Bool;
+  public native let initialDatamosh: Float;
+  public native let targetDatamosh: Float;
+  public native let initialTreshold: Float;
+  public native let targetTreshold: Float;
+  public native let timeBlend: Float;
 }

@@ -1,5 +1,5 @@
 public native class questUniversalRef extends ISerializable {
-  native let entityReference: EntityReference;
-  native let refLocalPlayer: Bool;
-  native let mainPlayerObject: Bool;
+  public native let entityReference: EntityReference;
+  public native let refLocalPlayer: Bool;
+  public native let mainPlayerObject: Bool;
 }

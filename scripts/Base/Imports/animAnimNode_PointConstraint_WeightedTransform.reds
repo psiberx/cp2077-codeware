@@ -1,4 +1,4 @@
 public native struct animAnimNode_PointConstraint_WeightedTransform {
-  native let transform: animTransformIndex;
-  native let weight: Float;
+  public native let transform: animTransformIndex;
+  public native let weight: Float;
 }

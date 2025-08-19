@@ -1,3 +1,3 @@
 public native class scnCheckPlayerCombatInterruptCondition extends scnIInterruptCondition {
-  native let params: scnCheckPlayerCombatInterruptConditionParams;
+  public native let params: scnCheckPlayerCombatInterruptConditionParams;
 }

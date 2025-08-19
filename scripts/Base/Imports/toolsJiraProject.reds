@@ -1,4 +1,4 @@
 public native struct toolsJiraProject {
-  native let key: String;
-  native let name: String;
+  public native let key: String;
+  public native let name: String;
 }

@@ -1,2 +1,2 @@
 @addField(TutorialArea)
-native let bracketID: CName;
+public native let bracketID: CName;

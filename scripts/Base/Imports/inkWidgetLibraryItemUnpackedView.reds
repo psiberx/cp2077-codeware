@@ -1,4 +1,4 @@
 public native class inkWidgetLibraryItemUnpackedView extends ISerializable {
-  native let name: CName;
-  native let instance: ref<inkWidgetLibraryItemInstance>;
+  public native let name: CName;
+  public native let instance: ref<inkWidgetLibraryItemInstance>;
 }

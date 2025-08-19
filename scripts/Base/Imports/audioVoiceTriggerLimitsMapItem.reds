@@ -1,4 +1,4 @@
 public native struct audioVoiceTriggerLimitsMapItem {
-  native let name: CName;
-  native let limits: audioVoiceTriggerLimits;
+  public native let name: CName;
+  public native let limits: audioVoiceTriggerLimits;
 }

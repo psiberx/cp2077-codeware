@@ -1,7 +1,7 @@
 public native class animAnimNode_TwistConstraint extends animAnimNode_OnePoseInput {
-  native let frontAxis: animAxis;
-  native let transformA: animTransformIndex;
-  native let transformB: animTransformIndex;
-  native let outputs: array<animTwistOutput>;
-  native let debug: Bool;
+  public native let frontAxis: animAxis;
+  public native let transformA: animTransformIndex;
+  public native let transformB: animTransformIndex;
+  public native let outputs: array<animTwistOutput>;
+  public native let debug: Bool;
 }

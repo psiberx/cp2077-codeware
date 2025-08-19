@@ -1,6 +1,6 @@
 public native class scnRidResource extends CResource {
-  native let actors: array<scnActorRid>;
-  native let cameras: array<scnCameraRid>;
-  native let nextSerialNumber: scnRidSerialNumber;
-  native let version: Uint32;
+  public native let actors: array<scnActorRid>;
+  public native let cameras: array<scnCameraRid>;
+  public native let nextSerialNumber: scnRidSerialNumber;
+  public native let version: Uint32;
 }

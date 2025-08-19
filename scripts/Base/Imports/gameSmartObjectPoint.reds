@@ -1,3 +1,3 @@
 public native struct gameSmartObjectPoint {
-  native let isReachable: Bool;
+  public native let isReachable: Bool;
 }

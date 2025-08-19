@@ -1,18 +1,18 @@
 public native class FunctionalTestsDataMemoryStatsData extends ISerializable {
-  native let totalPhysicalMemory: Uint64;
-  native let availablePhysicalMemory: Uint64;
-  native let runtimeTotalBytesAllocated: Uint64;
-  native let cpuBytesAllocated: Uint64;
-  native let gpuBytesAllocated: Uint64;
-  native let totalAllocationCount: Uint32;
-  native let cpuAllocationCount: Uint32;
-  native let gpuAllocationCount: Uint32;
-  native let engineTick: Uint64;
-  native let lastTimeDelta: Float;
-  native let engineTime: Double;
-  native let rawLocalTime: Uint64;
-  native let playerPosition: String;
-  native let playerOrientation: String;
-  native let poolsRuntimeInfo: array<FunctionalTestsDataMemoryPoolRuntimeData>;
-  native let poolsCurrentInfo: array<FunctionalTestsDataMemoryPoolStaticData>;
+  public native let totalPhysicalMemory: Uint64;
+  public native let availablePhysicalMemory: Uint64;
+  public native let runtimeTotalBytesAllocated: Uint64;
+  public native let cpuBytesAllocated: Uint64;
+  public native let gpuBytesAllocated: Uint64;
+  public native let totalAllocationCount: Uint32;
+  public native let cpuAllocationCount: Uint32;
+  public native let gpuAllocationCount: Uint32;
+  public native let engineTick: Uint64;
+  public native let lastTimeDelta: Float;
+  public native let engineTime: Double;
+  public native let rawLocalTime: Uint64;
+  public native let playerPosition: String;
+  public native let playerOrientation: String;
+  public native let poolsRuntimeInfo: array<FunctionalTestsDataMemoryPoolRuntimeData>;
+  public native let poolsCurrentInfo: array<FunctionalTestsDataMemoryPoolStaticData>;
 }

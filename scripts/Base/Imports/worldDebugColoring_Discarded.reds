@@ -1,3 +1,3 @@
 public native class worldDebugColoring_Discarded extends worldEditorDebugColoringSettings {
-  native let color: Color;
+  public native let color: Color;
 }

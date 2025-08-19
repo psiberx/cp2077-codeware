@@ -1,10 +1,10 @@
 public native class inkPointCloudEffect extends inkIEffect {
-  native let repeat: Float;
-  native let offsetX: Float;
-  native let offsetY: Float;
-  native let angle: Float;
-  native let fovScale: Float;
-  native let parallaxDepth: Float;
-  native let depthToOpacity: Float;
-  native let depthToBrightness: Float;
+  public native let repeat: Float;
+  public native let offsetX: Float;
+  public native let offsetY: Float;
+  public native let angle: Float;
+  public native let fovScale: Float;
+  public native let parallaxDepth: Float;
+  public native let depthToOpacity: Float;
+  public native let depthToBrightness: Float;
 }

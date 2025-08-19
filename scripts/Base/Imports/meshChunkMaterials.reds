@@ -1,3 +1,3 @@
 public native struct meshChunkMaterials {
-  native let materialNames: array<CName>;
+  public native let materialNames: array<CName>;
 }

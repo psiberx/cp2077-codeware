@@ -1,5 +1,5 @@
 public native class scnWalkToEvent extends scnSceneEvent {
-  native let actorId: scnActorId;
-  native let targetWaypointTag: CName;
-  native let usePathfinding: Bool;
+  public native let actorId: scnActorId;
+  public native let targetWaypointTag: CName;
+  public native let usePathfinding: Bool;
 }

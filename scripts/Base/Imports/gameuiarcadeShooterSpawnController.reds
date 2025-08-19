@@ -1,11 +1,11 @@
 public native class gameuiarcadeShooterSpawnController extends inkLogicController {
-  native let enemyType: gameuiarcadeShooterAIType;
-  native let spawnCondition: gameuiarcadeShooterSpawnerCondition;
-  native let spawnDelay: Float;
-  native let spawnCount: Uint32;
-  native let offScreenSpawnExpiryTime: Float;
-  native let skippable: Bool;
-  native let skipOffset: Float;
-  native let awaitPreviousUnitDead: Bool;
-  native let enemyParameter: String;
+  public native let enemyType: gameuiarcadeShooterAIType;
+  public native let spawnCondition: gameuiarcadeShooterSpawnerCondition;
+  public native let spawnDelay: Float;
+  public native let spawnCount: Uint32;
+  public native let offScreenSpawnExpiryTime: Float;
+  public native let skippable: Bool;
+  public native let skipOffset: Float;
+  public native let awaitPreviousUnitDead: Bool;
+  public native let enemyParameter: String;
 }

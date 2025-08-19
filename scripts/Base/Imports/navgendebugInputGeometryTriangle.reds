@@ -1,4 +1,4 @@
 public native struct navgendebugInputGeometryTriangle {
-  native let vertices: [Vector3; 3];
-  native let area: Uint8;
+  public native let vertices: [Vector3; 3];
+  public native let area: Uint8;
 }

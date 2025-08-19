@@ -1,14 +1,14 @@
 @addField(InteractionComponent)
-native let definitionResource: ResourceRef; // rRef<gameinteractionsInteractionDescriptorResource>
+public native let definitionResource: ResourceRef; // rRef<gameinteractionsInteractionDescriptorResource>
 
 @addField(InteractionComponent)
-native let interactionRootOffset: Vector3;
+public native let interactionRootOffset: Vector3;
 
 @addField(InteractionComponent)
-native let layerOverrides: array<gameinteractionsInteractionDefinitionOverrider>;
+public native let layerOverrides: array<gameinteractionsInteractionDefinitionOverrider>;
 
 @addField(InteractionComponent)
-native let layerOverridesTemp: array<gameinteractionsInteractionDefinitionOverrider>;
+public native let layerOverridesTemp: array<gameinteractionsInteractionDefinitionOverrider>;
 
 @addField(InteractionComponent)
-native let isEnabled: Bool;
+public native let isEnabled: Bool;

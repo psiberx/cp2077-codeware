@@ -1,5 +1,5 @@
 public native struct CutCone {
-  native let positionAndRadius1: Vector4;
-  native let normalAndRadius2: Vector4;
-  native let height: Float;
+  public native let positionAndRadius1: Vector4;
+  public native let normalAndRadius2: Vector4;
+  public native let height: Float;
 }

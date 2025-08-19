@@ -1,3 +1,3 @@
 public native class AnimFeatureWorkspotInertializationAnim extends AnimFeature {
-  native let duration: Float;
+  public native let duration: Float;
 }

@@ -1,5 +1,5 @@
 public native class workFastExit extends workIEntry {
-  native let animName: CName;
-  native let forcedBlendIn: Float;
-  native let movementType: moveMovementType;
+  public native let animName: CName;
+  public native let forcedBlendIn: Float;
+  public native let movementType: moveMovementType;
 }

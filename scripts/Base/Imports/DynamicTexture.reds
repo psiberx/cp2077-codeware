@@ -1,9 +1,9 @@
 public native class DynamicTexture extends ITexture {
-  native let width: Uint32;
-  native let height: Uint32;
-  native let scaleToViewport: Bool;
-  native let mipChain: Bool;
-  native let samplesCount: Uint8;
-  native let dataFormat: DynamicTextureDataFormat;
-  native let generator: ref<IDynamicTextureGenerator>;
+  public native let width: Uint32;
+  public native let height: Uint32;
+  public native let scaleToViewport: Bool;
+  public native let mipChain: Bool;
+  public native let samplesCount: Uint8;
+  public native let dataFormat: DynamicTextureDataFormat;
+  public native let generator: ref<IDynamicTextureGenerator>;
 }

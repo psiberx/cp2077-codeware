@@ -1,5 +1,5 @@
 public native struct questDropItemFromSlot_NodeTypeParams {
-  native let objectRef: EntityReference;
-  native let slotId: TweakDBID;
-  native let useGravity: Bool;
+  public native let objectRef: EntityReference;
+  public native let slotId: TweakDBID;
+  public native let useGravity: Bool;
 }

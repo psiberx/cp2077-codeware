@@ -1,5 +1,5 @@
 public native struct inkInputIconMappingJSON {
-  native let id: CName;
-  native let part: CName;
-  native let hold: Bool;
+  public native let id: CName;
+  public native let part: CName;
+  public native let hold: Bool;
 }

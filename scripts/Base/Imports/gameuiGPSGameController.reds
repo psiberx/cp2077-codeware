@@ -1,3 +1,3 @@
 public native class gameuiGPSGameController extends inkHUDGameController {
-  native let gpsSettings: GPSSettings;
+  public native let gpsSettings: GPSSettings;
 }

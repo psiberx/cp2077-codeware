@@ -1,4 +1,4 @@
 public native class gameuiarcadeShooterBossController extends gameuiarcadeShooterAIBase {
-  native let customBoundSize: Bool;
-  native let bossSize: Vector2;
+  public native let customBoundSize: Bool;
+  public native let bossSize: Vector2;
 }

@@ -1,5 +1,5 @@
 public native struct questElevator_ManageNPCAttachment_NodeTypeParams {
-  native let elevatorRef: NodeRef;
-  native let npcRef: EntityReference;
-  native let action: questElevator_ManageNPCAttachment_NodeTypeParamsAction;
+  public native let elevatorRef: NodeRef;
+  public native let npcRef: EntityReference;
+  public native let action: questElevator_ManageNPCAttachment_NodeTypeParamsAction;
 }

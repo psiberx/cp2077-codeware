@@ -1,16 +1,16 @@
 public native class AIbehaviorActionMoveTreeNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
-  native let movementTarget: ref<AIArgumentMapping>;
-  native let lookAtTarget: ref<AIArgumentMapping>;
-  native let movementType: ref<AIArgumentMapping>;
-  native let tolerance: ref<AIArgumentMapping>;
-  native let ignoreNavigation: ref<AIArgumentMapping>;
-  native let rotateEntity: ref<AIArgumentMapping>;
-  native let useStart: ref<AIArgumentMapping>;
-  native let useStop: ref<AIArgumentMapping>;
-  native let destinationTangent: ref<AIArgumentMapping>;
-  native let startTangent: ref<AIArgumentMapping>;
-  native let spotReservation: ref<AIArgumentMapping>;
-  native let ignoreRestrictedArea: ref<AIArgumentMapping>;
-  native let ignoreCollisionsWhenCloseToTarget: ref<AIArgumentMapping>;
-  native let failWhenStoppedByCollision: ref<AIArgumentMapping>;
+  public native let movementTarget: ref<AIArgumentMapping>;
+  public native let lookAtTarget: ref<AIArgumentMapping>;
+  public native let movementType: ref<AIArgumentMapping>;
+  public native let tolerance: ref<AIArgumentMapping>;
+  public native let ignoreNavigation: ref<AIArgumentMapping>;
+  public native let rotateEntity: ref<AIArgumentMapping>;
+  public native let useStart: ref<AIArgumentMapping>;
+  public native let useStop: ref<AIArgumentMapping>;
+  public native let destinationTangent: ref<AIArgumentMapping>;
+  public native let startTangent: ref<AIArgumentMapping>;
+  public native let spotReservation: ref<AIArgumentMapping>;
+  public native let ignoreRestrictedArea: ref<AIArgumentMapping>;
+  public native let ignoreCollisionsWhenCloseToTarget: ref<AIArgumentMapping>;
+  public native let failWhenStoppedByCollision: ref<AIArgumentMapping>;
 }
