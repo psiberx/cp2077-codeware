@@ -1,7 +1,7 @@
 public native class workWorkspotInstance extends ISerializable {
-  native let tree: ref<workWorkspotTree>;
-  native let resource: ref<workWorkspotResource>;
-  native let animName: CName;
-  native let idleAnim: CName;
-  native let entryId: WorkEntryId;
+  public native let tree: ref<workWorkspotTree>;
+  public native let resource: ref<workWorkspotResource>;
+  public native let animName: CName;
+  public native let idleAnim: CName;
+  public native let entryId: WorkEntryId;
 }

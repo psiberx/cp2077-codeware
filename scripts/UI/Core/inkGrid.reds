@@ -1,7 +1,7 @@
 public native class inkGrid extends inkCompoundWidget {
-    native let orientation: inkEOrientation;
-    native let childPadding: inkMargin;
-    native let childSizeStep: Vector2;
+    public native let orientation: inkEOrientation;
+    public native let childPadding: inkMargin;
+    public native let childSizeStep: Vector2;
 
     public func GetOrientation() -> inkEOrientation {
         return this.orientation;

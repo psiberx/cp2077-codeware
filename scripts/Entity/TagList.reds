@@ -1,5 +1,5 @@
 public native struct TagList {
-    native let tags: array<CName>;
+    public native let tags: array<CName>;
 
     public static native func IsEmpty(self: script_ref<TagList>) -> Bool
     public static native func Clear(self: script_ref<TagList>)

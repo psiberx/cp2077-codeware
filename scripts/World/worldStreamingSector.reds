@@ -1,8 +1,8 @@
 public native class worldStreamingSector extends CResource {
-    native let localInplaceResource: array<ResourceRef>;
-    native let externInplaceResource: ResourceAsyncRef; // raRef<worldStreamingSectorInplaceContent>
-    native let level: Uint8;
-    native let category: worldStreamingSectorCategory;
+    public native let localInplaceResource: array<ResourceRef>;
+    public native let externInplaceResource: ResourceAsyncRef; // raRef<worldStreamingSectorInplaceContent>
+    public native let level: Uint8;
+    public native let category: worldStreamingSectorCategory;
 
     public native func GetNodes() -> array<ref<worldNode>>
     public native func GetNodeCount() -> Int32
