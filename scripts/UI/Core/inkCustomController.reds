@@ -88,10 +88,6 @@ public abstract class inkCustomController extends inkLogicController {
         this.m_gameController = gameController;
     }
 
-    protected func SetGameController(parentController: ref<inkCustomController>) {
-        this.m_gameController = parentController.GetGameController();
-    }
-
     protected func CreateInstance() {
         if !this.m_isCreated {
             this.OnCreate();
@@ -133,7 +129,7 @@ public abstract class inkCustomController extends inkLogicController {
                     customController = childController as inkCustomController;
 
                     if IsDefined(customController) {
-                        customController.SetGameController(this);
+                        customController.SetGameController(this.GetGameController());
                         customController.InitializeInstance();
                     }
                 }
