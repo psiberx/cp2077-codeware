@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioWeaponAmmoSettingsMap extends audioAudioMetadata {
   public native let standardFlyby: audioFlybySettings;
   public native let sniperFlyby: audioFlybySettings;

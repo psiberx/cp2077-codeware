@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioReflectionEmitterSettings extends audioAudioMetadata {
   public native let reflectionEvent: CName;
   public native let fadeout: Float;

@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioDirectorSystemSettings extends audioAudioMetadata {
   public native let combatVoManagerSettingsName: CName;
   public native let singleConversationMinRepeatTime: Float;

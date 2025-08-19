@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioAmbientAreaSettings extends audioAudioMetadata {
   public native let MetadataParent: CName;
   public native let EmitterDecorator: CName;

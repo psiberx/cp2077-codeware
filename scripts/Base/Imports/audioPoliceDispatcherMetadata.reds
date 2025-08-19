@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioPoliceDispatcherMetadata extends audioAudioMetadata {
   public native let regularInputs: array<CName>;
   public native let playerChaseStartInputs: array<CName>;

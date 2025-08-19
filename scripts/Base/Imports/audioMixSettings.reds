@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioMixSettings extends audioAudioMetadata {
   public native let masterVolume: Float;
   public native let sfxVolume: Float;

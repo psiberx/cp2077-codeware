@@ -1,3 +1,4 @@
+@mixedRef()
 public abstract native class audioWeaponSettings extends audioAudioMetadata {
   public native let bulletType: audioWeaponBulletType;
   public native let shellCasingType: audioWeaponShellCasingType;

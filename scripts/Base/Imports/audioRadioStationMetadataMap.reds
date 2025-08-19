@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioRadioStationMetadataMap extends audioAudioMetadata {
   public native let radioStations: array<CName>;
   public native let switchStationEvent: CName;

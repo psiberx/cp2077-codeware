@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioFoleyNPCAppearanceMappingMetadata extends audioAudioMetadata {
   public native let fallbackMetadata: CName;
   public native let NPCsPerAppearance: array<audioAppearanceToNPCMetadata>;

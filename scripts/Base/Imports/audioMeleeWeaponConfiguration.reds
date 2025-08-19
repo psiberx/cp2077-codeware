@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioMeleeWeaponConfiguration extends audioAudioMetadata {
   public native let fastWhoosh: audioMeleeSound;
   public native let normalWhoosh: audioMeleeSound;

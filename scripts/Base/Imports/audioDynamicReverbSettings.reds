@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioDynamicReverbSettings extends audioAudioMetadata {
   public native let reverbType: audioDynamicReverbType;
   public native let crossover1: audioReverbCrossoverParams;

@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioNpcGunChoirVoice extends audioAudioMetadata {
   public native let fireSound: CName;
   public native let burstFireSound: CName;

@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioVehicleMetadata extends audioCustomEmitterMetadata {
   public native let generalData: audioVehicleGeneralData;
   public native let mechanicalData: audioVehicleMechanicalData;

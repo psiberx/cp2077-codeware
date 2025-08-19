@@ -1,3 +1,4 @@
+@mixedRef()
 public abstract native class audioEntitySettings extends audioAudioMetadata {
   public native let commonSettings: audioCommonEntitySettings;
   public native let scanningSettings: audioScanningSettings;

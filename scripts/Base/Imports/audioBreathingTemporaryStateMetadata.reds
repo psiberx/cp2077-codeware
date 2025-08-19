@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioBreathingTemporaryStateMetadata extends audioAudioMetadata {
   public native let inhaleSound: CName;
   public native let exhaleSound: CName;

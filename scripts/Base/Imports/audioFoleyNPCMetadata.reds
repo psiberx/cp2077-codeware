@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioFoleyNPCMetadata extends audioAudioMetadata {
   public native let fastHeavy: audioMeleeSound;
   public native let fastMedium: audioMeleeSound;

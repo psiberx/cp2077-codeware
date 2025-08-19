@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioAdvertSoundMetadata extends audioAudioMetadata {
   public native let audioEvent1: CName;
   public native let audioEvent2: CName;

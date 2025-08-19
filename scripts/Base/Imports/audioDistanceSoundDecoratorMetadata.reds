@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioDistanceSoundDecoratorMetadata extends audioEmitterMetadata {
   public native let onEnter: CName;
   public native let onLeave: CName;

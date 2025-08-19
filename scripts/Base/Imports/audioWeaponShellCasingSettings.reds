@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioWeaponShellCasingSettings extends audioAudioMetadata {
   public native let mode: audioWeaponShellCasingMode;
   public native let direction: audioWeaponShellCasingDirection;

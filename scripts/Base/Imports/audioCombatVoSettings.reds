@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioCombatVoSettings extends audioAudioMetadata {
   public native let answerGroupName: CName;
   public native let isPlayerAlly: Bool;

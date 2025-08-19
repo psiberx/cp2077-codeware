@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioGearSweetener extends audioAudioMetadata {
   public native let gear: Uint32;
   public native let rpmThreshold: Float;

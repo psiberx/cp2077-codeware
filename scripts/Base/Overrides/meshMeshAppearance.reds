@@ -1,8 +1,8 @@
 public native class meshMeshAppearance extends ISerializable {
-  native let name: CName;
-  native let chunkMaterials: array<CName>;
-  native let tags: array<CName>;
+  public native let name: CName;
+  public native let chunkMaterials: array<CName>;
+  public native let tags: array<CName>;
 
-  native func SetMesh(mesh: ref<CMesh>)
-  native func ResetMaterialCache()
+  public native func SetMesh(mesh: ref<CMesh>)
+  public native func ResetMaterialCache()
 }

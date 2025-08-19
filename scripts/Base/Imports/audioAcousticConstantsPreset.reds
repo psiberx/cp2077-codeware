@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioAcousticConstantsPreset extends audioAudioMetadata {
   public native let dopplerFactor: Float;
   public native let speedOfSound: Float;

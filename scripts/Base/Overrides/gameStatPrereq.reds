@@ -1,4 +1,4 @@
 public native class gameStatPrereq extends IRPGPrereq {
-    native let statType: gamedataStatType;
-    native let valueToCheck: Float;
+  public native let statType: gamedataStatType;
+  public native let valueToCheck: Float;
 }

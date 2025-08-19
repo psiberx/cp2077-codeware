@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioGroupingShapeClassifierMetadata extends audioAudioMetadata {
   public native let useAngle: Bool;
   public native let minGroupSize: Float;

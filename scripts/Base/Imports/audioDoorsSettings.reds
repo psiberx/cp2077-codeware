@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioDoorsSettings extends audioDeviceSettings {
   public native let openEvent: CName;
   public native let openFailedEvent: CName;

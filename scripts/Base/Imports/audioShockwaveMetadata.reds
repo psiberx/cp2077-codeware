@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioShockwaveMetadata extends audioEmitterMetadata {
   public native let explosionMetadataName: CName;
   public native let thumpMetadataName: CName;

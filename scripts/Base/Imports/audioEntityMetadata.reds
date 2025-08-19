@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioEntityMetadata extends audioAudioMetadata {
   public native let fallbackDecorators: array<CName>;
   public native let defaultPositionName: CName;

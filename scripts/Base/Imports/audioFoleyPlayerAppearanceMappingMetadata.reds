@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioFoleyPlayerAppearanceMappingMetadata extends audioAudioMetadata {
   public native let fallbackMetadata: CName;
   public native let jacketSettings: array<audioAppearanceToPlayerMetadata>;

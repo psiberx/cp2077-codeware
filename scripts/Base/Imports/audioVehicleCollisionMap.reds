@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioVehicleCollisionMap extends audioAudioMetadata {
   public native let minImpactVelocityThreshold: Float;
   public native let minRumbleVelocityThreshold: Float;

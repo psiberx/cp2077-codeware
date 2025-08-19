@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioFootstepsMetadata extends audioAudioMetadata {
   public native let defaultFootwearMetadata: CName;
   public native let footwearMetadataArray: array<CName>;

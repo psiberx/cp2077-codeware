@@ -1,3 +1,5 @@
+// @neverRef()
+
 @addField(ReactionData)
 public native let startDuration: Float;
 

@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioLocomotionWaterSettings extends audioAudioMetadata {
   public native let defaultLegVfx: ResourceAsyncRef; // raRef<CResource>
   public native let locomotionStatesLegVfx: ref<audioLocomotionStateVfxDictionary>;

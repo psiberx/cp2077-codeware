@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioAcousticsEmitterMetadata extends audioEmitterMetadata {
   public native let obstuctionEnabled: Bool;
   public native let occlusionEnabled: Bool;

@@ -1,3 +1,4 @@
+// TODO: Remove after redscript 1.0 release
 public native struct audioAudioEventMetadataArrayElement {
   public native let redId: CName;
   public native let wwiseId: Uint32;

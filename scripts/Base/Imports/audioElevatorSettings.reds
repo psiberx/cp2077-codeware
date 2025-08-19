@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioElevatorSettings extends audioEntitySettings {
   public native let musicEvents: audioMusicController;
   public native let movementEvents: audioLoopingSoundController;

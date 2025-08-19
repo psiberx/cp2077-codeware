@@ -1,26 +1,26 @@
 public native struct inkHudWidgetSpawnEntry {
-  native let hudEntryName: CName;
-  native let enabled: Bool;
-  native let spawnMode: inkSpawnMode;
-  native let widgetResource: ResourceRef; // rRef<inkWidgetLibraryResource>
-  native let anchorPlace: inkEAnchor;
-  native let anchorPoint: Vector2;
-  native let margins: inkMargin;
-  native let attachToSlot: Bool;
-  native let slotParams: inkWidgetSlotAttachmentParams;
-  native let useSeparateWindow: Bool;
-  native let ignoreHudSafezones: Bool;
-  native let affectedByGlitchEffect: Bool;
-  native let affectedByBlackwallEffect: Bool;
-  native let spawnBeforeSlots: Bool;
-  native let ignoreHudScaleOverride: Bool;
-  native let hudScalingInterpolationValue: Float;
-  native let hudScalingMarginCorrection: inkMargin;
-  // native let contextVisibility: worlduiContextVisibility;
-  // native let gameContextVisibility: gameuiContext;
-  // native let slotTexture: ref<DynamicTexture>;
-  // native let window: ref<inkVirtualWindow>;
-  // native let slotWidget: ref<inkImage>;
-  // native let rootWidget: ref<inkWidget>;
-  // native let gameController: ref<inkIGameController>;
+  public native let hudEntryName: CName;
+  public native let enabled: Bool;
+  public native let spawnMode: inkSpawnMode;
+  public native let widgetResource: ResourceRef; // rRef<inkWidgetLibraryResource>
+  public native let anchorPlace: inkEAnchor;
+  public native let anchorPoint: Vector2;
+  public native let margins: inkMargin;
+  public native let attachToSlot: Bool;
+  public native let slotParams: inkWidgetSlotAttachmentParams;
+  public native let useSeparateWindow: Bool;
+  public native let ignoreHudSafezones: Bool;
+  public native let affectedByGlitchEffect: Bool;
+  public native let affectedByBlackwallEffect: Bool;
+  public native let spawnBeforeSlots: Bool;
+  public native let ignoreHudScaleOverride: Bool;
+  public native let hudScalingInterpolationValue: Float;
+  public native let hudScalingMarginCorrection: inkMargin;
+  // public native let contextVisibility: worlduiContextVisibility;
+  // public native let gameContextVisibility: gameuiContext;
+  // public native let slotTexture: ref<DynamicTexture>;
+  // public native let window: ref<inkVirtualWindow>;
+  // public native let slotWidget: ref<inkImage>;
+  // public native let rootWidget: ref<inkWidget>;
+  // public native let gameController: ref<inkIGameController>;
 }

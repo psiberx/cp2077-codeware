@@ -1,3 +1,3 @@
 public abstract native class gameuiBaseUIData extends ISerializable {
-  native let id: Int64;
+  public native let id: Int64;
 }

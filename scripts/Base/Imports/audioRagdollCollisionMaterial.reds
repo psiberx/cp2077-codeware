@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioRagdollCollisionMaterial extends audioAudioMetadata {
   public native let lightCollisionEventName: CName;
   public native let heavyCollisionEventName: CName;

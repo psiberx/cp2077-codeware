@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioDefaultMixingSignposts extends audioAudioMetadata {
   public native let endOfCombat: CName;
   public native let inCombat: CName;

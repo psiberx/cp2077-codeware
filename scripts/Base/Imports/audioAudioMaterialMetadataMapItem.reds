@@ -1,4 +1,4 @@
-@neverRef()
+@mixedRef()
 public native class audioAudioMaterialMetadataMapItem extends audioAudioMetadata {
   public native let footstepsMetadata: CName;
   public native let npcFootstepsMetadata: CName;

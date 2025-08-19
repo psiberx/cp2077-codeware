@@ -1,3 +1,5 @@
+// @mixedRef()
+
 @addField(StatusEffect)
 public native persistent let durationID: Uint32;
 

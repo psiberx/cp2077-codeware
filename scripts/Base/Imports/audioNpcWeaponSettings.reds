@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioNpcWeaponSettings extends audioWeaponSettings {
   public native let gunChoir: CName;
   public native let tails: CName;

@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioAudioFoliageMetadata extends audioAudioMetadata {
   public native let loopStartEvent: CName;
   public native let loopStopEvent: CName;

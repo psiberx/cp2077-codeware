@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioFootwearVsMaterialMetadata extends audioAudioMetadata {
   public native let footwearType: CName;
   public native let skidEvent: CName;

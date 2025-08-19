@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioAccumulatedSoundDecoratorMetadata extends audioEmitterMetadata {
   public native let accumulatedSounds: array<CName>;
   public native let inSpammingMode: Bool;

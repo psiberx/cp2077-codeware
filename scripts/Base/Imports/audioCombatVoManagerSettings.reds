@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioCombatVoManagerSettings extends audioAudioMetadata {
   public native let thresholdDbForCombatDialog: Float;
   public native let maxVoHearableHorizontalDistance: Float;

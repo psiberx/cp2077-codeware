@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioWeaponSettingsGroup extends audioAudioMetadata {
   public native let playerSettings: CName;
   public native let playerSilenced: CName;

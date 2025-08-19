@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioSecurityTurretMetadata extends audioCustomEmitterMetadata {
   public native let singleFire: CName;
   public native let activated: CName;

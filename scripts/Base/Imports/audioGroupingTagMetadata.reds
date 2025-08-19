@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioGroupingTagMetadata extends audioAudioMetadata {
   public native let shape: CName;
   public native let classificationMethod: audioClassificationMethod;

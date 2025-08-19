@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioAudioSceneData extends audioAudioMetadata {
   public native let anyStateArray: [audioAudioStateData; 1];
   public native let states: array<audioAudioStateData>;

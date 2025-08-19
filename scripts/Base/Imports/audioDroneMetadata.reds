@@ -1,3 +1,4 @@
+@mixedRef()
 public native class audioDroneMetadata extends audioCustomEmitterMetadata {
   public native let boneName: CName;
   public native let engineStart: CName;
