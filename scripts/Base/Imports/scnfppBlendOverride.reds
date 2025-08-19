@@ -1,4 +1,4 @@
-enum scnfppBlendOverride {
+public enum scnfppBlendOverride {
   Centering = 0,
   CopyPitch_CenteringYaw = 1,
   CopyPitch_CopyYaw = 2,

@@ -1,4 +1,4 @@
-enum PSODescBlendModeOp {
+public enum PSODescBlendModeOp {
   OP_Add = 0,
   OP_Subtract = 1,
   OP_RevSub = 2,

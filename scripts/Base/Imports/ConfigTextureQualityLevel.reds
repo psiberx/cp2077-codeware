@@ -1,4 +1,4 @@
-enum ConfigTextureQualityLevel {
+public enum ConfigTextureQualityLevel {
   Console = 0,
   ConsoleSafe = 1,
   Low = 2,

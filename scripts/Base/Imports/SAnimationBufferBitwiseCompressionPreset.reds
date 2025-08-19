@@ -1,4 +1,4 @@
-enum SAnimationBufferBitwiseCompressionPreset {
+public enum SAnimationBufferBitwiseCompressionPreset {
   ABBCP_Custom = 0,
   ABBCP_VeryHighQuality = 1,
   ABBCP_HighQuality = 2,

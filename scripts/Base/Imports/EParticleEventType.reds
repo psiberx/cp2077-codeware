@@ -1,4 +1,4 @@
-enum EParticleEventType {
+public enum EParticleEventType {
   PET_Any = 5,
   PET_Death = 0,
   PET_OverLife = 1,

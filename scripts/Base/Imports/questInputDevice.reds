@@ -1,4 +1,4 @@
-enum questInputDevice {
+public enum questInputDevice {
   Undefined = 0,
   KeyboardMouse = 1,
   XBoxGamepad = 2,

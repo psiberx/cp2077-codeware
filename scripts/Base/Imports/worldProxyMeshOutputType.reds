@@ -1,4 +1,4 @@
-enum worldProxyMeshOutputType {
+public enum worldProxyMeshOutputType {
   RayScan = 0,
   SurfaceReconstruction = 1,
   LegacyFromVoxels = 2,

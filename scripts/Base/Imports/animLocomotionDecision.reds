@@ -1,4 +1,4 @@
-enum animLocomotionDecision {
+public enum animLocomotionDecision {
   LD_None = 0,
   LD_Stop = 1,
   LD_MoveTo = 2,

@@ -1,2 +1,2 @@
-enum scnEventType {
+public enum scnEventType {
 }

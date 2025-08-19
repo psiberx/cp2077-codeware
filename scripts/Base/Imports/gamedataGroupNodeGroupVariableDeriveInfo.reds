@@ -1,4 +1,4 @@
-enum gamedataGroupNodeGroupVariableDeriveInfo {
+public enum gamedataGroupNodeGroupVariableDeriveInfo {
   FullyDerived = 0,
   TypeDerived = 1,
   ValueChanged = 2,

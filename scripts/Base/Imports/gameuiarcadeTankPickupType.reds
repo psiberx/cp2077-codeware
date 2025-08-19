@@ -1,4 +1,4 @@
-enum gameuiarcadeTankPickupType {
+public enum gameuiarcadeTankPickupType {
   Patch_Kit = 0,
   AEAMS = 1,
   Mini_Tank = 2,

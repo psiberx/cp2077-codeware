@@ -1,4 +1,4 @@
-enum audioESoundCurveType {
+public enum audioESoundCurveType {
   Log3 = 0,
   Sine = 1,
   InversedSCurve = 3,

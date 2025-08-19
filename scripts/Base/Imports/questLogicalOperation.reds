@@ -1,4 +1,4 @@
-enum questLogicalOperation {
+public enum questLogicalOperation {
   AND = 0,
   OR = 1,
   XOR = 2,

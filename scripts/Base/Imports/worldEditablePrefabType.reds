@@ -1,4 +1,4 @@
-enum worldEditablePrefabType {
+public enum worldEditablePrefabType {
   Regular = 0,
   Decoration = 1,
   Quest = 2,

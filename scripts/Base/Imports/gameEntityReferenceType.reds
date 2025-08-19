@@ -1,4 +1,4 @@
-enum gameEntityReferenceType {
+public enum gameEntityReferenceType {
   EntityRef = 0,
   Tag = 1,
   SlotID = 2,

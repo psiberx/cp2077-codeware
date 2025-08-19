@@ -1,4 +1,4 @@
-enum audioVoBarkType {
+public enum audioVoBarkType {
   None = 0,
   Curse = 1,
   Morale = 2,

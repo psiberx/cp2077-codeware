@@ -1,4 +1,4 @@
-enum ERenderingMode {
+public enum ERenderingMode {
   RM_HitProxies = 2,
   RM_Shaded = 0,
   RM_Shaded_NoAmbient = 1,

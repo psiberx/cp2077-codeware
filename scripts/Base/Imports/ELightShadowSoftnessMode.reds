@@ -1,4 +1,4 @@
-enum ELightShadowSoftnessMode {
+public enum ELightShadowSoftnessMode {
   LSSM_ExtraSoft = 0,
   LSSM_Soft = 1,
   LSSM_Default = 2,

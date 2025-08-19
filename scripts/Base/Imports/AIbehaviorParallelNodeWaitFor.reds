@@ -1,4 +1,4 @@
-enum AIbehaviorParallelNodeWaitFor {
+public enum AIbehaviorParallelNodeWaitFor {
   LeftChild = 0,
   RightChild = 1,
   AllChildren = 2,

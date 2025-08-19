@@ -1,4 +1,4 @@
-enum ECookingPlatform {
+public enum ECookingPlatform {
   PLATFORM_None = 0,
   PLATFORM_PC = 1,
   PLATFORM_XboxOne = 2,

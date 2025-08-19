@@ -1,4 +1,4 @@
-enum scnDialogLineVisualStyle {
+public enum scnDialogLineVisualStyle {
   regular = 0,
   overHead = 1,
   radio = 2,

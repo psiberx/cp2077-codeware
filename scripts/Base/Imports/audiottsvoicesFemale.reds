@@ -1,4 +1,4 @@
-enum audiottsvoicesFemale {
+public enum audiottsvoicesFemale {
   Olivia = 7,
   Emily = 8,
   Jessica = 9,

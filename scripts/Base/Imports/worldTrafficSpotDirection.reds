@@ -1,4 +1,4 @@
-enum worldTrafficSpotDirection {
+public enum worldTrafficSpotDirection {
   Forward = 0,
   Backward = 1,
   Both = 2,

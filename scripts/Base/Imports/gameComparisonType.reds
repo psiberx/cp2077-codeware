@@ -1,4 +1,4 @@
-enum gameComparisonType {
+public enum gameComparisonType {
   EQUAL = 0,
   NOT_EQUAL = 1,
   LESS = 2,

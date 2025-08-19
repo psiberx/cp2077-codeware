@@ -1,4 +1,4 @@
-enum gameStatPoolDataValueChangeMode {
+public enum gameStatPoolDataValueChangeMode {
   Normal = 0,
   IncreasingOnly = 1,
   DecreasingOnly = 2,

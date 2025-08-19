@@ -1,4 +1,4 @@
-enum animAnimStateInterpolationType {
+public enum animAnimStateInterpolationType {
   Linear = 0,
   EaseIn = 1,
   EaseOut = 2,

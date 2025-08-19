@@ -1,4 +1,4 @@
-enum animEFootPhase {
+public enum animEFootPhase {
   RightUp = 0,
   RightForward = 1,
   LeftUp = 2,

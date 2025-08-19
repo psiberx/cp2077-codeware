@@ -1,4 +1,4 @@
-enum questEAddRemoveItemType {
+public enum questEAddRemoveItemType {
   AddItem = 0,
   RemoveByItemID = 1,
   RemoveByTag = 2,

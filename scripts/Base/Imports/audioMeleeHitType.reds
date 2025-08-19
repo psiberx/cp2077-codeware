@@ -1,4 +1,4 @@
-enum audioMeleeHitType {
+public enum audioMeleeHitType {
   Light = 0,
   Normal = 1,
   Heavy = 2,

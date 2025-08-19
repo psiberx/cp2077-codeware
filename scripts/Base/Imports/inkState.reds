@@ -1,4 +1,4 @@
-enum inkState {
+public enum inkState {
   InitEngine = 0,
   PreGameMenu = 3,
   InitialLoading = 4,

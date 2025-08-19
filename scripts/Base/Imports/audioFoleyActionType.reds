@@ -1,4 +1,4 @@
-enum audioFoleyActionType {
+public enum audioFoleyActionType {
   FastHeavy = 0,
   FastMedium = 1,
   FastLight = 2,

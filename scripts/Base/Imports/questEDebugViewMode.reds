@@ -1,4 +1,4 @@
-enum questEDebugViewMode {
+public enum questEDebugViewMode {
   NONE = 0,
   CLAY = 1,
   PURE_GRAY = 2,

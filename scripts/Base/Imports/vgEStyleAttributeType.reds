@@ -1,4 +1,4 @@
-enum vgEStyleAttributeType {
+public enum vgEStyleAttributeType {
   FillColor = 0,
   StrokeColor = 1,
   StrokeSize = 2,

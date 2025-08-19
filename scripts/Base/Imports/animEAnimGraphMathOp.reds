@@ -1,4 +1,4 @@
-enum animEAnimGraphMathOp {
+public enum animEAnimGraphMathOp {
   AGMO_Add = 0,
   AGMO_Subtract = 1,
   AGMO_Multiply = 2,

@@ -1,4 +1,4 @@
-enum animEMotionExtractionCompressionType {
+public enum animEMotionExtractionCompressionType {
   EMECT_LINEAR = 6,
   EMECT_SPLINE_LOW = 4,
   EMECT_SPLINE_MID = 2,

@@ -1,4 +1,4 @@
-enum questQuestContentType {
+public enum questQuestContentType {
   EP1_MainQuest = 0,
   EP1_SideQuest = 1,
   EP1_Minor = 2,

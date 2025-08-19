@@ -1,4 +1,4 @@
-enum animLocomotion_AnimType {
+public enum animLocomotion_AnimType {
   None = 0,
   idle_stand = 1,
   idle_to_idle_0 = 2,

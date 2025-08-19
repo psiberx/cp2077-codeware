@@ -1,4 +1,4 @@
-enum vehicleTPPCameraDistance {
+public enum vehicleTPPCameraDistance {
   Close = 0,
   Medium = 1,
   Far = 2,

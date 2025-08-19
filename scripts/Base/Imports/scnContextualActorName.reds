@@ -1,4 +1,4 @@
-enum scnContextualActorName {
+public enum scnContextualActorName {
   Player = 0,
   VoicesetHolder = 1,
   Voice = 2,

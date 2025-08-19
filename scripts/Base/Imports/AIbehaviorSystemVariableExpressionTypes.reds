@@ -1,3 +1,3 @@
-enum AIbehaviorSystemVariableExpressionTypes {
+public enum AIbehaviorSystemVariableExpressionTypes {
   IsFPSLow = 0,
 }

@@ -1,4 +1,4 @@
-enum EEnvManagerModifier {
+public enum EEnvManagerModifier {
   EMM_None = 0,
   EMM_WireframeSolid = 1,
   EMM_WireframeSeethrough = 2,

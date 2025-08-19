@@ -1,4 +1,4 @@
-enum gameGameplayEventFlag {
+public enum gameGameplayEventFlag {
   Ai = 1,
   Trigger = 2,
   Component = 4,

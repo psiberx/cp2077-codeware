@@ -1,4 +1,4 @@
-enum DynamicTextureDataFormat {
+public enum DynamicTextureDataFormat {
   R_Uint8 = 0,
   R_Float16 = 1,
   R_Float32 = 2,

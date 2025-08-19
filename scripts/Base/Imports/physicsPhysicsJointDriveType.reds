@@ -1,4 +1,4 @@
-enum physicsPhysicsJointDriveType {
+public enum physicsPhysicsJointDriveType {
   AxisX = 0,
   AxisY = 1,
   AxisZ = 2,

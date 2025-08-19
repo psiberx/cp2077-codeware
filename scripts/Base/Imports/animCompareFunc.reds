@@ -1,4 +1,4 @@
-enum animCompareFunc {
+public enum animCompareFunc {
   Equal = 0,
   NotEqual = 1,
   Less = 2,

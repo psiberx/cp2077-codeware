@@ -1,4 +1,4 @@
-enum questWeaponUsageType {
+public enum questWeaponUsageType {
   Shoot = 0,
   StopShooting = 1,
   Reload = 2,

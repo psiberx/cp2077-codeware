@@ -1,4 +1,4 @@
-enum gameEffectTriggerPositioningType {
+public enum gameEffectTriggerPositioningType {
   PlayerRoot = 0,
   CameraRoot = 1,
   AtSpawn = 2,

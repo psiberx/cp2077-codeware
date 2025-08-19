@@ -1,4 +1,4 @@
-enum entVertexAnimationMapperSourceType {
+public enum entVertexAnimationMapperSourceType {
   FloatTrack = 0,
   TranslationX = 1,
   TranslationY = 2,

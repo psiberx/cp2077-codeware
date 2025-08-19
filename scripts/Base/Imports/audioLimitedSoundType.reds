@@ -1,4 +1,4 @@
-enum audioLimitedSoundType {
+public enum audioLimitedSoundType {
   Locomotion = 0,
   Footsteps = 1,
   Impact = 2,

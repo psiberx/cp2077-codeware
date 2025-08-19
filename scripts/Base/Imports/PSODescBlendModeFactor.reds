@@ -1,4 +1,4 @@
-enum PSODescBlendModeFactor {
+public enum PSODescBlendModeFactor {
   FAC_Zero = 0,
   FAC_One = 1,
   FAC_SrcColor = 2,

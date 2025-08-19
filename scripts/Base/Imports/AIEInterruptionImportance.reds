@@ -1,4 +1,4 @@
-enum AIEInterruptionImportance {
+public enum AIEInterruptionImportance {
   Undefined = 0,
   Casual = 1,
   Rush = 2,

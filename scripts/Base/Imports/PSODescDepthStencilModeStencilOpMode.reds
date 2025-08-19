@@ -1,4 +1,4 @@
-enum PSODescDepthStencilModeStencilOpMode {
+public enum PSODescDepthStencilModeStencilOpMode {
   STENCILOP_Keep = 0,
   STENCILOP_Zero = 1,
   STENCILOP_Replace = 2,

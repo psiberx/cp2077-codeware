@@ -1,4 +1,4 @@
-enum renddimEPreset {
+public enum renddimEPreset {
   _228x128 = 0,
   _456x256 = 1,
   _480x270 = 2,

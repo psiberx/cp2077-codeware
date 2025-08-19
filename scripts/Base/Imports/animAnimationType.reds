@@ -1,4 +1,4 @@
-enum animAnimationType {
+public enum animAnimationType {
   Normal = 0,
   AdditiveFromRefPose = 1,
   AdditiveFromFirstFrame = 2,

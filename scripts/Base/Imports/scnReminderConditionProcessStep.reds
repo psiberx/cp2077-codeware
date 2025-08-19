@@ -1,4 +1,4 @@
-enum scnReminderConditionProcessStep {
+public enum scnReminderConditionProcessStep {
   ReminderA = 0,
   ReminderB = 1,
   ReminderC = 2,

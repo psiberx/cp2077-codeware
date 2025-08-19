@@ -1,4 +1,4 @@
-enum gameuiChoiceIndicatorType {
+public enum gameuiChoiceIndicatorType {
   Default = 0,
   Speech = 1,
   Call = 2,

@@ -1,4 +1,4 @@
-enum gameuiCharacterCustomizationActionType {
+public enum gameuiCharacterCustomizationActionType {
   Activate = 0,
   Deactivate = 1,
   EquipItem = 2,

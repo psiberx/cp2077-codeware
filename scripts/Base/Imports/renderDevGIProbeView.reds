@@ -1,4 +1,4 @@
-enum renderDevGIProbeView {
+public enum renderDevGIProbeView {
   RADIANCE = 0,
   SKY_VISIBILITY = 1,
   ENV_ID = 2,

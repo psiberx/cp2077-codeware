@@ -1,4 +1,4 @@
-enum AIESharedVarDefinitionType {
+public enum AIESharedVarDefinitionType {
   SVInt = 0,
   SVFloat = 1,
   SVBool = 2,

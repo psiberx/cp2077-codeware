@@ -1,4 +1,4 @@
-enum ProximityProgressBarAction {
+public enum ProximityProgressBarAction {
   Activated = 0,
   Inactivated = 1,
   Completed = 2,

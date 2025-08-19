@@ -1,4 +1,4 @@
-enum physicsQueryUseCase {
+public enum physicsQueryUseCase {
   Default = 0,
   ActionAnimation = 1,
   AI = 2,

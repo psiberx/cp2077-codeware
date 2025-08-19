@@ -1,4 +1,4 @@
-enum gameuiarcadeShooterSpawnerCondition {
+public enum gameuiarcadeShooterSpawnerCondition {
   ScreenLeft = 0,
   ScreenRight = 1,
   ScreenTop = 2,

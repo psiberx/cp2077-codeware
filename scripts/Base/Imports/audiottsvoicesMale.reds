@@ -1,4 +1,4 @@
-enum audiottsvoicesMale {
+public enum audiottsvoicesMale {
   Andrew = 0,
   Oliver = 1,
   Jack = 2,

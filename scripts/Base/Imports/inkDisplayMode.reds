@@ -1,4 +1,4 @@
-enum inkDisplayMode {
+public enum inkDisplayMode {
   Invalid = 0,
   Basic = 1,
   BasicTranslatable = 2,

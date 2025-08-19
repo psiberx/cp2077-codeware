@@ -1,4 +1,4 @@
-enum EMaterialVertexFactory {
+public enum EMaterialVertexFactory {
   MVF_Terrain = 1,
   MVF_MeshStatic = 2,
   MVF_MeshSkinned = 3,

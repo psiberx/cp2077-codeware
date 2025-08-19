@@ -1,4 +1,4 @@
-enum animFacialEmotionTransitionType {
+public enum animFacialEmotionTransitionType {
   Natural = 0,
   Fast = 1,
   Blend = 2,

@@ -1,3 +1,3 @@
-enum vehicleSummonFinishState {
+public enum vehicleSummonFinishState {
   Arrived = 0,
 }

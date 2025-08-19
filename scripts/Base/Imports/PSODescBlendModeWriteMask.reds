@@ -1,4 +1,4 @@
-enum PSODescBlendModeWriteMask {
+public enum PSODescBlendModeWriteMask {
   MASK_None = 0,
   MASK_R = 1,
   MASK_G = 2,

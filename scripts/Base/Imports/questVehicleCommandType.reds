@@ -1,4 +1,4 @@
-enum questVehicleCommandType {
+public enum questVehicleCommandType {
   Move_On_Spline = 0,
   Follow = 1,
   Move_To = 2,

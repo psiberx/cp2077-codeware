@@ -1,4 +1,4 @@
-enum worldRoadMaterial {
+public enum worldRoadMaterial {
   Concrete = 0,
   ConcreteDestroyed = 1,
   Dirt = 2,

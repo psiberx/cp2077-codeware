@@ -1,4 +1,4 @@
-enum gsmStateError {
+public enum gsmStateError {
   StateError_OK = 0,
   StateError_SettingsCorrupted = 1,
   StateError_SettingsCorrupted_Save = 2,

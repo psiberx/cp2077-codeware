@@ -1,4 +1,4 @@
-enum worldFindLaneFilter {
+public enum worldFindLaneFilter {
   None = 0,
   Road = 1,
   PatrolRoute = 2,

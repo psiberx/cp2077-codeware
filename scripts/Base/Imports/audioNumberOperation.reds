@@ -1,4 +1,4 @@
-enum audioNumberOperation {
+public enum audioNumberOperation {
   SetEqual = 0,
   Add = 1,
   Subtract = 2,

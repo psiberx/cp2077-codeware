@@ -1,4 +1,4 @@
-enum communityECommunitySpawnTime {
+public enum communityECommunitySpawnTime {
   Morning = 0,
   Day = 1,
   Evening = 2,

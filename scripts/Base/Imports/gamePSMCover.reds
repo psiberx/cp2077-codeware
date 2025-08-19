@@ -1,4 +1,4 @@
-enum gamePSMCover {
+public enum gamePSMCover {
   Any = -1,
   Default = 0,
   InCover = 1,

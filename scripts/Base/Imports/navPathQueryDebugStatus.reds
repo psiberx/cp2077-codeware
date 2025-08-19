@@ -1,4 +1,4 @@
-enum navPathQueryDebugStatus {
+public enum navPathQueryDebugStatus {
   InvalidQuery = 0,
   Active = 1,
   WaitingForStreaming = 2,

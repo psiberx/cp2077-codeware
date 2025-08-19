@@ -1,4 +1,4 @@
-enum GpuWrapApiBufferGroup {
+public enum GpuWrapApiBufferGroup {
   System = 0,
   MeshResource = 1,
   MeshCustom = 2,

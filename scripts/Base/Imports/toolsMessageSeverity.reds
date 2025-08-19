@@ -1,4 +1,4 @@
-enum toolsMessageSeverity {
+public enum toolsMessageSeverity {
   Success = 0,
   Info = 1,
   Warning = 2,

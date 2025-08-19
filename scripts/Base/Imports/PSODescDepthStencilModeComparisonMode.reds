@@ -1,4 +1,4 @@
-enum PSODescDepthStencilModeComparisonMode {
+public enum PSODescDepthStencilModeComparisonMode {
   COMPARISON_Never = 0,
   COMPARISON_Less = 1,
   COMPARISON_Equal = 2,

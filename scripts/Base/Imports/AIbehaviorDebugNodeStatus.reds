@@ -1,4 +1,4 @@
-enum AIbehaviorDebugNodeStatus {
+public enum AIbehaviorDebugNodeStatus {
   Undefined = 0,
   NotRunning = 1,
   ForceStopped = 2,

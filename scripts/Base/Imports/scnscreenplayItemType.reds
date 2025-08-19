@@ -1,4 +1,4 @@
-enum scnscreenplayItemType {
+public enum scnscreenplayItemType {
   invalid = 0,
   dialogLine = 1,
   choiceOption = 2,

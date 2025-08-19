@@ -1,4 +1,4 @@
-enum EMaterialModifier {
+public enum EMaterialModifier {
   EMATMOD_HitProxy = 0,
   EMATMOD_WindData = 1,
   EMATMOD_ParticleParams = 2,

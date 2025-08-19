@@ -1,4 +1,4 @@
-enum scnSceneCategoryTag {
+public enum scnSceneCategoryTag {
   voiceset = 0,
   mainQuests = 1,
   sideQuests = 2,

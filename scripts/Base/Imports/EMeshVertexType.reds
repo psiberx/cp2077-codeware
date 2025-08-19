@@ -1,4 +1,4 @@
-enum EMeshVertexType {
+public enum EMeshVertexType {
   MVT_StaticMesh = 0,
   MVT_ProceduralMesh = 1,
   MVT_SkinnedMesh = 2,

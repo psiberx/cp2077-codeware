@@ -1,4 +1,4 @@
-enum questImpulseMagnitude {
+public enum questImpulseMagnitude {
   Any = 0,
   Low = 1,
   Medium = 2,

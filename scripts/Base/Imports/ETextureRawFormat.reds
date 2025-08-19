@@ -1,4 +1,4 @@
-enum ETextureRawFormat {
+public enum ETextureRawFormat {
   TRF_Invalid = 0,
   TRF_TrueColor = 1,
   TRF_DeepColor = 2,

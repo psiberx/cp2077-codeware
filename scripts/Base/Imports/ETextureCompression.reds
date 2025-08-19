@@ -1,4 +1,4 @@
-enum ETextureCompression {
+public enum ETextureCompression {
   TCM_None = 0,
   TCM_DXTNoAlpha = 1,
   TCM_DXTAlpha = 2,

@@ -1,4 +1,4 @@
-enum animTransformChannel {
+public enum animTransformChannel {
   PosX = 0,
   PosY = 1,
   PosZ = 2,

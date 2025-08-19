@@ -1,4 +1,4 @@
-enum populationSpawnerObjectCtrlAction {
+public enum populationSpawnerObjectCtrlAction {
   Undefined = 0,
   Activate = 1,
   Deactivate = 2,

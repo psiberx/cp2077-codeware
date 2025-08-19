@@ -1,4 +1,4 @@
-enum renderDevEnvProbeView {
+public enum renderDevEnvProbeView {
   RADIANCE = 0,
   ALBEDO = 1,
   NORMAL = 2,

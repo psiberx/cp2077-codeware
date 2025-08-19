@@ -1,4 +1,4 @@
-enum scnChoiceNodeNsSizePreset {
+public enum scnChoiceNodeNsSizePreset {
   small = 0,
   normal = 1,
   big = 2,

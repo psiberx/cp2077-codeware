@@ -1,4 +1,4 @@
-enum scnInterruptionPhase {
+public enum scnInterruptionPhase {
   WaitForInterruption = 0,
   WaitForInterrupted = 1,
   Interrupted = 2,

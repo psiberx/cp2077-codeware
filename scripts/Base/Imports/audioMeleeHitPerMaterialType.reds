@@ -1,4 +1,4 @@
-enum audioMeleeHitPerMaterialType {
+public enum audioMeleeHitPerMaterialType {
   Light = 0,
   Light_Hard = 1,
   Light_Soft = 2,

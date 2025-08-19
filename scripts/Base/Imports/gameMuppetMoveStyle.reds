@@ -1,4 +1,4 @@
-enum gameMuppetMoveStyle {
+public enum gameMuppetMoveStyle {
   Invalid = 0,
   Walk = 1,
   Sprint = 2,

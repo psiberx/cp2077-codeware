@@ -1,4 +1,4 @@
-enum EEnvColorGroup {
+public enum EEnvColorGroup {
   ECG_Default = 0,
   ECG_Sky = 1,
   ECG_Group0 = 2,

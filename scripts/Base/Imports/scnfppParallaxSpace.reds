@@ -1,4 +1,4 @@
-enum scnfppParallaxSpace {
+public enum scnfppParallaxSpace {
   Default = 0,
   Camera = 1,
   Trajectory = 2,

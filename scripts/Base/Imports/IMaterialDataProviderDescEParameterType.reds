@@ -1,4 +1,4 @@
-enum IMaterialDataProviderDescEParameterType {
+public enum IMaterialDataProviderDescEParameterType {
   PT_None = 0,
   PT_Texture = 1,
   PT_Color = 2,

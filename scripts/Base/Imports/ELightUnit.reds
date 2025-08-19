@@ -1,4 +1,4 @@
-enum ELightUnit {
+public enum ELightUnit {
   LU_Lumen = 0,
   LU_Watt = 1,
   LU_Lux = 2,

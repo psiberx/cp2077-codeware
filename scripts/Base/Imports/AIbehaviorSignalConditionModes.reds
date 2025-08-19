@@ -1,4 +1,4 @@
-enum AIbehaviorSignalConditionModes {
+public enum AIbehaviorSignalConditionModes {
   CurrentValue = 0,
   StartOfFrameValue = 1,
   RisingEdge = 2,

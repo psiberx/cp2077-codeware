@@ -1,4 +1,4 @@
-enum ERenderMaterialType {
+public enum ERenderMaterialType {
   RMT_Standard = 0,
   RMT_Subsurface = 1,
   RMT_Cloth = 2,

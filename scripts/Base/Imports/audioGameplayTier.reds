@@ -1,4 +1,4 @@
-enum audioGameplayTier {
+public enum audioGameplayTier {
   Undefined = 0,
   Tier1_FullGameplay = 1,
   Tier2_StagedGameplay = 2,

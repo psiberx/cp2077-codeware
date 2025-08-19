@@ -1,4 +1,4 @@
-enum gameuiarcadeShooterAIType {
+public enum gameuiarcadeShooterAIType {
   MELEE = 0,
   RANGESHOOTER = 1,
   RANGEGRENADE = 2,

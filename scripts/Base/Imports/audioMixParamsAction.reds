@@ -1,4 +1,4 @@
-enum audioMixParamsAction {
+public enum audioMixParamsAction {
   Mull = 0,
   MullPercent = 1,
   MullComplemtement = 2,

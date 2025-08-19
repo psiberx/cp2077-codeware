@@ -1,4 +1,4 @@
-enum questVehicleCameraType {
+public enum questVehicleCameraType {
   Undefined = 0,
   PuppetFPP = 1,
   TPP = 2,

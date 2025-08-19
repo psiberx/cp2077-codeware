@@ -1,4 +1,4 @@
-enum questMoveType {
+public enum questMoveType {
   MoveOnSpline = 0,
   MoveTo = 1,
   RotateTo = 2,

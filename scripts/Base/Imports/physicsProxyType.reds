@@ -1,4 +1,4 @@
-enum physicsProxyType {
+public enum physicsProxyType {
   Invalid = 0,
   PhysicalSystem = 1,
   CharacterController = 2,

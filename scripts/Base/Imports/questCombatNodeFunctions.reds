@@ -1,4 +1,4 @@
-enum questCombatNodeFunctions {
+public enum questCombatNodeFunctions {
   CombatTarget = 0,
   ShootAt = 1,
   LookAtTarget = 2,

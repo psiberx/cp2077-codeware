@@ -1,4 +1,4 @@
-enum questTriggerConditionType {
+public enum questTriggerConditionType {
   Undefined = 0,
   Entered = 1,
   Exited = 2,

@@ -1,4 +1,4 @@
-enum ETextureComparisonFunction {
+public enum ETextureComparisonFunction {
   TCF_None = 0,
   TCF_Less = 1,
   TCF_Equal = 2,

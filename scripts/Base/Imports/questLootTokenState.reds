@@ -1,4 +1,4 @@
-enum questLootTokenState {
+public enum questLootTokenState {
   Enabled = 0,
   Disabled = 1,
   Sealed = 2,

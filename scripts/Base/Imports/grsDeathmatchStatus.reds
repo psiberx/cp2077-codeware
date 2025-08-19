@@ -1,4 +1,4 @@
-enum grsDeathmatchStatus {
+public enum grsDeathmatchStatus {
   Waiting = 0,
   AdditionalWaiting = 1,
   Starting = 2,

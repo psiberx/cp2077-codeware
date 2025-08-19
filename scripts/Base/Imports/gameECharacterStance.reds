@@ -1,4 +1,4 @@
-enum gameECharacterStance {
+public enum gameECharacterStance {
   Stance_Stand = 0,
   Stance_Crouch = 1,
   Stance_Kneel = 2,

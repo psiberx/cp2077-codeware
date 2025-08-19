@@ -1,4 +1,4 @@
-enum audioVoGruntType {
+public enum audioVoGruntType {
   None = -1,
   PainShort = 23,
   PainLong = 0,

@@ -1,4 +1,4 @@
-enum ERenderDynamicDecalAtlas {
+public enum ERenderDynamicDecalAtlas {
   RDDA_1x1 = 0,
   RDDA_2x1 = 1,
   RDDA_2x2 = 2,

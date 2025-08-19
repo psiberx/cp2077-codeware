@@ -1,4 +1,4 @@
-enum questObjectInteractionEventType {
+public enum questObjectInteractionEventType {
   Undefined = 0,
   Entered = 1,
   Exited = 2,

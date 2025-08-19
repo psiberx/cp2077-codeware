@@ -1,4 +1,4 @@
-enum audioMeleeMaterialType {
+public enum audioMeleeMaterialType {
   Hard = 0,
   Soft = 1,
   Solid = 2,

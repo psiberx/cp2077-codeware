@@ -1,4 +1,4 @@
-enum GpuWrapApieBufferChunkCategory {
+public enum GpuWrapApieBufferChunkCategory {
   BCC_Staging = 0,
   BCC_Vertex = 1,
   BCC_VertexUAV = 2,

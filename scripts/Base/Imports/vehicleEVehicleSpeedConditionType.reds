@@ -1,4 +1,4 @@
-enum vehicleEVehicleSpeedConditionType {
+public enum vehicleEVehicleSpeedConditionType {
   CT_EQUAL = 0,
   CT_NOT_EQUAL = 1,
   CT_GREATER = 2,

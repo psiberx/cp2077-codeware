@@ -1,4 +1,4 @@
-enum SAnimationBufferDataCompressionMethod {
+public enum SAnimationBufferDataCompressionMethod {
   ABDCM_Invalid = 0,
   ABDCM_Plain = 1,
   ABDCM_Quaternion = 2,

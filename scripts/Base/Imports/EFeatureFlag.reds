@@ -1,4 +1,4 @@
-enum EFeatureFlag {
+public enum EFeatureFlag {
   FEATFLAG_Default = 0,
   FEATFLAG_Shadows = 1,
   FEATFLAG_HitProxies = 2,

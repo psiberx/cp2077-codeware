@@ -1,4 +1,4 @@
-enum PSODescPrimitiveTopologyType {
+public enum PSODescPrimitiveTopologyType {
   Invalid = 0,
   Point = 1,
   Line = 2,

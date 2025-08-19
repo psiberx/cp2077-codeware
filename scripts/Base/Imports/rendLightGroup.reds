@@ -1,4 +1,4 @@
-enum rendLightGroup {
+public enum rendLightGroup {
   LG_Group0 = 0,
   LG_Group1 = 1,
   LG_Group2 = 2,

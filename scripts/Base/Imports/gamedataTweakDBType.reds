@@ -1,4 +1,4 @@
-enum gamedataTweakDBType {
+public enum gamedataTweakDBType {
   Invalid = 0,
   ForeignKey = 1,
   Int = 2,

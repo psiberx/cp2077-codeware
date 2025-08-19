@@ -1,4 +1,4 @@
-enum animAnimNode_SetDrivenKey_InternalsEChannelType {
+public enum animAnimNode_SetDrivenKey_InternalsEChannelType {
   FloatTrack = 0,
   TransX = 1,
   TransY = 2,

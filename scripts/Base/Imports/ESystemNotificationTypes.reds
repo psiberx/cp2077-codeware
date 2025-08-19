@@ -1,4 +1,4 @@
-enum ESystemNotificationTypes {
+public enum ESystemNotificationTypes {
   DiscOperationIndicator = 0,
   GenericNotModal = 1,
   AchievmentDebug = 2,

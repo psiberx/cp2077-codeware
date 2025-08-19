@@ -1,4 +1,4 @@
-enum inkLanguageId {
+public enum inkLanguageId {
   EN = 0,
   PL = 1,
   JP = 2,

@@ -1,4 +1,4 @@
-enum ECustomMaterialParam {
+public enum ECustomMaterialParam {
   ECMP_CustomParam0 = 1,
   ECMP_CustomParam1 = 2,
   ECMP_CustomParam2 = 4,

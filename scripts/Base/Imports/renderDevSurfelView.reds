@@ -1,4 +1,4 @@
-enum renderDevSurfelView {
+public enum renderDevSurfelView {
   ALBEDO = 0,
   NORMAL = 1,
   SHADOWS = 2,

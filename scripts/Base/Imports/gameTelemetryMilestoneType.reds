@@ -1,4 +1,4 @@
-enum gameTelemetryMilestoneType {
+public enum gameTelemetryMilestoneType {
   StartFact = 0,
   ImportantFact = 1,
   Reward = 2,

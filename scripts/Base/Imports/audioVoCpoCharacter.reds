@@ -1,4 +1,4 @@
-enum audioVoCpoCharacter {
+public enum audioVoCpoCharacter {
   None = 0,
   Solo = 1,
   Assassin = 2,

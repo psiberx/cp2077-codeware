@@ -1,4 +1,4 @@
-enum EFreeVectorAxes {
+public enum EFreeVectorAxes {
   FVA_One = 1,
   FVA_Two = 2,
   FVA_Three = 3,

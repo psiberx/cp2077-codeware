@@ -1,4 +1,4 @@
-enum questUseWorkspotNodeFunctions {
+public enum questUseWorkspotNodeFunctions {
   UseWorkspot = 0,
   JumpWorkspot = 1,
   StopWorkspot = 2,

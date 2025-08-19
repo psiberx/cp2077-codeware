@@ -1,4 +1,4 @@
-enum ERenderObjectType {
+public enum ERenderObjectType {
   ROT_Static = 0,
   ROT_Terrain = 1,
   ROT_Road = 2,

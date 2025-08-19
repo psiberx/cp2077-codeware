@@ -1,4 +1,4 @@
-enum inputEInputDevice {
+public enum inputEInputDevice {
   INVALID = 0,
   KBD_MOUSE = 1,
   ORBIS = 2,

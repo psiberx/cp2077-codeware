@@ -1,4 +1,4 @@
-enum audiobreathingEventTag {
+public enum audiobreathingEventTag {
   Walk = 0,
   Jog = 1,
   Run = 2,

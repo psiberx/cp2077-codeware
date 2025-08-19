@@ -1,4 +1,4 @@
-enum scnEntityAcquisitionPlan {
+public enum scnEntityAcquisitionPlan {
   findInContext = 1,
   findInWorld = 2,
   spawnDespawn = 3,

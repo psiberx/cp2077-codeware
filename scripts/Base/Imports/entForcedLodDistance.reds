@@ -1,4 +1,4 @@
-enum entForcedLodDistance {
+public enum entForcedLodDistance {
   Default = 0,
   Background = 1,
   Regular = 2,

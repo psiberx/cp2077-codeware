@@ -1,4 +1,4 @@
-enum worldProxyNormalAngleStepSize {
+public enum worldProxyNormalAngleStepSize {
   STEP_90 = 0,
   STEP_45 = 1,
   STEP_15 = 2,

@@ -1,4 +1,4 @@
-enum GpuWrapApieTextureFormat {
+public enum GpuWrapApieTextureFormat {
   TEXFMT_A8_Unorm = 0,
   TEXFMT_R8_Unorm = 1,
   TEXFMT_L8_Unorm = 2,

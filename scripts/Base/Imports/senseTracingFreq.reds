@@ -1,4 +1,4 @@
-enum senseTracingFreq {
+public enum senseTracingFreq {
   Never = 0,
   Lowest = 1,
   Low = 2,

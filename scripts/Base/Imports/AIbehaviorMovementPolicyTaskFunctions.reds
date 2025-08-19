@@ -1,4 +1,4 @@
-enum AIbehaviorMovementPolicyTaskFunctions {
+public enum AIbehaviorMovementPolicyTaskFunctions {
   SetMovementType = 0,
   SetTargetObject = 1,
   UseFollowSlots = 2,

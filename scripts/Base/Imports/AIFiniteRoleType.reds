@@ -1,3 +1,3 @@
-enum AIFiniteRoleType {
+public enum AIFiniteRoleType {
   Patrol = 0,
 }

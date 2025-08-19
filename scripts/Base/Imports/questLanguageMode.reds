@@ -1,4 +1,4 @@
-enum questLanguageMode {
+public enum questLanguageMode {
   Undefined = 0,
   VoLang = 1,
   SubsLang = 2,

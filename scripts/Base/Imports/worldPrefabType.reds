@@ -1,4 +1,4 @@
-enum worldPrefabType {
+public enum worldPrefabType {
   Regular = 0,
   Area = 1,
   Generated = 2,

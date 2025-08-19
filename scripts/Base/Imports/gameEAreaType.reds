@@ -1,4 +1,4 @@
-enum gameEAreaType {
+public enum gameEAreaType {
   NONE = 0,
   LOCATION = 1,
   AFFILIATION = 2,

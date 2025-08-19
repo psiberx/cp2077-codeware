@@ -1,4 +1,4 @@
-enum worldStreamingSectorCategory {
+public enum worldStreamingSectorCategory {
   Exterior = 0,
   Interior = 1,
   Quest = 2,

@@ -1,4 +1,4 @@
-enum gameuiGenericNotificationType {
+public enum gameuiGenericNotificationType {
   Generic = 0,
   QuestUpdate = 1,
   Vendor = 3,

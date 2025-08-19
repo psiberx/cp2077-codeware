@@ -1,4 +1,4 @@
-enum EMeshStreamType {
+public enum EMeshStreamType {
   MST_Position_3F = 1,
   MST_SkinningIndices_4U8 = 2,
   MST_SkinningWeights_4F = 4,

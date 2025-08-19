@@ -1,4 +1,4 @@
-enum scnEasingType {
+public enum scnEasingType {
   Linear = 0,
   SinusoidalEaseInOut = 1,
   QuadraticEaseIn = 2,

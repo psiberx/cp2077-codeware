@@ -1,4 +1,4 @@
-enum questSceneConditionType {
+public enum questSceneConditionType {
   Undefined = 0,
   IsInside = 1,
   IsOutside = 2,

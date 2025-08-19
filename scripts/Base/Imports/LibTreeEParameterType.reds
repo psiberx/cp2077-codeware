@@ -1,4 +1,4 @@
-enum LibTreeEParameterType {
+public enum LibTreeEParameterType {
   PARAM_Bool = 0,
   PARAM_Int32 = 1,
   PARAM_Enum = 2,

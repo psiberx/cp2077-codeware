@@ -1,4 +1,4 @@
-enum worldTrafficLanePersistentFlags {
+public enum worldTrafficLanePersistentFlags {
   FromRoadSpline = 1,
   Bidirectional = 2,
   PatrolRoute = 4,

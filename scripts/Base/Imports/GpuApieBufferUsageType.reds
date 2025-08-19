@@ -1,4 +1,4 @@
-enum GpuApieBufferUsageType {
+public enum GpuApieBufferUsageType {
   BUT_Default = 0,
   BUT_Immutable = 1,
   BUT_Readback = 2,

@@ -1,4 +1,4 @@
-enum GpuWrapApieTextureGroup {
+public enum GpuWrapApieTextureGroup {
   TEXG_Generic_Color = 1,
   TEXG_Generic_Grayscale = 2,
   TEXG_Generic_Normal = 3,

@@ -1,4 +1,4 @@
-enum gameuiBinkVideoStatus {
+public enum gameuiBinkVideoStatus {
   Idle = 0,
   NotStarted = 1,
   Initializing = 2,

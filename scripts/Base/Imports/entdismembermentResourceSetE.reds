@@ -1,4 +1,4 @@
-enum entdismembermentResourceSetE {
+public enum entdismembermentResourceSetE {
   NONE = 16,
   BARE = 0,
   BARE1 = 1,

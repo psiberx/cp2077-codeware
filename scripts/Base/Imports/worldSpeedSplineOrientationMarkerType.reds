@@ -1,4 +1,4 @@
-enum worldSpeedSplineOrientationMarkerType {
+public enum worldSpeedSplineOrientationMarkerType {
   UseSplineOrientation = 0,
   WorldSpace = 1,
   LocalSpace = 2,

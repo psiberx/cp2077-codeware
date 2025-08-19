@@ -1,4 +1,4 @@
-enum AICommandContextsType {
+public enum AICommandContextsType {
   Default = 0,
   Immediate = 1,
   Movement = 2,

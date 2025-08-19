@@ -1,4 +1,4 @@
-enum audioAmbientGroupingVariant {
+public enum audioAmbientGroupingVariant {
   AllEntities = 0,
   IndoorEntities = 1,
   OutdoorEntities = 2,

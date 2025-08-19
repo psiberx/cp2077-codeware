@@ -1,4 +1,4 @@
-enum EEmitterGroup {
+public enum EEmitterGroup {
   EG_Default = 0,
   EG_Group0 = 1,
   EG_Group1 = 2,

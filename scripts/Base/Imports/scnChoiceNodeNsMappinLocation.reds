@@ -1,4 +1,4 @@
-enum scnChoiceNodeNsMappinLocation {
+public enum scnChoiceNodeNsMappinLocation {
   None = 0,
   Interaction = 1,
   Nameplate = 2,

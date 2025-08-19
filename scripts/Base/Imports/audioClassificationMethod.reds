@@ -1,4 +1,4 @@
-enum audioClassificationMethod {
+public enum audioClassificationMethod {
   HasAnyTag = 0,
   HasAllTags = 1,
   NameEquals = 2,

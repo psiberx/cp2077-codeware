@@ -1,4 +1,4 @@
-enum audioMusicSyncType {
+public enum audioMusicSyncType {
   Beat = 1,
   Bar = 0,
   Grid = 2,

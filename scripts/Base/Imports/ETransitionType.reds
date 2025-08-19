@@ -1,4 +1,4 @@
-enum ETransitionType {
+public enum ETransitionType {
   EET_Linear = 0,
   EET_Sine = 1,
   EET_Cubic = 2,

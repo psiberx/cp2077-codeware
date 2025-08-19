@@ -1,4 +1,4 @@
-enum questBehindInteractionEventType {
+public enum questBehindInteractionEventType {
   Undefined = 0,
   StartedBeingBehind = 1,
   StoppedBeingBehind = 2,

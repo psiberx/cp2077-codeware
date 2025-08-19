@@ -1,4 +1,4 @@
-enum ERenderMeshStreams {
+public enum ERenderMeshStreams {
   RMS_PositionSkinning = 1,
   RMS_TexCoords = 2,
   RMS_TangentFrame = 4,

@@ -1,4 +1,4 @@
-enum gameStatsBundleOwnerType {
+public enum gameStatsBundleOwnerType {
   None = 0,
   Cleared = 1,
   UniqueItem = 2,

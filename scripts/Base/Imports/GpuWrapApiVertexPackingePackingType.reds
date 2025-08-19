@@ -1,4 +1,4 @@
-enum GpuWrapApiVertexPackingePackingType {
+public enum GpuWrapApiVertexPackingePackingType {
   PT_Invalid = -1,
   PT_Float1 = 0,
   PT_Float2 = 1,

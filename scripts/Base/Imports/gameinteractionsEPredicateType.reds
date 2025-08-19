@@ -1,4 +1,4 @@
-enum gameinteractionsEPredicateType {
+public enum gameinteractionsEPredicateType {
   EPredicateFunction_true = 0,
   EPredicateFunction_distanceFromScreenCentre = 1,
   EPredicateFunction_containedInShapes = 2,

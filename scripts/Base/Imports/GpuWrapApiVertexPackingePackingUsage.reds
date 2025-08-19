@@ -1,4 +1,4 @@
-enum GpuWrapApiVertexPackingePackingUsage {
+public enum GpuWrapApiVertexPackingePackingUsage {
   PS_Invalid = -1,
   PS_SysPosition = 0,
   PS_Position = 1,

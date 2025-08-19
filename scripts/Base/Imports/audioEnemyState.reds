@@ -1,4 +1,4 @@
-enum audioEnemyState {
+public enum audioEnemyState {
   InCombat = 0,
   Alerted = 1,
   Afraid = 2,

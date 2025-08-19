@@ -1,4 +1,4 @@
-enum entEntitySpawnPriority {
+public enum entEntitySpawnPriority {
   Background = 0,
   Normal = 1,
   Immediate = 2,

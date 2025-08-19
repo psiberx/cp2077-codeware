@@ -1,4 +1,4 @@
-enum scnFastForwardStrategy {
+public enum scnFastForwardStrategy {
   automatic = 0,
   allow_fully = 1,
   block_on_start = 2,

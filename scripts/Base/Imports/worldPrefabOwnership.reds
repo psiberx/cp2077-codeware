@@ -1,4 +1,4 @@
-enum worldPrefabOwnership {
+public enum worldPrefabOwnership {
   None = 0,
   Quest = 1,
   Audio = 2,

@@ -1,4 +1,4 @@
-enum physicsSimulationType {
+public enum physicsSimulationType {
   Static = 0,
   Dynamic = 1,
   Kinematic = 2,

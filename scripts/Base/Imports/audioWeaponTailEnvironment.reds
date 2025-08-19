@@ -1,4 +1,4 @@
-enum audioWeaponTailEnvironment {
+public enum audioWeaponTailEnvironment {
   InteriorDefault = 0,
   InteriorWide = 1,
   ExteriorWide = 2,

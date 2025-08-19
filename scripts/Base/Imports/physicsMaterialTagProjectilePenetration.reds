@@ -1,4 +1,4 @@
-enum physicsMaterialTagProjectilePenetration {
+public enum physicsMaterialTagProjectilePenetration {
   TechOnly = 0,
   Any = 1,
   Medium = 2,

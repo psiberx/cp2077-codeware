@@ -1,4 +1,4 @@
-enum audioRadioSpeakerType {
+public enum audioRadioSpeakerType {
   Stanley = 0,
   MaximumMike = 1,
   PoliceDispatch = 2,

@@ -1,4 +1,4 @@
-enum locVoiceoverExpression {
+public enum locVoiceoverExpression {
   Vo_Expression_Spoken = 0,
   Vo_Expression_Phone = 1,
   Vo_Expression_InnerDialog = 2,

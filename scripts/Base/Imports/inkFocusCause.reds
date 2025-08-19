@@ -1,4 +1,4 @@
-enum inkFocusCause {
+public enum inkFocusCause {
   Mouse = 0,
   Navigation = 1,
   SetDirectly = 2,

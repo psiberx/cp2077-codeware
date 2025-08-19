@@ -1,4 +1,4 @@
-enum navNavAreaID {
+public enum navNavAreaID {
   Unwalkable = 0,
   Terrain = 1,
   Crouchable = 2,

@@ -1,4 +1,4 @@
-enum gameAppearanceSource {
+public enum gameAppearanceSource {
   EntityResource = 0,
   PopulationSpawner = 1,
   CommunityEntry = 2,

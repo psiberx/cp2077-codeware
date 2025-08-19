@@ -1,4 +1,4 @@
-enum audioNumberComparer {
+public enum audioNumberComparer {
   Equal = 0,
   NotEqual = 1,
   Greater = 2,

@@ -1,4 +1,4 @@
-enum gameVehicleCurve {
+public enum gameVehicleCurve {
   SpeedToWheelMaxTurn = 0,
   InputToWheelMaxTurn = 1,
   SpeedToWheelTurnSpeed = 2,

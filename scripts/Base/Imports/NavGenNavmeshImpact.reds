@@ -1,4 +1,4 @@
-enum NavGenNavmeshImpact {
+public enum NavGenNavmeshImpact {
   Ignored = 1,
   Walkable = 0,
   Blocking = 2,

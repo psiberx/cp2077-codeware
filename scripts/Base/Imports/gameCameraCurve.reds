@@ -1,4 +1,4 @@
-enum gameCameraCurve {
+public enum gameCameraCurve {
   CentricPitchOfSpeed = 0,
   CentricVerticalOffsetOfSpeed = 1,
   BoomLengthOfSpeed = 2,

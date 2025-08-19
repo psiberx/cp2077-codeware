@@ -1,4 +1,4 @@
-enum gamedataStatType_1300DEPRECATED {
+public enum gamedataStatType_1300DEPRECATED {
   Acceleration = 0,
   Accuracy = 1,
   Adrenaline = 2,

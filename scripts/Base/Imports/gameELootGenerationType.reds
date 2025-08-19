@@ -1,4 +1,4 @@
-enum gameELootGenerationType {
+public enum gameELootGenerationType {
   DropChance = 0,
   NumberBased = 1,
   Weights = 2,

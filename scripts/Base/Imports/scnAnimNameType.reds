@@ -1,4 +1,4 @@
-enum scnAnimNameType {
+public enum scnAnimNameType {
   direct = 0,
   reference = 1,
   container = 2,

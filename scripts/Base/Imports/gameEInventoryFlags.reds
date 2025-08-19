@@ -1,3 +1,3 @@
-enum gameEInventoryFlags {
+public enum gameEInventoryFlags {
   MustSave = 1,
 }

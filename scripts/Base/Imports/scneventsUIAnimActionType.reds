@@ -1,4 +1,4 @@
-enum scneventsUIAnimActionType {
+public enum scneventsUIAnimActionType {
   Play = 0,
   Update = 1,
   Resume = 2,

@@ -1,4 +1,4 @@
-enum worldObjectTag {
+public enum worldObjectTag {
   None = 1701736270,
   WallInterior = 1231839575,
   WallExterior = 1164730711,

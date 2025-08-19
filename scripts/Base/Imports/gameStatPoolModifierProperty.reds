@@ -1,4 +1,4 @@
-enum gameStatPoolModifierProperty {
+public enum gameStatPoolModifierProperty {
   RangeBegin = 0,
   RangeEnd = 1,
   StartDelay = 2,

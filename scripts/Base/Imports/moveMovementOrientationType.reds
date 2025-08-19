@@ -1,4 +1,4 @@
-enum moveMovementOrientationType {
+public enum moveMovementOrientationType {
   NotSet = 0,
   Forward = 1,
   Backward = 2,

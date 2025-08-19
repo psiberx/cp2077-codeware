@@ -1,4 +1,4 @@
-enum StaticShaderInputLayout {
+public enum StaticShaderInputLayout {
   DebugVertexBase = 0,
   DebugVertexUV = 1,
   DebugVertexUV_Fullscreen = 2,

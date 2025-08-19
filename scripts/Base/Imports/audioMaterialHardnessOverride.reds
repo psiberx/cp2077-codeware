@@ -1,4 +1,4 @@
-enum audioMaterialHardnessOverride {
+public enum audioMaterialHardnessOverride {
   None = 0,
   SetAsSoft = 1,
   SetAsSolid = 2,

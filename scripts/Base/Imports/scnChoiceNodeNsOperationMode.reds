@@ -1,4 +1,4 @@
-enum scnChoiceNodeNsOperationMode {
+public enum scnChoiceNodeNsOperationMode {
   attachToActor = 0,
   attachToProp = 1,
   attachToGameObject = 2,

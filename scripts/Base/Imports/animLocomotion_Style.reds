@@ -1,4 +1,4 @@
-enum animLocomotion_Style {
+public enum animLocomotion_Style {
   LS_Idle = 0,
   LS_Rotation = 1,
   LS_Walk = 2,

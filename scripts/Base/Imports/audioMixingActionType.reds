@@ -1,4 +1,4 @@
-enum audioMixingActionType {
+public enum audioMixingActionType {
   VoContext = 0,
   EmitterTag = 1,
   SoundTag = 2,

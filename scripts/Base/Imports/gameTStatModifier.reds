@@ -1,4 +1,4 @@
-enum gameTStatModifier {
+public enum gameTStatModifier {
   Constant = 0,
   Random = 1,
   Curve = 2,

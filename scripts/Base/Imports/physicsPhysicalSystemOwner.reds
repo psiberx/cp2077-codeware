@@ -1,4 +1,4 @@
-enum physicsPhysicalSystemOwner {
+public enum physicsPhysicalSystemOwner {
   Unknown = 0,
   BakedDestructionNode = 1,
   ClothMeshNode = 2,

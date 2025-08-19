@@ -1,4 +1,4 @@
-enum rendGIVolume {
+public enum rendGIVolume {
   GI_Exterior = 0,
   GI_Interior1 = 1,
   GI_Interior2 = 2,

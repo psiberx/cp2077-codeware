@@ -1,4 +1,4 @@
-enum worldProxWindowsType {
+public enum worldProxWindowsType {
   SkipWindows = 0,
   PropagateWindows = 1,
   BakeLongDistantWindows = 2,

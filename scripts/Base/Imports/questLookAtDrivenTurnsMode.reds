@@ -1,4 +1,4 @@
-enum questLookAtDrivenTurnsMode {
+public enum questLookAtDrivenTurnsMode {
   Start = 0,
   Pause = 1,
   Resume = 2,

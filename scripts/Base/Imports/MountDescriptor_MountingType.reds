@@ -1,4 +1,4 @@
-enum MountDescriptor_MountingType {
+public enum MountDescriptor_MountingType {
   Unmounted = 0,
   KeepState = 1,
   Vehicle = 3,

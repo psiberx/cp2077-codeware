@@ -1,4 +1,4 @@
-enum gameSceneAnimationMotionActionParamsEasingType {
+public enum gameSceneAnimationMotionActionParamsEasingType {
   Linear = 0,
   SinusoidalEaseInOut = 1,
   QuadraticEaseIn = 2,

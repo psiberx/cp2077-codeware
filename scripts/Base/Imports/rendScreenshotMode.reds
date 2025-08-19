@@ -1,4 +1,4 @@
-enum rendScreenshotMode {
+public enum rendScreenshotMode {
   NONE = 0,
   NORMAL = 1,
   NORMAL_MULTISAMPLE = 2,

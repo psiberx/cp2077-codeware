@@ -1,4 +1,4 @@
-enum animMotionTableAction {
+public enum animMotionTableAction {
   MTA_None = 0,
   MTA_Start = 1,
   MTA_Stop = 2,

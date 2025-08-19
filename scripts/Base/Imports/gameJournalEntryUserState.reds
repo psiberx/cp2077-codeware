@@ -1,4 +1,4 @@
-enum gameJournalEntryUserState {
+public enum gameJournalEntryUserState {
   Undefined = 0,
   Inactive = 1,
   Active = 2,

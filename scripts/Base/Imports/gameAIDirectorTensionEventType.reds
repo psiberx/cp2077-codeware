@@ -1,4 +1,4 @@
-enum gameAIDirectorTensionEventType {
+public enum gameAIDirectorTensionEventType {
   Time = 0,
   Progress = 1,
   DealingDamage = 2,

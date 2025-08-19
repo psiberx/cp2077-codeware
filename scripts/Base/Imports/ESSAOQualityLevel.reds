@@ -1,4 +1,4 @@
-enum ESSAOQualityLevel {
+public enum ESSAOQualityLevel {
   SSAOQUALITY_VeryLow = 0,
   SSAOQUALITY_Low = 1,
   SSAOQUALITY_Medium = 2,

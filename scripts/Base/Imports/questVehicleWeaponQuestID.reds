@@ -1,4 +1,4 @@
-enum questVehicleWeaponQuestID {
+public enum questVehicleWeaponQuestID {
   Primary = 0,
   Secondary = 1,
   Tertiary = 2,

@@ -1,4 +1,4 @@
-enum scnPuppetVehicleState {
+public enum scnPuppetVehicleState {
   IdleMounted = 0,
   IdleStand = 1,
   CombatWindowed = 2,

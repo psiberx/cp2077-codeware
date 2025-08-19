@@ -1,4 +1,4 @@
-enum ETextureFilteringMin {
+public enum ETextureFilteringMin {
   TFMin_Point = 0,
   TFMin_Linear = 1,
   TFMin_Anisotropic = 2,

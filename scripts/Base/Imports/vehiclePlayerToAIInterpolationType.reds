@@ -1,4 +1,4 @@
-enum vehiclePlayerToAIInterpolationType {
+public enum vehiclePlayerToAIInterpolationType {
   PTAIT_INSTANT = 0,
   PTAIT_LINEAR = 1,
   PTAIT_EASE_IN_QUAD = 2,

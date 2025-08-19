@@ -1,4 +1,4 @@
-enum audioWeaponBulletType {
+public enum audioWeaponBulletType {
   standard = 0,
   sniper = 1,
   shot = 2,

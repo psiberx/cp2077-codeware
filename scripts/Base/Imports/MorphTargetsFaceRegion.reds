@@ -1,4 +1,4 @@
-enum MorphTargetsFaceRegion {
+public enum MorphTargetsFaceRegion {
   FACE_REGION_EYES = 0,
   FACE_REGION_NOSE = 1,
   FACE_REGION_MOUTH = 2,

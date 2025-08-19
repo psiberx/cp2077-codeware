@@ -1,4 +1,4 @@
-enum gamedataDataNodeType {
+public enum gamedataDataNodeType {
   File = 0,
   Group = 1,
   Variable = 2,

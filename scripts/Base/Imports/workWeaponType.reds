@@ -1,4 +1,4 @@
-enum workWeaponType {
+public enum workWeaponType {
   Any = 0,
   Ranged = 1,
   OneHandedRanged = 2,

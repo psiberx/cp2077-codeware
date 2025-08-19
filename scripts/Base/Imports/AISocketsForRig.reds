@@ -1,4 +1,4 @@
-enum AISocketsForRig {
+public enum AISocketsForRig {
   Undefined = 0,
   ManAverage = 1,
   ManBig = 2,

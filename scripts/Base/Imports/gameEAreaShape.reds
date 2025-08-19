@@ -1,4 +1,4 @@
-enum gameEAreaShape {
+public enum gameEAreaShape {
   NONE = 0,
   SPHERE = 1,
   CUBE = 2,

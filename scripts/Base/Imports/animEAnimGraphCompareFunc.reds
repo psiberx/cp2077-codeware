@@ -1,4 +1,4 @@
-enum animEAnimGraphCompareFunc {
+public enum animEAnimGraphCompareFunc {
   AGCF_Equal = 0,
   AGCF_NotEqual = 1,
   AGCF_Less = 2,
