@@ -80,12 +80,24 @@ public abstract class inkCustomController extends inkLogicController {
         }
     }
 
+    protected func ResetRootWidget() {
+        this.m_rootWidget = null;
+    }
+
     protected func SetContainerWidget(containerWidget: ref<inkCompoundWidget>) {
         this.m_containerWidget = containerWidget;
     }
 
     protected func SetGameController(gameController: ref<inkGameController>) {
         this.m_gameController = gameController;
+    }
+
+    protected func SetGameController(parentController: ref<inkCustomController>) {
+        this.m_gameController = parentController.GetGameController();
+    }
+
+    protected func ResetGameController() {
+        this.m_gameController = null;
     }
 
     protected func CreateInstance() {

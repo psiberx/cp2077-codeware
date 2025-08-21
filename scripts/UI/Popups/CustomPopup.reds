@@ -115,8 +115,8 @@ public abstract class CustomPopup extends inkCustomController {
 
     protected cb func OnHidden() {
         this.ResetNotificationData();
-        this.SetGameController(null);
-        this.SetRootWidget(null);
+        this.ResetGameController();
+        this.ResetRootWidget();
     }
 
     protected cb func OnGlobalReleaseInput(evt: ref<inkPointerEvent>) -> Bool {
