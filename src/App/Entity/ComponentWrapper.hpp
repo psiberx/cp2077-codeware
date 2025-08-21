@@ -38,6 +38,7 @@ public:
     bool SetChunkMask(uint64_t aChunkMask) const;
 
     bool RefreshAppearance() const;
+    bool ResetMaterialCache() const;
 
 private:
     Red::IComponent* m_component;

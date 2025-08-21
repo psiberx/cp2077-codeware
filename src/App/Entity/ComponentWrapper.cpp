@@ -356,3 +356,59 @@ bool App::ComponentWrapper::RefreshAppearance() const
     Raw::MeshComponent::RefreshAppearance(m_component);
     return true;
 }
+
+bool App::ComponentWrapper::ResetMaterialCache() const
+{
+    Red::Handle<Red::CMesh> meshHandle;
+    Red::CName meshAppName;
+
+    switch (m_componentType)
+    {
+    case ComponentType::MeshComponent:
+        meshHandle = *reinterpret_cast<Red::Handle<Red::CMesh>*>(&reinterpret_cast<Red::ent::MeshComponent*>(m_component)->unk158);
+        meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::MeshComponent*>(m_component));
+        break;
+    case ComponentType::SkinnedMeshComponent:
+    case ComponentType::GarmentSkinnedMeshComponent:
+        meshHandle = reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component)->meshHandle;
+        meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component));
+        break;
+    case ComponentType::MorphTargetSkinnedMeshComponent:
+        meshHandle = reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component)->meshHandle->baseMesh.Get();
+        meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component));
+        break;
+    case ComponentType::Unsupported:
+        break;
+    }
+
+    if (!meshHandle)
+        return false;
+
+    auto meshApp = Raw::CMesh::FindAppearance(meshHandle, meshAppName);
+
+    if (!meshApp)
+        return false;
+
+    {
+        auto& materialJob = Raw::MeshAppearance::MaterialJob::Ref(meshApp);
+        auto& materialLock = Raw::MeshAppearance::MaterialLock::Ref(meshApp);
+        auto& materialPtr = Raw::MeshAppearance::MaterialData::Ref(meshApp);
+        auto& materialMap = Raw::MeshAppearance::MaterialMap::Ref(meshApp);
+        auto& materialCached = Raw::MeshAppearance::ForceCache::Ref(meshApp);
+
+        Red::WaitForJob(materialJob, std::chrono::milliseconds(5000));
+
+        std::scoped_lock _(materialLock);
+
+        if (materialPtr.data)
+        {
+            Raw::RenderData::Release(materialPtr.data);
+            materialPtr.data = nullptr;
+        }
+
+        materialMap.Clear();
+        materialCached = false;
+    }
+
+    return true;
+}

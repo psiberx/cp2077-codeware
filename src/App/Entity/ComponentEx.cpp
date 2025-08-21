@@ -24,3 +24,9 @@ bool App::ComponentEx::RefreshAppearance()
     ComponentWrapper wrapper(this);
     return wrapper.RefreshAppearance();
 }
+
+void App::ComponentEx::ResetMaterialCache()
+{
+    ComponentWrapper wrapper(this);
+    wrapper.ResetMaterialCache();
+}

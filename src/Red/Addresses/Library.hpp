@@ -15,6 +15,7 @@ constexpr uint32_t CBaseStack_ResolveContext = 1745688837;
 constexpr uint32_t CGameFramework_InitializeGameInstance = 4007601841;
 
 constexpr uint32_t CMesh_GetAppearance = 773462733;
+constexpr uint32_t CMesh_FindAppearance = 3007126651;
 
 constexpr uint32_t CommunitySystem_Update = 1559565515;
 
@@ -102,7 +103,7 @@ constexpr uint32_t QuestPhaseInstance_ExecuteNode = 3227858325;
 
 constexpr uint32_t QuestsSystem_CreateContext = 3144298192;
 
-constexpr uint32_t RenderDataPtr_Release = 2996308699;
+constexpr uint32_t RenderData_Release = 2996308699;
 
 constexpr uint32_t RenderProxy_SetMaterialOverride = 429336746;
 constexpr uint32_t RenderProxy_SetHighlightParams = 1093803822;

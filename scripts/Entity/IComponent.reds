@@ -15,3 +15,6 @@ public native func LoadAppearance(opt wait: Bool) -> Bool
 
 @addMethod(IComponent)
 public native func RefreshAppearance() -> Bool
+
+@addMethod(IComponent)
+public native func ResetMaterialCache()

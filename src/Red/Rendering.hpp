@@ -6,7 +6,10 @@ struct RenderData
 {
 };
 
-using RenderDataPtr = RenderData*;
+struct RenderDataPtr
+{
+    RenderData* data;
+};
 
 struct RenderProxy
 {
@@ -24,11 +27,11 @@ struct HighlightParams
 };
 }
 
-namespace Raw::RenderDataPtr
+namespace Raw::RenderData
 {
 constexpr auto Release = Core::RawFunc<
-    /* addr = */ Red::AddressLib::RenderDataPtr_Release,
-    /* type = */ void (*)(Red::RenderDataPtr aPtr)>();
+    /* addr = */ Red::AddressLib::RenderData_Release,
+    /* type = */ void (*)(Red::RenderData* aPtr)>();
 }
 
 namespace Raw::RenderProxy

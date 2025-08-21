@@ -15,22 +15,6 @@ struct MeshAppearanceEx : Red::meshMeshAppearance
 
     void ResetMaterialCache()
     {
-        auto& materialJob = Raw::MeshAppearance::MaterialJob::Ref(this);
-        auto& materialLock = Raw::MeshAppearance::MaterialLock::Ref(this);
-        auto& materialData = Raw::MeshAppearance::MaterialData::Ref(this);
-        auto& materialMap = Raw::MeshAppearance::MaterialMap::Ref(this);
-
-        Raw::JobHandle::Wait(materialJob);
-
-        std::scoped_lock _(materialLock);
-
-        if (materialData)
-        {
-            Raw::RenderDataPtr::Release(materialData);
-            materialData = nullptr;
-        }
-
-        materialMap.Clear();
     }
 };
 }
