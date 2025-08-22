@@ -54,6 +54,17 @@ void App::WorldStateSystem::DeactivateCommunity(Red::NodeRef aNodeRef, Red::Opti
     Raw::CommunitySystem::Update(m_communitySystem, true);
 }
 
+void App::WorldStateSystem::SetCommunityPhase(Red::NodeRef aNodeRef, Red::CName aEntryName, Red::CName aPhaseName)
+{
+    auto communityID = Red::ResolveNodeRef(aNodeRef);
+
+    if (!communityID)
+        return;
+
+    Raw::CommunitySystem::SetCommunityPhase(m_communitySystem, communityID, aEntryName, aPhaseName);
+    Raw::CommunitySystem::Update(m_communitySystem, true);
+}
+
 void App::WorldStateSystem::ToggleNode(Red::NodeRef aNodeRef, bool aState)
 {
     auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
