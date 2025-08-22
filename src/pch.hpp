@@ -214,6 +214,7 @@
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemEntity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemWeather.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemWorldStreaming.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/StreamingBlock.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/StreamingSector.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/StreamingWorld.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/WeatherScriptInterface.hpp>

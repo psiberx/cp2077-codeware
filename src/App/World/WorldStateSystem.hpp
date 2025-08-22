@@ -14,6 +14,7 @@ public:
 
     void ActivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName);
     void DeactivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName);
+    void SetCommunityPhase(Red::NodeRef aNodeRef, Red::CName aEntryName, Red::CName aPhaseName);
 
     void ToggleNode(Red::NodeRef aNodeRef, bool aState);
     void ToggleVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState);
@@ -41,6 +42,7 @@ RTTI_DEFINE_CLASS(App::WorldStateSystem, {
     RTTI_METHOD(GetStreamingWorld);
     RTTI_METHOD(ActivateCommunity);
     RTTI_METHOD(DeactivateCommunity);
+    RTTI_METHOD(SetCommunityPhase);
     RTTI_METHOD(ToggleNode);
     RTTI_METHOD(ToggleVariant);
 });

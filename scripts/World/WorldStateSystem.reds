@@ -5,6 +5,7 @@ public native class WorldStateSystem extends IGameSystem {
 
     public native func ActivateCommunity(community: NodeRef, opt entry: CName)
     public native func DeactivateCommunity(community: NodeRef, opt entry: CName)
+    public native func SetCommunityPhase(community: NodeRef, entry: CName, phase: CName)
 
     public native func ToggleNode(node: NodeRef, state: Bool)
     public native func ToggleVariant(ref: NodeRef, name: CName, state: Bool)
