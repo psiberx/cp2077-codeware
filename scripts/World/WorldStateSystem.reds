@@ -9,10 +9,10 @@ public native class WorldStateSystem extends IGameSystem {
     public native func SetCommunityPhase(community: NodeRef, entry: CName, phase: CName)
     public native func GetCommunity(community: NodeRef) -> ref<CommunityWrapper>
 
-    public native func ActivateSpawner(spawner: NodeRef)
-    public native func DeactivateSpawner(spawner: NodeRef)
-    public native func ResetSpawner(spawner: NodeRef)
-    public native func GetSpawner(spawner: NodeRef) -> ref<PopulationSpawnerWrapper>
+    public native func ActivatePopulationSpawner(spawner: NodeRef)
+    public native func DeactivatePopulationSpawner(spawner: NodeRef)
+    public native func ResetPopulationSpawner(spawner: NodeRef)
+    public native func GetPopulationSpawner(spawner: NodeRef) -> ref<PopulationSpawnerWrapper>
 
     public native func ToggleNode(node: NodeRef, state: Bool)
     public native func ToggleVariant(ref: NodeRef, name: CName, state: Bool)
