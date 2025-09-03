@@ -480,8 +480,50 @@ worldStateSystem.ToggleVariant(CreateNodeRef("#loc_ma_bls_gas_station_small_v2_i
 ```swift
 let worldStateSystem = GameInstance.GetWorldStateSystem();
 
+// Activate/deactivate entire communities
 worldStateSystem.ActivateCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"));
 worldStateSystem.DeactivateCommunity(CreateNodeRef("#de_pac_cvi_03_com"));
+
+// Activate/deactivate specific community entries
+worldStateSystem.ActivateCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper");
+worldStateSystem.DeactivateCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper");
+
+// Set specific phase for a community entry
+worldStateSystem.SetCommunityPhase(CreateNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper", n"working");
+```
+
+You can also access community wrapper objects to inspect their state:
+
+```swift
+let community = worldStateSystem.GetCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"));
+if IsDefined(community) {
+    let entries = community.GetEntries();
+    for entry in entries {
+        FTLog(s"Community entry: \(entry.GetName()) - Active: \(entry.IsActive())");
+    }
+}
+```
+
+### Controlling population spawners
+
+```swift
+let worldStateSystem = GameInstance.GetWorldStateSystem();
+
+// Activate/deactivate population spawners
+worldStateSystem.ActivatePopulationSpawner(CreateNodeRef("#bls_ina_se1_foodshop_03_spawner"));
+worldStateSystem.DeactivatePopulationSpawner(CreateNodeRef("#bls_ina_se1_foodshop_03_spawner"));
+
+```
+
+You can access spawner wrapper objects to inspect spawner state:
+
+```swift
+let spawner = worldStateSystem.GetPopulationSpawner(CreateNodeRef("#bls_ina_se1_foodshop_03_spawner"));
+if IsDefined(spawner) {
+    let appearanceName = spawner.GetAppearanceName();
+    let active = spawner.IsActive();
+    FTLog(s"Spawner appearance: \(appearanceName) - Active: \(active)");
+}
 ```
 
 ### Accessing mappins
@@ -518,6 +560,9 @@ public static func GetLookAtTarget() -> ref<ISerializable> {
 - [DynamicEntitySpec](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/World/DynamicEntitySpec.reds)
 - [DynamicEntityEvent](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/World/DynamicEntityEvent.reds)
 - [WeatherSystem](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/World/WeatherSystem.reds)
+- [WorldStateSystem](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/World/WorldStateSystem.reds)
+- [CommunityWrapper](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/World/CommunityWrapper.reds)
+- [PopulationSpawnerWrapper](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/World/PopulationSpawnerWrapper.reds)
 
 ## Entities
 
