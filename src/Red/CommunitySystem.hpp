@@ -41,6 +41,8 @@ struct Community
     virtual bool IsOwnedEntity(EntityID aEntityID) = 0;
     virtual ~Community() = 0;
 
+    using AllocatorType = Memory::DefaultAllocator;
+
     EntityID id;                                      // 08
     bool active;                                      // 10
     bool initialized;                                 // 11
@@ -57,6 +59,8 @@ struct Spawner
     virtual uint32_t GetActiveEntityCount() const = 0;
     virtual bool IsOwnedEntity(EntityID aEntityID) = 0;
     virtual ~Spawner() = 0;
+
+    using AllocatorType = Memory::DefaultAllocator;
 
     bool active;                          // 08
     bool initialized;                     // 09
