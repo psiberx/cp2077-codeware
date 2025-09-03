@@ -4,13 +4,16 @@
 
 namespace App
 {
-class CommunityEntryWrapper : public Red::IScriptable
+struct CommunityEntryWrapper : Red::IScriptable
 {
-public:
-    CommunityEntryWrapper() {}
+    CommunityEntryWrapper(Red::SharedPtr<Red::Community> aCommunity, Red::CommunityEntry* aEntry)
+        : community(aCommunity), entry(aEntry)
+    {
+    }
+
+    CommunityEntryWrapper() = default;
 
     Red::CName GetName();
-    int32_t GetActiveCount();
     bool IsActive();
     Red::DynArray<Red::CName> GetPhases();
     Red::DynArray<Red::EntityID> GetRestoredEntityIDs();
@@ -25,14 +28,19 @@ public:
     RTTI_IMPL_ALLOCATOR();
 };
 
-class CommunityWrapper : public Red::IScriptable
+struct CommunityWrapper : Red::IScriptable
 {
-public:
+    CommunityWrapper(Red::SharedPtr<Red::Community> aCommunity)
+        : community(aCommunity)
+    {
+    }
+
+    CommunityWrapper() = default;
+
     Red::DynArray<Red::Handle<CommunityEntryWrapper>> GetEntries();
     Red::DynArray<Red::EntityID> GetActiveEntityIDs();
 
     Red::SharedPtr<Red::Community> community;
-    Red::gameICommunitySystem* communitySystem;
 
     RTTI_IMPL_TYPEINFO(CommunityWrapper);
     RTTI_IMPL_ALLOCATOR();
@@ -42,7 +50,6 @@ public:
 
 RTTI_DEFINE_CLASS(App::CommunityEntryWrapper, {
     RTTI_METHOD(GetName);
-    RTTI_METHOD(GetActiveCount);
     RTTI_METHOD(IsActive);
     RTTI_METHOD(GetPhases);
     RTTI_METHOD(GetRestoredEntityIDs);

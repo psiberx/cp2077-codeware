@@ -3,7 +3,7 @@
 Red::CName App::CommunityEntryWrapper::GetName()
 {
     if (!entry)
-        return Red::CName();
+        return {};
 
     return entry->name;
 }
@@ -14,14 +14,6 @@ bool App::CommunityEntryWrapper::IsActive()
         return false;
 
     return entry->active > 0;
-}
-
-int32_t App::CommunityEntryWrapper::GetActiveCount()
-{
-    if (!entry)
-        return 0;
-
-    return entry->active;
 }
 
 Red::DynArray<Red::CName> App::CommunityEntryWrapper::GetPhases()
@@ -73,11 +65,7 @@ Red::DynArray<Red::Handle<App::CommunityEntryWrapper>> App::CommunityWrapper::Ge
 
     for (const auto& entry : community->entries)
     {
-        auto entryWrapper = Red::MakeHandle<CommunityEntryWrapper>();
-        entryWrapper->community = community;
-        entryWrapper->entry = entry;
-
-        out.PushBack(entryWrapper);
+        out.PushBack(Red::MakeHandle<CommunityEntryWrapper>(community, entry));
     }
 
     return out;

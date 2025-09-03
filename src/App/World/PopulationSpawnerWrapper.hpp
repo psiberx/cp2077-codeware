@@ -4,9 +4,15 @@
 
 namespace App
 {
-class PopulationSpawnerWrapper : public Red::IScriptable
+struct PopulationSpawnerWrapper : Red::IScriptable
 {
-public:
+    PopulationSpawnerWrapper(Red::SharedPtr<Red::Spawner> aSpawner)
+        : spawner(aSpawner)
+    {
+    }
+
+    PopulationSpawnerWrapper() = default;
+
     Red::CName GetAppearanceName();
     Red::TweakDBID GetRecordID();
     Red::WorldTransform GetTransform();

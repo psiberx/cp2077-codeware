@@ -1,4 +1,4 @@
-#include "SpawnerWrapper.hpp"
+#include "PopulationSpawnerWrapper.hpp"
 
 Red::CName App::PopulationSpawnerWrapper::GetAppearanceName()
 {
@@ -19,7 +19,7 @@ Red::TweakDBID App::PopulationSpawnerWrapper::GetRecordID()
 Red::WorldTransform App::PopulationSpawnerWrapper::GetTransform()
 {
     if (!spawner)
-        return Red::WorldTransform();
+        return {};
 
     return spawner->transform;
 }
