@@ -1,4 +1,5 @@
 #include "WorldStateSystem.hpp"
+#include "CommunityWrapper.hpp"
 #include "Core/Facades/Container.hpp"
 #include "Red/CommunitySystem.hpp"
 #include "Red/NodeRef.hpp"
@@ -54,6 +55,17 @@ void App::WorldStateSystem::DeactivateCommunity(Red::NodeRef aNodeRef, Red::Opti
     Raw::CommunitySystem::Update(m_communitySystem, true);
 }
 
+void App::WorldStateSystem::ResetCommunity(Red::NodeRef aNodeRef)
+{
+    auto communityID = Red::ResolveNodeRef(aNodeRef);
+
+    if (!communityID)
+        return;
+
+    Raw::CommunitySystem::ResetCommunity(m_communitySystem, communityID, {});
+    Raw::CommunitySystem::Update(m_communitySystem, true);
+}
+
 void App::WorldStateSystem::SetCommunityPhase(Red::NodeRef aNodeRef, Red::CName aEntryName, Red::CName aPhaseName)
 {
     auto communityID = Red::ResolveNodeRef(aNodeRef);
@@ -96,4 +108,87 @@ void App::WorldStateSystem::ToggleVariant(Red::NodeRef aNodeRef, Red::CName aVar
     resetNode->type = resetNodeType;
 
     m_questPhaseExecutor->ExecuteNode(resetNode);
+}
+
+
+Red::Handle<App::CommunityWrapper> App::WorldStateSystem::GetCommunity(Red::NodeRef aNodeRef)
+{
+    if (!aNodeRef)
+        return {};
+
+    auto communityID = Red::ResolveNodeRef(aNodeRef);
+    if (!communityID)
+        return {};
+
+    auto wrapper = Red::MakeHandle<CommunityWrapper>();
+    wrapper->communitySystem = m_communitySystem;
+
+    if (m_communitySystem)
+    {
+        Red::WeakPtr<Red::Community> communityWeak;
+        Raw::CommunitySystem::GetCommunity(m_communitySystem, communityWeak, communityID);
+
+        if (communityWeak.instance)
+        {
+            wrapper->community = communityWeak.Lock();
+        }
+    }
+
+    return wrapper;
+}
+
+
+Red::Handle<App::PopulationSpawnerWrapper> App::WorldStateSystem::GetSpawner(Red::NodeRef aNodeRef)
+{
+    if (!aNodeRef)
+        return {};
+
+    auto spawnerID = Red::ResolveNodeRef(aNodeRef);
+    if (!spawnerID)
+        return {};
+
+    auto wrapper = Red::MakeHandle<PopulationSpawnerWrapper>();
+
+    if (m_communitySystem)
+    {
+        Red::WeakPtr<Red::Spawner> spawnerWeak;
+        Raw::CommunitySystem::GetSpawner(m_communitySystem, spawnerWeak, spawnerID);
+
+        if (spawnerWeak.instance)
+        {
+            wrapper->spawner = spawnerWeak.Lock();
+        }
+    }
+
+    return wrapper;
+}
+
+void App::WorldStateSystem::ActivateSpawner(Red::NodeRef aNodeRef)
+{
+    auto spawnerID = Red::ResolveNodeRef(aNodeRef);
+    if (!spawnerID)
+        return;
+
+    Raw::CommunitySystem::ActivateSpawner(m_communitySystem, spawnerID);
+    Raw::CommunitySystem::Update(m_communitySystem, true);
+}
+
+void App::WorldStateSystem::DeactivateSpawner(Red::NodeRef aNodeRef)
+{
+    auto spawnerID = Red::ResolveNodeRef(aNodeRef);
+    if (!spawnerID)
+        return;
+
+    Raw::CommunitySystem::DeactivateSpawner(m_communitySystem, spawnerID);
+    Raw::CommunitySystem::Update(m_communitySystem, true);
+}
+
+void App::WorldStateSystem::ResetSpawner(Red::NodeRef aNodeRef)
+{
+    auto spawnerID = Red::ResolveNodeRef(aNodeRef);
+    if (!spawnerID)
+        return;
+
+    Raw::CommunitySystem::ResetSpawner(m_communitySystem, spawnerID);
+    Raw::CommunitySystem::Update(m_communitySystem, true);
 }
