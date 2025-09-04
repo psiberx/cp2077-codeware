@@ -6,12 +6,8 @@ namespace App
 {
 struct PopulationSpawnerWrapper : Red::IScriptable
 {
-    PopulationSpawnerWrapper(Red::SharedPtr<Red::Spawner> aSpawner)
-        : spawner(aSpawner)
-    {
-    }
-
     PopulationSpawnerWrapper() = default;
+    PopulationSpawnerWrapper(Red::SharedPtr<Red::Spawner> aSpawner);
 
     Red::CName GetAppearanceName();
     Red::TweakDBID GetRecordID();

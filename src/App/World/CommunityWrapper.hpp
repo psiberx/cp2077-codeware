@@ -6,12 +6,8 @@ namespace App
 {
 struct CommunityEntryWrapper : Red::IScriptable
 {
-    CommunityEntryWrapper(Red::SharedPtr<Red::Community> aCommunity, Red::CommunityEntry* aEntry)
-        : community(aCommunity), entry(aEntry)
-    {
-    }
-
     CommunityEntryWrapper() = default;
+    CommunityEntryWrapper(Red::SharedPtr<Red::Community> aCommunity, Red::CommunityEntry* aEntry);
 
     Red::CName GetName();
     bool IsActive();
@@ -30,12 +26,8 @@ struct CommunityEntryWrapper : Red::IScriptable
 
 struct CommunityWrapper : Red::IScriptable
 {
-    CommunityWrapper(Red::SharedPtr<Red::Community> aCommunity)
-        : community(aCommunity)
-    {
-    }
-
     CommunityWrapper() = default;
+    CommunityWrapper(Red::SharedPtr<Red::Community> aCommunity);
 
     Red::DynArray<Red::Handle<CommunityEntryWrapper>> GetEntries();
     Red::DynArray<Red::EntityID> GetActiveEntityIDs();

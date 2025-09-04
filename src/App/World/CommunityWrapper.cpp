@@ -1,5 +1,16 @@
 #include "CommunityWrapper.hpp"
 
+App::CommunityEntryWrapper::CommunityEntryWrapper(Red::SharedPtr<Red::Community> aCommunity, Red::CommunityEntry* aEntry)
+    : community(std::move(aCommunity))
+    , entry(aEntry)
+{
+}
+
+App::CommunityWrapper::CommunityWrapper(Red::SharedPtr<Red::Community> aCommunity)
+    : community(std::move(aCommunity))
+{
+}
+
 Red::CName App::CommunityEntryWrapper::GetName()
 {
     if (!entry)
@@ -81,4 +92,3 @@ Red::DynArray<Red::EntityID> App::CommunityWrapper::GetActiveEntityIDs()
 
     return out;
 }
-
