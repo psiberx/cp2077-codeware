@@ -46,6 +46,8 @@
 #include <RED4ext/Scripting/Natives/Generated/appearance/AppearanceResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/community/CommunityTemplateData.hpp>
 #include <RED4ext/Scripting/Natives/Generated/community/SpawnEntry.hpp>
+#include <RED4ext/Scripting/Natives/Generated/community/SpawnInitializer.hpp>
+#include <RED4ext/Scripting/Natives/Generated/community/SpawnPhase.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/ComponentsStorage.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/Entity.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ent/EntityID.hpp>

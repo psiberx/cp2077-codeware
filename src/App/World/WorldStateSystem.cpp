@@ -33,6 +33,25 @@ Red::Handle<Red::worldStreamingWorld> App::WorldStateSystem::GetStreamingWorld()
     return Raw::RuntimeSystemWorldStreaming::StreamingWorld::Ref(streamingSystem);
 }
 
+Red::Handle<App::CommunityWrapper> App::WorldStateSystem::GetCommunity(Red::NodeRef aNodeRef)
+{
+    if (!m_communitySystem)
+        return {};
+
+    auto communityID = Red::ResolveNodeRef(aNodeRef);
+    if (!communityID)
+        return {};
+
+    Red::WeakPtr<Red::Community> communityWeak;
+    Raw::CommunitySystem::GetCommunity(m_communitySystem, communityWeak, communityID);
+
+    auto community = communityWeak.Lock();
+    if (!community)
+        return {};
+
+    return Red::MakeHandle<CommunityWrapper>(community);
+}
+
 void App::WorldStateSystem::ActivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName)
 {
     auto communityID = Red::ResolveNodeRef(aNodeRef);
@@ -77,61 +96,6 @@ void App::WorldStateSystem::SetCommunityPhase(Red::NodeRef aNodeRef, Red::CName 
     Raw::CommunitySystem::Update(m_communitySystem, true);
 }
 
-void App::WorldStateSystem::ToggleNode(Red::NodeRef aNodeRef, bool aState)
-{
-    auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
-    resetNodeType->objectRef = aNodeRef;
-    resetNodeType->show = aState;
-
-    auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
-    resetNode->id = 0;
-    resetNode->type = resetNodeType;
-
-    m_questPhaseExecutor->ExecuteNode(resetNode);
-}
-
-void App::WorldStateSystem::ToggleVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState)
-{
-    Red::questVariantState variantState;
-    variantState.name = aVariant;
-    variantState.show = aState;
-
-    Red::questTogglePrefabVariant_NodeTypeParams variantParam{};
-    variantParam.prefabNodeRef = aNodeRef;
-    variantParam.variantStates.PushBack(variantState);
-
-    auto resetNodeType = Red::MakeHandle<Red::questTogglePrefabVariant_NodeType>();
-    resetNodeType->params.PushBack(variantParam);
-
-    auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
-    resetNode->id = 0;
-    resetNode->type = resetNodeType;
-
-    m_questPhaseExecutor->ExecuteNode(resetNode);
-}
-
-
-Red::Handle<App::CommunityWrapper> App::WorldStateSystem::GetCommunity(Red::NodeRef aNodeRef)
-{
-    if (!m_communitySystem)
-        return {};
-
-    auto communityID = Red::ResolveNodeRef(aNodeRef);
-    if (!communityID)
-        return {};
-
-    Red::WeakPtr<Red::Community> communityWeak;
-    Raw::CommunitySystem::GetCommunity(m_communitySystem, communityWeak, communityID);
-
-    auto community = communityWeak.Lock();
-
-    if (!community)
-        return {};
-
-    return Red::MakeHandle<CommunityWrapper>(community);
-}
-
-
 Red::Handle<App::PopulationSpawnerWrapper> App::WorldStateSystem::GetPopulationSpawner(Red::NodeRef aNodeRef)
 {
     if (!m_communitySystem)
@@ -145,7 +109,6 @@ Red::Handle<App::PopulationSpawnerWrapper> App::WorldStateSystem::GetPopulationS
     Raw::CommunitySystem::GetSpawner(m_communitySystem, spawnerWeak, spawnerID);
 
     auto spawner = spawnerWeak.Lock();
-
     if (!spawner)
         return {};
 
@@ -180,4 +143,37 @@ void App::WorldStateSystem::ResetPopulationSpawner(Red::NodeRef aNodeRef)
 
     Raw::CommunitySystem::ResetSpawner(m_communitySystem, spawnerID);
     Raw::CommunitySystem::Update(m_communitySystem, true);
+}
+
+void App::WorldStateSystem::ToggleNode(Red::NodeRef aNodeRef, bool aState)
+{
+    auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
+    resetNodeType->objectRef = aNodeRef;
+    resetNodeType->show = aState;
+
+    auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+    resetNode->id = 0;
+    resetNode->type = resetNodeType;
+
+    m_questPhaseExecutor->ExecuteNode(resetNode);
+}
+
+void App::WorldStateSystem::ToggleVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState)
+{
+    Red::questVariantState variantState;
+    variantState.name = aVariant;
+    variantState.show = aState;
+
+    Red::questTogglePrefabVariant_NodeTypeParams variantParam{};
+    variantParam.prefabNodeRef = aNodeRef;
+    variantParam.variantStates.PushBack(variantState);
+
+    auto resetNodeType = Red::MakeHandle<Red::questTogglePrefabVariant_NodeType>();
+    resetNodeType->params.PushBack(variantParam);
+
+    auto resetNode = Red::MakeHandle<Red::questWorldDataManagerNodeDefinition>();
+    resetNode->id = 0;
+    resetNode->type = resetNodeType;
+
+    m_questPhaseExecutor->ExecuteNode(resetNode);
 }

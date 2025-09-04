@@ -5,31 +5,7 @@ App::PopulationSpawnerWrapper::PopulationSpawnerWrapper(Red::SharedPtr<Red::Spaw
 {
 }
 
-Red::CName App::PopulationSpawnerWrapper::GetAppearanceName()
-{
-    if (!spawner)
-        return {};
-
-    return spawner->appearanceName;
-}
-
-Red::TweakDBID App::PopulationSpawnerWrapper::GetRecordID()
-{
-    if (!spawner)
-        return {};
-
-    return spawner->recordID;
-}
-
-Red::WorldTransform App::PopulationSpawnerWrapper::GetTransform()
-{
-    if (!spawner)
-        return {};
-
-    return spawner->transform;
-}
-
-bool App::PopulationSpawnerWrapper::IsActive()
+bool App::PopulationSpawnerWrapper::IsActive() const
 {
     if (!spawner)
         return false;
@@ -37,7 +13,7 @@ bool App::PopulationSpawnerWrapper::IsActive()
     return spawner->active;
 }
 
-bool App::PopulationSpawnerWrapper::IsInitialized()
+bool App::PopulationSpawnerWrapper::IsInitialized() const
 {
     if (!spawner)
         return false;
@@ -45,17 +21,42 @@ bool App::PopulationSpawnerWrapper::IsInitialized()
     return spawner->initialized;
 }
 
-Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetActiveEntityIDs()
+Red::TweakDBID App::PopulationSpawnerWrapper::GetRecordID() const
+{
+    if (!spawner)
+        return {};
+
+    return spawner->recordID;
+}
+
+Red::CName App::PopulationSpawnerWrapper::GetAppearanceName() const
+{
+    if (!spawner)
+        return {};
+
+    return spawner->appearanceName;
+}
+
+Red::WorldTransform App::PopulationSpawnerWrapper::GetTransform() const
+{
+    if (!spawner)
+        return {};
+
+    return spawner->transform;
+}
+
+Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetActiveEntityIDs() const
 {
     if (!spawner)
         return {};
 
     Red::DynArray<Red::EntityID> out;
     spawner->GetActiveEntityIDs(out);
+
     return out;
 }
 
-Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetRestoredEntityIDs()
+Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetRestoredEntityIDs() const
 {
     if (!spawner)
         return {};
@@ -63,7 +64,7 @@ Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetRestoredEntityIDs
     return spawner->restoredEntityIDs;
 }
 
-Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetSpawnedEntityIDs()
+Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetSpawnedEntityIDs() const
 {
     if (!spawner)
         return {};
@@ -71,7 +72,7 @@ Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetSpawnedEntityIDs(
     return spawner->spawnedEntityIDs;
 }
 
-Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetReservedEntityIDs()
+Red::DynArray<Red::EntityID> App::PopulationSpawnerWrapper::GetReservedEntityIDs() const
 {
     if (!spawner)
         return {};

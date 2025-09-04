@@ -14,20 +14,19 @@ public:
 
     Red::Handle<Red::worldStreamingWorld> GetStreamingWorld();
 
+    Red::Handle<CommunityWrapper> GetCommunity(Red::NodeRef aNodeRef);
     void ActivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName);
     void DeactivateCommunity(Red::NodeRef aNodeRef, Red::Optional<Red::CName> aEntryName);
     void ResetCommunity(Red::NodeRef aNodeRef);
     void SetCommunityPhase(Red::NodeRef aNodeRef, Red::CName aEntryName, Red::CName aPhaseName);
 
+    Red::Handle<PopulationSpawnerWrapper> GetPopulationSpawner(Red::NodeRef aNodeRef);
     void ActivatePopulationSpawner(Red::NodeRef aNodeRef);
     void DeactivatePopulationSpawner(Red::NodeRef aNodeRef);
     void ResetPopulationSpawner(Red::NodeRef aNodeRef);
 
     void ToggleNode(Red::NodeRef aNodeRef, bool aState);
     void ToggleVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState);
-
-    Red::Handle<CommunityWrapper> GetCommunity(Red::NodeRef aNodeRef);
-    Red::Handle<PopulationSpawnerWrapper> GetPopulationSpawner(Red::NodeRef aNodeRef);
 
 private:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
@@ -50,15 +49,15 @@ private:
 RTTI_DEFINE_CLASS(App::WorldStateSystem, {
     RTTI_METHOD(IsReady);
     RTTI_METHOD(GetStreamingWorld);
+    RTTI_METHOD(GetCommunity);
     RTTI_METHOD(ActivateCommunity);
     RTTI_METHOD(DeactivateCommunity);
     RTTI_METHOD(ResetCommunity);
     RTTI_METHOD(SetCommunityPhase);
+    RTTI_METHOD(GetPopulationSpawner);
     RTTI_METHOD(ActivatePopulationSpawner);
     RTTI_METHOD(DeactivatePopulationSpawner);
     RTTI_METHOD(ResetPopulationSpawner);
     RTTI_METHOD(ToggleNode);
     RTTI_METHOD(ToggleVariant);
-    RTTI_METHOD(GetCommunity);
-    RTTI_METHOD(GetPopulationSpawner);
 });
