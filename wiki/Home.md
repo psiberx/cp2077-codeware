@@ -1,4 +1,4 @@
-Version: 1.16.0
+Version: 1.18.0
 
 ## Lifecycle
 
@@ -471,8 +471,8 @@ With custom streaming sectors and variants, you can quickly activate and deactiv
 ```swift
 let worldStateSystem = GameInstance.GetWorldStateSystem();
 
-worldStateSystem.ToggleNode(CreateNodeRef("$/03_night_city/se1/loc_ma_bls_ina_se1_13_prefab3CX3BZA/loc_ma_bls_ina_se1_13_openworld_prefabA6C6LTI"), true);
-worldStateSystem.ToggleVariant(CreateNodeRef("#loc_ma_bls_gas_station_small_v2_interior_v1_deco_v1"), "robbery", true)
+worldStateSystem.ToggleNode(ToNodeRef("$/03_night_city/se1/loc_ma_bls_ina_se1_13_prefab3CX3BZA/loc_ma_bls_ina_se1_13_openworld_prefabA6C6LTI"), true);
+worldStateSystem.ToggleVariant(ToNodeRef("#loc_ma_bls_gas_station_small_v2_interior_v1_deco_v1"), "robbery", true)
 ```
 
 ### Controlling communities
@@ -481,21 +481,21 @@ worldStateSystem.ToggleVariant(CreateNodeRef("#loc_ma_bls_gas_station_small_v2_i
 let worldStateSystem = GameInstance.GetWorldStateSystem();
 
 // Activate/deactivate entire communities
-worldStateSystem.ActivateCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"));
-worldStateSystem.DeactivateCommunity(CreateNodeRef("#de_pac_cvi_03_com"));
+worldStateSystem.ActivateCommunity(ToNodeRef("#bls_ina_se1_foodshop_03_com"));
+worldStateSystem.DeactivateCommunity(ToNodeRef("#de_pac_cvi_03_com"));
 
 // Activate/deactivate specific community entries
-worldStateSystem.ActivateCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper");
-worldStateSystem.DeactivateCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper");
+worldStateSystem.ActivateCommunity(ToNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper");
+worldStateSystem.DeactivateCommunity(ToNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper");
 
 // Set specific phase for a community entry
-worldStateSystem.SetCommunityPhase(CreateNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper", n"working");
+worldStateSystem.SetCommunityPhase(ToNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper", n"working");
 ```
 
 You can also access community objects to inspect their state:
 
 ```swift
-let community = worldStateSystem.GetCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"));
+let community = worldStateSystem.GetCommunity(ToNodeRef("#bls_ina_se1_foodshop_03_com"));
 if IsDefined(community) {
     let entries = community.GetEntries();
     for entry in entries {
@@ -510,14 +510,14 @@ if IsDefined(community) {
 let worldStateSystem = GameInstance.GetWorldStateSystem();
 
 // Activate/deactivate population spawners
-worldStateSystem.ActivatePopulationSpawner(CreateNodeRef("#mws_wat_02_iguana"));
-worldStateSystem.DeactivatePopulationSpawner(CreateNodeRef("#mws_wat_02_iguana"));
+worldStateSystem.ActivatePopulationSpawner(ToNodeRef("#mws_wat_02_iguana"));
+worldStateSystem.DeactivatePopulationSpawner(ToNodeRef("#mws_wat_02_iguana"));
 ```
 
 You can access spawner objects to inspect spawner state:
 
 ```swift
-let spawner = worldStateSystem.GetPopulationSpawner(CreateNodeRef("#mws_wat_02_iguana"));
+let spawner = worldStateSystem.GetPopulationSpawner(ToNodeRef("#mws_wat_02_iguana"));
 if IsDefined(spawner) {
     let appearanceName = spawner.GetAppearanceName();
     let active = spawner.IsActive();
