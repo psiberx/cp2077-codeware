@@ -1,9 +1,14 @@
 #include "PopulationSpawnerWrapper.hpp"
 
+App::PopulationSpawnerWrapper::PopulationSpawnerWrapper(Red::SharedPtr<Red::Spawner> aSpawner)
+    : spawner(std::move(aSpawner))
+{
+}
+
 Red::CName App::PopulationSpawnerWrapper::GetAppearanceName()
 {
     if (!spawner)
-        return Red::CName();
+        return {};
 
     return spawner->appearanceName;
 }
@@ -11,7 +16,7 @@ Red::CName App::PopulationSpawnerWrapper::GetAppearanceName()
 Red::TweakDBID App::PopulationSpawnerWrapper::GetRecordID()
 {
     if (!spawner)
-        return Red::TweakDBID();
+        return {};
 
     return spawner->recordID;
 }

@@ -123,12 +123,12 @@ Red::Handle<App::CommunityWrapper> App::WorldStateSystem::GetCommunity(Red::Node
     Red::WeakPtr<Red::Community> communityWeak;
     Raw::CommunitySystem::GetCommunity(m_communitySystem, communityWeak, communityID);
 
-    if (communityWeak.instance)
-    {
-        return Red::MakeHandle<CommunityWrapper>(communityWeak.Lock());
-    }
+    auto community = communityWeak.Lock();
 
-    return {};
+    if (!community)
+        return {};
+
+    return Red::MakeHandle<CommunityWrapper>(community);
 }
 
 
@@ -144,12 +144,12 @@ Red::Handle<App::PopulationSpawnerWrapper> App::WorldStateSystem::GetPopulationS
     Red::WeakPtr<Red::Spawner> spawnerWeak;
     Raw::CommunitySystem::GetSpawner(m_communitySystem, spawnerWeak, spawnerID);
 
-    if (spawnerWeak.instance)
-    {
-        return Red::MakeHandle<PopulationSpawnerWrapper>(spawnerWeak.Lock());
-    }
+    auto spawner = spawnerWeak.Lock();
 
-    return {};
+    if (!spawner)
+        return {};
+
+    return Red::MakeHandle<PopulationSpawnerWrapper>(spawner);
 }
 
 void App::WorldStateSystem::ActivatePopulationSpawner(Red::NodeRef aNodeRef)
