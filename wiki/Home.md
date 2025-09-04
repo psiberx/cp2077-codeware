@@ -492,7 +492,7 @@ worldStateSystem.DeactivateCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com
 worldStateSystem.SetCommunityPhase(CreateNodeRef("#bls_ina_se1_foodshop_03_com"), n"shop_keeper", n"working");
 ```
 
-You can also access community wrapper objects to inspect their state:
+You can also access community objects to inspect their state:
 
 ```swift
 let community = worldStateSystem.GetCommunity(CreateNodeRef("#bls_ina_se1_foodshop_03_com"));
@@ -510,15 +510,14 @@ if IsDefined(community) {
 let worldStateSystem = GameInstance.GetWorldStateSystem();
 
 // Activate/deactivate population spawners
-worldStateSystem.ActivatePopulationSpawner(CreateNodeRef("#bls_ina_se1_foodshop_03_spawner"));
-worldStateSystem.DeactivatePopulationSpawner(CreateNodeRef("#bls_ina_se1_foodshop_03_spawner"));
-
+worldStateSystem.ActivatePopulationSpawner(CreateNodeRef("#mws_wat_02_iguana"));
+worldStateSystem.DeactivatePopulationSpawner(CreateNodeRef("#mws_wat_02_iguana"));
 ```
 
-You can access spawner wrapper objects to inspect spawner state:
+You can access spawner objects to inspect spawner state:
 
 ```swift
-let spawner = worldStateSystem.GetPopulationSpawner(CreateNodeRef("#bls_ina_se1_foodshop_03_spawner"));
+let spawner = worldStateSystem.GetPopulationSpawner(CreateNodeRef("#mws_wat_02_iguana"));
 if IsDefined(spawner) {
     let appearanceName = spawner.GetAppearanceName();
     let active = spawner.IsActive();
