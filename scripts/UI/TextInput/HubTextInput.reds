@@ -31,11 +31,11 @@ public class HubTextInput extends TextInput {
 
         let fontSize: Int32 = 38;
         let inputHeight: Float = 80.0;
-        let textPadding: Vector2 = new Vector2(18.0, (inputHeight - Cast<Float>(fontSize)) / 2.0 - 1.0);
+        let textPadding: Vector2 = Vector2(18.0, (inputHeight - Cast<Float>(fontSize)) / 2.0 - 1.0);
 
         this.m_text.SetFontSize(fontSize);
         this.m_root.SetHeight(inputHeight);
-        this.m_wrapper.SetMargin(new inkMargin(textPadding.X, textPadding.Y, textPadding.X, 0.0));
+        this.m_wrapper.SetMargin(inkMargin(textPadding.X, textPadding.Y, textPadding.X, 0.0));
 
         // filter3_bg / filter3_fg / 80
         // sorting_bg / sorting_fg / 74
@@ -56,7 +56,7 @@ public class HubTextInput extends TextInput {
         bg.SetOpacity(0.61);
         bg.SetAnchor(inkEAnchor.Fill);
         bg.SetNineSliceScale(true);
-        bg.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));
+        bg.SetNineSliceGrid(inkMargin(50.0, 30.0, 100.0, 30.0));
         bg.Reparent(theme);
 
         let fill: ref<inkImage> = new inkImage();
@@ -67,7 +67,7 @@ public class HubTextInput extends TextInput {
         fill.BindProperty(n"tintColor", n"MainColors.Blue");
         fill.SetAnchor(inkEAnchor.Fill);
         fill.SetNineSliceScale(true);
-        fill.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));
+        fill.SetNineSliceGrid(inkMargin(50.0, 30.0, 100.0, 30.0));
         fill.Reparent(theme);
 
         let frame: ref<inkImage> = new inkImage();
@@ -78,7 +78,7 @@ public class HubTextInput extends TextInput {
         frame.BindProperty(n"tintColor", n"MainColors.Fullscreen_SecondaryBackground4");
         frame.SetAnchor(inkEAnchor.Fill);
         frame.SetNineSliceScale(true);
-        frame.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));
+        frame.SetNineSliceGrid(inkMargin(50.0, 30.0, 100.0, 30.0));
         frame.Reparent(theme);
 
         let hover: ref<inkImage> = new inkImage();
@@ -89,7 +89,7 @@ public class HubTextInput extends TextInput {
         hover.BindProperty(n"tintColor", n"MainColors.Red");
         hover.SetAnchor(inkEAnchor.Fill);
         hover.SetNineSliceScale(true);
-        hover.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));
+        hover.SetNineSliceGrid(inkMargin(50.0, 30.0, 100.0, 30.0));
         hover.Reparent(theme);
 
         let focus: ref<inkImage> = new inkImage();
@@ -100,7 +100,7 @@ public class HubTextInput extends TextInput {
         focus.BindProperty(n"tintColor", n"MainColors.Blue");
         focus.SetAnchor(inkEAnchor.Fill);
         focus.SetNineSliceScale(true);
-        focus.SetNineSliceGrid(new inkMargin(50.0, 30.0, 100.0, 30.0));
+        focus.SetNineSliceGrid(inkMargin(50.0, 30.0, 100.0, 30.0));
         focus.Reparent(theme);
 
         this.m_fill = fill;

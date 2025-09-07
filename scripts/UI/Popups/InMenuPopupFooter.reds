@@ -9,9 +9,9 @@ public class InMenuPopupFooter extends inkCustomController {
         let buttons: ref<inkHorizontalPanel> = new inkHorizontalPanel();
         buttons.SetName(n"Buttons");
         buttons.SetFitToContent(true);
-        buttons.SetMargin(new inkMargin(-40.0, 0.0, -100.0, 0.0));
+        buttons.SetMargin(inkMargin(-40.0, 0.0, -100.0, 0.0));
         buttons.SetHAlign(inkEHorizontalAlign.Right);
-        buttons.SetChildMargin(new inkMargin(10.0, 0.0, 0.0, 0.0));
+        buttons.SetChildMargin(inkMargin(10.0, 0.0, 0.0, 0.0));
 
         this.SetRootWidget(buttons);
     }

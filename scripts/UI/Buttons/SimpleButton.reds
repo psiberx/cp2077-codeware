@@ -24,7 +24,7 @@ public class SimpleButton extends CustomButton {
         let root: ref<inkCanvas> = new inkCanvas();
         root.SetName(n"button");
         root.SetSize(400.0, 100.0);
-        root.SetAnchorPoint(new Vector2(0.5, 0.5));
+        root.SetAnchorPoint(Vector2(0.5, 0.5));
         root.SetInteractive(true);
 
         let bg: ref<inkImage> = new inkImage();
@@ -35,7 +35,7 @@ public class SimpleButton extends CustomButton {
         bg.SetOpacity(0.8);
         bg.SetAnchor(inkEAnchor.Fill);
         bg.SetNineSliceScale(true);
-        bg.SetNineSliceGrid(new inkMargin(0.0, 0.0, 10.0, 0.0));
+        bg.SetNineSliceGrid(inkMargin(0.0, 0.0, 10.0, 0.0));
         bg.Reparent(root);
 
         let fill: ref<inkImage> = new inkImage();
@@ -44,7 +44,7 @@ public class SimpleButton extends CustomButton {
         fill.SetOpacity(0.0);
         fill.SetAnchor(inkEAnchor.Fill);
         fill.SetNineSliceScale(true);
-        fill.SetNineSliceGrid(new inkMargin(0.0, 0.0, 10.0, 0.0));
+        fill.SetNineSliceGrid(inkMargin(0.0, 0.0, 10.0, 0.0));
         fill.Reparent(root);
 
         let frame: ref<inkImage> = new inkImage();
@@ -53,7 +53,7 @@ public class SimpleButton extends CustomButton {
         frame.SetOpacity(1.0);
         frame.SetAnchor(inkEAnchor.Fill);
         frame.SetNineSliceScale(true);
-        frame.SetNineSliceGrid(new inkMargin(0.0, 0.0, 10.0, 0.0));
+        frame.SetNineSliceGrid(inkMargin(0.0, 0.0, 10.0, 0.0));
         frame.Reparent(root);
 
         let label: ref<inkText> = new inkText();

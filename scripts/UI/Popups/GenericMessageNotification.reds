@@ -54,13 +54,13 @@ protected cb func OnInitialize() -> Bool {
         this.m_textInput.Reparent(content);
 
         let textWidget = this.m_textInput.GetRootWidget();
-        textWidget.SetMargin(new inkMargin(66.0, 4.0, 50.0, 36.0));
+        textWidget.SetMargin(inkMargin(66.0, 4.0, 50.0, 36.0));
 
         this.RequestSetFocus(textWidget);
 
         icon.SetVisible(false);
         line.SetVisible(false);
-        title.SetMargin(new inkMargin(66.0, 20.0, 0.0, -30.0));
+        title.SetMargin(inkMargin(66.0, 20.0, 0.0, -30.0));
     }
 }
 

@@ -22,13 +22,13 @@ public class HubLinkButton extends CustomButton {
     protected func CreateWidgets() {
         let root: ref<inkCanvas> = new inkCanvas();
         root.SetName(n"button");
-        root.SetSize(new Vector2(500.0, 120.0)); // Big Mode = 160.0
-        root.SetAnchorPoint(new Vector2(0.5, 0.5));
+        root.SetSize(Vector2(500.0, 120.0)); // Big Mode = 160.0
+        root.SetAnchorPoint(Vector2(0.5, 0.5));
         root.SetInteractive(true);
 
         let flexContainer: ref<inkFlex> = new inkFlex();
         flexContainer.SetName(n"flexContainer");
-        flexContainer.SetMargin(new inkMargin(15.0, 0.0, 0.0, 0.0));
+        flexContainer.SetMargin(inkMargin(15.0, 0.0, 0.0, 0.0));
         flexContainer.Reparent(root);
 
         let background: ref<inkImage> = new inkImage();
@@ -36,11 +36,11 @@ public class HubLinkButton extends CustomButton {
         background.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         background.SetTexturePart(n"button_big2_bg");
         background.SetNineSliceScale(true);
-        background.SetAnchorPoint(new Vector2(0.5, 0.5));
+        background.SetAnchorPoint(Vector2(0.5, 0.5));
         background.SetStyle(r"base\\gameplay\\gui\\fullscreen\\hub_menu\\hub_menu_style.inkstyle");
         background.BindProperty(n"opacity", n"HubMenuButton.bgOpacity");
         background.BindProperty(n"tintColor", n"HubMenuButton.bgColor");
-        background.SetSize(new Vector2(532.0, 345.0));
+        background.SetSize(Vector2(532.0, 345.0));
         background.Reparent(flexContainer);
 
         let frame: ref<inkImage> = new inkImage();
@@ -48,11 +48,11 @@ public class HubLinkButton extends CustomButton {
         frame.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         frame.SetTexturePart(n"button_big2_fg");
         frame.SetNineSliceScale(true);
-        frame.SetAnchorPoint(new Vector2(0.5, 0.5));
+        frame.SetAnchorPoint(Vector2(0.5, 0.5));
         frame.SetStyle(r"base\\gameplay\\gui\\fullscreen\\hub_menu\\hub_menu_style.inkstyle");
         //frame.BindProperty(n"opacity", n"HubMenuButton.frameOpacity");
         frame.BindProperty(n"tintColor", n"HubMenuButton.frameColor");
-        frame.SetSize(new Vector2(532.0, 345.0));
+        frame.SetSize(Vector2(532.0, 345.0));
         frame.Reparent(flexContainer);
 
         let backgroundLeftBg: ref<inkImage> = new inkImage();
@@ -60,13 +60,13 @@ public class HubLinkButton extends CustomButton {
         backgroundLeftBg.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         backgroundLeftBg.SetTexturePart(n"item_side_bg");
         backgroundLeftBg.SetNineSliceScale(true);
-        backgroundLeftBg.SetMargin(new inkMargin(-15.0, 0.0, 0.0, 0.0));
+        backgroundLeftBg.SetMargin(inkMargin(-15.0, 0.0, 0.0, 0.0));
         backgroundLeftBg.SetHAlign(inkEHorizontalAlign.Left);
-        backgroundLeftBg.SetAnchorPoint(new Vector2(0.5, 0.5));
+        backgroundLeftBg.SetAnchorPoint(Vector2(0.5, 0.5));
         backgroundLeftBg.SetOpacity(0.5);
         backgroundLeftBg.SetStyle(r"base\\gameplay\\gui\\fullscreen\\hub_menu\\hub_menu_style.inkstyle");
         backgroundLeftBg.BindProperty(n"tintColor", n"HubMenuButton.frameColor");
-        backgroundLeftBg.SetSize(new Vector2(16.0, 345.0));
+        backgroundLeftBg.SetSize(Vector2(16.0, 345.0));
         backgroundLeftBg.Reparent(flexContainer);
 
         let backgroundLeftFrame: ref<inkImage> = new inkImage();
@@ -74,19 +74,19 @@ public class HubLinkButton extends CustomButton {
         backgroundLeftFrame.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         backgroundLeftFrame.SetTexturePart(n"item_side_fg");
         backgroundLeftFrame.SetNineSliceScale(true);
-        backgroundLeftFrame.SetMargin(new inkMargin(-15.0, 0.0, 0.0, 0.0));
+        backgroundLeftFrame.SetMargin(inkMargin(-15.0, 0.0, 0.0, 0.0));
         backgroundLeftFrame.SetHAlign(inkEHorizontalAlign.Left);
-        backgroundLeftFrame.SetAnchorPoint(new Vector2(0.5, 0.5));
+        backgroundLeftFrame.SetAnchorPoint(Vector2(0.5, 0.5));
         backgroundLeftFrame.SetStyle(r"base\\gameplay\\gui\\fullscreen\\hub_menu\\hub_menu_style.inkstyle");
         //backgroundLeftFrame.BindProperty(n"opacity", n"HubMenuButton.frameOpacity");
         backgroundLeftFrame.BindProperty(n"tintColor", n"HubMenuButton.frameColor");
-        backgroundLeftFrame.SetSize(new Vector2(16.0, 345.0));
+        backgroundLeftFrame.SetSize(Vector2(16.0, 345.0));
         backgroundLeftFrame.Reparent(flexContainer);
 
         let container: ref<inkHorizontalPanel> = new inkHorizontalPanel();
         container.SetName(n"container");
         container.SetFitToContent(true);
-        container.SetMargin(new inkMargin(0.0, 5.0, 0.0, 0.0));
+        container.SetMargin(inkMargin(0.0, 5.0, 0.0, 0.0));
         container.SetHAlign(inkEHorizontalAlign.Left);
         container.SetVAlign(inkEVerticalAlign.Top);
         container.Reparent(flexContainer);
@@ -94,7 +94,7 @@ public class HubLinkButton extends CustomButton {
         let inkVerticalPanelWidget8: ref<inkVerticalPanel> = new inkVerticalPanel();
         inkVerticalPanelWidget8.SetName(n"inkVerticalPanelWidget8");
         inkVerticalPanelWidget8.SetFitToContent(true);
-        inkVerticalPanelWidget8.SetMargin(new inkMargin(20.0, 0.0, -10.0, 0.0));
+        inkVerticalPanelWidget8.SetMargin(inkMargin(20.0, 0.0, -10.0, 0.0));
         inkVerticalPanelWidget8.Reparent(container);
 
         let icon: ref<inkImage> = new inkImage();
@@ -102,12 +102,12 @@ public class HubLinkButton extends CustomButton {
         icon.SetAtlasResource(r"base\\gameplay\\gui\\fullscreen\\hub_menu\\hub_atlas.inkatlas");
         icon.SetHAlign(inkEHorizontalAlign.Center);
         icon.SetVAlign(inkEVerticalAlign.Center);
-        icon.SetAnchorPoint(new Vector2(0.5, 0.5));
+        icon.SetAnchorPoint(Vector2(0.5, 0.5));
         icon.SetSizeRule(inkESizeRule.Stretch);
         icon.SetStyle(r"base\\gameplay\\gui\\fullscreen\\hub_menu\\hub_menu_style.inkstyle");
         icon.BindProperty(n"tintColor", n"HubMenuButton.textColor");
-        icon.SetSize(new Vector2(80.0, 80.0));
-        icon.SetScale(new Vector2(0.8, 0.8));
+        icon.SetSize(Vector2(80.0, 80.0));
+        icon.SetScale(Vector2(0.8, 0.8));
         icon.Reparent(inkVerticalPanelWidget8);
 
         let fluff: ref<inkImage> = new inkImage();
@@ -115,14 +115,14 @@ public class HubLinkButton extends CustomButton {
         fluff.SetAtlasResource(r"base\\gameplay\\gui\\common\\icons\\atlas_common.inkatlas");
         fluff.SetTexturePart(n"fluffcc35_3");
         fluff.SetFitToContent(true);
-        fluff.SetMargin(new inkMargin(0.0, 0.0, 0.0, 16.0));
+        fluff.SetMargin(inkMargin(0.0, 0.0, 0.0, 16.0));
         fluff.SetHAlign(inkEHorizontalAlign.Center);
         fluff.SetVAlign(inkEVerticalAlign.Center);
-        fluff.SetAnchorPoint(new Vector2(0.5, 0.5));
+        fluff.SetAnchorPoint(Vector2(0.5, 0.5));
         fluff.SetOpacity(0.4);
         fluff.SetStyle(r"base\\gameplay\\gui\\fullscreen\\fullscreen_main_colors.inkstyle");
         fluff.BindProperty(n"tintColor", n"MainColors.PanelBlue");
-        fluff.SetSize(new Vector2(90.0, 80.0));
+        fluff.SetSize(Vector2(90.0, 80.0));
         fluff.Reparent(inkVerticalPanelWidget8);
 
         let label: ref<inkText> = new inkText();
@@ -135,20 +135,20 @@ public class HubLinkButton extends CustomButton {
         label.SetContentHAlign(inkEHorizontalAlign.Center);
         label.SetContentVAlign(inkEVerticalAlign.Center);
         label.SetText("STATS");
-        label.SetMargin(new inkMargin(20.0, -5.0, 0.0, 0.0));
+        label.SetMargin(inkMargin(20.0, -5.0, 0.0, 0.0));
         label.SetHAlign(inkEHorizontalAlign.Left);
         label.SetVAlign(inkEVerticalAlign.Center);
         label.SetStyle(r"base\\gameplay\\gui\\fullscreen\\hub_menu\\hub_menu_style.inkstyle");
         label.BindProperty(n"tintColor", n"HubMenuButton.textColor");
         //label.BindProperty(n"fontSize", n"MenuLabel.MainFontSize");
         //label.BindProperty(n"fontStyle", n"MainColors.HeaderFontWeight");
-        label.SetSize(new Vector2(360.0, 120.0));
+        label.SetSize(Vector2(360.0, 120.0));
         label.Reparent(container);
 
         let hoverFrames: ref<inkFlex> = new inkFlex();
         hoverFrames.SetName(n"hoverFrames");
         hoverFrames.SetOpacity(0.0);
-        hoverFrames.SetSize(new Vector2(100.0, 100.0));
+        hoverFrames.SetSize(Vector2(100.0, 100.0));
         hoverFrames.Reparent(flexContainer);
 
         let frameHovered: ref<inkImage> = new inkImage();
@@ -156,10 +156,10 @@ public class HubLinkButton extends CustomButton {
         frameHovered.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         frameHovered.SetTexturePart(n"button_big2_fg");
         frameHovered.SetNineSliceScale(true);
-        frameHovered.SetAnchorPoint(new Vector2(0.5, 0.5));
+        frameHovered.SetAnchorPoint(Vector2(0.5, 0.5));
         frameHovered.SetStyle(r"base\\gameplay\\gui\\fullscreen\\perks\\perks_style.inkstyle");
         frameHovered.BindProperty(n"tintColor", n"MainColors.PanelRed");
-        frameHovered.SetSize(new Vector2(532.0, 345.0));
+        frameHovered.SetSize(Vector2(532.0, 345.0));
         frameHovered.Reparent(hoverFrames);
 
         let frameHoveredBg: ref<inkImage> = new inkImage();
@@ -167,11 +167,11 @@ public class HubLinkButton extends CustomButton {
         frameHoveredBg.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         frameHoveredBg.SetTexturePart(n"button_big2_bg");
         frameHoveredBg.SetNineSliceScale(true);
-        frameHoveredBg.SetAnchorPoint(new Vector2(0.5, 0.5));
+        frameHoveredBg.SetAnchorPoint(Vector2(0.5, 0.5));
         frameHoveredBg.SetOpacity(0.05);
         frameHoveredBg.SetStyle(r"base\\gameplay\\gui\\fullscreen\\perks\\perks_style.inkstyle");
         frameHoveredBg.BindProperty(n"tintColor", n"MainColors.PanelRed");
-        frameHoveredBg.SetSize(new Vector2(532.0, 345.0));
+        frameHoveredBg.SetSize(Vector2(532.0, 345.0));
         frameHoveredBg.Reparent(hoverFrames);
 
         let backgroundLeftHover: ref<inkImage> = new inkImage();
@@ -179,12 +179,12 @@ public class HubLinkButton extends CustomButton {
         backgroundLeftHover.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         backgroundLeftHover.SetTexturePart(n"item_side_fg");
         backgroundLeftHover.SetNineSliceScale(true);
-        backgroundLeftHover.SetMargin(new inkMargin(-15.0, 0.0, 0.0, 0.0));
+        backgroundLeftHover.SetMargin(inkMargin(-15.0, 0.0, 0.0, 0.0));
         backgroundLeftHover.SetHAlign(inkEHorizontalAlign.Left);
-        backgroundLeftHover.SetAnchorPoint(new Vector2(0.5, 0.5));
+        backgroundLeftHover.SetAnchorPoint(Vector2(0.5, 0.5));
         backgroundLeftHover.SetStyle(r"base\\gameplay\\gui\\fullscreen\\perks\\perks_style.inkstyle");
         backgroundLeftHover.BindProperty(n"tintColor", n"MainColors.PanelRed");
-        backgroundLeftHover.SetSize(new Vector2(16.0, 345.0));
+        backgroundLeftHover.SetSize(Vector2(16.0, 345.0));
         backgroundLeftHover.Reparent(hoverFrames);
 
         let backgroundLeftBg: ref<inkImage> = new inkImage();
@@ -192,13 +192,13 @@ public class HubLinkButton extends CustomButton {
         backgroundLeftBg.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         backgroundLeftBg.SetTexturePart(n"item_side_bg");
         backgroundLeftBg.SetNineSliceScale(true);
-        backgroundLeftBg.SetMargin(new inkMargin(-15.0, 0.0, 0.0, 0.0));
+        backgroundLeftBg.SetMargin(inkMargin(-15.0, 0.0, 0.0, 0.0));
         backgroundLeftBg.SetHAlign(inkEHorizontalAlign.Left);
-        backgroundLeftBg.SetAnchorPoint(new Vector2(0.5, 0.5));
+        backgroundLeftBg.SetAnchorPoint(Vector2(0.5, 0.5));
         backgroundLeftBg.SetOpacity(0.65); // Big Mode = 0.05
         backgroundLeftBg.SetStyle(r"base\\gameplay\\gui\\fullscreen\\perks\\perks_style.inkstyle");
         backgroundLeftBg.BindProperty(n"tintColor", n"MainColors.PanelRed");
-        backgroundLeftBg.SetSize(new Vector2(16.0, 345.0));
+        backgroundLeftBg.SetSize(Vector2(16.0, 345.0));
         backgroundLeftBg.Reparent(hoverFrames);
 
         let minSize: ref<inkRectangle> = new inkRectangle();
@@ -207,7 +207,7 @@ public class HubLinkButton extends CustomButton {
         minSize.SetAffectsLayoutWhenHidden(true);
         minSize.SetHAlign(inkEHorizontalAlign.Left);
         minSize.SetVAlign(inkEVerticalAlign.Center);
-        minSize.SetSize(new Vector2(485.0, 120.0));
+        minSize.SetSize(Vector2(485.0, 120.0));
         minSize.Reparent(flexContainer);
 
         this.m_root = root;

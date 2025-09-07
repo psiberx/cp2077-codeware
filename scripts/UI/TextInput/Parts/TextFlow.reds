@@ -44,7 +44,7 @@ public class TextFlow extends inkCustomController {
         text.BindProperty(n"tintColor", n"MainColors.Red");
         text.SetHorizontalAlignment(textHorizontalAlignment.Left);
         text.SetVerticalAlignment(textVerticalAlignment.Top);
-        text.SetRenderTransformPivot(new Vector2(0.0, 0.0));
+        text.SetRenderTransformPivot(Vector2(0.0, 0.0));
 
         this.m_text = text;
 
@@ -231,7 +231,7 @@ public class TextFlow extends inkCustomController {
     }
 
     public func GetCharRange(range: RectF) -> RectF {
-        return new RectF(
+        return RectF(
             this.GetCharOffset(Cast(range.Left)),
             0.0,
             this.GetCharOffset(Cast(range.Right)),
@@ -343,7 +343,7 @@ public class TextFlow extends inkCustomController {
     }
 
     public func GetDesiredSize() -> Vector2 {
-        return new Vector2(
+        return Vector2(
             this.m_charOffsets[this.m_length],
             Cast(this.m_text.GetFontSize())
         );

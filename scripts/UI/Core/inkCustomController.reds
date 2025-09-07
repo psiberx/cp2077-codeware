@@ -205,7 +205,7 @@ public abstract class inkCustomController extends inkLogicController {
         if IsDefined(this.m_rootWidget) {
             this.m_rootWidget.RegisterToCallback(eventName, object, functionName);
         } else {
-            ArrayPush(this.m_pendingCallbacks, new inkPendingCallback(eventName, object, functionName));
+            ArrayPush(this.m_pendingCallbacks, inkPendingCallback(eventName, object, functionName));
         }
     }
 

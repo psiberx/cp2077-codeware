@@ -20,12 +20,12 @@ public func SetViewportSize(size: Vector2) {
 
 @addMethod(inkScrollController)
 public func SetViewportWidth(width: Float) {
-    this.viewportSize = new Vector2(width, this.viewportSize.Y);
+    this.viewportSize = Vector2(width, this.viewportSize.Y);
 }
 
 @addMethod(inkScrollController)
 public func SetViewportHeight(height: Float) {
-    this.viewportSize = new Vector2(this.viewportSize.X, height);
+    this.viewportSize = Vector2(this.viewportSize.X, height);
 }
 
 @addMethod(inkScrollController)

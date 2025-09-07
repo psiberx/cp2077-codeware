@@ -50,7 +50,7 @@ public class VirtualResolutionData {
     public func GetSmartScale() -> Vector2 {
         let factor: Float = this.GetSmartScaleFactor();
 
-        return new Vector2(factor, factor);
+        return Vector2(factor, factor);
     }
 
     public static func Create(resolution: String, size: Vector2, scale: Vector2) -> ref<VirtualResolutionData> {

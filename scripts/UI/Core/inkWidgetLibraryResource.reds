@@ -3,7 +3,7 @@ public static native func SetPath(self: script_ref<inkWidgetLibraryResource>, pa
 
 @addMethod(inkWidgetLibraryResource)
 public static func Create(path: ResRef) -> inkWidgetLibraryResource {
-    let ref = new inkWidgetLibraryResource();
+    let ref: inkWidgetLibraryResource;
     inkWidgetLibraryResource.SetPath(ref, path);
     return ref;
 }

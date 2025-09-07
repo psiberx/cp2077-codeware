@@ -11,7 +11,7 @@ public class VirtualResolutionResizeTarget extends VirtualResolutionTarget {
     {
         let scale: Vector2 = state.GetSmartScale();
 
-        this.m_widget.SetSize(new Vector2(this.m_size.X * scale.X, this.m_size.Y * scale.Y));
+        this.m_widget.SetSize(Vector2(this.m_size.X * scale.X, this.m_size.Y * scale.Y));
     }
 
     public static func Create(widget: wref<inkWidget>) -> ref<VirtualResolutionResizeTarget> {

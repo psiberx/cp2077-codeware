@@ -15,10 +15,10 @@ public class PopupButton extends CustomButton {
         let root = new inkFlex();
         root.SetName(n"button");
         root.SetInteractive(true);
-        root.SetMargin(new inkMargin(0.0, 20.0, 0.0, 0.0));
+        root.SetMargin(inkMargin(0.0, 20.0, 0.0, 0.0));
         root.SetHAlign(inkEHorizontalAlign.Right);
         root.SetVAlign(inkEVerticalAlign.Top);
-        root.SetSize(new Vector2(100.0, 100.0));
+        root.SetSize(Vector2(100.0, 100.0));
         //root.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
 
         let minSize = new inkRectangle();
@@ -27,7 +27,7 @@ public class PopupButton extends CustomButton {
         minSize.SetAffectsLayoutWhenHidden(true);
         minSize.SetHAlign(inkEHorizontalAlign.Left);
         minSize.SetVAlign(inkEVerticalAlign.Top);
-        minSize.SetSize(new Vector2(326.0, 80.0));
+        minSize.SetSize(Vector2(326.0, 80.0));
         minSize.Reparent(root);
 
         let background = new inkImage();
@@ -35,8 +35,8 @@ public class PopupButton extends CustomButton {
         background.SetAtlasResource(r"base\\gameplay\\gui\\common\\shapes\\atlas_shapes_sync.inkatlas");
         background.SetTexturePart(n"cell_bg");
         background.SetNineSliceScale(true);
-        background.SetAnchorPoint(new Vector2(0.5, 0.5));
-        background.SetSize(new Vector2(326.0, 80.0));
+        background.SetAnchorPoint(Vector2(0.5, 0.5));
+        background.SetSize(Vector2(326.0, 80.0));
         background.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
         background.BindProperty(n"tintColor", n"PopupButton.bgColor");
         background.BindProperty(n"opacity", n"PopupButton.bgOpacity");
@@ -48,8 +48,8 @@ public class PopupButton extends CustomButton {
         frame.SetTexturePart(n"cell_fg");
         frame.SetNineSliceScale(true);
         frame.SetVAlign(inkEVerticalAlign.Top);
-        frame.SetAnchorPoint(new Vector2(0.5, 0.5));
-        frame.SetSize(new Vector2(326.0, 80.0));
+        frame.SetAnchorPoint(Vector2(0.5, 0.5));
+        frame.SetSize(Vector2(326.0, 80.0));
         frame.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
         frame.BindProperty(n"tintColor", n"PopupButton.frameColor");
         frame.BindProperty(n"opacity", n"PopupButton.frameOpacity");
@@ -58,24 +58,24 @@ public class PopupButton extends CustomButton {
         let content = new inkHorizontalPanel();
         content.SetName(n"content");
         content.SetFitToContent(true);
-        content.SetMargin(new inkMargin(15.0, 0.0, 0.0, 0.0));
+        content.SetMargin(inkMargin(15.0, 0.0, 0.0, 0.0));
         content.SetHAlign(inkEHorizontalAlign.Left);
         content.Reparent(root);
         
         let inputDisplay = new inkHorizontalPanel();
         inputDisplay.SetName(n"inputDisplay");
         inputDisplay.SetFitToContent(true);
-        inputDisplay.SetMargin(new inkMargin(0.0, 0.0, 12.0, 0.0));
+        inputDisplay.SetMargin(inkMargin(0.0, 0.0, 12.0, 0.0));
         inputDisplay.SetHAlign(inkEHorizontalAlign.Left);
         inputDisplay.SetVAlign(inkEVerticalAlign.Center);
-        inputDisplay.SetSize(new Vector2(40.0, 32.0));
+        inputDisplay.SetSize(Vector2(40.0, 32.0));
         inputDisplay.Reparent(content);
 
         let inputRoot = new inkCanvas();
         inputRoot.SetName(n"inputRoot");
         inputRoot.SetHAlign(inkEHorizontalAlign.Left);
         inputRoot.SetVAlign(inkEVerticalAlign.Top);
-        inputRoot.SetSize(new Vector2(64.0, 64.0));
+        inputRoot.SetSize(Vector2(64.0, 64.0));
         inputRoot.Reparent(inputDisplay);
 
         let inputIcon = new inkImage();
@@ -86,8 +86,8 @@ public class PopupButton extends CustomButton {
         inputIcon.SetHAlign(inkEHorizontalAlign.Center);
         inputIcon.SetVAlign(inkEVerticalAlign.Center);
         inputIcon.SetAnchor(inkEAnchor.Centered);
-        inputIcon.SetAnchorPoint(new Vector2(0.5, 0.5));
-        inputIcon.SetSize(new Vector2(64.0, 64.0));
+        inputIcon.SetAnchorPoint(Vector2(0.5, 0.5));
+        inputIcon.SetSize(Vector2(64.0, 64.0));
         inputIcon.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
         inputIcon.BindProperty(n"tintColor", n"PopupButton.iconColor");
         inputIcon.BindProperty(n"opacity", n"PopupButton.iconOpacity");
@@ -101,7 +101,7 @@ public class PopupButton extends CustomButton {
         inputText.SetFontSize(45);
         inputText.SetFitToContent(true);
         inputText.SetAnchor(inkEAnchor.Centered);
-        inputText.SetAnchorPoint(new Vector2(0.5, 0.5));
+        inputText.SetAnchorPoint(Vector2(0.5, 0.5));
         inputText.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
         inputText.BindProperty(n"tintColor", n"PopupButton.iconColor");
         inputText.BindProperty(n"opacity", n"PopupButton.iconOpacity");
@@ -126,7 +126,7 @@ public class PopupButton extends CustomButton {
         label.SetOverflowPolicy(textOverflowPolicy.AdjustToSize);
         label.SetFitToContent(true);
         label.SetVAlign(inkEVerticalAlign.Center);
-        label.SetSize(new Vector2(100.0, 32.0));
+        label.SetSize(Vector2(100.0, 32.0));
         label.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
         label.BindProperty(n"fontStyle", n"MainColors.BodyFontWeight");
         label.BindProperty(n"fontSize", n"MainColors.ReadableMedium");
@@ -153,10 +153,10 @@ public class PopupButton extends CustomButton {
     protected func ApplyInputState() {
         if NotEquals(this.m_input.GetInputAction(), n"") {
             this.m_input.SetVisible(true);
-            this.m_label.SetMargin(new inkMargin(0.0, 0.0, 20.0, 0.0));
+            this.m_label.SetMargin(inkMargin(0.0, 0.0, 20.0, 0.0));
         } else {
             this.m_input.SetVisible(false);
-            this.m_label.SetMargin(new inkMargin(10.0, 0.0, 20.0, 0.0));
+            this.m_label.SetMargin(inkMargin(10.0, 0.0, 20.0, 0.0));
         }
     }
 

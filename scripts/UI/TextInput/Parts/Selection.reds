@@ -35,7 +35,7 @@ public class Selection extends inkCustomController {
         selection.SetOpacity(0.2);
         selection.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
         selection.BindProperty(n"tintColor", n"MainColors.Blue");
-        selection.SetRenderTransformPivot(new Vector2(0.0, 0.0));
+        selection.SetRenderTransformPivot(Vector2(0.0, 0.0));
 
         this.m_selection = selection;
 
@@ -115,7 +115,7 @@ public class Selection extends inkCustomController {
     }
 
     public func GetRange() -> RectF {
-        return new RectF(
+        return RectF(
             Cast(this.GetLeftPosition()),
             0.0,
             Cast(this.GetRightPosition()),
@@ -131,8 +131,8 @@ public class Selection extends inkCustomController {
         if isFocused && !this.IsEmpty() {
             this.m_selection.SetVisible(true);
 
-            let selectionWidth: Float = selectedBounds.Right - selectedBounds.Left;
-            let selectionPos: Vector2 = new Vector2(
+            let selectionWidth = selectedBounds.Right - selectedBounds.Left;
+            let selectionPos = Vector2(
                 selectedBounds.Left,
                 (this.m_fontSize - this.m_selection.GetHeight()) / 2.0
             );

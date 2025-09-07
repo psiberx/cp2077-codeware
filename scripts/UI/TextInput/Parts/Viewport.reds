@@ -20,15 +20,15 @@ public class Viewport extends inkCustomController {
         let viewport: ref<inkScrollArea> = new inkScrollArea();
         viewport.SetName(n"viewport");
         viewport.SetAnchor(inkEAnchor.Fill);
-        viewport.SetMargin(new inkMargin(8.0, 4.0, 8.0, 4.0));
-        viewport.SetRenderTransformPivot(new Vector2(0.0, 0.0));
+        viewport.SetMargin(inkMargin(8.0, 4.0, 8.0, 4.0));
+        viewport.SetRenderTransformPivot(Vector2(0.0, 0.0));
         viewport.SetFitToContentDirection(inkFitToContentDirection.Vertical);
         viewport.SetConstrainContentPosition(true);
         viewport.SetUseInternalMask(true);
 
         let content: ref<inkCanvas> = new inkCanvas();
         content.SetName(n"content");
-        content.SetRenderTransformPivot(new Vector2(0.0, 0.0));
+        content.SetRenderTransformPivot(Vector2(0.0, 0.0));
         content.Reparent(viewport);
 
         this.m_viewport = viewport;
@@ -57,7 +57,7 @@ public class Viewport extends inkCustomController {
         if contentSize.X <= viewportSize.X {
             contentOffset.X = 0.0;
         } else {
-            let viewportBounds: inkMargin = new inkMargin(
+            let viewportBounds = inkMargin(
                 -contentOffset.X,
                 0.0,
                 -contentOffset.X + viewportSize.X,

@@ -60,7 +60,7 @@ public class TextMeasurer extends inkCustomController {
         shadow.SetFontFamily("base\\gameplay\\gui\\fonts\\raj\\raj.inkfontfamily");
         shadow.SetHorizontalAlignment(textHorizontalAlignment.Left);
         shadow.SetVerticalAlignment(textVerticalAlignment.Center);
-        shadow.SetRenderTransformPivot(new Vector2(0.0, 0.0));
+        shadow.SetRenderTransformPivot(Vector2(0.0, 0.0));
 
         this.m_shadow = shadow;
 
@@ -128,7 +128,7 @@ public class TextMeasurer extends inkCustomController {
                 return false;
             }
 
-            this.m_resultSize = new Vector2(
+            this.m_resultSize = Vector2(
                 Cast(this.m_charCache.Get(targetChar)),
                 0.0
             );

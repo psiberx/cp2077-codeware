@@ -34,7 +34,7 @@ public abstract class InGamePopup extends CustomPopup {
         vignette.BindProperty(n"tintColor", n"MainColors.Red");
         vignette.SetSize(32.0, 32.0);
         vignette.SetAnchor(inkEAnchor.CenterFillHorizontaly);
-        vignette.SetAnchorPoint(new Vector2(0.5, 0.5));
+        vignette.SetAnchorPoint(Vector2(0.5, 0.5));
         vignette.SetHAlign(inkEHorizontalAlign.Center);
         vignette.SetVAlign(inkEVerticalAlign.Center);
         vignette.SetFitToContent(true);
@@ -46,10 +46,10 @@ public abstract class InGamePopup extends CustomPopup {
     protected func CreateContainer() {
         let container: ref<inkCanvas> = new inkCanvas();
         container.SetName(n"container");
-        container.SetMargin(new inkMargin(0.0, 0.0, 0.0, 200.0));
+        container.SetMargin(inkMargin(0.0, 0.0, 0.0, 200.0));
         container.SetAnchor(inkEAnchor.Centered);
-        container.SetAnchorPoint(new Vector2(0.5, 0.5));
-        container.SetSize(new Vector2(1550.0, 840.0));
+        container.SetAnchorPoint(Vector2(0.5, 0.5));
+        container.SetSize(Vector2(1550.0, 840.0));
         container.Reparent(this.GetRootCompoundWidget());
 
         this.m_container = container;

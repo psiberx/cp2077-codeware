@@ -102,9 +102,9 @@ public class ButtonHintsEx extends inkCustomController {
         let holder = inkWidgetRef.Get(this.m_buttonHints.m_horizontalHolder) as inkCompoundWidget;
 
         if Equals(this.m_style, n"popup") {
-            holder.SetChildMargin(new inkMargin(30.0, 0.0, 0.0, 0.0));
+            holder.SetChildMargin(inkMargin(30.0, 0.0, 0.0, 0.0));
         } else {
-            holder.SetChildMargin(new inkMargin(0.0, 0.0, 0.0, 0.0));
+            holder.SetChildMargin(inkMargin(0.0, 0.0, 0.0, 0.0));
         }
     }
 

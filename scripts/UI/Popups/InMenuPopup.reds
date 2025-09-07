@@ -24,7 +24,7 @@ public abstract class InMenuPopup extends CustomPopup {
         fader.SetOpacity(0.7);
         fader.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
         fader.BindProperty(n"tintColor", n"Popup.faderColor");
-        fader.SetSize(new Vector2(64.0, 64.0));
+        fader.SetSize(Vector2(64.0, 64.0));
         fader.Reparent(this.GetRootCompoundWidget());
 
         let bg1 = new inkImage();
@@ -34,39 +34,39 @@ public abstract class InMenuPopup extends CustomPopup {
         bg1.SetHAlign(inkEHorizontalAlign.Center);
         bg1.SetVAlign(inkEVerticalAlign.Center);
         bg1.SetAnchor(inkEAnchor.Fill);
-        bg1.SetAnchorPoint(new Vector2(0.5, 0.0));
+        bg1.SetAnchorPoint(Vector2(0.5, 0.0));
         bg1.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
         bg1.BindProperty(n"tintColor", n"MainColors.PanelDarkRed");
-        bg1.SetSize(new Vector2(32.0, 32.0));
+        bg1.SetSize(Vector2(32.0, 32.0));
         bg1.Reparent(this.GetRootCompoundWidget());
 
         let shadow = new inkImage();
         shadow.SetName(n"Shadow");
         shadow.SetAtlasResource(r"base\\gameplay\\gui\\common\\shadow_blobs.inkatlas");
         shadow.SetTexturePart(n"shadowBlobSquare_big");
-        shadow.SetMargin(new inkMargin(0.0, 760.0, 0.0, 0.0));
+        shadow.SetMargin(inkMargin(0.0, 760.0, 0.0, 0.0));
         shadow.SetHAlign(inkEHorizontalAlign.Center);
         shadow.SetVAlign(inkEVerticalAlign.Center);
         shadow.SetAnchor(inkEAnchor.TopCenter);
-        shadow.SetAnchorPoint(new Vector2(0.5, 0.5));
+        shadow.SetAnchorPoint(Vector2(0.5, 0.5));
         shadow.SetStyle(r"base\\gameplay\\gui\\common\\dialogs_popups.inkstyle");
         shadow.BindProperty(n"tintColor", n"Popup.shadowColor");
-        shadow.SetSize(new Vector2(2500.0, 1200.0));
+        shadow.SetSize(Vector2(2500.0, 1200.0));
         shadow.Reparent(this.GetRootCompoundWidget());
     }
 
     protected func CreateContainer() {
         let root = this.GetRootCompoundWidget();
         root.SetAnchor(inkEAnchor.Centered);
-        root.SetAnchorPoint(new Vector2(0.5, 0.5));
+        root.SetAnchorPoint(Vector2(0.5, 0.5));
 
         let container = new inkVerticalPanel();
         container.SetName(n"container");
         container.SetInteractive(true);
         container.SetFitToContent(true);
-        container.SetMargin(new inkMargin(0.0, 600.0, 0.0, 0.0));
+        container.SetMargin(inkMargin(0.0, 600.0, 0.0, 0.0));
         container.SetAnchor(inkEAnchor.TopCenter);
-        container.SetAnchorPoint(new Vector2(0.5, 0.0));
+        container.SetAnchorPoint(Vector2(0.5, 0.0));
         container.Reparent(this.GetRootCompoundWidget());
         
         this.m_container = container;

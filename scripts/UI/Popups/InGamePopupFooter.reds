@@ -20,14 +20,14 @@ public class InGamePopupFooter extends inkCustomController {
 
         let line: ref<inkRectangle> = new inkRectangle();
         line.SetName(n"line");
-        line.SetMargin(new inkMargin(76.0, 0.0, 76.0, 90.0));
+        line.SetMargin(inkMargin(76.0, 0.0, 76.0, 90.0));
         line.SetAnchor(inkEAnchor.BottomFillHorizontaly);
-        line.SetAnchorPoint(new Vector2(0.5, 0.5));
+        line.SetAnchorPoint(Vector2(0.5, 0.5));
         line.SetOpacity(0.133);
         line.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
         line.BindProperty(n"tintColor", n"MainColors.Red");
-        line.SetSize(new Vector2(1170.0, 2.0));
-        line.SetRenderTransformPivot(new Vector2(0.0, 0.5));
+        line.SetSize(Vector2(1170.0, 2.0));
+        line.SetRenderTransformPivot(Vector2(0.0, 0.5));
         line.Reparent(footer);
 
         let fluffIcon: ref<inkImage> = new inkImage();
@@ -35,15 +35,15 @@ public class InGamePopupFooter extends inkCustomController {
         fluffIcon.SetVisible(false);
         fluffIcon.SetAtlasResource(r"base\\gameplay\\gui\\widgets\\scanning\\scanner_tooltip\\atlas_scanner.inkatlas");
         fluffIcon.SetFitToContent(true);
-        fluffIcon.SetMargin(new inkMargin(76.0, 0.0, 0.0, 10.0));
+        fluffIcon.SetMargin(inkMargin(76.0, 0.0, 0.0, 10.0));
         fluffIcon.SetHAlign(inkEHorizontalAlign.Center);
         fluffIcon.SetVAlign(inkEVerticalAlign.Center);
         fluffIcon.SetAnchor(inkEAnchor.BottomLeft);
-        fluffIcon.SetAnchorPoint(new Vector2(0.0, 1.0));
+        fluffIcon.SetAnchorPoint(Vector2(0.0, 1.0));
         fluffIcon.SetOpacity(0.217);
         fluffIcon.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
         fluffIcon.BindProperty(n"tintColor", n"MainColors.Red");
-        fluffIcon.SetSize(new Vector2(32.0, 32.0));
+        fluffIcon.SetSize(Vector2(32.0, 32.0));
         fluffIcon.Reparent(footer);
 
         let fluffText: ref<inkText> = new inkText();
@@ -53,11 +53,11 @@ public class InGamePopupFooter extends inkCustomController {
         fluffText.SetFontStyle(n"Regular");
         fluffText.SetFontSize(20);
         fluffText.SetFitToContent(true);
-        fluffText.SetMargin(new inkMargin(135.0, 0.0, 0.0, 75.0));
+        fluffText.SetMargin(inkMargin(135.0, 0.0, 0.0, 75.0));
         fluffText.SetAnchor(inkEAnchor.BottomLeft);
         fluffText.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
         fluffText.BindProperty(n"tintColor", n"MainColors.Red");
-        fluffText.SetSize(new Vector2(100.0, 32.0));
+        fluffText.SetSize(Vector2(100.0, 32.0));
         fluffText.Reparent(footer);
 
         let inputHolder: ref<inkCanvas> = new inkCanvas();
@@ -65,9 +65,9 @@ public class InGamePopupFooter extends inkCustomController {
         inputHolder.SetFitToContent(true);
         inputHolder.SetHAlign(inkEHorizontalAlign.Right);
         inputHolder.SetAnchor(inkEAnchor.BottomRight);
-        inputHolder.SetAnchorPoint(new Vector2(1.0, 1.0));
-        inputHolder.SetRenderTransformPivot(new Vector2(1.0, 1.0));
-        inputHolder.SetMargin(new inkMargin(0.0, 0.0, 32.0, 0.0));
+        inputHolder.SetAnchorPoint(Vector2(1.0, 1.0));
+        inputHolder.SetRenderTransformPivot(Vector2(1.0, 1.0));
+        inputHolder.SetMargin(inkMargin(0.0, 0.0, 32.0, 0.0));
         inputHolder.Reparent(footer);
 
         this.m_fluffIcon = fluffIcon;

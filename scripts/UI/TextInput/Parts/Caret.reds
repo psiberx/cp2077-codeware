@@ -42,7 +42,7 @@ public class Caret extends inkCustomController {
         caret.SetName(n"caret");
         caret.SetStyle(r"base\\gameplay\\gui\\common\\main_colors.inkstyle");
         caret.BindProperty(n"tintColor", n"MainColors.White");
-        caret.SetRenderTransformPivot(new Vector2(0.0, 0.0));
+        caret.SetRenderTransformPivot(Vector2(0.0, 0.0));
 
         this.m_caret = caret;
 
@@ -68,7 +68,7 @@ public class Caret extends inkCustomController {
     }
 
     protected func InitializeLayout() {
-        this.m_caret.SetSize(new Vector2(4.0, this.m_fontSize + this.m_padSize * 2.0));
+        this.m_caret.SetSize(Vector2(4.0, this.m_fontSize + this.m_padSize * 2.0));
     }
 
     public func GetFontSize() -> Int32 {
@@ -159,7 +159,7 @@ public class Caret extends inkCustomController {
             this.m_blinkAnimProxy = this.m_caret.PlayAnimationWithOptions(this.m_blinkAnimDef, caretAnimOpts);
             this.m_caret.SetVisible(true);
 
-            let caretPos: Vector2 = new Vector2(
+            let caretPos = Vector2(
                 caretOffset,
                 (this.m_fontSize - this.m_caret.GetHeight()) / 2.0
             );

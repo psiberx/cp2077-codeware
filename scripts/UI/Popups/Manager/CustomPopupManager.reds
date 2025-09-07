@@ -78,7 +78,7 @@ public class CustomPopupManager extends ScriptableService {
         let wrapperWidget = new inkCanvas();
         wrapperWidget.SetName(popupController.GetName());
         wrapperWidget.SetAnchor(inkEAnchor.Fill);
-        wrapperWidget.SetAnchorPoint(new Vector2(0.5, 0.5));
+        wrapperWidget.SetAnchorPoint(Vector2(0.5, 0.5));
         wrapperWidget.SetSize(this.m_notificationsContainer.GetSize());
         wrapperWidget.Reparent(containerWidget);
 

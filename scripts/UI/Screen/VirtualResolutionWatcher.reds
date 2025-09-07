@@ -27,7 +27,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
             this.m_game = game;
 
             if this.m_window.X == 0.0 {
-                this.m_window = new Vector2(3840.0, 2160.0);
+                this.m_window = Vector2(3840.0, 2160.0);
             }
 
             this.Register(n"/video/display");
@@ -49,7 +49,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
     }
 
     public func SetWindowSize(width: Float, height: Float) {
-        this.SetWindowSize(new Vector2(width, height));
+        this.SetWindowSize(Vector2(width, height));
     }
 
     public func ScaleWidget(widget: ref<inkWidget>) {
@@ -91,7 +91,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
     protected func GetCurrentState() -> ref<VirtualResolutionData> {
         let resolution = ScreenHelper.GetResolution(this.m_game);
         let size = ScreenHelper.GetScreenSize(this.m_game);
-        let scale = new Vector2(size.X / this.m_window.X, size.Y / this.m_window.Y);
+        let scale = Vector2(size.X / this.m_window.X, size.Y / this.m_window.Y);
 
         return VirtualResolutionData.Create(resolution, size, scale);
     }
