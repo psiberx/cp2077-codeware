@@ -1189,6 +1189,35 @@ let mask2: Uint16 = BitShiftL16(1, 3);
 let test: Bool = BitTest32(6, 1);
 ```
 
+### Vector2 operators and casts
+
+Add the following operators:
+ - `+`, `+=`
+ - `-`, `-=`
+ - `*`, `*=`
+ - `/`, `/=`
+ - `==`
+ - `>`, `>=`
+ - `<`, `<=`
+
+Add the following casts:
+ - `Vector2` to/from `Vector3`
+ - `Vector2` to/from `Vector4`
+
+### Vector3 operators and casts
+
+Add the following operators:
+ - `+`, `+=`
+ - `-`, `-=`
+ - `*`, `*=`
+ - `/`, `/=`
+ - `==`
+ - `>`, `>=`
+ - `<`, `<=`
+
+Add the following casts:
+ - `Vector2` to/from `Vector3`
+
 ### Reference
 
 - [CName](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/CName.reds)
@@ -1197,3 +1226,5 @@ let test: Bool = BitTest32(6, 1);
 - [String](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/String.reds)
 - [Hash](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Hash.reds)
 - [Bits](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Bits.reds)
+- [Vector2](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Vector2.reds)
+- [Vector3](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Vector3.reds)
