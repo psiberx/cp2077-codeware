@@ -13,6 +13,7 @@ public native class worldBakedDestructionNode extends worldMeshNode {
   public native let impulseToDamage: Float;
   public native let contactToDamage: Float;
   public native let accumulateDamage: Bool;
+  public native let fractureFieldMask: Uint16; // physicsFractureFieldType
   public native let destructionEffect: ResourceAsyncRef; // raRef<worldEffect>
   public native let audioMetadata: CName;
   public native let navigationSetting: NavGenNavigationSetting;

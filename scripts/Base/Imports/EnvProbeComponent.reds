@@ -15,4 +15,6 @@ public native class EnvProbeComponent extends IVisualComponent {
   public native let brightnessEVClamp: Uint8;
   public native let probeDataRef: ResourceAsyncRef; // raRef<CReflectionProbeDataResource>
   public native let priority: Uint8;
+  public native let lightChannels: Uint16; // rendLightChannel
+  public native let volumeChannels: Uint16; // rendLightChannel
 }

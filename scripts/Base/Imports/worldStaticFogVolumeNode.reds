@@ -10,4 +10,5 @@ public native class worldStaticFogVolumeNode extends worldNode {
   public native let ambientScale: Float;
   public native let envColorGroup: EEnvColorGroup;
   public native let color: Color;
+  public native let lightChannels: Uint16; // rendLightChannel
 }

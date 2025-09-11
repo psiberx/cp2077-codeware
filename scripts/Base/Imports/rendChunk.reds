@@ -7,5 +7,6 @@ public native struct rendChunk {
   public native let vertexFactory: Uint8;
   public native let baseRenderMask: Uint16;
   public native let mergedRenderMask: Uint16;
+  public native let renderMask: Uint16; // EMeshChunkFlags
   public native let lodMask: Uint8;
 }

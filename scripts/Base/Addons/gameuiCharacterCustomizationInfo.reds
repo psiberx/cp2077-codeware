@@ -11,6 +11,9 @@ public native let link: CName;
 public native let linkController: Bool;
 
 @addField(gameuiCharacterCustomizationInfo)
+public native let censorFlag: Uint32; // CensorshipFlags
+
+@addField(gameuiCharacterCustomizationInfo)
 public native let censorFlagAction: gameuiCharacterCustomizationActionType;
 
 @addField(gameuiCharacterCustomizationInfo)

@@ -6,6 +6,7 @@ public native class worldStaticLightNode extends worldNode {
   public native let intensity: Float;
   public native let EV: Float;
   public native let temperature: Float;
+  public native let lightChannel: Uint16; // rendLightChannel
   public native let sceneDiffuse: Bool;
   public native let sceneSpecularScale: Uint8;
   public native let directional: Bool;

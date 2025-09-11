@@ -1,5 +1,7 @@
 public native class entdismembermentWoundResource extends ISerializable {
   public native let Name: CName;
+  public native let WoundType: Uint16; // entdismembermentWoundTypeE
+  public native let BodyPart: Uint32; // physicsRagdollBodyPartE
   public native let CullObject: entdismembermentCullObject;
   public native let GarmentMorphStrength: Float;
   public native let UseProceduralCut: Bool;

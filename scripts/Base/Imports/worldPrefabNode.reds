@@ -5,6 +5,7 @@ public native class worldPrefabNode extends worldNode {
   public native let canBeToggledInGame: Bool;
   public native let noCollisions: Bool;
   public native let enableRenderSceneLayerOverride: Bool;
+  public native let renderSceneLayerMask: Uint8; // RenderSceneLayerMask
   public native let streamingImportance: worldPrefabStreamingImportance;
   public native let streamingOcclusionOverride: worldPrefabStreamingOcclusion;
   public native let interiorMapContribution: worldPrefabInteriorMapContribution;

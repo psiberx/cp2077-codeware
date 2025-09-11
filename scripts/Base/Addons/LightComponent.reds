@@ -20,6 +20,9 @@ public native let EV: Float;
 public native let temperature: Float;
 
 @addField(LightComponent)
+public native let lightChannel: Uint16; // rendLightChannel
+
+@addField(LightComponent)
 public native let sceneDiffuse: Bool;
 
 @addField(LightComponent)

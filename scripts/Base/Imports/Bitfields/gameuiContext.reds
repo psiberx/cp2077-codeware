@@ -1,0 +1,17 @@
+// public enum gameuiContext {
+//   Default = 1, // 1 << 0,
+//   QuickHack = 2, // 1 << 1,
+//   Scanning = 4, // 1 << 2,
+//   DeviceZoom = 8, // 1 << 3,
+//   BraindanceEditor = 16, // 1 << 4,
+//   BraindancePlayback = 32, // 1 << 5,
+//   VehicleMounted = 64, // 1 << 6,
+//   ModalPopup = 128, // 1 << 7,
+//   RadialWheel = 256, // 1 << 8,
+//   VehicleRace = 512, // 1 << 9,
+//   Berserk = 1024, // 1 << 10,
+//   CinematicCamera = 2048, // 1 << 11,
+//   Empty = 4096, // 1 << 12,
+//   DelamainTaxi = 8192, // 1 << 13,
+//   MAX = -2147483648, // 1 << 31,
+// }

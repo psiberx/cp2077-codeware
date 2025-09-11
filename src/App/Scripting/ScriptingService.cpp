@@ -149,6 +149,11 @@ bool App::ScriptingService::OnValidateProperty(void* aValidator, Red::ScriptProp
         return OnValidateScriptType(nativeType, scriptType);
     }
 
+    if (nativeType->GetType() == Red::ERTTIType::BitField && scriptType->metaType == Red::EScriptType::Primitive)
+    {
+        return true;
+    }
+
     return Raw::ScriptValidator::ValidateProperty(aValidator, aScriptProp, aNativeProp);
 }
 

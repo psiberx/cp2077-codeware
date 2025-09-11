@@ -5,6 +5,7 @@ public native class worldReflectionProbeNode extends worldNode {
   public native let boxProjection: Bool;
   public native let neighborMode: envUtilsNeighborMode;
   public native let edgeScale: Vector3;
+  public native let lightChannels: Uint16; // rendLightChannel
   public native let emissiveScale: Float;
   public native let reflectionDimming: Float;
   public native let simpleFogColor: HDRColor;
@@ -18,6 +19,7 @@ public native class worldReflectionProbeNode extends worldNode {
   public native let captureOffset: Vector3;
   public native let nearClipDistance: Float;
   public native let farClipDistance: Float;
+  public native let volumeChannels: Uint16; // rendLightChannel
   public native let blendRange: Uint8;
   public native let streamingDistance: Float;
   public native let streamingHeight: Float;

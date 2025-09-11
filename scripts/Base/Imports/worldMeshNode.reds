@@ -10,6 +10,7 @@ public native class worldMeshNode extends worldNode {
   public native let castRayTracedLocalShadows: shadowsShadowCastingMode;
   public native let windImpulseEnabled: Bool;
   public native let removeFromRainMap: Bool;
+  public native let renderSceneLayerMask: Uint8; // RenderSceneLayerMask
   public native let lodLevelScales: Uint32;
   public native let version: Uint8;
 }

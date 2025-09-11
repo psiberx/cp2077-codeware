@@ -28,4 +28,5 @@ public native struct physicsDestructionParams {
   public native let debrisDestructible: Bool;
   public native let supportDamage: Bool;
   public native let maxAngularVelocity: Float;
+  public native let fractureFieldMask: Uint16; // physicsFractureFieldType
 }

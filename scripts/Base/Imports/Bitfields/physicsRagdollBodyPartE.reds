@@ -1,0 +1,16 @@
+// public enum physicsRagdollBodyPartE {
+//   HEAD = 1, // 1 << 0,
+//   LARM_UPPER = 2, // 1 << 1,
+//   LARM_LOWER = 4, // 1 << 2,
+//   LARM_PALM = 8, // 1 << 3,
+//   RARM_UPPER = 16, // 1 << 4,
+//   RARM_LOWER = 32, // 1 << 5,
+//   RARM_PALM = 64, // 1 << 6,
+//   LLEG_UPPER = 128, // 1 << 7,
+//   LLEG_LOWER = 256, // 1 << 8,
+//   LLEG_FOOT = 512, // 1 << 9,
+//   RLEG_UPPER = 1024, // 1 << 10,
+//   RLEG_LOWER = 2048, // 1 << 11,
+//   RLEG_FOOT = 4096, // 1 << 12,
+//   BODY = 8192, // 1 << 13,
+// }

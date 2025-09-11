@@ -6,6 +6,8 @@ public native struct SMeshChunkPacked {
   public native let numIndices: Uint32;
   public native let firstVertex: Uint32;
   public native let firstIndex: Uint32;
+  public native let renderMask: Uint16; // EMeshChunkRenderMask
+  public native let chunkRenderMask: Uint16; // EMeshChunkFlags
   public native let useForShadowmesh: Bool;
   public native let streams: array<SMeshStream>;
   public native let streamMask: Uint64;

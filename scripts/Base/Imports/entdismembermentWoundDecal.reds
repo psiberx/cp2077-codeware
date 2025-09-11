@@ -4,5 +4,6 @@ public native struct entdismembermentWoundDecal {
   public native let Scale: Float;
   public native let FadeOrigin: Float;
   public native let FadePower: Float;
+  public native let ResourceSets: Uint16; // entdismembermentResourceSetMask
   public native let Material: ResourceAsyncRef; // raRef<IMaterial>
 }

@@ -12,6 +12,8 @@ public native class workWorkspotTree extends ISerializable {
   public native let blendOutTime: Float;
   public native let finalAnimsets: array<workWorkspotAnimsetEntry>;
   public native let tags: redTagList;
+  public native let itemsPolicy: Uint32; // workWorkspotItemPolicy
+  public native let censorshipFlags: Uint32; // CensorshipFlags
   public native let customTransitionAnims: array<workTransitionAnim>;
   public native let inertializationDurationEnter: Float;
   public native let inertializationDurationExitNatural: Float;

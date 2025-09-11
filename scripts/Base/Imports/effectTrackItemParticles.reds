@@ -6,4 +6,5 @@ public native class effectTrackItemParticles extends effectTrackItem {
   public native let velocity: effectEffectParameterEvaluatorFloat;
   public native let soundPositionName: CName;
   public native let soundPositionOffset: Vector3;
+  public native let renderLayerMask: Uint8; // RenderSceneLayerMask
 }

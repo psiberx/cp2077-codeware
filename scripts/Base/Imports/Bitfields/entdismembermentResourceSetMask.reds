@@ -1,0 +1,18 @@
+// public enum entdismembermentResourceSetMask {
+//   BARE = 1, // 1 << 0,
+//   BARE1 = 2, // 1 << 1,
+//   BARE2 = 4, // 1 << 2,
+//   BARE3 = 8, // 1 << 3,
+//   GARMENT = 16, // 1 << 4,
+//   GARMENT1 = 32, // 1 << 5,
+//   GARMENT2 = 64, // 1 << 6,
+//   GARMENT3 = 128, // 1 << 7,
+//   CYBER = 256, // 1 << 8,
+//   CYBER1 = 512, // 1 << 9,
+//   CYBER2 = 1024, // 1 << 10,
+//   CYBER3 = 2048, // 1 << 11,
+//   MIXED = 4096, // 1 << 12,
+//   MIXED1 = 8192, // 1 << 13,
+//   MIXED2 = 16384, // 1 << 14,
+//   MIXED3 = 32768, // 1 << 15,
+// }

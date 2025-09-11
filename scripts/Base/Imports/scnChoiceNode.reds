@@ -23,6 +23,7 @@ public native class scnChoiceNode extends scnSceneGraphNode {
   public native let mappinParams: ref<scnChoiceNodeNsMappinParams>;
   public native let interruptCapability: scnInterruptCapability;
   public native let interruptionSpeakerOverride: scnActorId;
+  public native let choiceFlags: Uint16; // scnChoiceNodeNsChoiceNodeBitFlags
   public native let alwaysUseBrainGender: Bool;
   public native let timedSectionCondition: ref<scnTimedCondition>;
   public native let reminderCondition: ref<scnReminderCondition>;

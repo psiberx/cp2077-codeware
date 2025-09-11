@@ -5,5 +5,7 @@ public native class questCharacterManagerCombat_Kill extends questICharacterMana
   public native let noRagdoll: Bool;
   public native let skipDefeatedState: Bool;
   public native let doDismemberment: Bool;
+  public native let bodyPart: Uint32; // physicsRagdollBodyPartE
+  public native let woundType: Uint16; // entdismembermentWoundTypeE
   public native let dismembermentStrenght: Float;
 }
