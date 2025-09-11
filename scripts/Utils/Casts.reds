@@ -17,3 +17,5 @@ public func Cast(value: String) -> NodeRef = CreateNodeRef(value)
 
 public func Cast(value: LocalizationString) -> String = ExtractLocalizationString(value)
 public func Cast(value: String) -> LocalizationString = CreateLocalizationString(value)
+
+public func Cast(value: ResourceAsyncRef) -> ResRef = ResourceAsyncRef.GetPath(value)
