@@ -66,20 +66,6 @@ public func OperatorLessEqual(a: Vector2, b: Vector2) -> Bool {
   return a.X <= b.X && a.Y <= b.Y;
 }
 
-public func Cast(value: Vector4) -> Vector2 {
-  let result: Vector2;
-  result.X = value.X;
-  result.Y = value.Y;
-  return result;
-}
-
-public func Cast(value: Vector2) -> Vector4 {
-  let result: Vector2;
-  result.X = value.X;
-  result.Y = value.Y;
-  return result;
-}
-
 public func Cast(value: Vector3) -> Vector2 {
   let result: Vector2;
   result.X = value.X;
@@ -89,6 +75,20 @@ public func Cast(value: Vector3) -> Vector2 {
 
 public func Cast(value: Vector2) -> Vector3 {
   let result: Vector3;
+  result.X = value.X;
+  result.Y = value.Y;
+  return result;
+}
+
+public func Cast(value: Vector4) -> Vector2 {
+  let result: Vector2;
+  result.X = value.X;
+  result.Y = value.Y;
+  return result;
+}
+
+public func Cast(value: Vector2) -> Vector4 {
+  let result: Vector4;
   result.X = value.X;
   result.Y = value.Y;
   return result;
