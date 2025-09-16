@@ -133,7 +133,7 @@ This example injects custom menu scenario when `pregame_menu.inkmenu` is accesse
 class MyService extends ScriptableService {
   private cb func OnLoad() {
     GameInstance.GetCallbackSystem()
-      .RegisterCallback(n"Resource/Ready", this, n"OnMenuResourceReady")
+      .RegisterCallback(n"Resource/PostLoad", this, n"OnMenuResourceReady")
       .AddTarget(ResourceTarget.Path(r"base\\gameplay\\gui\\fullscreen\\main_menu\\pregame_menu.inkmenu"));
   }
 
