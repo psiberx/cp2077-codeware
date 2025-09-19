@@ -16,11 +16,22 @@ public native class ReflectionType {
         return Equals(this.GetMetaType(), ERTTIType.Enum);
     }
 
+    public func IsBitfield() -> Bool {
+        return Equals(this.GetMetaType(), ERTTIType.BitField);
+    }
+
     public func AsClass() -> ref<ReflectionClass> {
-        return Reflection.GetClass(this.GetName());
+        let typed = this as ReflectionClass;
+        return IsDefined(typed) ? typed : Reflection.GetClass(this.GetName());
     }
 
     public func AsEnum() -> ref<ReflectionEnum> {
-        return Reflection.GetEnum(this.GetName());
+        let typed = this as ReflectionEnum;
+        return IsDefined(typed) ? typed : Reflection.GetEnum(this.GetName());
+    }
+
+    public func AsBitfield() -> ref<ReflectionBitfield> {
+        let typed = this as ReflectionBitfield;
+        return IsDefined(typed) ? typed : Reflection.GetBitfield(this.GetName());
     }
 }

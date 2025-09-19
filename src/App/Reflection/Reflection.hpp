@@ -27,6 +27,8 @@ struct Reflection
             return Red::MakeHandle<ReflectionClass>(reinterpret_cast<Red::CClass*>(type));
         case Red::ERTTIType::Enum:
             return Red::MakeHandle<ReflectionEnum>(reinterpret_cast<Red::CEnum*>(type));
+        case Red::ERTTIType::BitField:
+            return Red::MakeHandle<ReflectionBitfield>(reinterpret_cast<Red::CBitfield*>(type));
         default:
             return Red::MakeHandle<ReflectionType>(type);
         }
@@ -85,6 +87,8 @@ struct Reflection
             return Red::MakeHandle<ReflectionClass>(reinterpret_cast<Red::CClass*>(type));
         case Red::ERTTIType::Enum:
             return Red::MakeHandle<ReflectionEnum>(reinterpret_cast<Red::CEnum*>(type));
+        case Red::ERTTIType::BitField:
+            return Red::MakeHandle<ReflectionBitfield>(reinterpret_cast<Red::CBitfield*>(type));
         default:
             return Red::MakeHandle<ReflectionType>(type);
         }
@@ -110,6 +114,17 @@ struct Reflection
             return {};
 
         return Red::MakeHandle<ReflectionEnum>(type);
+    }
+
+    static Red::Handle<ReflectionBitfield> GetBitfield(Red::CName aName)
+    {
+        auto rtti = Red::CRTTISystem::Get();
+        auto type = rtti->GetBitfield(aName);
+
+        if (!type)
+            return {};
+
+        return Red::MakeHandle<ReflectionBitfield>(type);
     }
 
     static Red::Handle<ReflectionStaticFunc> GetGlobalFunction(Red::CName aName)
@@ -185,6 +200,21 @@ struct Reflection
         return wrappers;
     }
 
+    static Red::DynArray<Red::Handle<ReflectionBitfield>> GetBitfields()
+    {
+        Red::DynArray<Red::Handle<ReflectionBitfield>> wrappers;
+
+        auto rtti = Red::CRTTISystem::Get();
+        rtti->types.ForEach([&wrappers](Red::CName, Red::CBaseRTTIType* aType) {
+            if (aType->GetType() == Red::ERTTIType::BitField)
+            {
+                wrappers.PushBack(Red::MakeHandle<ReflectionBitfield>(reinterpret_cast<Red::CBitfield*>(aType)));
+            }
+        });
+
+        return wrappers;
+    }
+
     static Red::DynArray<Red::Handle<ReflectionStaticFunc>> GetGlobalFunctions()
     {
         Red::DynArray<Red::Handle<ReflectionStaticFunc>> wrappers;
@@ -205,11 +235,13 @@ RTTI_DEFINE_CLASS(App::Reflection, {
     RTTI_METHOD(GetType);
     RTTI_METHOD(GetClass);
     RTTI_METHOD(GetEnum);
+    RTTI_METHOD(GetBitfield);
     RTTI_METHOD(GetGlobalFunction);
     RTTI_METHOD(GetTypes);
     RTTI_METHOD(GetClasses);
     RTTI_METHOD(GetDerivedClasses);
     RTTI_METHOD(GetEnums);
+    RTTI_METHOD(GetBitfields);
     RTTI_METHOD(GetGlobalFunctions);
 });
 

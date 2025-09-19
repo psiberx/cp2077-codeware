@@ -78,6 +78,49 @@ struct ReflectionEnum : ReflectionType
     RTTI_IMPL_TYPEINFO(App::ReflectionEnum);
     RTTI_IMPL_ALLOCATOR();
 };
+
+struct ReflectionBitfield : ReflectionType
+{
+    ReflectionBitfield() = default;
+
+    explicit ReflectionBitfield(Red::CBitfield* aType)
+        : ReflectionType(aType)
+        , m_bitfield(aType)
+    {
+    }
+
+    [[nodiscard]] Red::DynArray<Red::Handle<ReflectionConst>> GetConstants() const
+    {
+        Red::DynArray<Red::Handle<ReflectionConst>> wrappers;
+
+        uint32_t size = m_bitfield->actualSize * 8;
+        uint32_t i = 0;
+        uint64_t value = 1;
+
+        while (i < size)
+        {
+            if (m_bitfield->validBits & value)
+            {
+                wrappers.PushBack(Red::MakeHandle<ReflectionConst>(m_bitfield->bitNames[i], value));
+            }
+
+            value <<= 1;
+            ++i;
+        }
+
+        return wrappers;
+    }
+
+    [[nodiscard]] bool IsNative() const
+    {
+        return !m_bitfield->flags.isScripted;
+    }
+
+    Red::CBitfield* m_bitfield;
+
+    RTTI_IMPL_TYPEINFO(App::ReflectionBitfield);
+    RTTI_IMPL_ALLOCATOR();
+};
 }
 
 RTTI_DEFINE_CLASS(App::ReflectionConst, {
@@ -90,4 +133,10 @@ RTTI_DEFINE_CLASS(App::ReflectionEnum, {
     RTTI_METHOD(GetConstants);
     RTTI_METHOD(IsNative);
     RTTI_METHOD(AddConstant);
+});
+
+RTTI_DEFINE_CLASS(App::ReflectionBitfield, {
+    RTTI_PARENT(App::ReflectionType);
+    RTTI_METHOD(GetConstants);
+    RTTI_METHOD(IsNative);
 });
