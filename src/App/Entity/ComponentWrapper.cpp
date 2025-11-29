@@ -1,4 +1,5 @@
 #include "ComponentWrapper.hpp"
+#include "App/Depot/MeshEx.hpp"
 #include "Red/Mesh.hpp"
 
 namespace
@@ -389,26 +390,7 @@ bool App::ComponentWrapper::ResetMaterialCache() const
     if (!meshApp)
         return false;
 
-    {
-        auto& materialJob = Raw::MeshAppearance::MaterialJob::Ref(meshApp);
-        auto& materialLock = Raw::MeshAppearance::MaterialLock::Ref(meshApp);
-        auto& materialPtr = Raw::MeshAppearance::MaterialData::Ref(meshApp);
-        auto& materialMap = Raw::MeshAppearance::MaterialMap::Ref(meshApp);
-        auto& materialCached = Raw::MeshAppearance::ForceCache::Ref(meshApp);
-
-        Red::WaitForJob(materialJob, std::chrono::milliseconds(5000));
-
-        std::scoped_lock _(materialLock);
-
-        if (materialPtr.data)
-        {
-            Raw::RenderData::Release(materialPtr.data);
-            materialPtr.data = nullptr;
-        }
-
-        materialMap.Clear();
-        materialCached = false;
-    }
+    MeshAppearanceEx::ResetMaterialCache(meshApp);
 
     return true;
 }

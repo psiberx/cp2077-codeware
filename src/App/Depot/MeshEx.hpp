@@ -8,13 +8,31 @@ namespace App
 {
 struct MeshAppearanceEx : Red::meshMeshAppearance
 {
-    void SetMesh(const Red::Handle<Red::CMesh>& aMesh)
+    static void SetMesh(const Red::Handle<Red::meshMeshAppearance>& aSelf, const Red::Handle<Red::CMesh>& aMesh)
     {
-        Raw::MeshAppearance::Owner::Set(this, aMesh);
+        Raw::MeshAppearance::Owner::Set(aSelf, aMesh);
     }
 
-    void ResetMaterialCache()
+    static void ResetMaterialCache(const Red::Handle<Red::meshMeshAppearance>& aSelf)
     {
+        auto& materialJob = Raw::MeshAppearance::MaterialJob::Ref(aSelf);
+        auto& materialLock = Raw::MeshAppearance::MaterialLock::Ref(aSelf);
+        auto& materialPtr = Raw::MeshAppearance::MaterialData::Ref(aSelf);
+        auto& materialMap = Raw::MeshAppearance::MaterialMap::Ref(aSelf);
+        auto& materialCached = Raw::MeshAppearance::ForceCache::Ref(aSelf);
+
+        Red::WaitForJob(materialJob, std::chrono::milliseconds(5000));
+
+        std::scoped_lock _(materialLock);
+
+        if (materialPtr.data)
+        {
+            Raw::RenderData::Release(materialPtr.data);
+            materialPtr.data = nullptr;
+        }
+
+        materialMap.Clear();
+        materialCached = false;
     }
 };
 }
