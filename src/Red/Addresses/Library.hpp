@@ -144,6 +144,8 @@ constexpr uint32_t ScriptValidator_CompareTypeName = 1156189659;
 constexpr uint32_t ScriptValidator_Validate = 898639042;
 constexpr uint32_t ScriptValidator_ValidateProperty = 560604283;
 
+constexpr uint32_t SoundBankManager_ReadSoundBanksJson = 3961524856;
+
 constexpr uint32_t TagSystem_AssignTag = 1239092911;
 constexpr uint32_t TagSystem_UnassignTag = 1875775378;
 

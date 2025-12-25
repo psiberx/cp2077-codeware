@@ -3,7 +3,9 @@
 #include "App/Callback/CallbackSystem.hpp"
 #include "App/Callback/CallbackSystemController.hpp"
 #include "App/Callback/Events/ResourceEvent.hpp"
+#include "App/Depot/SoundBanksJson.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
+#include "Red/AudioSystem.hpp"
 #include "Red/Serialization.hpp"
 
 namespace App
@@ -29,14 +31,18 @@ public:
 protected:
     bool OnActivateHook() override
     {
-        return IsHooked<Raw::ResourceSerializer::OnDependenciesReady>() ||
-               HookBefore<Raw::ResourceSerializer::OnDependenciesReady>(&OnDependenciesReady);
+        return (IsHooked<Raw::ResourceSerializer::OnDependenciesReady>() ||
+                HookBefore<Raw::ResourceSerializer::OnDependenciesReady>(&OnDependenciesReady)) &&
+               (IsHooked<Raw::SoundBankManager::ReadSoundBanksJson>() ||
+                HookAfter<Raw::SoundBankManager::ReadSoundBanksJson>(&OnReadSoundBanksJson));
     }
 
     bool OnDeactivateHook() override
     {
-        return !IsHooked<Raw::ResourceSerializer::OnDependenciesReady>() ||
-               Unhook<Raw::ResourceSerializer::OnDependenciesReady>();
+        return (!IsHooked<Raw::ResourceSerializer::OnDependenciesReady>() ||
+                Unhook<Raw::ResourceSerializer::OnDependenciesReady>()) &&
+               (!IsHooked<Raw::SoundBankManager::ReadSoundBanksJson>() ||
+                Unhook<Raw::SoundBankManager::ReadSoundBanksJson>());
     }
 
     inline static void OnDependenciesReady(Red::ResourceSerializer* aSerializer)
@@ -49,6 +55,33 @@ protected:
                 {
                     CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource);
                 }
+            }
+        }
+    }
+
+    inline static void OnReadSoundBanksJson(void* aManager)
+    {
+        auto& registeredBanks = Red::SoundBankManager::RegisteredBanks::Ref(aManager);
+
+        auto resource = Red::MakeHandle<SoundBanksJson>();
+        resource->path = R"(base\sound\event\soundbanks.json)";
+        resource->soundBanks.Reserve(registeredBanks.size);
+
+        registeredBanks.ForEach([&resource](const Red::CName& aName, Red::SharedPtr<Red::SoundBankEntry>& aEntry) {
+            resource->soundBanks.EmplaceBack(*aEntry);
+        });
+
+        CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource);
+
+        for (auto& resourceEntry : resource->soundBanks)
+        {
+            if (auto existingEntry = registeredBanks.Get(resourceEntry.name))
+            {
+                **existingEntry = resourceEntry;
+            }
+            else
+            {
+                registeredBanks.Insert(resourceEntry.name, Red::MakeShared<Red::SoundBankEntry>(resourceEntry));
             }
         }
     }
