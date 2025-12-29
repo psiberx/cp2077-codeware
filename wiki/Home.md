@@ -1146,6 +1146,18 @@ apply different logic and access it safely.
 - [ReflectionFunc](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Reflection/ReflectionFunc.reds)
 - [ERTTIType](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Reflection/ERTTIType.reds)
 
+## TDBIDHelper
+
+### Number to TweakDBID
+
+```swift
+let hash: Uint64 = 1337ul;
+let tdbid: TweakDBID = TDBIDHelper.FromNumber(hash);
+```
+
+### Reference
+- [TDBIDHelper](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/GameData/TDBIDHelper.reds)
+
 ## Utilities
 
 ### CName
