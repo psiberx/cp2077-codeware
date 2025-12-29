@@ -6,7 +6,7 @@ struct gamedataTDBIDHelperEx : Red::gamedataTDBIDHelper
 {
     static Red::TweakDBID FromNumber(uint64_t aHash)
     {
-        return {aHash};
+        return {.value = aHash};
     }
 };
 }
