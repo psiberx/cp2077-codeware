@@ -16,6 +16,7 @@
 #include "App/Callback/Targets/InputTarget.hpp"
 #include "App/Callback/Targets/ResourceTarget.hpp"
 #include "App/Callback/Targets/StaticEntityTarget.hpp"
+#include "App/Data/TDBIDHelperEx.hpp"
 #include "App/Depot/CResourceEx.hpp"
 #include "App/Depot/CurveData.hpp"
 #include "App/Depot/MeshEx.hpp"
