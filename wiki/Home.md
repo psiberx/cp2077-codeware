@@ -1146,18 +1146,6 @@ apply different logic and access it safely.
 - [ReflectionFunc](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Reflection/ReflectionFunc.reds)
 - [ERTTIType](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Reflection/ERTTIType.reds)
 
-## TDBIDHelper
-
-### Number to TweakDBID
-
-```swift
-let hash: Uint64 = 1337ul;
-let tdbid: TweakDBID = TDBIDHelper.FromNumber(hash);
-```
-
-### Reference
-- [TDBIDHelper](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/GameData/TDBIDHelper.reds)
-
 ## Utilities
 
 ### CName
@@ -1230,6 +1218,13 @@ Add the following operators:
 Add the following casts:
  - `Vector2` to/from `Vector3`
 
+### TDBID
+
+```swift
+let hash: Uint64 = 1337ul;
+let id: TweakDBID = TDBID.FromNumber(hash);
+```
+
 ### Reference
 
 - [CName](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/CName.reds)
@@ -1240,3 +1235,4 @@ Add the following casts:
 - [Bits](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Bits.reds)
 - [Vector2](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Vector2.reds)
 - [Vector3](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Vector3.reds)
+- [TDBID](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/TDBID.reds)
