@@ -1221,8 +1221,8 @@ Add the following casts:
 ### TDBID
 
 ```swift
-let hash: Uint64 = 1337ul;
-let id: TweakDBID = TDBID.FromNumber(hash);
+let hash = 191898568373ul; // Mizutani Shion Coyote
+let recordID = TDBID.FromNumber(hash);
 ```
 
 ### Reference
