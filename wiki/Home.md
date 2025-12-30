@@ -1173,6 +1173,15 @@ let id = ToCRUID(1337ul);
 FTLog(s"CRUID: \(CRUIDToHash(id))");
 ```
 
+### TweakDBID
+
+```swift
+// Vehicle.v_sport2_mizutani_shion_nomad_player
+// 0x0000002CAE0BC6B5
+let hash = 191898568373ul;
+let recordID = TDBID.FromNumber(hash);
+```
+
 ### Hash functions
 
 ```swift
@@ -1191,7 +1200,7 @@ let test: Bool = BitTest32(6, 1);
 
 ### Vector2 operators and casts
 
-Add the following operators:
+Added the following operators:
  - `+`, `+=`
  - `-`, `-=`
  - `*`, `*=`
@@ -1200,13 +1209,13 @@ Add the following operators:
  - `>`, `>=`
  - `<`, `<=`
 
-Add the following casts:
+Added the following casts:
  - `Vector2` to/from `Vector3`
  - `Vector2` to/from `Vector4`
 
 ### Vector3 operators and casts
 
-Add the following operators:
+Added the following operators:
  - `+`, `+=`
  - `-`, `-=`
  - `*`, `*=`
@@ -1215,26 +1224,17 @@ Add the following operators:
  - `>`, `>=`
  - `<`, `<=`
 
-Add the following casts:
+Added the following casts:
  - `Vector2` to/from `Vector3`
-
-### TDBID
-
-```swift
-// Vehicle.v_sport2_mizutani_shion_nomad_player
-// 0x0000002CAE0BC6B5
-let hash = 191898568373ul;
-let recordID = TDBID.FromNumber(hash);
-```
 
 ### Reference
 
 - [CName](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/CName.reds)
 - [CRUID](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/CRUID.reds)
 - [NodeRef](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/NodeRef.reds)
-- [String](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/String.reds)
+- [TweakDBID](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/TweakDBID.reds)
 - [Hash](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Hash.reds)
 - [Bits](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Bits.reds)
 - [Vector2](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Vector2.reds)
 - [Vector3](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Vector3.reds)
-- [TweakDBID](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/TweakDBID.reds)
+- [String](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/String.reds)
