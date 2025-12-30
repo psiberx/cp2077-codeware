@@ -8,14 +8,14 @@ struct EntityEx : Red::Entity
 {
     Red::ResourceAsyncReference<> GetTemplatePath()
     {
-        return *Raw::Entity::TemplatePath(this);
+        return templatePath;
     }
 
     Red::Handle<Red::IComponent> FindComponentByType(Red::CName aType)
     {
         if (auto type = Red::GetClass(aType))
         {
-            for (const auto& component : Raw::Entity::ComponentsStorage::Ptr(this)->components)
+            for (const auto& component : components)
             {
                 if (component->GetType()->IsA(type))
                 {
@@ -28,17 +28,19 @@ struct EntityEx : Red::Entity
 
     Red::DynArray<Red::Handle<Red::IComponent>> GetComponents()
     {
-        return Raw::Entity::ComponentsStorage(this)->components;
+        return components;
     }
 
     void AddComponent(const Red::Handle<Red::IComponent>& aComponent)
     {
-        Raw::Entity::ComponentsStorage(this)->components.PushBack(aComponent);
+        aComponent->owner = this;
+
+        components.PushBack(aComponent);
     }
 
     void SetWorldTransform(const Red::WorldTransform& aTransform)
     {
-        Raw::IPlacedComponent::SetTransform(Raw::Entity::TransformComponent::Ref(this), aTransform);
+        Raw::IPlacedComponent::SetTransform(transformComponent, aTransform);
     }
 
     bool ApplyMorphTarget(Red::CName aTarget, Red::CName aRegion, float aValue);

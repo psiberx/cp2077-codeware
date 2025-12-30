@@ -68,7 +68,7 @@
 #include "App/Utils/NodeRef.hpp"
 #include "App/Utils/Number.hpp"
 #include "App/Utils/String.hpp"
-#include "App/Utils/TDBIDHelperEx.hpp"
+#include "App/Utils/TweakDBID.hpp"
 #include "App/World/DynamicEntityEvent.hpp"
 #include "App/World/DynamicEntitySpec.hpp"
 #include "App/World/DynamicEntityState.hpp"

@@ -13,6 +13,9 @@ public func Cast(value: Uint64) -> NodeRef = HashToNodeRef(value)
 public func Cast(value: NodeRef) -> EntityID = EntityID.FromHash(NodeRefToHash(value))
 public func Cast(value: EntityID) -> NodeRef = HashToNodeRef(EntityID.ToHash(value))
 
+public func Cast(value: TweakDBID) -> Uint64 = TDBID.ToNumber(value)
+public func Cast(value: Uint64) -> TweakDBID = TDBID.FromNumber(value)
+
 public func Cast(value: String) -> NodeRef = CreateNodeRef(value)
 
 public func Cast(value: LocalizationString) -> String = ExtractLocalizationString(value)

@@ -3,7 +3,7 @@
 
 bool App::EntityEx::ApplyMorphTarget(Red::CName aTarget, Red::CName aRegion, float aValue)
 {
-    for (const auto& component : GetComponents())
+    for (const auto& component : components)
     {
         if (component->GetType()->IsA(Red::GetType<Red::entMorphTargetManagerComponent>()))
         {

@@ -1221,7 +1221,9 @@ Add the following casts:
 ### TDBID
 
 ```swift
-let hash = 191898568373ul; // Mizutani Shion Coyote
+// Vehicle.v_sport2_mizutani_shion_nomad_player
+// 0x0000002CAE0BC6B5
+let hash = 191898568373ul;
 let recordID = TDBID.FromNumber(hash);
 ```
 
@@ -1235,4 +1237,4 @@ let recordID = TDBID.FromNumber(hash);
 - [Bits](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Bits.reds)
 - [Vector2](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Vector2.reds)
 - [Vector3](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/Vector3.reds)
-- [TDBID](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/TDBID.reds)
+- [TweakDBID](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Utils/TweakDBID.reds)
