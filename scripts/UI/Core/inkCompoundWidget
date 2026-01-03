@@ -1,13 +1,4 @@
 @addMethod(inkCompoundWidget)
 public func GetChildIndex(child: wref<inkWidget>) -> Int32 {
-    let i = 0;
-    while i < this.GetNumChildren() {
-        let widget = this.GetWidget(i);
-        if Equals(widget, child) {
-          return i;
-        }
-
-        i += 1;
-    }
-    return -1;
+    return ArrayFindFirst(this.children.children, child);
 }
