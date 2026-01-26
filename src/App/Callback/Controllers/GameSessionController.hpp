@@ -17,7 +17,6 @@ public:
             {CallbackSystem::SessionEndEventName, Red::GetTypeName<GameSessionEvent>()},
             {CallbackSystem::SessionBeforeSaveEventName, Red::GetTypeName<GameSessionEvent>()},
             {CallbackSystem::SessionAfterSaveEventName, Red::GetTypeName<GameSessionEvent>()},
-            {CallbackSystem::SessionReadyEventName, Red::GetTypeName<GameSessionEvent>()},
             {CallbackSystem::SessionStartEventName, Red::GetTypeName<GameSessionEvent>()},
             {CallbackSystem::SessionPauseEventName, Red::GetTypeName<GameSessionEvent>()},
             {CallbackSystem::SessionResumeEventName, Red::GetTypeName<GameSessionEvent>()},
