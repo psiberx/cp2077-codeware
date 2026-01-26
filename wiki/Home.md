@@ -808,6 +808,14 @@ comp.SetColor(new HDRColor(1.1761, 0.3809, 0.3476, 1.0));
 comp.Reparent(parent);
 ```
 
+You can get back your `inkComponent` instance from the widget tree like this:
+
+```swift
+// assuming MyComponent is the first child of its parent.
+let child = parent.GetWidget(0);
+let comp = child.GetController() as MyComponent;
+```
+
 > **Backwards compatibility**  
 > Existing mods can keep using `inkCustomController` without changes.   
 
