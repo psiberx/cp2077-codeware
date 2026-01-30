@@ -45,7 +45,7 @@ inline Red::DynArray<StackTraceEntry> GetStackTrace(Red::Optional<int32_t> aDept
             className = frame->context->GetType()->name;
         }
 
-        trace.EmplaceBack(className, frame->func->fullName, Red::AsWeakHandle(frame->context));
+        trace.EmplaceBack(className, frame->func->fullName, Red::ToWeakHandle(frame->context));
 
         frame = frame->parent;
         --depth;
