@@ -33,8 +33,6 @@ struct EntityEx : Red::Entity
 
     void AddComponent(const Red::Handle<Red::IComponent>& aComponent)
     {
-        aComponent->owner = this;
-
         components.PushBack(aComponent);
     }
 
