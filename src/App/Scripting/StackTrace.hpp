@@ -40,9 +40,13 @@ inline Red::DynArray<StackTraceEntry> GetStackTrace(Red::Optional<int32_t> aDept
     while (depth > 0 && frame && frame->func)
     {
         Red::CName className;
-        if (!frame->func->flags.isStatic && frame->context && frame->context->ref.instance)
+        if (frame->context && frame->context->ref.instance)
         {
             className = frame->context->GetType()->name;
+        }
+        else if (auto* parent = frame->func->GetParent())
+        {
+            className = parent->name;
         }
 
         trace.EmplaceBack(className, frame->func->fullName, Red::ToWeakHandle(frame->context));
