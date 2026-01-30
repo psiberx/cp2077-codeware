@@ -71,17 +71,18 @@ protected:
             resource->soundBanks.EmplaceBack(*aEntry);
         });
 
-        CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource);
-
-        for (auto& resourceEntry : resource->soundBanks)
+        if (CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource))
         {
-            if (auto existingEntry = registeredBanks.Get(resourceEntry.name))
+            for (auto& resourceEntry : resource->soundBanks)
             {
-                **existingEntry = resourceEntry;
-            }
-            else
-            {
-                registeredBanks.Insert(resourceEntry.name, Red::MakeShared<Red::SoundBankEntry>(resourceEntry));
+                if (auto existingEntry = registeredBanks.Get(resourceEntry.name))
+                {
+                    **existingEntry = resourceEntry;
+                }
+                else
+                {
+                    registeredBanks.Insert(resourceEntry.name, Red::MakeShared<Red::SoundBankEntry>(resourceEntry));
+                }
             }
         }
     }
