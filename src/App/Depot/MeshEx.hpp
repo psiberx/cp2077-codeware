@@ -10,11 +10,17 @@ struct MeshAppearanceEx : Red::meshMeshAppearance
 {
     static void SetMesh(const Red::Handle<Red::meshMeshAppearance>& aSelf, const Red::Handle<Red::CMesh>& aMesh)
     {
+        if (!aSelf)
+            return;
+
         Raw::MeshAppearance::Owner::Set(aSelf, aMesh);
     }
 
     static void ResetMaterialCache(const Red::Handle<Red::meshMeshAppearance>& aSelf)
     {
+        if (!aSelf)
+            return;
+
         auto& materialJob = Raw::MeshAppearance::MaterialJob::Ref(aSelf);
         auto& materialLock = Raw::MeshAppearance::MaterialLock::Ref(aSelf);
         auto& materialPtr = Raw::MeshAppearance::MaterialData::Ref(aSelf);

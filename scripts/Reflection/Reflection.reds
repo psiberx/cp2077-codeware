@@ -12,4 +12,14 @@ public native struct Reflection {
     public static native func GetEnums() -> array<ref<ReflectionEnum>>
     public static native func GetBitfields() -> array<ref<ReflectionBitfield>>
     public static native func GetGlobalFunctions() -> array<ref<ReflectionStaticFunc>>
+
+    public static func Call(self: ref<IScriptable>, name: CName, opt args: array<Variant>) -> Variant {
+        let cls = Reflection.GetClassOf(self);
+        if IsDefined(cls) {
+            let func = cls.GetFunction(name);
+            if IsDefined(func) {
+                return func.Call(self, args);
+            }
+        }
+    }
 }
