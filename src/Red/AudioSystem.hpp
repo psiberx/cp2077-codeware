@@ -21,5 +21,5 @@ namespace Raw::SoundBankManager
 {
 constexpr auto ReadSoundBanksJson = Core::RawFunc<
     /* addr = */ Red::AddressLib::SoundBankManager_ReadSoundBanksJson,
-    /* type = */ void (*)(void* aThis)>();
+    /* type = */ bool (*)(void* aThis)>();
 }

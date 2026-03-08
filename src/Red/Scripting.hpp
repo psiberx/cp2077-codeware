@@ -6,7 +6,7 @@ namespace Raw::CClass
 {
 constexpr auto CreateInstance = Core::RawFunc<
     /* addr = */ RED4ext::Detail::AddressHashes::CClass_CreateInstance,
-    /* type = */ Red::IScriptable* (*)(Red::CClass*, uint32_t, bool)>();
+    /* type = */ Red::IScriptable* (*)(Red::CClass*, uint64_t, bool)>();
 }
 
 // namespace Raw::CBaseStack

@@ -271,7 +271,7 @@ void App::ScriptingService::ScriptOpCodeCast(Red::IScriptable*, Red::CStackFrame
     }
 }
 
-void App::ScriptingService::OnCreateInstance(Red::IScriptable*& aInstance, Red::CClass* aClass, uint32_t, bool)
+void App::ScriptingService::OnCreateInstance(Red::IScriptable*& aInstance, Red::CClass* aClass, uint64_t, bool)
 {
     if (aInstance && aClass->flags.isScriptedClass)
     {

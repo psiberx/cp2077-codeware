@@ -120,7 +120,8 @@ void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aCo
     }
 }
 
-void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResource& aLibrary, Red::ResourcePath aExternalPath)
+void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResource& aLibrary,
+                                                  Red::ResourcePath aExternalPath)
 {
     bool libraryExists = false;
 
