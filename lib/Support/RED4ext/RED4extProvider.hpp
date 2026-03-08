@@ -14,7 +14,7 @@ class RED4extProvider
     , public Core::AddressResolver
 {
 public:
-    RED4extProvider(RED4ext::PluginHandle aPlugin, const RED4ext::Sdk* aSdk) noexcept;
+    RED4extProvider(RED4ext::v1::PluginHandle aPlugin, const RED4ext::v1::Sdk* aSdk) noexcept;
 
     void LogInfo(const std::string_view& aMessage) override;
     void LogWarning(const std::string_view& aMessage) override;
@@ -55,8 +55,8 @@ public:
 protected:
     void OnInitialize() override;
 
-    RED4ext::PluginHandle m_plugin;
-    const RED4ext::Sdk* m_sdk;
+    RED4ext::v1::PluginHandle m_plugin;
+    const RED4ext::v1::Sdk* m_sdk;
     bool m_enableLogging;
     bool m_enableHooking;
     bool m_enableAddressLibrary;
