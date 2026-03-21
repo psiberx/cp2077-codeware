@@ -594,7 +594,7 @@ You can also add new components:
 ```swift
 let comp = new entSkinnedMeshComponent();
 comp.mesh *= r"mod\\player\\dynamic.mesh";
-comp.meshApperance = n"default";
+comp.meshAppearance = n"default";
 
 let player = GetPlayer(GetGameInstance());
 player.AddComponent(comp);
@@ -609,7 +609,7 @@ After changing component mesh resource and/or appearance you can request it to l
 
 ```swift
 comp.mesh *= r"mod\\player\\dynamic.mesh";
-comp.meshApperance = n"neon_red";
+comp.meshAppearance = n"neon_red";
 comp.LoadAppearance();
 ```
 
