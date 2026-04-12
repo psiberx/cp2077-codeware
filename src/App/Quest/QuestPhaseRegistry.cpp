@@ -64,7 +64,7 @@ void App::QuestPhaseRegistry::OnInitializePhase(Red::questPhaseInstance* aPhase,
 {
     std::unique_lock phasesLockRW(s_phasesLock);
 
-    if (aParentNodePath.size == 0 && aPhaseNodeID == 0)
+    if (aParentNodePath.IsEmpty() && aPhaseNodeID == 0)
     {
         std::unique_lock activitiesLockRW(s_activitiesLock);
 
@@ -464,7 +464,7 @@ void App::QuestPhaseRegistry::GenerateResetNodes(App::QuestPhaseGraphAccessor& a
         }
     }
 
-    if (aPhaseResource->phasePrefabs.size > 0)
+    if (!aPhaseResource->phasePrefabs.IsEmpty())
     {
         for (const auto& phasePrefab : aPhaseResource->phasePrefabs)
         {

@@ -287,7 +287,7 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
         for (auto& entry : community.instance->entries)
         {
-            if (entry->phases.size > 0)
+            if (!entry->phases.IsEmpty())
             {
                 Raw::CommunitySystem::SetCommunityPhase(m_communitySystem, communityID, entry->name, entry->phases[0]);
             }
@@ -443,7 +443,7 @@ App::OpenWorldActivityRequest::OpenWorldActivityRequest()
 
 bool App::OpenWorldActivityRequest::IsDefault() const
 {
-    return !kind && cooldown <= 0 && districts.size <= 0;
+    return !kind && cooldown <= 0 && districts.IsEmpty();
 }
 
 bool App::OpenWorldActivityRequest::HasCooldown() const
@@ -462,7 +462,7 @@ bool App::OpenWorldActivityRequest::Match(const App::OpenWorldActivityState& aAc
         }
     }
 
-    if (districts.size > 0)
+    if (!districts.IsEmpty())
     {
         bool match = false;
         for (const auto& district : districts)

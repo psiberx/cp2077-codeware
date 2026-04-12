@@ -16,13 +16,13 @@ struct StreamingSectorEx : Red::worldStreamingSector
     int32_t GetNodeCount()
     {
         auto& buffer = Raw::StreamingSector::NodeBuffer::Ref(this);
-        return static_cast<int32_t>(buffer.nodes.size);
+        return static_cast<int32_t>(buffer.nodes.Size());
     }
 
     Red::Handle<Red::worldNode> GetNode(int32_t aIndex)
     {
         auto& buffer = Raw::StreamingSector::NodeBuffer::Ref(this);
-        if (aIndex >= 0 && aIndex < buffer.nodes.size)
+        if (aIndex >= 0 && aIndex < buffer.nodes.Size())
             return buffer.nodes[aIndex];
         return {};
     }
@@ -49,13 +49,13 @@ struct StreamingSectorEx : Red::worldStreamingSector
     int32_t GetNodeRefCount()
     {
         auto& buffer = Raw::StreamingSector::NodeBuffer::Ref(this);
-        return static_cast<int32_t>(buffer.nodeRefs.size);
+        return static_cast<int32_t>(buffer.nodeRefs.Size());
     }
 
     Red::NodeRef GetNodeRef(int32_t aIndex)
     {
         auto& buffer = Raw::StreamingSector::NodeBuffer::Ref(this);
-        if (aIndex >= 0 && aIndex < buffer.nodeRefs.size)
+        if (aIndex >= 0 && aIndex < buffer.nodeRefs.Size())
             return buffer.nodeRefs[aIndex];
         return {};
     }
@@ -63,7 +63,7 @@ struct StreamingSectorEx : Red::worldStreamingSector
     void SetNodeRef(int32_t aIndex, Red::NodeRef aNodeRef)
     {
         auto& buffer = Raw::StreamingSector::NodeBuffer::Ref(this);
-        if (aIndex >= 0 && aIndex < buffer.nodeRefs.size)
+        if (aIndex >= 0 && aIndex < buffer.nodeRefs.Size())
         {
             buffer.nodeRefs[aIndex] = aNodeRef;
         }

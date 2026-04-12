@@ -390,7 +390,7 @@ inline RawBuffer MakeScriptForwardCode(CBaseFunction* aFunc)
     constexpr uint32_t BaseCodeSize = OpSize + OffsetSize * 2 + PointerSize + FlagsSize + OpSize;
     constexpr uint16_t BaseExitOffset = BaseCodeSize - OpSize - OffsetSize;
 
-    const uint32_t extraCodeSize = aFunc->params.size * (OpSize + PointerSize) + (aFunc->returnType ? 1 : 0);
+    const uint32_t extraCodeSize = aFunc->params.Size() * (OpSize + PointerSize) + (aFunc->returnType ? 1 : 0);
     const uint32_t finalCodeSize = BaseCodeSize + extraCodeSize;
     const uint16_t finalExitOffset = BaseExitOffset + extraCodeSize;
 
@@ -778,9 +778,9 @@ public:
 
     bool HasOption(int64_t aValue)
     {
-        for (uint32_t i = 0; i != valueList.size; ++i)
+        for (uint32_t i = 0; i != valueList.Size(); ++i)
         {
-            if (aValue == valueList.entries[i])
+            if (aValue == valueList[i])
                 return true;
         }
 
@@ -789,9 +789,9 @@ public:
 
     bool HasOption(CName aName)
     {
-        for (uint32_t i = 0; i != valueList.size; ++i)
+        for (uint32_t i = 0; i != valueList.Size(); ++i)
         {
-            if (aName == hashList.entries[i])
+            if (aName == hashList[i])
                 return true;
         }
 
@@ -811,9 +811,9 @@ public:
         if (aValue > Limits::max())
             return;
 
-        for (uint32_t i = 0; i != valueList.size; ++i)
+        for (uint32_t i = 0; i != valueList.Size(); ++i)
         {
-            if (aValue == valueList.entries[i])
+            if (aValue == valueList[i])
                 return;
         }
 

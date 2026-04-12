@@ -61,7 +61,7 @@ struct ReflectionFunc : Red::IScriptable
     {
         Red::Variant ret;
 
-        if (aArgs->size != m_func->params.size)
+        if (aArgs->Size() != m_func->params.Size())
         {
             if (aStatus)
             {
@@ -86,13 +86,13 @@ struct ReflectionFunc : Red::IScriptable
             }
         }
 
-        Red::StackArgs_t args(m_func->params.size);
+        Red::StackArgs_t args(m_func->params.Size());
         Red::CStackType result;
         Red::CStack stack(aContext, args.data(), args.size(), &result);
 
-        for (uint32_t i = 0; i < m_func->params.size; ++i)
+        for (uint32_t i = 0; i < m_func->params.Size(); ++i)
         {
-            if (!Red::IsCompatible(m_func->params[i]->type, aArgs->entries[i].GetType(), aArgs->entries[i].GetDataPtr()))
+            if (!Red::IsCompatible(m_func->params[i]->type, aArgs->Data()[i].GetType(), aArgs->Data()[i].GetDataPtr()))
             {
                 if (aStatus)
                 {
@@ -102,8 +102,8 @@ struct ReflectionFunc : Red::IScriptable
                 return ret;
             }
 
-            stack.args[i].type = aArgs->entries[i].GetType();
-            stack.args[i].value = aArgs->entries[i].GetDataPtr();
+            stack.args[i].type = aArgs->Data()[i].GetType();
+            stack.args[i].value = aArgs->Data()[i].GetDataPtr();
         }
 
         if (m_func->returnType)

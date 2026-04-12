@@ -23,7 +23,7 @@ void App::LocalizationService::OnLoadTexts(Red::Handle<Red::localizationPersiste
     Red::DynArray<Red::CClass*> providerTypes;
     Red::CRTTISystem::Get()->GetClasses(providerBaseType, providerTypes);
 
-    if (providerTypes.size == 0)
+    if (providerTypes.IsEmpty())
         return;
 
     Red::DynArray<Red::localizationPersistenceOnScreenEntry> modTextEntries;
@@ -38,13 +38,13 @@ void App::LocalizationService::OnLoadTexts(Red::Handle<Red::localizationPersiste
         Red::CallVirtual(provider, "GetOnScreenEntries", language, modTextEntries);
     }
 
-    if (modTextEntries.size == 0)
+    if (modTextEntries.IsEmpty())
         return;
 
     auto& finalTextEntries = aOnScreens->entries;
     Core::Map<uint64_t, uint32_t> textEntryKeyMap;
 
-    for (uint32_t i = 0; i < finalTextEntries.size; ++i)
+    for (uint32_t i = 0; i < finalTextEntries.Size(); ++i)
     {
         auto& textEntry = finalTextEntries[i];
 
@@ -77,12 +77,12 @@ void App::LocalizationService::MergeTextEntry(Red::DynArray<Red::localizationPer
     const auto& it = aTextEntryKeyMap.find(aTextEntry.primaryKey);
     if (it == aTextEntryKeyMap.end())
     {
-        aTextEntryKeyMap.emplace(aTextEntry.primaryKey, aFinalList.size);
+        aTextEntryKeyMap.emplace(aTextEntry.primaryKey, aFinalList.Size());
         aFinalList.EmplaceBack(aTextEntry);
     }
     else
     {
-        auto* existingEntry = aFinalList.Begin() + it.value();
+        auto* existingEntry = aFinalList.Data() + it.value();
         existingEntry->femaleVariant = aTextEntry.femaleVariant;
         existingEntry->maleVariant = aTextEntry.maleVariant;
     }

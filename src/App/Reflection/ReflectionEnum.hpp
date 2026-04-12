@@ -45,7 +45,7 @@ struct ReflectionEnum : ReflectionType
     {
         Red::DynArray<Red::Handle<ReflectionConst>> wrappers;
 
-        for (uint32_t i = 0; i < m_enum->valueList.size; ++i)
+        for (uint32_t i = 0; i < m_enum->valueList.Size(); ++i)
         {
             const auto& name = m_enum->hashList[i];
             const auto& value = m_enum->valueList[i];
@@ -63,9 +63,9 @@ struct ReflectionEnum : ReflectionType
 
     void AddConstant(Red::CName aName, int64_t aValue) const
     {
-        for (uint32_t i = 0; i != m_enum->valueList.size; ++i)
+        for (uint32_t i = 0; i != m_enum->valueList.Size(); ++i)
         {
-            if (aValue == m_enum->valueList.entries[i] || aName == m_enum->hashList.entries[i])
+            if (aValue == m_enum->valueList[i] || aName == m_enum->hashList[i])
                 return;
         }
 

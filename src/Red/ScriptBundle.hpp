@@ -2,7 +2,7 @@
 
 #include <cstdint>
 #include <RED4ext/CName.hpp>
-#include <RED4ext/DynArray.hpp>
+#include <RED4ext/Containers/DynArray.hpp>
 #include <RED4ext/HashMap.hpp>
 #include <RED4ext/Memory/Allocators.hpp>
 #include <RED4ext/RTTITypes.hpp>

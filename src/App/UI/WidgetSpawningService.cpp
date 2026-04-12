@@ -145,10 +145,10 @@ void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResourc
         aLibrary.externalLibraries.EmplaceBack(aExternalPath);
 
         // Load requested library for the spawner
-        auto* externalLibrary = aLibrary.externalLibraries.End() - 1;
-        externalLibrary->LoadAsync();
+        auto& externalLibrary = aLibrary.externalLibraries.Back();
+        externalLibrary.LoadAsync();
 
-        Red::WaitForResource(externalLibrary->token, std::chrono::milliseconds(1000));
+        Red::WaitForResource(externalLibrary.token, std::chrono::milliseconds(1000));
     }
 }
 

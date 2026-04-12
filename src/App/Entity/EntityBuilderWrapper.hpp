@@ -28,7 +28,7 @@ struct EntityBuilderTemplateWrapper : Red::IScriptable
 
     [[nodiscard]] Red::Handle<Red::entEntity> GetEntity() const
     {
-        if (!builder.instance->entityExtractor || builder.instance->entityExtractor->results.size == 0)
+        if (!builder.instance->entityExtractor || builder.instance->entityExtractor->results.IsEmpty())
             return {};
 
         auto rootIndex = builder.instance->entityTemplate->compiledDataHeader.rootIndex;
@@ -41,13 +41,13 @@ struct EntityBuilderTemplateWrapper : Red::IScriptable
 
     [[nodiscard]] Red::DynArray<Red::Handle<Red::IComponent>> GetComponents() const
     {
-        if (!builder.instance->entityExtractor || builder.instance->entityExtractor->results.size == 0)
+        if (!builder.instance->entityExtractor || builder.instance->entityExtractor->results.IsEmpty())
             return {};
 
         Red::DynArray<Red::Handle<Red::IComponent>> components;
 
         auto rootIndex = builder.instance->entityTemplate->compiledDataHeader.rootIndex;
-        for (auto i = rootIndex + 1; i < builder.instance->entityExtractor->results.size; ++i)
+        for (auto i = rootIndex + 1; i < builder.instance->entityExtractor->results.Size(); ++i)
         {
             components.PushBack(Red::Cast<Red::IComponent>(builder.instance->entityExtractor->results[i]));
         }
@@ -102,7 +102,7 @@ struct EntityBuilderAppearanceWrapper : Red::IScriptable
 
         Red::DynArray<Red::Handle<Red::IComponent>> components;
 
-        for (auto i = 0; i < appearance->extractor->results.size; ++i)
+        for (auto i = 0; i < appearance->extractor->results.Size(); ++i)
         {
             components.PushBack(Red::Cast<Red::IComponent>(appearance->extractor->results[i]));
         }
@@ -165,7 +165,7 @@ struct EntityBuilderWrapper : Red::IScriptable
 
     [[nodiscard]] Red::CName GetEntityType() const
     {
-        if (!builder.instance->entityExtractor || builder.instance->entityExtractor->results.size == 0)
+        if (!builder.instance->entityExtractor || builder.instance->entityExtractor->results.IsEmpty())
             return {};
 
         auto rootIndex = builder.instance->entityTemplate->compiledDataHeader.rootIndex;
@@ -201,7 +201,7 @@ struct EntityBuilderWrapper : Red::IScriptable
     {
         Red::DynArray<Red::Handle<EntityBuilderAppearanceWrapper>> appearances;
 
-        for (auto i = 0; i < builder.instance->appearances.size; ++i)
+        for (auto i = 0; i < builder.instance->appearances.Size(); ++i)
         {
             appearances.PushBack(Red::MakeHandle<EntityBuilderAppearanceWrapper>(builder,
                                                                                  &builder.instance->appearances[i]));
@@ -222,7 +222,7 @@ struct EntityBuilderWrapper : Red::IScriptable
 
     [[nodiscard]] bool HasCustomAppearances() const
     {
-        return builder.instance->appearances.size != 0;
+        return !builder.instance->appearances.IsEmpty();
     }
 
     Red::WeakPtr<Red::EntityBuilder> builder;

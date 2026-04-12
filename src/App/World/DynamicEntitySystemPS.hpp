@@ -25,16 +25,17 @@ public:
             }
         }
 
-        m_names.Reserve(nameArraySize);
+        m_names.Resize(nameArraySize);
 
+        auto i = 0;
         for (const auto& name : uniqueNames)
         {
             auto str = name.ToString();
             while (*str)
             {
-                m_names.entries[m_names.size++] = *(str++);
+                m_names[i++] = *(str++);
             }
-            m_names.entries[m_names.size++] = 0;
+            m_names[i++] = 0;
         }
     }
 
@@ -45,7 +46,7 @@ public:
             entityState->entitySpec->RestoreAfterLoading();
         }
 
-        auto str = m_names.entries;
+        auto str = m_names.Data();
         while (str != m_names.End())
         {
             Red::CNamePool::Add(str);
