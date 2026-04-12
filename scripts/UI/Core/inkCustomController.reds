@@ -137,16 +137,23 @@ public abstract class inkCustomController extends inkLogicController {
                 childWidget = rootWidget.GetWidgetByIndex(index);
                 childControllers = childWidget.GetControllers();
 
+                let hasChildCustomController = false;
+
                 for childController in childControllers {
                     customController = childController as inkCustomController;
 
                     if IsDefined(customController) {
                         customController.SetGameController(this.GetGameController());
                         customController.InitializeInstance();
+
+                        hasChildCustomController = true;
+                    }
+                    else {
+                        Reflection.Call(childController, n"OnInitialize");
                     }
                 }
 
-                if childWidget.IsA(n"inkCompoundWidget") && !IsDefined(childWidget.GetController() as inkCustomController) {
+                if !hasChildCustomController && childWidget.IsA(n"inkCompoundWidget") {
                     this.InitializeChildren(childWidget as inkCompoundWidget);
                 }
 
