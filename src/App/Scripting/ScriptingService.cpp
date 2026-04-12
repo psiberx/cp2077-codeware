@@ -1,6 +1,6 @@
 #include "ScriptingService.hpp"
-#include "App/Depot/CurveData.hpp"
 #include "App/Depot/ResourceReference.hpp"
+#include "App/Engine/CurveData.hpp"
 
 namespace
 {

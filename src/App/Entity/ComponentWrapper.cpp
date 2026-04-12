@@ -1,5 +1,5 @@
 #include "ComponentWrapper.hpp"
-#include "App/Depot/MeshEx.hpp"
+#include "App/Mesh/MeshAppearanceEx.hpp"
 #include "Red/Mesh.hpp"
 
 namespace
