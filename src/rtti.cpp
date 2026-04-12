@@ -75,6 +75,7 @@
 #include "App/World/DynamicEntityState.hpp"
 #include "App/World/DynamicEntitySystem.hpp"
 #include "App/World/DynamicEntitySystemPS.hpp"
+#include "App/World/InstancedMeshNodeEx.hpp"
 #include "App/World/MappinSystemEx.hpp"
 #include "App/World/NodeInstanceEx.hpp"
 #include "App/World/NodeSetupWrapper.hpp"

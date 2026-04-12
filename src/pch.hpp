@@ -212,6 +212,7 @@
 #include <RED4ext/Scripting/Natives/Generated/world/EnvironmentDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/GlobalNodeID.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/INodeInstance.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/InstancedMeshNode.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/Node.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeEntityRegistry.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/RuntimeSystemEntity.hpp>
