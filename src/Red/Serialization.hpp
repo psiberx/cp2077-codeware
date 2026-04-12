@@ -6,9 +6,11 @@ namespace Red
 {
 struct ResourceSerializer
 {
-    uint8_t unk00[0x230];                          // 00
+    uint8_t unk00[0x1D0];                          // 00
+    uint8_t unk1D0[0x230 - 0x1D0];                 // 1D0
     DynArray<Handle<ISerializable>> serializables; // 230
 };
+RED4EXT_ASSERT_OFFSET(ResourceSerializer, unk1D0, 0x1D0);
 RED4EXT_ASSERT_OFFSET(ResourceSerializer, serializables, 0x230);
 
 struct ObjectSerializerParams
@@ -73,6 +75,18 @@ struct DataBufferProxyStream : BaseStream
 
 namespace Raw::ResourceSerializer
 {
+constexpr auto SchedulePostLoadJobs = Core::RawFunc<
+    /* addr = */ Red::AddressLib::ResourceSerializer_SchedulePostLoadJobs,
+    /* type = */ void (*)(uint64_t a1, uint8_t a2, uint64_t a3, uint64_t a4, Red::ResourceSerializer** aCaptures)>();
+
+constexpr auto ScheduleFinalizeJobs = Core::RawFunc<
+    /* addr = */ Red::AddressLib::ResourceSerializer_ScheduleFinalizeJobs,
+    /* type = */ void (*)(uint64_t a1, uint8_t a2, uint64_t a3, uint64_t a4, Red::ResourceSerializer** aCaptures)>();
+
+constexpr auto ExecutePostLoad = Core::RawFunc<
+    /* addr = */ Red::AddressLib::ResourceSerializer_ExecutePostLoad,
+    /* type = */ bool (*)(uint64_t a1, uint64_t a2, Red::JobQueue& aJobQueue)>();
+
 constexpr auto OnDependenciesReady = Core::RawFunc<
     /* addr = */ Red::AddressLib::ResourceSerializer_OnDependenciesReady,
     /* type = */ void (*)(Red::ResourceSerializer* aSerializer)>();

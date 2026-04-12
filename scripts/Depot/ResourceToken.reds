@@ -5,5 +5,6 @@ public native class ResourceToken {
     public native func IsFinished() -> Bool
     public native func IsLoaded() -> Bool
     public native func IsFailed() -> Bool
+    public native func GetJobHandle() -> JobHandle
     public native func RegisterCallback(target: ref<IScriptable>, function: CName)
 }

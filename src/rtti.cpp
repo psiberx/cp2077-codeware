@@ -26,6 +26,7 @@
 #include "App/Depot/SoundBanksJson.hpp"
 #include "App/Device/ResetSecuritySystemNetwork.hpp"
 #include "App/Engine/EngineTimeEx.hpp"
+#include "App/Engine/JobQueue.hpp"
 #include "App/Entity/ComponentEx.hpp"
 #include "App/Entity/EntityBuilderWrapper.hpp"
 #include "App/Entity/EntityEx.hpp"

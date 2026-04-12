@@ -31,32 +31,38 @@ public:
 protected:
     bool OnActivateHook() override
     {
-        return (IsHooked<Raw::ResourceSerializer::OnDependenciesReady>() ||
-                HookBefore<Raw::ResourceSerializer::OnDependenciesReady>(&OnDependenciesReady)) &&
+        return (IsHooked<Raw::ResourceSerializer::SchedulePostLoadJobs>() ||
+                HookBefore<Raw::ResourceSerializer::SchedulePostLoadJobs>(&OnSchedulePostLoadJobs)) &&
                (IsHooked<Raw::SoundBankManager::ReadSoundBanksJson>() ||
                 HookAfter<Raw::SoundBankManager::ReadSoundBanksJson>(&OnReadSoundBanksJson));
     }
 
     bool OnDeactivateHook() override
     {
-        return (!IsHooked<Raw::ResourceSerializer::OnDependenciesReady>() ||
-                Unhook<Raw::ResourceSerializer::OnDependenciesReady>()) &&
+        return (!IsHooked<Raw::ResourceSerializer::SchedulePostLoadJobs>() ||
+                Unhook<Raw::ResourceSerializer::SchedulePostLoadJobs>()) &&
                (!IsHooked<Raw::SoundBankManager::ReadSoundBanksJson>() ||
                 Unhook<Raw::SoundBankManager::ReadSoundBanksJson>());
     }
 
-    inline static void OnDependenciesReady(Red::ResourceSerializer* aSerializer)
+    inline static void OnSchedulePostLoadJobs(uint64_t a1, uint8_t a2, uint64_t a3, uint64_t a4,
+                                              Red::ResourceSerializer** aCaptures)
     {
-        if (aSerializer->serializables.size > 0)
-        {
-            for (const auto& serializable : aSerializer->serializables)
+        auto* jobQueue = reinterpret_cast<Red::JobQueue*>(a3 - offsetof(Red::JobQueue, unk10));
+        auto* serializer = *aCaptures;
+
+        jobQueue->Dispatch([serializer](const Red::JobGroup& aJobGroup) {
+            if (!serializer->serializables.IsEmpty())
             {
-                if (const auto& resource = Red::Cast<Red::CResource>(serializable))
+                for (const auto& serializable : serializer->serializables)
                 {
-                    CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource);
+                    if (const auto& resource = Red::Cast<Red::CResource>(serializable))
+                    {
+                        CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource, aJobGroup);
+                    }
                 }
             }
-        }
+        });
     }
 
     inline static void OnReadSoundBanksJson(void* aManager)

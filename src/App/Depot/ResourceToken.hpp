@@ -1,5 +1,7 @@
 #pragma once
 
+#include "App/Engine/JobQueue.hpp"
+
 namespace App
 {
 struct ResourceTokenWrapper : Red::IScriptable
@@ -41,6 +43,11 @@ struct ResourceTokenWrapper : Red::IScriptable
         return m_token->IsFailed();
     }
 
+    [[nodiscard]] JobHandle GetJobHandle() const
+    {
+        return m_token->job;
+    }
+
     void RegisterCallback(const Red::Handle<Red::IScriptable>& aListener, Red::CName aCallback)
     {
         if (auto tokenHandle = Red::ToHandle(this))
@@ -74,6 +81,7 @@ RTTI_DEFINE_CLASS(App::ResourceTokenWrapper, "ResourceToken", {
     RTTI_METHOD(IsFinished);
     RTTI_METHOD(IsLoaded);
     RTTI_METHOD(IsFailed);
+    RTTI_METHOD(GetJobHandle);
     RTTI_METHOD(RegisterCallback);
 
     RTTI_METHOD(FromResRef);

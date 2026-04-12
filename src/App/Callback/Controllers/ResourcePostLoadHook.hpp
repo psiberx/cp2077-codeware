@@ -29,28 +29,34 @@ public:
 protected:
     bool OnActivateHook() override
     {
-        return IsHooked<Raw::ResourceSerializer::OnResourceReady>() ||
-               HookBefore<Raw::ResourceSerializer::OnResourceReady>(&OnResourceReady);
+        return IsHooked<Raw::ResourceSerializer::ScheduleFinalizeJobs>() ||
+               HookBefore<Raw::ResourceSerializer::ScheduleFinalizeJobs>(&OnScheduleFinalizeJobs);
     }
 
     bool OnDeactivateHook() override
     {
-        return !IsHooked<Raw::ResourceSerializer::OnResourceReady>() ||
-               Unhook<Raw::ResourceSerializer::OnResourceReady>();
+        return !IsHooked<Raw::ResourceSerializer::ScheduleFinalizeJobs>() ||
+               Unhook<Raw::ResourceSerializer::ScheduleFinalizeJobs>();
     }
 
-    inline static void OnResourceReady(Red::ResourceSerializer* aSerializer)
+    inline static void OnScheduleFinalizeJobs(uint64_t a1, uint8_t a2, uint64_t a3, uint64_t a4,
+                                              Red::ResourceSerializer** aCaptures)
     {
-        if (aSerializer->serializables.size > 0)
-        {
-            for (const auto& serializable : aSerializer->serializables)
+        auto* jobQueue = reinterpret_cast<Red::JobQueue*>(a3 - offsetof(Red::JobQueue, unk10));
+        auto* serializer = *aCaptures;
+
+        jobQueue->Dispatch([serializer](const Red::JobGroup& aJobGroup) {
+            if (!serializer->serializables.IsEmpty())
             {
-                if (const auto& resource = Red::Cast<Red::CResource>(serializable))
+                for (const auto& serializable : serializer->serializables)
                 {
-                    CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource);
+                    if (const auto& resource = Red::Cast<Red::CResource>(serializable))
+                    {
+                        CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource, aJobGroup);
+                    }
                 }
             }
-        }
+        });
     }
 };
 }

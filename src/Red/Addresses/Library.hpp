@@ -115,6 +115,9 @@ constexpr uint32_t ResourceBank_ForgetResource = 2288918343;
 
 constexpr uint32_t ResourcePath_Create = 3998356057;
 
+constexpr uint32_t ResourceSerializer_ExecutePostLoad = 1350901460;
+constexpr uint32_t ResourceSerializer_SchedulePostLoadJobs = 3599579551;
+constexpr uint32_t ResourceSerializer_ScheduleFinalizeJobs = 949631709;
 constexpr uint32_t ResourceSerializer_OnDependenciesReady = 1185093671;
 constexpr uint32_t ResourceSerializer_OnResourceReady = 1147149338;
 
