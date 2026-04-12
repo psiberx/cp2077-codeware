@@ -12,6 +12,10 @@ public abstract class ScreenHelper {
         let resolution = ScreenHelper.GetResolution(game);
         let dimensions = StrSplit(resolution, "x");
 
+        if ArraySize(dimensions) != 2 {
+            return Vector2(0, 0);
+        }
+
         return Vector2(StringToFloat(dimensions[0]), StringToFloat(dimensions[1]));
     }
 }
