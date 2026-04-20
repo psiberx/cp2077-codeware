@@ -51,7 +51,7 @@ struct ReflectionProp : Red::IScriptable
         m_prop->SetValue(instance, aValue.GetDataPtr());
     }
 
-    Red::ScriptInstance ResolveInstance(const Red::Variant& aVariant)
+    void* ResolveInstance(const Red::Variant& aVariant)
     {
         switch (aVariant.GetType()->GetType())
         {

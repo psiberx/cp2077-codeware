@@ -39,9 +39,9 @@ struct Reflection
         if (aVariant.IsEmpty())
             return {};
 
-        Red::CClass* resolvedClass{};
-        Red::ScriptInstance resolvedInstance{};
         Red::CBaseRTTIType* declaredType = aVariant.GetType();
+        Red::CClass* resolvedClass{};
+        void* resolvedInstance{};
 
         switch (declaredType->GetType())
         {
