@@ -6,6 +6,21 @@ namespace App
 {
 struct TraceResultEx : Red::TraceResult
 {
+    uint32_t GetProxyID()
+    {
+        return Raw::PhysicsTraceResult::ResultID::Ref(this);
+    }
+
+    uint32_t GetActorIndex()
+    {
+        return Raw::PhysicsTraceResult::ActorIndex::Ref(this);
+    }
+
+    int32_t GetShapeIndex()
+    {
+        return Raw::PhysicsTraceResult::ShapeIndex::Ref(this);
+    }
+
     Red::Handle<Red::ISerializable> GetHitObject()
     {
         auto& resultID = Raw::PhysicsTraceResult::ResultID::Ref(this);
@@ -45,6 +60,9 @@ struct TraceResultEx : Red::TraceResult
 }
 
 RTTI_EXPAND_CLASS(Red::TraceResult, App::TraceResultEx, {
+    RTTI_METHOD(GetProxyID);
+    RTTI_METHOD(GetActorIndex);
+    RTTI_METHOD(GetShapeIndex);
     RTTI_METHOD(GetHitObject);
     RTTI_METHOD(GetHitEntity);
 });

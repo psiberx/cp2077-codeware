@@ -3,6 +3,8 @@
 namespace Raw::PhysicsTraceResult
 {
 using ResultID = Core::OffsetPtr<0x48, uint32_t>;
+using ActorIndex = Core::OffsetPtr<0x4C, uint32_t>;
+using ShapeIndex = Core::OffsetPtr<0x50, int32_t>;
 
 constexpr auto GetHitObject = Core::RawFunc<
     /* addr = */ Red::AddressLib::PhysicsTraceResult_GetHitObject,

@@ -53,3 +53,9 @@ namespace Raw::WorldEntityNodeInstance
 {
 using Entity = Core::OffsetPtr<0xA0, Red::Handle<Red::Entity>>;
 }
+
+namespace Raw::WorldCollisionNodeInstance
+{
+using PrimaryProxyID = Core::OffsetPtr<0x90, uint32_t>;
+using OverflowProxyID = Core::OffsetPtr<0x94, uint32_t>;
+}
