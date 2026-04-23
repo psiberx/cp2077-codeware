@@ -1026,7 +1026,9 @@ struct ClassDefinition
     {
         constexpr auto name = GetTypeNameStr<TClass>();
 
-        auto* type = new Descriptor();
+        auto* type = Red::Memory::RTTIAllocator::Get()->Alloc<Descriptor>();
+        new (type) Descriptor();
+
         type->name = CNamePool::Add(name.data());
 
         if constexpr (Detail::HasRegisterHandler<Specialization, Descriptor>)
