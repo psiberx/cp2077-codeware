@@ -115,6 +115,7 @@
 #include <RED4ext/Scripting/Natives/Generated/graph/GraphDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/graph/GraphNodeDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/graph/GraphSocketDefinition.hpp>
+#include <RED4ext/Scripting/Natives/Generated/ink/ActionName.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CharacterEvent.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/CompoundWidget.hpp>
 #include <RED4ext/Scripting/Natives/Generated/ink/ControllerProcessor.hpp>

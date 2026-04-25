@@ -51,6 +51,7 @@
 #include "App/Scripting/ScriptableService.hpp"
 #include "App/Scripting/ScriptableServiceContainer.hpp"
 #include "App/Scripting/StackTrace.hpp"
+#include "App/UI/inkActionName.hpp"
 #include "App/UI/inkCharacterEventEx.hpp"
 #include "App/UI/inkComponent.hpp"
 #include "App/UI/inkKeyInputEvent.hpp"
