@@ -48,11 +48,11 @@ protected:
         Red::CName function;
     };
 
-    void OnWorldAttached(Red::world::RuntimeScene*) override;
-    void OnStreamingWorldLoaded(Red::world::RuntimeScene*, uint64_t aRestored, const Red::JobGroup&) override;
+    void OnWorldAttached(Red::worldRuntimeScene*) override;
+    void OnStreamingWorldLoaded(Red::worldRuntimeScene*, uint64_t aRestored, const Red::JobGroup&) override;
     uint32_t OnBeforeGameSave(const Red::JobGroup&, void*) override;
     void OnAfterGameSave() override;
-    void OnBeforeWorldDetach(Red::world::RuntimeScene*) override;
+    void OnBeforeWorldDetach(Red::worldRuntimeScene*) override;
     void OnAfterWorldDetach() override;
     void OnEntitySpawnerEvent(Red::game::EntitySpawnerEventType aType, Red::EntityID aEntityID, Red::EntityID,
                               Red::EntityStub* aStub);
@@ -60,35 +60,32 @@ protected:
     bool SpawnFromEntityState(const DynamicEntityStatePtr& aEntityState);
     bool RespawnFromEntityState(const DynamicEntityStatePtr& aEntityState);
     bool DespawnFromEntityState(const DynamicEntityStatePtr& aEntityState);
-    void RegisterPopulation(const App::DynamicEntityStatePtr& aEntityState, bool aRespawn = false);
-    void RemovePopulation(const App::DynamicEntityStatePtr& aEntityState);
-    void RemovePersistentState(const DynamicEntityStatePtr& aEntityState);
-    void AcquireEntityStub(const App::DynamicEntityStatePtr& aEntityState, Red::EntityStubTokenPtr& aToken);
-    void ResetEntityStub(const DynamicEntityStatePtr& aEntityState);
-    void RemoveEntityStub(const DynamicEntityStatePtr& aEntityState);
 
-    DynamicEntityStatePtr CreateEntityState(Red::EntityID aEntityID, const DynamicEntitySpecPtr& aEntitySpec);
+    DynamicEntityStatePtr CreateEntityState(const DynamicEntitySpecPtr& aEntitySpec);
     void RestoreEntityState(const DynamicEntityStatePtr& aEntityState);
     void AddEntityState(const DynamicEntityStatePtr& aEntityState);
-    void UpdateTransientID(const DynamicEntityStatePtr& aEntityState);
-    DynamicEntityStatePtr RemoveEntityState(Red::EntityID aEntityID);
+    void RemoveEntityState(const DynamicEntityStatePtr& aEntityState);
+    DynamicEntityStatePtr FindEntityState(Red::EntityID aEntityID);
 
     bool ValidateEntitySpec(const DynamicEntitySpecPtr& aEntitySpec);
     Red::TweakDBID ConvertTemplateToRecord(Red::RaRef<> aTemplate);
 
-    void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEventType aType, Red::DynArray<Red::CName>& aTags);
+    void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEventType aType,
+                          const Red::DynArray<Red::CName>& aTags);
     void ProcessListeners(Red::EntityID aEntityID, DynamicEntityEventType aType);
     void ProcessListeners(Red::EntityID aEntityID, Red::game::EntitySpawnerEventType aType);
 
     bool m_ready;
     bool m_restored;
 
-    std::shared_mutex m_entityStateLock;
+    Red::SharedSpinLock m_entityStatesLock;
     Core::Vector<DynamicEntityStatePtr> m_entityStates;
     Core::Map<Red::EntityID, DynamicEntityStatePtr> m_entityStateByID;
-    Core::Map<Red::CName, Core::Set<Red::EntityID>> m_entityStatesByTag;
 
-    std::shared_mutex m_listenersLock;
+    Red::SharedSpinLock m_entityTagsLock;
+    Core::Map<Red::CName, Core::Set<Red::EntityID>> m_entityIDsByTag;
+
+    Red::SharedSpinLock m_listenersLock;
     Core::Map<Red::CName, Core::Vector<EventListener>> m_listenersByTag;
 
     Red::CClass* m_persistentStateType;

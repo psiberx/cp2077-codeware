@@ -8,26 +8,30 @@ struct DynamicEntityState : Red::IScriptable
 {
     DynamicEntityState() = default;
 
-    DynamicEntityState(Red::EntityID aEntityId, const DynamicEntitySpec& aEntitySpec)
+    DynamicEntityState(Red::EntityID aEntityId, Red::Handle<DynamicEntitySpec> aEntitySpec)
         : entityID(aEntityId)
-        , entitySpec(Red::MakeHandle<DynamicEntitySpec>(aEntitySpec))
-        , entityStub(nullptr)
+        , entitySpec(std::move(aEntitySpec))
+        , deleted(false)
     {
     }
 
-    void AcquireStub(Red::EntityStubToken& aToken)
+    void AcquireStub(Red::EntityStubTokenPtr& aToken)
     {
-        entityStub = aToken.ExtractStub();
+        std::unique_lock _(entityLock);
+        entityStub = aToken->ExtractStub();
     }
 
-    void ResetStub()
+    Red::UniquePtr<Red::EntityStub> ExtractStub()
     {
-        entityStub = nullptr;
+        std::unique_lock _(entityLock);
+        return std::move(entityStub);
     }
 
-    Red::EntityID entityID;
+    Red::EntityID entityID; // Never changes after state creation or restoration
     Red::Handle<DynamicEntitySpec> entitySpec;
-    Red::EntityStub* entityStub;
+    Red::UniquePtr<Red::EntityStub> entityStub;
+    Red::SharedSpinLock entityLock; // For stub, active and deleted statuses
+    bool deleted;
 
     RTTI_IMPL_TYPEINFO(App::DynamicEntityState);
     RTTI_IMPL_ALLOCATOR();
