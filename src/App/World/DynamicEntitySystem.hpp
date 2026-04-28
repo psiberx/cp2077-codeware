@@ -58,7 +58,6 @@ protected:
                               Red::EntityStub* aStub);
 
     bool SpawnFromEntityState(const DynamicEntityStatePtr& aEntityState);
-    bool RespawnFromEntityState(const DynamicEntityStatePtr& aEntityState);
     bool DespawnFromEntityState(const DynamicEntityStatePtr& aEntityState);
 
     DynamicEntityStatePtr CreateEntityState(const DynamicEntitySpecPtr& aEntitySpec);

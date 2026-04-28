@@ -41,7 +41,7 @@ void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::worldRuntimeScene*, u
 
         if (entityState->entitySpec->persistSpawn && entityState->entitySpec->active)
         {
-            RespawnFromEntityState(entityState);
+            SpawnFromEntityState(entityState);
         }
     }
 
@@ -249,6 +249,8 @@ bool App::DynamicEntitySystem::SpawnFromEntityState(const App::DynamicEntityStat
             return;
         }
 
+        aEntityState->AcquireStub(aToken);
+
         Red::PopulationEntityRegisterRequest request{};
         request.entityID = aEntityState->entityID;
         request.spawnInView = aEntityState->entitySpec->spawnInView;
@@ -261,33 +263,6 @@ bool App::DynamicEntitySystem::SpawnFromEntityState(const App::DynamicEntityStat
         }
 
         m_populationSystem->RegisterEntity(request);
-
-        aEntityState->AcquireStub(aToken);
-    });
-
-    return true;
-}
-
-bool App::DynamicEntitySystem::RespawnFromEntityState(const App::DynamicEntityStatePtr& aEntityState)
-{
-    Red::EntityStubTokenPtr token{};
-    Red::EntityStubRestoreRequest request{aEntityState->entityID, aEntityState->entitySpec->recordID};
-
-    m_entityStubSystem->RestoreStub(token, request, [this, aEntityState](Red::EntityStubTokenPtr& aToken) {
-        if (aToken->status != Red::EntityStubStatus::Created)
-        {
-            RemoveEntityState(aEntityState);
-            return;
-        }
-
-        Red::PopulationEntityRegisterRequest request{};
-        request.entityID = aEntityState->entityID;
-        request.spawnInView = aEntityState->entitySpec->spawnInView;
-        request.alwaysSpawned = aEntityState->entitySpec->alwaysSpawned;
-
-        m_populationSystem->RegisterEntity(request);
-
-        aEntityState->AcquireStub(aToken);
     });
 
     return true;
