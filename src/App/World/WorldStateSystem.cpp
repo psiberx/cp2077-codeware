@@ -147,6 +147,9 @@ void App::WorldStateSystem::ResetPopulationSpawner(Red::NodeRef aNodeRef)
 
 void App::WorldStateSystem::ToggleNode(Red::NodeRef aNodeRef, bool aState)
 {
+    if (!IsReady())
+        return;
+
     auto resetNodeType = Red::MakeHandle<Red::questShowWorldNode_NodeType>();
     resetNodeType->objectRef = aNodeRef;
     resetNodeType->show = aState;
@@ -160,6 +163,9 @@ void App::WorldStateSystem::ToggleNode(Red::NodeRef aNodeRef, bool aState)
 
 void App::WorldStateSystem::ToggleVariant(Red::NodeRef aNodeRef, Red::CName aVariant, bool aState)
 {
+    if (!IsReady())
+        return;
+
     Red::questVariantState variantState;
     variantState.name = aVariant;
     variantState.show = aState;
