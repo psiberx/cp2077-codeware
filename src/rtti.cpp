@@ -1,3 +1,4 @@
+#include "App/Audio/audioDialogLineEventData.hpp"
 #include "App/Callback/CallbackSystem.hpp"
 #include "App/Callback/CallbackSystemEvent.hpp"
 #include "App/Callback/CallbackSystemHandler.hpp"

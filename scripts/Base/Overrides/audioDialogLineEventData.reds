@@ -8,4 +8,5 @@ public native struct audioDialogLineEventData {
   public native let customVoEvent: CName;
   public native let seekTime: Float;
   public native let playbackSpeedParameter: Float;
+  public native let gender: Int32;
 }

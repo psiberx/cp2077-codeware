@@ -44,6 +44,7 @@
 #include <RED4ext/Scripting/Natives/Generated/Vector4.hpp>
 #include <RED4ext/Scripting/Natives/Generated/appearance/AppearanceDefinition.hpp>
 #include <RED4ext/Scripting/Natives/Generated/appearance/AppearanceResource.hpp>
+#include <RED4ext/Scripting/Natives/Generated/audio/DialogLineEventData.hpp>
 #include <RED4ext/Scripting/Natives/Generated/community/CommunityTemplateData.hpp>
 #include <RED4ext/Scripting/Natives/Generated/community/SpawnEntry.hpp>
 #include <RED4ext/Scripting/Natives/Generated/community/SpawnInitializer.hpp>
