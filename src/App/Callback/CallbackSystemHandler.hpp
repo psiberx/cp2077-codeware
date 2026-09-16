@@ -104,7 +104,7 @@ public:
 
     [[nodiscard]] bool IsSameContext(Red::CName aType)
     {
-        return contextType = aType;
+        return contextType == aType;
     }
 
     [[nodiscard]] bool IsSameCallback(const Red::WeakHandle<Red::IScriptable>& aObject, Red::CName aFunctionName)
@@ -114,7 +114,7 @@ public:
 
     [[nodiscard]] bool IsSameCallback(Red::CName aType, Red::CName aFunctionName)
     {
-        return contextType = aType && functionName == aFunctionName;
+        return contextType == aType && functionName == aFunctionName;
     }
 
     [[nodiscard]] bool IsObject() const noexcept
