@@ -268,7 +268,11 @@ bool App::StaticEntitySystem::IsTagged(Red::EntityID aEntityID, Red::CName aTag)
 
     std::shared_lock _(m_tagsLock);
 
-    return m_tagsByEntityID.contains(aEntityID);
+    const auto entityIDsEntry = m_entityIDsByTag.find(aTag);
+    if (entityIDsEntry == m_entityIDsByTag.end())
+        return false;
+
+    return entityIDsEntry.value().contains(aEntityID);
 }
 
 bool App::StaticEntitySystem::IsSpawned(Red::EntityID aEntityID)
@@ -374,7 +378,11 @@ bool App::StaticEntitySystem::IsPopulated(Red::CName aTag)
 
     std::shared_lock _(m_tagsLock);
 
-    return !m_entityIDsByTag[aTag].empty();
+    const auto entityIDsEntry = m_entityIDsByTag.find(aTag);
+    if (entityIDsEntry == m_entityIDsByTag.end())
+        return false;
+
+    return !entityIDsEntry.value().empty();
 }
 
 Red::EntityID App::StaticEntitySystem::GetTaggedID(Red::CName aTag)

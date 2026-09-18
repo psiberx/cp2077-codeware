@@ -38,7 +38,7 @@ protected:
     void OnWorldAttached(Red::world::RuntimeScene*) override;
     void OnBeforeWorldDetach(Red::world::RuntimeScene* aScene) override;
     void OnAfterWorldDetach() override;
-    void OnRegisterUpdates(Red::UpdateRegistrar* aRegistrar);
+    void OnRegisterUpdates(Red::UpdateRegistrar* aRegistrar) override;
     void OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue& aJobQueue);
 
     bool ValidateEntitySpec(const StaticEntitySpecPtr& aEntitySpec);
