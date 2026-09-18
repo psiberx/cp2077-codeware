@@ -384,7 +384,11 @@ bool App::DynamicEntitySystem::IsTagged(Red::EntityID aEntityID, Red::CName aTag
 
     std::shared_lock _(m_entityTagsLock);
 
-    return m_entityIDsByTag[aTag].contains(aEntityID);
+    const auto taggedIt = m_entityIDsByTag.find(aTag);
+    if (taggedIt == m_entityIDsByTag.end())
+        return false;
+
+    return taggedIt.value().contains(aEntityID);
 }
 
 bool App::DynamicEntitySystem::IsSpawned(Red::EntityID aEntityID)
@@ -439,9 +443,11 @@ bool App::DynamicEntitySystem::AssignTag(Red::EntityID aEntityID, Red::CName aTa
 
     std::unique_lock _(m_entityTagsLock);
 
-    if (!m_entityIDsByTag[aTag].contains(aEntityID))
+    auto& tagged = m_entityIDsByTag[aTag];
+
+    if (!tagged.contains(aEntityID))
     {
-        m_entityIDsByTag[aTag].insert(aEntityID);
+        tagged.insert(aEntityID);
 
         entityState->entitySpec->tags.PushBack(aTag);
 
@@ -469,9 +475,11 @@ bool App::DynamicEntitySystem::UnassignTag(Red::EntityID aEntityID, Red::CName a
 
     std::unique_lock _(m_entityTagsLock);
 
-    if (m_entityIDsByTag[aTag].contains(aEntityID))
+    auto& tagged = m_entityIDsByTag[aTag];
+
+    if (tagged.contains(aEntityID))
     {
-        m_entityIDsByTag[aTag].erase(aEntityID);
+        tagged.erase(aEntityID);
 
         entityState->entitySpec->tags.Remove(aTag);
 
@@ -495,7 +503,11 @@ bool App::DynamicEntitySystem::IsPopulated(Red::CName aTag)
 
     std::shared_lock _(m_entityTagsLock);
 
-    return !m_entityIDsByTag[aTag].empty();
+    const auto taggedIt = m_entityIDsByTag.find(aTag);
+    if (taggedIt == m_entityIDsByTag.end())
+        return false;
+
+    return !taggedIt.value().empty();
 }
 
 Red::EntityID App::DynamicEntitySystem::GetTaggedID(Red::CName aTag)
@@ -505,11 +517,14 @@ Red::EntityID App::DynamicEntitySystem::GetTaggedID(Red::CName aTag)
 
     std::shared_lock _(m_entityTagsLock);
 
-    auto& tagged = m_entityIDsByTag[aTag];
-    if (tagged.empty())
+    const auto taggedIt = m_entityIDsByTag.find(aTag);
+    if (taggedIt == m_entityIDsByTag.end())
         return {};
 
-    return *tagged.begin();
+    if (taggedIt.value().empty())
+        return {};
+
+    return *taggedIt.value().begin();
 }
 
 Red::DynArray<Red::EntityID> App::DynamicEntitySystem::GetTaggedIDs(Red::CName aTag)
@@ -517,13 +532,17 @@ Red::DynArray<Red::EntityID> App::DynamicEntitySystem::GetTaggedIDs(Red::CName a
     if (!m_ready)
         return {};
 
-    std::shared_lock _(m_entityTagsLock);
-
     Red::DynArray<Red::EntityID> out;
 
-    for (const auto& entityID : m_entityIDsByTag[aTag])
+    std::shared_lock _(m_entityTagsLock);
+
+    const auto taggedIt = m_entityIDsByTag.find(aTag);
+    if (taggedIt != m_entityIDsByTag.end())
     {
-        out.PushBack(entityID);
+        for (const auto& entityID : taggedIt.value())
+        {
+            out.PushBack(entityID);
+        }
     }
 
     return out;
@@ -534,18 +553,22 @@ Red::DynArray<Red::Handle<Red::Entity>> App::DynamicEntitySystem::GetTagged(Red:
     if (!m_ready)
         return {};
 
-    std::shared_lock _(m_entityTagsLock);
-
     Red::DynArray<Red::Handle<Red::Entity>> out;
     Red::Handle<Red::Entity> entity;
 
-    for (const auto& entityID : m_entityIDsByTag[aTag])
-    {
-        m_populationSystem->FindEntity(entity, entityID);
+    std::shared_lock _(m_entityTagsLock);
 
-        if (entity)
+    const auto taggedIt = m_entityIDsByTag.find(aTag);
+    if (taggedIt != m_entityIDsByTag.end())
+    {
+        for (const auto& entityID : taggedIt.value())
         {
-            out.PushBack(entity);
+            m_populationSystem->FindEntity(entity, entityID);
+
+            if (entity)
+            {
+                out.PushBack(entity);
+            }
         }
     }
 
@@ -560,8 +583,11 @@ void App::DynamicEntitySystem::DeleteTagged(Red::CName aTag)
     Core::Set<Red::EntityID> tagged;
     {
         std::unique_lock _(m_entityTagsLock);
-        tagged = std::move(m_entityIDsByTag[aTag]);
-        // m_entityIDsByTag[aTag].clear();
+        const auto taggedIt = m_entityIDsByTag.find(aTag);
+        if (taggedIt != m_entityIDsByTag.end())
+        {
+            tagged = std::move(m_entityIDsByTag[aTag]);
+        }
     }
 
     for (const auto& entityID : tagged)
@@ -578,7 +604,11 @@ void App::DynamicEntitySystem::EnableTagged(Red::CName aTag)
     Core::Set<Red::EntityID> tagged;
     {
         std::shared_lock _(m_entityTagsLock);
-        tagged = m_entityIDsByTag[aTag];
+        const auto taggedIt = m_entityIDsByTag.find(aTag);
+        if (taggedIt != m_entityIDsByTag.end())
+        {
+            tagged = m_entityIDsByTag[aTag];
+        }
     }
 
     for (const auto& entityID : tagged)
@@ -595,7 +625,11 @@ void App::DynamicEntitySystem::DisableTagged(Red::CName aTag)
     Core::Set<Red::EntityID> tagged;
     {
         std::shared_lock _(m_entityTagsLock);
-        tagged = m_entityIDsByTag[aTag];
+        const auto taggedIt = m_entityIDsByTag.find(aTag);
+        if (taggedIt != m_entityIDsByTag.end())
+        {
+            tagged = m_entityIDsByTag[aTag];
+        }
     }
 
     for (const auto& entityID : tagged)
