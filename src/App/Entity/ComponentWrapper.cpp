@@ -1,5 +1,6 @@
 #include "ComponentWrapper.hpp"
 #include "App/Mesh/MeshAppearanceEx.hpp"
+#include "Core/Facades/Log.hpp"
 #include "Red/Mesh.hpp"
 
 namespace
@@ -78,6 +79,12 @@ inline Red::ResourceReference<Red::CMesh> GetComponentMeshReference(Red::ent::Mo
     }
 
     return {};
+}
+
+void ReportOrphanComponent(Red::IComponent* aComponent)
+{
+    Core::Log::Debug(R"(Trying to load appearance ({}) for component ({}) that doesn't belong to any entity. Aborted.)",
+                     aComponent->appearanceName.ToString(), aComponent->name.ToString());
 }
 }
 
@@ -187,6 +194,12 @@ bool App::ComponentWrapper::LoadResource(bool aRefresh, bool aWait) const
     if (!IsMeshComponent())
         return false;
 
+    if (!m_component->owner)
+    {
+        ReportOrphanComponent(m_component);
+        return false;
+    }
+
     Red::JobQueue jobQueue;
     Raw::MeshComponent::LoadResource(m_component, jobQueue);
 
@@ -195,6 +208,12 @@ bool App::ComponentWrapper::LoadResource(bool aRefresh, bool aWait) const
         jobQueue.Dispatch([componentWeak = Red::AsWeakHandle(m_component)] {
             if (auto component = componentWeak.Lock())
             {
+                if (!component->owner)
+                {
+                    ReportOrphanComponent(component);
+                    return;
+                }
+
                 Raw::MeshComponent::RefreshAppearance(component);
             }
         });
@@ -353,6 +372,12 @@ bool App::ComponentWrapper::RefreshAppearance() const
 {
     if (!IsMeshComponent())
         return false;
+
+    if (!m_component->owner)
+    {
+        ReportOrphanComponent(m_component);
+        return false;
+    }
 
     Raw::MeshComponent::RefreshAppearance(m_component);
     return true;
