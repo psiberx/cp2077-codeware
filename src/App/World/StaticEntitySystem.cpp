@@ -107,8 +107,7 @@ Red::EntityID App::StaticEntitySystem::SpawnEntity(const StaticEntitySpecPtr& aE
     if (!ValidateEntitySpec(aEntitySpec))
         return {};
 
-    Red::EntityID entityID{};
-    m_entityIDSystem->GetNextTransientID(entityID);
+    auto entityID = m_entityIDSystem->GetNextTransientID();
 
     if (!entityID.IsDefined())
         return {};

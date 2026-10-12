@@ -236,13 +236,12 @@ bool App::DynamicEntitySystem::DisableEntity(Red::EntityID aEntityID)
 
 bool App::DynamicEntitySystem::SpawnFromEntityState(const App::DynamicEntityStatePtr& aEntityState)
 {
-    Red::EntityStubTokenPtr token{};
     Red::EntityStubCreateRequest request{aEntityState->entityID,
                                          aEntityState->entitySpec->position,
                                          aEntityState->entitySpec->orientation,
                                          aEntityState->entitySpec->recordID};
 
-    m_entityStubSystem->CreateStub(token, request, [this, aEntityState](Red::EntityStubTokenPtr& aToken) {
+    auto token = m_entityStubSystem->CreateStub(request, [this, aEntityState](Red::EntityStubTokenPtr& aToken) {
         if (aToken->status != Red::EntityStubStatus::Created)
         {
             RemoveEntityState(aEntityState);
@@ -283,16 +282,8 @@ bool App::DynamicEntitySystem::DespawnFromEntityState(const App::DynamicEntitySt
 
 App::DynamicEntityStatePtr App::DynamicEntitySystem::CreateEntityState(const App::DynamicEntitySpecPtr& aEntitySpec)
 {
-    Red::EntityID entityID{};
-
-    if (aEntitySpec->persistState)
-    {
-        m_entityIDSystem->GetNextPersistableID(entityID);
-    }
-    else
-    {
-        m_entityIDSystem->GetNextTransientID(entityID);
-    }
+    auto entityID = aEntitySpec->persistState ? m_entityIDSystem->GetNextPersistableID()
+                                              : m_entityIDSystem->GetNextTransientID();
 
     if (!entityID.IsDefined())
         return {};
@@ -321,7 +312,7 @@ void App::DynamicEntitySystem::RestoreEntityState(const App::DynamicEntityStateP
     if (!aEntityState->entitySpec->persistState)
     {
         m_persistencySystem->RemoveDynamicEntityState(aEntityState->entityID);
-        m_entityIDSystem->GetNextTransientID(aEntityState->entityID);
+        aEntityState->entityID = m_entityIDSystem->GetNextTransientID();
     }
 
     AddEntityState(aEntityState);
@@ -412,10 +403,7 @@ Red::Handle<Red::Entity> App::DynamicEntitySystem::GetEntity(Red::EntityID aEnti
     if (!m_ready)
         return {};
 
-    Red::Handle<Red::Entity> entity;
-    m_populationSystem->FindEntity(entity, aEntityID);
-
-    return entity;
+    return m_populationSystem->FindEntity(aEntityID);
 }
 
 Red::DynArray<Red::CName> App::DynamicEntitySystem::GetTags(Red::EntityID aEntityID)
@@ -554,7 +542,6 @@ Red::DynArray<Red::Handle<Red::Entity>> App::DynamicEntitySystem::GetTagged(Red:
         return {};
 
     Red::DynArray<Red::Handle<Red::Entity>> out;
-    Red::Handle<Red::Entity> entity;
 
     std::shared_lock _(m_entityTagsLock);
 
@@ -563,7 +550,7 @@ Red::DynArray<Red::Handle<Red::Entity>> App::DynamicEntitySystem::GetTagged(Red:
     {
         for (const auto& entityID : taggedIt.value())
         {
-            m_populationSystem->FindEntity(entity, entityID);
+            auto entity = m_populationSystem->FindEntity(entityID);
 
             if (entity)
             {
