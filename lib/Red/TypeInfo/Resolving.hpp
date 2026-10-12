@@ -117,7 +117,7 @@ consteval auto ExtractScopedEnumName(const char* aName)
 {
     std::array<char, N - ScopedEnumPrefixLength + 1> result{};
 
-    for (auto i = ScopedEnumPrefixLength, j = 0ull; i < N; ++i)
+    for (size_t i = ScopedEnumPrefixLength, j = 0; i < N; ++i)
     {
         if (aName[i] != ':')
         {
