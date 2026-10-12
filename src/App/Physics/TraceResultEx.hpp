@@ -12,8 +12,7 @@ struct TraceResultEx : Red::TraceResult
 
         for (uint32_t i = 0; i < 2; ++i)
         {
-            Red::Handle<Red::ISerializable> object;
-            Raw::PhysicsTraceResult::GetHitObject(object, resultID, i);
+            auto object = Raw::PhysicsTraceResult::GetHitObject(resultID, i);
 
             if (object)
             {
@@ -30,8 +29,7 @@ struct TraceResultEx : Red::TraceResult
 
         for (uint32_t i = 0; i < 2; ++i)
         {
-            Red::Handle<Red::ISerializable> object;
-            Raw::PhysicsTraceResult::GetHitObject(object, resultID, i);
+            auto object = Raw::PhysicsTraceResult::GetHitObject(resultID, i);
 
             if (auto& entity = Red::Cast<Red::Entity>(object))
             {
