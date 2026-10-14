@@ -21,13 +21,11 @@ protected:
     void OnBootstrap() override;
     void OnShutdown() override;
 
-    static uintptr_t OnSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                  Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                  Red::CName aItemName);
-    static uintptr_t OnSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
-                                     Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                     Red::ResourcePath aExternalPath,
-                                     Red::CName aItemName);
+    static Red::Handle<Red::ink::WidgetLibraryItemInstance> OnSpawnLocal(Red::ink::WidgetLibraryResource* aLibrary,
+                                                                         Red::CName aItemName);
+    static Red::Handle<Red::ink::WidgetLibraryItemInstance> OnSpawnExternal(Red::ink::WidgetLibraryResource* aLibrary,
+                                                                            Red::ResourcePath aExternalPath,
+                                                                            Red::CName aItemName);
     static bool OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
                                   Red::InkSpawningInfo& aSpawningInfo,
                                   Red::CName aItemName);
