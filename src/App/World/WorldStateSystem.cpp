@@ -22,9 +22,9 @@ void App::WorldStateSystem::OnAfterWorldDetach()
     m_ready = false;
 }
 
-bool App::WorldStateSystem::IsReady()
+bool App::WorldStateSystem::IsReady() const
 {
-    return m_ready && m_questPhaseRegistry->PhasesInitialized();
+    return m_ready;
 }
 
 Red::Handle<Red::worldStreamingWorld> App::WorldStateSystem::GetStreamingWorld()

@@ -10,7 +10,7 @@ namespace App
 class WorldStateSystem : public Red::IGameSystem
 {
 public:
-    bool IsReady();
+    bool IsReady() const;
 
     Red::Handle<Red::worldStreamingWorld> GetStreamingWorld();
 
