@@ -51,7 +51,7 @@ bool App::WidgetBuildingService::AttachWidgetTree(const Red::Handle<Red::inkWidg
     if (layerProxy)
         return true;
 
-    Raw::inkWidget::GetLayer(aWidget, layerProxy);
+    layerProxy = Raw::inkWidget::GetLayer(aWidget);
 
     if (!layerProxy)
         return false;
