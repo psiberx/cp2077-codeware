@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CEvaluatorVectorRandomUniform extends IEvaluatorVector {
   public native let min: Vector4;
   public native let max: Vector4;

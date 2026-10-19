@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsPhysicsJointAxis {
   AxisX = 0,
   AxisY = 1,

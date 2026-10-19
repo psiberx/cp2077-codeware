@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct navgendebugInputGeometry {
   public native let triangles: array<navgendebugInputGeometryTriangle>;
   public native let tileBoundingBox: Box;

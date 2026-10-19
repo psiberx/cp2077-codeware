@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(LocomotionParameters)
 public native let imperfectTurn: Bool;
 

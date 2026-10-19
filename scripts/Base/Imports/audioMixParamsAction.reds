@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioMixParamsAction {
   Mull = 0,
   MullPercent = 1,

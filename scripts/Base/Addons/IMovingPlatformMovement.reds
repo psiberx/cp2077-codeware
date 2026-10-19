@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(IMovingPlatformMovement)
 public native let initData: gameIMovingPlatformMovementInitData;
 

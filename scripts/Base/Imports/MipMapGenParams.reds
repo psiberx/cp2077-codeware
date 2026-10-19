@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct MipMapGenParams {
   public native let applyToksvig_ShouldInvChannel: Bool;
   public native let applyToksvig_Channel: Uint8;

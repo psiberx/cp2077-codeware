@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiCustomizationGroup {
   public native let name: CName;
   public native let customization: array<gameuiCustomizationAppearance>;

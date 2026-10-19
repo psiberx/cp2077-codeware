@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkState {
   InitEngine = 0,
   PreGameMenu = 3,

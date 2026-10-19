@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct AIbehaviorTypeRef {
   public native let isSet: Bool;
   public native let customType: CName;

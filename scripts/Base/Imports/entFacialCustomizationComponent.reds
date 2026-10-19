@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entFacialCustomizationComponent extends IComponent {
   public native let debugIgnoreComponent: Bool;
   public native let customizationSet: ResourceAsyncRef; // raRef<animFacialCustomizationSet>

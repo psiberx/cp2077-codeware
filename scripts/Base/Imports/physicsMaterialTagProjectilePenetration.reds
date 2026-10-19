@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsMaterialTagProjectilePenetration {
   TechOnly = 0,
   Any = 1,

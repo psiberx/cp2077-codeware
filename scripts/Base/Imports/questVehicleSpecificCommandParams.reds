@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class questVehicleSpecificCommandParams extends ISerializable {
   public native let pushOtherVehiclesAside: Bool;
   public native let needDriver: Bool;

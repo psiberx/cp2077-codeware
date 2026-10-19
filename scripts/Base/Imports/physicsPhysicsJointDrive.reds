@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsPhysicsJointDrive {
   public native let forceLimit: Float;
   public native let isAcceleration: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum physicsFractureFieldType {
 //   FF_Default = 1, // 1 << 0,
 //   FF_Locomotion = 2, // 1 << 1,

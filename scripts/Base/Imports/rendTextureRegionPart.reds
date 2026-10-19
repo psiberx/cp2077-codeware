@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class rendTextureRegionPart extends ISerializable {
   public native let innerRegion: Vector4;

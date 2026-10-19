@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_Movement)
 public native let movementDirection: Vector4;
 

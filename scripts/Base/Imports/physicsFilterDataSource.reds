@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsFilterDataSource {
   Parent = 0,
   Collider = 1,

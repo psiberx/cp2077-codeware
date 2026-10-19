@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct MorphTargetMeshEntry {
   public native let name: CName;
   public native let regionName: CName;

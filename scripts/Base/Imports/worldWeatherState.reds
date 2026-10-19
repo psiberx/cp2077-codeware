@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldWeatherState extends ISerializable {
   public native let minDuration: CurveDataFloat;
   public native let maxDuration: CurveDataFloat;

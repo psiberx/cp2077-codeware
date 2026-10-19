@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class meshMeshParamBendedRoad extends meshMeshParameter {
   public native let occInds: array<Uint16>;
   public native let occVerts: array<Vector4>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorPrepareReservedCrowdWorkspotNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
   public native let workspotData: ref<AIArgumentMapping>;
   public native let returnPosition: ref<AIArgumentMapping>;

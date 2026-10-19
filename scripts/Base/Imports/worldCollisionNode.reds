@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldCollisionNode extends worldNode {
   public native let numActors: Uint16;
   public native let numShapeInfos: Uint16;

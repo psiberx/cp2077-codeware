@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameinteractionsEPredicateType {
   EPredicateFunction_true = 0,
   EPredicateFunction_distanceFromScreenCentre = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(BaseInteractionMappinController)
 public native let canvasWidgetName: CName;
 

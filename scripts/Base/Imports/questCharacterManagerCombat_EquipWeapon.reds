@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterManagerCombat_EquipWeapon extends questICharacterManagerCombat_NodeSubType {
   public native let equip: Bool;
   public native let weaponID: TweakDBID;

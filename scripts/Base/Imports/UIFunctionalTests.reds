@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class UIFunctionalTests extends IScriptable {
   public final native func EnableExitGameAction()
   public final native func GetPlaybackFailInfo()

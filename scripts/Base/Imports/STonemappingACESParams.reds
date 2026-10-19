@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct STonemappingACESParams {
   public native let minStops: Float;
   public native let maxStops: Float;

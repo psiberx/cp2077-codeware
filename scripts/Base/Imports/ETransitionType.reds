@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ETransitionType {
   EET_Linear = 0,
   EET_Sine = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gamedataGroupNodeGroupVariableDeriveInfo {
   FullyDerived = 0,
   TypeDerived = 1,

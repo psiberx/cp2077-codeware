@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class entdismembermentWoundConfig extends ISerializable {
   public native let WoundName: CName;

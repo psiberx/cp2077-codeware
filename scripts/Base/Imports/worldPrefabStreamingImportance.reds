@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldPrefabStreamingImportance {
   Auto = 0,
   P1 = 1,

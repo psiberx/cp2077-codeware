@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questWithCompanionMoveOnSplineParams {
   public native let movementType: AIMovementTypeSpec;
   public native let facingTargetRef: ref<questUniversalRef>;

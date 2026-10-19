@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameCookedMappinData {
   public native let journalPathHash: Uint32;
   public native let position: Vector3;

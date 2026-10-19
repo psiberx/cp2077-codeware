@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FloatTrackDirectConnConstraint extends animAnimNode_OnePoseInput {
   public native let floatTrackIndex: animNamedTrackIndex;
   public native let transformIndex: animTransformIndex;

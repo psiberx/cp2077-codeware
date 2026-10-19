@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnSectionNode extends scnSceneGraphNode {
   public native let events: array<ref<scnSceneEvent>>;
   public native let sectionDuration: scnSceneTime;

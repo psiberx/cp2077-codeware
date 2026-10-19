@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkMenuEntry {
   public native let name: CName;
   public native let menuWidget: ResourceRef; // rRef<inkWidgetLibraryResource>

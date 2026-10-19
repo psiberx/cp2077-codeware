@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct textWrappingInfo {
   public native let autoWrappingEnabled: Bool;
   public native let wrappingAtPosition: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_WeaponData)
 public native let cycleTime: Float;
 

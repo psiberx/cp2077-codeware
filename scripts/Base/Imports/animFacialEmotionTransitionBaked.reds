@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animFacialEmotionTransitionBaked {
   public native let toIdleMale: CName;
   public native let facialKey_Male: CName;

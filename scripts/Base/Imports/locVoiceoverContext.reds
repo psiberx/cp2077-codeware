@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum locVoiceoverContext {
   Vo_Context_Quest = 0,
   Vo_Context_Community = 1,

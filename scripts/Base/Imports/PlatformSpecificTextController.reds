@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class PlatformSpecificTextController extends inkLogicController {
   public native let textLocKey: CName;
   public native let textLocKey_PS4: CName;

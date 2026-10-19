@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemBloom extends effectTrackItem {
   public native let override: Bool;
   public native let sceneColorScale: effectEffectParameterEvaluatorFloat;

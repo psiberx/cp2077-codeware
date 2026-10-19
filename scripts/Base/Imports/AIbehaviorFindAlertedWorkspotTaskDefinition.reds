@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorFindAlertedWorkspotTaskDefinition extends AIbehaviorTaskDefinition {
   public native let usedTokens: ref<AIArgumentMapping>;
   public native let spots: ref<AIArgumentMapping>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiarcadeTankPickupType {
   Patch_Kit = 0,
   AEAMS = 1,

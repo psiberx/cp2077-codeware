@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldBakedDestructionNode extends worldMeshNode {
   public native let meshFractured: ResourceAsyncRef; // raRef<CMesh>
   public native let meshFracturedAppearance: CName;

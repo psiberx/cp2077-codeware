@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CRenderSimWaterFFT extends IDynamicTextureGenerator {
   public native let windDir: Float;
   public native let windSpeed: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ETextureFilteringMip {
   TFMip_None = 0,
   TFMip_Point = 1,

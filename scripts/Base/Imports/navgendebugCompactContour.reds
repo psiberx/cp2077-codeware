@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct navgendebugCompactContour {
   public native let rawVertices: array<Int32>;
   public native let simplifiedVertices: array<Int32>;

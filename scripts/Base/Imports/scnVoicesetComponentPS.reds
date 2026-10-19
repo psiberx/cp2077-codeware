@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnVoicesetComponentPS extends GameComponentPS {
   public native persistent let blockedInputs: array<entVoicesetInputToBlock>;
   public native persistent let voiceTag: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum GpuWrapApiVertexPackingEStreamType {
   ST_Invalid = -1,
   ST_PerVertex = 0,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class localizationPersistenceCLNumberDateContainer extends ISerializable {
   public native let clNumber: CName;
   public native let clTimestamp: CName;

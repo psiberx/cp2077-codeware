@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnscreenplayDialogLine {
   public native let itemId: scnscreenplayItemId;
   public native let speaker: scnActorId;

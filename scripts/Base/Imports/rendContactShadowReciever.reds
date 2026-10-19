@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum rendContactShadowReciever {
   CSR_None = 0,
   CSR_All = 3,

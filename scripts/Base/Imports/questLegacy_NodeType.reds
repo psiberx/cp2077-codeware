@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questLegacy_NodeType extends questSpawnManagerNodeType {
   public native let spawnerReference: NodeRef;
   public native let communityEntryName: CName;

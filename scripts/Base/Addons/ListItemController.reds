@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(ListItemController)
 public native let ToggledOff: inkListItemControllerCallback;
 

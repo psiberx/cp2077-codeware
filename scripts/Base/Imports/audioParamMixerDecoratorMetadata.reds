@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioParamMixerDecoratorMetadata extends audioEmitterMetadata {
   public native let inParams: array<audioMixParamDescription>;

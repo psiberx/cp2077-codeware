@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStaticStickerNode extends worldNode {
   public native let labels: array<String>;
   public native let showBackground: Bool;

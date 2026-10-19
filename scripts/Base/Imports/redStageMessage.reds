@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct redStageMessage {
   public native let parent: Uint32;
   public native let reset: Bool;

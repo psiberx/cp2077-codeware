@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CTextureArray extends ITexture {
   public native let setup: STextureGroupSetup;
   public native let renderResourceBlob: ref<IRenderResourceBlob>;

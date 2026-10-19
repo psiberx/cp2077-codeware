@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeRoachRaceGameplayController extends gameuiarcadeArcadeGameplayController {
   public native let defaultWorldVelocity: Float;
   public native let cycleWorldVelocityMultiplier: Float;

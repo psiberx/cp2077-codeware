@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameStatPoolDataValueChangeMode {
   Normal = 0,
   IncreasingOnly = 1,

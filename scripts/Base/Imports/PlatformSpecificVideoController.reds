@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class PlatformSpecificVideoController extends inkLogicController {
   public native let isLooped: Bool;
   public native let video: ResourceAsyncRef; // raRef<Bink>

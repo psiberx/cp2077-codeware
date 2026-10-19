@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectObjectProvider_Explosion extends EffectObjectProvider {
   public native let puppets: Bool;
   public native let gameObjects: Bool;

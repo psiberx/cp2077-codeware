@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleInitializerSpawnCircle extends IParticleInitializer {
   public native let innerRadius: ref<IEvaluatorFloat>;
   public native let outerRadius: ref<IEvaluatorFloat>;

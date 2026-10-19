@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiarcadeShooterLayerInfo {
   public native let referenceWidget: inkWidgetRef;
   public native let planeRelativeValue: Vector2;

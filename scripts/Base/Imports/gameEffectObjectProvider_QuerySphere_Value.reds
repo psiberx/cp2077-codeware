@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectObjectProvider_QuerySphere_Value extends EffectObjectProvider {
   public native let radius: Float;
   public native let filterData: ref<physicsFilterData>;

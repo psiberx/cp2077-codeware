@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioVoCpoCharacter {
   None = 0,
   Solo = 1,

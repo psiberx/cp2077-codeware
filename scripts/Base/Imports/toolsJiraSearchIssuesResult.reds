@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class toolsJiraSearchIssuesResult extends ISerializable {
   public native let startAt: Uint32;
   public native let maxResults: Uint32;

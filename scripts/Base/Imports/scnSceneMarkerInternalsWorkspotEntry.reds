@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSceneMarkerInternalsWorkspotEntry {
   public native let instanceId: CRUID;
   public native let instanceOrigin: Transform;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimNode_SetDrivenKey_InternalsEntry {
   public native let curve: CurveDataFloat;
   public native let inChannelName: CName;

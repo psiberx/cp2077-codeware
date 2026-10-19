@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameTPPRepresentationComponent extends IComponent {
   public native let detachedObjectInfo: array<gameFppRepDetachedObjectInfo>;
   public native let attachedObjectInfo: array<gameTppRepAttachedObjectInfo>;

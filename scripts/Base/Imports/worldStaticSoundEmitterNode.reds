@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStaticSoundEmitterNode extends worldNode {
   public native let radius: Float;
   public native let audioName: CName;

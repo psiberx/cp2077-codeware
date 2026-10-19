@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopTerrainImportParams {
   public native let cellRes: Uint32;
   public native let cellSize: Uint32;

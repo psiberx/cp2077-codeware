@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animLookAtRequestForPart {
   public native let bodyPart: CName;
   public native let request: LookAtRequest;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectExecutor_Finisher extends EffectExecutor {
   public native let InfluencedByPlayerCostBlock: Bool;
   public native let finisherScenarios: array<ref<gameIFinisherScenario>>;

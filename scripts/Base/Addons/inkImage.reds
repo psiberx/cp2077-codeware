@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkImage)
 public native let useExternalDynamicTexture: Bool;
 

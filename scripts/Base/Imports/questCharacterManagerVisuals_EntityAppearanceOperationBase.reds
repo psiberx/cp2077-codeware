@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class questCharacterManagerVisuals_EntityAppearanceOperationBase extends questICharacterManagerVisuals_NodeSubType {
   public native let appearanceEntries: array<questCharacterManagerVisuals_EntityAppearanceOperationBaseEntityAppearanceEntry>;
 }

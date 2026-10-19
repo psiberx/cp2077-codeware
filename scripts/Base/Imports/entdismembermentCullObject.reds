@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entdismembermentCullObject {
   public native let Plane: Plane;
   public native let Plane1: Plane;

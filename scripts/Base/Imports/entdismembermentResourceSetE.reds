@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum entdismembermentResourceSetE {
   NONE = 16,
   BARE = 0,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct navLocomotionPathSegmentInfo {
   public native let type: navLocomotionPathSegmentTypes;
   public native let segmentEnd: navSerializableSplineProgression;

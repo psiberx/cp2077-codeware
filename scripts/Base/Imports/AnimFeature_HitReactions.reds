@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_HitReactions extends AnimFeature {
   public native let hitDirection: Vector4;
   public native let hitIntensity: Float;

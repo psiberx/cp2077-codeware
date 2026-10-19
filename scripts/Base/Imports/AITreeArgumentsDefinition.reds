@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct AITreeArgumentsDefinition {
   public native let args: array<ref<AIArgumentDefinition>>;
 }

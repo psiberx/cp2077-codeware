@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopRTTIClassDumpEntry {
   public native let i: Int32;
   public native let b: Int32;

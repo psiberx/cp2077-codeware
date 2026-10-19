@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalCodexDescription)
 public native let subTitle: LocalizationString;
 

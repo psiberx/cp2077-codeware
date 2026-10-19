@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnWalkToEvent extends scnSceneEvent {
   public native let actorId: scnActorId;
   public native let targetWaypointTag: CName;

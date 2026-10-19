@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldPrefabOwnership {
   None = 0,
   Quest = 1,

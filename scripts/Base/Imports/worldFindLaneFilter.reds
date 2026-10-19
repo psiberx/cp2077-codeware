@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldFindLaneFilter {
   None = 0,
   Road = 1,

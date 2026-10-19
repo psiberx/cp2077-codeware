@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct meshChunkFlags {
   public native let renderInScene: Bool;
   public native let renderInShadows: Bool;

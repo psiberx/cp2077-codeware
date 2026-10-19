@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum rendEParticleSortingMode {
   PSM_None = 0,
   PSM_Billboard = 1,

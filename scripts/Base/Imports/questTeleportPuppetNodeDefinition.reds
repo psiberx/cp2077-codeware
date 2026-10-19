@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questTeleportPuppetNodeDefinition extends questAICommandNodeBase {
   public native let entityReference: ref<questUniversalRef>;
   public native let params: ref<questTeleportPuppetParamsV1>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimMathExpressionFloatSocket {
   public native let link: animFloatLink;
   public native let expressionVarId: Uint16;

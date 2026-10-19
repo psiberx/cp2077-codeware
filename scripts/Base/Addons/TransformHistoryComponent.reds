@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(TransformHistoryComponent)
 public native let historyLength: Float;
 

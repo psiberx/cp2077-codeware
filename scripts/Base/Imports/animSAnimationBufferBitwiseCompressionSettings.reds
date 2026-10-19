@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animSAnimationBufferBitwiseCompressionSettings {
   public native let translationTolerance: Float;
   public native let translationSkipFrameTolerance: Float;

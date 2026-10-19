@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questvehicleToNodeParams extends questVehicleSpecificCommandParams {
   public native let stopAtEnd: Bool;
   public native let nodeRef: NodeRef;

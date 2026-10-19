@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldCompiledEffectPlacementInfo {
   public native let placementTagIndex: Uint8;
   public native let relativePositionIndex: Uint8;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animFacialCustomizationSet extends CResource {
   public native let baseSetup: ResourceRef; // rRef<animFacialSetup>
   public native let targetSetups: array<ResourceAsyncRef>;

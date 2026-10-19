@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entdismembermentMeshInfo {
   public native let Mesh: ResourceAsyncRef; // raRef<CMesh>
   public native let MeshAppearance: CName;

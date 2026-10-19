@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(LoadingScreenLogicController)
 public native let mainBackgroundImage: inkImageRef;
 

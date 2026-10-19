@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gamePlayerSpawnParams {
   public native let isSpectator: Bool;
   public native let spawnPoint: Transform;

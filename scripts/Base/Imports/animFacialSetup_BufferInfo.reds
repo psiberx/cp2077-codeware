@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animFacialSetup_BufferInfo {
   public native let tracksMapping: animFacialSetup_TracksMapping;
   public native let numLipsyncOverridesIndexMapping: Uint16;

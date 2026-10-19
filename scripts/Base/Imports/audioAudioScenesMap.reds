@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAudioScenesMap extends audioAudioMetadata {
   public native let defaultScene: CName;

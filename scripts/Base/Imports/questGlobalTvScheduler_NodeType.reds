@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questGlobalTvScheduler_NodeType extends questIUIManagerNodeType {
   public native let channelId: TweakDBID;
   public native let overlayResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>

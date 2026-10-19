@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class TestStep extends IScriptable {
   public native let stepName: CName;
   public native let scriptId: Uint16;

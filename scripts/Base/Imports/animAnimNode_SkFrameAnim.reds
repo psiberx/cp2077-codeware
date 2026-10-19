@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SkFrameAnim extends animAnimNode_SkAnim {
   public native let progressLink: animFloatLink;
   public native let timeLink: animFloatLink;

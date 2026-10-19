@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameFreeCamera extends GameObject {
   public native let baseSpeed: Float;
   public native let analogTurnRate: Float;

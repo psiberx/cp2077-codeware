@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct AIbehaviortweakTargetLocation {
   public native let object: wref<GameObject>;
   public native let position: Vector3;

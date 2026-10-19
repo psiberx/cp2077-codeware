@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameActionRotateToObjectState {
   public native let angleOffset: Float;
   public native let angleTolerance: Float;

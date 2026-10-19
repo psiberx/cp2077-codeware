@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class audioAmbientAreaNotifier extends worldITriggerAreaNotifer {
   public native let Settings: ref<audioAmbientAreaSettings>;
   public native let usePhysicsObstruction: Bool;

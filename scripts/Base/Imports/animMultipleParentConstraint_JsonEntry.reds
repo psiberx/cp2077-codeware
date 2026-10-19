@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animMultipleParentConstraint_JsonEntry {
   public native let parentTransform: CName;
   public native let parentWeightMode: animConstraintWeightMode;

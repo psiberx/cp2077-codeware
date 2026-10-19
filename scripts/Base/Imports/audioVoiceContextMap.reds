@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioVoiceContextMap extends audioAudioMetadata {
   public native let includes: array<CName>;

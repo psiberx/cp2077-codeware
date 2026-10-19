@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopGlobalNodeIDInfo {
   public native let globalName: String;
   public native let globalNodeIDPath: String;

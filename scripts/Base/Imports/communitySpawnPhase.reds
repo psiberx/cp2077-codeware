@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class communitySpawnPhase extends ISerializable {
   public native let phaseName: CName;
   public native let appearances: array<CName>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnCameraAnimationRid {
   public native let tag: scnRidTag;
   public native let animation: ref<animIAnimationBuffer>;

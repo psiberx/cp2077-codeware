@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiForcePlayerCustomizationData {
   public native let customizationPart: gameuiCharacterCustomizationPart;
   public native let uiSlot: CName;

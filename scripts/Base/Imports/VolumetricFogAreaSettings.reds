@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class VolumetricFogAreaSettings extends IAreaSettings {
   public native let albedo: CurveDataHDRColor;
   public native let range: CurveDataFloat;

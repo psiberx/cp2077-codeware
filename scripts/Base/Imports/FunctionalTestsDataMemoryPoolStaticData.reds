@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class FunctionalTestsDataMemoryPoolStaticData extends ISerializable {
   public native let poolName: String;

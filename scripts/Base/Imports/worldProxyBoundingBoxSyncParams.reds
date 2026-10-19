@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldProxyBoundingBoxSyncParams {
   public native let positiveAxis: worldProxyBBoxSyncOptions;
   public native let negativeAxis: worldProxyBBoxSyncOptions;

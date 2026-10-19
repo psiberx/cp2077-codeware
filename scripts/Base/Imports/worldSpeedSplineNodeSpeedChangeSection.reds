@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldSpeedSplineNodeSpeedChangeSection {
   public native let start: Float;
   public native let end: Float;

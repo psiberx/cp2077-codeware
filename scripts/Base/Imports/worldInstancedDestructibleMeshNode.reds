@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldInstancedDestructibleMeshNode extends worldMeshNode {
   public native let staticMesh: ResourceAsyncRef; // raRef<CMesh>
   public native let staticMeshAppearance: CName;

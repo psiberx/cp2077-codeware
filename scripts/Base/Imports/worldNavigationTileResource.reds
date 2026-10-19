@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldNavigationTileResource extends resStreamedResource {
   public native let localBoundingBox: Box;
   public native let tilesData: array<worldNavigationTileData>;

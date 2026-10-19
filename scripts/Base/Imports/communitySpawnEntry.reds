@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class communitySpawnEntry extends ISerializable {
   public native let entryName: CName;
   public native let characterRecordId: TweakDBID;

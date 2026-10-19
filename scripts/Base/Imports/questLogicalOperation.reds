@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questLogicalOperation {
   AND = 0,
   OR = 1,

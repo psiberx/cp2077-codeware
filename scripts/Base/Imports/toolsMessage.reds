@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct toolsMessage {
   public native let severity: toolsMessageSeverity;
   public native let created: Int64;

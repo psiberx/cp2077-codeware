@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct Multilayer_Layer {
   public native let matTile: Float;
   public native let mbTile: Float;

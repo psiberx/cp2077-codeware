@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class RenderingFunctionalTests extends IScriptable {
   public final native func GetEMMFilter()
   public final native func GetViewportResolution()

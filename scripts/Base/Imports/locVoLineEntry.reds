@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct locVoLineEntry {
   public native let stringId: CRUID;
   public native let femaleResPath: ResourceAsyncRef; // raRef<locVoResource>

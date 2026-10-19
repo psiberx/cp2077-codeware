@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameCrowdTemplateEntry {
   public native let entryName: CName;
   public native let markings: array<CName>;

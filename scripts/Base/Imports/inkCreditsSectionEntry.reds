@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkCreditsSectionEntry {
   public native let sectionTitle: String;
   public native let names: array<String>;

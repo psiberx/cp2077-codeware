@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSpawnSetParams {
   public native let reference: NodeRef;
   public native let entryName: CName;

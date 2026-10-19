@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldProxyMiscAdvancedParams {
   public native let useLod1: Bool;
   public native let smoothVolume: Bool;

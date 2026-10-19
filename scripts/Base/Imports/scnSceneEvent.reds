@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class scnSceneEvent extends ISerializable {
   public native let id: scnSceneEventId;
   public native let type: scnEventType;

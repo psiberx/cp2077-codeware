@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class cpGameplayLightComponent extends LightComponent {
   public native let reactToTime: Bool;
   public native let begin: GameTime;

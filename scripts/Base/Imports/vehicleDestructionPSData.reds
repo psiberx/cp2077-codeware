@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct vehicleDestructionPSData {
   public native persistent let gridValues: [Float; 30];
   public native persistent let brokenGlass: Uint32;

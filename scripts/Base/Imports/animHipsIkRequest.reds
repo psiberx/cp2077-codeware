@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animHipsIkRequest {
   public native let leftLegIkChain: CName;
   public native let rightLegIkChain: CName;

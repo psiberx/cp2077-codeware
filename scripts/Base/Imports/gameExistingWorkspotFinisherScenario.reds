@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameExistingWorkspotFinisherScenario extends gameIFinisherScenario {
   public native let playerWorkspot: ResourceAsyncRef; // raRef<workWorkspotResource>
   public native let syncAnimSlotName: CName;

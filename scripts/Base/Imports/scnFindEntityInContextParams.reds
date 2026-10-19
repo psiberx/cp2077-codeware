@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnFindEntityInContextParams {
   public native let contextualName: scnContextualActorName;
   public native let voiceVagId: scnVoicetagId;

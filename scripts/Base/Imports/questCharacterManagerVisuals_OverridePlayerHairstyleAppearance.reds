@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterManagerVisuals_OverridePlayerHairstyleAppearance extends questICharacterManagerVisuals_NodeSubType {
   public native let hairstyleIndex: Uint32;
   public native let hairstyleDefinitionName: CName;

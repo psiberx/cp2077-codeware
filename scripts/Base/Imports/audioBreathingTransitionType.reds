@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioBreathingTransitionType {
   PlayerSpeed = 0,
   Event = 1,

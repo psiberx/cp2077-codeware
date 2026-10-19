@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(InteractionMultipleSetEnableEvent)
 public native let enable: [Bool; 4];
 

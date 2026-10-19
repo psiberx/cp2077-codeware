@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class animAnimNodeDebugState extends ISerializable {
   public native let nodeId: Uint32;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questVehicleSpawned_ConditionType extends questIVehicleConditionType {
   public native let vehicleType: questSpawnedVehicleType;
   public native let vehicleRef: EntityReference;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum populationSpawnerObjectCtrlAction {
   Undefined = 0,
   Activate = 1,

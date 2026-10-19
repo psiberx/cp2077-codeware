@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalMetaQuestObjective)
 public native let description: LocalizationString;
 

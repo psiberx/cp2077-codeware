@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questForceVMModule_NodeTypeParams {
   public native let reference: EntityReference;
   public native let module: String;

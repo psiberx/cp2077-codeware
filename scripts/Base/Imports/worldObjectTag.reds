@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldObjectTag {
   None = 1701736270,
   WallInterior = 1231839575,

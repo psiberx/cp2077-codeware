@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly struct gameOccupantSlotData {
   public native let slotName: CName;
   public native let syncAnimationTag: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class cpConveyor extends GameObject {
   public native let lines: array<cpConveyorLine>;
   public native let movementCurve: CurveDataFloat;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnSceneResource extends CResource {
   public native let entryPoints: array<scnEntryPoint>;
   public native let exitPoints: array<scnExitPoint>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiCreditsController)
 public native let creditsResourcePS4: ResourceRef; // rRef<inkCreditsResource>
 

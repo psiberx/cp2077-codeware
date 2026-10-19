@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questWarningMessage_NodeType extends questIUIManagerNodeType {
   public native let message: String;
   public native let localizedMessage: LocalizationString;

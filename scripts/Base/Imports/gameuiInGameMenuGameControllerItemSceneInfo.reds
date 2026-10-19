@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiInGameMenuGameControllerItemSceneInfo {
   public native let sceneName: CName;
   public native let puppetSceneName: CName;

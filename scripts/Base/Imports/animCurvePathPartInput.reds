@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animCurvePathPartInput {
   public native let curveLengthStart: Float;
   public native let curveLengthEnd: Float;

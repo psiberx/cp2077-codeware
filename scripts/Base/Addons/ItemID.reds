@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(ItemID)
 public native persistent let id: TweakDBID;
 

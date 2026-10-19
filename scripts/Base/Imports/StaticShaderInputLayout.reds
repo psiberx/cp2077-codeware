@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum StaticShaderInputLayout {
   DebugVertexBase = 0,
   DebugVertexUV = 1,

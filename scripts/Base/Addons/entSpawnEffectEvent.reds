@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(entSpawnEffectEvent)
 public native let idForRandomizedEffect: CRUID;
 

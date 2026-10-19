@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldWorldGlobalLightParameters {
   public native let unit: ELightUnit;
   public native let sunColor: CurveDataHDRColor;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsclothPhaseConfig {
   public native let stiffness: Float;
   public native let stiffnessMultiplier: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EMaterialShaderTarget {
   MSH_Invalid = 0,
   MSH_VertexShader = 1,

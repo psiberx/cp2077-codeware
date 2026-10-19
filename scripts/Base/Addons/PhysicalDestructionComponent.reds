@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(PhysicalDestructionComponent)
 public native let mesh: ResourceAsyncRef; // raRef<CMesh>
 

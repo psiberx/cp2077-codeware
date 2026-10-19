@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsStaticCollisionShapeCategory {
   Interior = 0,
   Exterior = 1,

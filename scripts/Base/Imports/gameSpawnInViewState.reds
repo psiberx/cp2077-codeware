@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameSpawnInViewState {
   default__true_ = 0,
   true = 1,

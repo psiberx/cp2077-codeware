@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entGarmentParameterChunkData {
   public native let morphOffsetScales: array<Uint8>;
   public native let morphOffsetScalesHash: Uint64;

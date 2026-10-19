@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questDeviceManager_NodeTypeParams extends ISerializable {
   public native let objectRef: NodeRef;
   public native let slotName: CName;

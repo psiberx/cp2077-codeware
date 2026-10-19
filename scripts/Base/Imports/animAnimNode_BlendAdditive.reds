@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_BlendAdditive extends animAnimNode_Base {
   public native let biasValue: Float;
   public native let scaleValue: Float;

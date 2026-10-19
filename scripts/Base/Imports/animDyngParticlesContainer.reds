@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animDyngParticlesContainer {
   public native let externalForceWS: Vector3;
   public native let externalForceWsLink: animVectorLink;

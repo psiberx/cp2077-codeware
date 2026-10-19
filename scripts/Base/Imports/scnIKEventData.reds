@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnIKEventData {
   public native let orientation: Quaternion;
   public native let basic: scnAnimTargetBasicData;

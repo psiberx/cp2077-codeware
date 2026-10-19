@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterStatusEffect_CondtionType extends questICharacterConditionType {
   public native let objectRef: EntityReference;
   public native let isPlayer: Bool;

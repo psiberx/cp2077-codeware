@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct garmentSmoothingParams {
   public native let smoothingStrength: Float;
   public native let smoothingRadiusInCM: Float;

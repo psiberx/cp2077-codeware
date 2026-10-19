@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gamedataVariableNode extends gamedataDataNode {
   public native let hashedName: CName;
   public native let type: String;

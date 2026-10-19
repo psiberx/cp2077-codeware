@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionEquipItemNodeDefinition extends AIbehaviorActionItemHandlingNodeDefinition {
   public native let slotId: ref<AIArgumentMapping>;
   public native let itemId: ref<AIArgumentMapping>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnscreenplayItemType {
   invalid = 0,
   dialogLine = 1,

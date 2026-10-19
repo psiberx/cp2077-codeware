@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EMaterialModifier {
   EMATMOD_HitProxy = 0,
   EMATMOD_WindData = 1,

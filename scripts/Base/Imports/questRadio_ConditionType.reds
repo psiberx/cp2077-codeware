@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questRadio_ConditionType extends questISystemConditionType {
   public native let inverted: Bool;
   public native let limitToSpecifiedSpeakersStations: Bool;

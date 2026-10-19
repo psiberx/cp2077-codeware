@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioDynamicReverbType {
   Dynamic = 0,
   StaticSmall = 1,

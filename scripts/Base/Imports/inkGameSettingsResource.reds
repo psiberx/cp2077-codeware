@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkGameSettingsResource extends CResource {
   public native let compositionResource: ResourceRef; // rRef<inkFullscreenCompositionResource>
   public native let permanentTextureAtlases: array<ResourceAsyncRef>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(EntityReference)
 public native persistent let type: gameEntityReferenceType;
 

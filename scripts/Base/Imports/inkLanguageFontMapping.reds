@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkLanguageFontMapping {
   public native let languageCode: CName;
   public native let font: ResourceAsyncRef; // raRef<inkFontFamilyResource>

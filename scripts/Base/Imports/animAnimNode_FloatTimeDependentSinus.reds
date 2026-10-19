@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FloatTimeDependentSinus extends animAnimNode_FloatValue {
   public native let min: Float;
   public native let max: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct garmentCollarAreaParams {
   public native let enable: Bool;
   public native let radiusInCM: Float;

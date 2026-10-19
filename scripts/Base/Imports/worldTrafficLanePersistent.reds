@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldTrafficLanePersistent {
   public native let outLanes: array<worldTrafficConnectivityOutLane>;
   public native let inLanes: array<worldTrafficConnectivityInLane>;

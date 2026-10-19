@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldQuestType {
   MainQuest = 0,
   SideQuest = 1,

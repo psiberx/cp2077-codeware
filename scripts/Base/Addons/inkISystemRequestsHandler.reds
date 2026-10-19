@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkISystemRequestsHandler)
 public native let SavesForSaveReady: inkSystemRequesResult;
 

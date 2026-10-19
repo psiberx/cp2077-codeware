@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStaticDecalNode extends worldNode {
   public native let material: ResourceAsyncRef; // raRef<IMaterial>
   public native let autoHideDistance: Float;

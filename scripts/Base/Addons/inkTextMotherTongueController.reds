@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkTextMotherTongueController)
 public native let preTranslatedTextWidget: inkTextRef;
 

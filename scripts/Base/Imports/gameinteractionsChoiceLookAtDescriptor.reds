@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameinteractionsChoiceLookAtDescriptor {
   public native let type: gameinteractionsChoiceLookAtType;
   public native let slotName: CName;

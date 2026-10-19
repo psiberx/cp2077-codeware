@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class SenseVisibilityPartsEvent extends Event {
   public native let target: wref<GameObject>;
   public native let isPrimaryVisible: Bool;

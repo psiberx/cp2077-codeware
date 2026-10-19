@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct Rect {
   public native let left: Int32;
   public native let top: Int32;

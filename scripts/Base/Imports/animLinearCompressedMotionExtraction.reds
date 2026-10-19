@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animLinearCompressedMotionExtraction extends animIMotionExtraction {
   public native let duration: Float;
   public native let rotFrames: array<Quaternion>;

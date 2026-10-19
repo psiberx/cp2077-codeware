@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendRenderMorphTargetMeshBlobTextureData {
   public native let targetDiffScale: [Vector4; 3];
   public native let targetDiffOffset: [Vector4; 3];

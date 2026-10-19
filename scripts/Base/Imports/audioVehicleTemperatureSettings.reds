@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioVehicleTemperatureSettings {
   public native let rpmThreshold: Float;
   public native let timeToActivateTemperature: Float;

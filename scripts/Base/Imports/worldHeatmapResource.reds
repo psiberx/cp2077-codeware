@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldHeatmapResource extends CResource {
   public native let setup: worldHeatmapSetup;
   public native let name: String;

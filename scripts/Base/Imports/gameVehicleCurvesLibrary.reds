@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameVehicleCurvesLibrary extends Entity {
   public native let curves: array<ResourceRef>;
   public native let commonCurves: array<ResourceRef>;

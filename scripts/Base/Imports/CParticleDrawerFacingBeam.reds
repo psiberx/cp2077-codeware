@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleDrawerFacingBeam extends IParticleDrawer {
   public native let texturesPerUnit: Float;
   public native let dynamicTexCoords: Bool;

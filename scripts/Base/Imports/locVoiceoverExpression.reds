@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum locVoiceoverExpression {
   Vo_Expression_Spoken = 0,
   Vo_Expression_Phone = 1,

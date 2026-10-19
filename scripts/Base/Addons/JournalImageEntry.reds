@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalImageEntry)
 public native let imageId: TweakDBID;
 

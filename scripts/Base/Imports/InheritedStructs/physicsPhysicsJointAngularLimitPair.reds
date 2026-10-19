@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsPhysicsJointAngularLimitPair {
   public native let restitution: Float;
   public native let bounceThreshold: Float;

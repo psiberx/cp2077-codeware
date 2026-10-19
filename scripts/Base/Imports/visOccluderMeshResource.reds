@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class visOccluderMeshResource extends visIOccluderResource {
   public native let resourceVersion: Uint32;
   public native let boundingBox: Box;

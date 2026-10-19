@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameTransformAnimation_RotateOnAxisAxis {
   X = 0,
   Y = 1,

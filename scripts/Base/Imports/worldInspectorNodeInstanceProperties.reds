@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldInspectorNodeInstanceProperties extends ISerializable {
   public native let setupInfo: worldCompiledNodeInstanceSetupInfo;
   public native let meshNode: ref<worldMeshNode>;

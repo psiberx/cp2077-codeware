@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiCharacterCustomizationGenitalsController extends gameuiCharacterCustomizationBodyPartsController {
   public native let upperBodyGroupName: CName;
   public native let bottomBodyGroupName: CName;

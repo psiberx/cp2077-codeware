@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class FunctionalTestsDataRenderingStatsData extends ISerializable {
   public native let engineTick: Uint64;
   public native let rawLocalTime: Uint64;

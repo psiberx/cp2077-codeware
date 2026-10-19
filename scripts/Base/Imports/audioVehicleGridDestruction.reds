@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioVehicleGridDestruction extends audioAudioMetadata {
   public native let minGridCellRawChangeThreshold: Float;

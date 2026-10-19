@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_PlayerCover extends AnimFeature {
   public native let cameraPositionMS: Vector4;
   public native let coverState: Int32;

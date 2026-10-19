@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum IMaterialDataProviderDescEParameterType {
   PT_None = 0,
   PT_Texture = 1,

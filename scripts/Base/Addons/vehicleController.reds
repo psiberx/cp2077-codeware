@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(vehicleController)
 public native let alarmCurve: CName;
 

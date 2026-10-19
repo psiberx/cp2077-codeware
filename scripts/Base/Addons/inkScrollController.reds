@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkScrollController)
 public native let ScrollArea: inkScrollAreaRef;
 

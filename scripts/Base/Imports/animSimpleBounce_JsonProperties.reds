@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animSimpleBounce_JsonProperties extends ISerializable {
   public native let multiplier: Float;
   public native let negativeMultiplier: Float;

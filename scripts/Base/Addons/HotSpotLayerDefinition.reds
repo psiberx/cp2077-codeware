@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(HotSpotLayerDefinition)
 public native let group: gameinteractionsEGroupType;
 

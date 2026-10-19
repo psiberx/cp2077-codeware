@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDrivePanicTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let allowSimplifiedMovement: ref<AIArgumentMapping>;
   public native let ignoreTickets: ref<AIArgumentMapping>;

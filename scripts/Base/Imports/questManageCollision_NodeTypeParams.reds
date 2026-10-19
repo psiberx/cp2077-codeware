@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questManageCollision_NodeTypeParams {
   public native persistent let objectRef: NodeRef;
   public native persistent let enableCollision: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animDyngConstraintEllipsoid extends animIDyngConstraint {
   public native let bone: animTransformIndex;
   public native let ellipsoidTransformLS: QsTransform;

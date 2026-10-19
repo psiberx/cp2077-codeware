@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorSelectCoverTaskDefinition extends AIbehaviorTaskDefinition {
   public native let cover: ref<AIArgumentMapping>;
   public native let coverID: ref<AIArgumentMapping>;

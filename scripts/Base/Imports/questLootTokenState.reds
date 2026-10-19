@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questLootTokenState {
   Enabled = 0,
   Disabled = 1,

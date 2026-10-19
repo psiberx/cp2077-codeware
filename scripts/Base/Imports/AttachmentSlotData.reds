@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct AttachmentSlotData {
   public native let slotID: TweakDBID;
   public native let itemObject: ref<ItemObject>;

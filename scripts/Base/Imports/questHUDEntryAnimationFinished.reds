@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questHUDEntryAnimationFinished {
   public native let hudEntry: CName;
   public native let animationName: CName;

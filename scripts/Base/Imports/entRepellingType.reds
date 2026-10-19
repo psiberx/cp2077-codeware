@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum entRepellingType {
   Debris = 0,
   BigObjects = 1,

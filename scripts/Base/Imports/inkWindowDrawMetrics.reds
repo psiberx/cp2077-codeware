@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkWindowDrawMetrics {
   public native let allTextures: array<Vector2>;
   public native let textureSizeTypes: array<Vector2>;

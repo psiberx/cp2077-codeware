@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animEAnimGraphMathOp {
   AGMO_Add = 0,
   AGMO_Subtract = 1,

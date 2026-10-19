@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct LibTreeDefCName {
   public native let variableId: Uint16;
   public native let treeVariable: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum curveEInterpolationType {
   EIT_Constant = 0,
   EIT_Linear = 1,

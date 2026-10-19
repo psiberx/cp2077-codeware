@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class LanguageSpecificVideoController extends inkLogicController {
   public native let isLooped: Bool;
   public native let specificVideoForLanguage: ResourceAsyncRef; // raRef<Bink>

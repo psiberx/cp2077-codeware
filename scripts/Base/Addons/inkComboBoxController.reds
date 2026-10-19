@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkComboBoxController)
 public native let comboBoxObjectRef: inkWidgetRef;
 

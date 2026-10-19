@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(SimulationFilter)
 public native let mask1: Uint64;
 

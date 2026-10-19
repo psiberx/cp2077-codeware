@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questCombatNodeFunctions {
   CombatTarget = 0,
   ShootAt = 1,

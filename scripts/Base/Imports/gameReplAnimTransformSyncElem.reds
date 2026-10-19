@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameReplAnimTransformSyncElem {
   public native let definitionId: Int32;
   public native let currentTime: Float;

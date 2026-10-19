@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldProxyMeshBuildParams {
   public native let buildProxy: Bool;
   public native let type: worldProxyMeshBuildType;

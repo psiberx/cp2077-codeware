@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkCompositionPreset {
   public native let stateName: CName;
   public native let useBackgroundTexture: Bool;

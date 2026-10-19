@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimNode_BlendSpace_InternalsBlendSpacePoint {
   public native let animationName: CName;
   public native let useFixedCoordinates: Bool;

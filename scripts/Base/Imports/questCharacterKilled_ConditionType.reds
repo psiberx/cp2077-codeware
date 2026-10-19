@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterKilled_ConditionType extends questICharacterConditionType {
   public native let objectRef: EntityReference;
   public native let source: ref<questUniversalRef>;

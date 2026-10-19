@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameLootContainerBase)
 public native let useAreaLoot: Bool;
 

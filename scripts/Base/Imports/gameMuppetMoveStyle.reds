@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameMuppetMoveStyle {
   Invalid = 0,
   Walk = 1,

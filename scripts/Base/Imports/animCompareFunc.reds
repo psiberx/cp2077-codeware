@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animCompareFunc {
   Equal = 0,
   NotEqual = 1,

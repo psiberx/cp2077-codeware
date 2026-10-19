@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questSimpleMoveOnSplineParams {
   public native let movementType: moveMovementType;
   public native let facingTargetRef: ref<questUniversalRef>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questdbgRuntimeData {
   public native let version: Uint64;
   public native let questResourcePathHash: Uint64;

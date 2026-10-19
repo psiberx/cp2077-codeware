@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldObjectTagExt {
   None = 1701736270,
   Default = 1634100548,

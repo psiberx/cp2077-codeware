@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animSBehaviorConstraintNodeFloorIKCommonData {
   public native let gravityCentreBone: animTransformIndex;
   public native let rootRotationBlendTime: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemDynamicDecal extends effectTrackItem {
   public native let material: ResourceRef; // rRef<IMaterial>
   public native let width: Float;

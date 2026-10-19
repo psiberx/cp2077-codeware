@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDriveSplineReverseTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let spline: ref<AIArgumentMapping>;
 }

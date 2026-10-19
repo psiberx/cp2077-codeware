@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum vehicleEVehicleSpeedConditionType {
   CT_EQUAL = 0,
   CT_NOT_EQUAL = 1,

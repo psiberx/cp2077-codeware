@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct AIAIBlackboardSerializableID {
   public native let id: BlackboardSerializableID;
 }

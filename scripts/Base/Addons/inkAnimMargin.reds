@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkAnimMargin)
 public native let startValue: inkMargin;
 

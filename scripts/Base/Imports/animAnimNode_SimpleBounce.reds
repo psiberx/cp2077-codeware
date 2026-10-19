@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SimpleBounce extends animAnimNode_OnePoseInput {
   public native let areChannelsResaved: Bool;
   public native let outputDriverTrack: animNamedTrackIndex;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questReactionPresetRecordSelector extends ISerializable {
   public native let setDefault: Bool;
   public native let isGanger: Bool;

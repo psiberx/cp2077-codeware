@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnChoiceNodeOption {
   public native let screenplayOptionId: scnscreenplayItemId;
   public native let caption: CName;

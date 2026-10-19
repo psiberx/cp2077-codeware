@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldStreamingQueryRoadData {
   public native let transform: Transform;
   public native let splineData: ref<Spline>;

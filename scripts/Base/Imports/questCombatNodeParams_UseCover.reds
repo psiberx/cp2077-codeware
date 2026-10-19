@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCombatNodeParams_UseCover extends questCombatNodeParams {
   public native let cover: NodeRef;
   public native let oneTimeSelection: Bool;

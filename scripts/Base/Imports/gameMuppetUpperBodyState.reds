@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetUpperBodyState {
   public native let currentWeapon: ItemID;
   public native let wantedWeapon: ItemID;

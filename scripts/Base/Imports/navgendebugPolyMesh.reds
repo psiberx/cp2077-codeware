@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class navgendebugPolyMesh extends ISerializable {
   public native let vertices: array<Vector3>;

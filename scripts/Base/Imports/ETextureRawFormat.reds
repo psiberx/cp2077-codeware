@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ETextureRawFormat {
   TRF_Invalid = 0,
   TRF_TrueColor = 1,

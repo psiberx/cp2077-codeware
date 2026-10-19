@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameinteractionsPieDefinition extends gameinteractionsIShapeDefinition {
   public native let center: Vector4;
   public native let baseLength: Float;

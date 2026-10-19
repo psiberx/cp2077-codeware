@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldConversationData extends ISerializable {
   public native let sceneFilename: ResourceAsyncRef; // raRef<scnSceneResource>
   public native let condition: ref<questIBaseCondition>;

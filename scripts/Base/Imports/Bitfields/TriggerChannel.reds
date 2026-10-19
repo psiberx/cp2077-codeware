@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum TriggerChannel {
 //   TC_Default = 1, // 1 << 0,
 //   TC_Player = 2, // 1 << 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum entdismembermentResourceSetMask {
 //   BARE = 1, // 1 << 0,
 //   BARE1 = 2, // 1 << 1,

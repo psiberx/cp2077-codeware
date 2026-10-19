@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gamePhantomEntityParameters {
   public native let teleportStartEffect: CName;
   public native let teleportEndEffect: CName;

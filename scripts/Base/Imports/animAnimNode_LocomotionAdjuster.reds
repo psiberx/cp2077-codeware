@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_LocomotionAdjuster extends animAnimNode_OnePoseInput {
   public native let targetPosition: animVectorLink;
   public native let targetDirection: animVectorLink;

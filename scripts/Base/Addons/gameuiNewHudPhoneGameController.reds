@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiNewHudPhoneGameController)
 public native let smsMessengerElement: gameuiExternalPhoneElement;
 

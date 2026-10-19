@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum physicsEClothCollisionMaskEnum {
 //   SPHERE = 1, // 1 << 0,
 //   BOX = 2, // 1 << 1,

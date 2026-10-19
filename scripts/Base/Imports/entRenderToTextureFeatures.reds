@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entRenderToTextureFeatures {
   public native let renderDecals: Bool;
   public native let renderParticles: Bool;

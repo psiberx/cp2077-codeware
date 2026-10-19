@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorFSMTransitionDefinition extends AIbehaviorBehaviorComponentDefinition {
   public native let inState: Uint16;
   public native let outState: Uint16;

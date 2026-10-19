@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animCollisionRoundedShape {
   public native let bone: animTransformIndex;
   public native let transformLS: QsTransform;

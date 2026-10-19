@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorCollision extends IParticleModificator {
   public native let restitution: Float;
   public native let dynamicFriction: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class rendSingleScreenShotData extends ISerializable {
   public native let mode: rendScreenshotMode;
   public native let outputPath: AbsolutePathSerializable;

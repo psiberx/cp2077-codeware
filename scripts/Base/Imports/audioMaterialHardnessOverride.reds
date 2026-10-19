@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioMaterialHardnessOverride {
   None = 0,
   SetAsSoft = 1,

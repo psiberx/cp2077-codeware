@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class SplashScreenLoadingScreenLogicController extends ILoadingLogicController {
   public native let logoTrainWBBink: ResourceAsyncRef; // raRef<Bink>
   public native let logoTrainNamcoBink: ResourceAsyncRef; // raRef<Bink>

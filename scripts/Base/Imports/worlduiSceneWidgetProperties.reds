@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worlduiSceneWidgetProperties {
   public native let projectionPlaneSize: Vector2;
   public native let renderingPlane: ERenderingPlane;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questWorldStateSystemReplicatedState {
   public native let nodeVisibilityMapArray: array<questNodeVisibilityMapArrayElement>;
   public native let isInMirrorsAreaMapArray: array<questIsInMirrorsAreaMapArrayElement>;

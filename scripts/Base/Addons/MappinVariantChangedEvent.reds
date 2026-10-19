@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MappinVariantChangedEvent)
 public native let entry: wref<JournalEntry>;
 

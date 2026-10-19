@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct toolsJiraAttachment {
   public native let id: String;
   public native let filename: String;

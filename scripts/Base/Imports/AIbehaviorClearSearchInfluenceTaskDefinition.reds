@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorClearSearchInfluenceTaskDefinition extends AIbehaviorTaskDefinition {
   public native let clearedAreaRadius: ref<AIArgumentMapping>;
   public native let clearedAreaDistance: ref<AIArgumentMapping>;

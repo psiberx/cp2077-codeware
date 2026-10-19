@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animDyngParticle {
   public native let mass: Float;
   public native let damping: Float;

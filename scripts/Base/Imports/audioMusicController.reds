@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioMusicController {
   public native let playEvent: CName;
   public native let stopEvent: CName;

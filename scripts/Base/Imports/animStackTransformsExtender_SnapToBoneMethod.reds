@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animStackTransformsExtender_SnapToBoneMethod {
   NoSnapping = 0,
   WholeTransform = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldNavigationTileData {
   public native let tileX: Int32;
   public native let tileY: Int32;

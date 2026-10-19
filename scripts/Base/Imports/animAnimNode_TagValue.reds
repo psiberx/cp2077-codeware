@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_TagValue extends animAnimNode_FloatValue {
   public native let tag: CName;
   public native let defaultValue: Float;

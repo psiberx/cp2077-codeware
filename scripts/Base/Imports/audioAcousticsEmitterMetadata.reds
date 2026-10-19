@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAcousticsEmitterMetadata extends audioEmitterMetadata {
   public native let obstuctionEnabled: Bool;

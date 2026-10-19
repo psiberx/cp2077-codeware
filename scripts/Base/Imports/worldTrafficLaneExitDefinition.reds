@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldTrafficLaneExitDefinition {
   public native let outLaneRef: NodeRef;
   public native let exitPosition: Vector4;

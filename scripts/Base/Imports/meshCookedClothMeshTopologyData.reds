@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct meshCookedClothMeshTopologyData {
   public native let gfxIndexToTriangles: array<Uint32>;
   public native let phxIndexToTriangles: array<Uint32>;

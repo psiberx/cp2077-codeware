@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_QuaternionInterpolation extends animAnimNode_QuaternionValue {
   public native let interpolationType: animQuaternionInterpolationType;
   public native let firstInput: animQuaternionLink;

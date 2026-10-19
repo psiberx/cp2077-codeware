@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum PSODescRasterizerModeOffsetMode {
   OFFSET_None = 0,
   OFFSET_NormalBias = 1,

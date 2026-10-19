@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class mathExprExpression extends ISerializable {
   public native let tokenData: array<Uint32>;
   public native let valuesData: array<Float>;

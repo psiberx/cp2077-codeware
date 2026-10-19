@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameFreeCameraLightSettings {
   public native let s: Vector3;
   public native let dius: Float;

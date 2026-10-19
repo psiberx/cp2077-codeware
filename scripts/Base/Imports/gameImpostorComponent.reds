@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameImpostorComponent extends IComponent {
   public native let isCharacterReplica: Bool;
   public native let addHead: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiRoadEditorObstacleSettings {
   public native let libraryName: CName;
   public native let offset: Float;

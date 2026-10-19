@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopDispatchPrefabProxyJobsResult {
   public native let numProxyJobsDispatched: Uint32;
   public native let numProxyJobsSkipped: Uint32;

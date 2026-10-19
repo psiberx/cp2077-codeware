@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioGeneralVoiceGruntSettings {
   public native let variationsCount: Uint32;
   public native let painLong: CName;

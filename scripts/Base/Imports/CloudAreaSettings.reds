@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CloudAreaSettings extends IAreaSettings {
   public native let cloudSunShadowFaloff: CurveDataFloat;
   public native let cloudSunScattering: CurveDataFloat;

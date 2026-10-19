@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameSmartObjectType {
   Default = 0,
   LadderUp = 1,

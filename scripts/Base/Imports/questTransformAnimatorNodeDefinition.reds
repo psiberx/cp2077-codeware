@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questTransformAnimatorNodeDefinition extends questSignalStoppingNodeDefinition {
   public native let objectRef: EntityReference;
   public native let animationName: CName;

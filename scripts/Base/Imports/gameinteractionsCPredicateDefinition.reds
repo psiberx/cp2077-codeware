@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameinteractionsCPredicateDefinition {
   public native let predicateType: ref<gameinteractionsIPredicateType>;
   public native let binaryOperator: gameinteractionsEBinaryOperator;

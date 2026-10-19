@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldProxyTextureParams {
   public native let exportVertexColor: Bool;
   public native let albedoTextureResolution: worldProxyMeshTexRes;

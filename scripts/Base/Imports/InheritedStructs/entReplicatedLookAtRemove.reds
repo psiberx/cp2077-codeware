@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entReplicatedLookAtRemove {
   public native let creationNetTime: netTime;
   public native let ref: LookAtRef;

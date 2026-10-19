@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeaturePlaySlotAnim extends AnimFeature {
   public native let slotName: CName;
   public native let animationName: CName;

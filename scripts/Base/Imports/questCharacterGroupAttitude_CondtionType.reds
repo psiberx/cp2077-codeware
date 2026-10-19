@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterGroupAttitude_CondtionType extends questICharacterConditionType {
   public native let group1Name: CName;
   public native let group2Name: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questPrefetchStreaming_NodeTypeV2 extends questIWorldDataManagerNodeType {
   public native let prefetchPositionRef: NodeRef;
   public native let useStreamingOcclusion: Bool;

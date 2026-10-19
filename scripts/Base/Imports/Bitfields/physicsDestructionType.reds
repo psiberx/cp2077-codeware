@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum physicsDestructionType {
 //   DT_PhysicalNode = 1, // 1 << 0,
 //   DT_PhysicalComponent = 2, // 1 << 1,

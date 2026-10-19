@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioVehicleDestructionGridLayer {
   public native let backLeft: audioVehicleDestructionGridCell;
   public native let backRight: audioVehicleDestructionGridCell;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioWeaponSettingsGroup extends audioAudioMetadata {
   public native let playerSettings: CName;

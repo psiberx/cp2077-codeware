@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct effectBoneEntry {
   public native let boneName: CName;
   public native let relativePosition: Vector3;

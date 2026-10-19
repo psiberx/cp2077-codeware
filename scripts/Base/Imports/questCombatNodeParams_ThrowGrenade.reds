@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCombatNodeParams_ThrowGrenade extends questCombatNodeParams {
   public native let targetOverrideNode: NodeRef;
   public native let targetOverridePuppet: EntityReference;

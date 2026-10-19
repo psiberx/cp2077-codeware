@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioAudioStateTransitionData {
   public native let targetStateId: Uint8;
   public native let allConditionsFulfilled: Bool;

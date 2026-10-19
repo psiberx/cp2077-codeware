@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gsmGameDefinition extends CResource {
   public native let mainQuests: array<ref<gsmMainQuest>>;
   public native let world: ResourceAsyncRef; // raRef<worldWorld>

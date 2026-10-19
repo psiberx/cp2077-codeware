@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(BlackboardChangedEvent)
 public native let definition: ref<BlackboardDefinition>;
 

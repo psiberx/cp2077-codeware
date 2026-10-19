@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questHUDVideo_NodeType extends questIUIManagerNodeType {
   public native let video: ResourceAsyncRef; // raRef<Bink>
   public native let skippable: Bool;

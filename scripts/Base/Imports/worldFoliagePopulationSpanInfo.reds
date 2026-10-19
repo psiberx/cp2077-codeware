@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldFoliagePopulationSpanInfo {
   public native let stancesBegin: Uint32;
   public native let cketBegin: Uint32;

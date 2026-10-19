@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorLimiterNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
   public native let activationLimitPerFrame: Uint32;
   public native let delayChildActivation: Bool;

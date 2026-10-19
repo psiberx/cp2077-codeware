@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class Spline extends ISerializable {
   public native let points: array<SplinePoint>;
   public native let looped: Bool;

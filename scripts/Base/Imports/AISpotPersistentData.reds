@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct AISpotPersistentData {
   public native let worldPosition: WorldPosition;
   public native let globalNodeId: GlobalNodeID;

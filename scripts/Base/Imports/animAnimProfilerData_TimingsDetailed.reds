@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimProfilerData_TimingsDetailed {
   public native let className: CName;
   public native let avarageExclusiveUpdateTimeMS: Float;

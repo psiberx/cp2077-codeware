@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_StaticSwitch extends animAnimNode_MotionTableSwitch {
   public native let condition: ref<animIStaticCondition>;
   public native let motionProvider: ref<animIMotionTableProvider>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct ColorBalance {
   public native let Red: Float;
   public native let Green: Float;

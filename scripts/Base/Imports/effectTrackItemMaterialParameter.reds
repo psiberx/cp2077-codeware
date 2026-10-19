@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemMaterialParameter extends effectTrackItem {
   public native let scale0: Float;
   public native let customParameter0: effectEffectParameterEvaluator;

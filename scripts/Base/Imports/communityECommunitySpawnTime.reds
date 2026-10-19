@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum communityECommunitySpawnTime {
   Morning = 0,
   Day = 1,

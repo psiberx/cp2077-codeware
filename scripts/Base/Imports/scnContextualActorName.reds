@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnContextualActorName {
   Player = 0,
   VoicesetHolder = 1,

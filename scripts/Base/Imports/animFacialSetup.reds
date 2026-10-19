@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animFacialSetup extends CResource {
   public native let rig: ResourceRef; // rRef<animRig>
   public native let inputRig: ResourceRef; // rRef<animRig>

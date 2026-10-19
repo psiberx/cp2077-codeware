@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(PhysicalMeshComponent)
 public native let visibilityAnimationParam: CName;
 

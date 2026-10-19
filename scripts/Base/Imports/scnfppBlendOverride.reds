@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnfppBlendOverride {
   Centering = 0,
   CopyPitch_CenteringYaw = 1,

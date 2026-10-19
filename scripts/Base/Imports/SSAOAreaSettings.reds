@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class SSAOAreaSettings extends IAreaSettings {
   public native let noiseFilterTolerance: CurveDataFloat;
   public native let blurTolerance: CurveDataFloat;

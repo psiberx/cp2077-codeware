@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkToggleController)
 public native let ToggleChanged: inkToggleChangedCallback;
 

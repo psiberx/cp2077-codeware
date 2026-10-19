@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorFindClosestPointOnPathTaskDefinition extends AIbehaviorTaskDefinition {
   public native let path: ref<AIArgumentMapping>;
   public native let forceStartFromClosest: ref<AIArgumentMapping>;

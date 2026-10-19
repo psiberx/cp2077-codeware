@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum renddimEPreset {
   _228x128 = 0,
   _456x256 = 1,

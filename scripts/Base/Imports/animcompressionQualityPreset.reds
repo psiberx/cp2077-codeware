@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animcompressionQualityPreset {
   CINEMATIC_HIGH = 3,
   HIGH = 0,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldTrafficLaneUID {
   public native let nodeRefHash: Uint64;
   public native let laneNumber: Uint16;

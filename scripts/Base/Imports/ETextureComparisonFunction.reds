@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ETextureComparisonFunction {
   TCF_None = 0,
   TCF_Less = 1,

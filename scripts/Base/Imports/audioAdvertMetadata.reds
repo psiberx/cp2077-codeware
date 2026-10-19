@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAdvertMetadata extends audioEmitterMetadata {
   public native let advertSoundNames: array<CName>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct AIArgumentOverrideWrapper {
   public native let name: CName;
   public native let type: AIArgumentType;

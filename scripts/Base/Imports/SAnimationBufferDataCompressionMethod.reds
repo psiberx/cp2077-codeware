@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum SAnimationBufferDataCompressionMethod {
   ABDCM_Invalid = 0,
   ABDCM_Plain = 1,

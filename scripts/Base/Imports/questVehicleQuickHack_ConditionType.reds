@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questVehicleQuickHack_ConditionType extends questIVehicleConditionType {
   public native let vehicleRef: EntityReference;
   public native let checkAccelerate: Bool;

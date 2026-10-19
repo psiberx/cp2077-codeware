@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsclothExportedCapsule {
   public native let p0: Vector3;
   public native let p1: Vector3;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldTrafficLanePersistentFlags {
   FromRoadSpline = 1,
   Bidirectional = 2,

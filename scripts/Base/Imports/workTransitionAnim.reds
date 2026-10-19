@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct workTransitionAnim {
   public native let idleA: CName;
   public native let idleB: CName;

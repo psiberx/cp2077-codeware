@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsSystemBodyParams {
   public native let simulationType: physicsSimulationType;
   public native let linearDamping: Float;

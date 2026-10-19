@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animCAnimationBufferBitwiseCompressed extends animIAnimationBuffer {
   public native let version: Uint32;
   public native let bones: array<animSAnimationBufferBitwiseCompressedBoneTrack>;

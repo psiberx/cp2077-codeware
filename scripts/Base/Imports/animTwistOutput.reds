@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animTwistOutput {
   public native let positiveScale: Float;
   public native let negativeScale: Float;

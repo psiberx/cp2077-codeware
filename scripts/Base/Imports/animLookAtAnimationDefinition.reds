@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animLookAtAnimationDefinition {
   public native let minTransitionDuration: Float;
   public native let playAnimProbability: Float;

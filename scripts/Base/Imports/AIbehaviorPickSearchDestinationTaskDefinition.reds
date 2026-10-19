@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorPickSearchDestinationTaskDefinition extends AIbehaviorTaskDefinition {
   public native let destinationPosition: ref<AIArgumentMapping>;
   public native let desiredDistance: ref<AIArgumentMapping>;

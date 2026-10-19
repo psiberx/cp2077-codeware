@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AIArgumentMapping)
 public native let type: AIArgumentType;
 

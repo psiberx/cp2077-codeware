@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MountEventData)
 public native persistent let setEntityVisibleWhenMountFinish: Bool;
 

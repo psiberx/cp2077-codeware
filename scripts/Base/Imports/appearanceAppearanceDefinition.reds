@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class appearanceAppearanceDefinition extends ISerializable {
   public native let name: CName;
   public native let parentAppearance: CName;

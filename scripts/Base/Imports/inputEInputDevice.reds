@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inputEInputDevice {
   INVALID = 0,
   KBD_MOUSE = 1,

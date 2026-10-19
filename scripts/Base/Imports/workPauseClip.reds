@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class workPauseClip extends workIEntry {
   public native let timeMin: Float;
   public native let timeMax: Float;

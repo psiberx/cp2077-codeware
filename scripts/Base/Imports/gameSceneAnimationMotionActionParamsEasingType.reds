@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameSceneAnimationMotionActionParamsEasingType {
   Linear = 0,
   SinusoidalEaseInOut = 1,

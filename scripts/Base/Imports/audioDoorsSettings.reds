@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioDoorsSettings extends audioDeviceSettings {
   public native let openEvent: CName;

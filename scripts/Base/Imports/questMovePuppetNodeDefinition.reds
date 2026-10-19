@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMovePuppetNodeDefinition extends questConfigurableAICommandNode {
   public native let entityReference: EntityReference;
   public native let moveType: CName;

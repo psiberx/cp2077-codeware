@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetInventorySlotInfo {
   public native let itemCategory: TweakDBID;
   public native let itemId: ItemID;

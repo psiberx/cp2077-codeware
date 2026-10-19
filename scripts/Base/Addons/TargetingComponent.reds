@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(TargetingComponent)
 public native let isPrimary: Bool;
 

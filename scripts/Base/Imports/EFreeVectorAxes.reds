@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EFreeVectorAxes {
   FVA_One = 1,
   FVA_Two = 2,

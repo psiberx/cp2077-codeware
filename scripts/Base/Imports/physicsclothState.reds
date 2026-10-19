@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsclothState {
   public native let verticalPhaseData: physicsclothPhaseConfig;
   public native let horizontalPhaseData: physicsclothPhaseConfig;

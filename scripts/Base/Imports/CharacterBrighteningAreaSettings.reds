@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CharacterBrighteningAreaSettings extends IAreaSettings {
   public native let effectStrengthMultiplier: Float;
   public native let minDistance: Float;

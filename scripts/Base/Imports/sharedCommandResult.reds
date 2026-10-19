@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum sharedCommandResult {
   Success = 0,
   NeedOptions = 1,

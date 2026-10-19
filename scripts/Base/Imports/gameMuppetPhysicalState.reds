@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetPhysicalState {
   public native let position: Vector4;
   public native let worldYaw: Float;

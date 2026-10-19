@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct SOMState {
   public native let depthStencilModeDesc: PSODescDepthStencilModeDesc;
   public native let rasterizerModeDesc: PSODescRasterizerModeDesc;

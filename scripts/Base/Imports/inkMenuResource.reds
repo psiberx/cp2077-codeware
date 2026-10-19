@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkMenuResource extends CResource {
   public native let menusEntries: array<inkMenuEntry>;
   public native let scenariosNames: array<CName>;

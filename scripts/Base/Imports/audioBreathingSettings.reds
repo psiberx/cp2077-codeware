@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioBreathingSettings extends audioAudioMetadata {
   public native let exhaustionRtpc: CName;

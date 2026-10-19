@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class ExposureAreaSettings extends IAreaSettings {
   public native let exposureAdaptationSpeedUp: CurveDataFloat;
   public native let exposureAdaptationSpeedDown: CurveDataFloat;

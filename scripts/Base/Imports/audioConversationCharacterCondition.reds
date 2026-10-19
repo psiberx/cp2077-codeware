@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioConversationCharacterCondition {
   public native let voiceTag: CName;
   public native let characterRecordId: Uint64;

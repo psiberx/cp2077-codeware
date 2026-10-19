@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ConfigGraphicsQualityLevel {
   Low = 0,
   Medium = 1,

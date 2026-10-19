@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioFoleyLoopMappingMetadata extends audioAudioMetadata {
   public native let loopsPerAppearance: array<audioAppearanceToFoleyLoopMetadata>;

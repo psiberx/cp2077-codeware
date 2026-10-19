@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class MinimapDataNode extends worldNode {
   public native let encodedShapesRef: ResourceAsyncRef; // raRef<minimapEncodedShapes>
   public native let streamingDistance: Float;

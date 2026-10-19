@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterEquippedWeapon_ConditionType extends questICharacterConditionType {
   public native let anyWeaponEquipped: Bool;
   public native let weaponID: String;

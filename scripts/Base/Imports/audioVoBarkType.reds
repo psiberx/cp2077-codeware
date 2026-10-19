@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioVoBarkType {
   None = 0,
   Curse = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animLipsyncMapping extends CResource {
   public native let languageCodeName: CName;
   public native let scenePaths: array<Uint64>;

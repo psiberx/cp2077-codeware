@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entVisualControllerDependency {
   public native let mesh: ResourceAsyncRef; // raRef<CMesh>
   public native let appearanceName: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EMeshStreamType {
   MST_Position_3F = 1,
   MST_SkinningIndices_4U8 = 2,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldCollisionAreaNode extends worldAreaShapeNode {
   public native let material: CName;
   public native let navigationSetting: NavGenNavigationSetting;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EMeshShadowImportanceBias {
   MSIB_EvenLessImportant = -2,
   MSIB_LessImportant = -1,

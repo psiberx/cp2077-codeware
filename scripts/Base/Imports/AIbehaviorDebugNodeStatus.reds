@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIbehaviorDebugNodeStatus {
   Undefined = 0,
   NotRunning = 1,

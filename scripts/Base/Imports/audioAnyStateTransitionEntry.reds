@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioAnyStateTransitionEntry {
   public native let isDisabled: Bool;
   public native let sourceStateId: Uint8;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendScreenshotBatchData {
   public native let batchPositionsPath: AbsolutePathSerializable;
   public native let delayTime: Float;

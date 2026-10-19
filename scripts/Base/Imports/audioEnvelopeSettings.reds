@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioEnvelopeSettings extends audioAudioMetadata {
   public native let attackTime: Float;

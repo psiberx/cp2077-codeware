@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkPointCloudEffect extends inkIEffect {
   public native let repeat: Float;
   public native let offsetX: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioCombatVoSettings extends audioAudioMetadata {
   public native let answerGroupName: CName;

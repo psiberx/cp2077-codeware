@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SpringDamp extends animAnimNode_FloatValue {
   public native let massFactor: Float;
   public native let springFactor: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_Vault extends AnimFeature_Climb {
   public native let landPosition: Vector4;
   public native let travellingTime: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameCyberspacePixelsortEffectParams {
   public native let fullscreen: Bool;
   public native let vfx: Bool;

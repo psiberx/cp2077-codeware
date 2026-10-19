@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkColorCorrectionEffect extends inkIEffect {
   public native let brightness: Float;
   public native let contrast: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum sharedMenuItemType {
   Action = 0,
   Checked = 1,

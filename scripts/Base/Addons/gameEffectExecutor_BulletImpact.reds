@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameEffectExecutor_BulletImpact)
 public native let isBackfaceImpact: Bool;
 

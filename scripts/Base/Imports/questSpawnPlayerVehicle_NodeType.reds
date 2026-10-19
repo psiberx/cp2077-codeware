@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSpawnPlayerVehicle_NodeType extends questIVehicleManagerNodeType {
   public native let despawn: Bool;
   public native let positionRef: ref<questUniversalRef>;

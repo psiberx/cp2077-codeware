@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkFullscreenCompositionResource extends CResource {
   public native let compositionPresets: array<inkCompositionPreset>;
   public native let backgroundMenuTextureUHDRes: ResourceAsyncRef; // raRef<CBitmapTexture>

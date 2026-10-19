@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum SAnimationBufferBitwiseCompression {
   ABBC_None = 0,
   ABBC_24b = 1,

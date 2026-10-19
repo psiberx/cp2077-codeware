@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questUnassignAll_NodeType extends questIVehicleManagerNodeType {
   public native let vehicleRef: EntityReference;
   public native let isInstant: Bool;

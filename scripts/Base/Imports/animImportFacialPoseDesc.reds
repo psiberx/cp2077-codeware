@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animImportFacialPoseDesc {
   public native let transforms: array<animImportFacialTransform>;
   public native let transformsNoScale: array<animImportFacialTransformNoScale>;

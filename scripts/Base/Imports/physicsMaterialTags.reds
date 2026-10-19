@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsMaterialTags {
   public native let aiVisibility: physicsMaterialTagVisibility;
   public native let playerVisibility: physicsMaterialTagVisibility;

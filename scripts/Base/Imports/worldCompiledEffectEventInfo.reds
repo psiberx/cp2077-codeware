@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldCompiledEffectEventInfo {
   public native let eventRUID: CRUID;
   public native let placementIndexMask: Uint64;

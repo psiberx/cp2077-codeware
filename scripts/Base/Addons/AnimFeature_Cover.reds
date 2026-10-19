@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_Cover)
 public native let coverPosition: Vector4;
 

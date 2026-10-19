@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class PanzerEnemyAV extends PanzerEnemy {
   public native let speed: Float;
   public native let shotsAmount: Uint32;

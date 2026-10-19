@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(PopupsManager)
 public native let bracketsContainer: inkCompoundRef;
 

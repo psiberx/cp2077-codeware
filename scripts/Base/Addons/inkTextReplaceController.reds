@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkTextReplaceController)
 public native let timeToSkip: Float;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_CriticalSpringDamp extends animAnimNode_FloatValue {
   public native let smoothTime: Float;
   public native let useRange: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animDangleConstraint_SimulationPositionProjection extends animDangleConstraint_SimulationSingleBone {
   public native let collisionCapsuleRadius: Float;
   public native let collisionCapsuleHeightExtent: Float;

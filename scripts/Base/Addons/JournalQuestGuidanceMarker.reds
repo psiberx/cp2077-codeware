@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalQuestGuidanceMarker)
 public native let nodeRef: NodeRef;
 

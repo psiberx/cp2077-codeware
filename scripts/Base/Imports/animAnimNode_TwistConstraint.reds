@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_TwistConstraint extends animAnimNode_OnePoseInput {
   public native let frontAxis: animAxis;
   public native let transformA: animTransformIndex;

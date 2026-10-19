@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SetTrackRange extends animAnimNode_OnePoseInput {
   public native let min: Float;
   public native let max: Float;

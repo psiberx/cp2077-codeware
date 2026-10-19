@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameStatPoolData {
   public native let ownerID: StatsObjectID;
   public native let recordID: TweakDBID;

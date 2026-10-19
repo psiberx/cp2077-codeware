@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkLanguageId {
   EN = 0,
   PL = 1,

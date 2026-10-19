@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioLocomotionEmitterMetadata extends audioEmitterMetadata {
   public native let customMaterialLookup: CName;

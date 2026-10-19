@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MinimapDynamicEventMappinController)
 public native let hideAtDistance: Float;
 

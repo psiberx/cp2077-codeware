@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkGridItemTemplate {
   public native let sizeX: Uint32;
   public native let sizeY: Uint32;

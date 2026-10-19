@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questAudioParameterNodeType extends questIAudioNodeType {
   public native let param: audioAudParameter;
   public native let isMusic: Bool;

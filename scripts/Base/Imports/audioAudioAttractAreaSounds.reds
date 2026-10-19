@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAudioAttractAreaSounds extends audioAudioMetadata {
   public native let NPCgrunts: array<audioDynamicEventsPerVisualTags>;

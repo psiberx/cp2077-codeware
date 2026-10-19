@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterManagerParameters_SetGroupsAttitude extends questICharacterManagerParameters_NodeSubType {
   public native let set: Bool;
   public native let group1Name: CName;

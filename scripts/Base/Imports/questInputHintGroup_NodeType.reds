@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questInputHintGroup_NodeType extends questIUIManagerNodeType {
   public native let show: Bool;
   public native let iconID: TweakDBID;

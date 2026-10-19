@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioWeaponFireModeSounds {
   public native let burst: CName;
   public native let charge: CName;

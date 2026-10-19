@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animSetBoneTransform_JsonEntry {
   public native let transformToChange: CName;
   public native let setMethod: animSetBoneTransformEntry_SetMethod;

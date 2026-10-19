@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(WidgetHudComponentInterface)
 public native let hudEntriesResource: ResourceRef; // rRef<inkHudEntriesResource>
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class PanzerEnemy extends MinigameDynObjectAdvanced {
   public native let noBonusChanceCoeff: Uint32;
   public native let health: Int32;

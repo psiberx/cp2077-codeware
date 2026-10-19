@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audiobreathingLoopBehavior {
   TimedBreathing = 0,
   BreathEvery2ndStep = 1,

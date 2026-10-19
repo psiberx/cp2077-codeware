@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questTeleportPuppetParamsV1 extends AICommandParams {
   public native let destinationRef: ref<questUniversalRef>;
   public native let destinationOffset: Vector3;

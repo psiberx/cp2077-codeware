@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleEmitter extends IParticleModule {
   public native let modules: array<ref<IParticleModule>>;
   public native let positionX: Int32;

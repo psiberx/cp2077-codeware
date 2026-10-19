@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum envUtilsNeighborMode {
   eCLOSEST = 0,
   eONLY_GLOBAL = 1,

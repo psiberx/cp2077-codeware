@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameCoverDefinition extends gameSmartObjectWorkspotDefinition {
   public native let overridenCoveringFOVDegrees: Float;
   public native let overridenCoveringVerticalFOVDegrees: Float;

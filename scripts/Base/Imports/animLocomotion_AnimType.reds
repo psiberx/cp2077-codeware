@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animLocomotion_AnimType {
   None = 0,
   idle_stand = 1,

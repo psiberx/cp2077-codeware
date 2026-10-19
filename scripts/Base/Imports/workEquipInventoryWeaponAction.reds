@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class workEquipInventoryWeaponAction extends workIWorkspotItemAction {
   public native let weaponType: workWeaponType;
   public native let keepEquippedAfterExit: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectObjectProvider_SweepMelee_Box extends gameEffectObjectProvider_SweepOverTime {
   public native let playerStaticDetectionConeDistance: Float;
   public native let playerStaticDetectionConeStartAngle: Float;

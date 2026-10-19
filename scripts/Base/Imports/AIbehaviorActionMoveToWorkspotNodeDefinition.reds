@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionMoveToWorkspotNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let workspotSetup: ref<AIArgumentMapping>;
   public native let lookAtTarget: ref<AIArgumentMapping>;

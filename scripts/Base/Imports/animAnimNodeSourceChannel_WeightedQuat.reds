@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNodeSourceChannel_WeightedQuat extends ISerializable {
   public native let channel: ref<animIAnimNodeSourceChannel_Quat>;
   public native let weight: Float;

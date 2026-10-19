@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questInputAction_ConditionType extends questISystemConditionType {
   public native let anyInputAction: Bool;
   public native let inputAction: CName;

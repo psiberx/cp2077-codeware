@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnEntityAcquisitionPlan {
   findInContext = 1,
   findInWorld = 2,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterState_PlayerSubType extends questICharacterConditionSubType {
   public native let locomotionComparisonType: questEComparisonTypeEquality;
   public native let locomotionState: gamePSMLocomotionStates;

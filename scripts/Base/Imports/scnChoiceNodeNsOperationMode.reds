@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnChoiceNodeNsOperationMode {
   attachToActor = 0,
   attachToProp = 1,

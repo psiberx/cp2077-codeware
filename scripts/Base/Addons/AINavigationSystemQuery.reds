@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AINavigationSystemQuery)
 public native let minDesiredDistance: Float;
 

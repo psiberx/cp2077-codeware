@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(UpdateInputHintMultipleEvent)
 public native let data: array<InputHintData>;
 

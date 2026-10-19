@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSetTier_NodeType extends questISceneManagerNodeType {
   public native let tier: GameplayTier;
   public native let usePlayerWorkspot: Bool;

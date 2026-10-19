@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entChangeVoicesetStateEvent extends Event {
   public native let enableVoicesetLines: Bool;
   public native let enableVoicesetGrunts: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class LightAreaSettings extends IAreaSettings {
   public native let latitude: CurveDataFloat;
   public native let season: ETimeOfYearSeason;

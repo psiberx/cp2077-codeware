@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_Blend2 extends animAnimNode_Base {
   public native let minInputValue: Float;
   public native let maxInputValue: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameAudioSyncs {
   public native let switchEvents: array<audioAudSwitch>;
   public native let playEvents: array<audioAudEventStruct>;

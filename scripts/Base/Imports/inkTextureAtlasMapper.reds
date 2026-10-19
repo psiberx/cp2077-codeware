@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkTextureAtlasMapper {
   public native let partName: CName;
   public native let clippingRectInPixels: Rect;

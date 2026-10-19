@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gamecarryReplicatedEntitySetAttachmentToEntity {
   public native let time: netTime;
   public native let entity: wref<Entity>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldEffect extends resStreamedResource {
   public native let name: CName;
   public native let length: Float;

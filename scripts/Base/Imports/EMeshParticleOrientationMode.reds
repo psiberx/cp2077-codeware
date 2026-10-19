@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EMeshParticleOrientationMode {
   MPOM_Normal = 0,
   MPOM_MovementDirection = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questParamRubberbanding extends ISerializable {
   public native let targetRef: ref<questUniversalRef>;
   public native let targetForwardOffset: Float;

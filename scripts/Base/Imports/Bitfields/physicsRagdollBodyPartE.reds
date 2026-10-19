@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum physicsRagdollBodyPartE {
 //   HEAD = 1, // 1 << 0,
 //   LARM_UPPER = 2, // 1 << 1,

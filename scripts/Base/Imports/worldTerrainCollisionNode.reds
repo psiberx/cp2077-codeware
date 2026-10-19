@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldTerrainCollisionNode extends worldNode {
   public native let materials: array<CName>;
   public native let materialIndices: array<Uint8>;

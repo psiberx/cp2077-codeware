@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameRegular1v1FinisherScenario extends gameIFinisherScenario {
   public native let attackerWorkspot: ResourceAsyncRef; // raRef<workWorkspotResource>
   public native let targetWorkspot: ResourceAsyncRef; // raRef<workWorkspotResource>

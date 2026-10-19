@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questMultiplayerHeistState {
   Invalid = 0,
   Failure = 1,

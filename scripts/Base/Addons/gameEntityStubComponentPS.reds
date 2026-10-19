@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameEntityStubComponentPS)
 public native persistent let entityLocalPosition: Vector3;
 

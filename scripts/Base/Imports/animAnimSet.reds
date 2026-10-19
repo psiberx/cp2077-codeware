@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimSet extends CResource {
   public native let animations: array<ref<animAnimSetEntry>>;
   public native let animationDataChunks: array<animAnimDataChunk>;

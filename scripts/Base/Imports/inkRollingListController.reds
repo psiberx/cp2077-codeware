@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkRollingListController extends ListController {
   public native let itemsToDisplay: Int32;
   public native let convexity: Float;

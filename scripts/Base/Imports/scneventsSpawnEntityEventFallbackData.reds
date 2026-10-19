@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scneventsSpawnEntityEventFallbackData {
   public native let owner: scnPerformerId;
   public native let fallbackCachedBones: [scneventsSpawnEntityEventCachedFallbackBone; 2];

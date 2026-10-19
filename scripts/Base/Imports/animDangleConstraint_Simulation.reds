@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class animDangleConstraint_Simulation extends ISerializable {
   public native let collisionRoundedShapes: array<animCollisionRoundedShape>;
   public native let jsonCollisionShapes: ResourceRef; // rRef<JsonResource>

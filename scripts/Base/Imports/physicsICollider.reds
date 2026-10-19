@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class physicsICollider extends ISerializable {
   public native let localToBody: Transform;
   public native let material: CName;

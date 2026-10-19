@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class ChromaticAberrationAreaSettings extends IAreaSettings {
   public native let chromaticAberrationEnabled: Bool;
   public native let chromaticAberrationMargin: Float;

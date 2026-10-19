@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkWaitingSignLayerDefinition {
   public native let enabled: Bool;
   public native let rootLibrary: ResourceRef; // rRef<inkWidgetLibraryResource>

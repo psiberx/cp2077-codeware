@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldQuestPreventionNotifierActivation {
   OnFootOnly = 0,
   InVehicleOnly = 1,

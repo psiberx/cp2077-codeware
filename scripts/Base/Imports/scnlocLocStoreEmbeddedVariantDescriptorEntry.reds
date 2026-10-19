@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnlocLocStoreEmbeddedVariantDescriptorEntry {
   public native let variantId: scnlocVariantId;
   public native let locstringId: scnlocLocstringId;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameAIDirectorTensionEventType {
   Time = 0,
   Progress = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorIsValueValidConditionDefinition extends AIbehaviorConditionDefinition {
   public native let value: ref<AIArgumentMapping>;
 }

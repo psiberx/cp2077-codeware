@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class ActionScript extends IObjectScriptBase {
   public native let actionFlags: Uint32;
 

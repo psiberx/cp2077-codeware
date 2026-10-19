@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class gameEntityToAppearancesAndColorVariantsMapEntry extends ISerializable {
   public native let entityPathHash: Uint64;

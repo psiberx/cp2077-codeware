@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gsmStateError {
   StateError_OK = 0,
   StateError_SettingsCorrupted = 1,

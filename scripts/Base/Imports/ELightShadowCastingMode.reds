@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ELightShadowCastingMode {
   LSCM_None = 0,
   LSCM_Normal = 1,

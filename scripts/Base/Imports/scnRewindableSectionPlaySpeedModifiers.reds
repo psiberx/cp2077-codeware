@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnRewindableSectionPlaySpeedModifiers {
   public native let forwardVeryFast: Float;
   public native let forwardFast: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animFloatTrackOperationType {
   Override = 0,
   Multiply = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkInputIconMappingJSON {
   public native let id: CName;
   public native let part: CName;

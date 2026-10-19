@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiarcadeShooterEventSpawnerData {
   public native let dataName: CName;
   public native let targetSpawner: inkWidgetRef;

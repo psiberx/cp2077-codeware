@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum GIGIOverrideType {
   Default = 0,
   Override_True = 1,

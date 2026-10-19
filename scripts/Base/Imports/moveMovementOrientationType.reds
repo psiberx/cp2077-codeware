@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum moveMovementOrientationType {
   NotSet = 0,
   Forward = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionMoveOnSplineNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let spline: ref<AIArgumentMapping>;
   public native let strafingTarget: ref<AIArgumentMapping>;

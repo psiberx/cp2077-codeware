@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnWorkspotSymbol {
   public native let wsInstance: scnSceneWorkspotInstanceId;
   public native let wsNodeId: scnNodeId;

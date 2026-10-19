@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioWeaponTailEnvironment {
   InteriorDefault = 0,
   InteriorWide = 1,

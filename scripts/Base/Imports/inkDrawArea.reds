@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkDrawArea {
   public native let size: Vector2;
   public native let scale: Float;

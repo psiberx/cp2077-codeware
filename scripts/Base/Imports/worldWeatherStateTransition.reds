@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldWeatherStateTransition extends ISerializable {
   public native let probability: CurveDataFloat;
   public native let transitionDuration: CurveDataFloat;

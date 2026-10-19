@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldRoadMaterial {
   Concrete = 0,
   ConcreteDestroyed = 1,

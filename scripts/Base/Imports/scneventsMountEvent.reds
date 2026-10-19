@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsMountEvent extends scnSceneEvent {
   public native let parent: scnPerformerId;
   public native let child: scnPerformerId;

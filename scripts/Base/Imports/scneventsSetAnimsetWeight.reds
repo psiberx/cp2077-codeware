@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsSetAnimsetWeight extends scnSceneEvent {
   public native let actorId: scnActorId;
   public native let animsetName: CName;

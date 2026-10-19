@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldPrefabNode extends worldNode {
   public native let prefab: ResourceAsyncRef; // raRef<worldPrefab>
   public native let instanceData: ref<worldPrefabInstanceData>;

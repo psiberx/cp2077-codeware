@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeArcadeGameController extends inkGameController {
   public native let minigame: gameuiarcadeArcadeMinigame;
   public native let defaultScreenTransitionTotalTime: Float;

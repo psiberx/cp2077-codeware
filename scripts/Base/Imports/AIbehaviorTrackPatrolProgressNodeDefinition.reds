@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorTrackPatrolProgressNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
   public native let pathParameters: ref<AIArgumentMapping>;
   public native let patrolProgress: ref<AIArgumentMapping>;

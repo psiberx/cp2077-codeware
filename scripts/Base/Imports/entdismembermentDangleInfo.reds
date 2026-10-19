@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entdismembermentDangleInfo {
   public native let DangleSegmentLenght: Float;
   public native let DangleVelocityDamping: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct MaterialTechnique {
   public native let passes: array<MaterialPass>;
   public native let featureFlagsEnabledMask: FeatureFlagsMask;

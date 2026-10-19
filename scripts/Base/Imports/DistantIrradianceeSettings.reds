@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class DistantIrradianceeSettings extends IAreaSettings {
   public native let distantRange: CurveDataVector2;
   public native let distantHeightRange: CurveDataVector3;

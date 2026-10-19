@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_Switch extends animAnimNode_MotionTableSwitch {
   public native let numInputs: Uint32;
   public native let blendTime: Float;

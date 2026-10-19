@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class StreetSignWidgetComponent extends IWorldWidgetComponent {
   public native let streetSignTDBID: TweakDBID;
   public native let isAStreetName: Bool;

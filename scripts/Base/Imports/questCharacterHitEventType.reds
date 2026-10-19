@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questCharacterHitEventType {
   Bullet = 0,
   Explosion = 1,

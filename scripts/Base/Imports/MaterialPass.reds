@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct MaterialPass {
   public native let stagePassNameRegular: CName;
   public native let stagePassNameDiscarded: CName;

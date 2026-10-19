@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldConversationGroupData extends ISerializable {
   public native let conversationGroup: ResourceRef; // rRef<scnInterestingConversationsResource>
   public native let interruptionOperations: array<ref<scnIInterruptionOperation>>;

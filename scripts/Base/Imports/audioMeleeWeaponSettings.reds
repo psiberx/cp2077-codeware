@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public abstract native class audioMeleeWeaponSettings extends audioAudioMetadata {
   public native let quickAttackSettings: audioMeleeAttackSettings;

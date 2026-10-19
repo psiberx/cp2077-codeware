@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIbehaviorSignalConditionModes {
   CurrentValue = 0,
   StartOfFrameValue = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_PlayerSpatialAwareness extends AnimFeature {
   public native let leftClosestVector: Vector4;
   public native let rightClosestVector: Vector4;

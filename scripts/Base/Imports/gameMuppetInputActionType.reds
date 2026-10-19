@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameMuppetInputActionType {
   Unknown = 0,
   Impulse = 1,

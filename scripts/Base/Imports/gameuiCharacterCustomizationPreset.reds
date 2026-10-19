@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiCharacterCustomizationPreset extends CResource {
   public native let isMale: Bool;
   public native let bodyGroups: array<gameuiCustomizationGroup>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMountedObjectInfo extends ISerializable {
   public native let isFirst: Bool;
   public native let isPlayer: Bool;

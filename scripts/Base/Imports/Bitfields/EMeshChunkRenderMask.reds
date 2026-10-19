@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum EMeshChunkRenderMask {
 //   MCR_Scene = 1, // 1 << 0,
 //   MCR_Cascade1 = 2, // 1 << 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkTextAnimationController)
 public native let playOnInitialize: Bool;
 

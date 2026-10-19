@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioMusicSyncType {
   Beat = 1,
   Bar = 0,

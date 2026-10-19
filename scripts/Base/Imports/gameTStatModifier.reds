@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameTStatModifier {
   Constant = 0,
   Random = 1,

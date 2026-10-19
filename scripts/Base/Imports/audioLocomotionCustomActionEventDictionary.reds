@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioLocomotionCustomActionEventDictionary extends audioInlinedAudioMetadata {
   public native let entries: array<audioLocomotionCustomActionEventDictionaryItem>;

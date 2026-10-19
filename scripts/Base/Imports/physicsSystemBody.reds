@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class physicsSystemBody extends physicsISystemObject {
   public native let params: physicsSystemBodyParams;
   public native let localToModel: Transform;

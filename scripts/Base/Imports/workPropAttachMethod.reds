@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum workPropAttachMethod {
   BonePosition = 0,
   RelativePosition = 1,

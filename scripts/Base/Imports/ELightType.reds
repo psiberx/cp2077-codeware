@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ELightType {
   LT_Point = 0,
   LT_Spot = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entSoundEvent extends Event {
   public native let eventName: CName;
   public native let switches: array<audioAudSwitch>;

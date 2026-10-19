@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_WorkspotHub extends animAnimNode_Base {
   public native let additionalLinkIds: array<WorkEntryId>;
   public native let additionalLinks: array<animPoseLink>;

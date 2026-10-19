@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animTransformChannel {
   PosX = 0,
   PosY = 1,

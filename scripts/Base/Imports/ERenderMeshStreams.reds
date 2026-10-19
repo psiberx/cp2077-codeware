@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ERenderMeshStreams {
   RMS_PositionSkinning = 1,
   RMS_TexCoords = 2,

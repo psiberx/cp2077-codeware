@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_DampQuaternion extends animAnimNode_QuaternionValue {
   public native let defaultRotationSpeed: Float;
   public native let defaultInitialValue: EulerAngles;

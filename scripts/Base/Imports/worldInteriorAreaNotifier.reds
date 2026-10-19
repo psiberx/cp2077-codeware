@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldInteriorAreaNotifier extends worldITriggerAreaNotifer {
   public native let gameRestrictionIDs: array<TweakDBID>;
   public native let treatAsInterior: Bool;

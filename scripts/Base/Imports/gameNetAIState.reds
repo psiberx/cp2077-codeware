@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameNetAIState {
   public native let value: Int32;
   public native let prevValue: Int32;

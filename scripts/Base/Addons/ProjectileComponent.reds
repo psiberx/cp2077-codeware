@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(ProjectileComponent)
 public native let onCollisionAction: gameprojectileOnCollisionAction;
 

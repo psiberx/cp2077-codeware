@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animDangleConstraint_SimulationSpring extends animDangleConstraint_SimulationSingleBone {
   public native let constraintSphereRadius: Float;
   public native let constraintScale1: Float;

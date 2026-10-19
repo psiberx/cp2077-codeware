@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorFindNavigablePointTaskDefinition extends AIbehaviorTaskDefinition {
   public native let destination: ref<AIArgumentMapping>;
   public native let outAdjustedDestination: ref<AIArgumentMapping>;

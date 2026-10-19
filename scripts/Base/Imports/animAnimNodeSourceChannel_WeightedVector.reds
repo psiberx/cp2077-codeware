@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNodeSourceChannel_WeightedVector extends ISerializable {
   public native let channel: ref<animIAnimNodeSourceChannel_Vector>;
   public native let weight: Float;

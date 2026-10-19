@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_Ik2 extends animAnimNode_Base {
   public native let firstBone: animTransformIndex;
   public native let secondBone: animTransformIndex;

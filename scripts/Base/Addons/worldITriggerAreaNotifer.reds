@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(worldITriggerAreaNotifer)
 public native let isEnabled: Bool;
 

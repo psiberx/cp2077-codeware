@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct GlobalLightingTrajectoryOverride {
   public native let overrideScale: Float;
   public native let latitude: Float;

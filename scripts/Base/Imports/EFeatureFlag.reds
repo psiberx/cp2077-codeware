@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EFeatureFlag {
   FEATFLAG_Default = 0,
   FEATFLAG_Shadows = 1,

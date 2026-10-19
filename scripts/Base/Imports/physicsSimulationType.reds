@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsSimulationType {
   Static = 0,
   Dynamic = 1,

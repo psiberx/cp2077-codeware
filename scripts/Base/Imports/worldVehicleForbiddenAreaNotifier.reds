@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldVehicleForbiddenAreaNotifier extends worldITriggerAreaNotifer {
   public native let innerAreaBoundToOuterArea: Bool;
   public native let innerAreaOutline: ref<AreaShapeOutline>;

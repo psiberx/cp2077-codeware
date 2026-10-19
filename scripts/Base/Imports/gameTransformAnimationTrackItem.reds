@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class gameTransformAnimationTrackItem extends ISerializable {
   public native let impl: ref<gameTransformAnimationTrackItemImpl>;

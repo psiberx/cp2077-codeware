@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum gsmGameDefType {
 //   BASE = 1, // 1 << 0,
 //   EP1 = 2, // 1 << 1,

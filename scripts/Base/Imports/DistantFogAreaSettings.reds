@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class DistantFogAreaSettings extends IAreaSettings {
   public native let range: CurveDataFloat;
   public native let albedoNear: CurveDataHDRColor;

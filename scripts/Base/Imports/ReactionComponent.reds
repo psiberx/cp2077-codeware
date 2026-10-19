@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly class ReactionComponent extends IComponent {
   public native let reactions: array<ReactionData>;
   public native let triggerAutomatically: Bool;

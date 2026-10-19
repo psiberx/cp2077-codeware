@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioPlaylistEmitterMetadata extends audioEmitterMetadata {
   public native let receiverType: CName;

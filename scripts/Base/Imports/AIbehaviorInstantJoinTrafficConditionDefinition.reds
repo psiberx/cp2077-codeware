@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorInstantJoinTrafficConditionDefinition extends AIbehaviorConditionDefinition {
   public native let joinTrafficSettings: ref<AIArgumentMapping>;
   public native let closestPointOnPath: ref<AIArgumentMapping>;

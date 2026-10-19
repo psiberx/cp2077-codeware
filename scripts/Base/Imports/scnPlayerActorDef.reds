@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnPlayerActorDef {
   public native let actorId: scnActorId;
   public native let specTemplate: CName;

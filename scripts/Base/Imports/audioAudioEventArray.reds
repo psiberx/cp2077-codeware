@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class audioAudioEventArray extends ISerializable {
   public native let isSortedByRedHash: Bool;
   public native let events: array<audioAudioEventMetadataArrayElement>;

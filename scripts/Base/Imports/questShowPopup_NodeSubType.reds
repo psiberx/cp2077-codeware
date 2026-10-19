@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questShowPopup_NodeSubType extends questITutorial_NodeSubType {
   public native let path: ref<gameJournalPath>;
   public native let open: Bool;

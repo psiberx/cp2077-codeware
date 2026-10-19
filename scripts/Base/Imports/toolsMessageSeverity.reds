@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum toolsMessageSeverity {
   Success = 0,
   Info = 1,

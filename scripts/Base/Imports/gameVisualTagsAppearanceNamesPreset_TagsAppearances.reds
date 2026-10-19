@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class gameVisualTagsAppearanceNamesPreset_TagsAppearances extends ISerializable {
   public native let visualTagHash: CName;

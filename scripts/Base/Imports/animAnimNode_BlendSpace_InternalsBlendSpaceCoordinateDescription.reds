@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimNode_BlendSpace_InternalsBlendSpaceCoordinateDescription {
   public native let name: CName;
   public native let minValue: Float;

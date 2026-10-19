@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum grsDeathmatchStatus {
   Waiting = 0,
   AdditionalWaiting = 1,

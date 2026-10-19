@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnChoiceNodeNsMappinLocation {
   None = 0,
   Interaction = 1,

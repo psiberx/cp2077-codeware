@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class WaterAreaSettings extends IAreaSettings {
   public native let blurMin: Float;
   public native let blurMax: Float;

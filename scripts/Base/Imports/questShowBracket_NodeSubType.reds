@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questShowBracket_NodeSubType extends questITutorial_NodeSubType {
   public native let bracketID: CName;
   public native let visible: Bool;

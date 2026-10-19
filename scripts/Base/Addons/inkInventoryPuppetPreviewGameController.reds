@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkInventoryPuppetPreviewGameController)
 public native let sceneName: CName;
 

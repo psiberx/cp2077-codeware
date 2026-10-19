@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnInterruptionPhase {
   WaitForInterruption = 0,
   WaitForInterrupted = 1,

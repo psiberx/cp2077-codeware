@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopTerrainEditToolCreationSlotInfo {
   public native let scale: Vector2;
   public native let heightMappingOverrideEnable: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(BaseMinimapMappinController)
 public native let iconOrientation: gameuiEIconOrientation;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_RotationLimit extends animAnimNode_OnePoseInput {
   public native let constrainedTransform: animTransformIndex;
   public native let limitOnX: animSmoothFloatClamp;

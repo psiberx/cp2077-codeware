@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsVFXBraindanceEvent extends scnSceneEvent {
   public native let performerId: scnPerformerId;
   public native let nodeRef: NodeRef;

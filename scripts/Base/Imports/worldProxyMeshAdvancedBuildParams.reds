@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldProxyMeshAdvancedBuildParams {
   public native let boundingBoxSyncParams: worldProxyBoundingBoxSyncParams;
   public native let surfaceFlattenParams: worldProxySurfaceFlattenParams;

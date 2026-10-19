@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questdbgCallstackPhase {
   public native let id: Uint64;
   public native let parentId: Uint64;

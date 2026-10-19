@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ECookingPlatform {
   PLATFORM_None = 0,
   PLATFORM_PC = 1,

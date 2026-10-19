@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSceneInstanceId {
   public native let sceneId: scnSceneId;
   public native let ownerId: scnSceneInstanceOwnerId;

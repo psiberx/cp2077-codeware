@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(WorkspotResourceComponent)
 public native let workspotResource: ResourceAsyncRef; // raRef<workWorkspotResource>
 

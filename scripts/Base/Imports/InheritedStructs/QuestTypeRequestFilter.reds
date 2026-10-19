@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct QuestTypeRequestFilter {
   public native let includeMainQuests: Bool;
   public native let includeSideQuests: Bool;

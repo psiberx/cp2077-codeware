@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(VehicleObject)
 public native let archetype: ResourceRef; // rRef<AIArchetype>
 

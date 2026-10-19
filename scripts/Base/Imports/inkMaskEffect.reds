@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkMaskEffect extends inkIEffect {
   public native let angle: Float;
   public native let opacity: Float;

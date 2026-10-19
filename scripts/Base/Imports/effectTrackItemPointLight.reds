@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemPointLight extends effectTrackItem {
   public native let tint: effectEffectParameterEvaluatorColor;
   public native let intensity: effectEffectParameterEvaluatorFloat;

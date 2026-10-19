@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioMixingActionData {
   public native let actionType: audioMixingActionType;
   public native let voContext: locVoiceoverContext;

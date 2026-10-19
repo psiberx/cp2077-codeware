@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entGarmentParameterComponentData {
   public native let componentID: CRUID;
   public native let meshGeometryHash: Uint64;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldEnvAreaNotifier extends worldITriggerAreaNotifer {
   public native let priority: Uint8;
   public native let horizontalFadeDistance: Float;

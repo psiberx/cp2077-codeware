@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class TestCaseBase_Backend extends IScriptable {
   public final native func AddStep()
   public final native func CreateStep()

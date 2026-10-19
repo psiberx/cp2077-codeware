@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorVectorFieldAttractor extends IParticleModificator {
   public native let inheritVelocity: Bool;
   public native let attract: Bool;

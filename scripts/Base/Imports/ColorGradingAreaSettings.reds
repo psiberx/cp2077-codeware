@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class ColorGradingAreaSettings extends IAreaSettings {
   public native let contrast: Float;
   public native let contrastPivot: Float;

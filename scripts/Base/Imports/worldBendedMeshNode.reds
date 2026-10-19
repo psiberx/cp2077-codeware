@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldBendedMeshNode extends worldNode {
   public native let mesh: ResourceAsyncRef; // raRef<CMesh>
   public native let meshAppearance: CName;

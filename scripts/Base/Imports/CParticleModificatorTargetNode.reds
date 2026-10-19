@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorTargetNode extends IParticleModificator {
   public native let forceScale: ref<IEvaluatorFloat>;
   public native let killRadius: ref<IEvaluatorFloat>;

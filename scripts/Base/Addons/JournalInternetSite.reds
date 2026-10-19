@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalInternetSite)
 public native let shortName: LocalizationString;
 

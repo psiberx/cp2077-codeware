@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkVideo)
 public native let videoResource: ResourceAsyncRef; // raRef<Bink>
 

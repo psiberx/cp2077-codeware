@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIInterruptionHandlerBehaviorDefinition extends AIInterruptionHandlerDefinition {
   public native let ai: ref<LibTreeINodeDefinition>;
   public native let parallelActivation: Bool;

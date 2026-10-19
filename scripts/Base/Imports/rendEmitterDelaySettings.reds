@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendEmitterDelaySettings {
   public native let emitterDelay: Float;
   public native let emitterDelayLow: Float;

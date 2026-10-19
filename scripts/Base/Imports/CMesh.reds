@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CMesh extends resStreamedResource {
   public native let parameters: array<ref<meshMeshParameter>>;
   public native let boundingBox: Box;

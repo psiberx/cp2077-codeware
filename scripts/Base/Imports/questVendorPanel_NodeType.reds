@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questVendorPanel_NodeType extends questIUIManagerNodeType {
   public native let scenarioName: CName;
   public native let openVendorPanel: Bool;

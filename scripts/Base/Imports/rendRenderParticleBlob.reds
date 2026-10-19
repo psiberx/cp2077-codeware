@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class rendRenderParticleBlob extends IRenderResourceBlob {
   public native let header: rendRenderParticleBlobHeader;
   public native let updaterData: rendRenderParticleUpdaterData;

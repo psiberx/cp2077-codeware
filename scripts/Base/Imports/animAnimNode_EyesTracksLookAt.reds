@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_EyesTracksLookAt extends animAnimNode_OnePoseInput {
   public native let eyeTransform: animTransformIndex;
   public native let leftTrack: animNamedTrackIndex;

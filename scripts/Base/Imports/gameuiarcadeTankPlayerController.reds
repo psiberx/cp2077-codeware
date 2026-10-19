@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeTankPlayerController extends gameuiarcadeArcadePlayerController {
   public native let avatarRef: inkWidgetRef;
   public native let health: inkWidgetRef;

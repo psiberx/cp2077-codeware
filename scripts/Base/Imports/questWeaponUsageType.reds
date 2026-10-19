@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questWeaponUsageType {
   Shoot = 0,
   StopShooting = 1,

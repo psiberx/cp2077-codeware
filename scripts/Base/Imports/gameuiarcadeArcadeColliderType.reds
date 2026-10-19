@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiarcadeArcadeColliderType {
   Body = 0,
   Up = 1,

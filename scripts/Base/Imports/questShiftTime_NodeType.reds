@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questShiftTime_NodeType extends questITimeManagerNodeType {
   public native let timeShiftType: questETimeShiftType;
   public native let preventVisualGlitch: Bool;

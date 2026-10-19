@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameStatModifierGroup {
   public native let statModifierArray: array<gameStatModifierHandle>;
   public native let statModifiersLimit: Int32;

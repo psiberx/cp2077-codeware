@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questShowWorldNode_NodeType extends questIWorldDataManagerNodeType {
   public native let objectRef: NodeRef;
   public native let isPlayer: Bool;

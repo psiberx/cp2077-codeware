@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioPoliceDispatcherMetadata extends audioAudioMetadata {
   public native let regularInputs: array<CName>;

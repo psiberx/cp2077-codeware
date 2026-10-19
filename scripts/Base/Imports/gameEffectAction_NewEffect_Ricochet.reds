@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectAction_NewEffect_Ricochet extends EffectPostAction {
   public native let tagInThisFile: CName;
   public native let forwardOffset: Float;

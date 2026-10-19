@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemSound extends effectTrackItem {
   public native let eventName: CName;
   public native let switches: array<audioAudSwitch>;

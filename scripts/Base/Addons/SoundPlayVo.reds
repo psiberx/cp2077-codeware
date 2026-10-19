@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(SoundPlayVo)
 public native let ignoreGlobalVoLimitCheck: Bool;
 

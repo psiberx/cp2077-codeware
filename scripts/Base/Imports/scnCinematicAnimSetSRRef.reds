@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnCinematicAnimSetSRRef {
   public native let asyncAnimSet: ResourceAsyncRef; // raRef<animAnimSet>
   public native let priority: Uint8;

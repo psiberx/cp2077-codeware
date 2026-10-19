@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldPersistentSnapData {
   public native let targetObjectPath: worldRelativeNodePath;
   public native let targetSocketName: CName;

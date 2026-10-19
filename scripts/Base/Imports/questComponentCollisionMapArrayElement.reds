@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questComponentCollisionMapArrayElement {
   public native let componentNameKey: CName;
   public native let enableCollision: Bool;

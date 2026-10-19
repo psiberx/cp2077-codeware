@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct communityPhaseTimePeriod {
   public native let hour: communityECommunitySpawnTime;
   public native let quantity: Uint16;

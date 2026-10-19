@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkCharacterEventType {
   CharInput = 0,
   MoveCaretForward = 1,

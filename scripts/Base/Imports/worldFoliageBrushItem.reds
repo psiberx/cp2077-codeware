@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldFoliageBrushItem extends ISerializable {
   public native let Mesh: ResourceRef; // rRef<CMesh>
   public native let MeshAppearance: CName;

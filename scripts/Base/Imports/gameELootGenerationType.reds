@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameELootGenerationType {
   DropChance = 0,
   NumberBased = 1,

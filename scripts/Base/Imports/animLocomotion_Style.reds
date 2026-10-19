@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animLocomotion_Style {
   LS_Idle = 0,
   LS_Rotation = 1,

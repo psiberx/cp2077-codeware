@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameActionUnequipItemState {
   public native let replicationId: Uint32;
   public native let type: Uint16;

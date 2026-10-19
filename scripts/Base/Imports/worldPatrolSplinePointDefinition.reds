@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldPatrolSplinePointDefinition extends ISerializable {
   public native let pointType: worldPatrolSplinePointTypes;
   public native let node: NodeRef;

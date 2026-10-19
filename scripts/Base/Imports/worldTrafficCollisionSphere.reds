@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldTrafficCollisionSphere {
   public native let worldPos: Vector3;
   public native let direction: Vector3;

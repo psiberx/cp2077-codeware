@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimStateTransitionCondition_FloatFeature extends animIAnimStateTransitionCondition {
   public native let compareValue: Float;
   public native let featureName: CName;

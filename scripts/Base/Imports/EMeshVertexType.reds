@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EMeshVertexType {
   MVT_StaticMesh = 0,
   MVT_ProceduralMesh = 1,

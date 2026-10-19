@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionDynamicMoveTreeNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let moveType: ref<AIArgumentMapping>;
   public native let target: ref<AIArgumentMapping>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldTriggerAreaEventInfo {
   public native let nodeInstance: ref<worldTriggerAreaNodeInstance>;
   public native let eventWorldPosition: Vector3;

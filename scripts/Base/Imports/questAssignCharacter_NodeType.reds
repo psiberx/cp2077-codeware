@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questAssignCharacter_NodeType extends questIVehicleManagerNodeType {
   public native let characterRef: EntityReference;
   public native let vehicleRef: EntityReference;

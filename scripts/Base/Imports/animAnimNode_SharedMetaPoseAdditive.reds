@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SharedMetaPoseAdditive extends animAnimNode_OnePoseInput {
   public native let weightLink: animFloatLink;
   public native let additiveType: animEAnimGraphAdditiveType;

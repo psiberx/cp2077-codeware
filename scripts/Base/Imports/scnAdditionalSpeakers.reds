@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnAdditionalSpeakers {
   public native let executionTag: Uint8;
   public native let role: scnAdditionalSpeakerRole;

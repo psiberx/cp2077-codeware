@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetComparisonReportItem {
   public native let type: gameMuppetComparisonReportItemType;
   public native let propertyName: String;

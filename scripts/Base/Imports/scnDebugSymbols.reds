@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnDebugSymbols {
   public native let performersDebugSymbols: array<scnPerformerSymbol>;
   public native let workspotsDebugSymbols: array<scnWorkspotSymbol>;

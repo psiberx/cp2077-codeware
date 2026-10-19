@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questLookAtDrivenTurnsNode extends questSignalStoppingNodeDefinition {
   public native let mode: questLookAtDrivenTurnsMode;
   public native let puppetRef: EntityReference;

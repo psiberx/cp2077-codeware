@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class physicsQueryPresetDefinition extends ISerializable {
   public native let name: CName;

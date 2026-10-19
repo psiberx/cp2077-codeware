@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiCharacterCustomizationInfo)
 public native let index: Int32;
 

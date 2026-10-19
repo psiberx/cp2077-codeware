@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum textOverflowPolicy {
   None = 0,
   DotsEnd = 1,

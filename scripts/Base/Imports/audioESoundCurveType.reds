@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioESoundCurveType {
   Log3 = 0,
   Sine = 1,

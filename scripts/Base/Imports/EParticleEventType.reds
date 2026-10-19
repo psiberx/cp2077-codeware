@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EParticleEventType {
   PET_Any = 5,
   PET_Death = 0,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animLocomotionDecision {
   LD_None = 0,
   LD_Stop = 1,

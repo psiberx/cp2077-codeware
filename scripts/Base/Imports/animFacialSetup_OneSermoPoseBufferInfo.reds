@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animFacialSetup_OneSermoPoseBufferInfo {
   public native let numMainPoses: Uint16;
   public native let numCorrectivePoses: Uint16;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIForcedBehaviourPriority {
   AboveIdle = 0,
   AboveCombat = 1,

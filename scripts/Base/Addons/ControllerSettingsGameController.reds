@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(ControllerSettingsGameController)
 public native let defaultWidgets: array<inkWidgetRef>;
 

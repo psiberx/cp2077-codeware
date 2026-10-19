@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EVisualizerRuntimeFlags {
   None = 0,
   Locked = 1,

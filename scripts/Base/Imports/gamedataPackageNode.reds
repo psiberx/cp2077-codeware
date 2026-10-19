@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gamedataPackageNode extends ISerializable {
   public native let name: String;
   public native let serializedVariables: array<ref<gamedataVariableNode>>;

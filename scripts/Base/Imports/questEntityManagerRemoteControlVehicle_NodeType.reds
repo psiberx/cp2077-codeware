@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questEntityManagerRemoteControlVehicle_NodeType extends questIEntityManager_NodeType {
   public native let parentRef: EntityReference;
   public native let enable: Bool;

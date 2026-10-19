@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questInjectLootOperationType {
   Inject = 0,
   Remove = 1,

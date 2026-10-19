@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum shadowsShadowCastingMode {
   Default = 0,
   Always = 1,

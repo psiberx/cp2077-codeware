@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MinigameStateAdvanced)
 public native let opertyMaxScore: CName;
 

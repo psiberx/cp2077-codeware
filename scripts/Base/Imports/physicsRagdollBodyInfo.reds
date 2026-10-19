@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsRagdollBodyInfo {
   public native let ParentAnimIndex: Int32;
   public native let ChildAnimIndex: Int32;

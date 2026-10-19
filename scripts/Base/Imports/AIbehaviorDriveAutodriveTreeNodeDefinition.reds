@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDriveAutodriveTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let laneFindRange: ref<AIArgumentMapping>;
   public native let minimumDistanceToTarget: ref<AIArgumentMapping>;

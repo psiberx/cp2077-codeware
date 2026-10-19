@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnChoiceNodeNsActorReminderParams extends ISerializable {
   public native let useCustomReminder: Bool;
   public native let reminderActor: scnActorId;

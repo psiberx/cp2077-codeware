@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsApperanceMaterial {
   public native let apperanceName: CName;
   public native let materialFrom: CName;

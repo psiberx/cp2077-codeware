@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(FriendlyFireParams)
 public native let attitude: wref<AttitudeAgent>;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct garmentMeshParamGarmentChunkData {
   public native let numVertices: Uint32;
   public native let lodMask: Uint8;

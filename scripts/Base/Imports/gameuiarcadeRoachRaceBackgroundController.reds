@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeRoachRaceBackgroundController extends gameuiarcadeArcadeBackgroundController {
   public native let parallaxPlaneRelativeVelocityList: array<Float>;
   public native let daynightWidget: inkWidgetRef;

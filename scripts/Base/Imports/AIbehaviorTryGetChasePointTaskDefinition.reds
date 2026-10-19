@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorTryGetChasePointTaskDefinition extends AIbehaviorTaskDefinition {
   public native let inPlayerPositionDelay: ref<AIArgumentMapping>;
   public native let inPlayerPositionMaxDistance: ref<AIArgumentMapping>;

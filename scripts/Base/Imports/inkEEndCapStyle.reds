@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkEEndCapStyle {
   BUTT = 0,
   SQUARE = 1,

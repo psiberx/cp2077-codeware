@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameStatPoolModifierRuntimeData {
   public native let modifier: StatPoolModifier;
   public native let modificationDelay: Float;

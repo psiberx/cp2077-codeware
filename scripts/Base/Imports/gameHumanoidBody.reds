@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameHumanoidBody extends IComponent {
   public native let basePersonalSpace: Float;
   public native let baseHeight: Float;

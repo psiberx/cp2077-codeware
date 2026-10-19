@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnEasingType {
   Linear = 0,
   SinusoidalEaseInOut = 1,

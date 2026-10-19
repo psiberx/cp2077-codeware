@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimation extends ISerializable {
   public native let tags: redTagList;
   public native let name: CName;

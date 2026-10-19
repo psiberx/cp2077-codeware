@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animLookAtAdditionalPreset_FullControl extends animLookAtAdditionalPreset {
   public native let useRightHand: Bool;
   public native let attachHandToOtherOne: Bool;

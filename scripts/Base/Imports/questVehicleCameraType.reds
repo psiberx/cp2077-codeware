@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questVehicleCameraType {
   Undefined = 0,
   PuppetFPP = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameHitDetectionDebugFrameData {
   public native let t: Bool;
   public native let mponent: wref<HitRepresentationComponent>;

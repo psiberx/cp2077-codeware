@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiPuppetPreviewCameraController {
   public native let cameraSetup: array<gameuiPuppetPreviewCameraSetup>;
   public native let activeSetup: Uint32;

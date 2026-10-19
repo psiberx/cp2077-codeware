@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animActionAnimDatabase_AnimationData {
   public native let animationName: CName;
   public native let fallbackAnimationName: CName;

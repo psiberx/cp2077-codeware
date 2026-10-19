@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_StateMachine extends animAnimNode_Base {
   public native let states: array<ref<animAnimNode_State>>;
   public native let frozenState: ref<animAnimNode_StateFrozen>;

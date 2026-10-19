@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_BlendMultiple extends animAnimNode_Base {
   public native let inputValues: array<Float>;
   public native let sortedInputValues: array<Float>;

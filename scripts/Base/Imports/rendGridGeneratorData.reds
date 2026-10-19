@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendGridGeneratorData {
   public native let startingPosition: Vector3;
   public native let rotation: EulerAngles;

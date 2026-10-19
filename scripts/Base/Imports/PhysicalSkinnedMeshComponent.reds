@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly class PhysicalSkinnedMeshComponent extends entSkinnedMeshComponent {
   public native let simulationType: physicsSimulationType;
   public native let useResourceSimulationType: Bool;

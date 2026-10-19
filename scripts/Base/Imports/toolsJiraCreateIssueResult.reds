@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class toolsJiraCreateIssueResult extends ISerializable {
   public native let id: String;
   public native let key: String;

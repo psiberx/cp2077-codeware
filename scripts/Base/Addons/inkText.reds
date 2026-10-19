@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkText)
 public native let localizationString: LocalizationString;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_AimConstraint extends animAnimNode_OnePoseInput {
   public native let areSourceChannelsResaved: Bool;
   public native let targetTransforms: array<ref<animAnimNodeSourceChannel_WeightedVector>>;

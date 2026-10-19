@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct Multilayer_LayerTemplateOverrides {
   public native let colorScale: array<Multilayer_LayerTemplateOverridesColor>;
   public native let roughLevelsIn: array<Multilayer_LayerTemplateOverridesLevels>;

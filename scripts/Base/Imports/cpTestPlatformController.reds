@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class cpTestPlatformController extends GameObject {
   public native let platform: NodeRef;
   public native let pointA: NodeRef;

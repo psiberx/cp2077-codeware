@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animPoseLimitWeights {
   public native let min: Float;
   public native let mid: Float;

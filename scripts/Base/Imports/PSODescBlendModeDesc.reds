@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct PSODescBlendModeDesc {
   public native let numTargets: Uint8;
   public native let independent: Bool;

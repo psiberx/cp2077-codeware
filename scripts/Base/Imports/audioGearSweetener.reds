@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioGearSweetener extends audioAudioMetadata {
   public native let gear: Uint32;

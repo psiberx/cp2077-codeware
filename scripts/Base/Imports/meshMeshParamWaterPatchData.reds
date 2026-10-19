@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class meshMeshParamWaterPatchData extends meshMeshParameter {
   public native let animLoop: Bool;
   public native let animLength: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSceneInterrupt_ConditionType extends questISceneConditionType {
   public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
   public native let onlyInSafeMoment: Bool;

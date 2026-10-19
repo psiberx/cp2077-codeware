@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimNode_BlendSpace_InternalsBlendSpace {
   public native let spaceDimension: Uint32;
   public native let coordinatesDescriptions: array<animAnimNode_BlendSpace_InternalsBlendSpaceCoordinateDescription>;

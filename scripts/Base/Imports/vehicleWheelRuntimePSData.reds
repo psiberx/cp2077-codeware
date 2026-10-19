@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct vehicleWheelRuntimePSData {
   public native persistent let previousTouchedMaterial: CName;
   public native persistent let previousVisualDisplacement: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkSpawnMode {
   SingleAndMultiplayer = 0,
   OnlySingleplayer = 1,

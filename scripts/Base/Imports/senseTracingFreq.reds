@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum senseTracingFreq {
   Never = 0,
   Lowest = 1,

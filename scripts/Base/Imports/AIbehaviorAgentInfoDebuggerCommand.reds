@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorAgentInfoDebuggerCommand extends AIbehaviorIDebuggerCommand {
   public native let entityId: EntityID;
   public native let agentName: String;

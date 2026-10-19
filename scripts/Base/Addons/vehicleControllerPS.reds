@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(vehicleControllerPS)
 public native persistent let vehicleDoors: [VehicleSlotsState; 6];
 

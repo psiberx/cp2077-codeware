@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entdismembermentWoundDecal {
   public native let OffsetA: Vector3;
   public native let OffsetB: Vector3;

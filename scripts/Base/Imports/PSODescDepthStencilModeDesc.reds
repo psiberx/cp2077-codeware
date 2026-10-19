@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct PSODescDepthStencilModeDesc {
   public native let depthTestEnable: Bool;
   public native let depthWriteEnable: Bool;

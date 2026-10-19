@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questEntityManagerSetStat_NodeType extends questIEntityManager_NodeType {
   public native let objectRef: EntityReference;
   public native let isPlayer: Bool;

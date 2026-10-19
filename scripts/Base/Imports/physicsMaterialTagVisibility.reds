@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsMaterialTagVisibility {
   None = 0,
   SemiTransparent = 1,

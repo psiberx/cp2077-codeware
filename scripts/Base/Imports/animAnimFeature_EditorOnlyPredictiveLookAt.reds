@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimFeature_EditorOnlyPredictiveLookAt extends AnimFeature {
   public native let isEnabled: Bool;
   public native let target: Vector4;

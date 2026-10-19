@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct SamplerStateInfo {
   public native let filteringMin: ETextureFilteringMin;
   public native let filteringMag: ETextureFilteringMag;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FloatInterpolation extends animAnimNode_FloatValue {
   public native let x1: Float;
   public native let x2: Float;

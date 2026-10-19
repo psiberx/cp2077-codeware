@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct toolsJiraIssue {
   public native let id: String;
   public native let self: String;

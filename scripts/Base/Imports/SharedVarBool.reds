@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct SharedVarBool {
   public native let varName: LibTreeSharedVarReferenceName;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct GlobalLightingTrajectory {
   public native let latitude: Float;
   public native let sunRotationOffset: Float;

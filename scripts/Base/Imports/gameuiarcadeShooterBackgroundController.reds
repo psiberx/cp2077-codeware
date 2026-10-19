@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeShooterBackgroundController extends inkLogicController {
   public native let layerInfo: array<gameuiarcadeShooterLayerInfo>;
   public native let allowMarginTranslation: Bool;

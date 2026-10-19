@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldAdvertisementNode extends worldStaticMeshNode {
   public native let meshInitialScale: Vector3;
   public native let format: AdvertisementFormat;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldCommunityRegistryItemAreaNodeType {
   Regular = 0,
   Streamable = 1,

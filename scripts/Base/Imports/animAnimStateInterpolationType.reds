@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animAnimStateInterpolationType {
   Linear = 0,
   EaseIn = 1,

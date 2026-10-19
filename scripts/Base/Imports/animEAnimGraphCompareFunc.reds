@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animEAnimGraphCompareFunc {
   AGCF_Equal = 0,
   AGCF_NotEqual = 1,

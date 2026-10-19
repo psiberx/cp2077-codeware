@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct ShadowCascadeConfig {
   public native let range: Float;
   public native let filterSize: Float;

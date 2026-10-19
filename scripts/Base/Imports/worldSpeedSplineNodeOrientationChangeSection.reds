@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldSpeedSplineNodeOrientationChangeSection {
   public native let pos: Float;
   public native let type: worldSpeedSplineOrientationMarkerType;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimStateMachineConditionalEntry extends ISerializable {
   public native let targetStateIndex: Uint32;
   public native let condition: ref<animIAnimStateTransitionCondition>;

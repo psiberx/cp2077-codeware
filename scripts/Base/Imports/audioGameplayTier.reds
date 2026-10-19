@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioGameplayTier {
   Undefined = 0,
   Tier1_FullGameplay = 1,

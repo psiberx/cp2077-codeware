@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum rendWindShapeAnchorPointDepth {
   AP_CENTER = 0,
   AP_FRONT = 1,

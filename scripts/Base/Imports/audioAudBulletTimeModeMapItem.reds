@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAudBulletTimeModeMapItem extends audioAudioMetadata {
   public native let enterEvent: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(VirtualCameraViewComponent)
 public native let virtualCameraName: CName;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameAnimationTransforms {
   public native let extractedMotion: array<Transform>;
   public native let gatePosition: Transform;

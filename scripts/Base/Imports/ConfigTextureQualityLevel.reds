@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ConfigTextureQualityLevel {
   Console = 0,
   ConsoleSafe = 1,

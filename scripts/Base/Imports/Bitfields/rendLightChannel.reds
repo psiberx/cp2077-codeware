@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum rendLightChannel {
 //   LC_Channel1 = 1, // 1 << 0,
 //   LC_Channel2 = 2, // 1 << 1,

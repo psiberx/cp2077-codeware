@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MinimapSettings)
 public native let globalVisionRadiusBounds: Range;
 

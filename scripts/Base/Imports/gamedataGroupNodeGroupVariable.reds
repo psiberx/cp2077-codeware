@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gamedataGroupNodeGroupVariable {
   public native let node: ref<gamedataVariableNode>;
   public native let deriveInfo: gamedataGroupNodeGroupVariableDeriveInfo;

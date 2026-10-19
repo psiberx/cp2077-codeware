@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questShowOverlay_NodeSubType extends questITutorial_NodeSubType {
   public native let overlayLibrary: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>
   public native let libraryItemName: CName;

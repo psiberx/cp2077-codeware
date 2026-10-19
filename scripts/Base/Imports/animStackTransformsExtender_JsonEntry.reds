@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animStackTransformsExtender_JsonEntry {
   public native let name: CName;
   public native let parentName: CName;

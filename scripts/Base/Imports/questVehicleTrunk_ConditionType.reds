@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questVehicleTrunk_ConditionType extends questIVehicleConditionType {
   public native let anyVehicle: Bool;
   public native let playerVehicle: Bool;

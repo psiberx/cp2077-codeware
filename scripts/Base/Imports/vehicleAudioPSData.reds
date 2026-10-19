@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct vehicleAudioPSData {
   public native persistent let activeRadioStation: CName;
   public native persistent let acousticIsolationFactor: Float;

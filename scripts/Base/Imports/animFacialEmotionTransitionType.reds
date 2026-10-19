@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animFacialEmotionTransitionType {
   Natural = 0,
   Fast = 1,

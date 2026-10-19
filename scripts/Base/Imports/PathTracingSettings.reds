@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class PathTracingSettings extends IAreaSettings {
   public native let albedoModulation: Float;
   public native let diffuseGlobalScale: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class worldBlockoutArea extends ISerializable {
   public native let name: String;

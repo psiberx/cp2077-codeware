@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class minimapEncodedShapes extends CResource {
   public native let QuantizationScale: Vector2;
   public native let QuantizationBias: Vector2;

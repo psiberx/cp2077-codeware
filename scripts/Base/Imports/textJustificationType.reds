@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum textJustificationType {
   Left = 0,
   Center = 1,

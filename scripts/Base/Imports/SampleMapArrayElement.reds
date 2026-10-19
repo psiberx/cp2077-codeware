@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct SampleMapArrayElement {
   public native let myKey: Uint32;
   public native let someStringProperty: String;

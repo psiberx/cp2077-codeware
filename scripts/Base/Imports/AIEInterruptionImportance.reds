@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIEInterruptionImportance {
   Undefined = 0,
   Casual = 1,

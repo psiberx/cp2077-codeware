@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EEnvManagerModifier {
   EMM_None = 0,
   EMM_WireframeSolid = 1,

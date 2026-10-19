@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioGroupingTagMetadata extends audioAudioMetadata {
   public native let shape: CName;

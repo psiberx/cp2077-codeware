@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimFeature_NPCExploration extends AnimFeature {
   public native let explorationType: Int32;
   public native let state: Int32;

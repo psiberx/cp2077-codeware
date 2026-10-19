@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkWidgetLayout)
 public native let sizeRule: inkESizeRule;
 

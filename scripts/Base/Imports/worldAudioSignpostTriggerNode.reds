@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldAudioSignpostTriggerNode extends worldTriggerAreaNode {
   public native let enterSignpost: CName;
   public native let exitSignpost: CName;

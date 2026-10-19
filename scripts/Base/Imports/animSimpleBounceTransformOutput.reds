@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animSimpleBounceTransformOutput {
   public native let targetTransform: animTransformIndex;
   public native let parentTransform: animTransformIndex;

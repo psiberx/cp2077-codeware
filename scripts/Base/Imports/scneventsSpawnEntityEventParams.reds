@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scneventsSpawnEntityEventParams {
   public native let performer: scnPerformerId;
   public native let referencePerformer: scnPerformerId;

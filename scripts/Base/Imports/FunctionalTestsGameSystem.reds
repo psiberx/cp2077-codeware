@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class FunctionalTestsGameSystem extends FunctionalTestsGameSystemInterface {
   public final static native func GetLocalizationStringByKey()
   public final native func ActivateSpawner()

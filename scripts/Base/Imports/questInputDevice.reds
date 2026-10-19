@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questInputDevice {
   Undefined = 0,
   KeyboardMouse = 1,

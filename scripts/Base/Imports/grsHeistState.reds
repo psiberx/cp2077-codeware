@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct grsHeistState {
   public native let time: netTime;
   public native let status: grsHeistStatus;

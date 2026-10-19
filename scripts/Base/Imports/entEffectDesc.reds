@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entEffectDesc extends ISerializable {
   public native let id: CRUID;
   public native let effectName: CName;

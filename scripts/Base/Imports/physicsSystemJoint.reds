@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class physicsSystemJoint extends physicsISystemObject {
   public native let localToWorld: Matrix;
   public native let pinA: ref<physicsPhysicalJointPin>;

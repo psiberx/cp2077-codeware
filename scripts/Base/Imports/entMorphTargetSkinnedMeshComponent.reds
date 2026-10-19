@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entMorphTargetSkinnedMeshComponent extends entISkinTargetComponent {
   public native let morphResource: ResourceAsyncRef; // raRef<MorphTargetMesh>
   public native let meshAppearance: CName;

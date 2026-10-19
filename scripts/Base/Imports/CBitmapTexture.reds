@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CBitmapTexture extends ITexture {
   public native let width: Uint32;
   public native let height: Uint32;

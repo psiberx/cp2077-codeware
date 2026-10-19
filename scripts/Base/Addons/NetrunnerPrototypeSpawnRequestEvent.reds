@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(NetrunnerPrototypeSpawnRequestEvent)
 public native let whatToSpawn: CName;
 

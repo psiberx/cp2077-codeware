@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendRenderTextureBlobTextureInfo {
   public native let type: GpuWrapApieTextureType;
   public native let textureDataSize: Uint32;

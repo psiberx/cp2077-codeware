@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioVehicleInteriorParameterData {
   public native let enterCurveType: audioESoundCurveType;
   public native let enterCurveTime: Float;

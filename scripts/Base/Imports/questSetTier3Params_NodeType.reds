@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSetTier3Params_NodeType extends questISceneManagerNodeType {
   public native let yawLeftLimit: Float;
   public native let yawRightLimit: Float;

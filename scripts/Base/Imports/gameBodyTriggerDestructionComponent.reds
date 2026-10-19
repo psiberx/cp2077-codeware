@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameBodyTriggerDestructionComponent extends gameITriggerDestructionComponent {
   public native let colliderComponentName: CName;
   public native let filterData: ref<physicsFilterData>;

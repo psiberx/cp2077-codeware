@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkCompositionInterpolator {
   public native let parameter: CName;
   public native let interpolationMode: inkanimInterpolationMode;

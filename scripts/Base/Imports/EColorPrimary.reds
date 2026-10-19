@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EColorPrimary {
   PRIM_REC709 = 0,
   PRIM_DCIP3 = 1,

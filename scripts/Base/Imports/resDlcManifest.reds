@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class resDlcManifest extends CResource {
   public native let tweakBlob: ResourceAsyncRef; // raRef<CResource>
   public native let quest: ResourceAsyncRef; // raRef<CResource>

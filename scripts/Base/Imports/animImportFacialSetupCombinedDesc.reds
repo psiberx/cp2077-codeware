@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animImportFacialSetupCombinedDesc {
   public native let face: animImportFacialSetupDesc;
   public native let eyes: animImportFacialSetupDesc;

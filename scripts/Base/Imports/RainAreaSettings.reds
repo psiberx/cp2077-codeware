@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class RainAreaSettings extends IAreaSettings {
   public native let numParticles: Uint32;
   public native let radius: Float;

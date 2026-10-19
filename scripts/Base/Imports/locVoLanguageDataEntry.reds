@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct locVoLanguageDataEntry {
   public native let languageCode: CName;
   public native let voiceverMapReport: ResourceAsyncRef; // raRef<JsonResource>

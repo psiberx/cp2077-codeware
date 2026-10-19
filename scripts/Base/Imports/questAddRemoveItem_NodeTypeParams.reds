@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questAddRemoveItem_NodeTypeParams extends ISerializable {
   public native let sendNotification: Bool;
   public native let isPlayer: Bool;

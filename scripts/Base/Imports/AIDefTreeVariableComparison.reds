@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIDefTreeVariableComparison extends LibTreeDefTreeVariableBoolBase {
   public native let exportAsProperty: Bool;
   public native let referenceVariableId: Uint16;

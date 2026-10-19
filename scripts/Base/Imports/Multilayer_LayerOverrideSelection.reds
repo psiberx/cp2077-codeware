@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct Multilayer_LayerOverrideSelection {
   public native let colorScale: CName;
   public native let normalStrength: CName;

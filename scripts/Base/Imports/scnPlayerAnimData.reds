@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnPlayerAnimData {
   public native let tierData: ref<SceneTierData>;
   public native let useZSnapping: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class gameEffectExecutor_NewEffect extends EffectExecutor {
   public native let tagInThisFile: CName;
   public native let forwardOffset: Float;

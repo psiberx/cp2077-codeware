@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldPerformanceAreaNode extends worldTriggerAreaNode {
   public native let qualitySettingsArray: array<worldQualitySetting>;
   public native let disableCrowdUniqueName: CName;

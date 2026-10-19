@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class GlobalLightOverrideAreaSettings extends IAreaSettings {
   public native let color: CurveDataHDRColor;
   public native let lightAzimuth: Float;

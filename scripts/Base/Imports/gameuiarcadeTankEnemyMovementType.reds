@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiarcadeTankEnemyMovementType {
   x_axis = 0,
   x_axisL = 1,

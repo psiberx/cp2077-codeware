@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(QuadRacerLogicController)
 public native let endgameDelay: Float;
 

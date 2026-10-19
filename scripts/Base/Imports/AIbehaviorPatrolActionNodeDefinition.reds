@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorPatrolActionNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let path: ref<AIArgumentMapping>;
   public native let patrolProgress: ref<AIArgumentMapping>;

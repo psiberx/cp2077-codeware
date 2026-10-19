@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldDebugColoring_NavigationImpact extends worldEditorDebugColoringSettings {
   public native let walkable: Color;
   public native let ignored: Color;

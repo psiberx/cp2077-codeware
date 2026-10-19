@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animLookAtPreset_FullControl extends animLookAtPreset {
   public native let limits: LookAtLimits;
   public native let eyesSuppress: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameSmartObjectPointType {
   Entry = 0,
   Exit = 1,

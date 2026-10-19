@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AICTreeNodeFSMDefinition extends AICTreeNodeCompositeDefinition {
   public native let defaultState: Uint16;
   public native let transitions: array<AIFSMTransitionDefinition>;

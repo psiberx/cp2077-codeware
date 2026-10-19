@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class physicsPhysicalJointPin extends ISerializable {
   public native let object: ref<physicsISystemObject>;
   public native let featureIndex: Int32;

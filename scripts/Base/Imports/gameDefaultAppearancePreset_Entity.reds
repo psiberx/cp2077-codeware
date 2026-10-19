@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class gameDefaultAppearancePreset_Entity extends ISerializable {
   public native let entityPathHash: Uint64;

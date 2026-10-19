@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetCompressedInputStates {
   public native let usesCompression: Bool;
   public native let compressedInputStates: array<Uint8>;

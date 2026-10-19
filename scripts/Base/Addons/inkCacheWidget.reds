@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkCacheWidget)
 public native let innerScale: Vector2;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum vgEStyleAttributeType {
   FillColor = 0,
   StrokeColor = 1,

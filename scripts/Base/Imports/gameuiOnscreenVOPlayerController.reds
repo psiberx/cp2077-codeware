@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiOnscreenVOPlayerController extends inkGameController {
   public native let subtitlesContainer: inkCompoundRef;
   public native let subtitlesLibraryResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>

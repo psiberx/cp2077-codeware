@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct HeatAgent {
   public native let timeToNextUpdate: Float;
   public native let heatRadius: Float;

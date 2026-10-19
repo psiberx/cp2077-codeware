@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldOffMeshConnectionsData {
   public native let verts: array<Float>;
   public native let radii: array<Float>;

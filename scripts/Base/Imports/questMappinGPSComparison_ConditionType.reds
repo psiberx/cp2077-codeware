@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMappinGPSComparison_ConditionType extends questIDistanceConditionType {
   public native let distanceDefinition1: ref<questMappinGPSDistance>;
   public native let distanceDefinition2: ref<questValueDistance>;

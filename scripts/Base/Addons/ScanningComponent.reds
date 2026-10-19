@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(ScanningComponent)
 public native let scannableData: array<ScanningTooltipElementDef>;
 

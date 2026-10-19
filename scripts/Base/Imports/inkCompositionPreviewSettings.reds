@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkCompositionPreviewSettings extends ISerializable {
   public native let sourceState: CName;
   public native let targetState: CName;

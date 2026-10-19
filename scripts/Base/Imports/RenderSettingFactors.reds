@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct RenderSettingFactors {
   public native let resolutionAberrationScale: CurveDataFloat;
   public native let resolutionAberrationDispersal: CurveDataFloat;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimProfilerData_TreeItem extends ISerializable {
   public native let className: CName;
   public native let exclusiveTimeMS: Float;

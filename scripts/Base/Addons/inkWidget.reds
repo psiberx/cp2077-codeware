@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkWidget)
 public native let logicController: ref<inkLogicController>;
 

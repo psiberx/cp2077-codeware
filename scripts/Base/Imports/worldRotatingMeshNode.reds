@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldRotatingMeshNode extends worldMeshNode {
   public native let rotationAxis: worldRotatingMeshNodeAxis;
   public native let fullRotationTime: Float;

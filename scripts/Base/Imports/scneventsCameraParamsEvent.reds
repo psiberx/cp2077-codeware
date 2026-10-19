@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsCameraParamsEvent extends scnSceneEvent {
   public native let cameraRef: NodeRef;
   public native let fovValue: Float;

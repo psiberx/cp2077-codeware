@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questCharacterManagerVisuals_EntityAppearanceOperationBaseEntityAppearanceEntry {
   public native let puppetRef: EntityReference;
   public native let isPlayer: Bool;

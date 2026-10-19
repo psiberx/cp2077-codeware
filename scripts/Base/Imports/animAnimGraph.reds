@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimGraph extends CResource {
   public native let rootNode: ref<animAnimNode_Root>;
   public native let variables: ref<animAnimVariableContainer>;

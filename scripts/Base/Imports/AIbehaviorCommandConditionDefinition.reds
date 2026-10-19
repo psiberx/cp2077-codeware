@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorCommandConditionDefinition extends AIbehaviorConditionDefinition {
   public native let commandName: ref<AIArgumentMapping>;
   public native let useInheritance: Bool;

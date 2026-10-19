@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioRadioStationJingleMetadata {
   public native let introJingleEvent: CName;
   public native let introDuration: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct SMeshChunkPacked {
   public native let vertexType: EMeshVertexType;
   public native let materialID: array<CName>;

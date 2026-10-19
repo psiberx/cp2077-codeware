@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum vehiclePlayerToAIInterpolationType {
   PTAIT_INSTANT = 0,
   PTAIT_LINEAR = 1,

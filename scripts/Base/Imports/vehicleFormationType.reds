@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum vehicleFormationType {
   FORMATION_TRIANGLE = 0,
   FORMATION_TURTLE = 1,

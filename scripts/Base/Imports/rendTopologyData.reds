@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendTopologyData {
   public native let data: array<Uint8>;
   public native let metadata: array<Uint8>;

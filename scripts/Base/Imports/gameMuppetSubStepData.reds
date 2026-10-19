@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetSubStepData {
   public native let frameId: Uint32;
   public native let parentFrameId: Uint32;

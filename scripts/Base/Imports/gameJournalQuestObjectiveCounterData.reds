@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameJournalQuestObjectiveCounterData {
   public native let entryPath: ref<gameJournalPath>;
   public native let oldValue: Int32;

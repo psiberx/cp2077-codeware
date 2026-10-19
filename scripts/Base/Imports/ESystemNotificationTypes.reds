@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ESystemNotificationTypes {
   DiscOperationIndicator = 0,
   GenericNotModal = 1,

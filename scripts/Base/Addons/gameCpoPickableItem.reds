@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameCpoPickableItem)
 public native let itemIDToEquip: TweakDBID;
 

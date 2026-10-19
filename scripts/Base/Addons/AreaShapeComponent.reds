@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AreaShapeComponent)
 public native let outline: ref<AreaShapeOutline>;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct vehicleGarageComponentVehicleData {
   public native persistent let spawnRecordID: TweakDBID;
   public native persistent let entityID: EntityID;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_AddIkRequest extends animAnimNode_OnePoseInput {
   public native let ikChain: CName;
   public native let targetBone: animTransformIndex;

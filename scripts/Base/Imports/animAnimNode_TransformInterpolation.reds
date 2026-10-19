@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_TransformInterpolation extends animAnimNode_TransformValue {
   public native let interpolationType: animQuaternionInterpolationType;
   public native let firstInput: animTransformLink;

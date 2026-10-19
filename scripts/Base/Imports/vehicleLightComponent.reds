@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class vehicleLightComponent extends gameLightComponent {
   public native let allowSeparateEmissiveColor: Bool;
   public native let emissiveColor: Color;

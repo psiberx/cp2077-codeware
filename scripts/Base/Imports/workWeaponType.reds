@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum workWeaponType {
   Any = 0,
   Ranged = 1,

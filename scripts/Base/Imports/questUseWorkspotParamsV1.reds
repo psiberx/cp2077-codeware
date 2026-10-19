@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questUseWorkspotParamsV1 extends AICommandParams {
   public native persistent let function: questUseWorkspotNodeFunctions;
   public native persistent let workspotNode: NodeRef;

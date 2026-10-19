@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioMeleeAttackSettings {
   public native let hitEvent: CName;
   public native let penetratingHitEvent: CName;

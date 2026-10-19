@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameLadderObject extends GameObject {
   public native let heightOfBottomPart: Float;
   public native let exitStepTop: Float;

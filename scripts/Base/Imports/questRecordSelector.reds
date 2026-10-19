@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questRecordSelector extends ISerializable {
   public native let isCharacter: Bool;
   public native let characterRecordID: TweakDBID;

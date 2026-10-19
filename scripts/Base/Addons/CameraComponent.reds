@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(CameraComponent)
 public native let animParamFovOverrideWeight: CName;
 

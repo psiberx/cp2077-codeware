@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioFoleyNPCAppearanceMappingMetadata extends audioAudioMetadata {
   public native let fallbackMetadata: CName;

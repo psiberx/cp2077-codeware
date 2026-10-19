@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class TestStepLogic extends IScriptable {
   public native let maxExecutionTimeSec: Float;
   public native let executionTimeSec: Float;

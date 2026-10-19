@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct appearanceCensorshipEntry {
   public native let Original: CName;
   public native let Censored: CName;

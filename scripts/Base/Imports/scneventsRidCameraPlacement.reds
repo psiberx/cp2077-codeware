@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scneventsRidCameraPlacement {
   SceneOrigin = 0,
   Actual = 1,

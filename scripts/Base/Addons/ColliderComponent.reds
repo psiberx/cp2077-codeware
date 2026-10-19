@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(ColliderComponent)
 public native let colliders: array<ref<physicsICollider>>;
 

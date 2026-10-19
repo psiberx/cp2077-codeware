@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct STextureGroupSetup {
   public native let group: GpuWrapApieTextureGroup;
   public native let rawFormat: ETextureRawFormat;

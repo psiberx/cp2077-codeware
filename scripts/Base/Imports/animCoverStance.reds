@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animCoverStance {
   None = 0,
   LowLeft = 1,

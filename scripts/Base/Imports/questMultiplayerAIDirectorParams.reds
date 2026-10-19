@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMultiplayerAIDirectorParams extends ISerializable {
   public native let function: questMultiplayerAIDirectorFunction;
   public native let status: questMultiplayerAIDirectorStatus;

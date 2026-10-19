@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(HoldIndicatorGameController)
 public native let HoldProgress: gameuiHoldIndicatorProgressCallback;
 

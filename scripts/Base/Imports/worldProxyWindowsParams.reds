@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldProxyWindowsParams {
   public native let windowsType: worldProxWindowsType;
   public native let distance: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_Climb extends AnimFeature {
   public native let verticalPosition: Vector4;
   public native let horizontalPosition: Vector4;

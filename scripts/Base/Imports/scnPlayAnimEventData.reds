@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnPlayAnimEventData {
   public native let blendIn: Float;
   public native let blendOut: Float;

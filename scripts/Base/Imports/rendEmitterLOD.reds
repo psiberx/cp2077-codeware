@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendEmitterLOD {
   public native let lodSwitchDistance: Float;
   public native let burstList: array<rendParticleBurst>;

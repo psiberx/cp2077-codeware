@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemDecal extends effectTrackItem {
   public native let material: ResourceRef; // rRef<IMaterial>
   public native let scale: ref<IEvaluatorVector>;

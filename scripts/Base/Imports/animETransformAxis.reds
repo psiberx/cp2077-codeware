@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animETransformAxis {
   X_Axis = 1,
   Y_Axis = 2,

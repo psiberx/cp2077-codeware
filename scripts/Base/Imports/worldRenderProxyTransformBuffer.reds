@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldRenderProxyTransformBuffer {
   public native let sharedDataBuffer: ref<worldSharedDataBuffer>;
   public native let startIndex: Uint32;

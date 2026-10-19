@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_DampVector extends animAnimNode_VectorValue {
   public native let defaultIncreaseSpeed: Vector4;
   public native let defaultDecreaseSpeed: Vector4;

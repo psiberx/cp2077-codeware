@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ETimeOfYearSeason {
   ETOYS_Spring = 0,
   ETOYS_Summer = 1,

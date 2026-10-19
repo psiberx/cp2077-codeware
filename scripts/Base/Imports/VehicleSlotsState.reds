@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class VehicleSlotsState extends ISerializable {
   public native persistent let vehicleDoorState: VehicleDoorState;

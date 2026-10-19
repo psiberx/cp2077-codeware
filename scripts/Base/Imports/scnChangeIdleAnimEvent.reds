@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnChangeIdleAnimEvent extends scnPlayAnimEvent {
   public native let idleAnimName: CName;
   public native let addIdleAnimName: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questPhaseNodeDefinition extends questEmbeddedGraphNodeDefinition {
   public native let saveLock: Bool;
   public native let phaseResource: ResourceAsyncRef; // raRef<questQuestPhaseResource>

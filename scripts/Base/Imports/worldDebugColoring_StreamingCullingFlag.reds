@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldDebugColoring_StreamingCullingFlag extends worldEditorDebugColoringSettings {
   public native let cullableColor: Color;
   public native let forceCulledAlwaysColor: Color;

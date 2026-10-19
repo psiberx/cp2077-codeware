@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameComparisonType {
   EQUAL = 0,
   NOT_EQUAL = 1,

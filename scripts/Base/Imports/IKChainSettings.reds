@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct IKChainSettings {
   public native let chainName: CName;
   public native let enableFloatTrack: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkSliderController)
 public native let slidingAreaRef: inkWidgetRef;
 

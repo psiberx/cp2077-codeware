@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIbehaviorMovementPolicyTaskFunctions {
   SetMovementType = 0,
   SetTargetObject = 1,

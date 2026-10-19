@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(IWorldWidgetComponent)
 public native let glitchValue: Float;
 

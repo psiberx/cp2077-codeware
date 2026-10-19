@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnWorkspotInstance {
   public native let workspotInstanceId: scnSceneWorkspotInstanceId;
   public native let dataId: scnSceneWorkspotDataId;

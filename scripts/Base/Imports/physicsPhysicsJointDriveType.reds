@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsPhysicsJointDriveType {
   AxisX = 0,
   AxisY = 1,

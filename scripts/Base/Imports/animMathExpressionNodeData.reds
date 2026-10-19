@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animMathExpressionNodeData {
   public native let expression: ref<mathExprExpression>;
   public native let floatSockets: array<animAnimMathExpressionFloatSocket>;

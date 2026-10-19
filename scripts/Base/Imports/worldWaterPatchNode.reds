@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldWaterPatchNode extends worldMeshNode {
   public native let type: worldWaterPatchNodeType;
   public native let depth: Float;

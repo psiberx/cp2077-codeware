@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnPuppetVehicleState {
   IdleMounted = 0,
   IdleStand = 1,

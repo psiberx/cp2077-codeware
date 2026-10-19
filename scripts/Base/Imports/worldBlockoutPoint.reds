@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class worldBlockoutPoint extends ISerializable {
   public native let position: Vector2;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiBinkVideoStatus {
   Idle = 0,
   NotStarted = 1,

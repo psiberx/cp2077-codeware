@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimFeatureUpdateWorkspot extends AnimFeature {
   public native let animName: CName;
   public native let recordID: Int32;

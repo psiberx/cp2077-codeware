@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_AimConstraint_ObjectRotationUp extends animAnimNode_OnePoseInput {
   public native let targetTransform: animTransformIndex;
   public native let upTransform: animTransformIndex;

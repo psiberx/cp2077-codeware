@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioAmbientGroupingVariant {
   AllEntities = 0,
   IndoorEntities = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct textTextBlockStyle {
   public native let tintColor: HDRColor;
   public native let shadowOffset: Vector2;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct navgendebugSpansData {
   public native let spans: array<navgendebugCompactSpan>;
   public native let areas: array<Uint8>;

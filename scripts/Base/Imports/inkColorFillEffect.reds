@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkColorFillEffect extends inkIEffect {
   public native let colorR: Float;
   public native let colorG: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCallContact_NodeType extends questIPhoneManagerNodeType {
   public native let caller: ref<gameJournalPath>;
   public native let addressee: ref<gameJournalPath>;

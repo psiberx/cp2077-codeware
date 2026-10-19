@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnPlaySkAnimEvent extends scnPlayFPPControlAnimEvent {
   public native let animName: ref<scnAnimName>;
   public native let poseBlendOutWorkspot: ref<scnEventBlendWorkspotSetupParameters>;

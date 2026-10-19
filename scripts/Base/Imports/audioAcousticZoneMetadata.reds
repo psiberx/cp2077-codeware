@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAcousticZoneMetadata extends audioAudioMetadata {
   public native let priority: Int32;

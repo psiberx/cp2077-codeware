@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemHudParameter extends effectTrackItem {
   public native let scale: Float;
   public native let glitchParameter: effectEffectParameterEvaluator;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorMovementPolicyTaskDefinition extends AIbehaviorTaskDefinition {
   public native let useCurrentPolicy: Bool;
   public native let waitForPolicy: Bool;

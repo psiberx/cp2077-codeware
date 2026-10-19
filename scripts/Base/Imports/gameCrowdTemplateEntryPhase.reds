@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameCrowdTemplateEntryPhase {
   public native let phaseName: CName;
   public native let timePeriods: array<gameCrowdPhaseTimePeriod>;

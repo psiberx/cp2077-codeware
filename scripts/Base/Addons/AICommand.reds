@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AICommand)
 public native persistent let questBlockId: Uint64;
 

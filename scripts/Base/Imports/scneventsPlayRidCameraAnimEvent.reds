@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsPlayRidCameraAnimEvent extends scnSceneEvent {
   public native let cameraRef: NodeRef;
   public native let cameraPlacement: scneventsRidCameraPlacement;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questDynamicVehicleSpawn_NodeType extends questIDynamicSpawnSystemType {
   public native let VehicleData: array<TweakDBID>;
   public native let waveTag: CName;
