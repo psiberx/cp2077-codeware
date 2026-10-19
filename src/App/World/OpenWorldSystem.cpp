@@ -247,11 +247,12 @@ App::OpenWorldActivityResult App::OpenWorldSystem::ProcessActivity(
 
     for (const auto& entityID : entityIDs)
     {
-        Red::Handle<Red::Entity> entity;
-        m_populationSystem->FindEntity(entity, entityID);
+        auto entity = m_populationSystem->FindEntity(entityID);
 
         if (entity)
+        {
             return OpenWorldActivityResult::StillSpawned;
+        }
     }
 
     for (const auto& persistenceRef : aActivity->persistenceRefs)

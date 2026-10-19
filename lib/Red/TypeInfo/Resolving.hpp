@@ -104,12 +104,18 @@ consteval auto RemoveMemberPrefix(std::string_view aName)
     return aName;
 }
 
+#if defined(__clang__)
+constexpr auto ScopedEnumPrefix = "RED4ext::";
+#else
 constexpr auto ScopedEnumPrefix = "enum RED4ext::";
+#endif
 constexpr auto ScopedEnumPrefixLength = std::char_traits<char>::length(ScopedEnumPrefix);
 
+template<typename T>
 consteval bool IsScopedEnumName(const std::string_view& aName)
 {
     return aName.starts_with(ScopedEnumPrefix);
+    return std::is_enum_v<T> && aName.starts_with(ScopedEnumPrefix);
 }
 
 template<size_t N>
@@ -196,7 +202,7 @@ consteval auto GetTypeNameStr()
     else
     {
         constexpr auto fullName = nameof::nameof_full_type<U>();
-        constexpr auto isScopedEnum = Detail::IsScopedEnumName(fullName);
+        constexpr auto isScopedEnum = Detail::IsScopedEnumName<U>(fullName);
 
         if constexpr (isScopedEnum)
         {
