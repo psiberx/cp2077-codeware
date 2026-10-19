@@ -15,4 +15,5 @@ public native class entSkinnedMeshComponent extends entISkinTargetComponent {
   public native let overrideMeshNavigationImpact: Bool;
   public native let navigationImpact: NavGenNavigationSetting;
   public native let version: Uint8;
+  public native let meshResource: ref<CMesh>;
 }
