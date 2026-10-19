@@ -28,6 +28,11 @@ inline bool CallFunctionWithStack(Red::CStackFrame* aFrame, CBaseFunction* aFunc
     constexpr auto MaxCodeSize = 264;
     constexpr auto PointerSize = sizeof(void*);
 
+    // Each parameter takes up to 1 + 2 * PointerSize bytes, and the end opcode one more: refuse calls that would
+    // overflow the buffer (any mod can call a scripted function with many parameters through reflection).
+    if (aFunc->params.Size() > (MaxCodeSize - 1) / (1 + 2 * PointerSize))
+        return false;
+
     char code[MaxCodeSize];
     CStackFrame frame(nullptr, code);
 
