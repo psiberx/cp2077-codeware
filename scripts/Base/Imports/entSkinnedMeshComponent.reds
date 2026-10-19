@@ -15,4 +15,8 @@ public native class entSkinnedMeshComponent extends entISkinTargetComponent {
   public native let overrideMeshNavigationImpact: Bool;
   public native let navigationImpact: NavGenNavigationSetting;
   public native let version: Uint8;
+  // Codeware adds this field natively. It is declared here instead of with @addField in a separate file: the redscript
+  // 0.5 compiler bundled with the macOS game crashes ("constant pool error: definition not found") when @addField
+  // targets a class that is itself declared in the same compilation.
+  public native let meshResource: ref<CMesh>;
 }
