@@ -25,6 +25,7 @@ class VanillaApiCompat : public Core::LoggingAgent
 {
 public:
     static void Apply();
+    static bool IsSharedScriptName(Red::CName aName);
 
 private:
     inline static bool s_scriptNamesApplied = false;

@@ -44,6 +44,16 @@ Red::CName GetReturnTypeName(Red::CBaseFunction* aFunc)
 }
 }
 
+bool App::VanillaApiCompat::IsSharedScriptName(Red::CName aName)
+{
+    for (const auto& [codewareName, vanillaName] : SharedScriptNames)
+    {
+        if (codewareName == aName)
+            return true;
+    }
+    return false;
+}
+
 void App::VanillaApiCompat::Apply()
 {
     auto* rtti = Red::CRTTISystem::Get();

@@ -1,12 +1,6 @@
 // CODE GENERATED. DO NOT EDIT.
 
 @addField(gameuiCreditsController)
-public native let creditsResourcePS4: ResourceRef; // rRef<inkCreditsResource>
-
-@addField(gameuiCreditsController)
-public native let creditsResourceXBOXPC: ResourceRef; // rRef<inkCreditsResource>
-
-@addField(gameuiCreditsController)
 public native let scrollingSpeed: Float;
 
 @addField(gameuiCreditsController)

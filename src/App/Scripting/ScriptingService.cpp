@@ -93,6 +93,17 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
     {
         if (classDef->flags.isNative)
         {
+            // Game 2.5: the vanilla bundle declares ScriptableService / CallbackSystemEvent without
+            // `abstract`, but their script names now resolve to Codeware's abstract types
+            // (VanillaApiCompat), so the validator refuses "Native class '...' was not marked as abstract".
+            if (VanillaApiCompat::IsSharedScriptName(classDef->name))
+            {
+                if (auto nativeClass = Red::GetScriptClass(classDef->name))
+                {
+                    classDef->flags.isAbstract = nativeClass->flags.isAbstract;
+                }
+            }
+
             if (classDef->name == ISerializableTypeName)
             {
                 classDef->flags.isStruct = true;
