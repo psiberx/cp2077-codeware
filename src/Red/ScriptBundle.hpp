@@ -42,8 +42,13 @@ struct ScriptDefinition
     virtual CName GetName() = 0;                    // 28
     virtual bool IsNative() = 0;                    // 30
 
-    CName name;     // 08
-    uint64_t unk10; // 10
+    CName name;        // 08
+    uint64_t unk10;    // 10
+    // Game 2.5 (exe 3.0.88.46235): every script definition grew by 0x28 bytes after the name.
+    // ScriptValidator::ValidateProperty (0x6BF654) reads ScriptProperty::type at +0xB8 (2.31: +0x90),
+    // ScriptValidator::CompareType (0x10E5B7C) reads ScriptType::innerType +0x48 / metaType +0x54
+    // (2.31: +0x20 / +0x2C); the name stays at +0x08 (Validate 0x6B9C98 `mov rdx,[r15+8]`).
+    uint8_t unk18[0x28]; // 18
 };
 
 struct ScriptFileInfo : ScriptDefinition
@@ -165,7 +170,8 @@ struct ScriptFunction : ScriptDefinition
     ScriptFileInfo* sourceFile;          // C0
     uint32_t sourceLine;                 // C8
 };
-RED4EXT_ASSERT_SIZE(ScriptFunction, 0xD0);
+// Game 2.5: ScriptFunction's layout past the grown base is not re-derived (Codeware does not read it);
+// the 2.31 size assert (0xD0) no longer holds.
 
 struct ScriptClass : ScriptDefinition
 {
@@ -182,11 +188,24 @@ struct ScriptClass : ScriptDefinition
     ScriptClass* parent;                  // 20
     DynArray<ScriptProperty*> properties; // 28
     DynArray<ScriptProperty*> overrides;  // 38
+    uint8_t unk70[0x20];                  // 2.5: 0x20 new bytes before functions
     DynArray<ScriptFunction*> functions;  // 48
     HashMap<CName, CString> attributes;   // 58
     EScriptVisibility visibility;         // 88
     Flags flags;                          // 89
 };
+// Game 2.5 offsets (comments above are 2.31). ScriptValidator's class check (0x6BE2DC) reads the
+// parent at +0x48, properties +0x50/+0x5C, functions +0x90/+0x9C, flags byte +0xD1 (importonly 0x02,
+// abstract 0x04, struct 0x10, new testonly 0x20); the definition collector 0xB2C408 walks a class's
+// +0x50, +0x60 and +0x90 arrays.
+static_assert(offsetof(ScriptClass, parent) == 0x48);
+static_assert(offsetof(ScriptClass, properties) == 0x50);
+static_assert(offsetof(ScriptClass, overrides) == 0x60);
+static_assert(offsetof(ScriptClass, functions) == 0x90);
+static_assert(offsetof(ScriptClass, flags) == 0xD1);
+static_assert(offsetof(ScriptProperty, type) == 0xB8);
+static_assert(offsetof(ScriptType, innerType) == 0x48);
+static_assert(offsetof(ScriptType, metaType) == 0x54);
 
 struct ScriptConstant : ScriptDefinition
 {
@@ -214,21 +233,25 @@ struct ScriptBitfield : ScriptDefinition
     EScriptVisibility visibility;        // 32
 };
 
+// Game 2.5 (exe 3.0.88.46235): 8 new bytes at the start, so everything up to the strings moved +8, and the
+// tail grew (members up to +0x1E0). Evidence: ScriptBundle dtor 0xA7B3A4 / 0xA7B49C frees hash maps at
+// +0x08/+0x38/+0x68 and arrays at +0x98..+0xE8; the definition collector 0xB2C408 walks classes at +0xD8
+// (with each class's +0x50/+0x60/+0x90 arrays). 2.31 offsets were 0x00..0xF0. The tail past `strings`
+// is opaque here (Codeware does not read it).
 struct ScriptBundle
 {
-    HashMap<CName, ScriptDefinition*> definitionsByName; // 00
-    HashMap<CName, ScriptFunction*> functionsByName;     // 30
-    HashMap<CName, ScriptType*> typesByName;             // 60
-    DynArray<ScriptFileInfo*> files;                     // 90
-    DynArray<ScriptFunction*> globals;                   // A0
-    DynArray<ScriptEnum*> enums;                         // B0
-    DynArray<ScriptBitfield*> bitfields;                 // C0
-    DynArray<ScriptClass*> classes;                      // D0
-    DynArray<ScriptType*> types;                         // E0
-    DynArray<CString> strings;                           // F0
-    HashMap<CName, void*> unk100;                        // 100
-    SharedSpinLock typesLock;                            // 130
-    CRITICAL_SECTION unk138;                             // 138
+    void* unk00;                                         // 00 (2.5)
+    HashMap<CName, ScriptDefinition*> definitionsByName; // 08
+    HashMap<CName, ScriptFunction*> functionsByName;     // 38
+    HashMap<CName, ScriptType*> typesByName;             // 68
+    DynArray<ScriptFileInfo*> files;                     // 98
+    DynArray<ScriptFunction*> globals;                   // A8
+    DynArray<ScriptEnum*> enums;                         // B8
+    DynArray<ScriptBitfield*> bitfields;                 // C8
+    DynArray<ScriptClass*> classes;                      // D8
+    DynArray<ScriptType*> types;                         // E8
+    DynArray<CString> strings;                           // F8
 };
-RED4EXT_ASSERT_SIZE(ScriptBundle, 0x160);
+static_assert(offsetof(ScriptBundle, definitionsByName) == 0x08);
+static_assert(offsetof(ScriptBundle, classes) == 0xD8);
 }
