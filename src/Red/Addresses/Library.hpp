@@ -46,7 +46,7 @@ constexpr uint32_t InkLogicController_OnInitialize = 2671382832;
 constexpr uint32_t InkLogicController_OnUninitialize = 1159862457;
 constexpr uint32_t InkLogicController_OnArrangeChildrenComplete = 3589084925;
 
-constexpr uint32_t InkSpawner_FinishAsyncSpawn = 2698985195;
+constexpr uint32_t InkSpawner_FinishAsyncSpawn = 4097515464;
 
 constexpr uint32_t InkSystem_Instance = 2635337807;
 constexpr uint32_t InkSystem_ProcessCharacterEvent = 4284882427;
@@ -58,8 +58,8 @@ constexpr uint32_t InkWidget_ScriptReparent = 492509908;
 constexpr uint32_t InkWidget_ScriptAddChild = 3558023194;
 constexpr uint32_t InkWidget_TriggerEvent = 3357288308;
 
-constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromExternal = 1396063719;
-constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromLocal = 118698863;
+constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromExternal = 225197914;
+constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromLocal = 2342073570;
 constexpr uint32_t InkWidgetLibrary_SpawnFromExternal = 506278179;
 constexpr uint32_t InkWidgetLibrary_SpawnFromLocal = 1158555307;
 
@@ -117,8 +117,8 @@ constexpr uint32_t ResourcePath_Create = 3998356057;
 
 constexpr uint32_t ResourceSerializer_ExecutePostLoad = 1350901460;
 constexpr uint32_t ResourceSerializer_SchedulePostLoadJobs = 3599579551;
-constexpr uint32_t ResourceSerializer_ScheduleFinalizeJobs = 949631709;
-constexpr uint32_t ResourceSerializer_OnDependenciesReady = 1185093671;
+constexpr uint32_t ResourceSerializer_ScheduleFinalizeJobs = 4272634361;
+constexpr uint32_t ResourceSerializer_OnDependenciesReady = 3892979844;
 constexpr uint32_t ResourceSerializer_OnResourceReady = 1147149338;
 
 constexpr uint32_t RuntimeEntityRegistry_RegisterEntity = 2840271332; // world::RuntimeEntityRegistry::RegisterEntity
@@ -128,12 +128,12 @@ constexpr uint32_t RuntimeScene_AttachEntity = 3800374702;
 constexpr uint32_t RuntimeScene_DetachEntity = 1732384813;
 
 constexpr uint32_t RuntimeSystemEntity_AttachEntity = 1576214475;
-constexpr uint32_t RuntimeSystemEntity_DetachEntity = 1737563910;
+constexpr uint32_t RuntimeSystemEntity_DetachEntity = 2597397686;
 
 constexpr uint32_t RuntimeSystemWeather_GetEnvironmentDefinition = 1471948702;
 constexpr uint32_t RuntimeSystemWeather_GetWeatherState = 2679119876;
 constexpr uint32_t RuntimeSystemWeather_SetWeatherByName = 2334794340;
-constexpr uint32_t RuntimeSystemWeather_SetWeatherByIndex = 1821516328;
+constexpr uint32_t RuntimeSystemWeather_SetWeatherByIndex = 2987664085;
 
 constexpr uint32_t ScriptBundle_dtor = 3993832650;
 

@@ -72,7 +72,8 @@ uintptr_t App::WidgetSpawningService::OnSpawnExternal(Red::ink::WidgetLibraryRes
 
 bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
                                                    Red::InkSpawningInfo& aSpawningInfo,
-                                                   Red::CName aItemName)
+                                                   Red::CName aItemName,
+                                                   bool aFlag)
 {
     auto* itemNameStr = aItemName.ToString();
     auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -82,7 +83,7 @@ bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResour
         aItemName = Red::CName(itemNameStr, controllerSep - itemNameStr);
     }
 
-    return Raw::InkWidgetLibrary::AsyncSpawnFromLocal(aLibrary, aSpawningInfo, aItemName);
+    return Raw::InkWidgetLibrary::AsyncSpawnFromLocal(aLibrary, aSpawningInfo, aItemName, aFlag);
 }
 
 bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
