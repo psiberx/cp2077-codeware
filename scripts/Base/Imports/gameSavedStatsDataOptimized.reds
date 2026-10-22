@@ -1,6 +1,6 @@
 // CODE GENERATED. DO NOT EDIT.
 
-public native struct gameSavedStatsDataOptimized {
+public importonly struct gameSavedStatsDataOptimized {
   public native let statModifiers: array<ref<gameStatModifierData>>;
   public native let bufferSliceIndices: array<Uint16>;
   public native let inactiveStatsIndices: array<Uint16>;
