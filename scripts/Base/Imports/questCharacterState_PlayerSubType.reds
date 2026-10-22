@@ -5,8 +5,10 @@ public native class questCharacterState_PlayerSubType extends questICharacterCon
   public native let locomotionState: gamePSMLocomotionStates;
   public native let upperBodyComparisonType: questEComparisonTypeEquality;
   public native let upperBodyState: gamePSMUpperBodyStates;
-  public native let weaponComparisonType: questEComparisonTypeEquality;
-  public native let weaponState: gamePSMRangedWeaponStates;
+  public native let rightWeaponComparisonType: questEComparisonTypeEquality;
+  public native let rightWeaponState: gamePSMRangedWeaponStates;
+  public native let leftWeaponComparisonType: questEComparisonTypeEquality;
+  public native let leftWeaponState: gamePSMRangedWeaponStates;
   public native let timeDilationComparisonType: questEComparisonTypeEquality;
   public native let timeDilationState: gamePSMTimeDilation;
   public native let vehicleComparisonType: questEComparisonTypeEquality;
