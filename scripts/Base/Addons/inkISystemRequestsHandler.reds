@@ -22,6 +22,9 @@ public native let SaveTransferUpdate: inkSaveTransferRequestUpdate;
 public native let ServersSearchResult: inkSystemServerRequesResult;
 
 @addField(inkISystemRequestsHandler)
+public native let TelemetryDataRemovalCallback: inkTelemetryDataRemovalCallback;
+
+@addField(inkISystemRequestsHandler)
 public native let AdditionalContentPurchaseResult: inkAdditionalContentPurchaseCallback;
 
 @addField(inkISystemRequestsHandler)
@@ -65,3 +68,6 @@ public native let FavoritesLoadedReady: inkFavoriteLoadResult;
 
 @addField(inkISystemRequestsHandler)
 public native let DeleteSreenshotComplete: inkDeleteScreenshotResult;
+
+@addField(inkISystemRequestsHandler)
+public native let GogSignInCallback: inkGogSignInCallback;

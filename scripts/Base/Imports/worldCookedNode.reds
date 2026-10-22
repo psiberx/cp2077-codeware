@@ -1,3 +1,3 @@
-// Game 2.5 (REDmod metadata.json): native class worldCookedNode extends worldNode, no properties.
+// CODE GENERATED. DO NOT EDIT.
 
-public native class worldCookedNode extends worldNode {}
+public abstract native class worldCookedNode extends worldNode {}

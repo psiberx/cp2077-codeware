@@ -6,6 +6,7 @@ public native class worldVehicleForbiddenAreaNotifier extends worldITriggerAreaN
   public native let parkingSpots: array<NodeRef>;
   public native let innerAreaSpeedLimit: Float;
   public native let areaSpeedLimit: Float;
+  public native let speedLimitAppliedWhenEntityIsPassenger: Bool;
   public native let enableNullArea: Bool;
   public native let dismount: Bool;
   public native let enableSummoning: Bool;

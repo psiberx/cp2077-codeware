@@ -7,4 +7,5 @@ public native struct rendRenderTextureBlobHeader {
   public native let mipMapInfo: array<rendRenderTextureBlobMipMapInfo>;
   public native let histogramData: array<rendHistogramBias>;
   public native let flags: Uint32;
+  public native let formatOverride: GpuWrapApieTextureFormat;
 }

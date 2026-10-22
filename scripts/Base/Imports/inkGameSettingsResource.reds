@@ -11,6 +11,8 @@ public native class inkGameSettingsResource extends CResource {
   public native let permanentTextureAtlasesStadia: array<ResourceAsyncRef>;
   public native let permanentTextureAtlasesStadiaDurango: array<ResourceAsyncRef>;
   public native let permanentTextureAtlasesStadiaOrbis: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesSwitch: array<ResourceAsyncRef>;
+  public native let permanentTextureAtlasesSwitchTouch: array<ResourceAsyncRef>;
   public native let themes: array<inkStyleThemeDescriptor>;
   public native let layersResource: ResourceRef; // rRef<inkLayersResource>
   public native let iconReferenceFallbackTextureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
@@ -37,6 +39,7 @@ public native class inkGameSettingsResource extends CResource {
   public native let orbisIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
   public native let prosperoIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
   public native let nintendoSwitchIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
+  public native let nintendoSwitchTouchIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
   public native let stadiaIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
   public native let stadiaDurangoIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
   public native let stadiaOrbisIconsAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
