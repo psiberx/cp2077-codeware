@@ -27,8 +27,11 @@ struct RawInputData
     uint64_t unk28;      // 28
     uint64_t unk30;      // 30
     uint64_t unk38;      // 38
+    uint64_t unk40;      // 40 (game 2.5: entries are 0x48 bytes; the buffer's array is freed with element size
+                         // 0x48 at exe 0x5D5A17 and walked with stride 0x48 at 0x69C404; key/action/value unchanged,
+                         // the flag moved +0x18 -> +0x20 and the device +0x28 -> +0x30, so the unk names above shift)
 };
-RED4EXT_ASSERT_SIZE(RawInputData, 0x40);
+RED4EXT_ASSERT_SIZE(RawInputData, 0x48);
 
 struct RawInputBuffer
 {
