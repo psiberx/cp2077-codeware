@@ -48,76 +48,49 @@ Red::CName GetReturnTypeName(Red::CBaseFunction* aFunc)
 // redResourceReferenceScriptToken; the 2.5 bundle declares them in its `ResRef` struct). The script call
 // binds to the first function of that name, the vanilla one, and its ToString answers "" for paths the
 // game keeps no string for (every mesh path on a live V, 2.5 game lane G-NEW-game-5). Codeware's own
-// (ResourcePathRegistry) is kept, the vanilla ones are removed. A function is Codeware's when its native
-// handler (the global handler table, SDK CBaseFunction_Handlers, indexed by regIndex) lies in this module.
+// (ResourcePathRegistry) is kept, the vanilla ones are removed. The live 2.5 RTTI (funcs.jsonl:52256-52259)
+// lists the vanilla pair first (parameter `path`) and Codeware's expansion after it (parameter `arg`):
+// with two of a name, the last registered is Codeware's.
 void App::VanillaApiCompat::ApplyResRefNatives()
 {
     auto* type = Red::CRTTISystem::Get()->GetClass("redResourceReferenceScriptToken");
     if (!type)
+    {
+        LogWarning("[VanillaApiCompat] ResRef: redResourceReferenceScriptToken not registered.");
+        s_resRefApplied = true;
         return;
-
-    HMODULE self = nullptr;
-    if (!GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-                            reinterpret_cast<LPCWSTR>(&VanillaApiCompat::ApplyResRefNatives), &self))
-        return;
-
-    static RED4ext::UniversalRelocPtr<void*> handlers(RED4ext::Detail::AddressHashes::CBaseFunction_Handlers);
+    }
 
     constexpr Red::CName Names[] = {"ToString", "GetHash"};
-    uint32_t codewareCount = 0;
-    for (auto* func : type->staticFuncs)
-    {
-        if (func && func->flags.isNative)
-            for (auto name : Names)
-                if (func->shortName == name)
-                {
-                    HMODULE owner = nullptr;
-                    auto handler = handlers.GetAddr()[func->regIndex];
-                    if (handler &&
-                        GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
-                                               GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-                                           reinterpret_cast<LPCWSTR>(handler), &owner) &&
-                        owner == self)
-                        ++codewareCount;
-                }
-    }
-    if (codewareCount == 0)
-        return; // Codeware's expansion not registered yet: try again on the next Apply
-
-    s_resRefApplied = true;
     for (auto name : Names)
     {
-        std::vector<Red::CClassStaticFunction*> vanilla;
-        bool haveCodeware = false;
+        std::vector<Red::CClassStaticFunction*> found;
         for (auto* func : type->staticFuncs)
+            if (func && func->shortName == name)
+                found.push_back(func);
+
+        if (found.size() < 2)
         {
-            if (!func || func->shortName != name)
-                continue;
-            HMODULE owner = nullptr;
-            auto handler = func->flags.isNative ? handlers.GetAddr()[func->regIndex] : nullptr;
-            const bool mine = handler &&
-                              GetModuleHandleExW(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS |
-                                                     GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT,
-                                                 reinterpret_cast<LPCWSTR>(handler), &owner) &&
-                              owner == self;
-            if (mine)
-                haveCodeware = true;
-            else
-                vanilla.push_back(func);
-        }
-        if (!haveCodeware)
-        {
-            LogWarning("[VanillaApiCompat] ResRef.{}: Codeware's native not found, {} vanilla left.",
-                       name.ToString(), vanilla.size());
+            if (name == Names[0])
+                return; // Codeware's expansion not registered yet (or no vanilla one): next Apply decides
             continue;
         }
-        for (auto* func : vanilla)
-            type->staticFuncs.Remove(func);
-        LogInfo("[VanillaApiCompat] ResRef.{}: removed {} vanilla native(s), Codeware's kept.", name.ToString(),
-                vanilla.size());
+
+        auto paramName = [](Red::CClassStaticFunction* aFunc) {
+            return aFunc->params.Size() > 0 && aFunc->params[0] ? std::string(aFunc->params[0]->name.ToString()) : std::string("-");
+        };
+        auto* kept = found.back();
+        std::string removed;
+        for (size_t i = 0; i + 1 < found.size(); ++i)
+        {
+            removed += std::string(removed.empty() ? "" : ",") + paramName(found[i]);
+            type->staticFuncs.Remove(found[i]);
+        }
+        s_resRefApplied = true;
+        LogInfo("[VanillaApiCompat] ResRef.{}: removed {} earlier native(s) (param {}), kept the last (param {}).",
+                name.ToString(), found.size() - 1, removed, paramName(kept));
     }
 }
-
 bool App::VanillaApiCompat::IsSharedScriptName(Red::CName aName)
 {
     for (const auto& [codewareName, vanillaName] : SharedScriptNames)
