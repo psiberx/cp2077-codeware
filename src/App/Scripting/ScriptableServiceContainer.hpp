@@ -27,6 +27,9 @@ public:
     static Red::Handle<ScriptableServiceContainer>& Build(const std::filesystem::path& aStateDir);
     static Red::Handle<ScriptableServiceContainer>& Get();
 
+    // Game 2.5 declares GameInstance.GetScriptableServiceContainer(opt gi: GameInstance).
+    static constexpr bool GetterTakesGameInstance = true;
+
 private:
     void OnBeforeWorldDetach(Red::world::RuntimeScene* aScene) override;
     uint32_t OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2) override;

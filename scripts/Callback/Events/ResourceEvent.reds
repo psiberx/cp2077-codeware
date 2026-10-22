@@ -1,5 +1,3 @@
-public native class ResourceEvent extends CallbackSystemEvent {
-    public native func GetResource() -> ref<CResource>
-    public native func GetPath() -> ResRef
-    public native func GetJobGroup() -> JobGroup
-}
+// Game 2.5 declares ResourceEvent (resource, GetResource, GetPath).
+@addMethod(ResourceEvent)
+public native func GetJobGroup() -> JobGroup

@@ -34,11 +34,7 @@ public func OperatorAssignMultiply(out res: ResourceAsyncRef, path: ResRef) {
     ResourceAsyncRef.SetPath(res, path);
 }
 
-@addMethod(ResRef)
-public static native func GetHash(self: ResRef) -> Uint64
 
-@addMethod(ResRef)
-public static native func ToString(self: ResRef) -> String
 
 public func OperatorEqual(lhs: ResourceAsyncRef, rhs: ResRef) -> Bool {
     return Equals(ResourceAsyncRef.GetPath(lhs), rhs);

@@ -35,6 +35,15 @@ concept HasSystemGetter = requires(T*)
     { T::Get() } -> std::convertible_to<Handle<T>>;
 };
 
+// A system whose GameInstance getter is declared by the game's own scripts with one optional
+// GameInstance parameter (game 2.5: `GetCallbackSystem(opt gi: GameInstance)`), so the getter must
+// consume that parameter from the stack frame.
+template<typename T>
+concept HasGameInstanceGetterParam = requires(T*)
+{
+    { T::GetterTakesGameInstance } -> std::convertible_to<bool>;
+} && T::GetterTakesGameInstance;
+
 template<typename TSpec>
 concept HasMinValueGetter = requires
 {
@@ -939,6 +948,12 @@ struct SystemBuilder
     static inline void ScriptGetter(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
                                     Red::Handle<Red::IScriptable>* aRet, int64_t)
     {
+        if constexpr (Detail::HasGameInstanceGetterParam<TSystem>)
+        {
+            ScriptGameInstance gameInstance{};
+            Red::GetParameter(aFrame, &gameInstance);
+        }
+
         ++aFrame->code;
 
         if (aRet)
@@ -973,6 +988,11 @@ struct SystemBuilder
         auto gameType = GetClass<ScriptGameInstance>();
         auto getterFunc = CClassStaticFunction::Create(gameType, getterNameStr.data(), getterNameStr.data(), &ScriptGetter);
         getterFunc->SetReturnType(CNamePool::Add(systemRefStr.data()));
+
+        if constexpr (Detail::HasGameInstanceGetterParam<TSystem>)
+        {
+            getterFunc->AddParam(GetTypeName<ScriptGameInstance>(), "gi", false, true);
+        }
 
         gameType->staticFuncs.PushBack(getterFunc);
     }
