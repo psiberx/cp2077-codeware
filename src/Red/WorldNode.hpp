@@ -21,6 +21,9 @@ struct WorldNodeInstanceNodeState
 
 namespace Raw::WorldNodeInstance
 {
+// Game 2.5: worldMeshNodeInstance virtual 0x1A8 (0x28257E4) reads 0x30/0x50/0x60/0x70/0x88 like 2.31 (0x22759C4);
+// the 12 shared slots that touch these offsets match. Subclass fields: mesh 0x98 (0x2825802), bended 0xA0
+// (0x29745F2), decal 0xA0 (0x471874), foliage 0xB8 (0x62C56F), entity 0xA0 (0x29A610E), each in the same slot as 2.31.
 using Transform = Core::OffsetPtr<0x30, Red::Transform>;
 using Scale = Core::OffsetPtr<0x50, Red::Vector3>;
 using Node = Core::OffsetPtr<0x60, Red::Handle<Red::worldNode>>;

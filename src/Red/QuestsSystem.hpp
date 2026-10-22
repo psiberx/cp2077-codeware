@@ -87,6 +87,8 @@ struct QuestContext
     QuestNodeID nodeID;                       // 108
     QuestPhaseContext phaseContext;           // 110
 };
+// Game 2.5: the context constructor 0x2B3150 (called by QuestsSystem_CreateContext 0x2B30A0) initialises 0x10-0xE8,
+// `lea rsi,[rdi+0xf8]` (phaseStack), `lea rbx,[rdi+0x110]` (phaseContext) and writes [rbx+0x220] = context+0x330.
 RED4EXT_ASSERT_SIZE(QuestContext, 0x340);
 RED4EXT_ASSERT_OFFSET(QuestContext, phaseStack, 0xF8);
 
@@ -217,6 +219,8 @@ struct AreaTypeTransition
 
 namespace Raw::QuestsSystem
 {
+// Game 2.5: the 26 questQuestsSystem virtuals that touch 0x60/0x68/0x78/0xF8 do so exactly as on 2.31
+// (for example slot 0x120, 0x35EAEC).
 using Mutex = Core::OffsetPtr<0x60, Red::SharedSpinLock>;
 using RootPhase = Core::OffsetPtr<0x68, Red::Handle<Red::questPhaseInstance>>;
 using NodePathHashMap = Core::OffsetPtr<0x78, Red::HashMap<Red::QuestNodePathHash, Red::QuestNodePath>>;
@@ -247,6 +251,8 @@ constexpr auto CreateContext = Core::RawFunc<
 
 namespace Raw::QuestLoader
 {
+// Game 2.5: QuestLoader_PhasePreloadCheck 0xD6272C `mov rcx,[rcx+0x20]`; NodePathMap is only used by the disabled
+// OnPhasePreloadCheck hook and was not re-derived.
 using PreloadList = Core::OffsetPtr<0x20, Red::DynArray<Red::QuestNodePath>*>;
 using SortedPreloadList = Core::OffsetPtr<0x20, Red::SortedArray<Red::QuestNodePath>*>;
 using NodePathMap = Core::OffsetPtr<0x48, Red::HashMap<Red::ResourcePath, Red::QuestNodePath>>;
@@ -258,6 +264,9 @@ constexpr auto PhasePreloadCheck = Core::RawFunc<
 
 namespace Raw::QuestPhaseInstance
 {
+// Game 2.5: QuestPhaseInstance_Initialize 0x2B1F40 `lea rcx,[r15+0x30]`, `[r15+0x40]`, `lea rdi,[r15+0x70]`,
+// `lea r10,[r15+0x80]`; virtuals 0x50/0x100 read 0x88 and 0xBEA90C `lea rdx,[rcx+0x98]`; slot 0x120
+// (ExecutePath, 0xBEA4C4) touches 0x30/0x40/0x70 like 2.31; slots 0x18-0x150 match 2.31.
 using Resource = Core::OffsetPtr<0x30, Red::Handle<Red::questQuestPhaseResource>>;
 using Graph = Core::OffsetPtr<0x40, Red::Handle<Red::questGraphDefinition>>;
 using NodePath = Core::OffsetPtr<0x70, Red::QuestNodePath>;
@@ -302,10 +311,12 @@ constexpr auto ExecutePath = Core::RawVFunc<
 
 namespace Raw::QuestSocketDefinition
 {
+// Game 2.5: not re-derived; graphGraphSocketDefinition (88) and questSocketDefinition (96) kept their size and fields.
 using OwnerNode = Core::OffsetPtr<0x48, Red::WeakHandle<Red::questNodeDefinition>>;
 }
 
 namespace Raw::QuestConditionType
 {
+// Game 2.5: not re-derived; questIConditionType is still 56 bytes.
 using OwnerNodeID = Core::OffsetPtr<0x30, Red::QuestNodePathHash>;
 }

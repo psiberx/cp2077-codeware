@@ -7,6 +7,7 @@ using JournalEntryHash = uint32_t;
 
 namespace Raw::JournalManager
 {
+// Game 2.5: gameJournalManager slots 0x210/0x220/0x268/0x2B0/0x2C8 have the same code as on 2.31.
 constexpr auto GetEntries = Core::RawVFunc<
     /* addr = */ 0x210,
     /* type = */ void* (Red::gameIJournalManager::*)(const Red::gameJournalRequestContext& aRequest,

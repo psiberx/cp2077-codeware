@@ -10,6 +10,8 @@ struct ResourceSerializer
     uint8_t unk1D0[0x230 - 0x1D0];                 // 1D0
     DynArray<Handle<ISerializable>> serializables; // 230
 };
+// Game 2.5: ResourceSerializer_OnResourceReady 0x4B6C40 `lea rdi,[rcx+0x230]`, `lea r8,[rbx+0x1d0]`;
+// OnDependenciesReady 0x2062660 `[rbx+0x1d0]`, `[rbx+0x23c]`, `[rbx+0x230]`.
 RED4EXT_ASSERT_OFFSET(ResourceSerializer, unk1D0, 0x1D0);
 RED4EXT_ASSERT_OFFSET(ResourceSerializer, serializables, 0x230);
 

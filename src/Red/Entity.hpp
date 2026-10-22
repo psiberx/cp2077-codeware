@@ -38,6 +38,8 @@ struct EntityInitializeRequest
     uint32_t unkC8;                                               // C8
     uint16_t unkCC;                                               // CC
 };
+// Game 2.5: Entity_Initialize 0x71BEF0 reads entityParams `lea rdx,[r8+0x70]`, isDynamic [r8+0x38], entityID [r8+0x20],
+// 0x40/0x48, peer byte [r8+0xB0], word [r8+0xCC], populationParam [r14+0x90].
 RED4EXT_ASSERT_SIZE(EntityInitializeRequest, 0xD0);
 RED4EXT_ASSERT_OFFSET(EntityInitializeRequest, entityID, 0x20);
 RED4EXT_ASSERT_OFFSET(EntityInitializeRequest, entityParams, 0x70);
@@ -47,6 +49,10 @@ RED4EXT_ASSERT_OFFSET(EntityInitializeRequest, unkCC, 0xCC);
 
 namespace Raw::Entity
 {
+// Game 2.5 (exe 3.0.88.46235): Entity_Initialize 0x71BEF0 writes status [rcx+0x156] (0x71BF1C), entityID [rcx+0x48]
+// (0x71BF4B), scene [rcx+0xb8] (0x71BF5E), transform component [rdi+0xb0] (0x71BFE2), reads the template path
+// [rdi+0x60] (0x71BFFA) and fills the component storage `lea rcx,[rdi+0x70]` (0x71C2A1); Entity_Assemble writes
+// [rcx+0x50] (0x6CBC36). entEntity is still 352 bytes.
 using EntityID = Core::OffsetPtr<0x48, Red::EntityID>;
 using AppearanceName = Core::OffsetPtr<0x50, Red::CName>;
 using TemplatePath = Core::OffsetPtr<0x60, Red::ResourcePath>;
