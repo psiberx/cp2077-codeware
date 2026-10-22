@@ -34,4 +34,4 @@ private:
     inline static bool s_scriptNamesApplied = false;
     inline static bool s_gettersApplied = false;
 };
-}
+} // namespace App

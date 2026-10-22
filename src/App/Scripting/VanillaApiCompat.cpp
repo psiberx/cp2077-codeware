@@ -42,15 +42,15 @@ Red::CName GetReturnTypeName(Red::CBaseFunction* aFunc)
 
     return type->GetName();
 }
-}
+} // namespace
 
 // Game 2.5 also registers native ResRef.ToString / ResRef.GetHash (static functions of
 // redResourceReferenceScriptToken; the 2.5 bundle declares them in its `ResRef` struct). The script call
 // binds to the first function of that name, the vanilla one, and its ToString answers "" for paths the
-// game keeps no string for (every mesh path on a live V, 2.5 game lane G-NEW-game-5). Codeware's own
-// (ResourcePathRegistry) is kept, the vanilla ones are removed. The live 2.5 RTTI (funcs.jsonl:52256-52259)
-// lists the vanilla pair first (parameter `path`) and Codeware's expansion after it (parameter `arg`):
-// with two of a name, the last registered is Codeware's.
+// game keeps no string for (for example the mesh paths of the player's equipped items). Codeware's own
+// (ResourcePathRegistry) is kept, the vanilla ones are removed. The 2.5 RTTI lists the vanilla pair first
+// (parameter `path`) and Codeware's expansion after it (parameter `arg`): with two of a name, the last
+// registered is Codeware's.
 void App::VanillaApiCompat::ApplyResRefNatives()
 {
     auto* type = Red::CRTTISystem::Get()->GetClass("redResourceReferenceScriptToken");
@@ -77,7 +77,8 @@ void App::VanillaApiCompat::ApplyResRefNatives()
         }
 
         auto paramName = [](Red::CClassStaticFunction* aFunc) {
-            return aFunc->params.Size() > 0 && aFunc->params[0] ? std::string(aFunc->params[0]->name.ToString()) : std::string("-");
+            return aFunc->params.Size() > 0 && aFunc->params[0] ? std::string(aFunc->params[0]->name.ToString())
+                                                                : std::string("-");
         };
         auto* kept = found.back();
         std::string removed;

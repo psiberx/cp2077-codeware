@@ -18,11 +18,8 @@ constexpr auto AsyncSpawnFromExternal = Core::RawFunc<
 // 0x208F570 (stored with setne at 0x208F63D). The external thunk above passes false for it.
 constexpr auto AsyncSpawnFromLocal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_AsyncSpawnFromLocal,
-    /* type = */ bool (*)(
-        Red::ink::WidgetLibraryResource& aLibrary,
-        Red::InkSpawningInfo& aSpawningInfo,
-        Red::CName aItemName,
-        bool aFlag)>();
+    /* type = */ bool (*)(Red::ink::WidgetLibraryResource& aLibrary, Red::InkSpawningInfo& aSpawningInfo,
+                          Red::CName aItemName, bool aFlag)>();
 
 constexpr auto SpawnFromExternal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_SpawnFromExternal,

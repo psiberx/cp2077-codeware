@@ -42,8 +42,8 @@ struct ScriptDefinition
     virtual CName GetName() = 0;                    // 28
     virtual bool IsNative() = 0;                    // 30
 
-    CName name;        // 08
-    uint64_t unk10;    // 10
+    CName name;     // 08
+    uint64_t unk10; // 10
     // Game 2.5 (exe 3.0.88.46235): every script definition grew by 0x28 bytes after the name.
     // ScriptValidator::ValidateProperty (0x6BF654) reads ScriptProperty::type at +0xB8 (2.31: +0x90),
     // ScriptValidator::CompareType (0x10E5B7C) reads ScriptType::innerType +0x48 / metaType +0x54

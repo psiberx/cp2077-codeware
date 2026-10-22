@@ -57,8 +57,8 @@ constexpr auto DetachEntity = Core::RawFunc<
     // Game 2.5 (RVA 0x74A8B8): `mov rcx,[rcx+0x48]; jmp 0x74A8C4`. The callee takes a third argument,
     // a 16-bit detach reason mask (0x74A8EB movzx esi,r8w) OR'd into the entity's request word at +0x68.
     // 2.31's wrapper (0x8B5380) had the same shape; vanilla callers pass 1..0x2000. Attach clears the mask.
-    /* type = */ void (*)(Red::world::RuntimeSystemEntity* aSystem,
-                          const Red::Handle<Red::Entity>& aEntity, uint16_t aReason)>();
+    /* type = */ void (*)(Red::world::RuntimeSystemEntity* aSystem, const Red::Handle<Red::Entity>& aEntity,
+                          uint16_t aReason)>();
 }
 
 namespace Raw::RuntimeSystemWeather

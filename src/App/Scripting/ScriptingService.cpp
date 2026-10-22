@@ -1,7 +1,7 @@
 #include "ScriptingService.hpp"
-#include "App/Scripting/VanillaApiCompat.hpp"
 #include "App/Depot/ResourceReference.hpp"
 #include "App/Engine/CurveData.hpp"
+#include "App/Scripting/VanillaApiCompat.hpp"
 
 namespace
 {
