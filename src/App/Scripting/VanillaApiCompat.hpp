@@ -28,6 +28,9 @@ public:
     static bool IsSharedScriptName(Red::CName aName);
 
 private:
+    static void ApplyResRefNatives();
+
+    inline static bool s_resRefApplied = false;
     inline static bool s_scriptNamesApplied = false;
     inline static bool s_gettersApplied = false;
 };
