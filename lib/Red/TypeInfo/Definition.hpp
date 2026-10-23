@@ -1001,7 +1001,12 @@ struct SystemBuilder
     {
         auto engine = CGameEngine::Get();
 
-        if (!engine || !engine->framework)
+        // The engine drains the post-register queue from CRTTISystem::GetType on whatever thread calls it
+        // (game 2.5: vtable +0x00 -> 0x279E78 -> 0x27AAD8), so a deferred pass usually lands on a job thread.
+        // The game instance's system containers are plain HashMaps/DynArrays that the main thread writes while
+        // it builds the game instance, so they are only touched from the main thread: any other thread
+        // queues the pass again, and the main thread's next GetType runs it.
+        if (!engine || !engine->framework || !engine->framework->gameInstance || !TypeInfoRegistrar::IsMainThread())
         {
             TypeInfoRegistrar::AddDescribeCallback(&RegisterSystem);
             return;
