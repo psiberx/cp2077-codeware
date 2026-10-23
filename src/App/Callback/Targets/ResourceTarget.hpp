@@ -103,7 +103,7 @@ struct ResourceTarget : CallbackSystemTarget
 };
 }
 
-RTTI_DEFINE_CLASS(App::ResourceTarget, {
+RTTI_DEFINE_CLASS(App::ResourceTarget, "CodewareResourceTarget", {
     RTTI_PARENT(App::CallbackSystemTarget);
     RTTI_METHOD(Path);
     RTTI_METHOD(Type);

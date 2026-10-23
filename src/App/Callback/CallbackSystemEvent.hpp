@@ -26,7 +26,7 @@ struct CallbackSystemEvent : Red::IScriptable
 };
 }
 
-RTTI_DEFINE_CLASS(App::CallbackSystemEvent, {
+RTTI_DEFINE_CLASS(App::CallbackSystemEvent, "CodewareCallbackSystemEvent", {
     RTTI_ABSTRACT();
     RTTI_GETTER(eventName);
 });

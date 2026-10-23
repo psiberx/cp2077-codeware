@@ -228,7 +228,7 @@ private:
 RTTI_DEFINE_ENUM(App::CallbackRunMode);
 RTTI_DEFINE_ENUM(App::CallbackLifetime);
 
-RTTI_DEFINE_CLASS(App::CallbackSystemHandler, {
+RTTI_DEFINE_CLASS(App::CallbackSystemHandler, "CodewareCallbackSystemHandler", {
     RTTI_METHOD(AddTarget);
     RTTI_METHOD(RemoveTarget);
     RTTI_METHOD(SetRunMode);

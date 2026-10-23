@@ -42,8 +42,9 @@ struct ScriptDefinition
     virtual CName GetName() = 0;                    // 28
     virtual bool IsNative() = 0;                    // 30
 
-    CName name;     // 08
-    uint64_t unk10; // 10
+    CName name;        // 08
+    uint64_t unk10;    // 10
+    uint8_t unk18[0x28]; // 18 - Added in 2.5, shifts every derived field by 0x28
 };
 
 struct ScriptFileInfo : ScriptDefinition
@@ -165,7 +166,7 @@ struct ScriptFunction : ScriptDefinition
     ScriptFileInfo* sourceFile;          // C0
     uint32_t sourceLine;                 // C8
 };
-RED4EXT_ASSERT_SIZE(ScriptFunction, 0xD0);
+RED4EXT_ASSERT_SIZE(ScriptFunction, 0xF8);
 
 struct ScriptClass : ScriptDefinition
 {
@@ -178,15 +179,19 @@ struct ScriptClass : ScriptDefinition
         uint8_t isStruct : 1;     // 04
     };
 
-    CClass* rttiClass;                    // 18
-    ScriptClass* parent;                  // 20
-    DynArray<ScriptProperty*> properties; // 28
-    DynArray<ScriptProperty*> overrides;  // 38
-    DynArray<ScriptFunction*> functions;  // 48
-    HashMap<CName, CString> attributes;   // 58
-    EScriptVisibility visibility;         // 88
-    Flags flags;                          // 89
+    CClass* rttiClass;                    // 40
+    ScriptClass* parent;                  // 48
+    DynArray<ScriptProperty*> properties; // 50
+    DynArray<ScriptProperty*> overrides;  // 60
+    uint8_t unk70[0x20];                  // 70 - Added in 2.5
+    DynArray<ScriptFunction*> functions;  // 90
+    HashMap<CName, CString> attributes;   // A0
+    EScriptVisibility visibility;         // D0
+    Flags flags;                          // D1
 };
+RED4EXT_ASSERT_OFFSET(ScriptClass, parent, 0x48);
+RED4EXT_ASSERT_OFFSET(ScriptClass, functions, 0x90);
+RED4EXT_ASSERT_OFFSET(ScriptClass, flags, 0xD1);
 
 struct ScriptConstant : ScriptDefinition
 {
@@ -214,21 +219,23 @@ struct ScriptBitfield : ScriptDefinition
     EScriptVisibility visibility;        // 32
 };
 
+// Patch 2.5 inserted an 8-byte field at the start and added more fields after unk108,
+// only the leading part is described here (the bundle is never allocated by Codeware).
 struct ScriptBundle
 {
-    HashMap<CName, ScriptDefinition*> definitionsByName; // 00
-    HashMap<CName, ScriptFunction*> functionsByName;     // 30
-    HashMap<CName, ScriptType*> typesByName;             // 60
-    DynArray<ScriptFileInfo*> files;                     // 90
-    DynArray<ScriptFunction*> globals;                   // A0
-    DynArray<ScriptEnum*> enums;                         // B0
-    DynArray<ScriptBitfield*> bitfields;                 // C0
-    DynArray<ScriptClass*> classes;                      // D0
-    DynArray<ScriptType*> types;                         // E0
-    DynArray<CString> strings;                           // F0
-    HashMap<CName, void*> unk100;                        // 100
-    SharedSpinLock typesLock;                            // 130
-    CRITICAL_SECTION unk138;                             // 138
+    uint64_t unk00;                                      // 00
+    HashMap<CName, ScriptDefinition*> definitionsByName; // 08
+    HashMap<CName, ScriptFunction*> functionsByName;     // 38
+    HashMap<CName, ScriptType*> typesByName;             // 68
+    DynArray<ScriptFileInfo*> files;                     // 98
+    DynArray<ScriptFunction*> globals;                   // A8
+    DynArray<ScriptEnum*> enums;                         // B8
+    DynArray<ScriptBitfield*> bitfields;                 // C8
+    DynArray<ScriptClass*> classes;                      // D8
+    DynArray<ScriptType*> types;                         // E8
+    DynArray<CString> strings;                           // F8
+    HashMap<CName, void*> unk108;                        // 108
 };
-RED4EXT_ASSERT_SIZE(ScriptBundle, 0x160);
+RED4EXT_ASSERT_OFFSET(ScriptBundle, definitionsByName, 0x08);
+RED4EXT_ASSERT_OFFSET(ScriptBundle, classes, 0xD8);
 }

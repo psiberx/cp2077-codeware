@@ -245,3 +245,5 @@
 #include "Red/Utils.hpp"
 
 #include "Red/Addresses/Library.hpp"
+
+#include "Red/Compat25.hpp"

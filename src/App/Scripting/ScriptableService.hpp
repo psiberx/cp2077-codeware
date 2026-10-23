@@ -9,6 +9,6 @@ struct ScriptableService : Red::IScriptable
 };
 }
 
-RTTI_DEFINE_CLASS(App::ScriptableService, {
+RTTI_DEFINE_CLASS(App::ScriptableService, "CodewareScriptableService", {
     RTTI_ABSTRACT();
 });

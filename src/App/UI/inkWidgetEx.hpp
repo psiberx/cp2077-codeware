@@ -22,6 +22,8 @@ struct inkWidgetEx : Red::inkWidget
 };
 }
 
-RTTI_EXPAND_CLASS(Red::inkWidget, App::inkWidgetEx, {
-    RTTI_METHOD(AttachController);
-});
+// Patch 2.5 provides a native inkWidget.AttachController with different parameter names,
+// registering Codeware's version as well breaks script binding.
+// RTTI_EXPAND_CLASS(Red::inkWidget, App::inkWidgetEx, {
+//     RTTI_METHOD(AttachController);
+// });

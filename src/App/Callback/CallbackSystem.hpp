@@ -121,7 +121,7 @@ protected:
 };
 }
 
-RTTI_DEFINE_CLASS(App::CallbackSystem, {
+RTTI_DEFINE_CLASS(App::CallbackSystem, "CodewareCallbackSystem", {
     RTTI_METHOD(RegisterCallback);
     RTTI_METHOD(UnregisterCallback);
     RTTI_METHOD(RegisterStaticCallback);

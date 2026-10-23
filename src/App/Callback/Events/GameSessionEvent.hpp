@@ -23,7 +23,7 @@ struct GameSessionEvent : CallbackSystemEvent
 };
 }
 
-RTTI_DEFINE_CLASS(App::GameSessionEvent, {
+RTTI_DEFINE_CLASS(App::GameSessionEvent, "CodewareGameSessionEvent", {
     RTTI_PARENT(App::CallbackSystemEvent);
     RTTI_GETTER(restored);
     RTTI_GETTER(preGame);

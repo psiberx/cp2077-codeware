@@ -35,7 +35,7 @@ struct inkKeyInputEvent : Red::inkInputEvent
 };
 }
 
-RTTI_DEFINE_CLASS(App::inkKeyInputEvent, {
+RTTI_DEFINE_CLASS(App::inkKeyInputEvent, "CodewareInkKeyInputEvent", {
     RTTI_PARENT(Red::inkInputEvent);
     RTTI_GETTER(key);
     RTTI_GETTER(action);
