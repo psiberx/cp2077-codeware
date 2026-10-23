@@ -12,7 +12,7 @@
 
 module Codeware.UI
 
-public class ButtonHintsManager extends ScriptableService {
+public class ButtonHintsManager extends CodewareScriptableService {
     private let m_buttonHints: ref<inkWidget>;
     private let m_inputHint: wref<inkInputDisplayController>;
 
@@ -67,7 +67,7 @@ public class ButtonHintsManager extends ScriptableService {
     }
 
     public static func GetInstance() -> ref<ButtonHintsManager> {
-        return GameInstance.GetScriptableServiceContainer()
+        return GameInstance.GetCodewareScriptableServiceContainer()
             .GetService(n"Codeware.UI.ButtonHintsManager") as ButtonHintsManager;
     }
 

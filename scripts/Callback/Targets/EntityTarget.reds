@@ -1,4 +1,4 @@
-public native class EntityTarget extends CallbackSystemTarget {
+public native class EntityTarget extends CodewareCallbackSystemTarget {
     public static native func ID(entityID: EntityID) -> ref<EntityTarget>
     public static native func Type(entityType: CName) -> ref<EntityTarget>
     public static native func RecordID(recordID: TweakDBID) -> ref<EntityTarget>

@@ -23,5 +23,3 @@ public func AddEffect(effect: ref<inkIEffect>) {
     ArrayPush(this.effects, effect);
 }
 
-@addMethod(inkWidget)
-public native func AttachController(controller: ref<inkLogicController>, opt secondary: Bool);

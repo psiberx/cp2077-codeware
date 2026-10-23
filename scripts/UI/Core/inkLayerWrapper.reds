@@ -1,4 +1,4 @@
-public native class inkLayerWrapper {
+public native class CodewareInkLayerWrapper {
     public native func GetLayerName() -> CName
     public native func GetVirtualWindow() -> wref<inkVirtualWindow>
     public native func GetGameController() -> wref<inkIGameController>

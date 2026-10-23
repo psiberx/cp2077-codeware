@@ -1,1 +1,1 @@
-public abstract native class CallbackSystemTarget {}
+public abstract native class CodewareCallbackSystemTarget {}
