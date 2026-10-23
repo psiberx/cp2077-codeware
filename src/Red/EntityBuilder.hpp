@@ -55,6 +55,9 @@ struct EntityBuilder
     uint64_t unk108;                                   // 108
     Flags flags;                                       // 110
 };
+// Game 2.5: EntityBuilder_ExtractComponentsJob 0x32236C reads the template [rdx+0x90], appearances [rdx+0x80] (0x30
+// stride: +0x10/+0x20), components [rax+0xC0]/size [rax+0xCC], flags `test byte [rax+0x110],0x10`, request [rax+0xA0]
+// and the request's byte 0xCE and instance data [rsi+0xD8].
 RED4EXT_ASSERT_SIZE(EntityBuilder, 0x118);
 RED4EXT_ASSERT_OFFSET(EntityBuilder, appearance, 0x20);
 RED4EXT_ASSERT_OFFSET(EntityBuilder, appearances, 0x80);

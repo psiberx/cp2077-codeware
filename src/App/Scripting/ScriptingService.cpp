@@ -1,6 +1,7 @@
 #include "ScriptingService.hpp"
 #include "App/Depot/ResourceReference.hpp"
 #include "App/Engine/CurveData.hpp"
+#include "App/Scripting/VanillaApiCompat.hpp"
 
 namespace
 {
@@ -25,11 +26,19 @@ constexpr auto gameuiBaseUIDataTypeName = Red::CName("gameuiBaseUIData");
 constexpr auto scnChatterTypeName = Red::CName("scnChatter");
 constexpr auto audioEventElementTypeName = Red::CName("audioAudioEventMetadataArrayElement");
 constexpr auto entLODDefinitionTypeName = Red::CName("entLODDefinition");
+
+constexpr auto GameCallbackRunModeName = Red::CName("gameCallbackRunMode");
+constexpr auto GameCallbackLifetimeName = Red::CName("gameCallbackLifetime");
+constexpr auto CallbackRunModeName = Red::CName("CallbackRunMode");
+constexpr auto CallbackLifetimeName = Red::CName("CallbackLifetime");
 }
 
 App::ScriptingService::ScriptingService(const std::filesystem::path& aStateDir)
 {
     s_stateDir = aStateDir;
+
+    // Queued after every RTTI_DEFINE_CLASS registrar (static init), so Codeware's system getters exist.
+    Red::TypeInfoRegistrar::AddDescribeCallback(&VanillaApiCompat::Apply);
 
     std::error_code error;
     if (!std::filesystem::exists(s_stateDir, error))
@@ -75,6 +84,8 @@ void App::ScriptingService::OnInitializeGameInstance()
 
 void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundle* aBundle, void* aReport)
 {
+    VanillaApiCompat::Apply();
+
     Red::GetClass<gameuiBaseUIDataTypeName>()->parent = Red::GetClass<ISerializableTypeName>();
     Red::GetClass<scnChatterTypeName>()->parent = Red::GetClass<ISerializableTypeName>();
 
@@ -82,6 +93,17 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
     {
         if (classDef->flags.isNative)
         {
+            // Game 2.5: the vanilla bundle declares ScriptableService / CallbackSystemEvent without
+            // `abstract`, but their script names now resolve to Codeware's abstract types
+            // (VanillaApiCompat), so the validator refuses "Native class '...' was not marked as abstract".
+            if (VanillaApiCompat::IsSharedScriptName(classDef->name))
+            {
+                if (auto nativeClass = Red::GetScriptClass(classDef->name))
+                {
+                    classDef->flags.isAbstract = nativeClass->flags.isAbstract;
+                }
+            }
+
             if (classDef->name == ISerializableTypeName)
             {
                 classDef->flags.isStruct = true;
@@ -192,6 +214,15 @@ void App::ScriptingService::OnValidateTypeName(bool& aValid, Red::CName aScriptT
 {
     if (!aValid)
     {
+        // Game 2.5 declares CallbackSystemHandler.SetRunMode/SetLifetime with its own enums
+        // (gameCallbackRunMode/gameCallbackLifetime, same members and values as Codeware's).
+        if ((aScriptTypeName == GameCallbackRunModeName && aNativeTypeName == CallbackRunModeName) ||
+            (aScriptTypeName == GameCallbackLifetimeName && aNativeTypeName == CallbackLifetimeName))
+        {
+            aValid = true;
+            return;
+        }
+
         if (aScriptTypeName == ResourceWrapperName)
         {
             aValid = strncmp(ResourceReferencePrefix.data(), aNativeTypeName.ToString(),

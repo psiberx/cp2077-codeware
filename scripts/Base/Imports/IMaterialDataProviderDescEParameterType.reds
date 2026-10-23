@@ -19,5 +19,7 @@ public enum IMaterialDataProviderDescEParameterType {
   PT_TerrainSetup = 15,
   PT_Gradient = 16,
   PT_DynamicTexture = 17,
-  PT_MAX = 18,
+  PT_MultilayerSetupOverride = 18,
+  PT_MultilayerMaskOverride = 19,
+  PT_MAX = 20,
 }

@@ -35,6 +35,10 @@ public enum ESystemNotificationTypes {
   TrialPeriodTimer = 31,
   FailedToRemoveTransferredSave = 32,
   LoadModdedSaveFile = 33,
-  MAX = 34,
+  LoadModdedSaveFileOnUnsupportPlatform = 34,
+  LoadModdedSaveFilePC = 35,
+  ModLoadingPopup = 36,
+  DeprecatedModPopup = 37,
+  MAX = 38,
   FirstModalHighPriority = 28,
 }

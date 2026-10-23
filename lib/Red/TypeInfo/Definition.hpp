@@ -35,6 +35,15 @@ concept HasSystemGetter = requires(T*)
     { T::Get() } -> std::convertible_to<Handle<T>>;
 };
 
+// A system whose GameInstance getter is declared by the game's own scripts with one optional
+// GameInstance parameter (game 2.5: `GetCallbackSystem(opt gi: GameInstance)`), so the getter must
+// consume that parameter from the stack frame.
+template<typename T>
+concept HasGameInstanceGetterParam = requires(T*)
+{
+    { T::GetterTakesGameInstance } -> std::convertible_to<bool>;
+} && T::GetterTakesGameInstance;
+
 template<typename TSpec>
 concept HasMinValueGetter = requires
 {
@@ -939,6 +948,12 @@ struct SystemBuilder
     static inline void ScriptGetter(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
                                     Red::Handle<Red::IScriptable>* aRet, int64_t)
     {
+        if constexpr (Detail::HasGameInstanceGetterParam<TSystem>)
+        {
+            ScriptGameInstance gameInstance{};
+            Red::GetParameter(aFrame, &gameInstance);
+        }
+
         ++aFrame->code;
 
         if (aRet)
@@ -974,6 +989,11 @@ struct SystemBuilder
         auto getterFunc = CClassStaticFunction::Create(gameType, getterNameStr.data(), getterNameStr.data(), &ScriptGetter);
         getterFunc->SetReturnType(CNamePool::Add(systemRefStr.data()));
 
+        if constexpr (Detail::HasGameInstanceGetterParam<TSystem>)
+        {
+            getterFunc->AddParam(GetTypeName<ScriptGameInstance>(), "gi", false, true);
+        }
+
         gameType->staticFuncs.PushBack(getterFunc);
     }
 
@@ -981,7 +1001,12 @@ struct SystemBuilder
     {
         auto engine = CGameEngine::Get();
 
-        if (!engine || !engine->framework)
+        // The engine drains the post-register queue from CRTTISystem::GetType on whatever thread calls it
+        // (game 2.5: vtable +0x00 -> 0x279E78 -> 0x27AAD8), so a deferred pass usually lands on a job thread.
+        // The game instance's system containers are plain HashMaps/DynArrays that the main thread writes while
+        // it builds the game instance, so they are only touched from the main thread: any other thread
+        // queues the pass again, and the main thread's next GetType runs it.
+        if (!engine || !engine->framework || !engine->framework->gameInstance || !TypeInfoRegistrar::IsMainThread())
         {
             TypeInfoRegistrar::AddDescribeCallback(&RegisterSystem);
             return;

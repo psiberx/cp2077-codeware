@@ -1,8 +1,0 @@
-// CODE GENERATED. DO NOT EDIT.
-
-public enum EInputAction {
-  IACT_None = 0,
-  IACT_Press = 1,
-  IACT_Release = 2,
-  IACT_Axis = 3,
-}

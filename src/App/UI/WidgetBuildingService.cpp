@@ -67,32 +67,6 @@ bool App::WidgetBuildingService::AttachWidgetTree(const Red::Handle<Red::inkWidg
     return true;
 }
 
-bool App::WidgetBuildingService::AttachController(const Red::Handle<Red::inkWidget>& aWidget,
-                                                  const Red::Handle<Red::inkLogicController>& aController)
-{
-    if (aController->layerProxy.instance)
-        return true;
-
-    aController->widget = aWidget;
-    aController->layerProxy = aWidget->layerProxy;
-
-    auto& layerProxy = aWidget->layerProxy;
-
-    if (!layerProxy)
-        return false;
-
-    auto layer = layerProxy->layer.Lock();
-
-    if (!layer)
-        return false;
-
-    Raw::inkLayer::RegisterListener(layer, aController);
-
-    aController->OnInitialize();
-
-    return true;
-}
-
 bool App::WidgetBuildingService::IsLegacyController(Red::inkLogicController* aController)
 {
     return aController->nativeType

@@ -26,6 +26,8 @@ struct EntitySpawnerToken
     bool failed;           // 21
     bool aborted;          // 22
 };
+// Game 2.5: the token factory 0x5C178C allocates `mov ecx,0x28`; the dtor reads [rcx+0x10] (0xD93B75); 0x5C180E reads
+// the failed flag `[r8+0x21]`.
 RED4EXT_ASSERT_SIZE(EntitySpawnerToken, 0x28);
 RED4EXT_ASSERT_OFFSET(EntitySpawnerToken, entity, 0x10);
 RED4EXT_ASSERT_OFFSET(EntitySpawnerToken, failed, 0x21);
@@ -46,6 +48,9 @@ struct EntitySpawnerRequest
     uint8_t priority{1};            // E1
     uint8_t unkE2;                  // E2
 };
+// Game 2.5: EntitySpawner_SpawnEntity 0x5C140C reads the callback `lea rdx,[rsi+0x48]` and priority [rsi+0xE1]; the
+// token factory 0x5C1508 reads transform 0x10-0x2F, entityID 0x30, appearance 0x38, detached 0x78, 0x79-0x7B,
+// 0x80-0xA0, 0xE0-0xE2 and word 0xE4 (all below 0xF0).
 RED4EXT_ASSERT_SIZE(EntitySpawnerRequest, 0xF0);
 RED4EXT_ASSERT_OFFSET(EntitySpawnerRequest, transform, 0x10);
 RED4EXT_ASSERT_OFFSET(EntitySpawnerRequest, entityID, 0x30);

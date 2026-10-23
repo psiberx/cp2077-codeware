@@ -20,6 +20,8 @@ constexpr auto AttachWidgetTree = Core::RawFunc<
 
 namespace Raw::inkWidget
 {
+// Game 2.5 (exe 3.0.88.46235): inkWidget grew to 528 bytes but this is unchanged: inkWidget virtual 0x190
+// (0x830D4C) does `lea rbx,[rcx+0x50]` (0x830D70) and passes it to InkWidget_TriggerEvent (0x830D96).
 using EventManager = Core::OffsetPtr<0x50, Red::EventManager>;
 
 constexpr auto GetLayer = Core::RawFunc<

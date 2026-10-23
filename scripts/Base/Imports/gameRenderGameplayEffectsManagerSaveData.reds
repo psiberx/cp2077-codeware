@@ -4,4 +4,5 @@ public native class gameRenderGameplayEffectsManagerSaveData extends ISerializab
   public native let cyberspacePixelsortParams: gameCyberspacePixelsortEffectParams;
   public native let cyberspacePixelsortEnabled: Bool;
   public native let enforceScreenSpaceReflectionsUberQuality: Bool;
+  public native let increaseLocalShadowmapUpdates: Bool;
 }

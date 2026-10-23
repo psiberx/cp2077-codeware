@@ -19,7 +19,7 @@ struct WorldNodeSetupWrapper : Red::IScriptable
 
     [[nodiscard]] uint16_t GetNodeIndex() const
     {
-        return setup->nodeIndex;
+        return static_cast<uint16_t>(setup->nodeIndex);
     }
 
     [[nodiscard]] Red::Handle<Red::worldNode> GetNode() const

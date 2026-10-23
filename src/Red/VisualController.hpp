@@ -26,6 +26,8 @@ struct VisualController
     volatile int32_t status;                                // 78
     SharedSpinLock lock;                                    // 7C
 };
+// Game 2.5: VisualController_LoadDependencies 0x6284A4: lock `lea rdx,[r13+0x7c]`, dependencies [r13+0x10]/size
+// [r13+0x1c], dependency mesh `lea rcx,[rdi+0x20]`.
 RED4EXT_ASSERT_SIZE(VisualController, 0x80);
 RED4EXT_ASSERT_OFFSET(VisualController, dependencies, 0x10);
 RED4EXT_ASSERT_OFFSET(VisualController, lock, 0x7C);
@@ -40,5 +42,6 @@ constexpr auto LoadDependencies = Core::RawFunc<
 
 namespace Raw::VisualControllerComponent
 {
+// Game 2.5: entVisualControllerComponent virtual 0x190 (0xEEBA4C) `lea rdx,[rcx+0xd8]`, same slots as 2.31.
 using Controller = Core::OffsetPtr<0xD8, Red::SharedPtr<Red::VisualController>>;
 }

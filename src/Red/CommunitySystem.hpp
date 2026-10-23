@@ -86,6 +86,8 @@ RED4EXT_ASSERT_OFFSET(Spawner, reservedEntityIDs, 0x98);
 
 namespace Raw::CommunitySystem
 {
+// Game 2.5: gameCommunitySystem slots 0x1B0-0x1E8 and 0x258-0x268 are the 2.31 functions (same code or the same
+// code with other registers; 0x220/0x228 fold into 0x1C2498). The Community/Spawner structs were not re-derived.
 constexpr auto ActivateCommunity = Core::RawVFunc<
     /* addr = */ 0x1B0,
     /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName)>();

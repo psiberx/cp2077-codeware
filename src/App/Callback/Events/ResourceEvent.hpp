@@ -46,4 +46,5 @@ RTTI_DEFINE_CLASS(App::ResourceEvent, {
     RTTI_METHOD(GetPath);
     RTTI_METHOD(GetJobGroup);
     RTTI_GETTER(resource);
+    RTTI_PROPERTY(resource); // game 2.5 declares `native let resource: CResource`
 });
