@@ -18,7 +18,6 @@ public native class worldInstancedDestructibleMeshNode extends worldMeshNode {
   public native let fracturingEffect: ResourceAsyncRef; // raRef<worldEffect>
   public native let idleEffect: ResourceAsyncRef; // raRef<worldEffect>
   public native let instanceTransforms: array<Transform>;
-  public native let cookedInstanceTransforms: worldTransformBuffer;
   public native let isPierceable: Bool;
   public native let isWorkspot: Bool;
   public native let navigationSetting: NavGenNavigationSetting;

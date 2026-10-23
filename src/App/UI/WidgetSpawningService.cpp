@@ -72,7 +72,8 @@ uintptr_t App::WidgetSpawningService::OnSpawnExternal(Red::ink::WidgetLibraryRes
 
 bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
                                                    Red::InkSpawningInfo& aSpawningInfo,
-                                                   Red::CName aItemName)
+                                                   Red::CName aItemName,
+                                                   bool a4)
 {
     auto* itemNameStr = aItemName.ToString();
     auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -82,17 +83,18 @@ bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResour
         aItemName = Red::CName(itemNameStr, controllerSep - itemNameStr);
     }
 
-    return Raw::InkWidgetLibrary::AsyncSpawnFromLocal(aLibrary, aSpawningInfo, aItemName);
+    return Raw::InkWidgetLibrary::AsyncSpawnFromLocal(aLibrary, aSpawningInfo, aItemName, a4);
 }
 
 bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
                                                       Red::InkSpawningInfo& aSpawningInfo,
                                                       Red::ResourcePath aExternalPath,
-                                                      Red::CName aItemName)
+                                                      Red::CName aItemName,
+                                                      bool a5)
 {
     InjectDependency(aLibrary, aExternalPath);
 
-    return Raw::InkWidgetLibrary::AsyncSpawnFromExternal(aLibrary, aSpawningInfo, aExternalPath, aItemName);
+    return Raw::InkWidgetLibrary::AsyncSpawnFromExternal(aLibrary, aSpawningInfo, aExternalPath, aItemName, a5);
 }
 
 void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,

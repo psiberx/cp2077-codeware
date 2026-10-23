@@ -1,3 +1,3 @@
-public abstract native class CallbackSystemEvent {
+public abstract native class CodewareCallbackSystemEvent {
     public native func GetEventName() -> CName
 }

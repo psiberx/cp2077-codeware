@@ -15,6 +15,6 @@ struct CallbackSystemTarget : Red::IScriptable
 };
 }
 
-RTTI_DEFINE_CLASS(App::CallbackSystemTarget, {
+RTTI_DEFINE_CLASS(App::CallbackSystemTarget, "CodewareCallbackSystemTarget", {
     RTTI_ABSTRACT();
 });

@@ -10,14 +10,16 @@ constexpr auto AsyncSpawnFromExternal = Core::RawFunc<
         Red::ink::WidgetLibraryResource& aLibrary,
         Red::InkSpawningInfo& aSpawningInfo,
         Red::ResourcePath aExternalPath,
-        Red::CName aItemName)>();
+        Red::CName aItemName,
+        bool a5)>();
 
 constexpr auto AsyncSpawnFromLocal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_AsyncSpawnFromLocal,
     /* type = */ bool (*)(
         Red::ink::WidgetLibraryResource& aLibrary,
         Red::InkSpawningInfo& aSpawningInfo,
-        Red::CName aItemName)>();
+        Red::CName aItemName,
+        bool a4)>();
 
 constexpr auto SpawnFromExternal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_SpawnFromExternal,

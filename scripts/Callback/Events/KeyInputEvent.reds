@@ -1,4 +1,4 @@
-public native class KeyInputEvent extends CallbackSystemEvent {
+public native class CodewareKeyInputEvent extends CodewareCallbackSystemEvent {
     public native func GetAction() -> EInputAction
     public native func GetKey() -> EInputKey
     public native func IsShiftDown() -> Bool

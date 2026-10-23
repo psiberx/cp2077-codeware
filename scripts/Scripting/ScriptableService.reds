@@ -1,4 +1,4 @@
-public abstract native class ScriptableService {
+public abstract native class CodewareScriptableService {
     // private cb func OnLoad()
     // private cb func OnReload()
     // private cb func OnInitialize()
@@ -6,7 +6,7 @@ public abstract native class ScriptableService {
 }
 
 // DEPRECATED
-public abstract class ScriptableEnv extends ScriptableService {
-    public static final func Get(name: CName) -> ref<ScriptableService>
-        = GameInstance.GetScriptableServiceContainer().GetService(name)
+public abstract class CodewareScriptableEnv extends CodewareScriptableService {
+    public static final func Get(name: CName) -> ref<CodewareScriptableService>
+        = GameInstance.GetCodewareScriptableServiceContainer().GetService(name)
 }

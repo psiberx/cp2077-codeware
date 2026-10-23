@@ -14,7 +14,7 @@
 
 module Codeware.UI
 
-public class CustomPopupManager extends ScriptableService {
+public class CustomPopupManager extends CodewareScriptableService {
     private let m_gameController: wref<inkGameController>;
     private let m_notificationsContainer: wref<inkCompoundWidget>;
     private let m_bracketsContainer: wref<inkCompoundWidget>;
@@ -130,7 +130,7 @@ public class CustomPopupManager extends ScriptableService {
     }
 
     public static func GetInstance() -> ref<CustomPopupManager> {
-        return GameInstance.GetScriptableServiceContainer()
+        return GameInstance.GetCodewareScriptableServiceContainer()
             .GetService(n"Codeware.UI.CustomPopupManager") as CustomPopupManager;
     }
 }

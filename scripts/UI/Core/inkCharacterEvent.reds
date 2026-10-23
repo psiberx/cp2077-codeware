@@ -3,7 +3,7 @@
 // -----------------------------------------------------------------------------
 
 @addMethod(inkCharacterEvent)
-public native func GetType() -> inkCharacterEventType
+public native const func GetType() -> inkCharacterEventType
 
 @addMethod(inkCharacterEvent)
-public native func GetAction() -> EInputAction
+public native const func GetAction() -> EInputAction

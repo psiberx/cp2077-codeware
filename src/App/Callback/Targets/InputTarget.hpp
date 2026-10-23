@@ -61,7 +61,7 @@ struct InputTarget : CallbackSystemTarget
 };
 }
 
-RTTI_DEFINE_CLASS(App::InputTarget, {
+RTTI_DEFINE_CLASS(App::InputTarget, "CodewareInputTarget", {
     RTTI_PARENT(App::CallbackSystemTarget);
     RTTI_METHOD(Key);
     RTTI_METHOD(Axis);

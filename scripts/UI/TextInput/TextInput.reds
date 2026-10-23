@@ -26,7 +26,7 @@ public class TextInput extends inkCustomController {
     protected let m_isHovered: Bool;
     protected let m_isFocused: Bool;
 
-    protected let m_lastInputEvent: ref<inkKeyInputEvent>;
+    protected let m_lastInputEvent: ref<CodewareInkKeyInputEvent>;
     protected let m_isHoldComplete: Bool;
     protected let m_holdTickCounter: Int32;
     protected let m_holdTickProxy: ref<inkAnimProxy>;
@@ -170,7 +170,7 @@ public class TextInput extends inkCustomController {
         this.m_holdTickProxy.RegisterToCallback(inkanimEventType.OnStartLoop, this, n"OnHoldTick");
     }
 
-    protected func ProcessInputEvent(event: ref<inkKeyInputEvent>) {
+    protected func ProcessInputEvent(event: ref<CodewareInkKeyInputEvent>) {
         if !event.IsControlDown() && !event.IsAltDown() && event.IsCharacter() {
             if this.m_text.IsFull() {
                 return;
@@ -433,7 +433,7 @@ public class TextInput extends inkCustomController {
         this.CallCustomCallback(n"OnInput");
     }
 
-    protected cb func OnInputKey(event: ref<inkKeyInputEvent>) {
+    protected cb func OnInputKey(event: ref<CodewareInkKeyInputEvent>) {
         switch event.GetAction() {
             case EInputAction.IACT_Press:
                 this.ProcessInputEvent(event);

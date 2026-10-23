@@ -55,7 +55,7 @@ struct KeyInputEvent : CallbackSystemEvent
 };
 }
 
-RTTI_DEFINE_CLASS(App::KeyInputEvent, {
+RTTI_DEFINE_CLASS(App::KeyInputEvent, "CodewareKeyInputEvent", {
     RTTI_PARENT(App::CallbackSystemEvent);
     RTTI_METHOD(IsShiftDown);
     RTTI_METHOD(IsControlDown);

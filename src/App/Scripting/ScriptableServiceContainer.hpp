@@ -50,6 +50,6 @@ RTTI_DEFINE_CLASS(App::ScriptableServiceContainerState, {
     RTTI_PERSISTENT(services);
 });
 
-RTTI_DEFINE_CLASS(App::ScriptableServiceContainer, {
+RTTI_DEFINE_CLASS(App::ScriptableServiceContainer, "CodewareScriptableServiceContainer", {
     RTTI_METHOD(GetService);
 });

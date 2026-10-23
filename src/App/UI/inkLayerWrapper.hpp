@@ -69,7 +69,7 @@ struct inkLayerWrapper : Red::IScriptable
 };
 }
 
-RTTI_DEFINE_CLASS(App::inkLayerWrapper, {
+RTTI_DEFINE_CLASS(App::inkLayerWrapper, "CodewareInkLayerWrapper", {
     RTTI_METHOD(GetLayerName);
     RTTI_METHOD(GetVirtualWindow);
     RTTI_METHOD(GetGameController);

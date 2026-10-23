@@ -41,7 +41,7 @@ struct ResourceEvent : CallbackSystemEvent
 };
 }
 
-RTTI_DEFINE_CLASS(App::ResourceEvent, {
+RTTI_DEFINE_CLASS(App::ResourceEvent, "CodewareResourceEvent", {
     RTTI_PARENT(App::CallbackSystemEvent);
     RTTI_METHOD(GetPath);
     RTTI_METHOD(GetJobGroup);

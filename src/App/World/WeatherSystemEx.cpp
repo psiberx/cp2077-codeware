@@ -26,7 +26,7 @@ bool App::WeatherSystemEx::ResetWeather(Red::Optional<bool> aForceRestore, Red::
 
     if (aForceRestore)
     {
-        if (!Raw::RuntimeSystemWeather::SetWeatherByIndex(system, 0, "", aBlendTime, 0.0, 0))
+        if (!Raw::RuntimeSystemWeather::SetWeatherByIndex(system, 0, "", aBlendTime, 0.0, 0, true))
             return false;
     }
 

@@ -1,3 +1,3 @@
-public native class EntityLifecycleEvent extends CallbackSystemEvent {
+public native class EntityLifecycleEvent extends CodewareCallbackSystemEvent {
     public native func GetEntity() -> wref<Entity>
 }

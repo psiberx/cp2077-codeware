@@ -235,7 +235,7 @@ bool App::StaticEntitySystem::DetachEntity(Red::EntityID aEntityID)
     if (status == Red::EntityStatus::Detached || status == Red::EntityStatus::Detaching)
         return false;
 
-    Raw::RuntimeSystemEntity::DetachEntity(m_entityRuntimeSystem, entity);
+    Raw::RuntimeSystemEntity::DetachEntity(m_entityRuntimeSystem, entity, 0);
 
     return true;
 }
