@@ -128,6 +128,7 @@ constexpr uint32_t RuntimeScene_AttachEntity = 3800374702;
 constexpr uint32_t RuntimeScene_DetachEntity = 1732384813;
 
 constexpr uint32_t RuntimeSystemEntity_AttachEntity = 1576214475;
+constexpr uint32_t RuntimeSystemEntity_DetachEntity = 2597397686;
 
 constexpr uint32_t RuntimeSystemWeather_GetEnvironmentDefinition = 1471948702;
 constexpr uint32_t RuntimeSystemWeather_GetWeatherState = 2679119876;

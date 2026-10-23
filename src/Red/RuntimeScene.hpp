@@ -48,18 +48,11 @@ constexpr auto AttachEntity = Core::RawFunc<
     /* type = */ void (*)(Red::world::RuntimeSystemEntity* aSystem,
                           const Red::RuntimeSystemEntityAttachRequest& aRequest)>();
 
-using Scene = Core::OffsetPtr<0x48, void*>;
-
-constexpr auto DetachEntityFromScene = Core::RawFunc<
-    /* addr = */ Red::AddressLib::RuntimeScene_DetachEntity,
-    /* type = */ void (*)(void* aScene, const Red::Handle<Red::Entity>& aEntity)>();
-
-// The game no longer has a separate RuntimeSystemEntity::DetachEntity since 2.5,
-// the callers forward to the scene directly.
-inline void DetachEntity(Red::world::RuntimeSystemEntity* aSystem, const Red::Handle<Red::Entity>& aEntity)
-{
-    DetachEntityFromScene(Scene::Ref(aSystem), aEntity);
-}
+constexpr auto DetachEntity = Core::RawFunc<
+    /* addr = */ Red::AddressLib::RuntimeSystemEntity_DetachEntity,
+    /* type = */ void (*)(Red::world::RuntimeSystemEntity* aSystem,
+                          const Red::Handle<Red::Entity>& aEntity,
+                          uint16_t aReason)>(); // 2.5: detach reason mask, OR'd into the entity's request word
 }
 
 namespace Raw::RuntimeSystemWeather
