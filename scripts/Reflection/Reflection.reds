@@ -21,5 +21,7 @@ public native struct Reflection {
                 return func.Call(self, args);
             }
         }
+        let result: Variant;
+        return result;
     }
 }
