@@ -34,7 +34,7 @@ uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::ink::WidgetLibraryResour
 {
     auto result = Raw::InkWidgetLibrary::SpawnFromLocal(aLibrary, aInstance, aItemName);
 
-    if (!aInstance)
+    if (!aInstance && !Raw::InkSpawner::ControllerInjectionEnabled::Ref())
     {
         auto* itemNameStr = aItemName.ToString();
         auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -71,8 +71,8 @@ uintptr_t App::WidgetSpawningService::OnSpawnExternal(Red::ink::WidgetLibraryRes
 }
 
 bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                                   Red::InkSpawningInfo& aSpawningInfo,
-                                                   Red::CName aItemName)
+                                                   Red::InkSpawningInfo& aSpawningInfo, Red::CName aItemName,
+                                                   bool aFlag)
 {
     auto* itemNameStr = aItemName.ToString();
     auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -82,7 +82,7 @@ bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResour
         aItemName = Red::CName(itemNameStr, controllerSep - itemNameStr);
     }
 
-    return Raw::InkWidgetLibrary::AsyncSpawnFromLocal(aLibrary, aSpawningInfo, aItemName);
+    return Raw::InkWidgetLibrary::AsyncSpawnFromLocal(aLibrary, aSpawningInfo, aItemName, aFlag);
 }
 
 bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
@@ -98,12 +98,18 @@ bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::ink::WidgetLibraryRes
 void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,
                                                     Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)
 {
-    auto* itemNameStr = aContext.request->itemName.ToString();
-    auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
+    const char* itemNameStr = nullptr;
+    const char* controllerSep = nullptr;
 
-    if (controllerSep)
+    if (!Raw::InkSpawner::ControllerInjectionEnabled::Ref())
     {
-        InjectController(aInstance, controllerSep + 1);
+        itemNameStr = aContext.request->itemName.ToString();
+        controllerSep = strchr(itemNameStr, ControllerSeparator);
+
+        if (controllerSep)
+        {
+            InjectController(aInstance, controllerSep + 1);
+        }
     }
 
     if (s_widgetSpawnEventEnabled)

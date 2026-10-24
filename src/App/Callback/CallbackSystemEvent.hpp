@@ -28,5 +28,6 @@ struct CallbackSystemEvent : Red::IScriptable
 
 RTTI_DEFINE_CLASS(App::CallbackSystemEvent, {
     RTTI_ABSTRACT();
+    RTTI_PROPERTY(eventName);
     RTTI_GETTER(eventName);
 });

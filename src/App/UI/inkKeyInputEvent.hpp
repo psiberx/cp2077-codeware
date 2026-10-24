@@ -35,8 +35,16 @@ struct inkKeyInputEvent : Red::inkInputEvent
 };
 }
 
+RED4EXT_ASSERT_OFFSET(App::inkKeyInputEvent, key, 0x90);
+RED4EXT_ASSERT_OFFSET(App::inkKeyInputEvent, action, 0x94);
+RED4EXT_ASSERT_OFFSET(App::inkKeyInputEvent, character, 0x98);
+RED4EXT_ASSERT_SIZE(App::inkKeyInputEvent, 0xB8);
+
 RTTI_DEFINE_CLASS(App::inkKeyInputEvent, {
     RTTI_PARENT(Red::inkInputEvent);
+    RTTI_PROPERTY(key);
+    RTTI_PROPERTY(action);
+    RTTI_PROPERTY(character);
     RTTI_GETTER(key);
     RTTI_GETTER(action);
     RTTI_GETTER(character);

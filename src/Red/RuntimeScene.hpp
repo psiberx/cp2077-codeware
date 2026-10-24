@@ -51,7 +51,8 @@ constexpr auto AttachEntity = Core::RawFunc<
 constexpr auto DetachEntity = Core::RawFunc<
     /* addr = */ Red::AddressLib::RuntimeSystemEntity_DetachEntity,
     /* type = */ void (*)(Red::world::RuntimeSystemEntity* aSystem,
-                          const Red::Handle<Red::Entity>& aEntity)>();
+                          const Red::Handle<Red::Entity>& aEntity,
+                          uint16_t aReason)>();
 }
 
 namespace Raw::RuntimeSystemWeather
@@ -69,7 +70,7 @@ constexpr auto SetWeatherByName = Core::RawFunc<
 constexpr auto SetWeatherByIndex = Core::RawFunc<
     /* addr = */ Red::AddressLib::RuntimeSystemWeather_SetWeatherByIndex,
     /* type = */ bool (*)(Red::worldRuntimeSystemWeather* aSystem, uint32_t aIndex, Red::CName aSource,
-                          float aBlendTime, float a5, uint32_t aPriority)>();
+                          float aBlendTime, uint32_t a5, uint32_t aPriority, bool aNotify)>();
 
 constexpr auto GetEnvironmentDefinition = Core::RawFunc<
     /* addr = */ Red::AddressLib::RuntimeSystemWeather_GetEnvironmentDefinition,

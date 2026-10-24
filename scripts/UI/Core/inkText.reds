@@ -39,18 +39,6 @@ public func SetOverflowPolicy(overflowPolicy: textOverflowPolicy) {
 }
 
 @addMethod(inkText)
-public func SetWrapping(enabled: Bool, opt width: Float, opt policy: textWrappingPolicy) {
-    this.wrappingInfo.autoWrappingEnabled = enabled;
-    this.wrappingInfo.wrappingAtPosition = width;
-    this.wrappingInfo.wrappingPolicy = policy;
-}
-
-@addMethod(inkText)
-public func GetWrapping() -> textWrappingInfo {
-    return this.wrappingInfo;
-}
-
-@addMethod(inkText)
 public func GetLineHeight() -> Float {
     return this.lineHeightPercentage;
 }

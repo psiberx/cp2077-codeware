@@ -43,6 +43,7 @@ struct ResourceEvent : CallbackSystemEvent
 
 RTTI_DEFINE_CLASS(App::ResourceEvent, {
     RTTI_PARENT(App::CallbackSystemEvent);
+    RTTI_PROPERTY(resource);
     RTTI_METHOD(GetPath);
     RTTI_METHOD(GetJobGroup);
     RTTI_GETTER(resource);

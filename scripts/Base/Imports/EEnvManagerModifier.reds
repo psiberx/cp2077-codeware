@@ -86,4 +86,7 @@ public enum EEnvManagerModifier {
   EMM_IndirectSpecularRaw = 82,
   EMM_IndirectDiffuseDenoised = 83,
   EMM_IndirectSpecularDenoised = 84,
+  EMM_DebugNRDFoo = 85,
+  EMM_DebugNRDBar = 86,
+  EMM_DebugNRDBaz = 87,
 }

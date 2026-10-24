@@ -110,27 +110,25 @@ void App::ScriptingService::OnValidateScripts(void* aValidator, Red::ScriptBundl
                 }
             }
 
-            if (classDef->flags.isStruct && classDef->name != inkWidgetLibraryResourceTypeName)
+            if (auto nativeClass = Red::GetScriptClass(classDef->name))
             {
-                if (auto nativeClass = Red::GetScriptClass(classDef->name))
+                classDef->flags.isAbstract = nativeClass->flags.isAbstract;
+
+                if (classDef->flags.isStruct && !classDef->parent && nativeClass->parent &&
+                    classDef->name != inkWidgetLibraryResourceTypeName)
                 {
-                    classDef->flags.isAbstract = nativeClass->flags.isAbstract;
+                    auto nativeParent = nativeClass->parent;
+                    auto parentDef = aBundle->definitionsByName.Get(nativeParent->name);
 
-                    if (!classDef->parent && nativeClass->parent)
+                    if (!parentDef)
                     {
-                        auto nativeParent = nativeClass->parent;
-                        auto parentDef = aBundle->definitionsByName.Get(nativeParent->name);
-
-                        if (!parentDef)
+                        if (auto parentAlias = Red::GetScriptAlias(nativeParent->name))
                         {
-                            if (auto parentAlias = Red::GetScriptAlias(nativeParent->name))
-                            {
-                                parentDef = aBundle->definitionsByName.Get(parentAlias);
-                            }
+                            parentDef = aBundle->definitionsByName.Get(parentAlias);
                         }
-
-                        classDef->parent = reinterpret_cast<Red::ScriptClass*>(*parentDef);
                     }
+
+                    classDef->parent = reinterpret_cast<Red::ScriptClass*>(*parentDef);
                 }
             }
         }

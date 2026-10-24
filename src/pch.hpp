@@ -1,6 +1,7 @@
 #pragma once
 
 #include <algorithm>
+#include <atomic>
 #include <codecvt>
 #include <concepts>
 #include <cstddef>

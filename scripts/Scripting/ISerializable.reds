@@ -1,11 +1,19 @@
-public abstract native class ISerializable {
-    public final native func GetClassName() -> CName
-    public final native func IsA(className: CName) -> Bool
-    public final native func IsExactlyA(className: CName) -> Bool
-    public final native func Clone() -> ref<ISerializable>
-    public final native func ProcessPostLoad(opt disablePreInitialization: Bool)
+@addMethod(ISerializable)
+public final native func GetClassName() -> CName
 
-    public final func RefreshResource(opt disablePreInitialization: Bool) {
-        this.ProcessPostLoad(disablePreInitialization);
-    }
+@addMethod(ISerializable)
+public final native func IsA(className: CName) -> Bool
+
+@addMethod(ISerializable)
+public final native func IsExactlyA(className: CName) -> Bool
+
+@addMethod(ISerializable)
+public final native func Clone() -> ref<ISerializable>
+
+@addMethod(ISerializable)
+public final native func ProcessPostLoad(opt disablePreInitialization: Bool)
+
+@addMethod(ISerializable)
+public final func RefreshResource(opt disablePreInitialization: Bool) {
+    this.ProcessPostLoad(disablePreInitialization);
 }

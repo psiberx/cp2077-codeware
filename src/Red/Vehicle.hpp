@@ -2,5 +2,5 @@
 
 namespace Raw::Vehicle
 {
-using RecordID = Core::OffsetPtr<0x638, Red::TweakDBID>;
+using RecordID = Core::OffsetPtr<0x658, Red::TweakDBID>;
 }

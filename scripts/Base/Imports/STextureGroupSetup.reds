@@ -4,6 +4,7 @@ public native struct STextureGroupSetup {
   public native let group: GpuWrapApieTextureGroup;
   public native let rawFormat: ETextureRawFormat;
   public native let compression: ETextureCompression;
+  public native let astcQuality: EAstcQuality;
   public native let isStreamable: Bool;
   public native let hasMipchain: Bool;
   public native let isGamma: Bool;

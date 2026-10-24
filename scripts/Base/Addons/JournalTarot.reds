@@ -11,3 +11,6 @@ public native let description: LocalizationString;
 
 @addField(JournalTarot)
 public native let imagePart: CName;
+
+@addField(JournalTarot)
+public native let isMinorArcana: Bool;
