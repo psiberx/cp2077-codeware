@@ -1,6 +1,8 @@
 public native class WorldNodeSetupWrapper {
-    public native func GetNodeIndex() -> Uint16
     public native func GetNode() -> ref<worldNode>
+
+    public native func GetNodeIndex() -> Uint16
+    public native func GetInstanceIndex() -> Uint32
     public native func GetTransform() -> Transform
     public native func GetPosition() -> Vector4
     public native func GetOrientation() -> Quaternion
@@ -12,8 +14,10 @@ public native class WorldNodeSetupWrapper {
     public native func GetStreamingDistance() -> Float
     public native func GetSecondaryRefPointPosition() -> Vector3
     public native func GetSecondaryRefPointDistance() -> Float
+    public native func GetDataGroup() -> worldStreamingDataGroup
 
     public native func SetNodeIndex(value: Uint16)
+    public native func SetInstanceIndex(value: Uint32)
     public native func SetTransform(value: Transform)
     public native func SetPosition(value: Vector4)
     public native func SetOrientation(value: Quaternion)
@@ -25,4 +29,5 @@ public native class WorldNodeSetupWrapper {
     public native func SetStreamingDistance(value: Float)
     public native func SetSecondaryRefPointPosition(value: Vector3)
     public native func SetSecondaryRefPointDistance(value: Float)
+    public native func SetDataGroup(value: worldStreamingDataGroup)
 }

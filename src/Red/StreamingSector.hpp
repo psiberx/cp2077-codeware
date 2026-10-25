@@ -18,8 +18,8 @@ struct __declspec(align(0x10)) CompiledNodeInstanceSetupInfo
     uint64_t unk70_48 : 16;            // 70
     float secondaryRefPointDistance;   // 78
     float streamingDistance;           // 7C
-    uint32_t unk80;                    // 80
-    uint8_t unk84;                     // 84
+    uint32_t instanceIndex;            // 80
+    worldStreamingDataGroup dataGroup; // 84
     uint8_t unk85[0x90 - 0x85];        // 85
 };
 RED4EXT_ASSERT_SIZE(CompiledNodeInstanceSetupInfo, 0x90);
@@ -28,7 +28,7 @@ RED4EXT_ASSERT_OFFSET(CompiledNodeInstanceSetupInfo, globalNodeID, 0x58);
 RED4EXT_ASSERT_OFFSET(CompiledNodeInstanceSetupInfo, proxyNodeID, 0x60);
 RED4EXT_ASSERT_OFFSET(CompiledNodeInstanceSetupInfo, secondaryRefPointDistance, 0x78);
 RED4EXT_ASSERT_OFFSET(CompiledNodeInstanceSetupInfo, streamingDistance, 0x7C);
-RED4EXT_ASSERT_OFFSET(CompiledNodeInstanceSetupInfo, unk84, 0x84);
+RED4EXT_ASSERT_OFFSET(CompiledNodeInstanceSetupInfo, instanceIndex, 0x80);
 
 struct CompiledNodeInstanceSetupInfoBuffer : DataBuffer
 {

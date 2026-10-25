@@ -17,14 +17,19 @@ struct WorldNodeSetupWrapper : Red::IScriptable
     WorldNodeSetupWrapper(const WorldNodeSetupWrapper&) = default;
     WorldNodeSetupWrapper(WorldNodeSetupWrapper&&) = default;
 
+    [[nodiscard]] Red::Handle<Red::worldNode> GetNode() const
+    {
+        return Red::AsHandle(setup->node);
+    }
+
     [[nodiscard]] uint16_t GetNodeIndex() const
     {
         return static_cast<uint16_t>(setup->nodeIndex);
     }
 
-    [[nodiscard]] Red::Handle<Red::worldNode> GetNode() const
+    [[nodiscard]] uint32_t GetInstanceIndex() const
     {
-        return Red::AsHandle(setup->node);
+        return setup->instanceIndex;
     }
 
     [[nodiscard]] Red::Transform GetTransform() const
@@ -82,13 +87,23 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         return setup->secondaryRefPointDistance;
     }
 
-    void SetNodeIndex(const uint16_t aIndex) const
+    [[nodiscard]] Red::worldStreamingDataGroup GetDataGroup() const
+    {
+        return setup->dataGroup;
+    }
+
+    void SetNodeIndex(uint16_t aIndex) const
     {
         if (aIndex >= 0 && aIndex < buffer->nodeSetups.GetInstanceCount())
         {
             setup->nodeIndex = aIndex;
             setup->node = buffer->nodes[setup->nodeIndex].instance;
         }
+    }
+
+    void SetInstanceIndex(uint32_t aIndex) const
+    {
+        setup->instanceIndex = aIndex;
     }
 
     void SetTransform(const Red::Transform& aTransform) const
@@ -146,6 +161,11 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->secondaryRefPointDistance = aDistance;
     }
 
+    void SetDataGroup(Red::worldStreamingDataGroup aGroup) const
+    {
+        setup->dataGroup = aGroup;
+    }
+
     Red::StreamingSectorNodeBuffer* buffer{};
     Red::CompiledNodeInstanceSetupInfo* setup{};
 
@@ -155,8 +175,9 @@ struct WorldNodeSetupWrapper : Red::IScriptable
 }
 
 RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
-    RTTI_METHOD(GetNodeIndex);
     RTTI_METHOD(GetNode);
+    RTTI_METHOD(GetNodeIndex);
+    RTTI_METHOD(GetInstanceIndex);
     RTTI_METHOD(GetTransform);
     RTTI_METHOD(GetPosition);
     RTTI_METHOD(GetOrientation);
@@ -168,7 +189,9 @@ RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
     RTTI_METHOD(GetStreamingDistance);
     RTTI_METHOD(GetSecondaryRefPointPosition);
     RTTI_METHOD(GetSecondaryRefPointDistance);
+    RTTI_METHOD(GetDataGroup);
     RTTI_METHOD(SetNodeIndex);
+    RTTI_METHOD(SetInstanceIndex);
     RTTI_METHOD(SetTransform);
     RTTI_METHOD(SetPosition);
     RTTI_METHOD(SetOrientation);
@@ -180,4 +203,5 @@ RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
     RTTI_METHOD(SetStreamingDistance);
     RTTI_METHOD(SetSecondaryRefPointPosition);
     RTTI_METHOD(SetSecondaryRefPointDistance);
+    RTTI_METHOD(SetDataGroup);
 });
