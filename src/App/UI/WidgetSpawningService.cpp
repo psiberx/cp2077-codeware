@@ -159,7 +159,7 @@ void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResourc
 }
 
 void App::WidgetSpawningService::InjectController(Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
-                                                Red::CName aControllerName)
+                                                  Red::CName aControllerName)
 {
     auto* controllerType = Red::CRTTISystem::Get()->GetClass(aControllerName);
 

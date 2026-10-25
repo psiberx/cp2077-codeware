@@ -59,6 +59,7 @@
 #include "App/UI/inkKeyInputEvent.hpp"
 #include "App/UI/inkLayerWrapper.hpp"
 #include "App/UI/inkSystem.hpp"
+#include "App/UI/inkWidgetEx.hpp"
 #include "App/UI/inkWidgetLibraryEx.hpp"
 #include "App/UI/inkWidgetReferenceEx.hpp"
 #include "App/UI/inkWorldWidgetInfosEx.hpp"
