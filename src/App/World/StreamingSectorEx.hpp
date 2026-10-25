@@ -30,14 +30,19 @@ struct StreamingSectorEx : Red::worldStreamingSector
     int32_t GetNodeSetupCount()
     {
         auto& buffer = Raw::StreamingSector::NodeBuffer::Ref(this);
-        return static_cast<int32_t>(buffer.nodeSetups.GetInstanceCount());
+
+        return static_cast<int32_t>(buffer.nodeSetups.GetCount());
     }
 
     Red::Handle<WorldNodeSetupWrapper> GetNodeSetup(int32_t aIndex)
     {
         auto* buffer = Raw::StreamingSector::NodeBuffer::Ptr(this);
-        if (aIndex >= 0 && aIndex < buffer->nodeSetups.GetInstanceCount())
-            return Red::MakeHandle<WorldNodeSetupWrapper>(buffer, buffer->nodeSetups.GetInstance(aIndex));
+
+        if (aIndex >= 0 && aIndex < buffer->nodeSetups.GetCount())
+        {
+            return Red::MakeHandle<WorldNodeSetupWrapper>(buffer, buffer->nodeSetups.Get(aIndex));
+        }
+
         return {};
     }
     Red::DynArray<Red::NodeRef> GetNodeRefs()
