@@ -1,7 +1,5 @@
 #pragma once
 
-#include "Red/StreamingSector.hpp"
-
 namespace Red
 {
 struct WorldNodeInstanceNodeState
@@ -24,7 +22,7 @@ namespace Raw::WorldNodeInstance
 using Transform = Core::OffsetPtr<0x30, Red::Transform>;
 using Scale = Core::OffsetPtr<0x50, Red::Vector3>;
 using Node = Core::OffsetPtr<0x60, Red::Handle<Red::worldNode>>;
-using SetupInfo = Core::OffsetPtr<0x70, Red::CompiledNodeInstanceSetupInfo**>;
+using SetupInfo = Core::OffsetPtr<0x70, Red::worldCompiledNodeInstanceSetupInfo**>;
 using NodeID = Core::OffsetPtr<0x80, uint64_t>;
 using State = Core::OffsetPtr<0x88, Red::WorldNodeInstanceNodeState>;
 }

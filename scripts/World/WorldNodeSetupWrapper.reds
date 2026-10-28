@@ -11,8 +11,9 @@ public native class WorldNodeSetupWrapper {
     public native func GetGlobalNodeID() -> GlobalNodeID
     public native func GetProxyNodeID() -> GlobalNodeID
     public native func GetStreamingPosition() -> Vector3
-    public native func GetStreamingDistance() -> Float
     public native func GetSecondaryRefPointPosition() -> Vector3
+    public native func GetPreboostStreamingRefPointPosition() -> Vector3
+    public native func GetStreamingDistance() -> Float
     public native func GetSecondaryRefPointDistance() -> Float
     public native func GetDataGroup() -> worldStreamingDataGroup
 
@@ -26,8 +27,9 @@ public native class WorldNodeSetupWrapper {
     public native func SetGlobalNodeID(value: GlobalNodeID)
     public native func SetProxyNodeID(value: GlobalNodeID)
     public native func SetStreamingPosition(value: Vector3)
-    public native func SetStreamingDistance(value: Float)
     public native func SetSecondaryRefPointPosition(value: Vector3)
+    public native func SetPreboostStreamingRefPointPosition(value: Vector3)
+    public native func SetStreamingDistance(value: Float)
     public native func SetSecondaryRefPointDistance(value: Float)
     public native func SetDataGroup(value: worldStreamingDataGroup)
 }
