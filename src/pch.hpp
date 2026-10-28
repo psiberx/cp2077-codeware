@@ -214,7 +214,9 @@
 #include <RED4ext/Scripting/Natives/Generated/world/CollisionNode.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CommunityRegistryItem.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CookedAcousticSectorNode.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/CookedBendedMeshNode.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CookedCollisionNode.hpp>
+#include <RED4ext/Scripting/Natives/Generated/world/CookedFoliageDestructionNode.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CookedGenericProxyMeshNode.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CookedMeshNode.hpp>
 #include <RED4ext/Scripting/Natives/Generated/world/CookedNode.hpp>
