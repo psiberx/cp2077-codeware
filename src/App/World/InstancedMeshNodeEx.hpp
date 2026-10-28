@@ -9,7 +9,7 @@ struct InstancedMeshNodeEx : Red::worldInstancedMeshNode
         return static_cast<int32_t>(cookedWorldTransformsBuffer.Size());
     }
 
-    [[nodiscard]] Red::ScriptRef<Red::worldNodeTransform> GetTransform(int32_t aIndex)
+    [[nodiscard]] Red::ScriptRef<Red::rendRenderProxyTransform> GetTransform(int32_t aIndex)
     {
         if (aIndex < 0 || aIndex >= cookedWorldTransformsBuffer.Size())
             return {};
@@ -43,4 +43,9 @@ RTTI_DEFINE_CLASS(Red::worldInstancedMeshInnerNode, {
 RTTI_DEFINE_CLASS(Red::worldInstancedMeshNodeTranformRange, {
     RTTI_PROPERTY(transformStartIndex);
     RTTI_PROPERTY(numTransforms);
+});
+
+RTTI_DEFINE_CLASS(Red::rendRenderProxyTransform, {
+    RTTI_PROPERTY(transform);
+    RTTI_PROPERTY(scale);
 });

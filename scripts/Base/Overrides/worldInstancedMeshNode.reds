@@ -23,5 +23,5 @@ public native class worldInstancedMeshNode extends worldCookedNode {
     public native let version: Uint8;
 
     public native func GetTransformCount() -> Int32
-    public native func GetTransform(index: Int32) -> script_ref<worldNodeTransform>
+    public native func GetTransform(index: Int32) -> script_ref<rendRenderProxyTransform>
 }
