@@ -1,5 +1,5 @@
 public native struct worldCookedAcousticSectorInnerNode {
-    public native let data: ResRef;
+    public native let data: ResourceAsyncRef; // raRef<AcousticDataResource>
     public native let inSectorCoordsX: Uint32;
     public native let inSectorCoordsY: Uint32;
     public native let inSectorCoordsZ: Uint32;

@@ -1,5 +1,5 @@
 public native struct worldCookedMeshInnerNode {
-    public native let mesh: ResRef;
+    public native let mesh: ResourceAsyncRef; // raRef<CMesh>
     public native let meshAppearance: CName;
     public native let forceAutoHideDistance: Float;
     public native let lodLevelScales: Uint32;
