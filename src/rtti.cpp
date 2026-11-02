@@ -79,7 +79,6 @@
 #include "App/World/CookedGenericProxyMeshNodeEx.hpp"
 #include "App/World/CookedMeshNodeEx.hpp"
 #include "App/World/CookedStaticDecalNodeEx.hpp"
-#include "App/World/CookedStaticMeshNodeEx.hpp"
 #include "App/World/DynamicEntityEvent.hpp"
 #include "App/World/DynamicEntitySpec.hpp"
 #include "App/World/DynamicEntityState.hpp"
