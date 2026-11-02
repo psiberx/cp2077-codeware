@@ -34,4 +34,9 @@ public native class WorldNodeSetupWrapper {
     public native func SetTimeOfDayVisibilityMask(value: Uint16)
     public native func GetDataGroup() -> worldStreamingDataGroup
     public native func SetDataGroup(value: worldStreamingDataGroup)
+    public native func GetFlags() -> Uint32
+    public native func SetFlags(value: Uint32)
+    public native func HasFlag(flag: worldNodeFlag) -> Bool
+    public native func SetFlag(flag: worldNodeFlag)
+    public native func ClearFlag(flag: worldNodeFlag)
 }

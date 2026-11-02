@@ -125,11 +125,6 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->streamingRefPoint = aPosition;
     }
 
-    [[nodiscard]] Red::Vector3 GetSecondaryRefPointPosition() const
-    {
-        return setup->secondaryRefPointPosition;
-    }
-
     [[nodiscard]] float GetStreamingDistance() const
     {
         return setup->GetStreamingDistance(sector->buffer.version);
@@ -138,6 +133,11 @@ struct WorldNodeSetupWrapper : Red::IScriptable
     void SetStreamingDistance(float aDistance) const
     {
         setup->SetStreamingDistance(sector->buffer.version, aDistance);
+    }
+
+    [[nodiscard]] Red::Vector3 GetSecondaryRefPointPosition() const
+    {
+        return setup->secondaryRefPointPosition;
     }
 
     void SetSecondaryRefPointPosition(const Red::Vector3& aPosition) const
@@ -195,6 +195,32 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->SetDataGroup(sector->buffer.version, aGroup);
     }
 
+    [[nodiscard]] uint32_t GetFlags() const
+    {
+        return setup->GetFlags(sector->buffer.version);
+    }
+
+    void SetFlags(uint32_t aFlags) const
+    {
+        setup->SetFlags(sector->buffer.version, aFlags);
+    }
+
+    [[nodiscard]] bool HasFlag(Red::worldNodeFlag aFlag) const
+    {
+        return setup->HasFlag(sector->buffer.version, aFlag);
+    }
+
+    void SetFlag(Red::worldNodeFlag aFlag) const
+    {
+        setup->SetFlag(sector->buffer.version, aFlag);
+    }
+
+    void ClearFlag(Red::worldNodeFlag aFlag) const
+    {
+        const auto mask = static_cast<uint32_t>(aFlag);
+        setup->SetFlags(sector->buffer.version, setup->GetFlags(sector->buffer.version) & ~mask);
+    }
+
     Red::worldCompiledSector* sector{};
     Red::worldCompiledNodeInstanceSetupInfo* setup{};
 
@@ -225,18 +251,25 @@ RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
     RTTI_METHOD(SetProxyNodeID);
     RTTI_METHOD(GetStreamingPosition);
     RTTI_METHOD(SetStreamingPosition);
-    RTTI_METHOD(GetSecondaryRefPointPosition);
-    RTTI_METHOD(SetSecondaryRefPointPosition);
-    RTTI_METHOD(GetPreboostStreamingRefPointPosition);
-    RTTI_METHOD(SetPreboostStreamingRefPointPosition);
     RTTI_METHOD(GetStreamingDistance);
     RTTI_METHOD(SetStreamingDistance);
+    RTTI_METHOD(GetSecondaryRefPointPosition);
+    RTTI_METHOD(SetSecondaryRefPointPosition);
     RTTI_METHOD(GetSecondaryRefPointDistance);
     RTTI_METHOD(SetSecondaryRefPointDistance);
+    RTTI_METHOD(GetPreboostStreamingRefPointPosition);
+    RTTI_METHOD(SetPreboostStreamingRefPointPosition);
     RTTI_METHOD(GetStreamingPriority);
     RTTI_METHOD(SetStreamingPriority);
     RTTI_METHOD(GetTimeOfDayVisibilityMask);
     RTTI_METHOD(SetTimeOfDayVisibilityMask);
     RTTI_METHOD(GetDataGroup);
     RTTI_METHOD(SetDataGroup);
+    RTTI_METHOD(GetFlags);
+    RTTI_METHOD(SetFlags);
+    RTTI_METHOD(HasFlag);
+    RTTI_METHOD(SetFlag);
+    RTTI_METHOD(ClearFlag);
 });
+
+RTTI_DEFINE_FLAGS(Red::worldNodeFlag);
