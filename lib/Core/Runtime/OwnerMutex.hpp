@@ -1,6 +1,6 @@
 #pragma once
 
-#include "Core/Win.hpp"
+#include "Core/Platform.hpp"
 
 namespace Core
 {
@@ -18,6 +18,11 @@ public:
 private:
     std::string_view m_aname;
     std::wstring_view m_wname;
+#if defined(_WIN32) || defined(_WIN64)
     HANDLE m_mutex;
+#else
+    void* m_mutex;
+    int m_fd;
+#endif
 };
 }

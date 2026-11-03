@@ -1,4 +1,6 @@
 #include "HostImage.hpp"
+
+#if defined(_WIN32) || defined(_WIN64)
 #include "Core/Win.hpp"
 
 Core::HostImage::HostImage(int aExePathDepth)
@@ -17,36 +19,6 @@ Core::HostImage::HostImage(int aExePathDepth)
         m_root = m_root.parent_path();
 
     TryResolveVersion(filePath);
-}
-
-uintptr_t Core::HostImage::GetBase() const
-{
-    return m_base;
-}
-
-std::filesystem::path Core::HostImage::GetPath() const
-{
-    return m_exe;
-}
-
-std::string Core::HostImage::GetName() const
-{
-    return m_exe.stem().string();
-}
-
-std::filesystem::path Core::HostImage::GetRootDir() const
-{
-    return m_root;
-}
-
-const Core::FileVer& Core::HostImage::GetFileVer() const
-{
-    return m_fileVer;
-}
-
-const Core::SemvVer& Core::HostImage::GetProductVer() const
-{
-    return m_productVer;
 }
 
 bool Core::HostImage::TryResolveVersion(const std::wstring& filePath)
@@ -82,4 +54,98 @@ bool Core::HostImage::TryResolveVersion(const std::wstring& filePath)
     m_productVer.patch = (fileInfo->dwProductVersionLS >> 16) & 0xFFFF;
 
     return true;
+}
+
+#else // macOS
+
+#include "Core/macOS.hpp"
+
+#include <cstdio>
+#include <fstream>
+#include <iterator>
+
+Core::HostImage::HostImage(int aExePathDepth)
+{
+    m_base = Core::Platform::GetImageBase();
+
+    // nullptr is the main executable: <game>/Cyberpunk2077.app/Contents/MacOS/Cyberpunk2077
+    std::string filePath = Core::Platform::GetModuleFileName(nullptr);
+    m_exe = filePath;
+    m_root = m_exe.parent_path();
+
+    while (--aExePathDepth >= 0)
+        m_root = m_root.parent_path();
+
+    TryResolveVersion(filePath);
+}
+
+bool Core::HostImage::TryResolveVersion(const std::string& filePath)
+{
+    // There is no file version resource in a Mach-O. The bundle's Info.plist (<app>/Contents/Info.plist, XML) carries
+    // CFBundleShortVersionString, for example "2.3.1". A missing or binary plist leaves the version at 0.0.0.
+    m_fileVer = {};
+    m_productVer = {};
+
+    const auto plistPath = std::filesystem::path(filePath).parent_path().parent_path() / "Info.plist";
+    std::ifstream in(plistPath, std::ios::binary);
+    if (!in)
+        return false;
+
+    const std::string text((std::istreambuf_iterator<char>(in)), std::istreambuf_iterator<char>());
+    const auto key = text.find("<key>CFBundleShortVersionString</key>");
+    if (key == std::string::npos)
+        return false;
+
+    const auto open = text.find("<string>", key);
+    const auto close = open == std::string::npos ? open : text.find("</string>", open);
+    if (close == std::string::npos)
+        return false;
+
+    const auto version = text.substr(open + 8, close - open - 8);
+    unsigned major = 0, minor = 0, patch = 0;
+    if (std::sscanf(version.c_str(), "%u.%u.%u", &major, &minor, &patch) < 2)
+        return false;
+
+    m_fileVer.major = static_cast<uint16_t>(major);
+    m_fileVer.minor = static_cast<uint16_t>(minor);
+    m_fileVer.build = static_cast<uint16_t>(patch);
+    m_fileVer.revision = 0;
+
+    m_productVer.major = static_cast<uint16_t>(major);
+    m_productVer.minor = static_cast<uint16_t>(minor);
+    m_productVer.patch = patch;
+
+    return true;
+}
+
+#endif // Platform
+
+uintptr_t Core::HostImage::GetBase() const
+{
+    return m_base;
+}
+
+std::filesystem::path Core::HostImage::GetPath() const
+{
+    return m_exe;
+}
+
+std::string Core::HostImage::GetName() const
+{
+    return m_exe.stem().string();
+}
+
+std::filesystem::path Core::HostImage::GetRootDir() const
+{
+    return m_root;
+}
+
+const Core::FileVer& Core::HostImage::GetFileVer() const
+{
+    return m_fileVer;
+}
+
+const Core::SemvVer& Core::HostImage::GetProductVer() const
+{
+    return m_productVer;
 }

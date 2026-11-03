@@ -1,5 +1,7 @@
 #pragma once
 
+#include "Core/Platform.hpp"
+
 namespace Core
 {
 struct FileVer
@@ -32,7 +34,11 @@ public:
     [[nodiscard]] const SemvVer& GetProductVer() const;
 
 private:
+#if defined(_WIN32) || defined(_WIN64)
     bool TryResolveVersion(const std::wstring& aFilePath);
+#else
+    bool TryResolveVersion(const std::string& aFilePath);
+#endif
 
     uintptr_t m_base;
     std::filesystem::path m_exe;

@@ -3,6 +3,10 @@
 #include "App/Callback/CallbackSystem.hpp"
 #include "App/Callback/CallbackSystemController.hpp"
 #include "App/Callback/Events/ResourceEvent.hpp"
+#if defined(__APPLE__)
+#include "App/Callback/Controllers/MacResourceJob.hpp"
+#include "MacDiag.hpp"
+#endif
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Red/Serialization.hpp"
 
@@ -26,7 +30,36 @@ public:
         return {{DeprecatedEventName, EventName}};
     }
 
+#if defined(__APPLE__)
+    // R13. Hooks job 0x2257830 once, at plugin load. HookBefore runs the callback, then the original.
+    static bool InstallMacHook()
+    {
+        const bool ok = IsHooked<Raw::ResourceSerializer::MacPostLoadJob>() ||
+                        HookBefore<Raw::ResourceSerializer::MacPostLoadJob>(&OnMacPostLoadJob);
+        MAC_DIAG_UNLESS(ok, "[cw] hook %s ResourcePostLoadHook target=%p\n", ok ? "installed" : "FAILED",
+                     reinterpret_cast<void*>(Raw::ResourceSerializer::MacPostLoadJob.GetOriginalAddress()));
+        return ok;
+    }
+#endif
+
 protected:
+#if defined(__APPLE__)
+    // R13. The hook is already installed at plugin load, so activation has nothing to do.
+    bool OnActivateHook() override
+    {
+        return true;
+    }
+
+    bool OnDeactivateHook() override
+    {
+        return true;
+    }
+
+    inline static void OnMacPostLoadJob(Red::ResourceSerializer** aCaptures, void*)
+    {
+        DispatchMacResourceJob(aCaptures, EventName, MacHookStats::postLoad, false);
+    }
+#else
     bool OnActivateHook() override
     {
         return IsHooked<Raw::ResourceSerializer::ScheduleFinalizeJobs>() ||
@@ -58,5 +91,6 @@ protected:
             }
         });
     }
+#endif
 };
 }

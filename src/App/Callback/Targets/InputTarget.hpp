@@ -34,11 +34,13 @@ struct InputTarget : CallbackSystemTarget
         return aEventType == Red::GetTypeName<KeyInputEvent>();
     }
 
-    static Red::Handle<InputTarget> Key(Red::EInputKey aKey, Red::Optional<Red::EInputAction> aAction)
+    // Game 2.5 declares InputTarget.Key(key: EInputKey, opt threshold: Float). The target matches the
+    // key on every action (press and release), as Key(key) without an action did before.
+    static Red::Handle<InputTarget> Key(Red::EInputKey aKey, Red::Optional<float> aThreshold)
     {
         auto target = Red::MakeHandle<InputTarget>();
         target->key = aKey;
-        target->action = aAction;
+        target->threshold = aThreshold;
 
         return target;
     }

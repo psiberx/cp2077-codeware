@@ -1,3 +1,6 @@
+// MinHook is Windows-only. macOS hooks through the RED4ext hooking interface (see macos/MacProviders.hpp).
+#if defined(_WIN32) || defined(_WIN64)
+
 #include "MinHookProvider.hpp"
 
 #include <MinHook.h>
@@ -44,3 +47,5 @@ bool Support::MinHookProvider::HookDetach(uintptr_t aAddress)
 
     return true;
 }
+
+#endif // Windows

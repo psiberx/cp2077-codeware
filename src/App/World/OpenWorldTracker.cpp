@@ -1,5 +1,8 @@
 #include "OpenWorldTracker.hpp"
 #include "Red/JournalManager.hpp"
+#if defined(__APPLE__)
+#include "MacEngine.hpp"
+#endif
 
 void App::OpenWorldTracker::OnBootstrap()
 {
@@ -8,6 +11,12 @@ void App::OpenWorldTracker::OnBootstrap()
 
 void App::OpenWorldTracker::OnSetPoiMappinPhase(void* aMappin, Red::gamedataMappinPhase aMappinPhase)
 {
+#if defined(__APPLE__)
+    {
+        static auto& counter = Mac::HookCount("PointOfInterestMappin_SetPhase");
+        Mac::Hit(counter);
+    }
+#endif
     if (aMappinPhase == Red::gamedataMappinPhase::CompletedPhase)
     {
         auto journalManager = Red::GetGameSystem<Red::gameIJournalManager>();

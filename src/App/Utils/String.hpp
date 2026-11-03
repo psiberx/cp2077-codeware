@@ -1,7 +1,40 @@
 #pragma once
 
+#if defined(__APPLE__)
+#include <wctype.h>
+#include <xlocale.h>
+#endif
+
 namespace App
 {
+#if defined(__APPLE__)
+inline locale_t Utf8Locale()
+{
+    static const locale_t loc = newlocale(LC_CTYPE_MASK, "en_US.UTF-8", nullptr);
+    return loc;
+}
+
+inline wchar_t Utf32Lower(wchar_t aChar)
+{
+    const locale_t loc = Utf8Locale();
+    if (!loc)
+    {
+        return static_cast<wchar_t>(towlower(static_cast<wint_t>(aChar)));
+    }
+    return static_cast<wchar_t>(towlower_l(static_cast<wint_t>(aChar), loc));
+}
+
+inline wchar_t Utf32Upper(wchar_t aChar)
+{
+    const locale_t loc = Utf8Locale();
+    if (!loc)
+    {
+        return static_cast<wchar_t>(towupper(static_cast<wint_t>(aChar)));
+    }
+    return static_cast<wchar_t>(towupper_l(static_cast<wint_t>(aChar), loc));
+}
+#endif
+
 inline int32_t UTF8CharSize(const char& aChar)
 {
     if ((aChar & 0x80) == 0)
@@ -73,7 +106,11 @@ inline Red::CString UTF8StrLower(Red::ScriptRef<Red::CString>& aStr)
 {
     std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
     std::wstring wstr = converter.from_bytes(aStr->c_str());
+#if defined(__APPLE__)
+    std::transform(wstr.begin(), wstr.end(), wstr.begin(), Utf32Lower);
+#else
     std::transform(wstr.begin(), wstr.end(), wstr.begin(), ::towlower);
+#endif
     return converter.to_bytes(wstr);
 }
 
@@ -81,7 +118,11 @@ inline Red::CString UTF8StrUpper(Red::ScriptRef<Red::CString>& aStr)
 {
     std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
     std::wstring wstr = converter.from_bytes(aStr->c_str());
+#if defined(__APPLE__)
+    std::transform(wstr.begin(), wstr.end(), wstr.begin(), Utf32Upper);
+#else
     std::transform(wstr.begin(), wstr.end(), wstr.begin(), ::towupper);
+#endif
     return converter.to_bytes(wstr);
 }
 }

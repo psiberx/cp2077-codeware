@@ -20,5 +20,10 @@ Core::LoggingDriver& Core::LoggingAgent::GetLoggingDriver()
 
 void Core::LoggingAgent::LogFlush()
 {
+#if defined(__APPLE__)
+    // The macOS plugin can flush before a driver is set.
+    if (!s_driver)
+        return;
+#endif
     s_driver->LogFlush();
 }

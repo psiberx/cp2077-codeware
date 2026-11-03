@@ -21,6 +21,16 @@ public:
 protected:
     void OnBootstrap() override;
 
+#if defined(__APPLE__)
+    // macOS: the two lifecycle events (Support/macOS/Lifecycle.hpp) stand in for the ScriptBundle::Destruct hook.
+    static void OnMacNativesRegistered();
+    static void OnMacServicesStart(); // postLoadScripts fallback
+    static void OnMacScriptBundleDestroyed();
+    static void OnMacGameInstanceInitialized(void* aData, void* aParam);
+    static void OnMacCreateInstance(Red::IScriptable*& aInstance, Red::CClass* aClass, uint64_t a2, bool a3);
+    static void MacStartServices(const char* aVia);
+#endif
+
     static void OnInitializeScripts();
     static void OnInitializeGameInstance();
     static void OnCreateInstance(Red::IScriptable*& aInstance, Red::CClass* aClass, uint64_t, bool);

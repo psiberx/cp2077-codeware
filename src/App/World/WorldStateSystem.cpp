@@ -1,20 +1,47 @@
 #include "WorldStateSystem.hpp"
+#if defined(__APPLE__)
+#include "MacDiag.hpp"
+#include "MacEngine.hpp"
+#endif
 #include "App/World/CommunityWrapper.hpp"
 #include "Core/Facades/Container.hpp"
 #include "Red/CommunitySystem.hpp"
 #include "Red/NodeRef.hpp"
 #include "Red/StreamingWorld.hpp"
 
+#include <cstdio>
+
 void App::WorldStateSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
+#if defined(__APPLE__)
+    if (!Red::MacSystemEnabled("WorldStateSystem"))
+    {
+        Red::MacSystemOff("WorldStateSystem", "switched off with CODEWARE_MAC_SYSTEMS_OFF");
+        return;
+    }
+#endif
     m_communitySystem = Red::GetGameSystem<Red::gameICommunitySystem>();
     m_questsSystem = Red::GetGameSystem<Red::questIQuestsSystem>();
+#if defined(__APPLE__)
+    // R21. The quest and community systems are not all present in the menu scene; the system stays off until a world attach finds them.
+    if (!m_communitySystem || !m_questsSystem)
+    {
+        MAC_DIAG( "[cw] R21 WorldStateSystem waits: community=%p quests=%p\n", static_cast<void*>(m_communitySystem),
+                     static_cast<void*>(m_questsSystem));
+        Red::MacSystemOff("WorldStateSystem", "the community or quests system is not present at this world attach");
+        return;
+    }
+#endif
     m_factManager = Raw::QuestsSystem::FactManager::Ref(m_questsSystem);
 
     m_questPhaseRegistry = Core::Resolve<QuestPhaseRegistry>();
     m_questPhaseExecutor = Core::MakeUnique<QuestPhaseExecutor>(m_questPhaseRegistry, m_questsSystem);
 
     m_ready = true;
+#if defined(__APPLE__)
+    MAC_DIAG( "[cw] R21 WorldStateSystem ready quests=%p community=%p factManager=%p\n", static_cast<void*>(m_questsSystem),
+                 static_cast<void*>(m_communitySystem), static_cast<void*>(m_factManager));
+#endif
 }
 
 void App::WorldStateSystem::OnAfterWorldDetach()

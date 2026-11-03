@@ -10,3 +10,6 @@
 ~$*
 *.log
 CMakeLists.txt
+macos/build/
+
+!macos/CMakeLists.txt

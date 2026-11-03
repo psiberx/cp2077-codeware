@@ -1,9 +1,17 @@
 #pragma once
 
 #include "App/Callback/CallbackSystemTarget.hpp"
+#if defined(__APPLE__)
+#include "MacDiag.hpp"
+#endif
 #include "App/Callback/Events/ResourceEvent.hpp"
 #include "App/Shared/ResourcePathRegistry.hpp"
 #include "Core/Facades/Container.hpp"
+
+#if defined(__APPLE__)
+#include <atomic>
+#include <cstdio>
+#endif
 
 namespace App
 {

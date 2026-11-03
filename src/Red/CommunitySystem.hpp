@@ -86,42 +86,90 @@ RED4EXT_ASSERT_OFFSET(Spawner, reservedEntityIDs, 0x98);
 
 namespace Raw::CommunitySystem
 {
+// Mac (R21, every slot checked against the game by body and call site): the community and spawner requests are Windows + 8. The
+// Itanium ABI keeps the overloaded GetCommunity pair in declaration order and MSVC reverses it, so the by-reference GetCommunity is
+// Mac 0x238 (an instruction-identical copy sits at 0x240) and GetSpawner stays at 0x260 (0x250 and 0x258 are identical copies);
+// their address argument below is the Mac slot minus 8, which RawVFunc adds back. The WeakPtr results come back through x8 on Mac
+// and the id moves up one register, so both get a wrapper with the Windows call shape.
+// Game 2.5: gameCommunitySystem slots 0x1B0-0x1E8 and 0x258-0x268 are the 2.31 functions (same code or the same
+// code with other registers; 0x220/0x228 fold into 0x1C2498). The Community/Spawner structs were not re-derived.
 constexpr auto ActivateCommunity = Core::RawVFunc<
     /* addr = */ 0x1B0,
-    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName),
+    /* verified = */ true>();
 
 constexpr auto DeactivateCommunity = Core::RawVFunc<
     /* addr = */ 0x1B8,
-    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName),
+    /* verified = */ true>();
 
 constexpr auto SetCommunityPhase = Core::RawVFunc<
     /* addr = */ 0x1C0,
-    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName, Red::CName aPhaseName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName, Red::CName aPhaseName),
+    /* verified = */ true>();
 
 constexpr auto ResetCommunity = Core::RawVFunc<
     /* addr = */ 0x1C8,
-    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aCommunityID, Red::CName aEntryName),
+    /* verified = */ true>();
 
+#if defined(__APPLE__)
+constexpr auto GetCommunityNative = Core::RawVFunc<
+    /* addr = */ 0x230,
+    /* type = */ Red::WeakPtr<Red::Community> (Red::ICommunitySystem::*)(const uint64_t& aCommunityID),
+    /* verified = */ true>();
+
+struct GetCommunityFn
+{
+    void* operator()(Red::ICommunitySystem* aSystem, Red::WeakPtr<Red::Community>& aOut, const uint64_t& aCommunityID) const
+    {
+        aOut = GetCommunityNative(aSystem, aCommunityID);
+        return nullptr;
+    }
+};
+inline constexpr GetCommunityFn GetCommunity{};
+#else
 constexpr auto GetCommunity = Core::RawVFunc<
     /* addr = */ 0x228,
     /* type = */ void* (Red::ICommunitySystem::*)(Red::WeakPtr<Red::Community>& aOut, 
                                                   const uint64_t& aCommunityID)>();
+#endif
 
 constexpr auto ActivateSpawner = Core::RawVFunc<
     /* addr = */ 0x1D8,
-    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID),
+    /* verified = */ true>();
 
 constexpr auto DeactivateSpawner = Core::RawVFunc<
     /* addr = */ 0x1E0,
-    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID),
+    /* verified = */ true>();
 
 constexpr auto ResetSpawner = Core::RawVFunc<
     /* addr = */ 0x1E8,
-    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID)>();
+    /* type = */ void (Red::ICommunitySystem::*)(uint64_t aSpawnerID),
+    /* verified = */ true>();
 
+#if defined(__APPLE__)
+constexpr auto GetSpawnerNative = Core::RawVFunc<
+    /* addr = */ 0x258,
+    /* type = */ Red::WeakPtr<Red::Spawner> (Red::ICommunitySystem::*)(uint64_t aSpawnerID),
+    /* verified = */ true>();
+
+struct GetSpawnerFn
+{
+    void* operator()(Red::ICommunitySystem* aSystem, Red::WeakPtr<Red::Spawner>& aOut, uint64_t aSpawnerID) const
+    {
+        aOut = GetSpawnerNative(aSystem, aSpawnerID);
+        return nullptr;
+    }
+};
+inline constexpr GetSpawnerFn GetSpawner{};
+#else
 constexpr auto GetSpawner = Core::RawVFunc<
     /* addr = */ 0x260,
     /* type = */ void* (Red::ICommunitySystem::*)(Red::WeakPtr<Red::Spawner>& aOut, uint64_t aSpawnerID)>();
+#endif
 
 constexpr auto Update = Core::RawFunc<
     /* addr = */ Red::AddressLib::CommunitySystem_Update,

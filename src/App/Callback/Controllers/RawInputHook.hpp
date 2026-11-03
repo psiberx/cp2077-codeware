@@ -2,6 +2,7 @@
 
 #include "App/Callback/CallbackSystem.hpp"
 #include "App/Callback/CallbackSystemController.hpp"
+#include "App/Callback/MacHooks.hpp"
 #include "App/Callback/Events/AxisInputEvent.hpp"
 #include "App/Callback/Events/KeyInputEvent.hpp"
 #include "App/UI/WidgetInputService.hpp"
@@ -27,6 +28,27 @@ public:
     }
 
 protected:
+#if defined(__APPLE__)
+    // R18. The hooks are installed once at plugin load (InstallMacCallbackHooks); activation has nothing to do.
+public:
+    static bool InstallMacHook()
+    {
+        const bool ok = HookBefore<Raw::inkSystem::ProcessInputEvents>(&OnRawInput);
+        MacHooks::LogInstalled("RawInputHook inkSystem::ProcessInputEvents", Raw::inkSystem::ProcessInputEvents.GetOriginalAddress(), ok);
+        return ok;
+    }
+
+protected:
+    bool OnActivateHook() override
+    {
+        return true;
+    }
+
+    bool OnDeactivateHook() override
+    {
+        return true;
+    }
+#else
     bool OnActivateHook() override
     {
         return HookBefore<Raw::inkSystem::ProcessInputEvents>(&OnRawInput);
@@ -36,6 +58,7 @@ protected:
     {
         return Unhook<Raw::inkSystem::ProcessInputEvents>();
     }
+#endif
 
     void OnActivateEvent(Red::CName aEvent) override
     {
@@ -63,6 +86,7 @@ protected:
 
     inline static void OnRawInput(Red::InkSystem* aSystem, uint64_t a2, Red::RawInputBuffer& aBuffer)
     {
+        MAC_HOOK_ENTER("InkSystem_ProcessInputEvents");
         if (!aSystem->layerManagers.IsEmpty() && !aBuffer.inputs.IsEmpty())
         {
             for (const auto& input : aBuffer.inputs)

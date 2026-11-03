@@ -1,0 +1,13 @@
+# Script files that the cache build leaves out on macOS. MAC-NOT-YET: native classes that the Windows game has and the Mac
+# game does not (found with the LINKERR decode of the first full-cache boot, 2026-10-07). Windows-only editor, input and
+# service classes, plus one imported struct whose field type differs on Mac.
+Codeware-src/Base/Imports/gsmMenuState_LoadSession.reds
+Codeware-src/Base/Imports/oauthAuthenticationToken.reds
+Codeware-src/Base/Imports/toolsJiraService.reds
+Codeware-src/Base/Imports/toolsMessage.reds          # Mac native created is MemInt, the script says Int64
+Codeware-src/Base/Imports/InheritedStructs/FSR30CustomData.reds
+Codeware-src/Base/Imports/InheritedStructs/Odyssey3DCustomData.reds   # 2.5: Windows-only native struct (not in the Mac 2.5 reflection)
+Codeware-src/Base/Imports/InheritedStructs/inputInputSystemEditor.reds
+Codeware-src/Base/Imports/InheritedStructs/inputInputSystemWin32Base.reds
+Codeware-src/Base/Imports/InheritedStructs/inputInputSystemWin32Game.reds
+Codeware-src/Base/Imports/InheritedStructs/servicesGameServicesWin.reds

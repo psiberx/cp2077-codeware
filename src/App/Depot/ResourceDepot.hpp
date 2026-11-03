@@ -55,8 +55,13 @@ struct ResourceDepot : Red::IScriptable
 
         std::unique_lock lock(loader->tokenLock);
 
+#if defined(__APPLE__)
+        auto resource = Raw::ResourceBank::ForgetResource(loader->unk48, aRef.path);
+        static_cast<void>(resource);
+#else
         Red::Handle<Red::CResource> resource;
         Raw::ResourceBank::ForgetResource(loader->unk48, resource, aRef.path);
+#endif
     }
 
     static Red::Handle<ResourceDepot> Get()

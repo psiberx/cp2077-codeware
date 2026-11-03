@@ -30,4 +30,5 @@ RTTI_DEFINE_CLASS(App::CallbackSystemEvent, {
     RTTI_ABSTRACT();
     RTTI_PROPERTY(eventName);
     RTTI_GETTER(eventName);
+    RTTI_PROPERTY(eventName); // game 2.5 declares `native let eventName: CName`
 });

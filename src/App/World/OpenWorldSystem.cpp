@@ -6,9 +6,21 @@
 #include "Red/MappinSystem.hpp"
 #include "Red/NodeRef.hpp"
 #include "Red/TweakDB.hpp"
+#if defined(__APPLE__)
+#include "MacEngine.hpp"
+#include <cstdio>
+#include "MacDiag.hpp"
+#endif
 
 void App::OpenWorldSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
+#if defined(__APPLE__)
+    if (!Red::MacSystemEnabled("OpenWorldSystem"))
+    {
+        Red::MacSystemOff("OpenWorldSystem", "switched off with CODEWARE_MAC_SYSTEMS_OFF");
+        return;
+    }
+#endif
     m_communitySystem = Red::GetGameSystem<Red::gameICommunitySystem>();
     m_populationSystem = Red::GetGameSystem<Red::gameIPopulationSystem>();
     m_persistencySystem = Red::GetGameSystem<Red::gameIPersistencySystem>();
@@ -16,12 +28,31 @@ void App::OpenWorldSystem::OnWorldAttached(Red::world::RuntimeScene*)
     m_journalManager = Red::GetGameSystem<Red::gameIJournalManager>();
     m_mappinSystem = Red::GetGameSystem<Red::gamemappinsIMappinSystem>();
     m_questsSystem = Red::GetGameSystem<Red::questIQuestsSystem>();
+#if defined(__APPLE__)
+    // R21. The systems this one drives are not all present in the menu scene; it stays off until a world attach finds them all.
+    if (!m_communitySystem || !m_populationSystem || !m_persistencySystem || !m_containerManager || !m_journalManager ||
+        !m_mappinSystem || !m_questsSystem)
+    {
+        MAC_DIAG(
+                     "[cw] R21 OpenWorldSystem waits: community=%p population=%p persistency=%p container=%p journal=%p mappin=%p quests=%p\n",
+                     static_cast<void*>(m_communitySystem), static_cast<void*>(m_populationSystem), static_cast<void*>(m_persistencySystem),
+                     static_cast<void*>(m_containerManager), static_cast<void*>(m_journalManager), static_cast<void*>(m_mappinSystem),
+                     static_cast<void*>(m_questsSystem));
+        Red::MacSystemOff("OpenWorldSystem", "a game system it needs is not present at this world attach");
+        return;
+    }
+#endif
     m_factManager = Raw::QuestsSystem::FactManager::Ref(m_questsSystem);
 
     m_questPhaseRegistry = Core::Resolve<QuestPhaseRegistry>();
     m_questPhaseExecutor = Core::MakeUnique<QuestPhaseExecutor>(m_questPhaseRegistry, m_questsSystem);
 
     m_ready = true;
+#if defined(__APPLE__)
+    MAC_DIAG( "[cw] R21 OpenWorldSystem ready quests=%p journal=%p mappin=%p community=%p factManager=%p\n",
+                 static_cast<void*>(m_questsSystem), static_cast<void*>(m_journalManager), static_cast<void*>(m_mappinSystem),
+                 static_cast<void*>(m_communitySystem), static_cast<void*>(m_factManager));
+#endif
 }
 
 void App::OpenWorldSystem::OnAfterWorldDetach()
@@ -31,6 +62,10 @@ void App::OpenWorldSystem::OnAfterWorldDetach()
 
 bool App::OpenWorldSystem::OnGameRestored()
 {
+#if defined(__APPLE__)
+    if (!m_ready)
+        return true;
+#endif
     m_questPhaseRegistry->InitializeActivities();
 
     return true;

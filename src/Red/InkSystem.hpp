@@ -27,6 +27,9 @@ struct InkSystem
     WeakHandle<ink::ISystemRequestsHandler> requestsHandler; // 370
     DynArray<SharedPtr<InkLayerManager>> layerManagers;      // 380
 };
+// Game 2.5: InkSystem_ProcessCharacterEvent 0xCA7BC4 `lea rcx,[r15+0x2e8]`, `lea r12,[r15+0x2f8]`;
+// InkSystem_ProcessInputEvents 0x4C0B88 `lea rsi,[rdi+0x380]` and layers `[rax+0x38]` (0x4C0FE4).
+// requestsHandler (0x370) is not used by Codeware and was not re-derived.
 RED4EXT_ASSERT_OFFSET(InkSystem, inputWidget, 0x2E8);
 RED4EXT_ASSERT_OFFSET(InkSystem, keyboardState, 0x2F8);
 RED4EXT_ASSERT_OFFSET(InkSystem, requestsHandler, 0x370);

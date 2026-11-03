@@ -17,6 +17,11 @@ ModuleImage* GetModule();
 [[nodiscard]] std::filesystem::path GetModuleDir();
 [[nodiscard]] std::string GetModuleName();
 [[nodiscard]] bool IsASI();
+#if defined(_WIN32) || defined(_WIN64)
 [[nodiscard]] bool IsASI(HMODULE aHandle);
 [[nodiscard]] bool IsEXE(std::wstring_view aName);
+#else
+[[nodiscard]] bool IsASI(void* aHandle);
+[[nodiscard]] bool IsEXE(std::string_view aName);
+#endif
 }

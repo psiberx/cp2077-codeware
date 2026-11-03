@@ -2,6 +2,7 @@
 
 #include "App/Callback/CallbackSystem.hpp"
 #include "App/Callback/CallbackSystemController.hpp"
+#include "App/Callback/MacHooks.hpp"
 #include "App/Callback/Events/VehicleLightControlEvent.hpp"
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Red/VehicleController.hpp"
@@ -21,6 +22,27 @@ public:
     }
 
 protected:
+#if defined(__APPLE__)
+    // R18. The hooks are installed once at plugin load (InstallMacCallbackHooks); activation has nothing to do.
+public:
+    static bool InstallMacHook()
+    {
+        const bool ok = IsHooked<Raw::VehicleController::ToggleAuxLights>() || HookAfter<Raw::VehicleController::ToggleAuxLights>(&OnToggleLights);
+        MacHooks::LogInstalled("VehicleLightControlHook VehicleController::ToggleAuxLights", Raw::VehicleController::ToggleAuxLights.GetOriginalAddress(), ok);
+        return ok;
+    }
+
+protected:
+    bool OnActivateHook() override
+    {
+        return true;
+    }
+
+    bool OnDeactivateHook() override
+    {
+        return true;
+    }
+#else
     bool OnActivateHook() override
     {
         return IsHooked<Raw::VehicleController::ToggleAuxLights>() || HookAfter<Raw::VehicleController::ToggleAuxLights>(&OnToggleLights);
@@ -30,9 +52,11 @@ protected:
     {
         return !IsHooked<Raw::VehicleController::ToggleAuxLights>() || Unhook<Raw::VehicleController::ToggleAuxLights>();
     }
+#endif
 
     inline static void OnToggleLights(Red::vehicleController* aController, bool aEnable, Red::vehicleELightType aLightType)
     {
+        MAC_HOOK_ENTER("VehicleController_ToggleAuxLights");
         auto vehicleEntity = Red::AsWeakHandle(aController->owner);
         if (vehicleEntity)
         {

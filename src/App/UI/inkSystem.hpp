@@ -3,6 +3,12 @@
 #include "App/UI/inkLayerWrapper.hpp"
 #include "Red/InkSystem.hpp"
 
+#if defined(__APPLE__)
+#include <string>
+void cw_clipboard_get(std::string& aOut);
+void cw_clipboard_set(const char* aText);
+#endif
+
 namespace App
 {
 struct inkSystem : Red::IGameSystem
@@ -68,14 +74,21 @@ struct inkSystem : Red::IGameSystem
     Red::CString GetClipboardText()
     {
         std::string text;
+#if defined(__APPLE__)
+        cw_clipboard_get(text);
+#else
         clip::get_text(text);
-
+#endif
         return text;
     }
 
     void SetClipboardText(const Red::CString& aText)
     {
+#if defined(__APPLE__)
+        cw_clipboard_set(aText.c_str());
+#else
         clip::set_text(aText.c_str());
+#endif
     }
 
     RTTI_IMPL_TYPEINFO(App::inkSystem);

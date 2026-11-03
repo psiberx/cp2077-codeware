@@ -19,12 +19,21 @@ struct WorldNodeInstanceNodeState
 
 namespace Raw::WorldNodeInstance
 {
+// Game 2.5: worldMeshNodeInstance virtual 0x1A8 (0x28257E4) reads 0x30/0x50/0x60/0x70/0x88 like 2.31 (0x22759C4);
+// the 12 shared slots that touch these offsets match. Subclass fields: mesh 0x98 (0x2825802), bended 0xA0
+// (0x29745F2), decal 0xA0 (0x471874), foliage 0xB8 (0x62C56F), entity 0xA0 (0x29A610E), each in the same slot as 2.31.
 using Transform = Core::OffsetPtr<0x30, Red::Transform>;
 using Scale = Core::OffsetPtr<0x50, Red::Vector3>;
 using Node = Core::OffsetPtr<0x60, Red::Handle<Red::worldNode>>;
 using SetupInfo = Core::OffsetPtr<0x70, Red::worldCompiledNodeInstanceSetupInfo**>;
 using NodeID = Core::OffsetPtr<0x80, uint64_t>;
+#if defined(__APPLE__)
+// Mac 2.5.0: 0x8C (the state word moved 4 up; Windows keeps 0x88). Mac Initialize 0x1BBF9F4 and the accessors 0x1BC03EC use [x,#0x8c]
+// (2.3.1: 0x33E354C / 0x33E3F0C used [x,#0x88]); NodeID 0x80 and SetupInfo 0x70 are unchanged.
+using State = Core::OffsetPtr<0x8C, Red::WorldNodeInstanceNodeState>;
+#else
 using State = Core::OffsetPtr<0x88, Red::WorldNodeInstanceNodeState>;
+#endif
 }
 
 namespace Raw::WorldMeshNodeInstance

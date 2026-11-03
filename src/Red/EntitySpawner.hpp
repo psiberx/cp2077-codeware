@@ -17,6 +17,13 @@ struct EntitySpawnerToken
             /* type = */ void (*)(Red::EntitySpawnerToken*)>();
 
         DestructToken(this);
+#if defined(__APPLE__)
+        // R21: the game's destructor (Mac 0xCE0D28; Windows 0xCD921C does the same) releases the entity Handle at +0x10 without clearing
+        // it, and the member destructor below would release it a second time. Clear the Handle words so that second release is a no-op.
+        // The game destroys nothing else this struct owns.
+        reinterpret_cast<uint64_t*>(&entity)[0] = 0;
+        reinterpret_cast<uint64_t*>(&entity)[1] = 0;
+#endif
     }
 
     uint64_t unk00;        // 00
@@ -26,6 +33,8 @@ struct EntitySpawnerToken
     bool failed;           // 21
     bool aborted;          // 22
 };
+// Game 2.5: the token factory 0x5C178C allocates `mov ecx,0x28`; the dtor reads [rcx+0x10] (0xD93B75); 0x5C180E reads
+// the failed flag `[r8+0x21]`.
 RED4EXT_ASSERT_SIZE(EntitySpawnerToken, 0x28);
 RED4EXT_ASSERT_OFFSET(EntitySpawnerToken, entity, 0x10);
 RED4EXT_ASSERT_OFFSET(EntitySpawnerToken, failed, 0x21);
@@ -46,6 +55,9 @@ struct EntitySpawnerRequest
     uint8_t priority{1};            // E1
     uint8_t unkE2;                  // E2
 };
+// Game 2.5: EntitySpawner_SpawnEntity 0x5C140C reads the callback `lea rdx,[rsi+0x48]` and priority [rsi+0xE1]; the
+// token factory 0x5C1508 reads transform 0x10-0x2F, entityID 0x30, appearance 0x38, detached 0x78, 0x79-0x7B,
+// 0x80-0xA0, 0xE0-0xE2 and word 0xE4 (all below 0xF0).
 RED4EXT_ASSERT_SIZE(EntitySpawnerRequest, 0xF0);
 RED4EXT_ASSERT_OFFSET(EntitySpawnerRequest, transform, 0x10);
 RED4EXT_ASSERT_OFFSET(EntitySpawnerRequest, entityID, 0x30);
@@ -55,6 +67,18 @@ RED4EXT_ASSERT_OFFSET(EntitySpawnerRequest, priority, 0xE1);
 
 struct EntitySpawner
 {
+#if defined(__APPLE__)
+    // Mac ABI (R21): the SharedPtr comes back through x8 (the Windows result argument is gone), x1 is the request.
+    SharedPtr<EntitySpawnerToken> SpawnEntity(const EntitySpawnerRequest& aRequest)
+    {
+        constexpr auto SpawnEntityNative = Core::RawFunc<
+            /* addr = */ Red::AddressLib::EntitySpawner_SpawnEntity,
+            /* type = */ Red::SharedPtr<Red::EntitySpawnerToken> (*)(Red::EntitySpawner* aSpawner,
+                                                                     const Red::EntitySpawnerRequest& aRequest)>();
+
+        return SpawnEntityNative(this, aRequest);
+    }
+#else
     SharedPtr<EntitySpawnerToken> SpawnEntity(const EntitySpawnerRequest& aRequest)
     {
         constexpr auto SpawnEntity = Core::RawFunc<
@@ -67,5 +91,6 @@ struct EntitySpawner
         SpawnEntity(this, token, aRequest);
         return token;
     }
+#endif
 };
 }

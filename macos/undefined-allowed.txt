@@ -1,0 +1,2 @@
+# Codeware symbols that are declared, referenced and not compiled in yet. One demangled name per line.
+# check-undefined.sh fails the build for any other. Remove a line when its source file joins the build.

@@ -1,5 +1,8 @@
 #pragma once
 
+// MinHook is Windows-only. macOS hooks through the RED4ext hooking interface (see macos/MacProviders.hpp).
+#if defined(_WIN32) || defined(_WIN64)
+
 #include "Core/Foundation/Feature.hpp"
 #include "Core/Hooking/HookingDriver.hpp"
 
@@ -18,3 +21,5 @@ public:
     bool HookDetach(uintptr_t aAddress) override;
 };
 }
+
+#endif // Windows

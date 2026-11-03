@@ -26,6 +26,8 @@ struct VisualController
     volatile int32_t status;                                // 78
     SharedSpinLock lock;                                    // 7C
 };
+// Game 2.5: VisualController_LoadDependencies 0x6284A4: lock `lea rdx,[r13+0x7c]`, dependencies [r13+0x10]/size
+// [r13+0x1c], dependency mesh `lea rcx,[rdi+0x20]`.
 RED4EXT_ASSERT_SIZE(VisualController, 0x80);
 RED4EXT_ASSERT_OFFSET(VisualController, dependencies, 0x10);
 RED4EXT_ASSERT_OFFSET(VisualController, lock, 0x7C);
@@ -33,12 +35,30 @@ RED4EXT_ASSERT_OFFSET(VisualController, lock, 0x7C);
 
 namespace Raw::VisualController
 {
+#if defined(__APPLE__)
+// Mac ABI (R21): the JobHandle comes back through x8 (a3 moves to w1). LoadDependencies keeps the Windows call shape.
+constexpr auto LoadDependenciesNative = Core::RawFunc<
+    /* addr = */ Red::AddressLib::VisualController_LoadDependencies,
+    /* type = */ Red::JobHandle (*)(Red::VisualController* aController, uint8_t a3)>();
+
+struct LoadDependenciesFn
+{
+    uintptr_t operator()(Red::VisualController* aController, Red::JobHandle& aOut, uint8_t a3) const
+    {
+        aOut = LoadDependenciesNative(aController, a3);
+        return 0;
+    }
+};
+inline constexpr LoadDependenciesFn LoadDependencies{};
+#else
 constexpr auto LoadDependencies = Core::RawFunc<
     /* addr = */ Red::AddressLib::VisualController_LoadDependencies,
     /* type = */ uintptr_t (*)(Red::VisualController* aController, Red::JobHandle& aOut, uint8_t a3)>();
+#endif
 }
 
 namespace Raw::VisualControllerComponent
 {
+// Game 2.5: entVisualControllerComponent virtual 0x190 (0xEEBA4C) `lea rdx,[rcx+0xd8]`, same slots as 2.31.
 using Controller = Core::OffsetPtr<0xD8, Red::SharedPtr<Red::VisualController>>;
 }

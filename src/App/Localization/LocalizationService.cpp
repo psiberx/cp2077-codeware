@@ -1,6 +1,9 @@
 #include "LocalizationService.hpp"
 #include "App/Localization/Language.hpp"
 #include "Red/Localization.hpp"
+#if defined(__APPLE__)
+#include "MacR19.hpp"
+#endif
 
 void App::LocalizationService::OnBootstrap()
 {
@@ -11,6 +14,25 @@ void App::LocalizationService::OnLoadTexts(Red::Handle<Red::localizationPersiste
                                            Red::ResourcePath aPath)
 {
     const auto language = Language::ResolveFromTextResource(aPath);
+
+#if defined(__APPLE__)
+    // SELFTEST R19: the hook receives the game's LoadTexts result by reference; count what it sees.
+    {
+        uint32_t entryCount = 0;
+        uint32_t withText = 0;
+        if (aOnScreens)
+        {
+            const auto& entries = aOnScreens->entries;
+            entryCount = entries.Size();
+            for (uint32_t i = 0; i < entryCount && i < 64; ++i)
+            {
+                if (entries[i].femaleVariant.Length() > 0 || entries[i].maleVariant.Length() > 0)
+                    ++withText;
+            }
+        }
+        Mac::R19NoteLocalization(entryCount, withText, !language.IsNone());
+    }
+#endif
 
     if (language.IsNone())
         return;

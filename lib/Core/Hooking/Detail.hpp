@@ -1,7 +1,14 @@
 #pragma once
 
 #include "Core/Hooking/HookingDriver.hpp"
+#if defined(__APPLE__)
+#include "Core/Hooking/HookHits.hpp"
+#endif
 #include "Core/Stl.hpp"
+
+#if defined(__APPLE__)
+#include <cstdio>
+#endif
 
 namespace Core
 {
@@ -41,6 +48,14 @@ struct HookResult
     {
         if (!success)
         {
+#if defined(__APPLE__)
+            // macOS: a target with no Mac address yet (it resolves to a trap stub, see macos/NOT_YET.md) is refused by
+            // the hooking driver, which logs it. The feature that needs the hook stays off and the plugin keeps
+            // loading, instead of aborting on the first service.
+            std::fprintf(stderr, "[cw] hook not installed (%s), the feature stays off\n",
+                         aMessage ? aMessage : "see the hook log line above");
+            return;
+#endif
             if (aMessage)
             {
                 throw std::runtime_error(aMessage);
@@ -286,6 +301,10 @@ public:
             reinterpret_cast<void*>(s_handler),
             reinterpret_cast<void**>(aOriginal));
         s_original = *aOriginal;
+#if defined(__APPLE__)
+        if (s_attached)
+            Core::HookHits::Attached(s_address, reinterpret_cast<const void*>(s_handler));
+#endif
 
         if (!s_attached)
         {
@@ -375,6 +394,9 @@ public:
 
     inline static TRet Handle(TArgs... aArgs)
     {
+#if defined(__APPLE__)
+        Core::HookHits::Bump(s_hits, reinterpret_cast<const void*>(&Handle));
+#endif
         if constexpr (std::is_void_v<TRet>)
         {
             if constexpr (TFlow == HookFlow::Original)
@@ -537,6 +559,9 @@ public:
 
 private:
     static inline Wrapper s_callback;
+#if defined(__APPLE__)
+    static inline std::atomic<uint64_t> s_hits{0};
+#endif
     static inline Original s_original;
 };
 }

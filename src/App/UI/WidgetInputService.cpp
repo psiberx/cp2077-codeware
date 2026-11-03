@@ -1,6 +1,14 @@
 #include "WidgetInputService.hpp"
 #include "App/UI/inkKeyInputEvent.hpp"
 #include "Red/InkCore.hpp"
+#if defined(__APPLE__)
+#include "MacEngine.hpp"
+#endif
+
+#if defined(__APPLE__)
+#include <string>
+std::string cw_key_to_text(int aVirtualKey); // macos/KeyTranslate.mm
+#endif
 
 namespace
 {
@@ -19,12 +27,20 @@ void App::WidgetInputService::OnShutdown()
 
 void App::WidgetInputService::OnCharacterInput(Red::InkSystem* aSystem, Red::EInputKey aKey, Red::EInputAction aAction)
 {
+#if defined(__APPLE__)
+    static auto& counter = Mac::HookCount("InkSystem_ProcessCharacterEvent");
+    Mac::Hit(counter);
+#endif
     if (aAction == Red::EInputAction::IACT_Press || aAction == Red::EInputAction::IACT_Release)
     {
         if (aSystem->inputWidget)
         {
             auto event = Red::MakeHandle<inkKeyInputEvent>(aSystem->keyboardState, aKey, aAction, ToCharacter(aKey));
             auto manager = Raw::inkWidget::EventManager(aSystem->inputWidget.instance);
+#if defined(__APPLE__)
+            static auto& triggerCounter = Mac::HookCount("InkWidget_TriggerEvent");
+            Mac::Hit(triggerCounter);
+#endif
             Raw::inkWidget::TriggerEvent(manager, RawInputEventName, event);
         }
     }
@@ -35,6 +51,10 @@ std::string App::WidgetInputService::ToCharacter(Red::EInputKey aKey)
     if (!IsCharacterInput(aKey))
         return {};
 
+#if defined(__APPLE__)
+    // R20: the active layout's character for the key and the current Shift / Caps Lock state (macos/KeyTranslate.mm).
+    return cw_key_to_text(static_cast<int>(aKey));
+#else
     BYTE keyboardState[256];
     GetKeyboardState(keyboardState);
 
@@ -50,6 +70,7 @@ std::string App::WidgetInputService::ToCharacter(Red::EInputKey aKey)
 
     std::wstring_convert<std::codecvt_utf8<wchar_t>> converter;
     return converter.to_bytes(buffer);
+#endif
 }
 
 bool App::WidgetInputService::IsCharacterInput(Red::EInputKey aKey)

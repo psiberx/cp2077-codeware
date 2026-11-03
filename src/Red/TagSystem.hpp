@@ -2,6 +2,7 @@
 
 namespace Raw::GameTagSystem
 {
+// Game 2.5: GameTagSystem.GetAnyMatchingEntity helper 0x2A23F9C `lea rbx,[rcx+0x48]` (0x2A23FAC).
 using TagSystem = Core::OffsetPtr<0x48, Red::redTagSystem>;
 }
 

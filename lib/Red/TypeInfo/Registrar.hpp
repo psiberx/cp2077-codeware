@@ -1,5 +1,11 @@
 #pragma once
 
+#include <atomic>
+
+#if defined(__APPLE__)
+#include <pthread.h>
+#endif
+
 namespace Red
 {
 class TypeInfoRegistrar
@@ -15,11 +21,28 @@ public:
 
     static inline void RegisterDiscovered()
     {
-        // Assumed to be called at plugin bootstrap, on the game's main thread.
-        s_mainThread = GetCurrentThreadId();
-
+        // Called at plugin bootstrap, on the game's main thread.
+        s_mainThread = CurrentThreadId();
         QueuePendingRegisterCallbacks();
         QueuePendingDescribeCallbacks();
+    }
+
+    // Run the queued RedLib callbacks on this thread. macOS calls this from
+    // codeware_registerNatives and again from codeware_postLoadScripts.
+    static inline void RunPending()
+    {
+        ProcessPendingRegisterCallbacks();
+        ProcessPendingDescriberCallbacks();
+    }
+
+    static inline std::size_t PendingRegisterCount()
+    {
+        return s_registerCallbacks.size();
+    }
+
+    static inline std::size_t PendingDescribeCount()
+    {
+        return s_describeCallbacks.size();
     }
 
     static inline void AddRegisterCallback(Callback aRegister)
@@ -41,11 +64,20 @@ public:
     static inline bool IsMainThread()
     {
         const auto mainThread = s_mainThread.load();
-
-        return mainThread == 0 || mainThread == GetCurrentThreadId();
+        return mainThread == 0 || mainThread == CurrentThreadId();
     }
 
 private:
+    static inline uint32_t CurrentThreadId()
+    {
+#if defined(__APPLE__)
+        // macOS: the mach thread port of the calling thread stands in for GetCurrentThreadId().
+        return static_cast<uint32_t>(pthread_mach_thread_np(pthread_self()));
+#else
+        return GetCurrentThreadId();
+#endif
+    }
+
     static inline void QueuePendingRegisterCallbacks()
     {
         if (!s_registerCallbacks.empty())

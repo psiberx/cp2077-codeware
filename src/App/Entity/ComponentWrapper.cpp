@@ -391,16 +391,33 @@ bool App::ComponentWrapper::ResetMaterialCache() const
     switch (m_componentType)
     {
     case ComponentType::MeshComponent:
+#if defined(__APPLE__)
+        // R21: the SDK header pads this member (unk158); the Mac game reflects it as meshResource (handle:CMesh, offset 0x158).
+        if (auto* meshResource = Red::GetPropertyPtr<Red::Handle<Red::CMesh>>(m_component, "meshResource"))
+            meshHandle = *meshResource;
+#else
         meshHandle = *reinterpret_cast<Red::Handle<Red::CMesh>*>(&reinterpret_cast<Red::ent::MeshComponent*>(m_component)->unk158);
+#endif
         meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::MeshComponent*>(m_component));
         break;
     case ComponentType::SkinnedMeshComponent:
     case ComponentType::GarmentSkinnedMeshComponent:
+        // The SDK member sits at 0x200 in the Mac 2.5 layout (2.3.1: 0x1F8; asserted by macos/MacLayoutGuard.cpp).
         meshHandle = reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component)->meshHandle;
         meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::SkinnedMeshComponent*>(m_component));
         break;
     case ComponentType::MorphTargetSkinnedMeshComponent:
+#if defined(__APPLE__)
+        // R21: the SDK's unreflected meshHandle (the loaded morph target mesh) has no verified Mac offset; the morph resource
+        // reference (reflected, checked by the layout guard) gives the same mesh once it is loaded.
+        {
+            auto morphRef = reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component)->morphResource.Resolve();
+            if (morphRef.token && morphRef.token->IsLoaded() && morphRef.token->resource)
+                meshHandle = morphRef.token->resource->baseMesh.Get();
+        }
+#else
         meshHandle = reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component)->meshHandle->baseMesh.Get();
+#endif
         meshAppName = GetComponentAppearanceName(reinterpret_cast<Red::ent::MorphTargetSkinnedMeshComponent*>(m_component));
         break;
     case ComponentType::Unsupported:

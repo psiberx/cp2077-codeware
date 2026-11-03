@@ -2,6 +2,9 @@
 
 #include "App/Callback/CallbackSystemEvent.hpp"
 #include "App/Callback/CallbackSystemTarget.hpp"
+#if defined(__APPLE__)
+#include "App/Callback/MacHookStats.hpp"
+#endif
 
 namespace App
 {
@@ -191,6 +194,17 @@ public:
 private:
     [[nodiscard]] inline bool ExecuteCallback(const Red::Handle<CallbackSystemEvent>& aEvent) const
     {
+#if defined(__APPLE__)
+        // DIAG R14. Counts every script handler execution by function name.
+        MacHookStats::NoteHandlerStart(functionName);
+        const bool ok = ExecuteCallbackImpl(aEvent);
+        MacHookStats::NoteHandlerRun(functionName, ok);
+        return ok;
+    }
+
+    [[nodiscard]] inline bool ExecuteCallbackImpl(const Red::Handle<CallbackSystemEvent>& aEvent) const
+    {
+#endif
         if (contextType)
         {
             return Red::CallFunction(function, aEvent);

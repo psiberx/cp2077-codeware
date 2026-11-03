@@ -3,7 +3,14 @@
 #include "App/Callback/CallbackSystem.hpp"
 #include "App/Callback/CallbackSystemController.hpp"
 #include "App/Callback/Events/ResourceEvent.hpp"
+#include "App/Callback/MacHooks.hpp"
+#if defined(__APPLE__)
+#include "MacDiag.hpp"
+#endif
 #include "App/Depot/SoundBanksJson.hpp"
+#if defined(__APPLE__)
+#include "App/Callback/Controllers/MacResourceJob.hpp"
+#endif
 #include "Core/Hooking/HookingAgent.hpp"
 #include "Red/AudioSystem.hpp"
 #include "Red/Serialization.hpp"
@@ -28,7 +35,41 @@ public:
         return {{DeprecatedEventName, EventName}};
     }
 
+#if defined(__APPLE__)
+    // R13. Hooks job 0x2257548 once, at plugin load. HookBefore runs the callback, then the original.
+    // R18. The soundbanks half: HookAfter on SoundBankManager::ReadSoundBanksJson (0xDC8D0C), the body, not its wrapper.
+    static bool InstallMacHook()
+    {
+        const bool ok = IsHooked<Raw::ResourceSerializer::MacLoadJob>() ||
+                        HookBefore<Raw::ResourceSerializer::MacLoadJob>(&OnMacLoadJob);
+        MAC_DIAG_UNLESS(ok, "[cw] hook %s ResourceLoadHook target=%p\n", ok ? "installed" : "FAILED",
+                     reinterpret_cast<void*>(Raw::ResourceSerializer::MacLoadJob.GetOriginalAddress()));
+        const bool soundOk = IsHooked<Raw::SoundBankManager::ReadSoundBanksJson>() ||
+                             HookAfter<Raw::SoundBankManager::ReadSoundBanksJson>(&OnReadSoundBanksJson);
+        MacHooks::LogInstalled("ResourceLoadHook SoundBankManager::ReadSoundBanksJson",
+                               Raw::SoundBankManager::ReadSoundBanksJson.GetOriginalAddress(), soundOk);
+        return ok && soundOk;
+    }
+#endif
+
 protected:
+#if defined(__APPLE__)
+    // R13. The hook is already installed at plugin load, so activation has nothing to do.
+    bool OnActivateHook() override
+    {
+        return true;
+    }
+
+    bool OnDeactivateHook() override
+    {
+        return true;
+    }
+
+    inline static void OnMacLoadJob(Red::ResourceSerializer** aCaptures, void*)
+    {
+        DispatchMacResourceJob(aCaptures, EventName, MacHookStats::load, true);
+    }
+#else
     bool OnActivateHook() override
     {
         return (IsHooked<Raw::ResourceSerializer::SchedulePostLoadJobs>() ||
@@ -65,8 +106,16 @@ protected:
         });
     }
 
+#endif
+
     inline static void OnReadSoundBanksJson(void* aManager)
     {
+        MAC_HOOK_ENTER("SoundBankManager_ReadSoundBanksJson");
+#if defined(__APPLE__)
+        // Building the resource costs a copy of every registered bank. Nothing to do without a Resource/Load callback.
+        if (!CallbackSystem::Get()->HasCallbacks(EventName))
+            return;
+#endif
         auto& registeredBanks = Red::SoundBankManager::RegisteredBanks::Ref(aManager);
 
         auto resource = Red::MakeHandle<SoundBanksJson>();
@@ -77,7 +126,12 @@ protected:
             resource->soundBanks.EmplaceBack(*aEntry);
         });
 
-        if (CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource))
+        const bool dispatched = CallbackSystem::Get()->DispatchNativeEvent<ResourceEvent>(EventName, resource);
+#if defined(__APPLE__)
+        MAC_DIAG("[diag] R18 soundbanks: %u registered banks copied, Resource/Load dispatched=%d\n",
+                 static_cast<unsigned>(resource->soundBanks.Size()), dispatched ? 1 : 0);
+#endif
+        if (dispatched)
         {
             for (auto& resourceEntry : resource->soundBanks)
             {

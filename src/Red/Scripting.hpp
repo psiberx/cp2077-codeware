@@ -75,10 +75,27 @@ constexpr auto HandlerCast = Core::RawFunc<
 
 namespace Raw::ISerializable
 {
+#if defined(__APPLE__)
+// Mac ABI (R19): the clone comes back as a Handle through x8 and the source is the only argument. CloneFn keeps the Windows
+// call shape for the callers.
+constexpr auto CloneNative = Core::RawFunc<
+    /* addr = */ Red::AddressLib::ISerializable_Clone,
+    /* type = */ Red::Handle<Red::ISerializable> (*)(const Red::Handle<Red::ISerializable>* aObject)>();
+
+struct CloneFn
+{
+    void operator()(Red::Handle<Red::ISerializable>& aOut, const Red::Handle<Red::ISerializable>& aObject) const
+    {
+        aOut = CloneNative(&aObject);
+    }
+};
+inline constexpr CloneFn Clone{};
+#else
 constexpr auto Clone = Core::RawFunc<
     /* addr = */ Red::AddressLib::ISerializable_Clone,
     /* type = */ void* (*)(Red::Handle<Red::ISerializable>& aOut,
                            const Red::Handle<Red::ISerializable>& aObject)>();
+#endif
 }
 
 // namespace Raw::IScriptable

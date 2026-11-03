@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Core/Foundation/Feature.hpp"
+#include "Support/RED4ext/V1Compat.hpp"
 #include "Core/Hooking/HookingDriver.hpp"
 #include "Core/Logging/LoggingDriver.hpp"
 #include "Core/Memory/AddressResolver.hpp"
@@ -48,7 +49,13 @@ public:
 
     auto RegisterScripts(const std::filesystem::path& aPath) noexcept
     {
+#if defined(__APPLE__)
+        // macOS: the redscript compiler runs offline (tools/build-cache.py builds the script cache), so there is
+        // nothing to add at run time.
+        (void)aPath;
+#else
         m_sdk->scripts->Add(m_plugin, aPath.c_str());
+#endif
         return Defer(this);
     }
 

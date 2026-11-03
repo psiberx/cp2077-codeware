@@ -123,6 +123,43 @@ struct JobQueue : public Red::IScriptable
                     return false;
             }
 
+#if defined(__APPLE__)
+            // R21. The Mac SDK JobQueue::Dispatch takes one closure (the ranged form of the Windows SDK is not in the Mac SDK). The
+            // range is served in one piece: one job calls Handle(0, size) once and then Finish(size). The scripts' Handle functions
+            // are written for any split of the range, so the result is the same; only the parallel speed-up is not there.
+            const int32_t jobSize = aJobSize.value;
+            jobQueue.Dispatch([aJob, handleFunc, finishFunc, jobSize](const Red::JobGroup& aJobGroup) {
+                if (handleFunc->params.Size() > 2)
+                {
+                    Red::CallFunction(aJob, handleFunc, static_cast<int32_t>(0), jobSize,
+                                      JobGroup(aJobGroup));
+                }
+                else if (handleFunc->params.Size() > 0)
+                {
+                    Red::CallFunction(aJob, handleFunc, static_cast<int32_t>(0), jobSize);
+                }
+                else
+                {
+                    Red::CallFunction(aJob, handleFunc);
+                }
+
+                if (!finishFunc)
+                    return;
+
+                if (finishFunc->params.Size() > 1)
+                {
+                    Red::CallFunction(aJob, finishFunc, jobSize, JobGroup(aJobGroup));
+                }
+                else if (finishFunc->params.Size() > 0)
+                {
+                    Red::CallFunction(aJob, finishFunc, jobSize);
+                }
+                else
+                {
+                    Red::CallFunction(aJob, finishFunc);
+                }
+            });
+#else
             jobQueue.Dispatch(
                 [aJob, handleFunc](uint32_t aFrom, uint32_t aTo, const Red::JobGroup& aJobGroup) {
                     if (handleFunc->params.Size() > 2)
@@ -157,6 +194,7 @@ struct JobQueue : public Red::IScriptable
                     }
                 },
                 aJobSize);
+#endif
         }
 
         return true;

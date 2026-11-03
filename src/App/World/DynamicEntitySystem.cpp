@@ -2,6 +2,11 @@
 #include "Red/RuntimeScene.hpp"
 #include "Red/TagSystem.hpp"
 #include "Red/TweakDB.hpp"
+#if defined(__APPLE__)
+#include "MacEngine.hpp"
+#include "MacR21.hpp"
+#include "MacDiag.hpp"
+#endif
 
 namespace
 {
@@ -10,27 +15,80 @@ constexpr auto SystemPersistentID = Red::PersistentID(Red::GetTypeName<App::Dyna
 
 void App::DynamicEntitySystem::OnWorldAttached(Red::worldRuntimeScene*)
 {
+#if defined(__APPLE__)
+    if (!Red::MacSystemEnabled("DynamicEntitySystem"))
+    {
+        Red::MacSystemOff("DynamicEntitySystem", "switched off with CODEWARE_MAC_SYSTEMS_OFF");
+        return;
+    }
+    if (!Red::GetRuntimeSystem<Red::worldRuntimeEntityRegistry>())
+    {
+        Red::MacSystemOff("DynamicEntitySystem", "the runtime entity registry is not reachable");
+        return;
+    }
+#endif
     m_persistencySystem = Red::GetGameSystem<Red::IPersistencySystem>();
     m_entityIDSystem = Red::GetGameSystem<Red::IDynamicEntityIDSystem>();
     m_entityStubSystem = Red::GetGameSystem<Red::IEntityStubSystem>();
+#if defined(__APPLE__)
+    // R21: the redTagSystem inside GameTagSystem is at +0x48 on Mac too (the Mac callers of TagSystem_AssignTag add 0x48 to the game
+    // system); the pointer is only formed when the game system exists.
+    {
+        auto* gameTagSystem = Red::GetGameSystem<Red::GameTagSystem>();
+        m_entityTagSystem = gameTagSystem ? Raw::GameTagSystem::TagSystem::Ptr(gameTagSystem) : nullptr;
+    }
+#else
     m_entityTagSystem = Raw::GameTagSystem::TagSystem::Ptr(Red::GetGameSystem<Red::GameTagSystem>());
+#endif
     m_entityRegistry = Red::GetRuntimeSystem<Red::worldRuntimeEntityRegistry>();
     m_populationSystem = Red::GetGameSystem<Red::IPopulationSystem>();
     m_spawnEventBroadcaster = Red::GetGameSystem<Red::IEntitySpawnerEventsBroadcaster>();
     m_persistentStateType = Red::GetClass<DynamicEntitySystemPS>();
     m_ready = true;
+#if defined(__APPLE__)
+    // SELFTEST R18. The systems it needs are all reachable at the world attach.
+    MAC_DIAG(
+                 "[cw] R18 DynamicEntitySystem ready persistency=%p idSystem=%p stubSystem=%p tagSystem=%p registry=%p "
+                 "population=%p spawnBroadcaster=%p psType=%p\n",
+                 static_cast<void*>(m_persistencySystem), static_cast<void*>(m_entityIDSystem),
+                 static_cast<void*>(m_entityStubSystem), static_cast<void*>(m_entityTagSystem),
+                 static_cast<void*>(m_entityRegistry), static_cast<void*>(m_populationSystem),
+                 static_cast<void*>(m_spawnEventBroadcaster), static_cast<void*>(m_persistentStateType));
+    Mac::R18Check(m_persistencySystem && m_entityIDSystem && m_entityStubSystem && m_entityRegistry,
+                  "DynamicEntitySystem finds the persistency, ID and stub systems and the registry");
+    // SELFTEST R21. The tag system at GameTagSystem + 0x48 (confirmed by the Mac callers of AssignTag): assign and unassign a
+    // test tag on an entity id no entity has.
+    Mac::R21TagRoundTrip(m_entityTagSystem);
+#endif
 }
 
 void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::worldRuntimeScene*, uint64_t aRestored,
                                                       const Red::JobGroup&)
 {
+#if defined(__APPLE__)
+    // MAC-NOT-YET: RegisterListener (a RED4ext callback object the game invokes on every entity spawn) is not verified against
+    // the Mac game beyond its return (r18g); the game calls our callback in game only (INGAME_TESTS.md). The guards keep a
+    // missing game system from becoming a null call.
+    if (!m_ready || !m_spawnEventBroadcaster || !m_persistencySystem || !m_persistentStateType)
+        return;
+#endif
     m_restored = aRestored;
 
     m_spawnEventListenerID = m_spawnEventBroadcaster->RegisterListener(
         {this, &DynamicEntitySystem::OnEntitySpawnerEvent}, "");
 
+#if defined(__APPLE__)
+    // R21: IPersistencySystem::GetPersistentState returns the Handle through x8 on Mac (the SDK declaration has the Apple form), the
+    // adapter r18g lacked. Guarded against a game system or state that did not come back.
+    m_persistentState = Red::Cast<DynamicEntitySystemPS>(
+        m_persistencySystem->GetPersistentState(SystemPersistentID, m_persistentStateType, true));
+    if (!m_persistentState)
+        return;
+    m_persistentState->RestoreAfterLoading();
+#else
     m_persistencySystem->GetPersistentState(m_persistentState, SystemPersistentID, m_persistentStateType, true);
     m_persistentState->RestoreAfterLoading();
+#endif
 
     for (const auto& entityState : m_persistentState->GetEntityStates())
     {
@@ -50,6 +108,10 @@ void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::worldRuntimeScene*, u
 
 uint32_t App::DynamicEntitySystem::OnBeforeGameSave(const Red::JobGroup& aJobGroup, void* a2)
 {
+#if defined(__APPLE__)
+    if (!m_ready || !m_persistentState)
+        return 0;
+#endif
     std::scoped_lock _(m_entityStatesLock, m_entityTagsLock);
 
     for (const auto& entityState : m_entityStates)
@@ -70,11 +132,19 @@ uint32_t App::DynamicEntitySystem::OnBeforeGameSave(const Red::JobGroup& aJobGro
 
 void App::DynamicEntitySystem::OnAfterGameSave()
 {
+#if defined(__APPLE__)
+    if (!m_ready || !m_persistentState)
+        return;
+#endif
     m_persistentState->Clear();
 }
 
 void App::DynamicEntitySystem::OnBeforeWorldDetach(Red::worldRuntimeScene* aScene)
 {
+#if defined(__APPLE__)
+    if (!m_spawnEventBroadcaster)
+        return;
+#endif
     if (m_spawnEventListenerID)
     {
         m_spawnEventBroadcaster->UnregisterListener(m_spawnEventListenerID);
@@ -87,6 +157,36 @@ void App::DynamicEntitySystem::OnAfterWorldDetach()
     m_ready = false;
     m_restored = false;
     m_persistentState.Reset();
+
+#if defined(__APPLE__)
+    // MAC-NOT-YET: an entity still spawned at the world detach keeps its stub in its state. Codeware must not free it: the Mac game
+    // destroys stubs with its own destructor 0x101FD2C40 and frees them into PoolGMPL_PS (every call site, DeleteStub 0x101FD7734
+    // included), and the stub system may still track the stub by its ID (FindStub), so a free here could be a double free. R33
+    // released them here; since R34 the SDK gives EntityStub no allocator on the Mac and the state's holder (MacEntityStubRef) never
+    // frees, so this hand-off only makes the count visible. A few 0x50-byte stubs leak per session end. The states are copied first
+    // so that each state's own lock is not taken under m_entityStatesLock (OnEntitySpawnerEvent takes them in the other order).
+    {
+        Core::Vector<DynamicEntityStatePtr> states;
+        {
+            std::shared_lock _(m_entityStatesLock);
+            states = m_entityStates;
+        }
+        uint32_t leaked = 0;
+        for (const auto& entityState : states)
+        {
+            if (auto entityStub = entityState->ExtractStub())
+            {
+                (void)entityStub.Release();
+                ++leaked;
+            }
+        }
+        if (leaked)
+        {
+            MAC_DIAG("[cw] DynamicEntitySystem world detach: %u stub(s) of entities still spawned left to the game (not freed)\n",
+                     leaked);
+        }
+    }
+#endif
 
     {
         std::scoped_lock _(m_entityStatesLock, m_entityTagsLock);
@@ -241,7 +341,12 @@ bool App::DynamicEntitySystem::SpawnFromEntityState(const App::DynamicEntityStat
                                          aEntityState->entitySpec->orientation,
                                          aEntityState->entitySpec->recordID};
 
+#if defined(__APPLE__)
+    // macOS: CreateStub returns the token through x8 (the SDK declares the Apple form); the callback goes as an rvalue.
+    auto token = m_entityStubSystem->CreateStub(request, Red::EntityStubCallback([this, aEntityState](Red::EntityStubTokenPtr& aToken) {
+#else
     auto token = m_entityStubSystem->CreateStub(request, [this, aEntityState](Red::EntityStubTokenPtr& aToken) {
+#endif
         if (aToken->status != Red::EntityStubStatus::Created)
         {
             RemoveEntityState(aEntityState);
@@ -262,7 +367,11 @@ bool App::DynamicEntitySystem::SpawnFromEntityState(const App::DynamicEntityStat
         }
 
         m_populationSystem->RegisterEntity(request);
+#if defined(__APPLE__)
+    }));
+#else
     });
+#endif
 
     return true;
 }
@@ -272,7 +381,13 @@ bool App::DynamicEntitySystem::DespawnFromEntityState(const App::DynamicEntitySt
     if (auto entityStub = aEntityState->ExtractStub())
     {
         m_populationSystem->RemoveEntity(aEntityState->entityID, 0);
+#if defined(__APPLE__)
+        // The macOS SDK declares DeleteStub(EntityStub*&) and the system takes the stub over: hand the pointer over.
+        auto* stub = entityStub.Release();
+        m_entityStubSystem->DeleteStub(stub);
+#else
         m_entityStubSystem->DeleteStub(std::move(entityStub));
+#endif
 
         return true;
     }

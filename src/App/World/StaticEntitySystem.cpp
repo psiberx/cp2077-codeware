@@ -1,14 +1,41 @@
 #include "StaticEntitySystem.hpp"
 #include "Red/Entity.hpp"
 #include "Red/RuntimeScene.hpp"
+#if defined(__APPLE__)
+#include "MacEngine.hpp"
+#include "MacR21.hpp"
+#include "MacDiag.hpp"
+#endif
 
 void App::StaticEntitySystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
+#if defined(__APPLE__)
+    if (!Red::MacSystemEnabled("StaticEntitySystem"))
+    {
+        Red::MacSystemOff("StaticEntitySystem", "switched off with CODEWARE_MAC_SYSTEMS_OFF");
+        return;
+    }
+#endif
     m_entityIDSystem = Red::GetGameSystem<Red::IDynamicEntityIDSystem>();
     m_entityRuntimeSystem = Red::GetRuntimeSystem<Red::worldRuntimeSystemEntity>();
+#if defined(__APPLE__)
+    if (!m_entityRuntimeSystem)
+    {
+        Red::MacSystemOff("StaticEntitySystem", "the runtime entity system is not reachable");
+        return;
+    }
+#endif
     m_entitySpawner = Raw::RuntimeSystemEntity::Spawner::Ref(m_entityRuntimeSystem);
     m_entityRegistry = Red::GetRuntimeSystem<Red::worldRuntimeEntityRegistry>();
     m_ready = true;
+#if defined(__APPLE__)
+    // SELFTEST R18. The systems it needs are all reachable at the world attach.
+    MAC_DIAG( "[cw] R18 StaticEntitySystem ready idSystem=%p runtimeEntity=%p spawner=%p registry=%p\n",
+                 static_cast<void*>(m_entityIDSystem), static_cast<void*>(m_entityRuntimeSystem),
+                 static_cast<void*>(m_entitySpawner), static_cast<void*>(m_entityRegistry));
+    Mac::R18Check(m_entityIDSystem && m_entityRuntimeSystem && m_entityRegistry,
+                  "StaticEntitySystem finds the entity ID system and the runtime entity system and registry");
+#endif
 }
 
 void App::StaticEntitySystem::OnBeforeWorldDetach(Red::world::RuntimeScene*)
@@ -49,12 +76,31 @@ void App::StaticEntitySystem::OnAfterWorldDetach()
 
 void App::StaticEntitySystem::OnRegisterUpdates(Red::UpdateRegistrar* aRegistrar)
 {
+#if defined(__APPLE__)
+    {
+        static auto& counter = Mac::HookCount("StaticEntitySystem_RegisterUpdates");
+        Mac::Hit(counter);
+        MAC_DIAG( "[cw] R21 StaticEntitySystem::OnRegisterUpdates registrar=%p\n", static_cast<void*>(aRegistrar));
+        Mac::R21DumpRegistrar(aRegistrar, "before");
+    }
+    const uint32_t countBefore = Mac::R21RegistrarGroup0Count(aRegistrar);
+#endif
     aRegistrar->RegisterUpdate(Red::UpdateTickGroup::FrameBegin, this, "StaticEntitySystem/Tick",
                                {this, &StaticEntitySystem::OnUpdateTick});
+#if defined(__APPLE__)
+    Mac::R21DumpRegistrar(aRegistrar, "after");
+    Mac::R21CheckRegistration(aRegistrar, countBefore, "StaticEntitySystem/Tick", this);
+#endif
 }
 
 void App::StaticEntitySystem::OnUpdateTick(Red::FrameInfo& aFrame, Red::JobQueue& aJobQueue)
 {
+#if defined(__APPLE__)
+    {
+        static auto& counter = Mac::HookCount("StaticEntitySystem_Tick");
+        Mac::Hit(counter);
+    }
+#endif
     std::scoped_lock _(m_disposedLock);
 
     if (m_disposed.empty())

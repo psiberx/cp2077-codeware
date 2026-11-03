@@ -16,6 +16,10 @@ Codeware is a library and framework for creating redscript and Cyber Engine Twea
    - [RED4ext](https://docs.red4ext.com/getting-started/installing-red4ext) 1.31.0+
 2. Extract the release archive `Codeware-x.x.x.zip` into the Cyberpunk 2077 directory.
 
+## macOS (Apple Silicon)
+
+A native macOS build of this plugin lives in this fork. How to build and run it, what works and the known gaps: [macos/README.md](macos/README.md).
+
 ## Documentation
 
 - [Lifecycle](https://github.com/psiberx/cp2077-codeware/wiki#lifecycle)

@@ -1,4 +1,9 @@
 #include "CallbackSystem.hpp"
+#if defined(__APPLE__)
+#include "MacDiag.hpp"
+#include "MacEngine.hpp"
+#include "MacR13.hpp"
+#endif
 #include "App/Callback/Controllers/ComponentToggleHook.hpp"
 #include "App/Callback/Controllers/EntityAssembleHook.hpp"
 #include "App/Callback/Controllers/EntityAttachHook.hpp"
@@ -14,6 +19,7 @@
 #include "App/Callback/Controllers/ResourcePostLoadHook.hpp"
 #include "App/Callback/Controllers/VehicleLightControlHook.hpp"
 #include "App/Callback/Events/GameSessionEvent.hpp"
+#include <cstdio>
 #include "App/Scripting/ScriptableService.hpp"
 #include "Red/InkSystem.hpp"
 
@@ -44,10 +50,30 @@ App::CallbackSystem::~CallbackSystem()
 
 void App::CallbackSystem::OnWorldAttached(Red::world::RuntimeScene*)
 {
+#if defined(__APPLE__)
+    // R18. The InkSystem global is mapped (InkSystem_Instance). The handler is looked up by class, not by the Windows offset
+    // alone (Mac::InkRequestsHandler). It can be missing early; IsPreGame then stays false.
+    if (auto* handler = Mac::InkRequestsHandler())
+    {
+        Red::CallVirtual(handler, "IsPreGame", m_pregame);
+        MAC_DIAG("[cw] R18 OnWorldAttached: IsPreGame=%d via the InkSystem requests handler\n", m_pregame ? 1 : 0);
+        static std::atomic<bool> s_firstAttach{true};
+        if (s_firstAttach.exchange(false))
+        {
+            Mac::R18Check(true, "IsPreGame reached the InkSystem requests handler");
+            Mac::R18Check(m_pregame, "IsPreGame is true at the first world attach (the main menu)");
+        }
+    }
+    else
+    {
+        MAC_DIAG("[cw] R18 OnWorldAttached: no InkSystem requests handler yet, IsPreGame stays false\n");
+    }
+#else
     {
         auto& handler = Red::InkSystem::Get()->GetSystemRequestsHandler();
         Red::CallVirtual(handler.instance, "IsPreGame", m_pregame);
     }
+#endif
 
     DispatchNativeEvent<GameSessionEvent>(SessionBeforeStartEventName, m_pregame, m_restored);
 }
@@ -157,8 +183,17 @@ Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterCallback(
 }
 
 Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallback(
-    Red::CName aEventName, Red::CName aContext, Red::CName aFunction,
+    Red::CName aEventName, const Red::Handle<Red::IScriptable>& aTarget, Red::CName aFunction,
     Red::Optional<bool> aSticky, Red::CStackFrame* aFrame)
+{
+    const auto aContext = aTarget ? aTarget->GetType()->GetName() : Red::CName{};
+
+    return RegisterStaticCallbackImpl(aEventName, aContext, aFunction, aSticky, aFrame);
+}
+
+Red::Handle<App::CallbackSystemHandler> App::CallbackSystem::RegisterStaticCallbackImpl(
+    Red::CName aEventName, Red::CName aContext, Red::CName aFunction, Red::Optional<bool> aSticky,
+    Red::CStackFrame* aFrame)
 {
     MapEventName(aEventName);
 
@@ -289,15 +324,18 @@ void App::CallbackSystem::FireCallbacks(const Red::Handle<CallbackSystemEvent>& 
     }
 }
 
-bool App::CallbackSystem::RegisterEvent(Red::CName aEventName, Red::Optional<Red::CName> aEventType)
+void App::CallbackSystem::RegisterEvent(Red::CName aEventName, Red::Optional<Red::CName> aEventType)
+{
+    Red::CName eventType = aEventType;
+    RegisterEventImpl(aEventName, eventType ? eventType : aEventName);
+}
+
+bool App::CallbackSystem::RegisterEventImpl(Red::CName aEventName, Red::CName aEventType)
 {
     std::unique_lock _(m_callbacksLock);
 
     if (m_supportedEvents[aEventName])
         return false;
-
-    if (!aEventType)
-        aEventType = aEventName;
 
     if (!Red::GetClass(aEventType))
         return false;
@@ -334,7 +372,43 @@ Red::Handle<App::CallbackSystem>& App::CallbackSystem::Get()
     if (!s_self)
     {
         s_self = Red::MakeHandle<CallbackSystem>();
+#if defined(__APPLE__)
+        s_exists.store(true, std::memory_order_release);
+#endif
     }
 
     return s_self;
 }
+
+#if defined(__APPLE__)
+bool App::InstallMacCallbackHooks()
+{
+    // Install order does not matter. Each call logs "[cw] hook installed <name> target=<addr>". CODEWARE_MAC_NOHOOKS=<name>[,...]
+    // skips a controller for a bisecting boot (names as in the log, for example EntityAssembleHook).
+    bool ok = true;
+    auto install = [&ok](const char* aName, bool (*aInstall)()) {
+        if (!Mac::HookEnabled(aName))
+        {
+            std::fprintf(stderr, "[cw] hook skipped %s (CODEWARE_MAC_NOHOOKS)\n", aName);
+            return;
+        }
+        ok = aInstall() && ok;
+    };
+
+    install("ResourceLoadHook", &ResourceLoadHook::InstallMacHook);
+    install("ResourcePostLoadHook", &ResourcePostLoadHook::InstallMacHook);
+    install("EntityAttachHook", &EntityAttachHook::InstallMacHook);
+    install("EntityRequestComponentsHook", &EntityRequestComponentsHook::InstallMacHook);
+    install("EntityExtractHook", &EntityExtractHook::InstallMacHook);
+    install("EntityAssembleHook", &EntityAssembleHook::InstallMacHook);
+    install("EntityDetachHook", &EntityDetachHook::InstallMacHook);
+    install("EntityUninitializeHook", &EntityUninitializeHook::InstallMacHook);
+    install("ComponentToggleHook", &ComponentToggleHook::InstallMacHook);
+    install("VehicleLightControlHook", &VehicleLightControlHook::InstallMacHook);
+    install("PlayerSpawnedHook", &PlayerSpawnedHook::InstallMacHook);
+    install("RawInputHook", &RawInputHook::InstallMacHook);
+    install("ScratchTailHook", &Mac::InstallScratchTailHook); // R81, macos/MacScratchTail.cpp
+    install("InstancedMeshGuard", &Mac::InstallInstancedMeshGuard); // R82, macos/MacInstancedMeshGuard.cpp
+    return ok;
+}
+#endif

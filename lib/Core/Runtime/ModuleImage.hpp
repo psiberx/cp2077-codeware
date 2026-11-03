@@ -1,13 +1,17 @@
 #pragma once
 
-#include "Core/Win.hpp"
+#include "Core/Platform.hpp"
 
 namespace Core
 {
 class ModuleImage
 {
 public:
+#if defined(_WIN32) || defined(_WIN64)
     explicit ModuleImage(HMODULE aHandle);
+#else
+    explicit ModuleImage(void* aHandle);
+#endif
     ~ModuleImage() = default;
 
     [[nodiscard]] std::filesystem::path GetPath() const;

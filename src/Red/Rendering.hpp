@@ -36,6 +36,7 @@ constexpr auto Release = Core::RawFunc<
 
 namespace Raw::RenderProxy
 {
+// Game 2.5: RenderProxy_SetVisibility 0x4023F0 `mov al,[rcx+0x23]`.
 using Flags = Core::OffsetPtr<0x23, uint8_t>;
 
 inline bool IsVisible(Red::RenderProxy* aProxy)

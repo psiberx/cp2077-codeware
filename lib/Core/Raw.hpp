@@ -1,6 +1,12 @@
 #pragma once
 
 #include "Core/Memory/AddressResolver.hpp"
+#include "Core/Platform.hpp"
+
+#if defined(__APPLE__)
+#include <atomic>
+#include <cstdio>
+#endif
 
 namespace Core
 {
@@ -11,7 +17,11 @@ public:
 
     inline static uintptr_t GetImageBase()
     {
+#if defined(_WIN32) || defined(_WIN64)
         static const auto base = reinterpret_cast<uintptr_t>(GetModuleHandleW(nullptr));
+#else
+        static const auto base = Core::Platform::GetImageBase();
+#endif
         return base;
     }
 };
@@ -124,33 +134,59 @@ public:
     using Base::Base;
 };
 
-template<uintptr_t A, typename T>
+// VerifiedOnMac only matters on macOS. A virtual function slot is Windows offset + 8 there (a virtual destructor takes
+// two slots in the Itanium ABI), but the layout of the rest of the vtable is only known to be right once someone checks
+// the live vtable. Until a binding says `true`, a call on macOS is skipped, logged once and returns a default value, the
+// same fail-safe the address trap stubs give an unmapped function (see macos/NOT_YET.md). Windows ignores the flag.
+template<uintptr_t A, typename T, bool VerifiedOnMac = false>
 class RawVFunc {};
 
-template<uintptr_t A, typename C, typename R, typename... Args>
-class RawVFunc<A, R (*)(C*, Args...)> : public RawBase
+template<uintptr_t A, typename C, typename R, typename... Args, bool VerifiedOnMac>
+class RawVFunc<A, R (*)(C*, Args...), VerifiedOnMac> : public RawBase
 {
 public:
     using Type = R (*)(C*, Args...);
     using Callable = Type;
 
+#if defined(__APPLE__)
+    static constexpr uintptr_t offset = A + 8;
+#else
     static constexpr uintptr_t offset = A;
+#endif
 
     constexpr RawVFunc() = default;
 
     auto operator()(C* aContext, Args... aArgs) const
     {
-        auto vft = *reinterpret_cast<uintptr_t*>(aContext);
-        auto callable = *reinterpret_cast<Callable*>(vft + offset);
-        return callable(aContext, std::forward<Args>(aArgs)...);
+#if defined(__APPLE__)
+        if constexpr (!VerifiedOnMac)
+        {
+            static std::atomic<bool> s_logged{false};
+            if (!s_logged.exchange(true))
+            {
+                std::fprintf(stderr, "[cw] not on Mac yet: virtual slot %#lx (Windows %#lx) is unverified, call skipped\n",
+                             static_cast<unsigned long>(offset), static_cast<unsigned long>(A));
+            }
+            if constexpr (std::is_void_v<R>)
+                return;
+            else
+                return R{};
+        }
+        else
+#endif
+        {
+            auto vft = *reinterpret_cast<uintptr_t*>(aContext);
+            auto callable = *reinterpret_cast<Callable*>(vft + offset);
+            return callable(aContext, std::forward<Args>(aArgs)...);
+        }
     }
 };
 
-template<auto A, typename C, typename R, typename... Args>
-class RawVFunc<A, R (C::*)(Args...)> : public RawVFunc<A, R (*)(C*, Args...)>
+template<auto A, typename C, typename R, typename... Args, bool VerifiedOnMac>
+class RawVFunc<A, R (C::*)(Args...), VerifiedOnMac> : public RawVFunc<A, R (*)(C*, Args...), VerifiedOnMac>
 {
 public:
-    using Base = RawVFunc<A, R (*)(C*, Args...)>;
+    using Base = RawVFunc<A, R (*)(C*, Args...), VerifiedOnMac>;
     using Base::Base;
 };
 

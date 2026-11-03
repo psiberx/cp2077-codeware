@@ -1,0 +1,42 @@
+# Image-relative offsets Codeware hooks (RED4EXT_GUM_HOOK_OFFSETS allowlist entries). One per line; # starts a comment.
+# RED4ext-macos installs a detour only for an offset on the allowlist; any other Attach reports success and does nothing.
+# Kept in step with the hooks of the build by tools/build-all.sh, which merges the lists of the three plugins into builds/release/GUM_OFFSETS.txt.
+0x19a7a30  # Entity_Reassemble
+0x19aa048  # Entity_Assemble
+0x19aa7d8  # Entity_Initialize
+0x19ab2d4  # Entity_Uninitialize
+0x529ec50  # Entity_Attach
+0x19ab4dc  # Entity_Detach
+0x19ab7f8  # Entity_Dispose
+0x19b74b0  # EntityBuilder_ExtractComponentsJob
+0x19b95f4  # IComponent_Toggle
+0x51d4f30  # SoundBankManager_ReadSoundBanksJson
+0x2b3dac0  # VehicleController_ToggleAuxLights
+0x1691aec  # GameInstance constructor
+0x16a5ba8  # GetScriptGameInstance
+0x16f3714  # PersistentObject_InitializeState
+0x1086858  # ObjectSerializer_Prepare
+0x10c36a0  # CClass_CreateInstance
+0x111cc00  # ScriptBundle_dtor
+0x11a7e28  # ScriptValidator_Validate
+0x11a8f30  # ScriptValidator_ValidateProperty
+0x1209038  # ResourceSerializer_MacLoadJob
+0x12092e0  # ResourceSerializer_MacPostLoadJob
+0x1219c30  # ResourceSerializer_MacJobDecode (R81: zero the scratch buffer tail after the decoded package)
+0x1b1f1c8  # WorldInstancedMeshNodeInstance_MacAttach (R82: do not attach an instance whose mesh index is outside its node's list)
+0x1c2b6dc  # Localization_LoadOnScreens
+0x4d7efb8  # CBaseEngine_InitEngine
+0x4d7fba8  # CBaseEngine_LoadGatheredResources
+0x1578050  # CGameFramework_InitializeGameInstance
+0xfffcb8  # PlayerSystem_OnPlayerSpawned
+0x3140998  # PointOfInterestMappin_SetPhase
+0x41abbf4  # InkLogicController_OnInitialize
+0x426c760  # InkSystem_ProcessInputEvents
+0x427028c  # InkSystem_ProcessCharacterEvent
+0x4353a7c  # InkWidgetLibrary_AsyncSpawnFromLocal
+0x4353d74  # InkWidgetLibrary_AsyncSpawnFromExternal
+0x435402c  # InkWidgetLibrary_SpawnFromLocal
+0x435424c  # InkWidgetLibrary_SpawnFromExternal
+0x4368f34  # InkSpawner_FinishAsyncSpawn
+0x43931a0  # InkWidget_ScriptAddChild
+0x43a7644  # InkWidget_ScriptReparent

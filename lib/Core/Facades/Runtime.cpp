@@ -65,6 +65,7 @@ bool Core::Runtime::IsASI()
     return s_module->IsASI();
 }
 
+#if defined(_WIN32) || defined(_WIN64)
 bool Core::Runtime::IsASI(HMODULE aHandle)
 {
     return Core::ModuleImage(aHandle).IsASI();
@@ -77,3 +78,17 @@ bool Core::Runtime::IsEXE(std::wstring_view aName)
 
     return Core::HostImage().GetPath().filename() == aName;
 }
+#else
+bool Core::Runtime::IsASI(void* aHandle)
+{
+    return Core::ModuleImage(aHandle).IsASI();
+}
+
+bool Core::Runtime::IsEXE(std::string_view aName)
+{
+    if (s_host)
+        return s_host->GetPath().filename() == aName;
+
+    return Core::HostImage().GetPath().filename() == aName;
+}
+#endif

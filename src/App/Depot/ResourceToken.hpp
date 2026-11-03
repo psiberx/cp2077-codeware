@@ -13,6 +13,21 @@ struct ResourceTokenWrapper : Red::IScriptable
     {
     }
 
+#if defined(__APPLE__)
+    // Mac (R27). When the script drops the last reference, SharedPtr destroys the token with Memory::Delete, which frees it through the SDK's
+    // EngineAllocator. Codeware's vault has no PoolEngine entry (ArchiveXL's has), and the SDK token destructor cannot release the game's
+    // Unk38 pointer on Mac either, so that path faults (found by the autotest harness: depot.LoadResource() of a resource nobody else held,
+    // null+0x10 in Allocator<PoolEngine>::Free). The wrapper keeps one strong reference for the rest of the process instead: the token (and
+    // the load it owns) is never destroyed by this plugin; it is released with the process, like the tokens the game keeps itself.
+    ~ResourceTokenWrapper() override
+    {
+        if (m_token.instance)
+        {
+            new Red::SharedPtr<Red::ResourceToken<Red::CResource>>(m_token);
+        }
+    }
+#endif
+
     [[nodiscard]] Red::Handle<Red::CResource> GetResource() const
     {
         return m_token->Get();
