@@ -35,7 +35,7 @@
 0x427028c  # InkSystem_ProcessCharacterEvent
 0x4353a7c  # InkWidgetLibrary_AsyncSpawnFromLocal
 0x4353d74  # InkWidgetLibrary_AsyncSpawnFromExternal
-0x435413c  # InkWidgetLibrary_SpawnFromLocal
+0x435402c  # InkWidgetLibrary_SpawnFromLocal
 0x435424c  # InkWidgetLibrary_SpawnFromExternal
 0x4368f34  # InkSpawner_FinishAsyncSpawn
 0x43931a0  # InkWidget_ScriptAddChild

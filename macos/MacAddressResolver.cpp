@@ -65,7 +65,9 @@ const std::unordered_map<uint32_t, uintptr_t>& MacRows()
         {2070546748, 0x1203FA8}, // ScriptOpCodes_Register. Fills the table (one call to 0x21FD4B8 per opcode). Not hooked.
         // R20 B4. Ink UI. Each row was matched against the Windows twin by a read-only agent (strings, callers on both sides, field
         // offsets) and rated by tools/addr-match/check-rows.py. Mac signatures are in src/Red/InkLibrary.hpp and InkCore.hpp.
-        {1158555307, 0x435413C}, // InkWidgetLibrary_SpawnFromLocal. Handle<WidgetLibraryItemInstance>(lib&, CName), the Handle through x8. Windows 0x57F9C0.
+        {1158555307, 0x435402C}, // InkWidgetLibrary_SpawnFromLocal. Handle<WidgetLibraryItemInstance>(lib&, CName), the Handle through x8. Windows 0x57F9C0.
+                                 // 2.5 entry the game calls (0x42CE2C4, 0x42D30BC): tests InkSpawner_ControllerInjectionEnabled, else the inline lookup.
+                                 // 0x435413C is the same body without the test, reached only from the flag-set path (0x4155D18, 0x4155DF8).
         {506278179, 0x435424C},  // InkWidgetLibrary_SpawnFromExternal. Handle(lib&, ResourcePath, CName), the Handle through x8. Windows 0x9FB618.
         {118698863, 0x4353a7c},  // InkWidgetLibrary_AsyncSpawnFromLocal. bool(lib&, InkSpawningInfo&, CName, bool flag). Windows 0x57F26C.
         {2342073570, 0x4353a7c}, // InkWidgetLibrary_AsyncSpawnFromLocal: the 2.5 hash of the same function (psiberx/cp2077-codeware#63, Windows 0x208F2E0). Mac signature already carries the bool.
