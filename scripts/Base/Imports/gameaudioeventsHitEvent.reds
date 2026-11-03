@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameaudioeventsHitEvent extends Event {
   public native let attackType: gamedataAttackType;
   public native let hitPosition: Vector4;

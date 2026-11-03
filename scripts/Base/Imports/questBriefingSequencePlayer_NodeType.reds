@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questBriefingSequencePlayer_NodeType extends questIUIManagerNodeType {
   public native let function: questBriefingSequencePlayerFunction;
   public native let briefingResource: ResourceAsyncRef; // raRef<inkWidgetLibraryResource>

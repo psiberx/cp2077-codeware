@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiarcadeShooterSpawnerCondition {
   ScreenLeft = 0,
   ScreenRight = 1,

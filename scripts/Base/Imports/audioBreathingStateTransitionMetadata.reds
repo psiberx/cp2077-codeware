@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioBreathingStateTransitionMetadata extends audioAudioMetadata {
   public native let fromNames: array<CName>;

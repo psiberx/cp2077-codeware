@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum GpuWrapApieTextureGroup {
   TEXG_Generic_Color = 1,
   TEXG_Generic_Grayscale = 2,

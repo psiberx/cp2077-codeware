@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum entdismembermentPlacementE {
 //   MAIN_MESH = 16, // 1 << 4,
 //   DISM_MESH = 32, // 1 << 5,

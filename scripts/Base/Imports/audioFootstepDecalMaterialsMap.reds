@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioFootstepDecalMaterialsMap extends audioAudioMetadata {
   public native let closestDecalDetectionRadius: Float;

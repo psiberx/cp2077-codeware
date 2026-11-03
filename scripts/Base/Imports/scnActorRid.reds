@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnActorRid {
   public native let tag: scnRidTag;
   public native let animations: array<scnAnimationRid>;

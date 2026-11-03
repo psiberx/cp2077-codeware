@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimStateTransitionCondition_IntFeature extends animIAnimStateTransitionCondition {
   public native let compareValue: Int32;
   public native let featureName: CName;

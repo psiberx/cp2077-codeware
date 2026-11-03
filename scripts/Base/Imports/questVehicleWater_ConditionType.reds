@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questVehicleWater_ConditionType extends questIVehicleConditionType {
   public native let anyVehicle: Bool;
   public native let vehicleRef: EntityReference;

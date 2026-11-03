@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameSmartObjectPropertyDictionaryPropertyEntry {
   public native let id: Uint16;
   public native let usage: Uint32;

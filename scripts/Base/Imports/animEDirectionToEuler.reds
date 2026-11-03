@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animEDirectionToEuler {
   Pitch = 0,
   Yaw = 1,

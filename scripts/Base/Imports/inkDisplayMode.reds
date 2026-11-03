@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkDisplayMode {
   Invalid = 0,
   Basic = 1,

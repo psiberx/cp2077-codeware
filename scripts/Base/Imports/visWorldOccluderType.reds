@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum visWorldOccluderType {
   Default = 0,
   None = 1,

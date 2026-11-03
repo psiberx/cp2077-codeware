@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questAudioSwitchNodeType extends questIAudioNodeType {
   public native let switch: audioAudSwitch;
   public native let isMusic: Bool;

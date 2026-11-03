@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMiscAICommandNode extends questConfigurableAICommandNode {
   public native let entityReference: EntityReference;
   public native let function: CName;

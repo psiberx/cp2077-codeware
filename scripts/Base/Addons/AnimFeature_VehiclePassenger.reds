@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_VehiclePassenger)
 public native let overallForceMS: Vector4;
 

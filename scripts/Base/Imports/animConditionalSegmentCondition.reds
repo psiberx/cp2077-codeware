@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animConditionalSegmentCondition {
   public native let lod: Int32;
   public native let group: CName;

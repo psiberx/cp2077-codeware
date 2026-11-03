@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questLanguageMode {
   Undefined = 0,
   VoLang = 1,

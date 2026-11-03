@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioWeaponTailSettings extends audioAudioMetadata {
   public native let interiorDefault: CName;

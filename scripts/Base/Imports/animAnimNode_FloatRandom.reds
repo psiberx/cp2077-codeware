@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FloatRandom extends animAnimNode_FloatValue {
   public native let rand: Bool;
   public native let cooldown: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameEffectNearlyHitAgentData {
   public native let hitPosition: Vector4;
   public native let hitDirection: Vector4;

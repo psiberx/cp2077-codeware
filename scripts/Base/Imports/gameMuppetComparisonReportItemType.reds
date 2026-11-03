@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameMuppetComparisonReportItemType {
   Different = 0,
   WithinTolerance = 1,

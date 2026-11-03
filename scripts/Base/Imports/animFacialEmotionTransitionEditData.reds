@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animFacialEmotionTransitionEditData {
   public native let toIdleMale: CName;
   public native let facialKeyMale: CName;

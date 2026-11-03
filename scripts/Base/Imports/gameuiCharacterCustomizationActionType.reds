@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiCharacterCustomizationActionType {
   Activate = 0,
   Deactivate = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsVFXDurationEvent extends scnSceneEvent {
   public native let effectEntry: scnEffectEntry;
   public native let startAction: scneventsVFXActionType;

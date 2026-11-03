@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStaticOccluderMeshNode extends worldNode {
   public native let occluderType: visWorldOccluderType;
   public native let color: Color;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleEventGenerator extends IParticleEvent {
   public native let evtType: EParticleEventType;
   public native let frequency: Float;

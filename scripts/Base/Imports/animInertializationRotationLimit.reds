@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animInertializationRotationLimit {
   public native let constrainedTransform: animTransformIndex;
   public native let limitOnX: animInertializationFloatClamp;

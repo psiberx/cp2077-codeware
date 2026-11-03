@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameinteractionsInteractionDefinitionOverrider {
   public native let tag: CName;
   public native let shapes: array<ref<gameinteractionsIShapeDefinition>>;

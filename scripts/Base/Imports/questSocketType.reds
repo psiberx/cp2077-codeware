@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questSocketType {
   Undefined = 0,
   Input = 1,

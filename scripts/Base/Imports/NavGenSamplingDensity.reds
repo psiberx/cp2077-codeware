@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum NavGenSamplingDensity {
   None = 0,
   Sparse = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animSAnimationBufferBitwiseCompressedData {
   public native let dt: Float;
   public native let compression: Int8;

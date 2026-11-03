@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalInternetPage)
 public native let address: String;
 

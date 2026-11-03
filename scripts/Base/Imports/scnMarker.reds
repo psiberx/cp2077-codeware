@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnMarker {
   public native let type: scnMarkerType;
   public native let localMarkerId: CName;

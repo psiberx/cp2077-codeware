@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CMaterialTemplate extends IMaterialDefinition {
   public native let name: CName;
   public native let parameters: [array<ref<CMaterialParameter>>; 3];

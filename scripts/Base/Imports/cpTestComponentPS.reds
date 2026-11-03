@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class cpTestComponentPS extends GameComponentPS {
   public native persistent let something: Int32;
   public native persistent let somethingNotInstanceEdiable: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameReplicatedContinuousAttack {
   public native let startTimeStamp: netTime;
   public native let stopTimeStamp: netTime;

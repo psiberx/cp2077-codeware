@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldFoliageBakedDestructionMapping extends worldFoliageDestructionMapping {
   public native let numFrames: Float;
   public native let frameRate: Float;

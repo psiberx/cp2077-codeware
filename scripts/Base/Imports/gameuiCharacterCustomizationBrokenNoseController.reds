@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiCharacterCustomizationBrokenNoseController extends gameuiICharacterCustomizationComponent {
   public native let stage1App: gameuiCharacterCustomizationBrokenNoseControllerBrokenNoseAppearance;
   public native let stage2App: gameuiCharacterCustomizationBrokenNoseControllerBrokenNoseAppearance;

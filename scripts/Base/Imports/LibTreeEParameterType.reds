@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum LibTreeEParameterType {
   PARAM_Bool = 0,
   PARAM_Int32 = 1,

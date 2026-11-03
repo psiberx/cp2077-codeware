@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(worldBenchmarkSummary)
 public native let CASSharpeningEnabled: Bool;
 

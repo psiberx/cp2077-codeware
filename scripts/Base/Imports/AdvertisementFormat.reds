@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AdvertisementFormat {
   Format_0_7x1 = 0,
   Format_1x1 = 1,

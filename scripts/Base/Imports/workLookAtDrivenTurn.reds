@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class workLookAtDrivenTurn extends workIEntry {
   public native let turnAngle: Int32;
   public native let turnAnimName: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioPhysicalPropSettings extends audioAudioMetadata {
   public native let shockwaveSound: CName;

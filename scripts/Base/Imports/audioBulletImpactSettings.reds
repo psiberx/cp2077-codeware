@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioBulletImpactSettings extends audioEntitySettings {
   public native let lowImpactSound: CName;

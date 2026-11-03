@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gamedataGroupNode extends gamedataDataNode {
   public native let name: String;
   public native let base: String;

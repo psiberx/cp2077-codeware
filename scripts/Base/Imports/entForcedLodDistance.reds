@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum entForcedLodDistance {
   Default = 0,
   Background = 1,

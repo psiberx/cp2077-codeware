@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopOpaqueData {
   public native let description: String;
   public native let payload: String;

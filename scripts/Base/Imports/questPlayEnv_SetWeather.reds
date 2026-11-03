@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questPlayEnv_SetWeather extends questIEnvironmentManagerNodeType {
   public native let reset: Bool;
   public native let weatherID: TweakDBID;

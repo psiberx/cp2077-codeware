@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnLookAtAdvancedEvent extends scnSceneEvent {
   public native let advancedData: scnLookAtAdvancedEventData;
 }

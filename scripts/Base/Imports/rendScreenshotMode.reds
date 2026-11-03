@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum rendScreenshotMode {
   NONE = 0,
   NORMAL = 1,

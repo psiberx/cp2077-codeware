@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct ParamData {
   public native let name: String;
   public native let type: String;

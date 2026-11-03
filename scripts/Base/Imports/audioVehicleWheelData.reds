@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioVehicleWheelData {
   public native let wheelStartEvents: array<CName>;
   public native let wheelStopEvents: array<CName>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class vehicleAnimFeature_VehicleProceduralCamera extends AnimFeature {
   public native let cameraTranslationVS: Vector4;
   public native let cameraOrientationVS: Quaternion;

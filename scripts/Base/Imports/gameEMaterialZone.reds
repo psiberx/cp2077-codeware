@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameEMaterialZone {
   Zero = 0,
   One = 1,

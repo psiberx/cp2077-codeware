@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAcousticZoneParameterMapItem extends audioAudioMetadata {
   public native let param: CName;

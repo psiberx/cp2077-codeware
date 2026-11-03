@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum PSODescDepthStencilModeStencilOpMode {
   STENCILOP_Keep = 0,
   STENCILOP_Zero = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class genRandomizerMarker extends worldIMarker {
   public native let id: String;
   public native let templateName: CName;

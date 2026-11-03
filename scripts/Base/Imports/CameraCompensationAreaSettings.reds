@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct CameraCompensationAreaSettings {
   public native let automated: Bool;
   public native let ISO: Uint32;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSetProgress_NodeType extends questIAchievementManagerNodeType {
   public native let achievement: TweakDBID;
   public native let factName: String;

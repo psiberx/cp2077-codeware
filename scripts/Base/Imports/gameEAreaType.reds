@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameEAreaType {
   NONE = 0,
   LOCATION = 1,

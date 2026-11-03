@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemExposureScale extends effectTrackItem {
   public native let scale: effectEffectParameterEvaluatorFloat;
   public native let useInitialCameraPosDirForFadeout: Bool;

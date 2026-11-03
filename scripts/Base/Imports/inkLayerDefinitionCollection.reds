@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkLayerDefinitionCollection {
   public native let menuLayer: inkMenuLayerDefinition;
   public native let menuLayerMP: inkMenuLayerDefinition;

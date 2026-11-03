@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questUseWorkspotPlayerParams {
   public native persistent let tier: questUseWorkspotTier;
   public native persistent let cameraSettings: Tier3CameraSettings;

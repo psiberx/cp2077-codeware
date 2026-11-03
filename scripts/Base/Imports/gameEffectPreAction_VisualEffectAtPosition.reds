@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectPreAction_VisualEffectAtPosition extends EffectPreAction {
   public native let effect: ResourceAsyncRef; // raRef<worldEffect>
   public native let attached: Bool;

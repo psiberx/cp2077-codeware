@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnBraindancePerspective_ConditionType extends scnIBraindanceConditionType {
   public native let perspective: scnBraindancePerspective;
   public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>

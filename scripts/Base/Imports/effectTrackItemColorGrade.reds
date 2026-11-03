@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemColorGrade extends effectTrackItem {
   public native let contrast: effectEffectParameterEvaluatorFloat;
   public native let saturate: effectEffectParameterEvaluatorFloat;

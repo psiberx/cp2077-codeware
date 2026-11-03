@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkAnimSize)
 public native let startValue: Vector2;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct WorldShadowConfig {
   public native let contactShadows: ContactShadowsConfig;
   public native let distantShadowsNumLevels: Uint32;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeShooterEventManager extends inkLogicController {
   public native let nextLevelThreshold: Vector2;
   public native let levelEndCheckDelay: Float;

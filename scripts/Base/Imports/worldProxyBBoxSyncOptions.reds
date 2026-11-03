@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldProxyBBoxSyncOptions {
   Do_Nothing = 0,
   Pull = 1,

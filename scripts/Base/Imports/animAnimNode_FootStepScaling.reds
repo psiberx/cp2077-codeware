@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FootStepScaling extends animAnimNode_OnePoseInput {
   public native let hipsIndex: animTransformIndex;
   public native let leftFootIKIndex: animTransformIndex;

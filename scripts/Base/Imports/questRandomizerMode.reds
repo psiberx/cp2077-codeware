@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questRandomizerMode {
   Random = 0,
   IgnoreLastUsed = 1,

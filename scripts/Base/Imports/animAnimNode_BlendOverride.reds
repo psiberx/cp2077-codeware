@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_BlendOverride extends animAnimNode_Base {
   public native let inputNode: animPoseLink;
   public native let overrideInputNode: animPoseLink;

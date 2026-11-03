@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_TransformRotator extends animAnimNode_OnePoseInput {
   public native let transform: animTransformIndex;
   public native let axis: Vector3;

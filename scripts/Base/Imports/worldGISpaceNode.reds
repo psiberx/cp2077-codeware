@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldGISpaceNode extends worldAreaShapeNode {
   public native let priority: Uint32;
   public native let group: rendGIGroup;

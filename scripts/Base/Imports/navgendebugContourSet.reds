@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct navgendebugContourSet {
   public native let contours: array<navgendebugCompactContour>;
   public native let boundingBox: Box;

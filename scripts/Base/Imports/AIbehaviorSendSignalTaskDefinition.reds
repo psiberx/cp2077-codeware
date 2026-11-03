@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorSendSignalTaskDefinition extends AIbehaviorTaskDefinition {
   public native let signalName: CName;
   public native let startAction: gameBoolSignalAction;

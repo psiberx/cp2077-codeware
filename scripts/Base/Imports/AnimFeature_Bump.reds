@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_Bump extends AnimFeature {
   public native let direction: Float;
   public native let source: Float;

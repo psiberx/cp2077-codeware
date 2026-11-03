@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum SAnimationBufferBitwiseCompressionPreset {
   ABBCP_Custom = 0,
   ABBCP_VeryHighQuality = 1,

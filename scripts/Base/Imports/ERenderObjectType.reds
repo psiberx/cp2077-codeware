@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ERenderObjectType {
   ROT_Static = 0,
   ROT_Terrain = 1,

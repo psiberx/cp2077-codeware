@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_LookAtPose360Direction extends animAnimNode_FloatValue {
   public native let angleOffset: Float;
   public native let defaultValue: Float;

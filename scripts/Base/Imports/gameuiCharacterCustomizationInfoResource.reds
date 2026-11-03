@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiCharacterCustomizationInfoResource extends CResource {
   public native let version: Uint32;
   public native let headCustomizationOptions: array<ref<gameuiCharacterCustomizationInfo>>;

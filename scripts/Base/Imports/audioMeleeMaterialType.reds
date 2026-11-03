@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioMeleeMaterialType {
   Hard = 0,
   Soft = 1,

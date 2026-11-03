@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_TransformToTrack extends animAnimNode_OnePoseInput {
   public native let floatTrack: Int32;
   public native let floatTrackIndex: animNamedTrackIndex;

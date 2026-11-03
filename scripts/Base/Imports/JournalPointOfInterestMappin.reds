@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class JournalPointOfInterestMappin extends JournalEntry {
   public native let staticNodeRef: NodeRef;
   public native let dynamicEntityRef: EntityReference;

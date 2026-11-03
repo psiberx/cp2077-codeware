@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gamedataStatType_1300DEPRECATED {
   Acceleration = 0,
   Accuracy = 1,

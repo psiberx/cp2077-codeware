@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gamestateMachineStateContextConsumableParameters {
   public native let boolParameters: [ConsumableParameterBool; 128];
   public native let intParameters: [ConsumableParameterInt; 128];

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gamePSMCover {
   Any = -1,
   Default = 0,

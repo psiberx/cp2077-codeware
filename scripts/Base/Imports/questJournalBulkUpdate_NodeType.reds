@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questJournalBulkUpdate_NodeType extends questIJournal_NodeType {
   public native let path: ref<gameJournalPath>;
   public native let requiredEntryType: CName;

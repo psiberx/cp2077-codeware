@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EMaterialShadingRateMode {
   MSRM_Default = 0,
   MSRM_Disable = 1,

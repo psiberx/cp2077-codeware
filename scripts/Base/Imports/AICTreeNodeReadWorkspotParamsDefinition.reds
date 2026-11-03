@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AICTreeNodeReadWorkspotParamsDefinition extends AICTreeNodeDecoratorDefinition {
   public native let workspotNodeVarName: CName;
   public native let prevWorkspotNodeVarName: CName;

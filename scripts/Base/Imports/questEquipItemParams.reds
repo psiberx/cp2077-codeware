@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questEquipItemParams extends AICommandParams {
   public native let slotId: TweakDBID;
   public native let type: questNodeType;

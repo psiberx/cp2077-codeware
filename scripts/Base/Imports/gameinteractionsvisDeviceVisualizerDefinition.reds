@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameinteractionsvisDeviceVisualizerDefinition extends gameinteractionsvisIVisualizerDefinition {
   public native let interactionType: gameinteractionsvisInteractionType;
   public native let displayNameOverride: String;

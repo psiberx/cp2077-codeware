@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldStreamingSectorVariant {
   public native let nodeRef: NodeRef;
   public native let variantId: Uint32;

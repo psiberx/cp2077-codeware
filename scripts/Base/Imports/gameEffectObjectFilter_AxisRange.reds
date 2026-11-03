@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectObjectFilter_AxisRange extends EffectObjectSingleFilter {
   public native let axis: gameEffectObjectFilter_AxisRangeAxis;
   public native let position: EffectInputParameter_Vector;

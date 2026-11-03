@@ -27,8 +27,9 @@ struct RawInputData
     uint64_t unk28;      // 28
     uint64_t unk30;      // 30
     uint64_t unk38;      // 38
+    uint64_t unk40;      // 40
 };
-RED4EXT_ASSERT_SIZE(RawInputData, 0x40);
+RED4EXT_ASSERT_SIZE(RawInputData, 0x48);
 
 struct RawInputBuffer
 {

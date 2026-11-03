@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIActionSpot extends AISmartSpot {
   public native let resource: ResourceAsyncRef; // raRef<workWorkspotResource>
   public native let ActorBodytypeE3: AISocketsForRig;

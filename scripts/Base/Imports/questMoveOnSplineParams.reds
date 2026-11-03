@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMoveOnSplineParams extends AICommandParams {
   public native let splineNodeRef: NodeRef;
   public native let useStart: Bool;

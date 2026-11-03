@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questAnimMoveOnSplineParams {
   public native let controllersSetupName: CName;
   public native let blendTime: Float;

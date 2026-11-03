@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalQuestMapPin)
 public native let reference: EntityReference;
 

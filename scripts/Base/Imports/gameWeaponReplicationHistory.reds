@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameWeaponReplicationHistory {
   public native let weaponSlot: TweakDBID;
   public native let shots: [gameReplicatedShotData; 8];

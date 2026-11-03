@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSetMetaQuestProgress_NodeType extends questIUIManagerNodeType {
   public native let metaQuestId: gamedataMetaQuest;
   public native let percent: Uint32;

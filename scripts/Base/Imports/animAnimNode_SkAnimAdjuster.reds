@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SkAnimAdjuster extends animAnimNode_SkAnim {
   public native let targetPositionWs: animVectorLink;
   public native let targetDirectionWs: animVectorLink;

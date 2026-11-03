@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkGridController)
 public native let height: Uint32;
 

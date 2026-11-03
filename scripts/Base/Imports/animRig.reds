@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animRig extends CResource {
   public native let boneNames: array<CName>;
   public native let trackNames: array<CName>;

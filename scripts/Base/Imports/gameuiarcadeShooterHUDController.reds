@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeShooterHUDController extends inkLogicController {
   public native let selectedWeaponSlot: inkImageRef;
   public native let secondWeaponSlot: inkImageRef;

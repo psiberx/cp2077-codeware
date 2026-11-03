@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questAudioEventNodeType extends questIAudioNodeType {
   public native let events: array<audioAudEventStruct>;
   public native let musicEvents: array<audioAudEventStruct>;

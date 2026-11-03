@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animRigIk2Setup extends animIRigIkSetup {
   public native let firstBone: CName;
   public native let secondBone: CName;

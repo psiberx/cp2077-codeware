@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsSectorEntry {
   public native let sectorBounds: Box;
   public native let sectorHash: Uint64;

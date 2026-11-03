@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnFindEntityInEntityParams {
   public native let actorId: scnActorId;
   public native let performerId: scnPerformerId;

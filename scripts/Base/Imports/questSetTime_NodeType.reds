@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSetTime_NodeType extends questITimeManagerNodeType {
   public native let hours: Int32;
   public native let minutes: Int32;

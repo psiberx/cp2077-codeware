@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class PanzerPlayerController extends MinigameDynObjectAdvanced {
   public native let bulletSpeed: Float;
   public native let bulletSpawnOffset: Vector2;

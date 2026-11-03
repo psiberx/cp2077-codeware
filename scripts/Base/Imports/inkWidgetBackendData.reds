@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkWidgetBackendData extends IBackendData {
   public native let owner: wref<inkWidget>;
   public native let isHiddenInEditor: Bool;

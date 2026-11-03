@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorMountEventResolverDefinition extends AIbehaviorEventResolverDefinition {
   public native let mountData: ref<AIArgumentMapping>;
   public native let workspotData: ref<AIArgumentMapping>;

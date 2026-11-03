@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animSetBoneTransformEntry {
   public native let transformToChange: animTransformIndex;
   public native let setMethod: animSetBoneTransformEntry_SetMethod;

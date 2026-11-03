@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnDialogLineEvent extends scnSceneEvent {
   public native let screenplayLineId: scnscreenplayItemId;
   public native let voParams: scnDialogLineVoParams;

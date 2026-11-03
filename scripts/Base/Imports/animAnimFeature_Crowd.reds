@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimFeature_Crowd extends AnimFeature {
   public native let stopType: Int32;
   public native let speedType: Int32;

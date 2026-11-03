@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioPlayerWeaponSettings extends audioWeaponSettings {
   public native let fireSound: CName;

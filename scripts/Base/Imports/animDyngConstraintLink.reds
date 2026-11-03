@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animDyngConstraintLink extends animIDyngConstraint {
   public native let bone1: animTransformIndex;
   public native let bone2: animTransformIndex;

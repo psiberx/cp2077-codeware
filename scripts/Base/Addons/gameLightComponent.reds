@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameLightComponent)
 public native let emissiveOnly: Bool;
 

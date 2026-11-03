@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questBehindInteractionEventType {
   Undefined = 0,
   StartedBeingBehind = 1,

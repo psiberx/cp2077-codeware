@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_DroneLocomotion extends AnimFeature {
   public native let speed: Float;
   public native let angularSpeed: Float;

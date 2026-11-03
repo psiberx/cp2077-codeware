@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkUniformGrid)
 public native let wrappingWidgetCount: Uint32;
 

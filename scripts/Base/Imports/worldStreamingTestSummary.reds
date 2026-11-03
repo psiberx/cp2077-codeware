@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStreamingTestSummary extends ISerializable {
   public native let gameDefinition: String;
   public native let noCrowds: Bool;

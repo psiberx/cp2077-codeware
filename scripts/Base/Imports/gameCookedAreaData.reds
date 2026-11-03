@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameCookedAreaData {
   public native let entityID: EntityID;
   public native let position: Vector3;

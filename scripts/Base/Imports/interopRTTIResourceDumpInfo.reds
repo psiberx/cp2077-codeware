@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopRTTIResourceDumpInfo {
   public native let extension: String;
   public native let deprecatedExtension: String;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum PSODescBlendModeFactor {
   FAC_Zero = 0,
   FAC_One = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum ETextureChannel {
 //   TextureChannel_R = 1, // 1 << 0,
 //   TextureChannel_G = 2, // 1 << 1,

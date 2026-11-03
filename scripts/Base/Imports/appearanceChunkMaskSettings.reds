@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct appearanceChunkMaskSettings {
   public native let chunksIds: array<Uint64>;
   public native let meshLayout: array<Uint32>;

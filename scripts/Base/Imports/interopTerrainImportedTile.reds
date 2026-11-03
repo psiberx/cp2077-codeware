@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopTerrainImportedTile {
   public native let heightMapAbsolutePath: String;
   public native let controlMapAbsolutePath: String;

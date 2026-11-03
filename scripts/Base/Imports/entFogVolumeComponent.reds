@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entFogVolumeComponent extends IVisualComponent {
   public native let densityFalloff: Float;
   public native let blendFalloff: Float;

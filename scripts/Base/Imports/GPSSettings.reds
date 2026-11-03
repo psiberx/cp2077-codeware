@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct GPSSettings {
   public native let lineEffectOnFoot: ResourceAsyncRef; // raRef<worldEffect>
   public native let lineEffectVehicle: ResourceAsyncRef; // raRef<worldEffect>

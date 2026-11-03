@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionUnmountNodeDefinition extends AIbehaviorActionMountHandlingNodeDefinition {
   public native let mountData: ref<AIArgumentMapping>;
 }

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterManagerVisuals_GenitalsManager extends questICharacterManagerVisuals_NodeSubType {
   public native let bodyGroupName: CName;
   public native let puppetRef: EntityReference;

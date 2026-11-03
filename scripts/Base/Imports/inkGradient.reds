@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkGradient extends inkBaseShapeWidget {
   public native let gradientMode: inkGradientMode;
   public native let startColor: HDRColor;

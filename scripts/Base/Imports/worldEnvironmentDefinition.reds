@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldEnvironmentDefinition extends CResource {
   public native let worldRenderSettings: WorldRenderAreaSettings;
   public native let worldShadowConfig: WorldShadowConfig;

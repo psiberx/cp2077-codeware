@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum PSODescPrimitiveTopologyType {
   Invalid = 0,
   Point = 1,

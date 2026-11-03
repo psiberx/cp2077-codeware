@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EEntityHighlightType {
   EHE_None = 0,
   EHE_FillAndOutline = 1,

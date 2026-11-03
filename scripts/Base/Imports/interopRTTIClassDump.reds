@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopRTTIClassDump {
   public native let classNames: array<String>;
   public native let descriptiveNames: array<String>;

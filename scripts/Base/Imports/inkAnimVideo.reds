@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkAnimVideo extends inkAnimInterpolator {
   public native let startValue: Float;
   public native let endValue: Float;

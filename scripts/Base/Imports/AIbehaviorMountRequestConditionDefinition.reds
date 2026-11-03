@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorMountRequestConditionDefinition extends AIbehaviorConditionDefinition {
   public native let testMountRequest: Bool;
   public native let testUnmountRequest: Bool;

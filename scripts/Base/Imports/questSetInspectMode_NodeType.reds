@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSetInspectMode_NodeType extends questIInteractiveObjectManagerNodeType {
   public native let objectID: String;
   public native let startingOffset: Float;

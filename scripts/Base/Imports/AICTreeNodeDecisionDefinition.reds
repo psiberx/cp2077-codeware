@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AICTreeNodeDecisionDefinition extends AICTreeNodeCompositeDefinition {
   public native let child: ref<LibTreeINodeDefinition>;
   public native let expressions: array<ref<LibTreeINodeDefinition>>;

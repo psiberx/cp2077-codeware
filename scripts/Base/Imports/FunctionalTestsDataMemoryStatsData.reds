@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class FunctionalTestsDataMemoryStatsData extends ISerializable {
   public native let totalPhysicalMemory: Uint64;
   public native let availablePhysicalMemory: Uint64;

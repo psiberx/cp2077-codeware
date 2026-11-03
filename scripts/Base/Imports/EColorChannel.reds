@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EColorChannel {
   COLCHANNEL_Red = 0,
   COLCHANNEL_Green = 1,

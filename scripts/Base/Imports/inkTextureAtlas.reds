@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkTextureAtlas extends CResource {
   public native let activeTexture: inkTextureType;
   public native let textureResolution: inkETextureResolution;

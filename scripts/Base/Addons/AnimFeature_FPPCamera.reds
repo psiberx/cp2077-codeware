@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_FPPCamera)
 public native let fov: Float;
 

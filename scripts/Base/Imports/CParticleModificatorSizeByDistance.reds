@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorSizeByDistance extends IParticleModificator {
   public native let nearDistanceRangeStart: ref<IEvaluatorFloat>;
   public native let nearDistanceRangeEnd: ref<IEvaluatorFloat>;

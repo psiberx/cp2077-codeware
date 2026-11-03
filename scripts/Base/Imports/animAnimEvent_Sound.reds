@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimEvent_Sound extends animAnimEvent {
   public native let switches: array<audioAudSwitch>;
   public native let params: array<audioAudParameter>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct cpConveyorLine {
   public native let spline: NodeRef;
   public native let template: CName;

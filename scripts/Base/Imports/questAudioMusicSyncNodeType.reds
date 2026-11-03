@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questAudioMusicSyncNodeType extends questIAudioNodeType {
   public native let syncType: audioMusicSyncType;
   public native let description: String;

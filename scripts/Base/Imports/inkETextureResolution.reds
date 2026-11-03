@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkETextureResolution {
   UltraHD_3840_2160 = 0,
   FullHD_1920_1080 = 1,

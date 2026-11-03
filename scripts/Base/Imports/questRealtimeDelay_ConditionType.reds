@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questRealtimeDelay_ConditionType extends questITimeConditionType {
   public native let hours: Uint32;
   public native let minutes: Uint32;

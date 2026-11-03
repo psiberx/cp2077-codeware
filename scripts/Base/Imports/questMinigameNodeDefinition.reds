@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMinigameNodeDefinition extends questSignalStoppingNodeDefinition {
   public native let start: Bool;
   public native let skipSummaryScreen: Bool;

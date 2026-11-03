@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_DampFloat extends animAnimNode_FloatValue {
   public native let defaultIncreaseSpeed: Float;
   public native let defaultDecreaseSpeed: Float;

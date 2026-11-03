@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(GameObject)
 public native let persistentState: ref<PersistentState>;
 

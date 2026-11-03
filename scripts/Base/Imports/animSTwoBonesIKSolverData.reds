@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animSTwoBonesIKSolverData {
   public native let upperBone: animTransformIndex;
   public native let jointBone: animTransformIndex;

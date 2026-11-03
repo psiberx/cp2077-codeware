@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly class NarrationPlateComponent extends IComponent {
   public native let narrationCaption: CName;
   public native let narrationText: CName;

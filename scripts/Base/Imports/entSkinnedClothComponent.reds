@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly class entSkinnedClothComponent extends entISkinTargetComponent {
   public native let graphicsMesh: ResourceAsyncRef; // raRef<CMesh>
   public native let physicalMesh: ResourceAsyncRef; // raRef<CMesh>

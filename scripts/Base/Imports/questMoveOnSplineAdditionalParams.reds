@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMoveOnSplineAdditionalParams extends ISerializable {
   public native let type: questMoveOnSplineType;
   public native let simpleParams: questSimpleMoveOnSplineParams;

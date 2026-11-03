@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimationControllerComponent)
 public native let actionAnimDatabaseRef: ResourceRef; // rRef<animActionAnimDatabase>
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questShowNarrativeEvent_NodeType extends questIUIManagerNodeType {
   public native let eventText: String;
   public native let textColor: Color;

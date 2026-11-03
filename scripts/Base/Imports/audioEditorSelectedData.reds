@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioEditorSelectedData extends audioAudioMetadata {
   public native let selectedWeaponConfigurationName: CName;

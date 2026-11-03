@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_StackTransformsExtender extends animAnimNode_OnePoseInput {
   public native let tag: CName;
   public native let transformInfos: array<animTransformInfo>;

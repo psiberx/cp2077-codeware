@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questChangeVoicesetState_NodeTypeParams {
   public native let puppetRef: EntityReference;
   public native let isPlayer: Bool;

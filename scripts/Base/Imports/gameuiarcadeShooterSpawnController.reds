@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeShooterSpawnController extends inkLogicController {
   public native let enemyType: gameuiarcadeShooterAIType;
   public native let spawnCondition: gameuiarcadeShooterSpawnerCondition;

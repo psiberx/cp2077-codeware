@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ECustomMaterialParam {
   ECMP_CustomParam0 = 1,
   ECMP_CustomParam1 = 2,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkTextValueProgressController)
 public native let baseValue: Float;
 

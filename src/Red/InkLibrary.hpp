@@ -6,27 +6,26 @@ namespace Raw::InkWidgetLibrary
 {
 constexpr auto AsyncSpawnFromExternal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_AsyncSpawnFromExternal,
-    /* type = */ bool (*)(
-        Red::ink::WidgetLibraryResource& aLibrary,
-        Red::InkSpawningInfo& aSpawningInfo,
-        Red::ResourcePath aExternalPath,
-        Red::CName aItemName)>();
+    /* type = */ bool (*)(Red::inkWidgetLibraryResource& aLibrary,
+                          Red::InkSpawningInfo& aSpawningInfo,
+                          Red::ResourcePath aExternalPath,
+                          Red::CName aItemName)>();
 
 constexpr auto AsyncSpawnFromLocal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_AsyncSpawnFromLocal,
-    /* type = */ bool (*)(
-        Red::ink::WidgetLibraryResource& aLibrary,
-        Red::InkSpawningInfo& aSpawningInfo,
-        Red::CName aItemName)>();
+    /* type = */ bool (*)(Red::inkWidgetLibraryResource& aLibrary,
+                          Red::InkSpawningInfo& aSpawningInfo,
+                          Red::CName aItemName,
+                          bool aFlag)>();
 
 constexpr auto SpawnFromExternal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_SpawnFromExternal,
-    /* type = */ Red::Handle<Red::ink::WidgetLibraryItemInstance> (Red::ink::WidgetLibraryResource::*)(
+    /* type = */ Red::Handle<Red::inkWidgetLibraryItemInstance> (Red::inkWidgetLibraryResource::*)(
         Red::ResourcePath aExternalPath,
         Red::CName aItemName)>();
 
 constexpr auto SpawnFromLocal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_SpawnFromLocal,
-    /* type = */ Red::Handle<Red::ink::WidgetLibraryItemInstance> (Red::ink::WidgetLibraryResource::*)(
+    /* type = */ Red::Handle<Red::inkWidgetLibraryItemInstance> (Red::inkWidgetLibraryResource::*)(
         Red::CName aItemName)>();
 }

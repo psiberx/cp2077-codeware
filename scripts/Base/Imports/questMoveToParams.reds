@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMoveToParams extends AICommandParams {
   public native let movementTargetRef: ref<questUniversalRef>;
   public native let facingTargetRef: ref<questUniversalRef>;

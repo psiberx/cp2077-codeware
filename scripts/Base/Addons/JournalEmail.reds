@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalEmail)
 public native let sender: LocalizationString;
 

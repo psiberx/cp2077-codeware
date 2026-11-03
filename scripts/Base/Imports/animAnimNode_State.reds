@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_State extends animAnimNode_Container {
   public native let name: CName;
   public native let outTransitionIndices: array<Int16>;

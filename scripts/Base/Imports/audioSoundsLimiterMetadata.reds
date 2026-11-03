@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioSoundsLimiterMetadata extends audioAudioMetadata {
   public native let tooManyPlayingGruntsAndVOsLimitation: array<audioLimitedSound>;

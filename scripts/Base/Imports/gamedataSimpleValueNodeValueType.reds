@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gamedataSimpleValueNodeValueType {
   String = 0,
   Number = 1,

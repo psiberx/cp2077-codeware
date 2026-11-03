@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStaticMarkerNode extends worldSocketNode {
   public native let isEnabled: Bool;
   public native let tags: redTagList;

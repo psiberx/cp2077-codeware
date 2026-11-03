@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_BaseSwitch extends animAnimNode_Base {
   public native let blendTime: Float;
   public native let timeWarpingEnabled: Bool;

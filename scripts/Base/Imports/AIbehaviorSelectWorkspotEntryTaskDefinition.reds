@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorSelectWorkspotEntryTaskDefinition extends AIbehaviorTaskDefinition {
   public native let workspotData: ref<AIArgumentMapping>;
   public native let destinationPosition: ref<AIArgumentMapping>;

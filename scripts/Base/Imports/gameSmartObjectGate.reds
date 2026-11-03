@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameSmartObjectGate {
   public native let animationName: CName;
   public native let movementType: moveMovementType;

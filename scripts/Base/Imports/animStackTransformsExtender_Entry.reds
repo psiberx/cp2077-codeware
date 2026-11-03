@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animStackTransformsExtender_Entry {
   public native let transformInfo: animTransformInfo;
   public native let snapMethod: animStackTransformsExtender_SnapToBoneMethod;

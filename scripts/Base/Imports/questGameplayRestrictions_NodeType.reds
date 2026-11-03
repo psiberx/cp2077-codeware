@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questGameplayRestrictions_NodeType extends questIGameManagerNonSignalStoppingNodeType {
   public native let action: questGameplayRestrictionAction;
   public native let source: CName;

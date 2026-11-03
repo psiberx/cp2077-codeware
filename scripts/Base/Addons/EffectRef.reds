@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(EffectRef)
 public native let set: ResourceRef; // rRef<gameEffectSet>
 

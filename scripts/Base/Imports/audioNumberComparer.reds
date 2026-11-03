@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioNumberComparer {
   Equal = 0,
   NotEqual = 1,

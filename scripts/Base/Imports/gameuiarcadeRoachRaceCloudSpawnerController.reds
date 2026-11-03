@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeRoachRaceCloudSpawnerController extends gameuiarcadeArcadeSpawnerController {
   public native let minCloudRelativeVelocity: Float;
   public native let maxCloudRelativeVelocity: Float;

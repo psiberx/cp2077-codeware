@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_TriggerBranch extends animAnimNode_Base {
   public native let base: animPoseLink;
   public native let overlay: animPoseLink;

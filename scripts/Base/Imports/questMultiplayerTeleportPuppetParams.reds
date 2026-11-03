@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questMultiplayerTeleportPuppetParams {
   public native let teleportAllPlayers: Bool;
   public native let spawnPointTag: CName;

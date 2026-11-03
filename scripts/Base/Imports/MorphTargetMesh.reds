@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class MorphTargetMesh extends resStreamedResource {
   public native let baseMesh: ResourceRef; // rRef<CMesh>
   public native let targets: array<MorphTargetMeshEntry>;

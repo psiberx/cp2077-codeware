@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animStateTag {
   ST_Invalid = 0,
   Idle = 1,

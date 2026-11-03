@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStaticParticleNode extends worldNode {
   public native let emissionRate: Float;
   public native let particleSystem: ResourceAsyncRef; // raRef<CParticleSystem>

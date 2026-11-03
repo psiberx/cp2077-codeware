@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioCpoConversation extends audioAudioMetadata {
   public native let characterOne: audioVoCpoCharacter;

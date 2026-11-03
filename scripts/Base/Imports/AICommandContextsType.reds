@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AICommandContextsType {
   Default = 0,
   Immediate = 1,

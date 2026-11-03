@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class physicsCustomFilterData extends ISerializable {
   public native let collisionType: array<CName>;
   public native let collideWith: array<CName>;

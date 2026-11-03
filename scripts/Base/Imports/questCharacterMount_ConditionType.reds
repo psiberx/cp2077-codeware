@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterMount_ConditionType extends questICharacterConditionType {
   public native let anyParent: Bool;
   public native let parentRef: EntityReference;

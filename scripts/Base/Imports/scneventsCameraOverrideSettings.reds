@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scneventsCameraOverrideSettings {
   public native let overrideFov: Bool;
   public native let overrideDof: Bool;

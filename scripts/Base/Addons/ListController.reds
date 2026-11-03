@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(ListController)
 public native let itemLibraryID: CName;
 

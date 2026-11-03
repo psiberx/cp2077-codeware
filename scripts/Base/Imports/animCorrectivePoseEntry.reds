@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animCorrectivePoseEntry {
   public native let comparePose: CName;
   public native let correctivePose: CName;

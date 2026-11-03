@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class HitRepresentationComponent extends SlotComponent {
   public native let representations: array<HitShapeContainer>;
   public native let physicsMaterial: CName;

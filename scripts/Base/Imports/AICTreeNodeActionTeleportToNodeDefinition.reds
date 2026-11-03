@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AICTreeNodeActionTeleportToNodeDefinition extends AICTreeNodeActionDefinition {
   public native let nodeRef: LibTreeDefNodeRef;
   public native let offset: LibTreeDefVector;

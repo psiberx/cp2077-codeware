@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entSlot {
   public native let slotName: CName;
   public native let relativePosition: Vector3;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorMoveAlongTrafficPathActionNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let joinTrafficSettings: ref<AIArgumentMapping>;
   public native let ignoreTrafficSpots: ref<AIArgumentMapping>;

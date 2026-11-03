@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ENoiseType {
   NT_Random = 0,
   NT_Simplex2D = 1,

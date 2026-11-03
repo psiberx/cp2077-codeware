@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(SongbirdAudioCallGameController)
 public native let waveformEnabled: Bool;
 

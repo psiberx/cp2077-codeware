@@ -1,6 +1,8 @@
-public native class inkKeyInputEvent extends inkInputEvent {
-    public native func GetKey() -> EInputKey
-    public native func GetAction() -> EInputAction
-    public native func GetCharacter() -> String
-    public native func IsCharacter() -> Bool
-}
+@addMethod(inkKeyInputEvent)
+public native func GetKey() -> EInputKey
+
+@addMethod(inkKeyInputEvent)
+public native func GetAction() -> EInputAction
+
+@addMethod(inkKeyInputEvent)
+public native func GetCharacter() -> String

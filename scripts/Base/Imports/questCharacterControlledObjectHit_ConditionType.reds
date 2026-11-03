@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterControlledObjectHit_ConditionType extends questICharacterConditionType {
   public native let attackerRef: EntityReference;
   public native let targetRef: EntityReference;

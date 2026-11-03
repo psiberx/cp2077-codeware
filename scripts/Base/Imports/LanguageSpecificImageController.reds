@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class LanguageSpecificImageController extends inkLogicController {
   public native let languages: array<LanguageSpecificImagData>;
   public native let fallbackTextureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>

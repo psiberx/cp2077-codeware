@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldEntityNode extends worldNode {
   public native let entityTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
   public native let instanceData: ref<entEntityInstanceData>;

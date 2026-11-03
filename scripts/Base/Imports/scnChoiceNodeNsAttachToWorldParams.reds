@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnChoiceNodeNsAttachToWorldParams {
   public native let entityPosition: Vector3;
   public native let entityOrientation: Quaternion;

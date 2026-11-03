@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct genLevelRandomizerEntry {
   public native let id: String;
   public native let templateName: CName;

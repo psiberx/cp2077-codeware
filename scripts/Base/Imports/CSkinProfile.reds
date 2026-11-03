@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CSkinProfile extends CResource {
   public native let blurSize: Float;
   public native let diffuse: Color;

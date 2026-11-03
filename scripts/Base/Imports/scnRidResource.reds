@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnRidResource extends CResource {
   public native let actors: array<scnActorRid>;
   public native let cameras: array<scnCameraRid>;

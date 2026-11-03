@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldSceneRecordingNodeFilter {
   public native let streamInNodesWithStreamingDistanceMoreThan: Float;
   public native let streamOutPrefabProxyMeshesWithStreamingDistanceMoreThan: Float;

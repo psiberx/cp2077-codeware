@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameCameraCurve {
   CentricPitchOfSpeed = 0,
   CentricVerticalOffsetOfSpeed = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum curveESegmentsLinkType {
   ESLT_Normal = 0,
   ESLT_Smooth = 1,

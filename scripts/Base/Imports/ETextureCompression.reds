@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ETextureCompression {
   TCM_None = 0,
   TCM_DXTNoAlpha = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(worlduiWidgetComponent)
 public native let cursorResource: ResourceRef; // rRef<inkWidgetLibraryResource>
 

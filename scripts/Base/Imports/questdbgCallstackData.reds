@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questdbgCallstackData {
   public native let resourceHash: Uint64;
   public native let phases: array<questdbgCallstackPhase>;

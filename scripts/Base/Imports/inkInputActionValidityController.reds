@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkInputActionValidityController extends inkLogicController {
   public native let invertVisibility: Bool;
   public native let inputActionName: CName;

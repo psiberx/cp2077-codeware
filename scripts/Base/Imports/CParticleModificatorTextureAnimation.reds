@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorTextureAnimation extends IParticleModificator {
   public native let initialFrame: ref<IEvaluatorFloat>;
   public native let animationSpeed: ref<IEvaluatorFloat>;

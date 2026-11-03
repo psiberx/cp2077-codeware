@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class cpMeatBag extends GameObject {
   public native let rotationLerpFactor: Float;
   public native let kinematicBodyBoneName: CName;

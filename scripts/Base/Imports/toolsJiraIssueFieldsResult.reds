@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct toolsJiraIssueFieldsResult {
   public native let project: String;
   public native let summary: String;

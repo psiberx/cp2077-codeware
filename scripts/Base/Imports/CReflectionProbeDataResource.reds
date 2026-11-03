@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CReflectionProbeDataResource extends resStreamedResource {
   public native let textureData: rendRenderTextureResource;
   public native let dataHash: Uint64;

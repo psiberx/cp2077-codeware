@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly struct PointOfInterestMappinData {
   public native let typedVariant: ref<gamemappinsIPointOfInterestVariant>;
   public native let active: Bool;

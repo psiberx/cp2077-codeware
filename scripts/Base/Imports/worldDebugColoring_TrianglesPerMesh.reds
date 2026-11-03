@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldDebugColoring_TrianglesPerMesh extends worldEditorDebugColoringSettings {
   public native let maxColor: Color;
   public native let minColor: Color;

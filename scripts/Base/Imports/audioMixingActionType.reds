@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioMixingActionType {
   VoContext = 0,
   EmitterTag = 1,

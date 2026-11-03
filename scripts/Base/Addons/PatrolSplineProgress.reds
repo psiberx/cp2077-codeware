@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(PatrolSplineProgress)
 public native let currentControlPoints: array<gamePatrolSplineControlPoint>;
 

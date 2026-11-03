@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiSwitcherInfo)
 public native let uiSlots: array<CName>;
 

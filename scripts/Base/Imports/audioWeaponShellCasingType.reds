@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioWeaponShellCasingType {
   standard = 0,
   large = 1,

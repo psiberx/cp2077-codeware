@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameStatsBundleOwnerType {
   None = 0,
   Cleared = 1,

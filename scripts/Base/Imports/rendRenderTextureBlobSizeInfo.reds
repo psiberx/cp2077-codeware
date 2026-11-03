@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendRenderTextureBlobSizeInfo {
   public native let width: Uint16;
   public native let height: Uint16;

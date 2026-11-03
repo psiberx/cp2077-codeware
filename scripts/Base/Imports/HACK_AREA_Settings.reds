@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class HACK_AREA_Settings extends IAreaSettings {
   public native let surfelScale: Float;
   public native let missingEnergyScale: Float;

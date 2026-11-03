@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class workSequence extends workIContainerEntry {
   public native let previousLoopInfinitely: Bool;
   public native let loopInfinitely: Bool;

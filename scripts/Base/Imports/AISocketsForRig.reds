@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AISocketsForRig {
   Undefined = 0,
   ManAverage = 1,

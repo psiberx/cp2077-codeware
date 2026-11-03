@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnFastForwardStrategy {
   automatic = 0,
   allow_fully = 1,

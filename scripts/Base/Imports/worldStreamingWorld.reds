@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStreamingWorld extends CResource {
   public native let version: Uint32;
   public native let blockRefs: array<ResourceRef>;

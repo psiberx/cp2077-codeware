@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioEnemyState {
   InCombat = 0,
   Alerted = 1,

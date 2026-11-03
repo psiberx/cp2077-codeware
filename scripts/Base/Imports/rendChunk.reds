@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendChunk {
   public native let chunkVertices: rendVertexBufferChunk;
   public native let chunkIndices: rendIndexBufferChunk;

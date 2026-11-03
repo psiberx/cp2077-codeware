@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnInterruptionScenario {
   public native let id: scnInterruptionScenarioId;
   public native let name: CName;

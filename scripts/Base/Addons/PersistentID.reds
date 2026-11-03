@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(PersistentID)
 public native persistent let entityHash: Uint64;
 

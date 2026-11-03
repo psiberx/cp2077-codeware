@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AICTreeNodeActionAnimationCurvePathDefinition extends AICTreeNodeActionDefinition {
   public native let nodeReference: LibTreeDefNodeRef;
   public native let controllersSetupName: LibTreeDefCName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorGetSearchPointTaskDefinition extends AIbehaviorTaskDefinition {
   public native let inPlayerPositionDelay: ref<AIArgumentMapping>;
   public native let inSearchPositionMaxRadius: ref<AIArgumentMapping>;

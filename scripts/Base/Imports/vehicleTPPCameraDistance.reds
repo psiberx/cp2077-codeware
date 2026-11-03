@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum vehicleTPPCameraDistance {
   Close = 0,
   Medium = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkScrollArea)
 public native let horizontalScrolling: Float;
 

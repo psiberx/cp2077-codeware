@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ESaveFormat {
   SF_PNG = 2,
   SF_EXR = 32,

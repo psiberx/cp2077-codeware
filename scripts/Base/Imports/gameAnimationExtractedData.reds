@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameAnimationExtractedData {
   public native let animationName: CName;
   public native let animsetsExtractedTransforms: array<gameAnimationTransforms>;

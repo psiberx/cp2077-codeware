@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct PSODescRasterizerModeDesc {
   public native let wireframe: Bool;
   public native let frontWinding: PSODescRasterizerModeFrontFaceWinding;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkWidgetBrush extends IScriptable {
   public native let textureAtlas: ResourceRef; // rRef<inkTextureAtlas>
   public native let texturePartId: CName;

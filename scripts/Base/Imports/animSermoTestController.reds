@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animSermoTestController {
   public native let faceEnvelope: Float;
   public native let upperFace: Float;

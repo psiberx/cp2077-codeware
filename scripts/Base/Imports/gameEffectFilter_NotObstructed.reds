@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectFilter_NotObstructed extends EffectObjectSingleFilter {
   public native let forwardOffset: Float;
   public native let filterData: ref<physicsFilterData>;

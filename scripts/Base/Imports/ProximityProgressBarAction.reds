@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ProximityProgressBarAction {
   Activated = 0,
   Inactivated = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questInjectLoot_NodeTypeParams extends ISerializable {
   public native let objectRef: ref<questUniversalRef>;
   public native let lootOperations: array<ref<questInjectLoot_NodeTypeParams_OperationData>>;

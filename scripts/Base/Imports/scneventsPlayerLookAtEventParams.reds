@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scneventsPlayerLookAtEventParams {
   public native let slotName: CName;
   public native let offsetPos: Vector3;

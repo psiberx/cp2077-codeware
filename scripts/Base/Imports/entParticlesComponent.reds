@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entParticlesComponent extends IVisualComponent {
   public native let emissionRate: Float;
   public native let particleSystem: ResourceRef; // rRef<CParticleSystem>

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameWeakSpotReplicatedInfo {
   public native let weakSpotRecordID: Uint64;
   public native let wsHealthValue: Float;

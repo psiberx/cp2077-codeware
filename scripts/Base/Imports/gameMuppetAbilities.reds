@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetAbilities {
   public native let canLook: gameMuppetAbility;
   public native let canMove: gameMuppetAbility;

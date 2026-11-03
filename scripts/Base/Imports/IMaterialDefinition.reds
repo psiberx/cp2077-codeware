@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class IMaterialDefinition extends IMaterial {
   public native let paramBlockSize: [Uint32; 3];
   public native let canHaveTangentUpdate: Bool;

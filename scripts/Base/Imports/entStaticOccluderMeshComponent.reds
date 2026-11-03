@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entStaticOccluderMeshComponent extends IPlacedComponent {
   public native let mesh: ResourceRef; // rRef<CMesh>
   public native let scale: Vector3;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsDestructionParams {
   public native let startInactive: Bool;
   public native let simulationType: physicsSimulationType;

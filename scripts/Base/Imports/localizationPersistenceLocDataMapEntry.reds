@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct localizationPersistenceLocDataMapEntry {
   public native let langCode: CName;
   public native let onscreensPath: ResourceAsyncRef; // raRef<JsonResource>

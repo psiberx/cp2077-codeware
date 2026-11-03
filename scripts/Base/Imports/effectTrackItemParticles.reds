@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemParticles extends effectTrackItem {
   public native let particleSystem: ResourceRef; // rRef<CParticleSystem>
   public native let emissionScale: effectEffectParameterEvaluatorFloat;

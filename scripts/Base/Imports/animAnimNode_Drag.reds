@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_Drag extends animAnimNode_OnePoseInput {
   public native let sourceBone: animTransformIndex;
   public native let outTargetBone: animTransformIndex;

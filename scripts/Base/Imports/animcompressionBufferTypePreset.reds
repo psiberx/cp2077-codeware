@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animcompressionBufferTypePreset {
   Spline = 0,
   SIMD = 1,

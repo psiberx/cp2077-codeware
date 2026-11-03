@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldCurvePathNode extends worldSplineNode {
   public native let userInput: animCurvePathBakerUserInput;
   public native let defaultForwardVector: Vector4;

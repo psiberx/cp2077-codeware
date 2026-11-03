@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDriveChaseTargetTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let target: ref<AIArgumentMapping>;
   public native let distanceMin: ref<AIArgumentMapping>;

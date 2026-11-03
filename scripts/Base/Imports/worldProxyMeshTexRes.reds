@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldProxyMeshTexRes {
   RES_64 = 0,
   RES_128 = 1,

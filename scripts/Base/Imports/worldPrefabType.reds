@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldPrefabType {
   Regular = 0,
   Area = 1,

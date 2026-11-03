@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkWorldMapPreviewGameController)
 public native let viewTemplate: ResourceAsyncRef; // raRef<entEntityTemplate>
 

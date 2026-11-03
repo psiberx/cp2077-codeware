@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gamePhotoModeBackgroundCameraComponent extends entCameraComponent {
   public native let isEnabled: Bool;
   public native let virtualCameraName: CName;

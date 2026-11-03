@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldStaticLaneCollisions {
   public native let lane: worldTrafficLaneUID;
   public native let collisions: array<worldTrafficStaticCollisionSphere>;

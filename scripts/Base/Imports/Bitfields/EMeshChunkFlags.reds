@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum EMeshChunkFlags {
 //   MCF_RenderInScene = 1, // 1 << 0,
 //   MCF_RenderInShadows = 2, // 1 << 1,

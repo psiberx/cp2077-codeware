@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CDecalSpawner extends ISerializable {
   public native let materialStatic: ResourceRef; // rRef<IMaterial>
   public native let materialSkinned: ResourceRef; // rRef<IMaterial>

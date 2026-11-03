@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gamePingEntry {
   public native let owner: wref<GameObject>;
   public native let worldPosition: Vector4;

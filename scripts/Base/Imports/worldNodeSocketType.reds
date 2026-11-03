@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldNodeSocketType {
   Bidirectional = 0,
   Inward = 1,

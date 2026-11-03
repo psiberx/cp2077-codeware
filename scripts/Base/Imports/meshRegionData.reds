@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct meshRegionData {
   public native let chunkDataIntact: array<meshChunkOffset>;
   public native let chunkDataFractured: array<meshChunkOffset>;

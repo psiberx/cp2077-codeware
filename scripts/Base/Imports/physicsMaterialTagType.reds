@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsMaterialTagType {
   AIVisibility = 0,
   PlayerVisibility = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly struct gameStatModifierSave {
   public native let statModifierUnions: array<ref<gameStatModifierData>>;
   public native let statsObjectID: StatsObjectID;

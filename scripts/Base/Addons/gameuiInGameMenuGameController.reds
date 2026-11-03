@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiInGameMenuGameController)
 public native let itemSceneInfos: array<gameuiInGameMenuGameControllerItemSceneInfo>;
 

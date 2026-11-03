@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct MorphTargetsTextureBlendInfo {
   public native let blend: Bool;
   public native let diffSize: MorphTargetsDiffTextureSize;

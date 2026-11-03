@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct SParticleEmitterLODLevel {
   public native let emitterDurationSettings: EmitterDurationSettings;
   public native let emitterDelaySettings: EmitterDelaySettings;

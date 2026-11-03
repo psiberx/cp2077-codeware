@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameTransformAnimation_MoveOnSplineRotationMode {
   Disabled = 0,
   Yaw = 1,

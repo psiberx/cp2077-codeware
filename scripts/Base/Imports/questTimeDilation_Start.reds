@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questTimeDilation_Start extends questTimeDilation_Operation {
   public native let dilation: Float;
   public native let duration: Float;

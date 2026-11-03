@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiChoiceIndicatorType {
   Default = 0,
   Speech = 1,

@@ -509,11 +509,8 @@ public:
         if (name != aAlias)
         {
             auto rtti = CRTTISystem::Get();
-            if (rtti->scriptToNative.Get(aAlias) == nullptr)
-            {
-                rtti->scriptToNative.Insert(aAlias, name);
-                rtti->nativeToScript.Insert(name, aAlias);
-            }
+            rtti->scriptToNative.InsertOrAssign(aAlias, name);
+            rtti->nativeToScript.InsertOrAssign(name, aAlias);
         }
     }
 
@@ -530,19 +527,22 @@ public:
     {
         auto* ptr = reinterpret_cast<ScriptingFunction_t<TRet*>>(aFunc);
 
-        CClassFunction* func;
         if constexpr (std::is_same_v<TContext, IScriptable>)
         {
-            func = CClassStaticFunction::Create(this, aName, aName, ptr, aFlags);
+            auto func = CClassStaticFunction::Create(this, aName, aName, ptr, aFlags);
+
+            RegisterFunction(func);
+
+            return func;
         }
         else
         {
-            func = CClassFunction::Create(this, aName, aName, ptr, aFlags);
+            auto func = CClassFunction::Create(this, aName, aName, ptr, aFlags);
+
+            RegisterFunction(func);
+
+            return func;
         }
-
-        RegisterFunction(func);
-
-        return func;
     }
 
     template<auto AFunction>
@@ -631,7 +631,7 @@ public:
         auto* type = ResolveType<Value>();
         auto* prop = CProperty::Create(type, aName, nullptr, static_cast<uint32_t>(offset), nullptr, aFlags);
 
-        props.PushBack(prop);
+        RegisterPropery(prop);
 
         return prop;
     }
@@ -642,7 +642,7 @@ public:
         auto* type = ResolveType<TProperty>();
         auto* prop = CProperty::Create(type, aName, nullptr, aOffset, nullptr, aFlags);
 
-        props.PushBack(prop);
+        RegisterPropery(prop);
 
         return prop;
     }
@@ -662,12 +662,78 @@ public:
 
         return func;
     }
+
+    void RegisterPropery(CProperty* aProp)
+    {
+        auto propExists = false;
+
+        for (auto& existingProp : props)
+        {
+            if (existingProp->name == aProp->name)
+            {
+                existingProp = aProp;
+                propExists = true;
+                break;
+            }
+        }
+
+        if (!propExists)
+        {
+            props.PushBack(aProp);
+        }
+    }
+
+    void RegisterFunction(CClassFunction* aFunc)
+    {
+        if (aFunc->flags.isStatic)
+        {
+            auto functionExists = false;
+
+            for (auto& existingFunc : staticFuncs)
+            {
+                if (existingFunc->shortName == aFunc->shortName)
+                {
+                    existingFunc = static_cast<CClassStaticFunction*>(aFunc);
+                    functionExists = true;
+                    break;
+                }
+            }
+
+            if (!functionExists)
+            {
+                staticFuncs.PushBack(static_cast<CClassStaticFunction*>(aFunc));
+            }
+        }
+        else
+        {
+            auto functionExists = false;
+
+            for (auto& existingFunc : funcs)
+            {
+                if (existingFunc->shortName == aFunc->shortName)
+                {
+                    existingFunc = aFunc;
+                    functionExists = true;
+                    break;
+                }
+            }
+
+            if (!functionExists)
+            {
+                funcs.PushBack(aFunc);
+            }
+        }
+    }
 };
 
 template<typename TClass>
 class ClassDescriptorDefaultImpl : public ClassDescriptor<TClass>
 {
+#if defined(__APPLE__)
+    bool IsEqual(const void* aLhs, const void* aRhs, uint32_t a3) final // 48
+#else
     const bool IsEqual(const void* aLhs, const void* aRhs, uint32_t a3) final // 48
+#endif
     {
         if constexpr (Detail::IsConstructionForwarded<TClass>)
         {
@@ -935,6 +1001,14 @@ struct SystemBuilder
     static inline void ScriptGetter(Red::IScriptable* aContext, Red::CStackFrame* aFrame,
                                     Red::Handle<Red::IScriptable>* aRet, int64_t)
     {
+        constexpr uint8_t ParamEndOp = 38;
+
+        if (*aFrame->code != ParamEndOp)
+        {
+            ScriptGameInstance gameInstance;
+            Red::GetParameter(aFrame, &gameInstance);
+        }
+
         ++aFrame->code;
 
         if (aRet)
@@ -965,19 +1039,35 @@ struct SystemBuilder
         constexpr auto systemTypeStr = GetTypeNameStr<TSystem>();
         constexpr auto systemNameStr = Detail::UpFirstConstStr<systemTypeStr.size()>(systemTypeStr.data());
         constexpr auto getterNameStr = Detail::ConcatConstStr<3, systemNameStr.size() - 1>("Get", systemNameStr.data());
+        constexpr auto getterName = Red::CName(getterNameStr.data());
 
         auto gameType = GetClass<ScriptGameInstance>();
         auto getterFunc = CClassStaticFunction::Create(gameType, getterNameStr.data(), getterNameStr.data(), &ScriptGetter);
         getterFunc->SetReturnType(CNamePool::Add(systemRefStr.data()));
 
-        gameType->staticFuncs.PushBack(getterFunc);
+        auto getterExists = false;
+
+        for (auto& existingFunc : gameType->staticFuncs)
+        {
+            if (existingFunc->shortName == getterFunc->shortName)
+            {
+                existingFunc = getterFunc;
+                getterExists = true;
+                break;
+            }
+        }
+
+        if (!getterExists)
+        {
+            gameType->staticFuncs.PushBack(getterFunc);
+        }
     }
 
     static inline void RegisterSystem()
     {
         auto engine = CGameEngine::Get();
 
-        if (!engine || !engine->framework)
+        if (!engine || !engine->framework || !engine->framework->gameInstance || !TypeInfoRegistrar::IsMainThread())
         {
             TypeInfoRegistrar::AddDescribeCallback(&RegisterSystem);
             return;
@@ -1000,7 +1090,7 @@ struct SystemBuilder
 
         gameInstance->systemMap.Insert(systemType, systemInstance);
         gameInstance->systemImplementations.Insert(systemType, systemType);
-        gameInstance->systemInstances.EmplaceBack(systemInstance);
+        gameInstance->systemInstances.EmplaceBack(Red::Cast<Red::IScriptable>(systemInstance));
     }
 
     static inline Handle<TSystem> BuildSystem()
@@ -1093,6 +1183,12 @@ struct ClassDefinition
         {
             SystemBuilder<TClass>::RegisterGetter();
             SystemBuilder<TClass>::RegisterSystem();
+        }
+
+        if (auto alias = rtti->GetClassByScriptName(name))
+        {
+            rtti->scriptToNative.InsertOrAssign(name, name);
+            rtti->nativeToScript.InsertOrAssign(name, name);
         }
     }
 

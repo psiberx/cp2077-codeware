@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioFoleyActionType {
   FastHeavy = 0,
   FastMedium = 1,

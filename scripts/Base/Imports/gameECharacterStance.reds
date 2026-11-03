@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameECharacterStance {
   Stance_Stand = 0,
   Stance_Crouch = 1,

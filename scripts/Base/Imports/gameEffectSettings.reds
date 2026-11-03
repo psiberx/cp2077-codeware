@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameEffectSettings {
   public native let advancedTargetHandling: Bool;
   public native let synchronousProcessingForPlayer: Bool;

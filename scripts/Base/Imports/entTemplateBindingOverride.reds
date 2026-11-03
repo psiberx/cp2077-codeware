@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entTemplateBindingOverride {
   public native let componentName: CName;
   public native let propertyName: CName;

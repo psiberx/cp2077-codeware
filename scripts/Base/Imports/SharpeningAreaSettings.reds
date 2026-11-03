@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class SharpeningAreaSettings extends IAreaSettings {
   public native let sharpeningStrength: Float;
   public native let sharpeningStrengthWhenUpsaling: Float;

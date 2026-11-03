@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIbehaviorEdgeConditionAction {
   None = 0,
   Toggle = 1,

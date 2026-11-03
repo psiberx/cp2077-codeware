@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldStreamingSectorCategory {
   Exterior = 0,
   Interior = 1,

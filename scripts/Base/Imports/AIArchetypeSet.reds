@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIArchetypeSet extends CResource {
   public native let archetypeResources: array<AIArchetypeSetEntry>;
 }

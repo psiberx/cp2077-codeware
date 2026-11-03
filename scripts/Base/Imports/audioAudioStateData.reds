@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioAudioStateData {
   public native let stateName: CName;
   public native let enterEvent: CName;

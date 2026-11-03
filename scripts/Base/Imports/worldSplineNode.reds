@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldSplineNode extends worldSocketNode {
   public native let splineData: ref<Spline>;
   public native let destSnapedNode: NodeRef;

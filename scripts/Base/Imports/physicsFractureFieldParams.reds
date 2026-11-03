@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct physicsFractureFieldParams {
   public native let origin: Vector3;
   public native let fractureFieldValue: Float;

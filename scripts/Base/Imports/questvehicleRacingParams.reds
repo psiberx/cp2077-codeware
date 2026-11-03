@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questvehicleRacingParams extends questVehicleSpecificCommandParams {
   public native let splineRef: NodeRef;
   public native let preciseLevel: Float;

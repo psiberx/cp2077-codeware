@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FloatTrackModifier extends animAnimNode_Base {
   public native let floatTrack: animNamedTrackIndex;
   public native let operationType: animFloatTrackOperationType;

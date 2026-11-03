@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scneventsAttachPropToWorldFallbackData {
   public native let owner: scnPerformerId;
   public native let fallbackCachedBones: [scneventsAttachPropToWorldCachedFallbackBone; 2];

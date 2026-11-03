@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class PanzerGameLogicController extends MinigameLogicControllerAdvanced {
   public native let gameOverDelay: Float;
   public native let mainMenuLibraryName: CName;

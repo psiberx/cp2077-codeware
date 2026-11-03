@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendRenderTextureBlobHeader {
   public native let version: Uint32;
   public native let sizeInfo: rendRenderTextureBlobSizeInfo;
@@ -5,4 +7,5 @@ public native struct rendRenderTextureBlobHeader {
   public native let mipMapInfo: array<rendRenderTextureBlobMipMapInfo>;
   public native let histogramData: array<rendHistogramBias>;
   public native let flags: Uint32;
+  public native let formatOverride: GpuWrapApieTextureFormat;
 }

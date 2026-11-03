@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldAdvertisementLightData {
   public native let transform: Transform;
   public native let isEnabled: Bool;

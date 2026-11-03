@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(SoundComponentBase)
 public native let audioName: CName;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_ConeLimit extends animAnimNode_OnePoseInput {
   public native let coneTransform: animTransformIndex;
   public native let constrainedTransform: animTransformIndex;

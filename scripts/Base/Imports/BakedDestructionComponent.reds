@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly class BakedDestructionComponent extends PhysicalMeshComponent {
   public native let meshFractured: ResourceAsyncRef; // raRef<CMesh>
   public native let meshFracturedAppearance: CName;

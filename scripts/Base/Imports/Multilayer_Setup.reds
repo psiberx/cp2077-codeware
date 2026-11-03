@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class Multilayer_Setup extends CResource {
   public native let layers: array<Multilayer_Layer>;
   public native let ratio: Float;

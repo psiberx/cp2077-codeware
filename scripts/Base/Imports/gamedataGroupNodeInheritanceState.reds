@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gamedataGroupNodeInheritanceState {
   Unresolved = 0,
   Resolving = 1,

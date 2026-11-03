@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSetCyberspacePostFX_NodeType extends questIRenderFxManagerNodeType {
   public native let enabled: Bool;
   public native let fullScreen: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_PlayerMovement)
 public native let facingDirection: Vector4;
 

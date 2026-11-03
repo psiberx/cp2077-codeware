@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AtmosphereAreaSettings extends IAreaSettings {
   public native let skydomeColor: CurveDataHDRColor;
   public native let skylightColor: CurveDataHDRColor;

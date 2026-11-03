@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameinteractionsCHotSpotAreaFilterDefinition extends gameinteractionsNodeDefinition {
   public native let slotName: CName;
   public native let transform: Transform;

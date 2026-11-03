@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct CEnvDisplaySettingsParams {
   public native let enableInstantAdaptation: Bool;
   public native let enableGlobalLightingTrajectory: Bool;

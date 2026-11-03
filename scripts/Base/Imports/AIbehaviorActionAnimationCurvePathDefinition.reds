@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionAnimationCurvePathDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let nodeReference: ref<AIArgumentMapping>;
   public native let controllersSetupName: ref<AIArgumentMapping>;

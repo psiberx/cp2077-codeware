@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeArcadeScoreboardController extends gameuiarcadeIArcadeScreenController {
   public native let endingPanel: inkWidgetRef;
   public native let playerCurrentScore: inkTextRef;

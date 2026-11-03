@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldDeviceNode extends worldEntityNode {
   public native let deviceClassName: CName;
   public native let alphaHackStreamingDistanceOverride: Float;

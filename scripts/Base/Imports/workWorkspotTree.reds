@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class workWorkspotTree extends ISerializable {
   public native let workspotRig: ResourceAsyncRef; // raRef<animRig>
   public native let globalProps: array<workWorkspotGlobalProp>;

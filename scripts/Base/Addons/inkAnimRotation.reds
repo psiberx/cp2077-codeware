@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkAnimRotation)
 public native let startValue: Float;
 

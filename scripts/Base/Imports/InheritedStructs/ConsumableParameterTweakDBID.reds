@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct ConsumableParameterTweakDBID {
   public native let name: CName;
   public native let value: TweakDBID;

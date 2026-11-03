@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkLayersResource extends CResource {
   public native let layerDefinitions: inkLayerDefinitionCollection;
   public native let preGameLayerDefinitions: inkLayerDefinitionCollection;

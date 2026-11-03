@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopTerrainEditToolInfo {
   public native let defaultHeightmapMode: Int32;
   public native let defaultEmptyHeightmapWidth: Int32;

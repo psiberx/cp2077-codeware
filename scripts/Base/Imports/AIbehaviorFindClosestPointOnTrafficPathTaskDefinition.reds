@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorFindClosestPointOnTrafficPathTaskDefinition extends AIbehaviorTaskDefinition {
   public native let enterClosest: ref<AIArgumentMapping>;
   public native let avoidedPosition: ref<AIArgumentMapping>;

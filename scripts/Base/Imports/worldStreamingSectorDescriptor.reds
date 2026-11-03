@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldStreamingSectorDescriptor {
   public native let data: ResourceAsyncRef; // raRef<worldStreamingSector>
   public native let streamingBox: Box;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class audioAudioEventMetadata extends ISerializable {
   public native let wwiseId: Uint32;
   public native let maxAttenuation: Float;

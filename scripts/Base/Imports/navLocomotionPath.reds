@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class navLocomotionPath extends ISerializable {
   public native let splineNodeRef: NodeRef;
   public native let segments: array<navLocomotionPathSegmentInfo>;

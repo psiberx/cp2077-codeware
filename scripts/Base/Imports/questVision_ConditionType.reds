@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questVision_ConditionType extends questISensesConditionType {
   public native let observerPuppetRef: EntityReference;
   public native let observedTargetRef: EntityReference;

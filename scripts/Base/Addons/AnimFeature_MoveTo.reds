@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_MoveTo)
 public native let initialFwdVector: Vector4;
 

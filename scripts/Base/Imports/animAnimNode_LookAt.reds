@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_LookAt extends animAnimNode_OnePoseInput {
   public native let transform: animTransformIndex;
   public native let forwardAxis: animAxis;

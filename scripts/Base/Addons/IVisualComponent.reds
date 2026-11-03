@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(IVisualComponent)
 public native let autoHideDistance: Float;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class workEquipPropToSlotAction extends workIWorkspotItemAction {
   public native let itemId: CName;
   public native let itemSlot: TweakDBID;

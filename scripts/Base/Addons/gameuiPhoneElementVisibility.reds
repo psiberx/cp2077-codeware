@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiPhoneElementVisibility)
 public native let tierVisibility: Uint64; // worlduiContextVisibility
 

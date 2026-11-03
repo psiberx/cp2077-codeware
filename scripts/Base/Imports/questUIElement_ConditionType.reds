@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questUIElement_ConditionType extends questIUIConditionType {
   public native let element: TweakDBID;
   public native let condition: gamedataUICondition;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_Inertialization extends animAnimNode_OnePoseInput {
   public native let safeMode: Bool;
   public native let transformsCountUpperBound: Uint32;

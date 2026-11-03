@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioPerfectChargePerkSounds {
   public native let perfectChargeChargingSound: CName;
   public native let perfectChargeChargedSound: CName;

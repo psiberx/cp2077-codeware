@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnVehicleMoveOnSpline_Overrides extends questIVehicleMoveOnSpline_Overrides {
   public native let useEntry: Bool;
   public native let useExit: Bool;

@@ -1,7 +1,10 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class DynamicTexture extends ITexture {
   public native let width: Uint32;
   public native let height: Uint32;
   public native let scaleToViewport: Bool;
+  public native let viewportScale: Float;
   public native let mipChain: Bool;
   public native let samplesCount: Uint8;
   public native let dataFormat: DynamicTextureDataFormat;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questUseWeapon_NodeType extends questIItemManagerNodeType {
   public native let usageType: questWeaponUsageType;
   public native let objectRef: ref<questUniversalRef>;

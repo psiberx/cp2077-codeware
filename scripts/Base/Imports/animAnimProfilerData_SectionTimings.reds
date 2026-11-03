@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimProfilerData_SectionTimings {
   public native let sectionName: CName;
   public native let updateTimeMS: Float;

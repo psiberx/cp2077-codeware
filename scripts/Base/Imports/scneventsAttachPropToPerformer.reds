@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsAttachPropToPerformer extends scnSceneEvent {
   public native let propId: scnPropId;
   public native let performerId: scnPerformerId;

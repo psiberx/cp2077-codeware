@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(BinkComponent)
 public native let meshTargetBinding: ref<gameBinkMeshTargetBinding>;
 

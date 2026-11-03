@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gamedebugFailure extends ISerializable {
   public native let id: gamedebugFailureId;
   public native let time: Float;

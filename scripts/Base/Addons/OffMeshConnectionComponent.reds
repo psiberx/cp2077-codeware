@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(OffMeshConnectionComponent)
 public native let offMeshConnectionNodesRefs: array<NodeRef>;
 

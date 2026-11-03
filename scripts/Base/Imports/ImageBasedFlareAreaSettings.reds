@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class ImageBasedFlareAreaSettings extends IAreaSettings {
   public native let treshold: Float;
   public native let dispersal: Float;

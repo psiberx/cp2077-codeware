@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameAreaData {
   public native let position: Vector4;
   public native let size: Float;

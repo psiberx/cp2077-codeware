@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameJournalEntryStateChangeDelayData {
   public native let entryPath: ref<gameJournalPath>;
   public native let entryType: CName;

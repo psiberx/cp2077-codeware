@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameinteractionsvisInteractionDisplayData {
   public native let putAction: CName;
   public native let wInputKey: EInputKey;

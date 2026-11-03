@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionMoveToSmartObjectNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let smartObjectId: ref<AIArgumentMapping>;
   public native let lookAtTarget: ref<AIArgumentMapping>;

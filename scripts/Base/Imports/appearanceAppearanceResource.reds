@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class appearanceAppearanceResource extends resStreamedResource {
   public native let alternateAppearanceSettingName: CName;
   public native let alternateAppearanceSuffixes: array<CName>;

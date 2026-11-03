@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class AIbehaviorActionRotateBaseTreeNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let target: ref<AIArgumentMapping>;
   public native let angleOffset: ref<AIArgumentMapping>;

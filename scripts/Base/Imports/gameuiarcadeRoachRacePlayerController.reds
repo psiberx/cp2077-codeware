@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeRoachRacePlayerController extends inkLogicController {
   public native let singleJumpBoost: Vector2;
   public native let doubleJumpBoost: Vector2;

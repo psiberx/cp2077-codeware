@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animEBlendTracksMode {
   AGBT_BasePose = 0,
   AGBT_Interpolate = 1,

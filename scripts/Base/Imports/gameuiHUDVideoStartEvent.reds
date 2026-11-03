@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiHUDVideoStartEvent {
   public native let videoPathHash: Uint64;
   public native let playOnHud: Bool;

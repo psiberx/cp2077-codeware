@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldProxyMeshOutputType {
   RayScan = 0,
   SurfaceReconstruction = 1,

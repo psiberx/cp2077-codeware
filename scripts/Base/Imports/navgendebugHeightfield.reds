@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class navgendebugHeightfield extends ISerializable {
   public native let bounds: Box;

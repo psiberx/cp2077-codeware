@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameLadderComponent extends IComponent {
   public native let heightOfBottomPart: Float;
   public native let exitStepTop: Float;

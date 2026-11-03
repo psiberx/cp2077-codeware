@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gamedataFileNode extends gamedataDataNode {
   public native let packageName: String;
   public native let packageDependencies: [wref<gamedataPackageNode>; 16];

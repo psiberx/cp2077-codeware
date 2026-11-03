@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioQuadEmitterSettings {
   public native let Enabled: Bool;
   public native let Interleaved: Bool;

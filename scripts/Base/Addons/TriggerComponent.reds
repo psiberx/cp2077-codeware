@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(TriggerComponent)
 public native let includeMask: Uint32;
 

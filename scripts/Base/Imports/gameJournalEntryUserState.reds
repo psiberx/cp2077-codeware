@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameJournalEntryUserState {
   Undefined = 0,
   Inactive = 1,

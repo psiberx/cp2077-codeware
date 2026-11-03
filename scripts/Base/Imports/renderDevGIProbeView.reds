@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum renderDevGIProbeView {
   RADIANCE = 0,
   SKY_VISIBILITY = 1,

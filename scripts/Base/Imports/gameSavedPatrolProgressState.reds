@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameSavedPatrolProgressState extends ISerializable {
   public native persistent let entrySplineParam: Float;
   public native persistent let entrySectionIndex: Uint32;

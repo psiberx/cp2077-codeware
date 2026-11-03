@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiGenericNotificationType {
   Generic = 0,
   QuestUpdate = 1,

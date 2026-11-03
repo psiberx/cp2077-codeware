@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EDecalRenderMode {
   DRM_AllStatic = 0,
   DRM_ObjectType = 1,

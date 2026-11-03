@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum PSODescBlendModeWriteMask {
   MASK_None = 0,
   MASK_R = 1,

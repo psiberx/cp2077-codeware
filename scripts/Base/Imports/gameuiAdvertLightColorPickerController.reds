@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiAdvertLightColorPickerController extends inkLogicController {
   public native let lightColor: Color;
 }

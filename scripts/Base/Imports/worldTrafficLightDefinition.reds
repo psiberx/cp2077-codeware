@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldTrafficLightDefinition {
   public native let positionOnLane: Float;
   public native let groupIdx: Uint32;

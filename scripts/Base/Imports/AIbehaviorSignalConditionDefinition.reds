@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorSignalConditionDefinition extends AIbehaviorConditionDefinition {
   public native let signalName: CName;
   public native let mode: AIbehaviorSignalConditionModes;

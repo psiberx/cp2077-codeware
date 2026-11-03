@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum CensorshipFlags {
 //   Censor_Nudity = 1, // 1 << 0,
 //   Censor_OverSexualised = 2, // 1 << 1,

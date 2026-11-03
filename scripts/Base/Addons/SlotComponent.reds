@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(SlotComponent)
 public native let slots: array<entSlot>;
 

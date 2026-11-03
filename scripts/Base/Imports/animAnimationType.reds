@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animAnimationType {
   Normal = 0,
   AdditiveFromRefPose = 1,

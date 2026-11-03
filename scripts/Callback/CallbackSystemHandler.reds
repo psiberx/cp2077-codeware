@@ -1,10 +1,9 @@
-public native class CallbackSystemHandler {
-    public native func AddTarget(target: ref<CallbackSystemTarget>) -> ref<CallbackSystemHandler>
-    public native func RemoveTarget(target: ref<CallbackSystemTarget>) -> ref<CallbackSystemHandler>
+@addMethod(CallbackSystemHandler)
+public func SetRunMode(mode: CallbackRunMode) -> ref<CallbackSystemHandler> {
+    return this.SetRunMode(IntEnum<gameCallbackRunMode>(EnumInt(mode)));
+}
 
-    public native func SetRunMode(runMode: CallbackRunMode) -> ref<CallbackSystemHandler>
-    public native func SetLifetime(lifetime: CallbackLifetime) -> ref<CallbackSystemHandler>
-
-    public native func IsRegistered() -> Bool
-    public native func Unregister()
+@addMethod(CallbackSystemHandler)
+public func SetLifetime(lifetime: CallbackLifetime) -> ref<CallbackSystemHandler> {
+    return this.SetLifetime(IntEnum<gameCallbackLifetime>(EnumInt(lifetime)));
 }

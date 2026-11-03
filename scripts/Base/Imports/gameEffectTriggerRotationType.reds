@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameEffectTriggerRotationType {
   None = 0,
   AtSpawn = 1,

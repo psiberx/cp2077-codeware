@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(SenseComponent)
 public native let enableBeingDetectable: Bool;
 

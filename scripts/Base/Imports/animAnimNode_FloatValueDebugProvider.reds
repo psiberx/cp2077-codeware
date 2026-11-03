@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimNode_FloatValueDebugProvider {
   public native let isEnabled: Bool;
   public native let min: Float;

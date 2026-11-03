@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questNPCLookAt_NodeType extends questISceneManagerNodeType {
   public native let puppetRef: EntityReference;
   public native let lookAtTargetRef: EntityReference;

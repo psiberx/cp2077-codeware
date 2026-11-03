@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class DistantProxiesSettings extends IAreaSettings {
   public native let distantProxiesEmissive: Float;
   public native let distantProxiesEmissiveHeight: Float;

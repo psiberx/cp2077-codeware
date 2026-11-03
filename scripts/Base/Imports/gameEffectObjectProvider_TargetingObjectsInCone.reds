@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectObjectProvider_TargetingObjectsInCone extends EffectObjectProvider {
   public native let filterData: ref<physicsFilterData>;
   public native let queryPreset: QueryPreset;

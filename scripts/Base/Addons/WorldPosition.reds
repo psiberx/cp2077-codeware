@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(WorldPosition)
 public native let x: FixedPoint;
 

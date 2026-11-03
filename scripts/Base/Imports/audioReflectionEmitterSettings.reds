@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioReflectionEmitterSettings extends audioAudioMetadata {
   public native let reflectionEvent: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct EmitterDurationSettings {
   public native let emitterDuration: Float;
   public native let emitterDurationLow: Float;

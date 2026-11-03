@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldPatrolSplineNode extends worldSplineNode {
   public native let patrolPointDefs: array<ref<worldPatrolSplinePointDefinition>>;
   public native let patrolPoints: array<NodeRef>;

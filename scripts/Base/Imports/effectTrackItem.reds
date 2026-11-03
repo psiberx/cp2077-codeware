@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class effectTrackItem extends effectBaseItem {
   public native let timeBegin: Float;
   public native let timeDuration: Float;

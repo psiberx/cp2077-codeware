@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questUseWorkspotNodeFunctions {
   UseWorkspot = 0,
   JumpWorkspot = 1,

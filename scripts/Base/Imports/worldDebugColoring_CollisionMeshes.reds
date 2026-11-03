@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldDebugColoring_CollisionMeshes extends worldEditorDebugColoringSettings {
   public native let defaultColor: Color;
   public native let prefabColor: Color;

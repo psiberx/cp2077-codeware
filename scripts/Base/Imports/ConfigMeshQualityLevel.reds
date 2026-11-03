@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ConfigMeshQualityLevel {
   Default = 0,
   Console = 1,

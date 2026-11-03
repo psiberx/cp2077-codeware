@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(BaseWorldMapMappinController)
 public native let groupContainerWidget: inkWidgetRef;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct ConsumableParameterCName {
   public native let name: CName;
   public native let value: CName;

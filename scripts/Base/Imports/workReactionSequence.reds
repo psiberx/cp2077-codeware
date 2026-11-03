@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class workReactionSequence extends workIContainerEntry {
   public native let forcedBlendIn: Float;
   public native let reactionTypes: array<TweakDBID>;

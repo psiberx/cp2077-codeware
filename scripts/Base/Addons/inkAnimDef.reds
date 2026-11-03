@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkAnimDef)
 public native let interpolators: array<ref<inkAnimInterpolator>>;
 

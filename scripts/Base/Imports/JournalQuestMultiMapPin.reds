@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class JournalQuestMultiMapPin extends JournalQuestMapPinBase {
   public native let references: array<NodeRef>;
   public native let slotName: CName;

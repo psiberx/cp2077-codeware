@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorMappingExpressionDefinition extends AIbehaviorPassiveExpressionDefinition {
   public native let mapping: ref<AIArgumentMapping>;
   public native let update: Bool;

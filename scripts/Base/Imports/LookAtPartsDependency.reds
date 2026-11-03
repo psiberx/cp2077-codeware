@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct LookAtPartsDependency {
   public native let masterPart: CName;
   public native let slavePart: CName;

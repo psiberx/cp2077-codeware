@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animfssBodyOfflineParams {
   public native let HipsTilt: Float;
   public native let HipsShift: Float;

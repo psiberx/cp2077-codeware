@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioLocomotionWaterContextSettings {
   public native let minDistanceBetweenImpulsesSquared: Float;
   public native let impulseStrength: Float;

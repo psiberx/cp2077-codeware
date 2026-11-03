@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum worlduiContextVisibility {
 //   SceneDefault = 1, // 1 << 0,
 //   SceneTier1 = 256, // 1 << 8,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioCombatVoTriggerVariationsMapItem {
   public native let name: CName;
   public native let numberOfVariations: Int32;

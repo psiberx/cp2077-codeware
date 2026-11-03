@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioAmbientAreaGroupingSettings {
   public native let GroupCountTag: CName;
   public native let GroupCountRtpc: CName;

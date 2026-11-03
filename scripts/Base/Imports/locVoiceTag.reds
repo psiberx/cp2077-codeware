@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct locVoiceTag {
   public native let voiceTag: CName;
   public native let voicesetScenePath: String;

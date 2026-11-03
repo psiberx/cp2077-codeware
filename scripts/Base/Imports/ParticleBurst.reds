@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct ParticleBurst {
   public native let burstTime: Float;
   public native let spawnCount: Uint32;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class vehicleDriveFollowSplineEvent extends Event {
   public native let splineRef: NodeRef;
   public native let backwards: Bool;

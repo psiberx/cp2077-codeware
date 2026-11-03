@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct workWorkspotGlobalProp {
   public native let id: CName;
   public native let boneName: CName;

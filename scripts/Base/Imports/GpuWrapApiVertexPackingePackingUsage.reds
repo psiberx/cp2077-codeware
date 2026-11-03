@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum GpuWrapApiVertexPackingePackingUsage {
   PS_Invalid = -1,
   PS_SysPosition = 0,

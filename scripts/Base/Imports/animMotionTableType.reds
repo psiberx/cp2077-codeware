@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animMotionTableType {
   MTT_None = 0,
   MTT_Walk = 1,

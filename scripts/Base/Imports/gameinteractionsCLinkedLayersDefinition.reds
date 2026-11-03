@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameinteractionsCLinkedLayersDefinition extends gameinteractionsNodeDefinition {
   public native let layersDefinitions: array<ref<HotSpotLayerDefinition>>;
   public native let visualizerDefinition: ref<gameinteractionsvisIVisualizerDefinition>;

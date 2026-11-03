@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum GpuWrapApieTextureType {
   TEXTYPE_2D = 0,
   TEXTYPE_CUBE = 1,

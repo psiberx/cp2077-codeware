@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameaudioMusicSyncComponent extends IComponent {
   public native let notifyBeats: Bool;
   public native let notifyBars: Bool;

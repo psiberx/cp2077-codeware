@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioMixSettings extends audioAudioMetadata {
   public native let masterVolume: Float;

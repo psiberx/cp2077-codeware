@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questUseWeapon_MissileRainGrid_NodeType extends questUseWeapon_NodeType {
   public native let source: questEUseWeapon_MissileOffsetsSource;
   public native let missileOffsets: array<Vector3>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questDisplayMessageBox_NodeType extends questIUIManagerNodeType {
   public native let title: String;
   public native let message: String;

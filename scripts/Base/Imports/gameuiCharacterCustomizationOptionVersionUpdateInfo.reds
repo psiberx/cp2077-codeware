@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiCharacterCustomizationOptionVersionUpdateInfo {
   public native let curOptionNames: array<CName>;
   public native let curDefintionName: CName;

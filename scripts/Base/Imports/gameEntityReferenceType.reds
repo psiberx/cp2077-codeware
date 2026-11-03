@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameEntityReferenceType {
   EntityRef = 0,
   Tag = 1,

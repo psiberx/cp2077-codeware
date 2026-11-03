@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class vehiclePersistentDataPS extends GameComponentPS {
   public native persistent let flags: Uint32;
   public native persistent let autopilotPos: Float;

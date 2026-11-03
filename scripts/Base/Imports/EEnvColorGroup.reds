@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EEnvColorGroup {
   ECG_Default = 0,
   ECG_Sky = 1,

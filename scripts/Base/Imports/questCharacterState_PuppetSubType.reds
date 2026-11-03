@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterState_PuppetSubType extends questICharacterConditionSubType {
   public native let puppetRef: EntityReference;
   public native let upperBodyComparisonType: questEComparisonTypeEquality;

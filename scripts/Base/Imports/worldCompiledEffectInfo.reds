@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldCompiledEffectInfo {
   public native let placementTags: array<CName>;
   public native let componentNames: array<CName>;

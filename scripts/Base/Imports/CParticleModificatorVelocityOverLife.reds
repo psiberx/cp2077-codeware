@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorVelocityOverLife extends IParticleModificator {
   public native let velocity: ref<IEvaluatorVector>;
   public native let scale: Float;

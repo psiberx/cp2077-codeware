@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnAnimTargetBasicData {
   public native let performerId: scnPerformerId;
   public native let isStart: Bool;

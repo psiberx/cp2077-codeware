@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldTrafficLaneCrowdFragment {
   public native let desiredSlotCountsPerTimePeriod: [worldDesiredSlotsCountInfo; 4];
   public native let crowdCreationDataIndex: Uint32;

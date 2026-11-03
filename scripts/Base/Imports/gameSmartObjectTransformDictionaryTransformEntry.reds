@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameSmartObjectTransformDictionaryTransformEntry {
   public native let transform: Transform;
   public native let usage: Uint32;

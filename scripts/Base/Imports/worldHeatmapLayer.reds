@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldHeatmapLayer extends CResource {
   public native let minValue: Uint32;
   public native let maxValue: Uint32;

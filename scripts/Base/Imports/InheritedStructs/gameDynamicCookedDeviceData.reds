@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameDynamicCookedDeviceData {
   public native let className: CName;
   public native let parents: array<Uint64>;

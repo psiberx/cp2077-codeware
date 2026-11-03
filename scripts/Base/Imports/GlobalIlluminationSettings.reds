@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class GlobalIlluminationSettings extends IAreaSettings {
   public native let multiBouceScale: CurveDataFloat;
   public native let multiBouceSaturation: CurveDataFloat;

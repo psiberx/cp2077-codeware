@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class scnPlayAnimEvent extends scnSceneEvent {
   public native let animData: scneventsPlayAnimEventExData;
   public native let performer: scnPerformerId;

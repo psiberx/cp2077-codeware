@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldInstancedOccluderNode extends worldNode {
   public native let worldBounds: Box;
   public native let occluderType: visWorldOccluderType;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum renderDevEnvProbeView {
   RADIANCE = 0,
   ALBEDO = 1,

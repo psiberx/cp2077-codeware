@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSystemCondition extends questTypedCondition {
   public native let type: ref<questISystemConditionType>;
 }

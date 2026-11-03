@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkBoxBlurEffect extends inkIEffect {
   public native let samples: Uint8;
   public native let intensity: Float;

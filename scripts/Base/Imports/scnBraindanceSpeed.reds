@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnBraindanceSpeed {
   Any = 0,
   Slow = 1,

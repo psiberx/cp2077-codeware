@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entAnimationSetupExtensionComponent extends IComponent {
   public native let animations: animAnimSetup;
   public native let isOverrideContainer: Bool;

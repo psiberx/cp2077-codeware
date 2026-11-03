@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AICTreeNodeActionDynamicMoveToDefinition extends AICTreeNodeActionDefinition {
   public native let moveType: moveMovementType;
   public native let tolerance: Float;

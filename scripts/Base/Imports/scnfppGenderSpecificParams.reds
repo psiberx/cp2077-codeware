@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnfppGenderSpecificParams {
   public native let genderMask: scnGenderMask;
   public native let transitionBlendInTrajectorySpaceAngles: array<EulerAngles>;

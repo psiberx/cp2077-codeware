@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioPhysicalMaterialSettings extends audioAudioMetadata {
   public native let softImpact: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct SplinePoint {
   public native let position: Vector3;
   public native let rotation: Quaternion;

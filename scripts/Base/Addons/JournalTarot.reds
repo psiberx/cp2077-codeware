@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalTarot)
 public native let index: Int32;
 
@@ -9,3 +11,6 @@ public native let description: LocalizationString;
 
 @addField(JournalTarot)
 public native let imagePart: CName;
+
+@addField(JournalTarot)
+public native let isMinorArcana: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldDebugColoring_Duplicates extends worldEditorDebugColoringSettings {
   public native let defaultColor: Color;
   public native let duplicateColor: Color;

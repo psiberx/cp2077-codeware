@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameEffectDefinition {
   public native let tag: CName;
   public native let objectProviders: array<ref<EffectObjectProvider>>;

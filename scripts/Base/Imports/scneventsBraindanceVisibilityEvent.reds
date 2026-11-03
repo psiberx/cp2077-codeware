@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsBraindanceVisibilityEvent extends scnSceneEvent {
   public native let performerId: scnPerformerId;
   public native let customMaterialParam: ECustomMaterialParam;

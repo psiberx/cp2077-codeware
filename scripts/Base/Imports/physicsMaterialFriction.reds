@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsMaterialFriction {
   Enabled = 0,
   DisabledStrong = 1,

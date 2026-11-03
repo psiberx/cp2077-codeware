@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(InputHintManagerGameController)
 public native let baseGroupContainer: inkCompoundRef;
 

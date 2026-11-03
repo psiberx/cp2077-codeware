@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameEActionFlags {
   NONE = 0,
   USE_ANIMATION = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct LanguageSpecificImagData {
   public native let languageID: inkLanguageId;
   public native let textureAtlasForLanguage: ResourceAsyncRef; // raRef<inkTextureAtlas>

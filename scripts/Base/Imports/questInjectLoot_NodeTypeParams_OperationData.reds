@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class questInjectLoot_NodeTypeParams_OperationData extends ISerializable {
   public native let operationType: questInjectLootOperationType;

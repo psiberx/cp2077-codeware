@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleSystem extends resStreamedResource {
   public native let visibleThroughWalls: Bool;
   public native let prewarmingTime: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class rendTextureRegion extends ISerializable {
   public native let name: CName;

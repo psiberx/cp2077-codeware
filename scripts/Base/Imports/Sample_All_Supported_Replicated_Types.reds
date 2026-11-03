@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct Sample_All_Supported_Replicated_Types {
   public native let bool: Bool;
   public native let uint8: Uint8;

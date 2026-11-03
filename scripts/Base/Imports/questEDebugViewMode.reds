@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questEDebugViewMode {
   NONE = 0,
   CLAY = 1,

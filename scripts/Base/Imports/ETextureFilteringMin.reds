@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ETextureFilteringMin {
   TFMin_Point = 0,
   TFMin_Linear = 1,

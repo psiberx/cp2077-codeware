@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(BumpComponent)
 public native let isPlayerControlled: Bool;
 

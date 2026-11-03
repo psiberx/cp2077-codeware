@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questBriefingSequencePlayerFunction {
   StartSequence = 0,
   ChangeSequence = 1,

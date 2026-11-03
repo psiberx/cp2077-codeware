@@ -1,1 +1,0 @@
-public native class rendRenderMultilayerMaskBlobXboxOne extends rendRenderMultilayerMaskBlob {}

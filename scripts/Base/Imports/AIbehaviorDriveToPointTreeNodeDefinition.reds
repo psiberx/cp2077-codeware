@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDriveToPointTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let targetPosition: ref<AIArgumentMapping>;
   public native let secureTimeOut: ref<AIArgumentMapping>;

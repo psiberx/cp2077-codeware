@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionUseWorkspotNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let eventData: ref<AIArgumentMapping>;
   public native let playStartAnimationAfterwards: ref<AIArgumentMapping>;

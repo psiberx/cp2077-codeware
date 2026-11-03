@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopSelectByDefinitionOptions {
   public native let searchInSelection: Bool;
   public native let minBBoxDiagonalLength: Float;

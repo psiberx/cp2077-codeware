@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MovePolicies)
 public native let destination: Vector3;
 

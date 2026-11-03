@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum GpuWrapApieBufferChunkCategory {
   BCC_Staging = 0,
   BCC_Vertex = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiTooltipsManager)
 public native let tooltipsContainer: inkWidgetRef;
 

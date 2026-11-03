@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animEFootPhase {
   RightUp = 0,
   RightForward = 1,

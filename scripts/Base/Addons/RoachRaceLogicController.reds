@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(RoachRaceLogicController)
 public native let jumpAcceleration: Float;
 

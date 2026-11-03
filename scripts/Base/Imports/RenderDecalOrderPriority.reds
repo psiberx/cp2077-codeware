@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum RenderDecalOrderPriority {
   Priority0 = 0,
   Priority1 = 1,

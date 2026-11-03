@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animDangleConstraint_SimulationDyng extends animDangleConstraint_Simulation {
   public native let HACK_checkDangleTeleport: Bool;
   public native let substepTime: Float;

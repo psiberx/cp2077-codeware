@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MappinsContainerController)
 public native let tier: GameplayTier;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsPhysicalSystemOwner {
   Unknown = 0,
   BakedDestructionNode = 1,

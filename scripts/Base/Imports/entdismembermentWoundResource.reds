@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entdismembermentWoundResource extends ISerializable {
   public native let Name: CName;
   public native let WoundType: Uint16; // entdismembermentWoundTypeE

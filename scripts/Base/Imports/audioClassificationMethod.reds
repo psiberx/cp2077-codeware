@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioClassificationMethod {
   HasAnyTag = 0,
   HasAllTags = 1,

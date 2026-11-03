@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ERenderMaterialType {
   RMT_Standard = 0,
   RMT_Subsurface = 1,

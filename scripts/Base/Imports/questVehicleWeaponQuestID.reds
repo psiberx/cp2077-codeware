@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questVehicleWeaponQuestID {
   Primary = 0,
   Secondary = 1,

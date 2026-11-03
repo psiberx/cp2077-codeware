@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiPhotoModeStickersController)
 public native let backgroundPrefabRef: NodeRef;
 

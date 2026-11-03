@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct saveMetadata {
   public native let gameDefinition: String;
   public native let activeQuests: String;
@@ -58,5 +60,6 @@ public native struct saveMetadata {
   public native let isPointOfNoReturn: Bool;
   public native let isEndGameSave: Bool;
   public native let isModded: Bool;
+  public native let enabledModioInfo: array<saveModioModSavedInfo>;
   public native let additionalContentIds: array<CName>;
 }

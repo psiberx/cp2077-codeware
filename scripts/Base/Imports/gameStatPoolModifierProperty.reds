@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameStatPoolModifierProperty {
   RangeBegin = 0,
   RangeEnd = 1,

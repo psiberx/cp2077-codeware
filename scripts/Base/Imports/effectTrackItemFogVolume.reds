@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemFogVolume extends effectTrackItem {
   public native let priority: Uint8;
   public native let densityFalloff: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSceneNodeDefinition extends questSignalStoppingNodeDefinition {
   public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
   public native let sceneLocation: scnWorldMarker;

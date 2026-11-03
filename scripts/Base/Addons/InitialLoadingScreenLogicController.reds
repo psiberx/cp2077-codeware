@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(InitialLoadingScreenLogicController)
 public native let skipButtonPanel: inkWidgetRef;
 

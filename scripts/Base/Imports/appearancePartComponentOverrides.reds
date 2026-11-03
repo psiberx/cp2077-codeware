@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct appearancePartComponentOverrides {
   public native let componentName: CName;
   public native let meshAppearance: CName;

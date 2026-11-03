@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIEExecutionStatus {
   STATUS_INVALID = 0,
   STATUS_SUCCESS = 1,

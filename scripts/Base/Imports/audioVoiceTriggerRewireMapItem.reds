@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioVoiceTriggerRewireMapItem {
   public native let name: CName;
   public native let inputToBeRewiredVariationIndex: Uint32;

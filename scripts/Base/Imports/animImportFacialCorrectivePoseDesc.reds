@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animImportFacialCorrectivePoseDesc {
   public native let influencedBy: array<CName>;
   public native let influenceMainWeightIndices: array<Uint16>;

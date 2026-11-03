@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct moveReplicatedMovePolicies {
   public native let entity: wref<Entity>;
   public native let netTime: netTime;

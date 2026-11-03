@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entTemplateAppearance {
   public native let name: CName;
   public native let appearanceResource: ResourceAsyncRef; // raRef<appearanceAppearanceResource>

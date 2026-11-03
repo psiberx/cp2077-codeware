@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum entRenderToTextureFeaturesPlatform {
   RTFP_All = 0,
   RTFP_PC = 1,

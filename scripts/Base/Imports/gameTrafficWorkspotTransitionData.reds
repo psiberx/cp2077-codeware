@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameTrafficWorkspotTransitionData extends ISerializable {
   public native let workspotData: ref<SetupWorkspotActionEvent>;
   public native let returnPosition: ref<worldTrafficGlobalPathPosition>;

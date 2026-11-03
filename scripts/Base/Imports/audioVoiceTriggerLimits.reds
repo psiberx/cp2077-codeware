@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioVoiceTriggerLimits {
   public native let probability: Float;
   public native let singleNpcMinRepeatTime: Float;

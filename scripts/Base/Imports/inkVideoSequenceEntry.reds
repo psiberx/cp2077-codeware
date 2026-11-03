@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkVideoSequenceEntry {
   public native let videoResource: ResourceAsyncRef; // raRef<Bink>
   public native let audioEvent: CName;

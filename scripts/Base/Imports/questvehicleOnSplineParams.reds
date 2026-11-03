@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questvehicleOnSplineParams extends questVehicleSpecificCommandParams {
   public native let splineRef: NodeRef;
   public native let reverseSpline: Bool;

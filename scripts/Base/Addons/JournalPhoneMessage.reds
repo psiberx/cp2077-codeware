@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalPhoneMessage)
 public native let sender: gameMessageSender;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorExitWorkspotNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
   public native let skipExitAnimation: ref<AIArgumentMapping>;
   public native let useSlowExitAnimation: ref<AIArgumentMapping>;

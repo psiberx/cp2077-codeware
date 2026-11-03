@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMoveOnSplineControlRubberbanding_NodeType extends questIVehicleManagerNodeType {
   public native let enable: Bool;
   public native let vehicleRef: EntityReference;

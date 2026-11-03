@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animLookAtPreset_DroneVertical extends animLookAtPreset {
   public native let softLimitDegrees: Float;
   public native let hardLimitDegrees: Float;

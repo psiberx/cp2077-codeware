@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStaticFogVolumeNode extends worldNode {
   public native let priority: Uint8;
   public native let absolute: Bool;

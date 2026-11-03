@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animPoseCorrection {
   public native let rbfCoefficient: Float;
   public native let rbfPowValue: Float;

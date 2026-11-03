@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly struct HitShapeContainer {
   public native let name: CName;
   public native let slotName: CName;

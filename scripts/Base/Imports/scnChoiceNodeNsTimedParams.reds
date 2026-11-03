@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnChoiceNodeNsTimedParams extends ISerializable {
   public native let action: scnChoiceNodeNsTimedAction;
   public native let timeLimitedFinish: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsClueEvent extends scnSceneEvent {
   public native let clueEntity: EntityReference;
   public native let markedOnTimeline: Bool;

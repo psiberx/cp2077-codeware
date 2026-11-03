@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectPostAction_BeamVFX_Custom extends gameEffectPostAction_BeamVFX {
   public native let effect: ResourceAsyncRef; // raRef<worldEffect>
   public native let attached: Bool;

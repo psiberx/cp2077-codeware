@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animDyngConstraintCone extends animIDyngConstraint {
   public native let constrainedBone: animTransformIndex;
   public native let coneAttachmentBone: animTransformIndex;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class RTAOAreaSettings extends IAreaSettings {
   public native let RangeNear: CurveDataFloat;
   public native let RangeFar: CurveDataFloat;

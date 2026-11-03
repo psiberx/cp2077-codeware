@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkISystemRequestsHandler)
 public native let SavesForSaveReady: inkSystemRequesResult;
 
@@ -18,6 +20,9 @@ public native let SaveTransferUpdate: inkSaveTransferRequestUpdate;
 
 @addField(inkISystemRequestsHandler)
 public native let ServersSearchResult: inkSystemServerRequesResult;
+
+@addField(inkISystemRequestsHandler)
+public native let TelemetryDataRemovalCallback: inkTelemetryDataRemovalCallback;
 
 @addField(inkISystemRequestsHandler)
 public native let AdditionalContentPurchaseResult: inkAdditionalContentPurchaseCallback;
@@ -65,4 +70,4 @@ public native let FavoritesLoadedReady: inkFavoriteLoadResult;
 public native let DeleteSreenshotComplete: inkDeleteScreenshotResult;
 
 @addField(inkISystemRequestsHandler)
-public native let MarketingConsentPopupTypeResult: inkMarketingConsentPopupTypeResult;
+public native let GogSignInCallback: inkGogSignInCallback;

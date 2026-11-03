@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum SAnimationBufferOrientationCompressionMethod {
   ABOCM_PackIn64bitsW = 0,
   ABOCM_PackIn48bitsW = 1,

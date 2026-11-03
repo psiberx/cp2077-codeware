@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemForwardDecal extends effectTrackItem {
   public native let mesh: ResourceRef; // rRef<CMesh>
   public native let appearance: CName;

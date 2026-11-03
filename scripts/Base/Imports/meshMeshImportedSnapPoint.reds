@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class meshMeshImportedSnapPoint extends ISerializable {
   public native let localToCloud: Matrix;
   public native let range: Float;

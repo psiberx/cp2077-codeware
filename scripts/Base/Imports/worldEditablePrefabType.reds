@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldEditablePrefabType {
   Regular = 0,
   Decoration = 1,

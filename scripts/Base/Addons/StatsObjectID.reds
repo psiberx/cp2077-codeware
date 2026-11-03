@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(StatsObjectID)
 public native let entityHash: Uint64;
 

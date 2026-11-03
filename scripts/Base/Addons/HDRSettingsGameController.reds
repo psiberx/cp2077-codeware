@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(HDRSettingsGameController)
 public native let callibrationScreen: ResourceRef; // rRef<CBitmapTexture>
 

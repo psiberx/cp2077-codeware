@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(soundComponent)
 public native let subSystems: array<gameaudioSoundComponentSubSystemWrapper>;
 

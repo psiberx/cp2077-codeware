@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questBehaviourManagerNodeDefinition extends questSignalStoppingNodeDefinition {
   public native let puppet: EntityReference;
   public native let type: ref<workIWorkspotQuestAction>;

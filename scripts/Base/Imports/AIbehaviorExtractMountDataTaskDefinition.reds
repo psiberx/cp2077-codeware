@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorExtractMountDataTaskDefinition extends AIbehaviorTaskDefinition {
   public native let mountEventData: ref<AIArgumentMapping>;
   public native let outWorkspotData: ref<AIArgumentMapping>;

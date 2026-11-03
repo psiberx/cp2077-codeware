@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldRaceSplineNodeOffset {
   public native let from: Float;
   public native let to: Float;

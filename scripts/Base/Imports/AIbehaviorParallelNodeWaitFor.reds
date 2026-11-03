@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIbehaviorParallelNodeWaitFor {
   LeftChild = 0,
   RightChild = 1,

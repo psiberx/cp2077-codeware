@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EDepthCollisionEffect {
   DCE_Bounce = 1,
   DCE_Glide = 2,

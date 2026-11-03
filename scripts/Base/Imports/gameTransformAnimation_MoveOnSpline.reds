@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameTransformAnimation_MoveOnSpline extends gameTransformAnimationTrackItemImpl {
   public native let splineNode: NodeRef;
   public native let from: Float;

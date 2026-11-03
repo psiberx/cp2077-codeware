@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class meshMeshParamOccluderData extends meshMeshParameter {
   public native let occluderResource: ref<visIOccluderResource>;
   public native let defaultOccluderType: visWorldOccluderType;

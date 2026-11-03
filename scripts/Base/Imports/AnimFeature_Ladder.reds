@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_Ladder extends AnimFeature {
   public native let state: Int32;
   public native let transitionType: Int32;

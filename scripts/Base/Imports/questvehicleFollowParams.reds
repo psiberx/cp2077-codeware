@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questvehicleFollowParams extends questVehicleSpecificCommandParams {
   public native let targetEntRef: EntityReference;
   public native let distanceMin: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldFoliageCompiledResource extends CResource {
   public native let version: Uint32;
   public native let populationCount: Uint32;

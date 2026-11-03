@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioWeaponHandlingSettings {
   public native let equipEvent: CName;
   public native let unequipStartedEvent: CName;

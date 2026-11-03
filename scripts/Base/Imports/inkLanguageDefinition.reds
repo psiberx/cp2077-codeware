@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkLanguageDefinition {
   public native let languageCode: CName;
   public native let isoScriptCode: CName;

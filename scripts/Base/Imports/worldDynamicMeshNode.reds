@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldDynamicMeshNode extends worldMeshNode {
   public native let startAsleep: Bool;
   public native let isDebris: Bool;

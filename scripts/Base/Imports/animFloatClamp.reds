@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animFloatClamp {
   public native let useMin: Bool;
   public native let min: Float;

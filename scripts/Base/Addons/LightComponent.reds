@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(LightComponent)
 public native let type: ELightType;
 

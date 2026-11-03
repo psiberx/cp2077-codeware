@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questEntityManagerSetAttachment_ToWorld extends questIEntityManagerSetAttachment_NodeSubType {
   public native let attachmentRef: NodeRef;
   public native let offsetMode: questAttachmentOffsetMode;

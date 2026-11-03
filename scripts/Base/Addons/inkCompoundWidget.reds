@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkCompoundWidget)
 public native let childOrder: inkEChildOrder;
 

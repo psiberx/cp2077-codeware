@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ESSAOQualityLevel {
   SSAOQUALITY_VeryLow = 0,
   SSAOQUALITY_Low = 1,

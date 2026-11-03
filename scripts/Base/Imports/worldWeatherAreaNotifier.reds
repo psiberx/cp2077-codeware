@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldWeatherAreaNotifier extends worldITriggerAreaNotifer {
   public native let horizontalFadeDistance: Float;
   public native let verticalFadeDistance: Float;

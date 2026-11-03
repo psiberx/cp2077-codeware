@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class LightChannelComponent extends IVisualComponent {
   public native let isEnabled: Bool;
   public native let channels: Uint16; // rendLightChannel

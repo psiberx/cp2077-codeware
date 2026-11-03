@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entEntityTemplate extends resStreamedResource {
   public native let includes: array<entTemplateInclude>;
   public native let appearances: array<entTemplateAppearance>;

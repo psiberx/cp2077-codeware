@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(PhoneWaveformGameController)
 public native let measurementsIntreval: Float;
 

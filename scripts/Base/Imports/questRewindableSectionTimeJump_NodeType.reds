@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questRewindableSectionTimeJump_NodeType extends questISceneManagerNodeType {
   public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>
   public native let jumpTargetTime: Uint32;

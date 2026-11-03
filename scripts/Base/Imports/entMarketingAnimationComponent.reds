@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entMarketingAnimationComponent extends IPlacedComponent {
   public native let freezeAnimations: Bool;
   public native let animations: array<entMarketingAnimationEntry>;

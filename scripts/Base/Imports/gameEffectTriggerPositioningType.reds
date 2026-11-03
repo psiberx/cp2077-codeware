@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameEffectTriggerPositioningType {
   PlayerRoot = 0,
   CameraRoot = 1,

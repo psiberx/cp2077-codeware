@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameStatPoolDataBonusType {
   None = 0,
   Persistent = 1,

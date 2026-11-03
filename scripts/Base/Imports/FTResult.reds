@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly struct FTResult {
   public native let code: FunctionalTestsResultCode;
   public native let msg: String;

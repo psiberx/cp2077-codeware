@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class SensorObject extends ISerializable {
   public native let presetID: TweakDBID;
   public native let detectionFactor: Float;

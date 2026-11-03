@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questPlayFX_NodeTypeParams {
   public native let play: Bool;
   public native let objectRef: EntityReference;

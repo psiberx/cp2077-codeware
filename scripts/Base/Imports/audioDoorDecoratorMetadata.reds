@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioDoorDecoratorMetadata extends audioEmitterMetadata {
   public native let startOpen: CName;

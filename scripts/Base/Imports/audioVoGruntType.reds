@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioVoGruntType {
   None = -1,
   PainShort = 23,

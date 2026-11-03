@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnLookAtBasicEventData {
   public native let basic: scnAnimTargetBasicData;
   public native let removePreviousAdvancedLookAts: Bool;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnCheckPlayerTargetNodeDistanceReturnConditionParams {
   public native let distance: Float;
   public native let comparisonType: EComparisonType;

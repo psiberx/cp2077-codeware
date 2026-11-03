@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questMoveType {
   MoveOnSpline = 0,
   MoveTo = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum DynamicTextureDataFormat {
   R_Uint8 = 0,
   R_Float16 = 1,

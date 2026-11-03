@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum entMeshComponentLODMode {
   AlwaysVisible = 0,
   Appearance = 1,

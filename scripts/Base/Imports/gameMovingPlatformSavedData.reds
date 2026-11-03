@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMovingPlatformSavedData {
   public native let currentLocalPosition: Vector4;
   public native let movement: ref<IMovingPlatformMovement>;

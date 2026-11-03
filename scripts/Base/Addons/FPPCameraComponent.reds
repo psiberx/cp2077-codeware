@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(FPPCameraComponent)
 public native let pitchMin: Float;
 

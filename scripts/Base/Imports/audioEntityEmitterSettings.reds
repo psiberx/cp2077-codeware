@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioEntityEmitterSettings {
   public native let emitterName: CName;
   public native let positionName: CName;

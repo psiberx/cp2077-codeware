@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entDynamicActorRepellingComponent extends IPlacedComponent {
   public native let type: entRepellingType;
   public native let shape: entRepellingShape;

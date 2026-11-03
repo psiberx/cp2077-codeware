@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameSmartObjectsCompiledResource extends resStreamedResource {
   public native let animationDatabase: ref<gameSmartObjectAnimationDatabase>;
   public native let compiledNodesData: ref<gameCompiledNodes>;

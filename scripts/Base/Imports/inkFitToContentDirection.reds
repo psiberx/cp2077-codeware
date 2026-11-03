@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkFitToContentDirection {
   None = 0,
   Horizontal = 2,

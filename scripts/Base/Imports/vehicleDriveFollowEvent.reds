@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class vehicleDriveFollowEvent extends Event {
   public native let targetObjToFollow: wref<GameObject>;
   public native let distanceMin: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkGlitchEffect extends inkIEffect {
   public native let intensity: Float;
   public native let offsetX: Float;

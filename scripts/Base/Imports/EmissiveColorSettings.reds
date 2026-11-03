@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class EmissiveColorSettings extends IAreaSettings {
   public native let tint: CurveDataHDRColor;
   public native let saturation: CurveDataFloat;

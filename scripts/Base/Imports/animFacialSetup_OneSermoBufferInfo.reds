@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animFacialSetup_OneSermoBufferInfo {
   public native let numGlobalLimits: Uint16;
   public native let numInfluencedPoses: Uint16;

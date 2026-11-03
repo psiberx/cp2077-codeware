@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioWeaponShellCasingDirection {
   rightFront = 0,
   rightBack = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAudioSceneDictionary extends audioInlinedAudioMetadata {
   public native let entries: array<audioAudioSceneDictionaryItem>;

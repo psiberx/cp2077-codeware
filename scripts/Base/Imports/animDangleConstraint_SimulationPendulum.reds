@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animDangleConstraint_SimulationPendulum extends animDangleConstraint_SimulationSingleBone {
   public native let constraintType: animPendulumConstraintType;
   public native let halfOfMaxApertureAngle: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendRenderMeshBlobHeader {
   public native let version: Uint32;
   public native let dataProcessing: Uint32;

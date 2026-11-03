@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum AIbehaviorActivationStatus {
   NOT_ACTIVATED = 0,
   ACTIVATING = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questTriggerConditionType {
   Undefined = 0,
   Entered = 1,

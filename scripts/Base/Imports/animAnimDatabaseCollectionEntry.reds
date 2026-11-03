@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimDatabaseCollectionEntry {
   public native let name: CName;
   public native let animDatabase: ResourceRef; // rRef<C2dArray>

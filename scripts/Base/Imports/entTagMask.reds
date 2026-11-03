@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entTagMask {
   public native let hardTags: redTagList;
   public native let softTags: redTagList;

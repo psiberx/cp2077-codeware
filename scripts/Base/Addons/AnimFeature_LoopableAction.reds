@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_LoopableAction)
 public native let loopDuration: Float;
 

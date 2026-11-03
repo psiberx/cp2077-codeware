@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalQuest)
 public native let title: LocalizationString;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class PlatformSpecificImageController extends inkLogicController {
   public native let textureAtlas: ResourceAsyncRef; // raRef<inkTextureAtlas>
   public native let textureAtlas_PS4: ResourceAsyncRef; // raRef<inkTextureAtlas>

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum textTextFlowDirection {
   Auto = 0,
   LeftToRight = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimVariableContainer extends ISerializable {
   public native let boolVariables: array<ref<animAnimVariableBool>>;
   public native let intVariables: array<ref<animAnimVariableInt>>;

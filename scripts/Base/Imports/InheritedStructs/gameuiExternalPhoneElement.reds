@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiExternalPhoneElement {
   public native let libraryID: CName;
   public native let request: wref<inkAsyncSpawnRequest>;

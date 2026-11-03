@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameActionMoveToSmartObjectState {
   public native let targetPos: Vector3;
   public native let toleranceRadius: Float;

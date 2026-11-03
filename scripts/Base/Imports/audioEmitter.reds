@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class audioEmitter extends IPlacedComponent {
   public native let EmitterName: CName;
   public native let EmitterType: audioEntityEmitterContextType;

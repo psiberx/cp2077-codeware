@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animBoneTraceCondition extends ISerializable {
   public native let boneIndex: Int16;
   public native let traceByRotation: Bool;

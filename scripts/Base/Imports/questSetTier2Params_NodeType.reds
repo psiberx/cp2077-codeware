@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSetTier2Params_NodeType extends questISceneManagerNodeType {
   public native let playerWalkType: Tier2WalkType;
   public native let usePlayerWorkspot: Bool;

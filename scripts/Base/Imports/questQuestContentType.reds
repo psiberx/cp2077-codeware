@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questQuestContentType {
   EP1_MainQuest = 0,
   EP1_SideQuest = 1,

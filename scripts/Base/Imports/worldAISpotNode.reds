@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldAISpotNode extends worldSocketNode {
   public native let spot: ref<AISpot>;
   public native let isWorkspotInfinite: Bool;

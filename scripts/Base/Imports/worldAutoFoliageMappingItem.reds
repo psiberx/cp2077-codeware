@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldAutoFoliageMappingItem {
   public native let Material: CName;
   public native let LayerIndex: Uint32;

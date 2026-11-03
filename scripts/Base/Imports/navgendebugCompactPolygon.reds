@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class navgendebugCompactPolygon extends ISerializable {
   public native let index: Uint16;

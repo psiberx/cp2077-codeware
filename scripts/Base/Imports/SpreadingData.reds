@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct SpreadingData {
   public native let count: Uint32;
   public native let targets: Uint32;

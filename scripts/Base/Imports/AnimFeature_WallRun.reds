@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_WallRun extends AnimFeature {
   public native let wallOnRightSide: Bool;
   public native let wallPosition: Vector4;

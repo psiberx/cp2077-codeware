@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDriveToPointAutonomousTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let targetPosition: ref<AIArgumentMapping>;
   public native let maxSpeed: ref<AIArgumentMapping>;

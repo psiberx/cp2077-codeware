@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AdjustTransform)
 public native let position: Vector4;
 

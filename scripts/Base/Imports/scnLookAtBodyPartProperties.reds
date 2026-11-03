@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnLookAtBodyPartProperties {
   public native let enableFactor: Float;
   public native let override: Float;

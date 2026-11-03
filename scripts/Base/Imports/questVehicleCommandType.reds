@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questVehicleCommandType {
   Move_On_Spline = 0,
   Follow = 1,

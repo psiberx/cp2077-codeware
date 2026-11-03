@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CFoliageProfile extends CResource {
   public native let cutoffAlphaMinMip: Float;
   public native let cutoffAlphaMaxMip: Float;

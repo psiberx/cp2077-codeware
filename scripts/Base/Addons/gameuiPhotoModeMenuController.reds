@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiPhotoModeMenuController)
 public native let SetAttributeOptionEnabled: gameuiSetPhotoModeKeyEnabledCallback;
 

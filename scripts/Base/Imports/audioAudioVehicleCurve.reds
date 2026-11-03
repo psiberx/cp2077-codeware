@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioAudioVehicleCurve {
   ThrottleInput = 0,
   RPM = 1,

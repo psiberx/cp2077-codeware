@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public native class BumpReactionSetting extends ISerializable {
   public native let reaction: gameinteractionsBumpIntensity;

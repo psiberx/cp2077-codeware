@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeRoachRaceObstacleSpawnerController extends gameuiarcadeArcadeSpawnerController {
   public native let initialMinimumSpawnTime: Float;
   public native let initialDoubleSpawnChance: Float;

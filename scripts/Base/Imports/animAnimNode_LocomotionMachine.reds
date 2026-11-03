@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_LocomotionMachine extends animAnimNode_StateMachine {
   public native let usePlanner: Bool;
   public native let group: CName;

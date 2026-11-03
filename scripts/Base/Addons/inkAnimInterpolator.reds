@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkAnimInterpolator)
 public native let interpolationMode: inkanimInterpolationMode;
 

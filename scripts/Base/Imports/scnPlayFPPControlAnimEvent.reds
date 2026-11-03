@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnPlayFPPControlAnimEvent extends scnPlayAnimEvent {
   public native let gameplayAnimName: ref<scnAnimName>;
   public native let FPPControlActive: Bool;

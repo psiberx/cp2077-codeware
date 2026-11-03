@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnChoiceNodeNsSizePreset {
   small = 0,
   normal = 1,

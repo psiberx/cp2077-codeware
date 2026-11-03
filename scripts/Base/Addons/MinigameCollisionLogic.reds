@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MinigameCollisionLogic)
 public native let colliderPositionOffset: Vector2;
 

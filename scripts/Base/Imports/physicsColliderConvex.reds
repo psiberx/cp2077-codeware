@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class physicsColliderConvex extends physicsICollider {
   public native let vertices: array<Vector3>;
   public native let indexBuffer: array<Uint8>;

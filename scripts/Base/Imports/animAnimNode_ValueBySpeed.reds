@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_ValueBySpeed extends animAnimNode_FloatValue {
   public native let defaultValue: Float;
   public native let clampType: animClampType;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questTriggerCondition extends questCondition {
   public native let type: questTriggerConditionType;
   public native let triggerAreaRef: NodeRef;

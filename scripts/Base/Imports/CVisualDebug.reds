@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CVisualDebug extends IScriptable {
   public final native func AddArrow()
   public final native func AddAxis()

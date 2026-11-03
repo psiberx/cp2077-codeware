@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct fxCompositionShaderParams {
   public native let glitchParam: Float;
   public native let glitchParam1: Float;

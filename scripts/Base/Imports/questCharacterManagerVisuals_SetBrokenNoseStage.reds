@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCharacterManagerVisuals_SetBrokenNoseStage extends questICharacterManagerVisuals_NodeSubType {
   public native let brokenNoseStage: gameuiCharacterCustomization_BrokenNoseStage;
 }

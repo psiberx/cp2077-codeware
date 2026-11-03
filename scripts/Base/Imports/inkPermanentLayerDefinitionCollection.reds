@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkPermanentLayerDefinitionCollection {
   public native let loadingLayer: inkLoadingLayerDefinition;
   public native let watermarksLayer: inkWatermarksLayerDefinition;

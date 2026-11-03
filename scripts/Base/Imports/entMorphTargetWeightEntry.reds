@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entMorphTargetWeightEntry {
   public native let targetName: CName;
   public native let regionName: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FloatCumulative extends animAnimNode_FloatValue {
   public native let clamp: Bool;
   public native let resetOnActivation: Bool;

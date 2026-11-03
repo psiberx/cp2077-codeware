@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class tempshitMapPinManagerNodeDefinition extends questDisableableNodeDefinition {
   public native let mapPinName: CName;
   public native let operation: tempshitMapPinOperation;

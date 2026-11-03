@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameinteractionsDistanceFromScreenCenterPredicate extends gameinteractionsIPredicateType {
   public native let height: Float;
   public native let width: Float;

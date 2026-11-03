@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldInterestingConversationsAreaNode extends worldTriggerAreaNode {
   public native let conversationGroups: array<ResourceRef>;
   public native let conversationResources: array<ref<worldConversationGroupData>>;

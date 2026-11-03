@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameReplicatedShotData {
   public native let timeStamp: netTime;
   public native let attackId: TweakDBID;

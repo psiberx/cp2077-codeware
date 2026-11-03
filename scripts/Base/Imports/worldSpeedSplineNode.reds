@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldSpeedSplineNode extends worldSplineNode {
   public native let speedChangeSections: array<worldSpeedSplineNodeSpeedChangeSection>;
   public native let useDeprecated: Bool;

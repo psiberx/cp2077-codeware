@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FloatComparator extends animAnimNode_FloatValue {
   public native let firstValue: Float;
   public native let secondValue: Float;

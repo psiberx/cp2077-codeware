@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animEMotionExtractionCompressionType {
   EMECT_LINEAR = 6,
   EMECT_SPLINE_LOW = 4,

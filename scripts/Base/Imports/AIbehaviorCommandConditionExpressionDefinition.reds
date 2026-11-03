@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorCommandConditionExpressionDefinition extends AIbehaviorPassiveExpressionDefinition {
   public native let commandName: CName;
   public native let useInheritance: Bool;

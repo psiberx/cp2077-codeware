@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CameraAreaSettings extends IAreaSettings {
   public native let cameraNearPlane: Float;
   public native let cameraFarPlane: Float;

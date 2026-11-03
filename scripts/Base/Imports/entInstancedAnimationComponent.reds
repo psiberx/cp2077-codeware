@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entInstancedAnimationComponent extends ISkinableComponent {
   public native let animations: ResourceRef; // rRef<animAnimSet>
   public native let animToSample: CName;

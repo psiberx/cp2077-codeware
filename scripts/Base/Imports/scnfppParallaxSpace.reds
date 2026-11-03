@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnfppParallaxSpace {
   Default = 0,
   Camera = 1,

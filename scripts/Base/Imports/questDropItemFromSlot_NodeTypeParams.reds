@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questDropItemFromSlot_NodeTypeParams {
   public native let objectRef: EntityReference;
   public native let slotId: TweakDBID;

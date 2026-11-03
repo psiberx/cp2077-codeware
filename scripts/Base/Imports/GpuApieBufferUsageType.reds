@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum GpuApieBufferUsageType {
   BUT_Default = 0,
   BUT_Immutable = 1,

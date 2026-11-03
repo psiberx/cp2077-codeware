@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EEmitterGroup {
   EG_Default = 0,
   EG_Group0 = 1,

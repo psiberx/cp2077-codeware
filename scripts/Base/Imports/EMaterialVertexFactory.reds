@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum EMaterialVertexFactory {
   MVF_Terrain = 1,
   MVF_MeshStatic = 2,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SkFrameAnimByTrack extends animAnimNode_SkFrameAnim {
   public native let progressFloatTrack: animNamedTrackIndex;
   public native let timeFloatTrack: animNamedTrackIndex;

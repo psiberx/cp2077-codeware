@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SkAnim extends animAnimNode_Base {
   public native let animation: CName;
   public native let applyMotion: Bool;

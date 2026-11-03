@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnAnimNameType {
   direct = 0,
   reference = 1,

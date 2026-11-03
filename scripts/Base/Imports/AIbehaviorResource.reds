@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorResource extends CResource {
   public native let root: ref<AIbehaviorTreeNodeDefinition>;
   public native let arguments: AITreeArgumentsDefinition;

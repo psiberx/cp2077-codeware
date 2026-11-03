@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldProxWindowsType {
   SkipWindows = 0,
   PropagateWindows = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnDialogLineVisualStyle {
   regular = 0,
   overHead = 1,

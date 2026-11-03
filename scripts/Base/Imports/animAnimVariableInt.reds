@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimVariableInt extends animAnimVariable {
   public native let value: Int32;
   public native let default: Int32;

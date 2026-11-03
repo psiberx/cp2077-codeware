@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AICTreeNodeActionAnimationCurvePathDynamicDefinition extends AICTreeNodeActionDefinition {
   public native let targetSplineVarName: CName;
   public native let controlerVarName: CName;

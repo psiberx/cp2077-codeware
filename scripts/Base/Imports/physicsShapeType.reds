@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsShapeType {
   Box = 0,
   Sphere = 1,

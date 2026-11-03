@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_LookAtController extends animAnimNode_OnePoseInput {
   public native let E3_HACK_offset: animVectorLink;
   public native let orderedBodyParts: array<LookAtPartInfo>;

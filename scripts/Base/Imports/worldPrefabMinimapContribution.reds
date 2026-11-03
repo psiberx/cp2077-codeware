@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldPrefabMinimapContribution {
   Auto = 0,
   Include = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopTerrainNodeInfo {
   public native let width: Uint32;
   public native let height: Uint32;

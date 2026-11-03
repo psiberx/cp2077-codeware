@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questRadioStationAnnouncementEventStruct {
   public native let announcementScene: ResourceAsyncRef; // raRef<scnSceneResource>
   public native let sceneInput: CName;

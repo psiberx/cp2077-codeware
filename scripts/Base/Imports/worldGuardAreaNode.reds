@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldGuardAreaNode extends worldAreaShapeNode {
   public native let communityEntries: array<AIGuardAreaConnectedCommunity>;
   public native let combatCommunityEntries: array<AICombatGuardAreaConnectedCommunity>;

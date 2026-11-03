@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct sharedMenuItem {
   public native let id: CName;
   public native let displayName: String;

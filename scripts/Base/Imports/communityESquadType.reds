@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum communityESquadType {
   Global = 0,
   Community = 1,

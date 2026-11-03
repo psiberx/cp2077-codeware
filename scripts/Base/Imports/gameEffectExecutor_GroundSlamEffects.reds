@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectExecutor_GroundSlamEffects extends EffectExecutor {
   public native let groundEffect: ResourceAsyncRef; // raRef<worldEffect>
   public native let waterEffect: ResourceAsyncRef; // raRef<worldEffect>

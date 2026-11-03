@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendOpacityMicromapChunk {
   public native let mChunkIndex: Uint32;
   public native let unkIndex: Uint32;

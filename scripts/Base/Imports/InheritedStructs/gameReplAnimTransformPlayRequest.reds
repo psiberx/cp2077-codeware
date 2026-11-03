@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameReplAnimTransformPlayRequest {
   public native let applyServerTime: netTime;
   public native let animName: CName;

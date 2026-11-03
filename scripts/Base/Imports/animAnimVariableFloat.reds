@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimVariableFloat extends animAnimVariable {
   public native let value: Float;
   public native let default: Float;

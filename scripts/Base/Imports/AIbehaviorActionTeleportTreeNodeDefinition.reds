@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionTeleportTreeNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let destinationPoint: ref<AIArgumentMapping>;
   public native let doNavTest: ref<AIArgumentMapping>;

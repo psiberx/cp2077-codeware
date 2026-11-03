@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_Loot extends AnimFeature {
   public native let opened: Bool;
   public native let transitionDuration: Float;

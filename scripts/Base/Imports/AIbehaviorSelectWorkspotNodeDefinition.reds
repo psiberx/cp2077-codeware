@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorSelectWorkspotNodeDefinition extends AIbehaviorDecoratorNodeDefinition {
   public native let spotInstance: ref<AIArgumentMapping>;
   public native let workspotData: ref<AIArgumentMapping>;

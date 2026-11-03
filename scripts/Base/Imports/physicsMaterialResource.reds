@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class physicsMaterialResource extends CResource {
   public native let staticFriction: Float;
   public native let dynamicFriction: Float;

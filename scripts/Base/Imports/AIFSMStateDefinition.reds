@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct AIFSMStateDefinition {
   public native let onUpdateTransition: AIFSMTransitionListDefinition;
   public native let onCompleteTransition: AIFSMTransitionListDefinition;

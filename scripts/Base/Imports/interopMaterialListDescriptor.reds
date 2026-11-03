@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopMaterialListDescriptor {
   public native let chunksInfo: String;
   public native let chunksLODInfo: String;

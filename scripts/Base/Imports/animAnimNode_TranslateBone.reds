@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_TranslateBone extends animAnimNode_Base {
   public native let inputNode: animPoseLink;
   public native let inputTranslation: animVectorLink;

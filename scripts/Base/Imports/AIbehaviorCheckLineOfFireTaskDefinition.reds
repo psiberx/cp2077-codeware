@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorCheckLineOfFireTaskDefinition extends AIbehaviorTaskDefinition {
   public native let slotName: ref<AIArgumentMapping>;
   public native let attachmentName: ref<AIArgumentMapping>;

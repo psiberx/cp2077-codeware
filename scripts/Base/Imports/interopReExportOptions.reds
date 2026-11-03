@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopReExportOptions {
   public native let occlusionExportOptNames: array<CName>;
   public native let occlusionExportOptValues: array<Bool>;

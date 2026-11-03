@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questSceneTalking_ConditionType extends questISceneConditionType {
   public native let GlobalEntityRef: EntityReference;
   public native let sceneFile: ResourceAsyncRef; // raRef<scnSceneResource>

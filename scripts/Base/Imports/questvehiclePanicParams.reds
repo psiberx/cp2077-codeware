@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questvehiclePanicParams extends questVehicleSpecificCommandParams {
   public native let allowSimplifiedMovement: Bool;
   public native let ignoreTickets: Bool;

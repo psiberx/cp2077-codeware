@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct Sample_Replicated_Struct {
   public native let a: Bool;
   public native let b: Bool;

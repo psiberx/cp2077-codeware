@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questPlayerLookAtParams extends ISerializable {
   public native let useOffsetToPlayer: Bool;
   public native let lookAtTarget: EntityReference;

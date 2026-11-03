@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct sharedResourceCommandOutcome {
   public native let result: sharedCommandResult;
   public native let modifiedFiles: array<String>;

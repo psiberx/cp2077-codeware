@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AIBaseUseWorkspotCommand)
 public native persistent let workExcludedGestures: array<WorkEntryId>;
 

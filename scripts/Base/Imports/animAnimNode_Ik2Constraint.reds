@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_Ik2Constraint extends animAnimNode_OnePoseInput {
   public native let inputTarget: ref<animIAnimNodeSourceChannel_Vector>;
   public native let inputPoleVector: ref<animIAnimNodeSourceChannel_Vector>;

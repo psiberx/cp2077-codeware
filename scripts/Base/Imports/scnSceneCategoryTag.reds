@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnSceneCategoryTag {
   voiceset = 0,
   mainQuests = 1,

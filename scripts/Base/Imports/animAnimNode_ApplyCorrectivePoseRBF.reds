@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_ApplyCorrectivePoseRBF extends animAnimNode_OnePoseInput {
   public native let rbfCoefficient: Float;
   public native let rbfPowValue: Float;

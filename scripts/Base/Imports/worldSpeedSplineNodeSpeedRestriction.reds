@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldSpeedSplineNodeSpeedRestriction {
   public native let speed: Float;
   public native let from: Float;

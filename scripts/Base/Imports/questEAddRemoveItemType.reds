@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum questEAddRemoveItemType {
   AddItem = 0,
   RemoveByItemID = 1,

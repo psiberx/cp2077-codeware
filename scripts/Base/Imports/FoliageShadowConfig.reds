@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct FoliageShadowConfig {
   public native let foliageShadowCascadeGradient: Float;
   public native let foliageShadowCascadeFilterScale: Float;

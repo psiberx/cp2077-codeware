@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animEAnimGraphMathInterpolation {
   AGMI_LINEAR = 0,
   AGMI_SIN = 1,

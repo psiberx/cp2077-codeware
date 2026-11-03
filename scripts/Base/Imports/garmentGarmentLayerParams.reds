@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class garmentGarmentLayerParams extends CResource {
   public native let bending: garmentBendingParams;
   public native let smoothing: garmentSmoothingParams;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioSpatialSoundLimitMetadata extends audioAudioMetadata {
   public native let eventNames: array<CName>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameEffectDebugSettings {
   public native let overrideGlobalSettings: Bool;
   public native let duration: Float;

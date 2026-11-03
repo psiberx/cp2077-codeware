@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MinimapContainerController)
 public native let settings: ref<MinimapSettings>;
 

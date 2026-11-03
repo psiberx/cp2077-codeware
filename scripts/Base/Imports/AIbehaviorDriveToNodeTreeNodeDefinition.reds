@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDriveToNodeTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let useKinematic: ref<AIArgumentMapping>;
   public native let needDriver: ref<AIArgumentMapping>;

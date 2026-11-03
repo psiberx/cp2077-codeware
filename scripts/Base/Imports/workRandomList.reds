@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class workRandomList extends workIContainerEntry {
   public native let minClips: Int8;
   public native let maxClips: Int8;

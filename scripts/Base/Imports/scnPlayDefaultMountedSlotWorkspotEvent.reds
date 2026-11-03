@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnPlayDefaultMountedSlotWorkspotEvent extends scnSceneEvent {
   public native let performer: scnPerformerId;
   public native let parentRef: EntityReference;

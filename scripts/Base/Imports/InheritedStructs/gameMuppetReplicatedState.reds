@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetReplicatedState {
   public native let recordID: TweakDBID;
   public native let persistentID: Uint64;

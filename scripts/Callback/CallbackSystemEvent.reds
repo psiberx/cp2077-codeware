@@ -1,3 +1,2 @@
-public abstract native class CallbackSystemEvent {
-    public native func GetEventName() -> CName
-}
+@addMethod(CallbackSystemEvent)
+public native func GetEventName() -> CName

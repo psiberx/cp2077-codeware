@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameGameTimeInterval {
   public native let begin: GameTime;
   public native let end: GameTime;

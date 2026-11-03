@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entRenderToTextureFeatures {
   public native let renderDecals: Bool;
   public native let renderParticles: Bool;
@@ -7,4 +9,7 @@ public native struct entRenderToTextureFeatures {
   public native let localShadows: Bool;
   public native let SSAO: entRenderToTextureFeaturesPlatform;
   public native let reflections: entRenderToTextureFeaturesPlatform;
+  public native let motionBlur: entRenderToTextureFeaturesPlatform;
+  public native let depthOfField: entRenderToTextureFeaturesPlatform;
+  public native let stereo: Bool;
 }

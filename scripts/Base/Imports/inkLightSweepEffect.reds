@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkLightSweepEffect extends inkIEffect {
   public native let positionX: Float;
   public native let positionY: Float;

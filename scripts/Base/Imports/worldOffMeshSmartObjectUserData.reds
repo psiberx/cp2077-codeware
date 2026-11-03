@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldOffMeshSmartObjectUserData extends worldOffMeshUserData {
   public native let nodeTransform: WorldTransform;
   public native let localSpaceTrajectoryStartPoint: Vector3;

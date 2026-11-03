@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimVariableQuaternion extends animAnimVariable {
   public native let roll: Float;
   public native let pitch: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AnimFeature_Locomotion extends AnimFeature {
   public native let action: Int32;
   public native let style: Int32;

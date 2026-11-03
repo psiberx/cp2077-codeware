@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimationBufferCompressed extends animIAnimationBuffer {
   public native let duration: Float;
   public native let numFrames: Uint32;

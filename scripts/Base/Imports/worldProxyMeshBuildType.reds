@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldProxyMeshBuildType {
   ProxyFromScratch = 1,
   ProxyFromProxy = 0,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnRidActorPlacement {
   SceneOrigin = 0,
   Actual = 1,

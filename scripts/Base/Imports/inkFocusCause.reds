@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inkFocusCause {
   Mouse = 0,
   Navigation = 1,

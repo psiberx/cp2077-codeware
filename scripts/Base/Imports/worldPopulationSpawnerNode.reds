@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldPopulationSpawnerNode extends worldNode {
   public native let objectRecordId: TweakDBID;
   public native let appearanceName: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questAddBraindanceClue_NodeType extends questIUIManagerNodeType {
   public native let clueName: CName;
   public native let startTime: Float;

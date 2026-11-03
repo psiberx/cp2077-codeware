@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMountDescriptor {
   public native let parentId: EntityID;
   public native let slotName: CName;

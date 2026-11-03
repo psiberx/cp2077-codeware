@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entReplicatedLookAtAdd {
   public native let creationNetTime: netTime;
   public native let bodyPart: CName;

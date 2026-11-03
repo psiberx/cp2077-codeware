@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnDialogLineVoParams {
   public native let voContext: locVoiceoverContext;
   public native let voExpression: locVoiceoverExpression;

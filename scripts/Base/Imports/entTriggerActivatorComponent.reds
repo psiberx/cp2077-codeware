@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entTriggerActivatorComponent extends IPlacedComponent {
   public native let radius: Float;
   public native let height: Float;

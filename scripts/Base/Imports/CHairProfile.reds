@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CHairProfile extends CResource {
   public native let sampleCount: Uint16;
   public native let gradientEntriesID: array<rendGradientEntry>;

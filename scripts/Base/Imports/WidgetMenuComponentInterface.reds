@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class WidgetMenuComponentInterface extends WidgetBaseComponent {
   public native let widgetResource: ResourceRef; // rRef<inkWidgetLibraryResource>
   public native let cursorResource: ResourceRef; // rRef<inkWidgetLibraryResource>

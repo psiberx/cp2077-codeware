@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameStatusEffectReplicatedInfo {
   public native let statusEffectRecordID: TweakDBID;
   public native let stackCount: Uint32;

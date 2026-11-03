@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_LookAtPose360 extends animAnimNode_Base {
   public native let speedInDegreesPerSecond: Float;
   public native let angleOffsetNode: animFloatLink;

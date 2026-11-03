@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetState {
   public native let frameId: Uint32;
   public native let highLevelState: gameMuppetHighLevelState;

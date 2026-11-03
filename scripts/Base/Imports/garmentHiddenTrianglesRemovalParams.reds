@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct garmentHiddenTrianglesRemovalParams {
   public native let garmentBorderThreshold: Float;
   public native let removeHiddenTriangles: Bool;

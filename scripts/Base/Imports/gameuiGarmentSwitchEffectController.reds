@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiGarmentSwitchEffectController {
   public native let sceneName: CName;
   public native let effectName: CName;

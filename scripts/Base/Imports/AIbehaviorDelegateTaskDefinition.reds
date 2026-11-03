@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDelegateTaskDefinition extends AIbehaviorTaskDefinition {
   public native let onActivate: AIDelegateTaskRef;
   public native let onUpdate: AIDelegateTaskRef;

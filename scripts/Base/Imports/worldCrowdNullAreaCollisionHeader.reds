@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldCrowdNullAreaCollisionHeader {
   public native let direction: Vector3;
   public native let radius: Float;

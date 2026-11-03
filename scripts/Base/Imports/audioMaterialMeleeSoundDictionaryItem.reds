@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioMaterialMeleeSoundDictionaryItem extends audioInlinedAudioMetadata {
   public native let key: CName;

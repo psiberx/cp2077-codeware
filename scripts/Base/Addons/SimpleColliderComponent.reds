@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(SimpleColliderComponent)
 public native let isEnabled: Bool;
 

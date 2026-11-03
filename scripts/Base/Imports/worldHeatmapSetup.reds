@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldHeatmapSetup {
   public native let volumeBox: Box;
   public native let verticalResolution: Uint32;

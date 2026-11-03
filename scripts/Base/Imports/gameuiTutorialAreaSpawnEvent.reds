@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiTutorialAreaSpawnEvent extends Event {
   public native let bracketID: CName;
   public native let areaID: Uint32;

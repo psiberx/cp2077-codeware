@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldOffMeshConnectionNode extends worldSplineNode {
   public native let isBidirectional: Bool;
   public native let radius: Float;

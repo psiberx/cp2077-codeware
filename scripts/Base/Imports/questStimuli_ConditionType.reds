@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questStimuli_ConditionType extends questISensesConditionType {
   public native let instigatorRef: EntityReference;
   public native let isPlayerInstigator: Bool;

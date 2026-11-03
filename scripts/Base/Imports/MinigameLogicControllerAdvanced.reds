@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class MinigameLogicControllerAdvanced extends inkLogicController {
   public native let playerLibraryName: CName;
   public native let playerColliderPositionOffset: Vector2;

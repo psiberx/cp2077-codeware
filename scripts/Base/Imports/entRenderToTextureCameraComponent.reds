@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entRenderToTextureCameraComponent extends entCameraComponent {
   public native let isEnabled: Bool;
   public native let virtualCameraName: CName;
@@ -12,10 +14,13 @@ public native class entRenderToTextureCameraComponent extends entCameraComponent
   public native let env: ResourceRef; // rRef<worldEnvironmentAreaParameters>
   public native let params: WorldRenderAreaSettings;
   public native let renderingMode: entRenderToTextureMode;
+  public native let renderingQuality: ECameraRenderingQuality;
   public native let depthCutDistance: Float;
   public native let backgroundColor: Color;
   public native let overrideBackgroundColor: Bool;
   public native let renderSceneLayer: RenderSceneLayer;
   public native let features: entRenderToTextureFeatures;
+  public native let renderFrequency: Uint32;
+  public native let renderPhase: Uint32;
   public native let streamingDistance: Float;
 }

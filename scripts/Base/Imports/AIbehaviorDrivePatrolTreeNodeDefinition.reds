@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDrivePatrolTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let maxSpeed: ref<AIArgumentMapping>;
   public native let minSpeed: ref<AIArgumentMapping>;

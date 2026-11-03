@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnSceneSharedState extends ISerializable {
   public native let entrypoint: CName;
   public native let syncNodesVisited: array<scnSyncNodeSignal>;

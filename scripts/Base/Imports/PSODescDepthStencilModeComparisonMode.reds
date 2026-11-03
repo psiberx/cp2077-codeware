@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum PSODescDepthStencilModeComparisonMode {
   COMPARISON_Never = 0,
   COMPARISON_Less = 1,

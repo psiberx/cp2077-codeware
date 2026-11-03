@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalCodexGroup)
 public native let groupName: LocalizationString;
 

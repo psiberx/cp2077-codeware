@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldBlockoutData extends ISerializable {
   public native let points: array<worldBlockoutPoint>;
   public native let edges: array<worldBlockoutEdge>;

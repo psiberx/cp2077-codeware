@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnPlaySkAnimRootMotionData {
   public native let enabled: Bool;
   public native let placementMode: scnRootMotionAnimPlacementMode;

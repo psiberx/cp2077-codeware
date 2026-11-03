@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class BloomAreaSettings extends IAreaSettings {
   public native let blurSizeX: Float;
   public native let blurSizeY: Float;

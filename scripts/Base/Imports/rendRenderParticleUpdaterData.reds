@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendRenderParticleUpdaterData {
   public native let modifOffset: Uint32;
   public native let animFrameInit: array<Float>;

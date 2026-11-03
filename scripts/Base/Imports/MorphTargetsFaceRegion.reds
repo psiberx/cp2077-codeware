@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum MorphTargetsFaceRegion {
   FACE_REGION_EYES = 0,
   FACE_REGION_NOSE = 1,

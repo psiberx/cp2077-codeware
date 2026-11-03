@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questVehicleCommandParams extends AICommandParams {
   public native let type: questVehicleCommandType;
   public native let additionalParamsOnSpline: ref<questvehicleOnSplineParams>;

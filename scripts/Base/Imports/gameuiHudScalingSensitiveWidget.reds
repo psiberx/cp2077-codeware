@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiHudScalingSensitiveWidget {
   public native let widget: inkWidgetRef;
   public native let adjustScale: Bool;

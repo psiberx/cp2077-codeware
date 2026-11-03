@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ERenderingMode {
   RM_HitProxies = 2,
   RM_Shaded = 0,

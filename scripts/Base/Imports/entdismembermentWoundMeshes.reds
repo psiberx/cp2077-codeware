@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entdismembermentWoundMeshes {
   public native let ResourceSet: entdismembermentResourceSetE;
   public native let Meshes: array<entdismembermentMeshInfo>;

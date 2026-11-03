@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class FilmGrainAreaSettings extends IAreaSettings {
   public native let strength: CurveDataVector4;
   public native let luminanceBias: CurveDataFloat;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioDeviceStateSettings {
   public native let powerRestoredSound: CName;
   public native let powerCutSound: CName;

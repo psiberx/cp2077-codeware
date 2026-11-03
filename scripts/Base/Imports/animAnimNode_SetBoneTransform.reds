@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_SetBoneTransform extends animAnimNode_OnePoseInput {
   public native let entries: array<animSetBoneTransformEntry>;
 }

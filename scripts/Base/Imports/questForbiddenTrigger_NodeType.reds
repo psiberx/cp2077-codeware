@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questForbiddenTrigger_NodeType extends questIVehicleManagerNodeType {
   public native let triggerNodeRef: NodeRef;
   public native let activate: Bool;

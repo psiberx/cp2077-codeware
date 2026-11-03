@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_Signal extends animAnimNode_FloatValue {
   public native let blendIn: Float;
   public native let blendOut: Float;

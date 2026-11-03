@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animMotionTableAction {
   MTA_None = 0,
   MTA_Start = 1,

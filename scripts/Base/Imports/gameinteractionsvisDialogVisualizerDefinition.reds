@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameinteractionsvisDialogVisualizerDefinition extends gameinteractionsvisIVisualizerDefinition {
   public native let displayNameOverride: String;
   public native let useLookAt: Bool;

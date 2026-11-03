@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimationImportInfo {
   public native let AnimationType: animAnimationType;
   public native let BufferType: animcompressionBufferTypePreset;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CMaterialLayerLibrary extends CResource {
   public native let uvTiling: Float;
   public native let mbTiling: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class physicsFilterData extends ISerializable {
   public native let simulationFilter: SimulationFilter;
   public native let queryFilter: QueryFilter;

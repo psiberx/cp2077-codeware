@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class effectTrackItemVignette extends effectTrackItem {
   public native let overrideRadiusAndExp: Bool;
   public native let overrideColor: Bool;

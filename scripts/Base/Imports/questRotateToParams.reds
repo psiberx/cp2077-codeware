@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questRotateToParams extends AICommandParams {
   public native let facingTargetRef: ref<questUniversalRef>;
   public native let angleOffset: Float;

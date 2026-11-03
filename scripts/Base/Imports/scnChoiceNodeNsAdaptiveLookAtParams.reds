@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnChoiceNodeNsAdaptiveLookAtParams extends scnChoiceNodeNsLookAtParams {
   public native let nearbySlotName: CName;
   public native let distantSlotName: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class EnvProbeComponent extends IVisualComponent {
   public native let isEnabled: Bool;
   public native let size: Vector3;

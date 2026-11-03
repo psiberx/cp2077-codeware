@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameDelayContext {
   Standard_TD = 1,
   Standard_ND = 2,

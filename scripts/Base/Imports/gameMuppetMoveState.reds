@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameMuppetMoveState {
   public native let desiredSpeed: Float;
   public native let isJumping: Bool;

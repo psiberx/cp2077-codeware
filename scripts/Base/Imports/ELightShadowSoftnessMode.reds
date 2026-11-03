@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ELightShadowSoftnessMode {
   LSSM_ExtraSoft = 0,
   LSSM_Soft = 1,

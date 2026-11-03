@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FootStepAdjuster extends animAnimNode_OnePoseInput {
   public native let leftToeName: animTransformIndex;
   public native let rightToeName: animTransformIndex;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkRadioGroupController)
 public native let toggleRefs: array<inkWidgetRef>;
 

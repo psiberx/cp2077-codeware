@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeShooterLevelController extends inkLogicController {
   public native let playerSpawnPoint: inkWidgetRef;
   public native let background: inkWidgetRef;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum inputEInputDevice {
   INVALID = 0,
   KBD_MOUSE = 1,
@@ -9,5 +11,6 @@ public enum inputEInputDevice {
   NINTENDO_SWITCH = 7,
   SCARLETT_GAMEPAD = 8,
   PROSPERO = 9,
-  EID_COUNT = 10,
+  NINTENDO_TOUCH = 10,
+  EID_COUNT = 11,
 }

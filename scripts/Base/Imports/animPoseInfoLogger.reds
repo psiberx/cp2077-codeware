@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animPoseInfoLogger {
   public native let enabled: Bool;
   public native let showStackTransformsCount: Bool;

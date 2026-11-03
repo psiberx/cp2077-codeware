@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animSetBoneTransformEntry_SetMethod {
   NoSnapping = 0,
   WholeTransform = 1,

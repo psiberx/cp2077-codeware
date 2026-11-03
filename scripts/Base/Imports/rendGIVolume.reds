@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum rendGIVolume {
   GI_Exterior = 0,
   GI_Interior1 = 1,

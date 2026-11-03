@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameDebugCheatsSharedState extends gameIGameSystemReplicatedState {
   public native let activeCheats: array<gamecheatsystemObjCheats>;
   public native let debugTimeDilationIndex: Uint32;

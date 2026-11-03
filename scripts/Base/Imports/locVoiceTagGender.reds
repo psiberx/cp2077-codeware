@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum locVoiceTagGender {
   Undefined = 0,
   Male = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questToggleBrokenTire_NodeType extends questIVehicleManagerNodeType {
   public native let vehicleRef: EntityReference;
   public native let val: Bool;

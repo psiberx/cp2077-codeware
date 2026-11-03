@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioRadioSpeakerType {
   Stanley = 0,
   MaximumMike = 1,

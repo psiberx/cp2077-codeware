@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendCaptureParameters {
   public native let enable: Bool;
   public native let mode: rendScreenshotMode;

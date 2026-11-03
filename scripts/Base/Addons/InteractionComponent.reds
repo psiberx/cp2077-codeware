@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(InteractionComponent)
 public native let definitionResource: ResourceRef; // rRef<gameinteractionsInteractionDescriptorResource>
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum scnMarkerType {
   Local = 0,
   Global = 1,

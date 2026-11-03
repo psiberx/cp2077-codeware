@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorRestoreSavedPatrolProgressTaskDefinition extends AIbehaviorTaskDefinition {
   public native let path: ref<AIArgumentMapping>;
   public native let savedState: ref<AIArgumentMapping>;

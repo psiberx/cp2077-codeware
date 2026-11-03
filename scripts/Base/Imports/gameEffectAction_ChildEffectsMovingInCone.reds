@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectAction_ChildEffectsMovingInCone extends EffectPostAction {
   public native let effectsCount: Uint32;
   public native let effectTagInThisFile: CName;

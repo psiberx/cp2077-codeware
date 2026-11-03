@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSRRefCollection {
   public native let ridAnimations: array<scnRidAnimationSRRef>;
   public native let ridAnimSets: array<scnRidAnimSetSRRef>;

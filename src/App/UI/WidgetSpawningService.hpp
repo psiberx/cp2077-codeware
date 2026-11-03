@@ -26,9 +26,8 @@ protected:
     static Red::Handle<Red::ink::WidgetLibraryItemInstance> OnSpawnExternal(Red::ink::WidgetLibraryResource* aLibrary,
                                                                             Red::ResourcePath aExternalPath,
                                                                             Red::CName aItemName);
-    static bool OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                  Red::InkSpawningInfo& aSpawningInfo,
-                                  Red::CName aItemName);
+    static bool OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary, Red::InkSpawningInfo& aSpawningInfo,
+                                  Red::CName aItemName, bool aFlag);
     static bool OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
                                      Red::InkSpawningInfo& aSpawningInfo,
                                      Red::ResourcePath aExternalPath,

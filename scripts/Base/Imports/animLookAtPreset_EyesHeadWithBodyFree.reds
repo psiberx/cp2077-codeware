@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animLookAtPreset_EyesHeadWithBodyFree extends animLookAtPreset {
   public native let suppressHeadAnimation: Float;
   public native let headMobility: Float;

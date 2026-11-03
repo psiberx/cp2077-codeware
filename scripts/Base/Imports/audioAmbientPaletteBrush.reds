@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioAmbientPaletteBrush {
   public native let distributionBucketSize: Float;
   public native let virtualHearingRadius: Float;

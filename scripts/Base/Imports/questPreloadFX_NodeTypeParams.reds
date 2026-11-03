@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questPreloadFX_NodeTypeParams {
   public native let preload: Bool;
   public native let objectRef: EntityReference;

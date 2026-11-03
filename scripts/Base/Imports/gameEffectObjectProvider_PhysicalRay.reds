@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectObjectProvider_PhysicalRay extends EffectObjectProvider {
   public native let inputPosition: EffectInputParameter_Vector;
   public native let inputForward: EffectInputParameter_Vector;

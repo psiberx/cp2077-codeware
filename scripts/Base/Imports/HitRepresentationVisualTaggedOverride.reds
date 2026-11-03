@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @neverRef()
 public importonly class HitRepresentationVisualTaggedOverride extends ISerializable {
   public native let visualTags: redTagList;

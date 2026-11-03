@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorForce extends IParticleModificator {
   public native let pivot: Vector3;
   public native let radius: Float;

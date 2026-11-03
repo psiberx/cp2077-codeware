@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct inkTextureSlot {
   public native let texture: ResourceAsyncRef; // raRef<CBitmapTexture>
   public native let parts: array<inkTextureAtlasMapper>;

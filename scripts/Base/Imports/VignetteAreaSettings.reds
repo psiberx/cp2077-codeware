@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class VignetteAreaSettings extends IAreaSettings {
   public native let vignetteEnabled: Bool;
   public native let vignetteRadius: Float;

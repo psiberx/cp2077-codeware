@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum rendLightGroup {
   LG_Group0 = 0,
   LG_Group1 = 1,

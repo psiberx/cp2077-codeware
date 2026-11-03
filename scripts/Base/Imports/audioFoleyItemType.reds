@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioFoleyItemType {
   Jacket = 0,
   Top = 1,

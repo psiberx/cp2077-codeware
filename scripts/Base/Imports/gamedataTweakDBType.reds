@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gamedataTweakDBType {
   Invalid = 0,
   ForeignKey = 1,

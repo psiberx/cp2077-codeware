@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class genLevelRandomizer extends GameObject {
   public native let entries: array<genLevelRandomizerEntry>;
   public native let seed: Uint32;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkInputDisplayController)
 public native let iconRef: inkWidgetRef;
 

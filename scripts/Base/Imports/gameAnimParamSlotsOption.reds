@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameAnimParamSlotsOption {
   public native let slotID: TweakDBID;
   public native let paramName: CName;

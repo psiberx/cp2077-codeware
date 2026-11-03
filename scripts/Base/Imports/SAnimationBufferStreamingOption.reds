@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum SAnimationBufferStreamingOption {
   ABSO_NonStreamable = 0,
   ABSO_PartiallyStreamable = 1,

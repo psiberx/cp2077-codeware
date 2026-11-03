@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameNpcPuppetReplicatedState {
   public native let initialOrientation: EulerAngles;
   public native let initialLocation: Vector3;

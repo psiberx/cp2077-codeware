@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameuiarcadeShooterTriggerType {
   Delay = 0,
   SpawnerFinish = 1,

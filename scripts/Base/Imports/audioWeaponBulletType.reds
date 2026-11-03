@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioWeaponBulletType {
   standard = 0,
   sniper = 1,

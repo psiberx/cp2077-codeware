@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSyncNodeSignal {
   public native let nodeId: Uint32;
   public native let name: Uint16;

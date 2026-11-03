@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldReflectionProbeNode extends worldNode {
   public native let probeDataRef: ResourceAsyncRef; // raRef<CReflectionProbeDataResource>
   public native let priority: Uint8;

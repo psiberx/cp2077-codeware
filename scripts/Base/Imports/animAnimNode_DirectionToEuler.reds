@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_DirectionToEuler extends animAnimNode_FloatValue {
   public native let inputNode: animVectorLink;
   public native let initialForwardVector: Vector4;

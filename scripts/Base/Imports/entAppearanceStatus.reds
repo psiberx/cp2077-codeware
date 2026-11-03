@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum entAppearanceStatus {
   None = 0,
   Proxy = 1,

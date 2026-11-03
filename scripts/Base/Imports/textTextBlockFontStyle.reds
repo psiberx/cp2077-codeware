@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct textTextBlockFontStyle {
   public native let fontStyle: CName;
   public native let outlineSize: Int32;

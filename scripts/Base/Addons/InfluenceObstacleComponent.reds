@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(InfluenceObstacleComponent)
 public native let boundingBoxType: gameinfluenceEBoundingBoxType;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(entCameraComponent)
 public native let fov: Float;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questTransferItems_NodeTypeParams {
   public native let giver: ref<questUniversalRef>;
   public native let receiver: ref<questUniversalRef>;

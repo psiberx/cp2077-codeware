@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldProxyNormalAngleStepSize {
   STEP_90 = 0,
   STEP_45 = 1,

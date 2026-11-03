@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questMovePuppetNodeParams extends AICommandParams {
   public native let moveType: questMoveType;
   public native let moveOnSplineParams: ref<questMoveOnSplineParams>;

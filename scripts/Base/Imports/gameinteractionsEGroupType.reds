@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameinteractionsEGroupType {
   EGT_default = 0,
   EGT_noInput = 1,

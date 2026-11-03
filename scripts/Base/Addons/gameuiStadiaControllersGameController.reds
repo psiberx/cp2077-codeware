@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameuiStadiaControllersGameController)
 public native let stadiaControllerPage: inkWidgetRef;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnReferencePointDef {
   public native let id: scnReferencePointId;
   public native let offset: Vector3;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class vehicleAutonomousData extends ISerializable {
   public native let owner: wref<VehicleObject>;
   public native let useKinematic: Bool;

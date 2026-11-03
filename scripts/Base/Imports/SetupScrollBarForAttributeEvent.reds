@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class SetupScrollBarForAttributeEvent extends Event {
   public native let attribute: Uint32;
   public native let startValue: Float;

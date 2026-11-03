@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_ExplorationAdjuster extends animAnimNode_MotionAdjuster {
   public native let targetPosition2: animVectorLink;
   public native let targetDirection2: animVectorLink;

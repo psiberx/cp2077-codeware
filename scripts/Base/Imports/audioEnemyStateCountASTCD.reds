@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioEnemyStateCountASTCD extends audioAudioStateTransitionConditionData {
   public native let enemiesState: audioEnemyState;

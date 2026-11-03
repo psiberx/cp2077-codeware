@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectTriggerEffectDesc extends ISerializable {
   public native let effect: ResourceAsyncRef; // raRef<worldEffect>
   public native let positionType: gameEffectTriggerPositioningType;

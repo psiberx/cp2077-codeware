@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_VectorInterpolation extends animAnimNode_VectorValue {
   public native let firstInput: animVectorLink;
   public native let secondInput: animVectorLink;

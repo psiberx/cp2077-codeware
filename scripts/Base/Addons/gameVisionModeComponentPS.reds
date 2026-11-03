@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameVisionModeComponentPS)
 public native persistent let hideInDefaultMode: Bool;
 

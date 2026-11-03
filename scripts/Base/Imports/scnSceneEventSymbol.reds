@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSceneEventSymbol {
   public native let editorEventId: Uint64;
   public native let originNodeId: scnNodeId;

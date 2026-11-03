@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum navLocomotionPathSegmentTypes {
   Invalid = 0,
   Spline = 1,

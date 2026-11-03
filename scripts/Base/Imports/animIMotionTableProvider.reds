@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class animIMotionTableProvider extends ISerializable {
   public native let id: Int32;
   public native let parentId: Int32;

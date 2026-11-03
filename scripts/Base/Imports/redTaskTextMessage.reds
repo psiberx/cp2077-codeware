@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct redTaskTextMessage {
   public native let taskId: Uint32;
   public native let parent: Uint32;

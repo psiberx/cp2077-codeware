@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly class entRenderHighlightEvent extends Event {
   public native let fillIndex: Uint8;
   public native let outlineIndex: Uint8;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scneventsAttachPropToNode extends scnSceneEvent {
   public native let propId: scnPropId;
   public native let nodeRef: NodeRef;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AdvertisementWidgetComponent extends IWorldWidgetComponent {
   public native let format: AdvertisementFormat;
   public native let adGroupTDBID: TweakDBID;

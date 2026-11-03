@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkScrollController)
 public native let ScrollArea: inkScrollAreaRef;
 
@@ -42,3 +44,6 @@ public native let viewportSize: Vector2;
 
 @addField(inkScrollController)
 public native let contentSize: Vector2;
+
+@addField(inkScrollController)
+public native let resetToDesiredOnSetup: Bool;

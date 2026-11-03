@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entEntityOrientationProvider extends IOrientationProvider {
   public native let slotComponent: wref<SlotComponent>;
   public native let slotId: Int32;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct rendRenderParticleBlobEmitterInfo {
   public native let emitterHash: Uint64;
   public native let diffuseWrapFactor: Float;

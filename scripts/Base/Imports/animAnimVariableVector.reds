@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimVariableVector extends animAnimVariable {
   public native let x: Float;
   public native let y: Float;

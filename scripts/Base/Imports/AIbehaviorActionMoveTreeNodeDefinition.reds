@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionMoveTreeNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let movementTarget: ref<AIArgumentMapping>;
   public native let lookAtTarget: ref<AIArgumentMapping>;

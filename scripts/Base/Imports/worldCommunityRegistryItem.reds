@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldCommunityRegistryItem {
   public native let entriesInitialState: array<worldCommunityEntryInitialState>;
   public native let template: ref<communityCommunityTemplateData>;

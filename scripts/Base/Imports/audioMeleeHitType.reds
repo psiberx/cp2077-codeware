@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioMeleeHitType {
   Light = 0,
   Normal = 1,

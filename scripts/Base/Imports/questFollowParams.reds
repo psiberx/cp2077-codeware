@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questFollowParams extends AICommandParams {
   public native let companionRef: ref<questUniversalRef>;
   public native let companionDistance: Float;

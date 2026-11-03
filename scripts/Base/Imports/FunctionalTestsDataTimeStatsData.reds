@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class FunctionalTestsDataTimeStatsData extends ISerializable {
   public native let engineTick: Uint64;
   public native let lastFps: Float;

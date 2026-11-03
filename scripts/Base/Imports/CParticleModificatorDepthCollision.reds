@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorDepthCollision extends IParticleModificator {
   public native let maxCollisions: Uint32;
   public native let restitution: Float;

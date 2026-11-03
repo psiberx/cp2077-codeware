@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class HeatHazeAreaSettings extends IAreaSettings {
   public native let effectStrength: CurveDataFloat;
   public native let startDistance: CurveDataFloat;

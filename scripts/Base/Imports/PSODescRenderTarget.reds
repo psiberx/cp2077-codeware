@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct PSODescRenderTarget {
   public native let blendEnable: Bool;
   public native let writeMask: PSODescBlendModeWriteMask;

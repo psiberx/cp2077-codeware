@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldStaticLightNode extends worldNode {
   public native let type: ELightType;
   public native let color: Color;

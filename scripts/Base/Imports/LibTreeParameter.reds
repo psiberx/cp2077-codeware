@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct LibTreeParameter {
   public native let parameterName: CName;
   public native let parameterId: Uint16;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnInteractionShapeParams extends ISerializable {
   public native let preset: scnChoiceNodeNsSizePreset;
   public native let offset: Vector3;

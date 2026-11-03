@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSceneMarkerInternalsAnimEventEntry {
   public native let startName: CName;
   public native let endName: CName;

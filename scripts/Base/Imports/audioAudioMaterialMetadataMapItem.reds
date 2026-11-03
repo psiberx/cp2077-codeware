@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioAudioMaterialMetadataMapItem extends audioAudioMetadata {
   public native let footstepsMetadata: CName;

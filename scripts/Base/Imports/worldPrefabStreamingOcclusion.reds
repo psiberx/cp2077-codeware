@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum worldPrefabStreamingOcclusion {
   Default = 0,
   Exterior = 1,

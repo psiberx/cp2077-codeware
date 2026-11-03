@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioLanguageMapItem extends audioAudioMetadata {
   public native let language: audioLanguage;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioRigMetadata extends audioAudioMetadata {
   public native let positionBones: array<CName>;

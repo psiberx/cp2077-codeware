@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioNumberOperation {
   SetEqual = 0,
   Add = 1,

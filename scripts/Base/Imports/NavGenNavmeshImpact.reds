@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum NavGenNavmeshImpact {
   Ignored = 1,
   Walkable = 0,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioVehicleEmitterPositionData {
   public native let engineEmitterPosition: Vector3;
   public native let exaustEmitterPosition: Vector3;

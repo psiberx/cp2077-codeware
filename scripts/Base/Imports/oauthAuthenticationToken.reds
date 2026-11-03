@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct oauthAuthenticationToken {
   public native let token: String;
   public native let secret: String;

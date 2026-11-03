@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldEditorDebugFilterSettings_NodeConditional extends worldEditorDebugFilterSettings {
   public native let isDiscarded: Bool;
   public native let isProxyDependencyModeAutoSet: Bool;

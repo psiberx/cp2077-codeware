@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct interopGlobalNodeIDResult {
   public native let errorMessage: String;
   public native let result: String;

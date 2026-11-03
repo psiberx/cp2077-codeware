@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entGarmentParameterComponentData {
   public native let componentID: CRUID;
   public native let meshGeometryHash: Uint64;
@@ -18,4 +20,5 @@ public native struct entGarmentParameterComponentData {
   public native let mergeWithInnerLayer: Bool;
   public native let numIndices: Uint32;
   public native let numOffsets: Uint32;
+  public native let meshPathHash: Uint64;
 }

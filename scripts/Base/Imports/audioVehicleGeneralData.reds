@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioVehicleGeneralData {
   public native let revSoundbankName: CName;
   public native let revElectricSoundbankName: CName;

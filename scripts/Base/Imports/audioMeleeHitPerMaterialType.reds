@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audioMeleeHitPerMaterialType {
   Light = 0,
   Light_Hard = 1,

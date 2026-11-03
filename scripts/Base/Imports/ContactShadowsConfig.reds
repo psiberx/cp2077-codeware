@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct ContactShadowsConfig {
   public native let range: Float;
   public native let rangeLimit: Float;

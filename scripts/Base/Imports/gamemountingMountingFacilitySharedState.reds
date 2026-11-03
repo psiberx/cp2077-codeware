@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gamemountingMountingFacilitySharedState extends ISerializable {
   public native let children: array<wref<Entity>>;
   public native let parents: array<wref<Entity>>;

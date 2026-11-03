@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCameraFocus_ConditionType extends questISystemConditionType {
   public native let objectRef: EntityReference;
   public native let timeInterval: Float;

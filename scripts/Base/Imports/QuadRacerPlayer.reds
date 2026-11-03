@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class QuadRacerPlayer extends MinigamePlayerController {
   public native let playerImage: inkImageRef;
   public native let leftTireSmoke: inkImageRef;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum ERenderProxyType {
   RPT_None = 0,
   RPT_Mesh = 1,

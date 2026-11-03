@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animAnimNode_MultipleParentConstraint_ParentInfo {
   public native let parentTransform: animTransformIndex;
   public native let parentWeightMode: animConstraintWeightMode;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnPlayRidAnimEvent extends scnPlayFPPControlAnimEvent {
   public native let ridVersinon: Uint32;
   public native let animResRefId: scnRidAnimationSRRefId;

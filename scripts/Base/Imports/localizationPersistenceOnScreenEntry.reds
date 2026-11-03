@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct localizationPersistenceOnScreenEntry {
   public native let primaryKey: Uint64;
   public native let secondaryKey: String;

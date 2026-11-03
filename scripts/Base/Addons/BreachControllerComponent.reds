@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(BreachControllerComponent)
 public native let canHaveBreaches: Bool;
 

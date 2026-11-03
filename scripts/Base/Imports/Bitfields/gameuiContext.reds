@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum gameuiContext {
 //   Default = 1, // 1 << 0,
 //   QuickHack = 2, // 1 << 1,

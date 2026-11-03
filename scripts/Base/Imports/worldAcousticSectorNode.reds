@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldAcousticSectorNode extends worldNode {
   public native let data: ResourceAsyncRef; // raRef<worldAcousticDataResource>
   public native let inSectorCoordsX: Uint32;

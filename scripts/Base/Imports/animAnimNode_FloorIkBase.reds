@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_FloorIkBase extends animAnimNode_OnePoseInput {
   public native let requiredAnimEvent: CName;
   public native let blockAnimEvent: CName;

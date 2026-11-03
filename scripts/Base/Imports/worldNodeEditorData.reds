@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldNodeEditorData extends ISerializable {
   public native let id: Uint64;
   public native let name: CName;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum RenderSceneLayerMask {
 //   Default = 1, // 1 << 0,
 //   Cyberspace = 2, // 1 << 1,

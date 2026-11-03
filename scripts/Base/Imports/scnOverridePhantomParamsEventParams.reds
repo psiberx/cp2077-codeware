@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnOverridePhantomParamsEventParams {
   public native let performer: scnPerformerId;
   public native let overrideSpawnEffect: CName;

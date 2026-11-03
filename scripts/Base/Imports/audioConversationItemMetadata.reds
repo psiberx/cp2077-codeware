@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioConversationItemMetadata {
   public native let sceneFile: CName;
   public native let characterConditions: array<audioConversationCharacterCondition>;

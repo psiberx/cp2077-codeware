@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_DirectConnConstraint extends animAnimNode_OnePoseInput {
   public native let sourceTransform: ref<animIAnimNodeSourceChannel_QsTransform>;
   public native let isSourceTransformResaved: Bool;

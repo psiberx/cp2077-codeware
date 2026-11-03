@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questCheckpointNodeDefinition extends questSignalStoppingNodeDefinition {
   public native let saveLock: Bool;
   public native let ignoreSaveLocks: Bool;

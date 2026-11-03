@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct questReInitContainers_NodeTypeParams {
   public native let containerNodeRef: NodeRef;
   public native let lootTables: array<TweakDBID>;

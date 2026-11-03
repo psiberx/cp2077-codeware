@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorActionUseCommunityWorkspotNodeDefinition extends AIbehaviorActionTreeNodeDefinition {
   public native let workspotData: ref<AIArgumentMapping>;
   public native let dependentWorkspotData: ref<AIArgumentMapping>;

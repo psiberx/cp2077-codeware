@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animCoverBehavior {
   Idle = 0,
   PreAction = 1,

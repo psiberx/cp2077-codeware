@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animImportFacialSetupDesc {
   public native let initialPose: array<animImportFacialInitialPoseEntryDesc>;
   public native let initialControls: animImportFacialInitialControlsDesc;

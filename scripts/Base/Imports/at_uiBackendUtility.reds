@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class at_uiBackendUtility extends IScriptable {
   public final native func ClickOnWidget()
   public final native func FindWidgetByATID()

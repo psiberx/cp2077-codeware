@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioAudioSceneStateOverride {
   public native let templateStateName: CName;
   public native let enterEventOverride: CName;

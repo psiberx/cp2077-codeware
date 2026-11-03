@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameTransformAnimation_RotateOnAxis extends gameTransformAnimationTrackItemImpl {
   public native let axis: gameTransformAnimation_RotateOnAxisAxis;
   public native let numberOfFullRotations: Float;

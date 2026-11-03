@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class IParticleModule extends ISerializable {
   public native let editorName: String;
   public native let editorGroup: String;

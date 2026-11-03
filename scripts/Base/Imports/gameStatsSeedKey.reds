@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public importonly struct gameStatsSeedKey {
   public native let entityID: EntityID;
   public native let recordID: TweakDBID;

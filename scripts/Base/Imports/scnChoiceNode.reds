@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class scnChoiceNode extends scnSceneGraphNode {
   public native let displayNameOverride: String;
   public native let localizedDisplayNameOverride: LocalizationString;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CParticleModificatorNoise extends IParticleModificator {
   public native let amplitude: ref<IEvaluatorVector>;
   public native let offset: ref<IEvaluatorVector>;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class animAnimNode_MultiBoolToFloatValue extends animAnimNode_FloatValue {
   public native let allMustBeTrue: Bool;
   public native let onTrue: Float;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(AnimFeature_AimPlayer)
 public native let zoomLevel: Float;
 

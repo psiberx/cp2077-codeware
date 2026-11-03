@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct Tetrahedron {
   public native let point1: Vector4;
   public native let point2: Vector4;

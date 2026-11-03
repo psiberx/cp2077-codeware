@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum entVertexAnimationMapperSourceType {
   FloatTrack = 0,
   TranslationX = 1,

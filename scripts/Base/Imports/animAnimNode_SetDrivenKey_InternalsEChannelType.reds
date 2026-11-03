@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum animAnimNode_SetDrivenKey_InternalsEChannelType {
   FloatTrack = 0,
   TransX = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectExecutor_PhysicalFractureField extends EffectExecutor {
   public native let fromHitPosition: Bool;
   public native let fieldParams: physicsFractureFieldParams;

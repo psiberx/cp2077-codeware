@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum audiobreathingEventTag {
   Walk = 0,
   Jog = 1,

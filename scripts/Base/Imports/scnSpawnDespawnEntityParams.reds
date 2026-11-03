@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSpawnDespawnEntityParams {
   public native let dynamicEntityUniqueName: CName;
   public native let spawnMarker: CName;

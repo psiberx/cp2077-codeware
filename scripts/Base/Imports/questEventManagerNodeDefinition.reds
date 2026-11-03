@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questEventManagerNodeDefinition extends questDisableableNodeDefinition {
   public native let isUiEvent: Bool;
   public native let isObjectPlayer: Bool;

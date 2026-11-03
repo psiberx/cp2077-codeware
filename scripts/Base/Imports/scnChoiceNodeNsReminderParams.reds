@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnChoiceNodeNsReminderParams {
   public native let reminderEnabled: Bool;
   public native let useCustomReminder: Bool;

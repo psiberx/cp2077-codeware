@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class TonemappingModeLottesACES extends ITonemappingMode {
   public native let maxInput: Float;
   public native let contrast: Float;

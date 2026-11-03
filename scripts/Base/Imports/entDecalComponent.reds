@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entDecalComponent extends IVisualComponent {
   public native let material: ResourceRef; // rRef<IMaterial>
   public native let verticalFlip: Bool;

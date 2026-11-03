@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum GpuWrapApiVertexPackingePackingType {
   PT_Invalid = -1,
   PT_Float1 = 0,

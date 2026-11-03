@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct EmitterGroupAreaParams {
   public native let group: EEmitterGroup;
   public native let emissionScale: CurveDataFloat;

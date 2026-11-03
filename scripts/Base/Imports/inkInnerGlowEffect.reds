@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkInnerGlowEffect extends inkIEffect {
   public native let colorR: Float;
   public native let colorG: Float;

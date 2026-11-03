@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkItemPreviewGameController)
 public native let root: inkWidgetRef;
 

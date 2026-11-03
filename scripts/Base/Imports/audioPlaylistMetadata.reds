@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioPlaylistMetadata extends audioAudioMetadata {
   public native let broadcastChannel: Uint8;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct entAnimTrackParameter {
   public native let animTrackName: CName;
   public native let parameterName: CName;

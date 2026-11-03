@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class worldPrefab extends resStreamedResource {
   public native let mainGroup: ref<worldNodesGroup>;
   public native let type: worldPrefabType;

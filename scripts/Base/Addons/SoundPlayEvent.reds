@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(SoundPlayEvent)
 public native let emitterName: CName;
 

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameBodyTypeAnimationDefinition {
   public native let rig: ResourceAsyncRef; // raRef<animRig>
   public native let animsets: array<ResourceAsyncRef>;

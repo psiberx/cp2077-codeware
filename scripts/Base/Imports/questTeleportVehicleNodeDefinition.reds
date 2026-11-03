@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questTeleportVehicleNodeDefinition extends questDisableableNodeDefinition {
   public native let entityReference: EntityReference;
   public native let params: questTeleportPuppetParams;

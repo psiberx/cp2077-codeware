@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entCorpseParameter extends entEntityParameter {
   public native let lod: Uint32;
   public native let bakedPose: array<QsTransform>;

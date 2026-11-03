@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @mixedRef()
 public native class audioShockwaveMetadata extends audioEmitterMetadata {
   public native let explosionMetadataName: CName;

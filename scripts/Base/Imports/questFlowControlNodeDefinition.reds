@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class questFlowControlNodeDefinition extends questDisableableNodeDefinition {
   public native let isOpen: Bool;
   public native let opensAt: Uint16;

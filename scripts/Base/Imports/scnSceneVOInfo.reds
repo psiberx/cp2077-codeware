@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct scnSceneVOInfo {
   public native let inVoTrigger: CName;
   public native let outVoTrigger: CName;

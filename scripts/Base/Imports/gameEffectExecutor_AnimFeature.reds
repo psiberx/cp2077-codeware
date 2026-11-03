@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameEffectExecutor_AnimFeature extends EffectExecutor {
   public native let key: CName;
   public native let animFeature: ref<AnimFeature>;

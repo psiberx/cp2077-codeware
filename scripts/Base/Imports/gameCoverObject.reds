@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameCoverObject extends GameObject {
   public native let coverType: animCoverState;
   public native let slotRadius: Float;

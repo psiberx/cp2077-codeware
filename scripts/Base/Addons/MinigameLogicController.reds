@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(MinigameLogicController)
 public native let startHealth: Uint32;
 

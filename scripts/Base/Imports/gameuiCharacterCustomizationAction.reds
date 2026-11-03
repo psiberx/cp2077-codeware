@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gameuiCharacterCustomizationAction {
   public native let type: gameuiCharacterCustomizationActionType;
   public native let params: String;

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(TrafficLightListenerComponent)
 public native let intersectionRef: NodeRef;
 

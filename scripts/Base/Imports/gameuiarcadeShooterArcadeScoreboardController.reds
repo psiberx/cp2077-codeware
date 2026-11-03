@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class gameuiarcadeShooterArcadeScoreboardController extends gameuiarcadeArcadeScoreboardController {
   public native let scoreBackground: inkWidgetRef;
   public native let endingScoreBackground: inkWidgetRef;

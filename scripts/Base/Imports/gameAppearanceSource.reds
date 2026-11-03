@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameAppearanceSource {
   EntityResource = 0,
   PopulationSpawner = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct LookAtStateMachineSettings {
   public native let partName: CName;
   public native let partAlias: CName;

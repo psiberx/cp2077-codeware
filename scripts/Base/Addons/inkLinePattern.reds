@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(inkLinePattern)
 public native let vertexList: array<inkLineVertex>;
 

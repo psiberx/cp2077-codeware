@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class Multilayer_LayerTemplate extends CResource {
   public native let overrides: Multilayer_LayerTemplateOverrides;
   public native let defaultOverrides: Multilayer_LayerOverrideSelection;

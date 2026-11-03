@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public abstract native class worldDebugColoring_DistanceAbstractBase extends worldEditorDebugColoringSettings {
   public native let maxColor: Color;
   public native let minColor: Color;

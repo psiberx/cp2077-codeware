@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class CCubeTexture extends ITexture {
   public native let setup: STextureGroupSetup;
   public native let size: Uint32;

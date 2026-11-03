@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 // public enum gametargetingSystemAimAssistFilter {
 //   Melee = 1, // 1 << 0,
 //   Shooting = 2, // 1 << 1,

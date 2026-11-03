@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum physicsQueryUseCase {
   Default = 0,
   ActionAnimation = 1,

@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct audioRadioTrack {
   public native let trackEventName: CName;
   public native let localizationKey: CName;

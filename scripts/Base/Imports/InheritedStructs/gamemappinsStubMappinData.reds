@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct gamemappinsStubMappinData {
   public native let mappinType: TweakDBID;
   public native let variant: gamedataMappinVariant;

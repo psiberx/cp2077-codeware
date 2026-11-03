@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct GpuWrapApiVertexPackingPackingElement {
   public native let type: GpuWrapApiVertexPackingePackingType;
   public native let usage: GpuWrapApiVertexPackingePackingUsage;

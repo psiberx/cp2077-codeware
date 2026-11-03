@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct animRigPart {
   public native let name: CName;
   public native let singleBones: array<animRigPartBone>;

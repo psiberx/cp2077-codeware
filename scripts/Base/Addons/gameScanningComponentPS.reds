@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(gameScanningComponentPS)
 public native persistent let scanningState: gameScanningState;
 

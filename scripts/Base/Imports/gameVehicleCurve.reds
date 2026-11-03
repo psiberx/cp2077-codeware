@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public enum gameVehicleCurve {
   SpeedToWheelMaxTurn = 0,
   InputToWheelMaxTurn = 1,

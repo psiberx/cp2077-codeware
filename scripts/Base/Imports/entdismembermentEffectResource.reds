@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entdismembermentEffectResource extends ISerializable {
   public native let Name: CName;
   public native let AppearanceNames: array<CName>;

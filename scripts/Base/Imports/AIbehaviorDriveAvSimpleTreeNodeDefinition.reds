@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class AIbehaviorDriveAvSimpleTreeNodeDefinition extends AIbehaviorDriveTreeNodeDefinition {
   public native let timeToTravel: ref<AIArgumentMapping>;
   public native let distanceToTravel: ref<AIArgumentMapping>;

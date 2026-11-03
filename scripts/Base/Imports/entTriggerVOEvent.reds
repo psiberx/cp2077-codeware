@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class entTriggerVOEvent extends Event {
   public native let triggerBaseName: CName;
   public native let triggerVariationIndex: Uint32;

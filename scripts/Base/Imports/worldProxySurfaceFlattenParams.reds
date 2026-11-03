@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native struct worldProxySurfaceFlattenParams {
   public native let flatten: Bool;
   public native let groupingStepAngle: worldProxyNormalAngleStepSize;

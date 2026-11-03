@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 public native class inkEngineSettingsResource extends CResource {
   public native let fallbackCompositionResource: ResourceRef; // rRef<inkFullscreenCompositionResource>
   public native let fallbackShapeCollectionResource: ResourceRef; // rRef<inkShapeCollectionResource>

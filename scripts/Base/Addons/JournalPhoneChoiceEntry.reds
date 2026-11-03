@@ -1,3 +1,5 @@
+// CODE GENERATED. DO NOT EDIT.
+
 @addField(JournalPhoneChoiceEntry)
 public native let text: LocalizationString;
 
