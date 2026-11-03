@@ -35,7 +35,7 @@ RTTI_DEFINE_CLASS(Red::worldCookedBendedMeshInnerNode, {
     RTTI_PROPERTY(meshAppearance);
     RTTI_PROPERTY(deformationDataStartIndex);
     RTTI_PROPERTY(deformationDataCount);
-    RTTI_PROPERTY(index);
+    RTTI_PROPERTY(deformedBoxIndex);
     RTTI_PROPERTY(castShadows);
     RTTI_PROPERTY(castLocalShadows);
     RTTI_PROPERTY(removeFromRainMap);

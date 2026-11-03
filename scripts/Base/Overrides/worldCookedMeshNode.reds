@@ -14,4 +14,7 @@ public native struct worldCookedMeshInnerNode {
     public native let removeFromRainMap: Bool;
 }
 
-public native class worldCookedMeshNode extends worldCookedNode {}
+public native class worldCookedMeshNode extends worldCookedNode {
+    public native func GetInnerNodeCount() -> Int32
+    public native func GetInnerNode(index: Int32) -> script_ref<worldCookedMeshInnerNode>
+}

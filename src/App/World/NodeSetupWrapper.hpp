@@ -23,26 +23,26 @@ struct WorldNodeSetupWrapper : Red::IScriptable
 
     [[nodiscard]] uint16_t GetNodeIndex() const
     {
-        if (sector->buffer.version >= 68)
+        return setup->GetNodeIndex(sector->buffer.version);
+    }
+
+    void SetNodeIndex(uint16_t aIndex) const
+    {
+        if (aIndex >= 0 && aIndex < sector->buffer.nodeSetups.Size())
         {
-            return static_cast<uint16_t>(setup->nodeIndex);
-        }
-        else
-        {
-            return setup->v62.nodeIndex;
+            setup->SetNodeIndex(sector->buffer.version, aIndex);
+            setup->node = sector->nodes[aIndex].instance;
         }
     }
 
-    [[nodiscard]] uint32_t GetInstanceIndex() const
+    [[nodiscard]] uint32_t GetInnerNodeIndex() const
     {
-        if (sector->buffer.version >= 68)
-        {
-            return setup->instanceIndex;
-        }
-        else
-        {
-            return std::numeric_limits<uint32_t>::max();
-        }
+        return setup->GetInnerNodeIndex(sector->buffer.version);
+    }
+
+    void SetInnerNodeIndex(uint32_t aIndex) const
+    {
+        setup->SetInnerNodeIndex(sector->buffer.version, aIndex);
     }
 
     [[nodiscard]] Red::Transform GetTransform() const
@@ -50,115 +50,14 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         return setup->transform;
     }
 
-    [[nodiscard]] Red::Vector4 GetPosition() const
-    {
-        return setup->transform.position;
-    }
-
-    [[nodiscard]] Red::Quaternion GetOrientation() const
-    {
-        return setup->transform.orientation;
-    }
-
-    [[nodiscard]] Red::Vector3 GetScale() const
-    {
-        return setup->scale;
-    }
-
-    [[nodiscard]] Red::NodeRef GetNodeRef() const
-    {
-        return {setup->globalNodeID};
-    }
-
-    [[nodiscard]] Red::GlobalNodeID GetGlobalNodeID() const
-    {
-        return {setup->globalNodeID};
-    }
-
-    [[nodiscard]] Red::GlobalNodeID GetProxyNodeID() const
-    {
-        return {setup->proxyNodeID};
-    }
-
-    [[nodiscard]] Red::Vector3 GetStreamingPosition() const
-    {
-        return setup->streamingRefPoint;
-    }
-
-    [[nodiscard]] Red::Vector3 GetSecondaryRefPointPosition() const
-    {
-        return setup->secondaryRefPointPosition;
-    }
-
-    [[nodiscard]] Red::Vector3 GetPreboostStreamingRefPointPosition() const
-    {
-        return setup->preboostStreamingRefPoint;
-    }
-
-    [[nodiscard]] float GetStreamingDistance() const
-    {
-        if (sector->buffer.version >= 68)
-        {
-            return setup->streamingDistance;
-        }
-        else
-        {
-            return setup->v62.streamingDistance;
-        }
-    }
-
-    [[nodiscard]] float GetSecondaryRefPointDistance() const
-    {
-        if (sector->buffer.version >= 68)
-        {
-            return setup->secondaryRefPointDistance;
-        }
-        else
-        {
-            return setup->v62.secondaryRefPointDistance;
-        }
-    }
-
-    [[nodiscard]] Red::worldStreamingDataGroup GetDataGroup() const
-    {
-        if (sector->buffer.version >= 68)
-        {
-            return setup->dataGroup;
-        }
-        else
-        {
-            return Red::worldStreamingDataGroup::Base;
-        }
-    }
-
-    void SetNodeIndex(uint16_t aIndex) const
-    {
-        if (aIndex >= 0 && aIndex < sector->buffer.nodeSetups.Size())
-        {
-            if (sector->buffer.version >= 68)
-            {
-                setup->nodeIndex = aIndex;
-            }
-            else
-            {
-                setup->v62.nodeIndex = aIndex;
-            }
-
-            setup->node = sector->nodes[aIndex].instance;
-        }
-    }
-
-    void SetInstanceIndex(uint32_t aIndex) const
-    {
-        if (sector->buffer.version >= 68)
-        {
-            setup->instanceIndex = aIndex;
-        }
-    }
-
     void SetTransform(const Red::Transform& aTransform) const
     {
         setup->transform = aTransform;
+    }
+
+    [[nodiscard]] Red::Vector4 GetPosition() const
+    {
+        return setup->transform.position;
     }
 
     void SetPosition(const Red::Vector4& aPosition) const
@@ -166,9 +65,19 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->transform.position = aPosition;
     }
 
+    [[nodiscard]] Red::Quaternion GetOrientation() const
+    {
+        return setup->transform.orientation;
+    }
+
     void SetOrientation(const Red::Quaternion& aOrientation) const
     {
         setup->transform.orientation = aOrientation;
+    }
+
+    [[nodiscard]] Red::Vector3 GetScale() const
+    {
+        return setup->scale;
     }
 
     void SetScale(const Red::Vector3& aScale) const
@@ -176,9 +85,19 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->scale = aScale;
     }
 
+    [[nodiscard]] Red::NodeRef GetNodeRef() const
+    {
+        return {setup->globalNodeID};
+    }
+
     void SetNodeRef(Red::NodeRef aNodeRef) const
     {
         setup->globalNodeID = aNodeRef.hash;
+    }
+
+    [[nodiscard]] Red::GlobalNodeID GetGlobalNodeID() const
+    {
+        return {setup->globalNodeID};
     }
 
     void SetGlobalNodeID(Red::GlobalNodeID aNodeID) const
@@ -186,9 +105,19 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->globalNodeID = aNodeID.hash;
     }
 
+    [[nodiscard]] Red::GlobalNodeID GetProxyNodeID() const
+    {
+        return {setup->proxyNodeID};
+    }
+
     void SetProxyNodeID(Red::GlobalNodeID aProxyID) const
     {
         setup->proxyNodeID = aProxyID.hash;
+    }
+
+    [[nodiscard]] Red::Vector3 GetStreamingPosition() const
+    {
+        return setup->streamingRefPoint;
     }
 
     void SetStreamingPosition(const Red::Vector3& aPosition) const
@@ -196,9 +125,39 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->streamingRefPoint = aPosition;
     }
 
+    [[nodiscard]] float GetStreamingDistance() const
+    {
+        return setup->GetStreamingDistance(sector->buffer.version);
+    }
+
+    void SetStreamingDistance(float aDistance) const
+    {
+        setup->SetStreamingDistance(sector->buffer.version, aDistance);
+    }
+
+    [[nodiscard]] Red::Vector3 GetSecondaryRefPointPosition() const
+    {
+        return setup->secondaryRefPointPosition;
+    }
+
     void SetSecondaryRefPointPosition(const Red::Vector3& aPosition) const
     {
         setup->secondaryRefPointPosition = aPosition;
+    }
+
+    [[nodiscard]] float GetSecondaryRefPointDistance() const
+    {
+        return setup->GetSecondaryRefPointDistance(sector->buffer.version);
+    }
+
+    void SetSecondaryRefPointDistance(float aDistance) const
+    {
+        setup->SetSecondaryRefPointDistance(sector->buffer.version, aDistance);
+    }
+
+    [[nodiscard]] Red::Vector3 GetPreboostStreamingRefPointPosition() const
+    {
+        return setup->preboostStreamingRefPoint;
     }
 
     void SetPreboostStreamingRefPointPosition(const Red::Vector3& aPosition) const
@@ -206,36 +165,60 @@ struct WorldNodeSetupWrapper : Red::IScriptable
         setup->preboostStreamingRefPoint = aPosition;
     }
 
-    void SetStreamingDistance(float aDistance) const
+    [[nodiscard]] uint8_t GetStreamingPriority() const
     {
-        if (sector->buffer.version >= 68)
-        {
-            setup->streamingDistance = aDistance;
-        }
-        else
-        {
-            setup->v62.streamingDistance = aDistance;
-        }
+        return setup->GetStreamingPriority(sector->buffer.version);
     }
 
-    void SetSecondaryRefPointDistance(float aDistance) const
+    void SetStreamingPriority(uint8_t aPriority) const
     {
-        if (sector->buffer.version >= 68)
-        {
-            setup->secondaryRefPointDistance = aDistance;
-        }
-        else
-        {
-            setup->v62.secondaryRefPointDistance = aDistance;
-        }
+        setup->SetStreamingPriority(sector->buffer.version, aPriority);
+    }
+
+    [[nodiscard]] uint16_t GetTimeOfDayVisibilityMask() const
+    {
+        return setup->GetTimeOfDayVisibilityMask(sector->buffer.version);
+    }
+
+    void SetTimeOfDayVisibilityMask(uint16_t aMask) const
+    {
+        setup->SetTimeOfDayVisibilityMask(sector->buffer.version, aMask);
+    }
+
+    [[nodiscard]] Red::worldStreamingDataGroup GetDataGroup() const
+    {
+        return setup->GetDataGroup(sector->buffer.version);
     }
 
     void SetDataGroup(Red::worldStreamingDataGroup aGroup) const
     {
-        if (sector->buffer.version >= 68)
-        {
-            setup->dataGroup = aGroup;
-        }
+        setup->SetDataGroup(sector->buffer.version, aGroup);
+    }
+
+    [[nodiscard]] uint32_t GetFlags() const
+    {
+        return setup->GetFlags(sector->buffer.version);
+    }
+
+    void SetFlags(uint32_t aFlags) const
+    {
+        setup->SetFlags(sector->buffer.version, aFlags);
+    }
+
+    [[nodiscard]] bool HasFlag(Red::worldNodeFlag aFlag) const
+    {
+        return setup->HasFlag(sector->buffer.version, aFlag);
+    }
+
+    void SetFlag(Red::worldNodeFlag aFlag) const
+    {
+        setup->SetFlag(sector->buffer.version, aFlag);
+    }
+
+    void ClearFlag(Red::worldNodeFlag aFlag) const
+    {
+        const auto mask = static_cast<uint32_t>(aFlag);
+        setup->SetFlags(sector->buffer.version, setup->GetFlags(sector->buffer.version) & ~mask);
     }
 
     Red::worldCompiledSector* sector{};
@@ -249,33 +232,44 @@ struct WorldNodeSetupWrapper : Red::IScriptable
 RTTI_DEFINE_CLASS(App::WorldNodeSetupWrapper, {
     RTTI_METHOD(GetNode);
     RTTI_METHOD(GetNodeIndex);
-    RTTI_METHOD(GetInstanceIndex);
-    RTTI_METHOD(GetTransform);
-    RTTI_METHOD(GetPosition);
-    RTTI_METHOD(GetOrientation);
-    RTTI_METHOD(GetScale);
-    RTTI_METHOD(GetNodeRef);
-    RTTI_METHOD(GetGlobalNodeID);
-    RTTI_METHOD(GetProxyNodeID);
-    RTTI_METHOD(GetStreamingPosition);
-    RTTI_METHOD(GetSecondaryRefPointPosition);
-    RTTI_METHOD(GetPreboostStreamingRefPointPosition);
-    RTTI_METHOD(GetStreamingDistance);
-    RTTI_METHOD(GetSecondaryRefPointDistance);
-    RTTI_METHOD(GetDataGroup);
     RTTI_METHOD(SetNodeIndex);
-    RTTI_METHOD(SetInstanceIndex);
+    RTTI_METHOD(GetInnerNodeIndex);
+    RTTI_METHOD(SetInnerNodeIndex);
+    RTTI_METHOD(GetTransform);
     RTTI_METHOD(SetTransform);
+    RTTI_METHOD(GetPosition);
     RTTI_METHOD(SetPosition);
+    RTTI_METHOD(GetOrientation);
     RTTI_METHOD(SetOrientation);
+    RTTI_METHOD(GetScale);
     RTTI_METHOD(SetScale);
+    RTTI_METHOD(GetNodeRef);
     RTTI_METHOD(SetNodeRef);
+    RTTI_METHOD(GetGlobalNodeID);
     RTTI_METHOD(SetGlobalNodeID);
+    RTTI_METHOD(GetProxyNodeID);
     RTTI_METHOD(SetProxyNodeID);
+    RTTI_METHOD(GetStreamingPosition);
     RTTI_METHOD(SetStreamingPosition);
-    RTTI_METHOD(SetSecondaryRefPointPosition);
-    RTTI_METHOD(SetPreboostStreamingRefPointPosition);
+    RTTI_METHOD(GetStreamingDistance);
     RTTI_METHOD(SetStreamingDistance);
+    RTTI_METHOD(GetSecondaryRefPointPosition);
+    RTTI_METHOD(SetSecondaryRefPointPosition);
+    RTTI_METHOD(GetSecondaryRefPointDistance);
     RTTI_METHOD(SetSecondaryRefPointDistance);
+    RTTI_METHOD(GetPreboostStreamingRefPointPosition);
+    RTTI_METHOD(SetPreboostStreamingRefPointPosition);
+    RTTI_METHOD(GetStreamingPriority);
+    RTTI_METHOD(SetStreamingPriority);
+    RTTI_METHOD(GetTimeOfDayVisibilityMask);
+    RTTI_METHOD(SetTimeOfDayVisibilityMask);
+    RTTI_METHOD(GetDataGroup);
     RTTI_METHOD(SetDataGroup);
+    RTTI_METHOD(GetFlags);
+    RTTI_METHOD(SetFlags);
+    RTTI_METHOD(HasFlag);
+    RTTI_METHOD(SetFlag);
+    RTTI_METHOD(ClearFlag);
 });
+
+RTTI_DEFINE_FLAGS(Red::worldNodeFlag);

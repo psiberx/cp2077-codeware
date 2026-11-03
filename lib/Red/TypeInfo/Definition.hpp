@@ -649,7 +649,7 @@ public:
         auto* type = ResolveType<Value>();
         auto* prop = CProperty::Create(type, aName, nullptr, static_cast<uint32_t>(offset), nullptr, aFlags);
 
-        props.PushBack(prop);
+        RegisterPropery(prop);
 
         return prop;
     }
@@ -660,7 +660,7 @@ public:
         auto* type = ResolveType<TProperty>();
         auto* prop = CProperty::Create(type, aName, nullptr, aOffset, nullptr, aFlags);
 
-        props.PushBack(prop);
+        RegisterPropery(prop);
 
         return prop;
     }
@@ -679,6 +679,26 @@ public:
         RegisterFunction(func);
 
         return func;
+    }
+
+    void RegisterPropery(CProperty* aProp)
+    {
+        auto propExists = false;
+
+        for (auto& existingProp : props)
+        {
+            if (existingProp->name == aProp->name)
+            {
+                existingProp = aProp;
+                propExists = true;
+                break;
+            }
+        }
+
+        if (!propExists)
+        {
+            props.PushBack(aProp);
+        }
     }
 
     void RegisterFunction(CClassFunction* aFunc)
@@ -1131,13 +1151,7 @@ struct SystemBuilder
 
         gameInstance->systemMap.Insert(systemType, systemInstance);
         gameInstance->systemImplementations.Insert(systemType, systemType);
-#if defined(__APPLE__)
-        // Handle<Derived> does not construct Handle<IScriptable> unambiguously
-        // on this SDK. The conversion operator yields the base handle.
-        gameInstance->systemInstances.EmplaceBack(static_cast<Handle<IScriptable>&>(systemInstance));
-#else
-        gameInstance->systemInstances.EmplaceBack(systemInstance);
-#endif
+        gameInstance->systemInstances.EmplaceBack(Red::Cast<Red::IScriptable>(systemInstance));
     }
 
     static inline Handle<TSystem> BuildSystem()

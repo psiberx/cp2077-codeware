@@ -24,7 +24,7 @@ RED4EXT_ASSERT_OFFSET(InkSpawningRequest, rootWidget, 0x60);
 // 0x209F9F0 moves 16 bytes at +0x00 and the SharedPtr at +0x10/+0x18. 2.31 had the request at +0x18.
 struct InkSpawningContext
 {
-    uint8_t unk00[0x10];                   // 00
+    WeakHandle<ISerializable> unk00;       // 00
     SharedPtr<InkSpawningRequest> request; // 10
 };
 RED4EXT_ASSERT_SIZE(InkSpawningContext, 0x20);
@@ -45,7 +45,6 @@ using ControllerInjectionEnabled = Core::RawPtr<Red::AddressLib::InkSpawner_Cont
 
 constexpr auto FinishAsyncSpawn = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkSpawner_FinishAsyncSpawn,
-    /* type = */ bool (*)(
-        Red::InkSpawningContext& aContext,
-        Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)>();
+    /* type = */ bool (*)(Red::InkSpawningContext& aContext,
+                          Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)>();
 }

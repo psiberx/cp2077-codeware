@@ -3,7 +3,7 @@ public native struct worldCookedBendedMeshInnerNode {
     public native let meshAppearance: CName;
     public native let deformationDataStartIndex: Uint32;
     public native let deformationDataCount: Uint32;
-    public native let index: Uint16;
+    public native let deformedBoxIndex: Uint16;
     public native let castShadows: shadowsShadowCastingMode;
     public native let castLocalShadows: shadowsShadowCastingMode;
     public native let removeFromRainMap: Bool;

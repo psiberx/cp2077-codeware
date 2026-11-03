@@ -1,5 +1,33 @@
 #pragma once
 
+namespace App
+{
+struct CookedMeshNodeEx : Red::worldCookedMeshNode
+{
+    [[nodiscard]] int32_t GetInnerNodeCount()
+    {
+        auto innerNodes = GetInnerNodes();
+
+        return static_cast<int32_t>(innerNodes.Size());
+    }
+
+    [[nodiscard]] Red::ScriptRef<Red::worldCookedMeshInnerNode> GetInnerNode(int32_t aIndex)
+    {
+        auto innerNodes = GetInnerNodes();
+
+        if (aIndex < 0 || aIndex >= innerNodes.Size())
+            return {};
+
+        return {innerNodes[aIndex]};
+    }
+};
+}
+
+RTTI_EXPAND_CLASS(Red::worldCookedMeshNode, App::CookedMeshNodeEx, {
+    RTTI_METHOD(GetInnerNodeCount);
+    RTTI_METHOD(GetInnerNode);
+});
+
 RTTI_DEFINE_CLASS(Red::worldCookedMeshInnerNode, {
     RTTI_PROPERTY(mesh);
     RTTI_PROPERTY(meshAppearance);

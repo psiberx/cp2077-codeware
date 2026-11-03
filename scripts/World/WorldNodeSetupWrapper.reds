@@ -1,35 +1,42 @@
 public native class WorldNodeSetupWrapper {
     public native func GetNode() -> ref<worldNode>
-
     public native func GetNodeIndex() -> Uint16
-    public native func GetInstanceIndex() -> Uint32
-    public native func GetTransform() -> Transform
-    public native func GetPosition() -> Vector4
-    public native func GetOrientation() -> Quaternion
-    public native func GetScale() -> Vector3
-    public native func GetNodeRef() -> NodeRef
-    public native func GetGlobalNodeID() -> GlobalNodeID
-    public native func GetProxyNodeID() -> GlobalNodeID
-    public native func GetStreamingPosition() -> Vector3
-    public native func GetSecondaryRefPointPosition() -> Vector3
-    public native func GetPreboostStreamingRefPointPosition() -> Vector3
-    public native func GetStreamingDistance() -> Float
-    public native func GetSecondaryRefPointDistance() -> Float
-    public native func GetDataGroup() -> worldStreamingDataGroup
-
     public native func SetNodeIndex(value: Uint16)
-    public native func SetInstanceIndex(value: Uint32)
+    public native func GetInnerNodeIndex() -> Uint32
+    public native func SetInnerNodeIndex(value: Uint32)
+    public native func GetTransform() -> Transform
     public native func SetTransform(value: Transform)
+    public native func GetPosition() -> Vector4
     public native func SetPosition(value: Vector4)
+    public native func GetOrientation() -> Quaternion
     public native func SetOrientation(value: Quaternion)
+    public native func GetScale() -> Vector3
     public native func SetScale(value: Vector3)
+    public native func GetNodeRef() -> NodeRef
     public native func SetNodeRef(value: NodeRef)
+    public native func GetGlobalNodeID() -> GlobalNodeID
     public native func SetGlobalNodeID(value: GlobalNodeID)
+    public native func GetProxyNodeID() -> GlobalNodeID
     public native func SetProxyNodeID(value: GlobalNodeID)
+    public native func GetStreamingPosition() -> Vector3
     public native func SetStreamingPosition(value: Vector3)
-    public native func SetSecondaryRefPointPosition(value: Vector3)
-    public native func SetPreboostStreamingRefPointPosition(value: Vector3)
+    public native func GetStreamingDistance() -> Float
     public native func SetStreamingDistance(value: Float)
+    public native func GetSecondaryRefPointPosition() -> Vector3
+    public native func SetSecondaryRefPointPosition(value: Vector3)
+    public native func GetSecondaryRefPointDistance() -> Float
     public native func SetSecondaryRefPointDistance(value: Float)
+    public native func GetPreboostStreamingRefPointPosition() -> Vector3
+    public native func SetPreboostStreamingRefPointPosition(value: Vector3)
+    public native func GetStreamingPriority() -> Uint8
+    public native func SetStreamingPriority(value: Uint8)
+    public native func GetTimeOfDayVisibilityMask() -> Uint16
+    public native func SetTimeOfDayVisibilityMask(value: Uint16)
+    public native func GetDataGroup() -> worldStreamingDataGroup
     public native func SetDataGroup(value: worldStreamingDataGroup)
+    public native func GetFlags() -> Uint32
+    public native func SetFlags(value: Uint32)
+    public native func HasFlag(flag: worldNodeFlag) -> Bool
+    public native func SetFlag(flag: worldNodeFlag)
+    public native func ClearFlag(flag: worldNodeFlag)
 }
