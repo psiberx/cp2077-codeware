@@ -20,14 +20,12 @@ constexpr auto AsyncSpawnFromLocal = Core::RawFunc<
 
 constexpr auto SpawnFromExternal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_SpawnFromExternal,
-    /* type = */ uintptr_t (*)(Red::inkWidgetLibraryResource& aLibrary,
-                               Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance,
-                               Red::ResourcePath aExternalPath,
-                               Red::CName aItemName)>();
+    /* type = */ Red::Handle<Red::inkWidgetLibraryItemInstance> (Red::inkWidgetLibraryResource::*)(
+        Red::ResourcePath aExternalPath,
+        Red::CName aItemName)>();
 
 constexpr auto SpawnFromLocal = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidgetLibrary_SpawnFromLocal,
-    /* type = */ uintptr_t (*)(Red::inkWidgetLibraryResource& aLibrary,
-                               Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance,
-                               Red::CName aItemName)>();
+    /* type = */ Red::Handle<Red::inkWidgetLibraryItemInstance> (Red::inkWidgetLibraryResource::*)(
+        Red::CName aItemName)>();
 }

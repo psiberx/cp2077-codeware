@@ -1,6 +1,9 @@
 #pragma once
 
+#include <new>
+
 #include "Core/Hooking/HookingDriver.hpp"
+#include "Core/Raw.hpp"
 #include "Core/Stl.hpp"
 
 namespace Core
@@ -141,6 +144,24 @@ struct HookTraits<TRaw<TOffset, TRawRet(*)(TRawArgs...)>, TCallbackRet(*)(TCallb
     static constexpr bool IsTailWrapper = std::is_same_v<Callable, TailWrapperFunc<TRawRet, TRawArgs...>>;
     static constexpr bool IsResultWrapper = std::is_same_v<Callable, ResultWrapperFunc<TRawRet>>;
 };
+
+// A raw declared as a member function pointer is hooked with the same callbacks as the free function that takes "this"
+// first: R (C*, Args...), R (OriginalFunc, C*, Args...), void (C*, Args...), void (R&, C*, Args...) and so on.
+template<template<auto, typename> class TRaw, auto TOffset, typename TRawContext, typename TRawRet,
+         typename... TRawArgs, typename TContext, typename TCallbackRet, typename... TCallbackArgs>
+struct HookTraits<TRaw<TOffset, TRawRet(TRawContext::*)(TRawArgs...)>, TCallbackRet (TContext::*)(TCallbackArgs...)>
+    : HookTraits<TRaw<TOffset, TRawRet(TRawContext::*)(TRawArgs...)>, TCallbackRet(*)(TCallbackArgs...)> {};
+
+template<template<auto, typename> class TRaw, auto TOffset, typename TRawContext, typename TRawRet,
+         typename... TRawArgs, typename TContext, typename TCallbackRet, typename... TCallbackArgs>
+struct HookTraits<TRaw<TOffset, TRawRet(TRawContext::*)(TRawArgs...)>,
+                  TCallbackRet(TContext::*)(TCallbackArgs...) const>
+    : HookTraits<TRaw<TOffset, TRawRet(TRawContext::*)(TRawArgs...)>, TCallbackRet(*)(TCallbackArgs...)> {};
+
+template<template<auto, typename> class TRaw, auto TOffset, typename TRawContext, typename TRawRet,
+         typename... TRawArgs, typename TCallbackRet, typename... TCallbackArgs>
+struct HookTraits<TRaw<TOffset, TRawRet(TRawContext::*)(TRawArgs...)>, TCallbackRet(*)(TCallbackArgs...)>
+    : HookTraits<TRaw<TOffset, TRawRet(*)(TRawContext*, TRawArgs...)>, TCallbackRet(*)(TCallbackArgs...)> {};
 
 template<HookFlow TFlow, typename TRaw, typename TCallback>
 struct HookFlowTraits
@@ -536,6 +557,194 @@ public:
     }
 
 private:
+    static inline Wrapper s_callback;
+    static inline Original s_original;
+};
+
+// The handler for a raw declared as a member function pointer.
+// The detour and the original pointer have the machine signature of the member function (Detail::MemberShape): the
+// same as the free function that takes "this" first, except on MSVC x64 where a result of a class type goes through an
+// address that the caller passes after "this". The callbacks never see that: they use the forms of the free function
+// ("this" first, results by value), and the original that a wrapper receives is a plain function pointer of that form.
+template<template<auto, typename> class TRaw,
+         auto TOffset,
+         typename TContext,
+         typename TRet,
+         typename... TArgs,
+         typename TWrapper,
+         HookFlow TFlow,
+         HookRun TRun>
+class HookHandler<TRaw<TOffset, TRet(TContext::*)(TArgs...)>, TWrapper, TFlow, TRun>
+{
+public:
+    using Raw = TRaw<TOffset, TRet(TContext::*)(TArgs...)>;
+    using Original = typename Raw::Callable;
+    using Wrapper = TWrapper;
+    using Traits = HookTraits<Raw, typename Wrapper::Callback>;
+
+    static constexpr bool HiddenResult = IsHiddenMemberResult<TRet>;
+
+    // The detour for the shape without the result address: the result is returned.
+    inline static TRet Handle(TContext* aSelf, TArgs... aArgs)
+    {
+        if constexpr (TRun == HookRun::Once)
+        {
+            if constexpr (std::is_void_v<TRet>)
+            {
+                Run(aSelf, std::forward<TArgs>(aArgs)...);
+                Detach();
+            }
+            else
+            {
+                TRet ret = Run(aSelf, std::forward<TArgs>(aArgs)...);
+                Detach();
+                return ret;
+            }
+        }
+        else
+        {
+            return Run(aSelf, std::forward<TArgs>(aArgs)...);
+        }
+    }
+
+    // The detour for the shape with the result address: the result is built there and its address is returned.
+    inline static std::add_pointer_t<TRet> HandleWithResult(TContext* aSelf,
+                                                            std::add_pointer_t<TRet> aResult,
+                                                            TArgs... aArgs)
+    {
+        ::new (static_cast<void*>(aResult)) TRet(Run(aSelf, std::forward<TArgs>(aArgs)...));
+
+        if constexpr (TRun == HookRun::Once)
+        {
+            Detach();
+        }
+
+        return aResult;
+    }
+
+    inline static constexpr Original GetHandle() noexcept
+    {
+        if constexpr (HiddenResult)
+        {
+            return &HandleWithResult;
+        }
+        else
+        {
+            return &Handle;
+        }
+    }
+
+    inline static HookResult<TOffset> Attach(HookingDriver& aDriver, TWrapper aCallback, Original* aOriginal = nullptr)
+    {
+        using Instance = HookInstance<Raw>;
+
+        s_callback = std::move(aCallback);
+
+        if (!Instance::Attach(aDriver, GetHandle(), &Dispose, &s_original))
+            return false;
+
+        if (aOriginal)
+            *aOriginal = s_original;
+
+        return true;
+    }
+
+    inline static bool Detach()
+    {
+        using Instance = HookInstance<Raw>;
+        return Instance::Detach(GetHandle());
+    }
+
+    inline static void Dispose()
+    {
+        s_callback = {};
+    }
+
+private:
+    // Calls the original the way the caller of the member function would, and returns the result.
+    inline static TRet Call(TContext* aSelf, TArgs... aArgs)
+    {
+        return MemberCall<TContext, TRet, TArgs...>::Invoke(s_original, aSelf, std::forward<TArgs>(aArgs)...);
+    }
+
+    inline static TRet Run(TContext* aSelf, TArgs... aArgs)
+    {
+        if constexpr (TFlow == HookFlow::Original)
+        {
+            if constexpr (Traits::IsOriginal)
+            {
+                return s_callback(std::forward<TContext*>(aSelf), std::forward<TArgs>(aArgs)...);
+            }
+        }
+        else if constexpr (TFlow == HookFlow::Before)
+        {
+            if constexpr (Traits::IsArgsObserver)
+            {
+                s_callback(std::forward<TContext*>(aSelf), std::forward<TArgs>(aArgs)...);
+            }
+            else if constexpr (Traits::IsBlindObserver)
+            {
+                s_callback();
+            }
+
+            return Call(aSelf, std::forward<TArgs>(aArgs)...);
+        }
+        else if constexpr (TFlow == HookFlow::After)
+        {
+            if constexpr (std::is_void_v<TRet>)
+            {
+                Call(aSelf, std::forward<TArgs>(aArgs)...);
+
+                if constexpr (Traits::IsArgsObserver)
+                {
+                    s_callback(std::forward<TContext*>(aSelf), std::forward<TArgs>(aArgs)...);
+                }
+                else if constexpr (Traits::IsBlindObserver)
+                {
+                    s_callback();
+                }
+            }
+            else
+            {
+                TRet ret = Call(aSelf, std::forward<TArgs>(aArgs)...);
+
+                if constexpr (Traits::IsArgsObserver)
+                {
+                    s_callback(std::forward<TContext*>(aSelf), std::forward<TArgs>(aArgs)...);
+                }
+                else if constexpr (Traits::IsTailObserver)
+                {
+                    s_callback(ret, std::forward<TContext*>(aSelf), std::forward<TArgs>(aArgs)...);
+                }
+                else if constexpr (Traits::IsResultObserver)
+                {
+                    s_callback(ret);
+                }
+                else if constexpr (Traits::IsBlindObserver)
+                {
+                    s_callback();
+                }
+                else if constexpr (Traits::IsTailWrapper)
+                {
+                    ret = s_callback(ret, std::forward<TContext*>(aSelf), std::forward<TArgs>(aArgs)...);
+                }
+                else if constexpr (Traits::IsResultWrapper)
+                {
+                    ret = s_callback(ret);
+                }
+
+                return ret;
+            }
+        }
+        else if constexpr (TFlow == HookFlow::Wrap)
+        {
+            if constexpr (Traits::IsFullWrapper)
+            {
+                return s_callback(&Call, std::forward<TContext*>(aSelf), std::forward<TArgs>(aArgs)...);
+            }
+        }
+    }
+
     static inline Wrapper s_callback;
     static inline Original s_original;
 };

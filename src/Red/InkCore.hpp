@@ -24,7 +24,7 @@ using EventManager = Core::OffsetPtr<0x50, Red::EventManager>;
 
 constexpr auto GetLayer = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidget_GetLayer,
-    /* type = */ void (*)(Red::inkWidget* aWidget, Red::Handle<Red::inkLayerProxy>& aProxy)>();
+    /* type = */ Red::Handle<Red::inkLayerProxy> (Red::inkWidget::*)()>();
 
 constexpr auto SetLayer = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkWidget_SetLayer,

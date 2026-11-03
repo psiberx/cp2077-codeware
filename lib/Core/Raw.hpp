@@ -1,6 +1,70 @@
 #pragma once
 
+#include <type_traits>
+#include <utility>
+
 #include "Core/Memory/AddressResolver.hpp"
+
+namespace Core::Detail
+{
+// On MSVC x64 a non-static member function that returns a class type always gets the address for the result as a
+// hidden parameter after "this" (RCX = this, RDX = result, the other arguments follow) and returns that address in RAX,
+// whatever the size or triviality of the class. A free function takes the result address first, so a free function
+// declaration of a member function that returns a class by value does not call it correctly. Other targets (AAPCS64,
+// SysV) pass the result of a member function exactly as for a free function that takes "this" first, so the plain shape
+// is the right one there.
+#if defined(_MSC_VER) && defined(_M_X64)
+inline constexpr bool MemberResultIsHidden = true;
+#else
+inline constexpr bool MemberResultIsHidden = false;
+#endif
+
+template<bool THidden, typename C, typename R, typename... Args>
+struct MemberShapeSelector
+{
+    using Type = R (*)(C*, Args...);
+};
+
+template<typename C, typename R, typename... Args>
+struct MemberShapeSelector<true, C, R, Args...>
+{
+    using Type = R* (*)(C*, R*, Args...);
+};
+
+template<typename R>
+inline constexpr bool IsHiddenMemberResult = MemberResultIsHidden && std::is_class_v<R>;
+
+// The function pointer type with the real machine signature of a member function.
+template<typename C, typename R, typename... Args>
+using MemberShape = typename MemberShapeSelector<IsHiddenMemberResult<R>, C, R, Args...>::Type;
+
+template<typename C, typename R, typename... Args>
+struct MemberCall
+{
+    using Shape = MemberShape<C, R, Args...>;
+
+    static constexpr bool Hidden = IsHiddenMemberResult<R>;
+
+    // Calls a function with the member shape the way the caller of the member function would.
+    inline static R Invoke(Shape aFunc, C* aSelf, Args... aArgs)
+    {
+        if constexpr (Hidden)
+        {
+            alignas(R) unsigned char storage[sizeof(R)];
+
+            R* result = aFunc(aSelf, reinterpret_cast<R*>(storage), std::forward<Args>(aArgs)...);
+            R value(std::move(*result));
+            result->~R();
+
+            return value;
+        }
+        else
+        {
+            return aFunc(aSelf, std::forward<Args>(aArgs)...);
+        }
+    }
+};
+}
 
 namespace Core
 {
@@ -117,11 +181,33 @@ private:
 };
 
 template<auto A, typename C, typename R, typename... Args>
-class RawFunc<A, R (C::*)(Args...)> : public RawFunc<A, R (*)(C*, Args...)>
+class RawFunc<A, R (C::*)(Args...)> : public RawFunc<A, Detail::MemberShape<C, R, Args...>>
 {
 public:
-    using Base = RawFunc<A, R (*)(C*, Args...)>;
+    using Base = RawFunc<A, Detail::MemberShape<C, R, Args...>>;
     using Base::Base;
+
+    // Where the machine signature differs from the free function with "this" first (see Detail::MemberShape), the base
+    // converts to the machine signature, which is what hooks and the original pointer use, and the call operator below
+    // makes the call the way a caller of the member function would. Elsewhere the conversion to the function pointer
+    // already gives the right call, and a second call operator would be ambiguous with it.
+    inline R operator()(C* aSelf, Args... aArgs) const
+        requires Detail::IsHiddenMemberResult<R>
+    {
+        return Invoke(aSelf, std::forward<Args>(aArgs)...);
+    }
+
+    inline static R Invoke(C* aSelf, Args... aArgs)
+    {
+        return Detail::MemberCall<C, R, Args...>::Invoke(reinterpret_cast<typename Base::Callable>(Base::GetAddress()),
+                                                         aSelf, std::forward<Args>(aArgs)...);
+    }
+
+    inline static R InvokeOriginal(C* aSelf, Args... aArgs)
+    {
+        return Detail::MemberCall<C, R, Args...>::Invoke(
+            reinterpret_cast<typename Base::Callable>(Base::GetOriginalAddress()), aSelf, std::forward<Args>(aArgs)...);
+    }
 };
 
 template<uintptr_t A, typename T>
