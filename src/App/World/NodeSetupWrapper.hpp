@@ -28,7 +28,7 @@ struct WorldNodeSetupWrapper : Red::IScriptable
 
     void SetNodeIndex(uint16_t aIndex) const
     {
-        if (aIndex >= 0 && aIndex < sector->buffer.nodeSetups.Size())
+        if (aIndex >= 0 && aIndex < sector->nodes.Size())
         {
             setup->SetNodeIndex(sector->buffer.version, aIndex);
             setup->node = sector->nodes[aIndex].instance;
