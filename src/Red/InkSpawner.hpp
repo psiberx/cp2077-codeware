@@ -42,5 +42,5 @@ using ControllerInjectionEnabled = Core::RawPtr<Red::AddressLib::InkSpawner_Cont
 constexpr auto FinishAsyncSpawn = Core::RawFunc<
     /* addr = */ Red::AddressLib::InkSpawner_FinishAsyncSpawn,
     /* type = */ bool (*)(Red::InkSpawningContext& aContext,
-                          Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)>();
+                          Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance)>();
 }

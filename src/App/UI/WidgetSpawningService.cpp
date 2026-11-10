@@ -6,8 +6,8 @@ namespace
 {
 constexpr auto ControllerSeparator = ':';
 
-Red::ClassLocator<Red::ink::IWidgetController> s_gameControllerType;
-Red::ClassLocator<Red::ink::WidgetLogicController> s_logicControllerType;
+Red::ClassLocator<Red::inkIWidgetController> s_gameControllerType;
+Red::ClassLocator<Red::inkWidgetLogicController> s_logicControllerType;
 }
 
 void App::WidgetSpawningService::OnBootstrap()
@@ -28,13 +28,13 @@ void App::WidgetSpawningService::OnShutdown()
     Unhook<Raw::InkSpawner::FinishAsyncSpawn>();
 }
 
-uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                                   Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::inkWidgetLibraryResource* aLibrary,
+                                                   Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance,
                                                    Red::CName aItemName)
 {
     auto result = Raw::InkWidgetLibrary::SpawnFromLocal(aLibrary, aInstance, aItemName);
 
-    if (!aInstance && !Raw::InkSpawner::ControllerInjectionEnabled::Ref())
+    if (!aInstance)
     {
         auto* itemNameStr = aItemName.ToString();
         auto* controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -53,24 +53,32 @@ uintptr_t App::WidgetSpawningService::OnSpawnLocal(Red::ink::WidgetLibraryResour
 
     if (s_widgetSpawnEventEnabled && aInstance)
     {
-        CallbackSystem::Get()->DispatchNativeEvent<inkWidgetSpawnEvent>(WidgetSpawnEventName, aLibrary.path, aItemName,
+        CallbackSystem::Get()->DispatchNativeEvent<inkWidgetSpawnEvent>(WidgetSpawnEventName, aLibrary->path, aItemName,
                                                                         aInstance);
     }
 
     return result;
 }
 
-uintptr_t App::WidgetSpawningService::OnSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
-                                                      Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+uintptr_t App::WidgetSpawningService::OnSpawnExternal(Red::inkWidgetLibraryResource* aLibrary,
+                                                      Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance,
                                                       Red::ResourcePath aExternalPath,
                                                       Red::CName aItemName)
 {
-    InjectDependency(aLibrary, aExternalPath);
+    if (!aExternalPath || aLibrary->path == aExternalPath)
+    {
+        return false;
+    }
 
-    return Raw::InkWidgetLibrary::SpawnFromExternal(aLibrary, aInstance, aExternalPath, aItemName);
+    if (auto externalLibrary = ResolveDependency(aLibrary, aExternalPath))
+    {
+        return OnSpawnLocal(externalLibrary, aInstance, aItemName);
+    }
+
+    return reinterpret_cast<uintptr_t>(aInstance.GetPtr());
 }
 
-bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
+bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::inkWidgetLibraryResource* aLibrary,
                                                    Red::InkSpawningInfo& aSpawningInfo, Red::CName aItemName,
                                                    bool aFlag)
 {
@@ -85,23 +93,31 @@ bool App::WidgetSpawningService::OnAsyncSpawnLocal(Red::ink::WidgetLibraryResour
     return Raw::InkWidgetLibrary::AsyncSpawnFromLocal(aLibrary, aSpawningInfo, aItemName, aFlag);
 }
 
-bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
+bool App::WidgetSpawningService::OnAsyncSpawnExternal(Red::inkWidgetLibraryResource* aLibrary,
                                                       Red::InkSpawningInfo& aSpawningInfo,
                                                       Red::ResourcePath aExternalPath,
-                                                      Red::CName aItemName)
+                                                      Red::CName aItemName,
+                                                      bool aFlag)
 {
-    InjectDependency(aLibrary, aExternalPath);
+    if (!aExternalPath || aLibrary->path == aExternalPath)
+    {
+        return false;
+    }
 
-    return Raw::InkWidgetLibrary::AsyncSpawnFromExternal(aLibrary, aSpawningInfo, aExternalPath, aItemName);
+    if (auto externalLibrary = ResolveDependency(aLibrary, aExternalPath))
+    {
+        return OnAsyncSpawnLocal(externalLibrary, aSpawningInfo, aItemName, aFlag);
+    }
+
+    return false;
 }
 
 void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,
-                                                    Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance)
+                                                    Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance)
 {
     const char* itemNameStr = nullptr;
     const char* controllerSep = nullptr;
 
-    if (!Raw::InkSpawner::ControllerInjectionEnabled::Ref())
     {
         itemNameStr = aContext.request->itemName.ToString();
         controllerSep = strchr(itemNameStr, ControllerSeparator);
@@ -126,39 +142,21 @@ void App::WidgetSpawningService::OnFinishAsyncSpawn(Red::InkSpawningContext& aCo
     }
 }
 
-void App::WidgetSpawningService::InjectDependency(Red::ink::WidgetLibraryResource& aLibrary,
-                                                  Red::ResourcePath aExternalPath)
+Red::Handle<Red::inkWidgetLibraryResource> App::WidgetSpawningService::ResolveDependency(
+    Red::inkWidgetLibraryResource* aLibrary, Red::ResourcePath aExternalPath)
 {
-    bool libraryExists = false;
-
-    // Check if the external library is in the list and do nothing if it is
+    for (const auto& externalLibrary : aLibrary->externalLibraries)
     {
-        std::shared_lock _(s_mutex);
-        for (const auto& externalLibrary : aLibrary.externalLibraries)
+        if (externalLibrary.path == aExternalPath)
         {
-            if (externalLibrary.path == aExternalPath)
-            {
-                libraryExists = true;
-                break;
-            }
+            return externalLibrary.token->resource;
         }
     }
 
-    // Add the requested library to the list
-    if (!libraryExists)
-    {
-        std::unique_lock _(s_mutex);
-        aLibrary.externalLibraries.EmplaceBack(aExternalPath);
-
-        // Load requested library for the spawner
-        auto& externalLibrary = aLibrary.externalLibraries.Back();
-        externalLibrary.LoadAsync();
-
-        Red::WaitForResource(externalLibrary.token, std::chrono::milliseconds(1000));
-    }
+    return Red::FetchResource<Red::inkWidgetLibraryResource>(aExternalPath, std::chrono::milliseconds(1000));
 }
 
-void App::WidgetSpawningService::InjectController(Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+void App::WidgetSpawningService::InjectController(Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance,
                                                   Red::CName aControllerName)
 {
     auto* controllerType = Red::CRTTISystem::Get()->GetClass(aControllerName);
@@ -167,8 +165,8 @@ void App::WidgetSpawningService::InjectController(Red::Handle<Red::ink::WidgetLi
     {
         if (controllerType->IsA(s_gameControllerType))
         {
-            auto* controllerInstance = reinterpret_cast<Red::ink::IWidgetController*>(controllerType->CreateInstance(true));
-            Red::Handle<Red::ink::IWidgetController> controllerHandle(controllerInstance);
+            auto* controllerInstance = reinterpret_cast<Red::inkIWidgetController*>(controllerType->CreateInstance(true));
+            Red::Handle<Red::inkIWidgetController> controllerHandle(controllerInstance);
 
             aInstance->gameController.Swap(controllerHandle);
 
@@ -179,8 +177,8 @@ void App::WidgetSpawningService::InjectController(Red::Handle<Red::ink::WidgetLi
         }
         else if (controllerType->IsA(s_logicControllerType))
         {
-            auto* controllerInstance = reinterpret_cast<Red::ink::WidgetLogicController*>(controllerType->CreateInstance(true));
-            Red::Handle<Red::ink::WidgetLogicController> controllerHandle(controllerInstance);
+            auto* controllerInstance = reinterpret_cast<Red::inkWidgetLogicController*>(controllerType->CreateInstance(true));
+            Red::Handle<Red::inkWidgetLogicController> controllerHandle(controllerInstance);
 
             aInstance->rootWidget->logicController.Swap(controllerHandle);
 

@@ -21,25 +21,26 @@ protected:
     void OnBootstrap() override;
     void OnShutdown() override;
 
-    static uintptr_t OnSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary,
-                                  Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+    static uintptr_t OnSpawnLocal(Red::inkWidgetLibraryResource* aLibrary,
+                                  Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance,
                                   Red::CName aItemName);
-    static uintptr_t OnSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
-                                     Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+    static uintptr_t OnSpawnExternal(Red::inkWidgetLibraryResource* aLibrary,
+                                     Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance,
                                      Red::ResourcePath aExternalPath,
                                      Red::CName aItemName);
-    static bool OnAsyncSpawnLocal(Red::ink::WidgetLibraryResource& aLibrary, Red::InkSpawningInfo& aSpawningInfo,
+    static bool OnAsyncSpawnLocal(Red::inkWidgetLibraryResource* aLibrary, Red::InkSpawningInfo& aSpawningInfo,
                                   Red::CName aItemName, bool aFlag);
-    static bool OnAsyncSpawnExternal(Red::ink::WidgetLibraryResource& aLibrary,
+    static bool OnAsyncSpawnExternal(Red::inkWidgetLibraryResource* aLibrary,
                                      Red::InkSpawningInfo& aSpawningInfo,
                                      Red::ResourcePath aExternalPath,
-                                     Red::CName aItemName);
+                                     Red::CName aItemName,
+                                                      bool aFlag);
     static void OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,
-                                   Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance);
+                                   Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance);
 
-    inline static void InjectDependency(Red::ink::WidgetLibraryResource& aLibrary,
-                                        Red::ResourcePath aExternalPath);
-    inline static void InjectController(Red::Handle<Red::ink::WidgetLibraryItemInstance>& aInstance,
+    inline static Red::Handle<Red::inkWidgetLibraryResource> ResolveDependency(Red::inkWidgetLibraryResource* aLibrary,
+                                                                               Red::ResourcePath aExternalPath);
+    inline static void InjectController(Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance,
                                         Red::CName aControllerName);
     inline static void InheritProperties(Red::IScriptable* aTarget, Red::IScriptable* aSource);
 

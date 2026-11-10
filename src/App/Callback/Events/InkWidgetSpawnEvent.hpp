@@ -9,7 +9,7 @@ struct inkWidgetSpawnEvent : CallbackSystemEvent
     inkWidgetSpawnEvent() = default;
 
     inkWidgetSpawnEvent(Red::CName aEventName, Red::ResourcePath aLibraryPath, Red::CName aItemName,
-                        const Red::Handle<Red::ink::WidgetLibraryItemInstance>& aItemInstance)
+                        const Red::Handle<Red::inkWidgetLibraryItemInstance>& aItemInstance)
         : CallbackSystemEvent(aEventName)
         , libraryPath(aLibraryPath)
         , itemName(aItemName)
@@ -17,7 +17,7 @@ struct inkWidgetSpawnEvent : CallbackSystemEvent
     {
     }
 
-    Red::Handle<Red::ink::WidgetLibraryItemInstance> itemInstance;
+    Red::Handle<Red::inkWidgetLibraryItemInstance> itemInstance;
     Red::ResourcePath libraryPath;
     Red::CName itemName;
 

@@ -15,12 +15,12 @@ Red::DynArray<Red::Handle<Red::inkLayer>>& Red::InkSystem::GetLayers()
     return layerManagers[0]->layers;
 }
 
-Red::WeakHandle<Red::ink::ISystemRequestsHandler>& Red::InkSystem::GetSystemRequestsHandler()
+Red::WeakHandle<Red::inkISystemRequestsHandler>& Red::InkSystem::GetSystemRequestsHandler()
 {
     return requestsHandler;
 }
 
-Red::ink::ISystemRequestsHandler* Red::InkSystem::GetSystemRequestsHandlerPtr()
+Red::inkISystemRequestsHandler* Red::InkSystem::GetSystemRequestsHandlerPtr()
 {
     return requestsHandler.instance;
 }
