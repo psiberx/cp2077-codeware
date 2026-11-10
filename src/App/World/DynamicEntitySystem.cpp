@@ -24,6 +24,9 @@ void App::DynamicEntitySystem::OnWorldAttached(Red::worldRuntimeScene*)
 void App::DynamicEntitySystem::OnStreamingWorldLoaded(Red::worldRuntimeScene*, uint64_t aRestored,
                                                       const Red::JobGroup&)
 {
+    if (!m_ready)
+        return;
+
     m_restored = aRestored;
 
     m_spawnEventListenerID = m_spawnEventBroadcaster->RegisterListener(
