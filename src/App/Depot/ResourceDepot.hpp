@@ -32,16 +32,16 @@ struct ResourceDepot : Red::IScriptable
 
     bool ResourceExists(const Red::ResourceAsyncReference<>& aRef)
     {
-        const auto depot = Red::ResourceDepot::Get();
+        auto depot = Red::ResourceDepot::Get();
 
         return depot && depot->ResourceExists(aRef.path);
     }
 
     [[nodiscard]] Red::Handle<ResourceTokenWrapper> LoadResource(const Red::ResourceAsyncReference<>& aRef) const
     {
-        const auto loader = Red::ResourceLoader::Get();
+        auto loader = Red::ResourceLoader::Get();
 
-        return Red::MakeHandle<ResourceTokenWrapper>(loader->LoadAsync(aRef.path));
+        return Red::MakeHandle<ResourceTokenWrapper>(loader->LoadAsync({.path = aRef.path, .updateCache = true}));
     }
 
     [[nodiscard]] Red::Handle<ResourceTokenWrapper> LoadReference(const Red::ResourceReference<>& aRef) const
@@ -61,7 +61,8 @@ struct ResourceDepot : Red::IScriptable
 
     static Red::Handle<ResourceDepot> Get()
     {
-        return Red::MakeHandle<ResourceDepot>();
+        static const auto s_instance = Red::MakeHandle<ResourceDepot>();
+        return s_instance;
     }
 
     RTTI_IMPL_TYPEINFO(App::ResourceDepot);
