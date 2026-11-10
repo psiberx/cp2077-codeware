@@ -74,6 +74,7 @@
 #include "App/Utils/Number.hpp"
 #include "App/Utils/String.hpp"
 #include "App/Utils/TweakDBID.hpp"
+#include "App/World/CDistantLightsResourceEx.hpp"
 #include "App/World/CookedAcousticSectorNodeEx.hpp"
 #include "App/World/CookedBendedMeshNodeEx.hpp"
 #include "App/World/CookedGenericProxyMeshNodeEx.hpp"

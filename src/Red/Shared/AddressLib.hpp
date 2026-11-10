@@ -343,6 +343,9 @@ constexpr uint32_t RuntimeSystemWeather_SetWeatherByName = 2334794340;
 
 constexpr uint32_t RuntimeSystemWorldStreaming_LoadWorldJob = 2872059340;
 
+constexpr uint32_t SerializableMap_Instance = 2558660817;
+constexpr uint32_t SerializableMap_CollectSerializables = 2056396508;
+
 constexpr uint32_t ScriptBinder_CreateBitfield = 487007291;
 constexpr uint32_t ScriptBinder_CreateClass = 1040327137;
 constexpr uint32_t ScriptBinder_CreateEnum = 4171309343;

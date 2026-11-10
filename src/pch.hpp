@@ -29,6 +29,7 @@
 #include <RED4ext/ResourceDepot.hpp>
 #include <RED4ext/ResourceLoader.hpp>
 #include <RED4ext/Scripting/Natives/GameTime.hpp>
+#include <RED4ext/Scripting/Natives/Generated/CDistantLightsResource.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CMaterialInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CMesh.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CResource.hpp>
