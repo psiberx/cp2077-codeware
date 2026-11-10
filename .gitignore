@@ -8,5 +8,6 @@
 /src/App/Project.hpp
 /src/App/Version.rc
 ~$*
+*.local.md
 *.log
 CMakeLists.txt

@@ -56,7 +56,7 @@ struct ResourceDepot : Red::IScriptable
         std::unique_lock lock(loader->tokenLock);
 
         Red::Handle<Red::CResource> resource;
-        Raw::ResourceBank::ForgetResource(loader->unk48, resource, aRef.path);
+        Raw::ResourceBank::ForgetResource(loader->bank, resource, aRef.path);
     }
 
     static Red::Handle<ResourceDepot> Get()

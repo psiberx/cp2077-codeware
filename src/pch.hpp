@@ -28,8 +28,6 @@
 #include <RED4ext/Package.hpp>
 #include <RED4ext/ResourceDepot.hpp>
 #include <RED4ext/ResourceLoader.hpp>
-#include <RED4ext/SystemUpdate.hpp>
-
 #include <RED4ext/Scripting/Natives/GameTime.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CMaterialInstance.hpp>
 #include <RED4ext/Scripting/Natives/Generated/CMesh.hpp>
@@ -243,6 +241,7 @@
 #include <RED4ext/Scripting/Natives/Generated/world/ui/WorldLayerWidget.hpp>
 #include <RED4ext/Scripting/Natives/ScriptGameInstance.hpp>
 #include <RED4ext/StringView.hpp>
+#include <RED4ext/SystemUpdate.hpp>
 
 #include <clip.h>
 #include <nameof.hpp>
@@ -253,8 +252,7 @@
 
 #include "Red/Alias.hpp"
 #include "Red/Engine.hpp"
+#include "Red/Shared/AddressLib.hpp"
 #include "Red/Specializations.hpp"
 #include "Red/TypeInfo.hpp"
 #include "Red/Utils.hpp"
-
-#include "Red/Addresses/Library.hpp"
