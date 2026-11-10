@@ -39,4 +39,12 @@ public native class WorldNodeSetupWrapper {
     public native func HasFlag(flag: worldNodeFlag) -> Bool
     public native func SetFlag(flag: worldNodeFlag)
     public native func ClearFlag(flag: worldNodeFlag)
+
+    public func GetInstanceIndex() -> Uint32 {
+        return this.GetInnerNodeIndex();
+    }
+
+    public func SetInstanceIndex(value: Uint32) {
+        this.SetInnerNodeIndex(value);
+    }
 }
