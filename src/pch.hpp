@@ -2,6 +2,8 @@
 
 #include <algorithm>
 #include <atomic>
+#include <bit>
+#include <cmath>
 #include <codecvt>
 #include <concepts>
 #include <cstddef>
@@ -247,6 +249,9 @@
 #include <clip.h>
 #include <nameof.hpp>
 #include <semver.hpp>
+
+#include <float16_t.hpp>
+using numeric::float16_t;
 
 #include "Core/Raw.hpp"
 #include "Core/Stl.hpp"
