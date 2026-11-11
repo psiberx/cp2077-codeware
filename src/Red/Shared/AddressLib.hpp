@@ -197,6 +197,7 @@ constexpr uint32_t InkWidgetContext_Clone = 3823045541;
 
 constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromExternal = 3860807819;
 constexpr uint32_t InkWidgetLibrary_AsyncSpawnFromLocal = 2342073570;
+constexpr uint32_t InkWidgetLibrary_FindExternalLibrary = 2756653218;
 constexpr uint32_t InkWidgetLibrary_SpawnFromExternal = 506278179;
 constexpr uint32_t InkWidgetLibrary_SpawnFromLocal = 1158555307;
 constexpr uint32_t InkWidgetLibrary_SpawnRoot = 3160221133;
