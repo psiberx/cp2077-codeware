@@ -19,7 +19,7 @@
 module Codeware.Localization
 
 public abstract class ModLocalizationProvider extends ScriptableSystem {
-    protected func OnAttach() {
+    public func OnAttach() {
         GameInstance.GetScriptableSystemsContainer(this.GetGameInstance())
             .QueueRequest(RegisterProviderRequest.Create(this));
     }

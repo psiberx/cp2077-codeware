@@ -1,14 +1,4 @@
 @addMethod(inkMask)
-public func GetTextureAtlas() -> ResRef {
-    return ResourceAsyncRef.GetPath(this.textureAtlas);
-}
-
-@addMethod(inkMask)
-public func SetTextureAtlas(path: ResRef) {
-    ResourceAsyncRef.SetPath(this.textureAtlas, path);
-}
-
-@addMethod(inkMask)
 public func GetDynamicTexture() -> CName {
     return this.dynamicTextureMask;
 }

@@ -96,7 +96,7 @@ public class VirtualResolutionWatcher extends ConfigVarListener {
         return VirtualResolutionData.Create(resolution, size, scale);
     }
 
-    protected cb func OnVarModified(groupPath: CName, varName: CName, varType: ConfigVarType, reason: ConfigChangeReason) {
+    public cb func OnVarModified(groupPath: CName, varName: CName, varType: ConfigVarType, reason: ConfigChangeReason) {
         if Equals(groupPath, n"/video/display") && Equals(varName, n"Resolution") && Equals(reason, ConfigChangeReason.Accepted) {
             this.ApplyScalingToAllTargets();
             this.SendEventToAllControllers();

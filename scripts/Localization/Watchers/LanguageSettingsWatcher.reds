@@ -15,7 +15,7 @@ public class LanguageSettingsWatcher extends ConfigVarListener {
         this.Register(n"/language");
     }
 
-    protected cb func OnVarModified(groupPath: CName, varName: CName, varType: ConfigVarType, reason: ConfigChangeReason) {
+    public cb func OnVarModified(groupPath: CName, varName: CName, varType: ConfigVarType, reason: ConfigChangeReason) {
         if Equals(reason, ConfigChangeReason.Accepted) {
             GameInstance.GetScriptableSystemsContainer(this.m_game)
                 .QueueRequest(UpdateLocaleRequest.Create(varName));
