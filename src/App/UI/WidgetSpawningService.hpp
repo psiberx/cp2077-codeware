@@ -31,7 +31,7 @@ protected:
     static bool OnAsyncSpawnExternal(Red::inkWidgetLibraryResource* aLibrary, Red::InkSpawningInfo& aSpawningInfo,
                                      Red::ResourcePath aExternalPath, Red::CName aItemName, bool aFlag);
     static void* OnFindExternalLibrary(Red::inkWidgetLibraryResource* aLibrary,
-                                       Red::Handle<Red::inkWidgetLibraryResource>& aExternalLibrary,
+                                       Red::Handle<Red::inkWidgetLibraryResource>& aOut,
                                        Red::ResourcePath aExternalPath);
     static void OnFinishAsyncSpawn(Red::InkSpawningContext& aContext,
                                    Red::Handle<Red::inkWidgetLibraryItemInstance>& aInstance);
