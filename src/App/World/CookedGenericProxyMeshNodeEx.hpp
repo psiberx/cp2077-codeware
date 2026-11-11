@@ -4,14 +4,10 @@ namespace App
 {
 struct CookedGenericProxyMeshNodeEx : Red::worldCookedGenericProxyMeshNode
 {
-    [[nodiscard]] int32_t GetInnerNodeCount()
-    {
-        auto innerNodes = GetInnerNodes();
-
-        return static_cast<int32_t>(innerNodes.Size());
-    }
-
-    [[nodiscard]] Red::ScriptRef<Red::worldCookedGenericProxyMeshInnerNode> GetInnerNode(int32_t aIndex)
+    // GetInnerNodeCount() and GetInnerNode() are inherited from worldCookedMeshNode.
+    // This returns the full proxy inner node; it has its own name because a script
+    // override can't change the return type.
+    [[nodiscard]] Red::ScriptRef<Red::worldCookedGenericProxyMeshInnerNode> GetProxyInnerNode(int32_t aIndex)
     {
         auto innerNodes = GetInnerNodes();
 
@@ -24,8 +20,7 @@ struct CookedGenericProxyMeshNodeEx : Red::worldCookedGenericProxyMeshNode
 }
 
 RTTI_EXPAND_CLASS(Red::worldCookedGenericProxyMeshNode, App::CookedGenericProxyMeshNodeEx, {
-    RTTI_METHOD(GetInnerNodeCount);
-    RTTI_METHOD(GetInnerNode);
+    RTTI_METHOD(GetProxyInnerNode);
 });
 
 RTTI_DEFINE_CLASS(Red::worldCookedGenericProxyMeshInnerNode, {

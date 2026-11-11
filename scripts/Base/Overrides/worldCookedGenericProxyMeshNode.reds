@@ -17,6 +17,5 @@ public native struct worldCookedGenericProxyMeshInnerNode {
 }
 
 public native class worldCookedGenericProxyMeshNode extends worldCookedPrefabProxyMeshNode {
-    public native func GetInnerNodeCount() -> Int32
-    public native func GetInnerNode(index: Int32) -> script_ref<worldCookedGenericProxyMeshInnerNode>
+    public native func GetProxyInnerNode(index: Int32) -> script_ref<worldCookedGenericProxyMeshInnerNode>
 }
