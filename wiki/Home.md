@@ -1,4 +1,4 @@
-Version: 1.18.0
+Version: 1.21.0
 
 ## Lifecycle
 
@@ -825,80 +825,6 @@ For examples of use, see the following mods:
 - [inkSystem](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/UI/inkSystem.reds)
 - [inkComponent](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/UI/Core/inkComponent.reds)
 
-## Resources
-
-### Resource references
-
-Resource references (`rRef` and `raRef`) can now be imported and manipulated from scripts.
-
-```swift
-@addField(WeaponObject)
-public native let effect: ResourceRef;
-
-@addField(inkMask)
-public native let textureAtlas: ResourceAsyncRef;
-```
-
-Reference can be initialized by assigning a resource path using `*=` operator:
-
-```swift
-let weapon = new WeaponObject();
-weapon.effect *= r"base\\gameplay\\game_effects\\strongmelee.es";
-
-FTLog(s"Hash: \(ResourceRef.GetHash(weapon.effect))");
-FTLog(s"Loaded: \(ResourceRef.IsLoaded(weapon.effect))");
-```
-
-### Checking resource existence
-
-With basic depot access, you can check if any particular archive (legacy and redmod) or resource is present in the game. 
-
-For example, you can use to check if mod is intalled correctly:
-
-```swift
-let depot = GameInstance.GetResourceDepot();
-if !depot.ArchiveExists("MyMod.archive") {
-  FTLog("MyMod.archive not found. Did you enable mods?");
-}
-```
-
-Or to handle compatibility with another mod:
-
-```swift
-let depot = GameInstance.GetResourceDepot();
-if depot.ResourceExists(r"mod\\entities\\vehicle.ent") {
-  FTLog("Another mod detected");
-}
-```
-
-### Reading resources
-
-```swift
-class MySystem extends ScriptableSystem {
-  private func OnAttach() {
-    let token = GameInstance.GetResourceDepot()
-      .LoadResource(r"base\\vehicles\\standard\\v_standard3_thorton_mackinaw_01__basic_01.ent");
-    token.RegisterCallback(this, n"OnResourceReady");
-  }
-
-  private cb func OnResourceReady(token: ref<ResourceToken>) {
-    let template = token.GetResource() as entEntityTemplate;
-
-    FTLog("Available appearances:");
-
-    for appearance in template.appearances {
-      FTLog(s"- \(appearance.name)");
-    }
-  }
-}
-```
-
-### Reference
-
-- [ResourceDepot](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Depot/ResourceDepot.reds)
-- [ResourceReference](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Depot/ResourceReference.reds)
-- [ResourceToken](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Depot/ResourceToken.reds)
-
 ## Localization
 
 ### Localization system
@@ -1018,6 +944,186 @@ public class LocalizationPackage extends ModLocalizationPackage {
 - [LocalizationSystem](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Localization/LocalizationSystem.reds)
 - [ModLocalizationProvider](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Localization/Module/ModLocalizationProvider.reds)
 - [ModLocalizationPackage](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Localization/Module/ModLocalizationPackage.reds)
+
+## Resources
+
+### Resource references
+
+Resource references (`rRef` and `raRef`) can now be imported and manipulated from scripts.
+
+```swift
+@addField(WeaponObject)
+public native let effect: ResourceRef;
+
+@addField(inkMask)
+public native let textureAtlas: ResourceAsyncRef;
+```
+
+Reference can be initialized by assigning a resource path using `*=` operator:
+
+```swift
+let weapon = new WeaponObject();
+weapon.effect *= r"base\\gameplay\\game_effects\\strongmelee.es";
+
+FTLog(s"Hash: \(ResourceRef.GetHash(weapon.effect))");
+FTLog(s"Loaded: \(ResourceRef.IsLoaded(weapon.effect))");
+```
+
+### Checking resource existence
+
+With basic depot access, you can check if any particular archive (legacy and redmod) or resource is present in the game. 
+
+For example, you can use to check if mod is intalled correctly:
+
+```swift
+let depot = GameInstance.GetResourceDepot();
+if !depot.ArchiveExists("MyMod.archive") {
+  FTLog("MyMod.archive not found. Did you enable mods?");
+}
+```
+
+Or to handle compatibility with another mod:
+
+```swift
+let depot = GameInstance.GetResourceDepot();
+if depot.ResourceExists(r"mod\\entities\\vehicle.ent") {
+  FTLog("Another mod detected");
+}
+```
+
+### Reading resources
+
+```swift
+class MySystem extends ScriptableSystem {
+  private func OnAttach() {
+    let token = GameInstance.GetResourceDepot()
+      .LoadResource(r"base\\vehicles\\standard\\v_standard3_thorton_mackinaw_01__basic_01.ent");
+    token.RegisterCallback(this, n"OnResourceReady");
+  }
+
+  private cb func OnResourceReady(token: ref<ResourceToken>) {
+    let template = token.GetResource() as entEntityTemplate;
+
+    FTLog("Available appearances:");
+
+    for appearance in template.appearances {
+      FTLog(s"- \(appearance.name)");
+    }
+  }
+}
+```
+
+### Reference
+
+- [ResourceDepot](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Depot/ResourceDepot.reds)
+- [ResourceReference](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Depot/ResourceReference.reds)
+- [ResourceToken](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Depot/ResourceToken.reds)
+
+## Jobs
+
+### Job Queues
+
+- Job queues are processed simultaneously
+- Jobs in one queue are processed sequentially
+- For parallel job, batches are processed simultaneously
+- Job can start immediately after dispatching
+
+```swift
+public func TestJobs() {
+  let token = GameInstance.GetResourceDepot().LoadResource(r"base\\vehicles\\sport\\v_sport1_herrera_outlaw_basic_01.ent");
+
+  let jobQueueA = JobQueue.Create();
+  jobQueueA.DispatchJob(TestPrintJob.Create("Job A-1"));
+  jobQueueA.DispatchJob(TestPrintJob.Create("Job A-2"));
+  jobQueueA.DispatchJob(TestPrintJob.Create("Job A-3"));
+  LogChannel(n"DEBUG", "Checkpoint A");
+
+  let jobQueueB = JobQueue.Create();
+  jobQueueB.DispatchJob(TestPrintJob.Create("Job B-1"));
+  jobQueueB.DispatchWait(token.GetJobHandle()); // Suspends next jobs in this queue until token is loaded/failed
+  jobQueueB.DispatchJob(TestPrintJob.Create("Job B-2"));
+  jobQueueB.DispatchJob(TestPrintJob.Create("Job B-3"));
+  LogChannel(n"DEBUG", "Checkpoint B");
+
+  let jobQueueC = JobQueue.Create();
+  jobQueueC.DispatchJob(TestBatchJob.Create("nodes"), 10); // Starts parallel batches
+}
+
+public class TestPrintJob {
+  private let message: String;
+
+  public func Handle() {
+    LogChannel(n"DEBUG", s"TestPrintJob: \(this.message)");
+  }
+
+  public static func Create(message: String) -> ref<TestPrintJob> {
+    let job = new TestPrintJob();
+    job.message = message;
+    return job;
+  }
+}
+
+public class TestBatchJob {
+  private let data: String;
+
+  public func Handle(start: Int32, end: Int32) {
+    let i = start;
+    while i < end {
+      LogChannel(n"DEBUG", s"TestBatchJob: \(this.data) - \(i)");
+      i += 1;
+    }
+  }
+
+  public func Finish() {
+    LogChannel(n"DEBUG", s"TestBatchJob: \(this.data) - finished");
+  }
+
+  public static func Create(data: String) -> ref<TestBatchJob> {
+    let job = new TestBatchJob();
+    job.data = data;
+    return job;
+  }
+}
+```
+
+### Event Integration
+
+If event object contains job group identifier, you can inject custom jobs right into event pipeline.
+New jobs are executed asynchronously but guaranteed to finish during the stage they are added in 
+(e.g. `Resource/Load` or `Resource/PostLoad`), without the need to block a thread (sync wait).
+
+```swift
+class WorldStreamingSectorJobTest extends ScriptableService {
+  private cb func OnLoad() {
+    GameInstance.GetCallbackSystem()
+      .RegisterCallback(n"Resource/PostLoad", this, n"ProcessSector")
+      .AddTarget(ResourceTarget.Type(n"worldStreamingSector"));
+  }
+
+  private cb func ProcessSector(event: ref<ResourceEvent>) {
+    let jobQueue = JobQueue.Create(event.GetJobGroup()); // Link job queue with resource loading pipeline
+    jobQueue.DispatchJob(TestSectorJob.Create(event.GetResource() as worldStreamingSector));
+  }
+}
+
+public class TestSectorJob {
+  private let sector: ref<worldStreamingSector>;
+
+  public func Handle() {
+    LogChannel(n"DEBUG", s"TestSectorJob: \(this.sector.path.ToString())");
+  }
+
+  public static func Create(sector: ref<worldStreamingSector>) -> ref<TestSectorJob> {
+    let job = new TestSectorJob();
+    job.sector = sector;
+    return job;
+  }
+}
+```
+
+### Reference
+
+- [JobQueue](https://github.com/psiberx/cp2077-codeware/blob/main/scripts/Engine/JobQueue.reds)
 
 ## Reflection
 
