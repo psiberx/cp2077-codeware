@@ -591,12 +591,34 @@ public class TextInput extends inkCustomController {
         this.UpdateLayout();
     }
 
+    public func SetCaretToStart() {
+        this.m_caret.MoveToStart();
+
+        this.UpdateLayout();
+    }
+
+    public func SetCaretToEnd() {
+        this.m_caret.MoveToEnd();
+
+        this.UpdateLayout();
+    }
+
+    public func SelectAll() {
+        this.m_selection.SelectAll();
+
+        this.UpdateLayout();
+    }
+
     public func IsHovered() -> Bool {
         return this.m_isHovered && !this.m_isDisabled;
     }
 
     public func IsFocused() -> Bool {
         return this.m_isFocused && !this.m_isDisabled;
+    }
+
+    public func RequestSetFocus() {
+        GameInstance.GetInkSystem().SetFocus(this.m_root);
     }
 
     public func IsDisabled() -> Bool {
