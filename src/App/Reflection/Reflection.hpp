@@ -129,8 +129,7 @@ struct Reflection
 
     static Red::Handle<ReflectionStaticFunc> GetGlobalFunction(Red::CName aName)
     {
-        auto rtti = Red::CRTTISystem::Get();
-        auto func = rtti->GetFunction(aName);
+        auto func = Red::GetGlobalFunction(aName);
 
         if (!func)
             return {};
