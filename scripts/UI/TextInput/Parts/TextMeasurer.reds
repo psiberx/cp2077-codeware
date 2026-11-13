@@ -19,23 +19,14 @@ import Codeware.UI.inkCustomController
 
 public class TextMeasurer extends inkCustomController {
     protected let m_shadow: wref<inkText>;
-
     protected let m_isMeasuring: Bool;
-
     protected let m_isCharMode: Bool;
-
     protected let m_targetText: String;
-
     protected let m_targetLength: Int32;
-
     protected let m_targetPosition: Int32;
-
     protected let m_resultSize: Vector2;
-
     protected let m_tickProxy: ref<inkAnimProxy>;
-
     protected let m_useCharCache: Bool;
-
     protected let m_charCache: ref<inkStringMap>;
 
     protected cb func OnCreate() {
@@ -194,7 +185,7 @@ public class TextMeasurer extends inkCustomController {
     }
 
     public func IsMeasuring() -> Bool {
-        return this.m_isMeasuring;
+        return this.m_isMeasuring && this.m_targetPosition < this.m_targetLength;
     }
 
     public func IsCharMode() -> Bool {

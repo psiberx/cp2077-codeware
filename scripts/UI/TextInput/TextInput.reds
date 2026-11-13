@@ -1,14 +1,6 @@
 // -----------------------------------------------------------------------------
 // Codeware.UI.TextInput [WIP]
 // -----------------------------------------------------------------------------
-//
-// Events:
-// - OnInput
-//
-// TODO:
-// - Navigate with `Ctrl + Left` / `Ctrl + Right`
-// - Select text using mouse cursor
-//
 
 module Codeware.UI
 import Codeware.UI.TextInput.*
@@ -25,6 +17,7 @@ public class TextInput extends inkCustomController {
     protected let m_isDisabled: Bool;
     protected let m_isHovered: Bool;
     protected let m_isFocused: Bool;
+    protected let m_selectAllOnFocus: Bool;
 
     protected let m_lastInputEvent: ref<inkKeyInputEvent>;
     protected let m_isHoldComplete: Bool;
@@ -134,10 +127,24 @@ public class TextInput extends inkCustomController {
 
             if !this.m_isDisabled {
                 this.ApplyFocusedState();
+                this.TrySelectOnFocus();
 
                 this.UpdateLayout();
             }
         }
+    }
+
+    protected func TrySelectOnFocus() -> Bool {
+        if this.m_selectAllOnFocus && this.m_isFocused && !this.m_measurer.IsMeasuring() {
+            this.m_selectAllOnFocus = false;
+
+            this.m_selection.SelectAll();
+            this.m_caret.MoveToStart();
+
+            return true;
+        }
+
+        return false;
     }
 
     protected func RegisterListeners() {
@@ -496,6 +503,10 @@ public class TextInput extends inkCustomController {
         if this.m_caret.IsAt(measuredPosition) {
             this.UpdateLayout();
             this.TriggerChangeCallback();
+        } else {
+            if this.TrySelectOnFocus() {
+                this.UpdateLayout();
+            }
         }
     }
 
@@ -604,9 +615,14 @@ public class TextInput extends inkCustomController {
     }
 
     public func SelectAll() {
-        this.m_selection.SelectAll();
+        if this.m_isFocused {
+            this.m_selection.SelectAll();
+            this.m_caret.MoveToStart();
 
-        this.UpdateLayout();
+            this.UpdateLayout();
+        } else {
+            this.m_selectAllOnFocus = true;
+        }
     }
 
     public func IsHovered() -> Bool {
