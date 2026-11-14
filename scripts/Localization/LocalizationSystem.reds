@@ -33,7 +33,7 @@ public class LocalizationSystem extends ScriptableSystem {
     private let m_localeChanged: Bool;
     private let m_genderChanged: Bool;
 
-    private func OnAttach() {
+    public func OnAttach() {
         this.m_interfaceTranslationData = new inkHashMap();
         this.m_subtitleTranslationData = new inkHashMap();
 
@@ -51,7 +51,7 @@ public class LocalizationSystem extends ScriptableSystem {
         this.QueueRequest(UpdateGenderRequest.Create());
     }
 
-    private func OnDetach() {
+    public func OnDetach() {
         this.m_genderWatcher.Stop();
     }
 

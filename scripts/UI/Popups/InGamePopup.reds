@@ -84,11 +84,11 @@ public abstract class InGamePopup extends CustomPopup {
     }
 
     protected func SetBackgroundBlur() {
-        PopupStateUtils.SetBackgroundBlur(this.m_gameController, true);
+        PopupStateUtils.SetBackgroundBlur(this.GetGameController(), true);
     }
 
     protected func ResetBackgroundBlur() {
-        PopupStateUtils.SetBackgroundBlur(this.m_gameController, false);
+        PopupStateUtils.SetBackgroundBlur(this.GetGameController(), false);
     }
 
     protected func SetUIContext() {
