@@ -9,7 +9,7 @@ struct EntityBuilderEvent : CallbackSystemEvent
 {
     EntityBuilderEvent() = default;
 
-    EntityBuilderEvent(Red::CName aName, const Red::WeakPtr<Red::EntityBuilder>& aEntityBuilder)
+    EntityBuilderEvent(Red::CName aName, const Red::SharedPtr<Red::EntityBuilder>& aEntityBuilder)
         : CallbackSystemEvent(aName)
         , entityBuilder(Red::MakeHandle<EntityBuilderWrapper>(aEntityBuilder))
     {

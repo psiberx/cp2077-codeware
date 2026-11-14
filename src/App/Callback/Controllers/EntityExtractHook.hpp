@@ -35,9 +35,9 @@ protected:
 
     inline static void OnExtractComponentsJob(Red::EntityBuilderJobParams* aParams, void*)
     {
-        if (!aParams->entityBuilderWeak.Expired())
+        if (auto entityBuilder = aParams->entityBuilderWeak.Lock())
         {
-            CallbackSystem::Get()->DispatchNativeEvent<EntityBuilderEvent>(EventName, aParams->entityBuilderWeak);
+            CallbackSystem::Get()->DispatchNativeEvent<EntityBuilderEvent>(EventName, entityBuilder);
         }
     }
 };

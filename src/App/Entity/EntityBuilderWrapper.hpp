@@ -129,7 +129,7 @@ struct EntityBuilderWrapper : Red::IScriptable
 {
     EntityBuilderWrapper() = default;
 
-    EntityBuilderWrapper(Red::WeakPtr<Red::EntityBuilder> aBuilder)
+    EntityBuilderWrapper(Red::SharedPtr<Red::EntityBuilder> aBuilder)
         : builder(std::move(aBuilder))
     {
     }
@@ -225,7 +225,7 @@ struct EntityBuilderWrapper : Red::IScriptable
         return !builder.instance->appearances.IsEmpty();
     }
 
-    Red::WeakPtr<Red::EntityBuilder> builder;
+    Red::SharedPtr<Red::EntityBuilder> builder;
 
     RTTI_IMPL_TYPEINFO(App::EntityBuilderWrapper);
     RTTI_IMPL_ALLOCATOR();
