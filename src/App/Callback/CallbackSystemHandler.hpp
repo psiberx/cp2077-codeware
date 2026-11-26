@@ -46,53 +46,53 @@ public:
         std::unique_lock sync(callbackLock);
 
         if (!registered || !valid)
+        {
             return;
+        }
 
         if (targeted)
         {
+            std::unique_lock _(stateLock);
+
+            if (targets.empty())
             {
-                std::unique_lock _(stateLock);
-
-                if (targets.empty())
-                    return;
-
-                const auto it =
-                    std::ranges::find_if(targets, [&aEvent](Red::Handle<CallbackSystemTarget>& aTarget) -> bool {
-                        return aTarget->Matches(aEvent);
-                    });
-
-                if (it == targets.end())
-                    return;
-
-                if (runMode == CallbackRunMode::Once)
-                {
-                    targets.clear();
-                }
-                else if (runMode == CallbackRunMode::OncePerTarget)
-                {
-                    targets.erase(it);
-                }
+                return;
             }
 
-            valid = ExecuteCallback(aEvent);
+            const auto it =
+                std::ranges::find_if(targets, [&aEvent](Red::Handle<CallbackSystemTarget>& aTarget) -> bool {
+                    return aTarget->Matches(aEvent);
+                });
 
-            if (!valid)
-                return;
-        }
-        else
-        {
-            valid = ExecuteCallback(aEvent);
-
-            if (!valid)
-                return;
-
+            if (it == targets.end())
             {
-                std::shared_lock _(stateLock);
+                return;
+            }
 
-                if (runMode == CallbackRunMode::Once || runMode == CallbackRunMode::OncePerTarget)
-                {
-                    registered = false;
-                }
+            if (runMode == CallbackRunMode::Once)
+            {
+                targets.clear();
+            }
+            else if (runMode == CallbackRunMode::OncePerTarget)
+            {
+                targets.erase(it);
+            }
+        }
+
+        valid = ExecuteCallback(aEvent);
+
+        if (!valid)
+        {
+            return;
+        }
+
+        if (!targeted)
+        {
+            std::shared_lock _(stateLock);
+
+            if (runMode == CallbackRunMode::Once || runMode == CallbackRunMode::OncePerTarget)
+            {
+                registered = false;
             }
         }
     }
