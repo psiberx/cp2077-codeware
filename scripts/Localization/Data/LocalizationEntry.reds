@@ -5,7 +5,7 @@
 module Codeware.Localization
 
 public abstract class LocalizationEntry {
-    private let m_key: String;
+    protected let m_key: String;
 
     public func GetKey() -> String {
         return this.m_key;
